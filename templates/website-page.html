@@ -1,0 +1,59 @@
+{% extends "base.html"  %}
+
+{% block title %}
+	{% if profile.website_url is not none %}
+		<title>Website | {{ profile.website_url | normalize_domain_name }}</title>
+	{% else %}
+		<title>Website profile</title>
+	{% endif %}
+
+{% endblock %}
+
+<!-- Setting some vars used by breadcrumbs and navbar -->
+{% set active_page='websites' %}
+{% set active_page_name=profile.name %}
+
+
+{% block extra_styling %}
+    <link rel="stylesheet" href="{{PATHS.static}}/css/table.css">
+    <link rel="stylesheet" href="{{PATHS.static}}/css/websites/profile.css">
+{% endblock %}
+
+{% block content %}
+<div id="website-page" class="overview-page">
+    <div id="overview-header">
+        <div class="container">
+            <div class="row">
+                {% include "components/websites/header.html" %}
+            </div>
+        </div>
+    </div>
+
+    {% if tracker_list|length > 0 %}
+    <section>
+        <div class="container">
+            <h3 class="title">TRACKER MAP</h3>
+            <div class="row plot-label">
+                <div class="col-md-6 col-sm-6">
+                    TRACKER CATEGORIES
+                </div>
+                <div class="col-md-6 col-sm-6 pull-right" style="text-align: right">
+                    <span class="plot-subtitle">TRACKING</span> COMPANIES
+                </div>
+            </div>
+            {{ sankey  }}
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h3 class="title">Trackers Seen</h3>
+            <p class="subtitle">
+               {% include "components/websites/tracker-list.html" %}
+            </p>
+        </div>
+    </section>
+    {% endif %}
+</div>
+
+{% endblock %}

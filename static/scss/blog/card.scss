@@ -1,0 +1,50 @@
+@import 'colors';
+
+.col-md-4{
+    margin-bottom: 40px;
+}
+
+.card {
+    h3 {
+      font-size: 19px;
+      padding-bottom: 10px;
+      margin-top: 5px;
+  
+      a {
+        color: $black-color;
+      }
+    }
+  
+    p {
+      color: $grey-txt-color;
+    }
+  
+    .thumbnail {
+      padding: 0;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+      border: 0;
+    }
+  
+    .caption {
+      padding: 30px; 
+      min-height: 200px;
+      max-height: 200px;
+  
+      .primer{
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: $red-txt-color;
+        margin-top: -13px;
+      }
+      .article{
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: $grey-txt-color;
+        margin-top: -13px;
+      }
+    }
+  }

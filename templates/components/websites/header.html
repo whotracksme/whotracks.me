@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row overview-info">
+        <div class="col-md-6">
+            {% if profile.website_url is not none %}
+            <h1>
+                <img class="icon" src="{{PATHS.static}}/img/website_globe.svg" width="23" height="23" />
+                <a target="_blank" href="//{{ profile.website_url }}">{{ profile.website_url | normalize_domain_name }}</a>
+            </h1>
+            {% else %}
+            <h1>not a real domain </h1>
+            {% endif %}
+            <p class="subtitle">
+                <span class="purple-color">{{ site.overview.content_length|b_to_mb }}Mb</span> of user data from trackers per page
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <div class="overview-info-right">
+                <div class="col-md-6 trackers-info">
+                    <p>
+                        <span class="header red-color">
+                            {{ site.overview.mean_trackers|round2 }} TRACKERS</span>
+                        <br />
+                        <span class="subtitle">On average per page</span>
+                    </p>
+                </div>
+
+                <div class="col-md-6 more-info">
+                    <div>
+                        <i class="fa fa-info-circle"></i>
+                        <a href="{{PATHS.reports}}/what_is_a_tracker.html">What is a tracker?</a>
+                    </div>
+                    <div>
+                        <i class="fa fa-info-circle"></i>
+                        <a href="{{PATHS.reports}}/where_is_the_data_from.html">Where does the data come from?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overview-header-box">
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h3 style="padding-left: 15px">ALL TRACKERS SEEN (by category)</h3>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <div id="doughnut">
+                            {{ doughnut }}
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        {% include "components/category-item.html" %}
+                    </div>
+
+                </div>
+                <div class="tracking-methods">
+                    {% include "components/tracking-methods.html" %}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                <div class="stats">
+                    <h3>PROPORTION OF TRAFFIC</h3>
+                    <div class="percentage">{{ (100*site.overview.tracked)|round }}%
+                    </div>
+                    <p>Page loads from {{ profile.website_url | normalize_domain_name }} on which tracking occurred</p>
+                </div>
+                <div class="stats">
+                    <h3>REQUESTS TO TRACKERS</h3>
+                    <div class="percentage">
+                        {{ site.overview.requests_tracking|int }}
+                    </div>
+                    <p>Tracking requests per page load</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

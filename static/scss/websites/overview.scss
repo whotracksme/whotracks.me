@@ -1,0 +1,35 @@
+@import 'colors';
+
+.websites-page {
+
+  .info-box {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  hr {
+    border-bottom: 3px solid $red-txt-color;
+  }
+
+  .subtitle {
+    float: left;
+    margin-right: 12px;
+  }
+
+  #multi-column-list li  {
+    .count {
+      color: $red-txt-color;
+      border: 1px solid $light-purple-border;
+      padding: 0 2px;
+      font-family: 'FiraMono-Bold', monospace;
+    }
+    a {
+      color:#0078CA;
+    }
+
+    .label-category {
+      text-transform: uppercase;
+      border: none;
+    }
+  }
+}

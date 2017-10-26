@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+    {% block title %}
+		<title>Trackers</title>
+    {% endblock %}
+
+
+{% set active_page='trackers' %}
+
+{% block content %}
+
+{% block extra_styling %}
+    <link rel="stylesheet" href="{{ PATHS.static }}/css/trackers/list.css">
+{% endblock %}
+
+<!-- Main HEADER graph with company reach -->
+<section class="trackers-list dark-page">
+    <div class="container">
+        <div class="header">
+          <h1>
+            <span>TRACKERS RANK</span>
+            <span class="sub-title">Top 500 most prevalent trackers on the web</span>
+          </h1>
+          <span class="subtitle">Sort by: </span>
+        </div>
+        <div class="inverse">
+          {% include 'components/tracker-list.html' %}
+        </div>
+    </div>
+</section>
+<!-- END of Main HEADER Graph -->
+
+{% endblock %}

@@ -1,0 +1,67 @@
+@import 'colors';
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans Semibold", sans-serif;
+    margin-top: 42px;
+}
+.img-container{
+    text-align: center;
+    margin-top: 64px;
+}
+.container-post{
+    max-width: 600px;
+    padding-bottom: 126px;
+    
+    #post-title{
+        font-family: "Open Sans Semibold", sans-serif;
+        font-size: 30px;
+        color: #1A1925;
+    }
+    #post-subtitle{
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 30px;
+        color: $grey-txt-color;   
+    }
+    h1{
+        font-size: 23px;
+
+    }
+    h2 {
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    h3 {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    a{
+        color: $link-color;
+    }
+    a:hover{
+        color: #CF635B;
+        text-decoration: none;
+        border-bottom: solid 2px #CF635B;
+    }
+    p{
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        color: #484848;
+        line-height: 26px;
+    }
+
+    li{
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        color: #484848;
+        margin-bottom: 10px;
+    }
+    dl{
+        line-height: 26px;
+    }
+}
+.img-responsive{
+    margin: auto;
+}

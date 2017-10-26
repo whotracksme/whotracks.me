@@ -1,0 +1,29 @@
+<div class="row top-5-trackers">
+    <div class="col-md-6 col-sm-6">
+        <ul class="top-5-list">
+            {% for i in range(0,5) %}
+                <li>
+                    {{loop.index}}. 
+                        <a href="{{ 'app'|url_for(tracker_list[i].overview.id) }}" class="entity-name">{{ tracker_list[i].name }}</a>
+                        {% if tracker_list[i].company_id %}
+                            <span class="category">
+                                {{ tracker_list[i].company_id|get_company_name }}
+                            </span>
+                        {% endif %}
+                        {% if tracker_list[i].cat %}
+                                {% with c=tracker_list[i].cat %}
+                                  {% include 'components/trackers/category.html'%}
+                                {% endwith %}
+                        {% endif %}
+                        <p>
+                            <span class="highlight">{{tracker_list[i].overview.reach|to_percentage}}%</span> of web traffic is tracked by {{ tracker_list[i].name }}
+                        </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+        {%include "components/top-5-info-box.html" %}
+    </div>
+</div>

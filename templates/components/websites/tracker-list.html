@@ -1,0 +1,49 @@
+<ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#frequency">Frequency</a></li>
+      <li><a data-toggle="tab" href="#company">Company</a></li>
+</ul>
+<div class="list-container">
+    <div class="tab-content">
+        <div id="frequency" class="tab-pane fade in active">
+            <ul id="multi-column-list">
+                {% for tracker in tracker_list %}
+                    <li>
+                        {{loop.index}}. 
+                        <a href="{{ 'app'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
+                        <span class="percentage">{{tracker.frequency|to_percentage}}%</span>
+                        {% if tracker.company_id %}
+                        <span>
+                            {{ tracker.company_id|get_company_name }}
+                        </span>
+                        {% else %}
+                            <span>
+                                -
+                            </span>    
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div id="company" class="tab-pane fade">
+            <ul id="multi-column-list">
+                {% for tracker in trackers_list_cat %}
+                    <li>
+                        {{loop.index}}. 
+                        <a  href="{{ 'app'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
+                        <span class="percentage">{{tracker.frequency|to_percentage}}%</span>
+                        {% if tracker.company_id %}
+                        <span>
+                            {{ tracker.company_id|get_company_name }}
+                        </span>
+                        {% else %}
+                            <span>
+                                -
+                            </span>    
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

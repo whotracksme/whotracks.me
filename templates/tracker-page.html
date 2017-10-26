@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Tracker | {{app.name}}</title>
+{% endblock %}
+
+
+<!-- Setting some vars used by breadcrumbs and navbar -->
+{% set active_page='trackers' %}
+{% set active_page_name=profile.name %}
+
+
+{% block extra_styling %}
+    <link rel="stylesheet" href="{{PATHS.static}}/css/trackers/profile.css">
+{% endblock %}
+
+
+{% block content %}
+<script type="text/javascript">
+$(document).ready(function() {
+    var operates_under_selector = '#operates-under p',
+        $operates_under_list = $(operates_under_selector),
+        operates_list_size = $operates_under_list.length,
+        items_to_show = 2,
+        $expand = $('.operates-expand'),
+        $collapse = $('.operates-collapse');
+    $(operates_under_selector + ':lt(' +items_to_show+')').show();
+    $expand.click(function(e) {
+        items_to_show = operates_list_size;
+        $(operates_under_selector + ':lt('+items_to_show+')').show();
+        if(items_to_show === operates_list_size) {
+            $collapse.removeClass('hidden');
+            $expand.addClass('hidden');
+        }
+    });
+
+    $collapse.click(function() {
+        $(this).addClass('hidden');
+        $expand.removeClass('hidden');
+        $operates_under_list.not(':lt(2)').hide();
+    });
+
+});
+</script>
+<div id="tracker-page" class="overview-page">
+    <div id="overview-header">
+        <div class="container">
+            <div class="row overview-info inverse">
+                {% include "components/trackers/header.html" %}
+            </div>
+        </div>
+    </div>
+
+    <div id="similar-trackers">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="row tracker-category">
+                        <div class="col-md-11">
+                        <h4>TRACKER CATEGORY</h4>
+                        {% if app.cat %}                              
+                            <span class="cat-item">
+                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES[app.cat] }}" aria-hidden="true"></i> 
+                                {{app.cat|prettify_label}}                                         
+                            </span>
+                            <p class="tracker-desc">{{CATEGORY_DESC[app.cat]}}</p>
+                        {% else %}
+                            
+                            <span class="cat-item">
+                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES['misc'] }}" aria-hidden="true"></i> 
+                                misc                                         
+                            </span>
+                            <p class="tracker-desc">
+                                {{ CATEGORY_DESC["misc"]}}
+                            </p>
+                        {% endif %}
+                        <p>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="{{PATHS.reports}}/tracker_categories.html">Learn about our tracker categories</a>
+                        </p>
+                        <p>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="{{PATHS.reports}}/what_is_a_tracker.html">What is a tracker?</a>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6  col-sm-6 col-xs-12">
+                    <h4>SIMILAR TRACKERS</h4>
+                    <ul>
+                        {% for tracker in similar_trackers %}
+                            <li>
+                                <a href="{{ 'app'|url_for(tracker.id) }}" class="entity-name">
+                                {{ tracker.id|get_app_name }}
+                                </a>
+                                {% if tracker.company_id %}
+                                    <span>
+                                        {{ tracker.company_id|get_company_name }}
+                                    </span>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="tag-cloud">
+        <div class="container">
+            <div class="row">
+                <h2 class="title">Presence on top sites</h2>
+                {% if website_list|length > 0%}
+                    {% include "components/tag_cloud.html" %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

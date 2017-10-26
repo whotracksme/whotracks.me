@@ -1,0 +1,45 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#popularity">Popularity</a></li>
+  <li><a data-toggle="tab" href="#category">Category</a></li>
+</ul>
+
+<div class="list-container">
+    <div class="tab-content">
+    <div id="popularity" class="tab-pane fade in active">
+        <ul id="multi-column-list">
+            {% for i in range(0, website_list|length) %}
+                <li>
+                    <img class="icon" src="{{PATHS.static}}/img/website_globe.svg" width="15" height="15">
+                    <a
+                        href="{{ 'site'|url_for(website_list[i].name) }}" class="entity-name"
+                    >{{ website_list[i].name | normalize_domain_name }}</a>
+                    <span class="count">{{website_list[i].overview.mean_trackers|int}}</span>
+                    {% if website_list[i].category %}
+                        <span class="label label-category">
+                            {{ website_list[i].category }}
+                        </span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="category" class="tab-pane fade">
+        <ul id="multi-column-list">
+        {% for i in range(0, website_list_cat|length) %}
+                <li>
+                    <img class="icon" src="{{PATHS.static}}/img/website_globe.svg" width="15" height="15">
+                    <a
+                        href="{{ 'site'|url_for(website_list_cat[i].name) }}" class="entity-name"
+                    >{{ website_list_cat[i].name | normalize_domain_name }}</a>
+                     <span class="count">{{website_list[i].overview.mean_trackers|int}}</span>
+                    {% if website_list_cat[i].category %}
+                        <span class="label label-category">
+                            {{ website_list_cat[i].category }}
+                        </span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+</div>

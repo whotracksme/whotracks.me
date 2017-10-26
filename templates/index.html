@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>WhoTracks.me | Homepage</title>
+{% endblock %}
+
+{% set active_page='home' %}
+
+
+{% block extra_styling %}
+    <link rel="stylesheet" href="{{PATHS.static}}/css/home/index.css">
+{% endblock %}
+
+{% block content %}
+
+{% include "components/home/header.html" %}
+
+<section class="grey-bg top-buffer">
+    <div class="container">
+        <div class="row home-plot">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-9 col-sm-9">
+                        <h2 class="plot-title">Tracker Market Share</h2>
+                        <p class="plot-subtitle">
+                            Proportion of the web traffic tracked by these companies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 checkout">
+                <h4>READ OUR PAPER:</h4>
+
+                    <i class="fa fa-file-text-o"></i>
+                    <span style="font-size: 13px">
+                        <a
+                            target="_blank"
+                            href="https://static.cliqz.com/wp-content/uploads/2016/07/Cliqz-Studie-Tracking-the-Trackers.pdf">
+                            Tracking the Trackers
+                        </a>
+                    </span>
+
+            </div>
+        </div>
+        {{ ts }}
+        <div class="row home-panel">
+
+            <!-- Tracker Stats -->
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-body">
+                    <div class="card-top-1 card-purple">
+                        <h3 class="card-title">Google trackers are present on 79% of the web traffic</h3>
+                        <p class="card-subtitle">That is more than the next 4 biggest trackers combined.</p>
+                    </div>
+
+                    <p class="card-button">
+                        <span class="label label-default">#trackerTopia</span>
+                        <span class="label label-default">#growth</span>
+                        <span class="label label-default">#topSites</span>
+                    </p>
+                </div>
+            </div>
+            <!-- End of Tracker Stats -->
+
+            <!-- Website Stats -->
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-body">
+                    <div class="card-top-2 card-purple">
+                        <h3 class="card-title">29% of the web has a hidden Facebook tracking pixel</h3>
+                        <p class="card-subtitle">Facebook knows more than what you just do on Facebook</p>
+                    </div>
+
+                    <p class="card-button">
+                        <span class="label label-default">#facebook</span>
+                        <span class="label label-default">#trackingPixel</span>
+                        <span class="label label-default">#reach</span>
+                    </p>
+                </div>
+            </div>
+            <!-- End of Website Stats -->
+
+            <!-- Privacy Reports -->
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-body">
+                    <div class="card-top-3 card-gray">
+                        <h3 class="card-title">542 companies track more than 0.1% of the web traffic each.</h3>
+                        <p class="card-subtitle">Which of these have you heard of?</p>
+                    </div>
+
+                    <p class="card-button">
+                        <span class="label label-default">#unknown</span>
+                        <span class="label label-default">#pervasive</span>
+                        <span class="label label-default">#mydata</span>
+                    </p>
+                </div>
+            </div>
+            <!-- END of Privacy Reports -->
+        </div>
+    </div>
+</section>
+
+
+<div class="top-buffer most-websites">
+
+    <div class="container">
+        <div class="most-tracked-websites">
+            <h2>The most tracked websites
+                <span class="subtitle">(top 2 per category)</span>
+            </h2>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#traffic">Traffic</a></li>
+                <li><a data-toggle="tab" href="#trackersNum">Average number of trackers</a></li>
+            </ul>
+            <div class="list-container">
+                <div class="tab-content">
+                    <div id="traffic" class="tab-pane fade in active">
+                        <ul id="multi-column-list">
+                            {% for (cat, sites) in most_tracked_sites.items() %}
+                            {% for site in sites %}
+                                <li>
+                                    <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
+                                    <a href="{{ 'site'|url_for(site.site) }}">{{ site["site"] | normalize_domain_name }}</a>
+                                    <span class="count">{{site["mean_trackers"]|int}}</span>
+                                    <span class="subtitle">{{ cat }}</span>
+                                </li>
+                            {% endfor %}
+                            {% endfor %}
+                                 <li>
+                                    <a href="{{PATHS.static}}/websites.html" class="all-websites">
+                                        All websites
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+
+                    <div id="trackersNum" class="tab-pane fade">
+                        <ul id="multi-column-list">
+                            {% for (cat, sites) in most_tracked_sites.items() %}
+                            {% for site in sites %}
+                                <li>
+                                    <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
+                                    <a href="{{ 'site'|url_for(site.site) }}">{{ site["site"] | normalize_domain_name }}</a>
+                                    <span class="count">{{site["mean_trackers"]|int}}</span>
+                                    <span class="subtitle">{{ cat }}</span>
+                                </li>
+                            {% endfor %}
+                            {% endfor %}
+                                <li>
+                                    <a href="{{PATHS.static}}/websites.html" class="all-websites">
+                                        All websites
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row websites-info-box">
+                <h4> TRACKER PRESENCE</h4>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <p class="percentage">188</p>
+                            <p>out of 500 top websites have more than 10 trackers per page.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <p class="percentage">24<span class="mb">MB</span></p>
+                            <p>of data per page load on average required by trackers
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-11">
+                            {% include "components/fingerprinting.html" %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-11">
+                            {% include "components/cookies.html" %}
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="top-buffer most-trackers">
+    <div class="container">
+        <h2>The most common trackers</h2>
+        {% include "components/unified-ui-tracker-list.html" %}
+    </div>
+
+</div>
+</div>
+
+{% endblock %}

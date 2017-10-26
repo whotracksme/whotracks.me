@@ -1,0 +1,18 @@
+{% if not active_page=="home" %}
+
+{% if active_page == "trackers" %}
+<div class="breadcrumb-bar" style="border-bottom: solid 1px #333;">
+{% else %}
+<div class="breadcrumb-bar">
+{% endif %}        
+    <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/{{active_page}}.html">{{active_page|prettify_label}}</a></li>
+                {% if active_page_name is defined %}
+                    <li>{{active_page_name}}</li>
+                {% endif %}
+            </ul>
+    </div>
+</div>        
+{% endif %}
