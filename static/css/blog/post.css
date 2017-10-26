@@ -1,0 +1,52 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans Semibold", sans-serif;
+  margin-top: 42px; }
+
+.img-container {
+  text-align: center;
+  margin-top: 64px; }
+
+.container-post {
+  max-width: 600px;
+  padding-bottom: 126px; }
+  .container-post #post-title {
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 30px;
+    color: #1A1925; }
+  .container-post #post-subtitle {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 30px;
+    color: #71869E; }
+  .container-post h1 {
+    font-size: 23px; }
+  .container-post h2 {
+    font-size: 16px;
+    text-transform: uppercase; }
+  .container-post h3 {
+    font-size: 16px;
+    font-weight: bold; }
+  .container-post a {
+    color: #0078CA; }
+  .container-post a:hover {
+    color: #CF635B;
+    text-decoration: none;
+    border-bottom: solid 2px #CF635B; }
+  .container-post p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #484848;
+    line-height: 26px; }
+  .container-post li {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #484848;
+    margin-bottom: 10px; }
+  .container-post dl {
+    line-height: 26px; }
+
+.img-responsive {
+  margin: auto; }
+
+/*# sourceMappingURL=post.css.map */
