@@ -59,12 +59,15 @@ def tracking_methods(app):
 
 
 def presence_by_site_type(app, sites):
-    categories = Counter([sites.get(s['site'], {}).get('category', '') for s in app.get("sites")])
+    categories = Counter(
+        filter(lambda c: len(c) > 0,
+               [sites.get(s['site'], {}).get('category', '') for s in app.get("sites")]))
     if categories.items():
         normalized_categories = []
         total = sum(categories.values())
         for (k, v) in categories.items():
-            normalized_categories.append((k, round(100 * (v / float(total)))))
+            if not k == '':
+                normalized_categories.append((k, round(100 * (v / float(total)))))
 
         return sorted(normalized_categories, key=lambda x: x[1], reverse=True)
     return []
