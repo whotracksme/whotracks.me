@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+<!-- Setting some vars used by breadcrumbs and navbar -->
+{% set active_page='companies' %}
+{% set active_page_name=demographics.name %}
+
+
+
+{% block content %}
+<div id="tracker-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <!-- Company Profile -->
+                {% include "components/company-card.html" %}
+            </div>
+
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <h5>{{ demographics.name }} trackers</h5>
+                {% if demographics.apps %}
+                {% for tid, tname in demographics.apps.items() %}
+                    <span class="profile-label">
+                    {% if tid|get_app_name is not none %}
+                        <a href="{{ 'app'|url_for(tid) }}">{{ tname }}</a>
+                    {% else %}
+                        {{ tname }}
+                    {% endif %}
+                    </span>
+                {% endfor %}
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div> <!-- End of container-->
+
+
+<section>
+    <div class="container">
+        <h3 class="title">Privacy Policy</h3>
+        <p class="subtitle"></p>
+
+    </div> <!-- End of container-->
+
+</section>
+
+{% endblock %}

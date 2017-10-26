@@ -1,0 +1,7 @@
+plotly==2.0.15
+colour==0.1.4
+tldextract==2.1.0
+Markdown==2.6.9
+squarify==0.3.0
+Jinja2==2.9.6
+docopt==0.6.2

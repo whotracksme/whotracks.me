@@ -1,0 +1,43 @@
+<div class="panel panel-body">
+    <div class="left rank">
+        <p style="text-align: center;"> {{ profile.rank }}</p>
+    </div>
+    {% if profile.website_url is not none %}
+    <p id="domain">
+        <a target="_blank" href="{{ profile.website_url }}">{{ profile.website_url }}</a>
+    </p>
+    {% else %}
+    <p id="domain">not a real domain </p>
+    {% endif %}
+    <div style="padding-top: 20px;">
+        <p id="tracker-name">{{ profile.name }}</p>
+        {% if profile.owner is not none and profile.owner|get_company_name %}
+        - owned by <a href="{{ 'company'|url_for(profile.owner) }}">{{ profile.owner|get_company_name }}</a>
+        {% endif %}
+    </div>
+
+    <div class="profile-deeplinks">
+        {% if profile.domains | length > 0 %}
+        operates under <br>
+        {% for domain in profile.domains %}
+        <span>
+                <a class="profile-label" target="_blank"
+                   href="https://www.google.com/search?newwindow=1&q={{domain}}"> {{ domain }}
+                </a></span>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="https-bar">
+        <div class="progress">
+            <div class="progress-bar https-progress-bar"
+                 title="{{ (profile.overview.https*100)|round(1) }}% of trackers requests sent via HTTPS"
+                 role="progressbar"
+                 aria-valuenow="{{ profile.overview.https*100}}"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 style="width: {{ profile.overview.https*100 }}%;">
+                 <!--<i class="fa fa-lock" aria-hidden="true"></i>-->
+            </div>
+        </div>
+    </div>
+</div>

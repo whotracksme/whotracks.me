@@ -1,0 +1,117 @@
+<div class="col-md-6 col-sm-6">
+  <h1>{{ profile.name }}</h1>
+  {% if app.company_id %}
+    <p class="header">Owned by {{app.company_id|get_company_name}}</p>
+  {% endif %}
+  {% if profile.website_url is not none %}
+    <p id="domain">
+        <a target="_blank" href="{{ profile.website_url }}">{{ profile.website_url }}</a>
+    </p>
+  {% endif %}
+</div>
+
+<div class="col-md-6 col-sm-6">
+  <div class="overview-info-right">
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <p class="header">TRACKER RANK</p>
+        <p class="tracker-rank">
+          <span class="emphasis">{{ profile.rank }}</span>
+          /1000 <i class="fa fa-long-arrow-down"></i>
+        </p>
+        <p class="description">{{profile.rank|rank_label}}</p>
+      </div>
+
+      <div class="col-md-6 col-sm-6">
+        {% if profile.domains | length > 0 %}
+          <p class="header">OPERATES UNDER</p>
+          <div id="operates-under">
+          {% for domain in profile.domains %}
+            <p>
+              <a class="profile-label" target="_blank"
+                 href="//{{domain}}"> {{ domain }}
+              </a>
+            </p>
+          {% endfor %}
+
+          {%if profile.domains|length > 2%}
+              <a class="operates-expand" href="#">
+                <i class="fa fa-angle-double-down" aria-hidden="true"></i>Expand
+              </a>
+              <a class="operates-collapse hidden" href="#">
+                <i class="fa fa-angle-double-up" aria-hidden="true"></i>Collapse
+              </a>
+          {% endif %}
+        </div>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="overview-header-box">
+  <div class="row">
+
+
+    <!-- LEFT COLUMN -->
+    <div class="col-md-6 col-sm-6">
+        <h3>TRACKER REACH</h3>
+        <div class="trend">
+          <img class="trackers-icon" src="{{PATHS.static}}/img/page.svg">
+          <span class="percentage">
+            {{ prevalence.pages }}%
+            <span class="graph">{{ trends.page }}</span>
+          </span>
+
+          <p class="description">of web traffic is tracked by {{ profile.name }}</p>
+      </div>
+      <div class="trend">
+          <img class="trackers-icon" src="{{PATHS.static}}/img/domain.svg">
+          <span class="percentage">
+            {{ prevalence.domains }}%
+            <span class="graph">{{ trends.site }}</span>
+          </span>
+          <p class="description">of sites use the {{ profile.name }} tracker</p>
+      </div>
+      <p class="subtitle">There are about 1.8 Billion sites on the internet</p>
+    </div>
+
+
+    <!-- Right COLUMN -->
+    <div class="col-md-6 col-sm-6">
+          <h3>SEEN ON THESE TYPES OF WEBSITES</h3>
+          {% for tup in website_types %}
+          {% if tup[0] %}
+            <div class="clearfix">
+              <span class="progress-presence">{{ tup[1] }}% </span>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"  aria-valuenow="{{ 1.25*tup[1] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ 1.25*tup[1] }}%">
+                {{ tup[0] }}
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+
+          <h3>TRACKING TYPE</h3>
+          <div class="row tracking-methods">
+            {% if tracking_methods.cookies %}
+              <div {% if not tracking_methods.fingerprinting %} class="col-md-8" {% else %} class="col-md-4" {% endif %}>
+                {% include "components/cookies.html" %}
+              </div>
+            {% endif %}
+
+            {% if tracking_methods.fingerprinting %}
+              <div {% if not tracking_methods.cookies%} class="col-md-8" {% else %} class="col-md-4" {% endif %}>
+                {% include "components/fingerprinting.html" %}
+              </div>
+            {% endif %}
+            {% if not tracking_methods.cookies and not tracking_methods.fingerprinting %}
+              <p>No tracking detected at present</p>
+            {% endif %}
+          </div>
+    </div>
+  </div>
+

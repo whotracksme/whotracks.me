@@ -1,0 +1,34 @@
+<div class="panel panel-body">
+    {% if demographics.logo is not none %}
+        <div class="left">
+            <img class="company-logo" src="/{{ demographics.logo }}">
+        </div>
+    {% else %}
+        <div class="left rank">
+            {{ initials }}
+        </div>
+    {% endif %}
+
+    <p id="domain"><a target="_blank" href="{{ demographics.website_url }}">{{ demographics.website_url }}</a></p>
+    <h2 id="tracker-name">{{ demographics.name }}</h2>
+    <p>
+        {% if demographics.description != "None" %}
+            {{ demographics.description }}
+        {% endif %}
+    </p>
+
+    <div class="profile-deeplinks">
+        <span>
+            <a class="profile-label" target="_blank"
+               href="{{ demographics.website_url }}">
+                Website
+            </a>
+            {% if demographics.about_us_url != "Not found"  %}
+            <a class="profile-label" target="_blank"
+               href="{{ demographics.about_us_url }}">
+                About us
+            </a>
+            {% endif %}
+        </span>
+    </div>
+</div>

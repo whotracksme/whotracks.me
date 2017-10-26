@@ -1,0 +1,120 @@
+@import 'colors';
+
+.trackers-list {
+
+  &.dark-page {
+    h1 {
+      color: #fff;
+      font-family: 'FiraMono-Bold', monospace;
+      font-size: 35px;
+
+      span.sub-title {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 13px;
+        position: relative;
+        left: 0px;
+        text-transform: uppercase;
+      }
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .list-container {
+      padding: 20px 40px 0;
+      background-color: #fff;
+
+      #multi-column-list {
+        margin-left: -40px;
+        margin-right: -40px;
+        padding-top: 40px;
+        background-color: #f4f7f8;
+        padding-left: 40px;
+        margin-bottom: 100px;
+        padding-bottom: 50px;
+      }
+    }
+  }
+  
+  .subtitle {
+    float: left;
+    margin-right: 12px;
+    margin-top: 3px;
+  }
+}
+
+.top-5-trackers {
+  .top-5-list {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      border-bottom: 1px solid #eee;
+      padding-top: 15px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      span {
+        color: $grey-txt-color;
+      }
+
+      .highlight {
+        color: $red-txt-color;
+      }
+
+      a {
+        color: $red-txt-color;
+        font-size: 16px;
+      }
+
+      p {
+        margin-left: 15px;
+        max-width: 260px;
+        margin-top: 5px;
+      }
+
+      .category {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .label-default {
+        background-color: #fff;
+        border: 1px solid #CFD8DB;
+        border-radius: 12px;
+        color: $grey-txt-color;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .info-box {
+    border: 4px solid $red-txt-color;
+    padding: 38px 40px;
+    margin-top: 20px;
+
+    .percentage {
+      font-size: 45px;
+      color: $red-txt-color;
+      line-height: 1;
+      font-family: 'FiraMono-Regular', monospace;
+    }
+
+    p {
+      color: $black-color;
+      font-size: 16px;
+      margin-bottom: 36px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.list-container ul a {
+  font-family: 'FiraMono-Regular', monospace;
+}

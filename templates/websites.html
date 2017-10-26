@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Websites</title>
+{% endblock %}
+
+
+{% set active_page='websites' %}
+
+{% block extra_styling %}
+    <link rel="stylesheet" href="{{ PATHS.static }}/css/websites/overview.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- Website List -->
+<section class="websites-page">
+  <div class="container">
+    <div class="row info-box">
+      <div class="col-md-4 col-sm-4">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="percentage">
+              {{header_numbers.have_trackers|to_percentage}}%
+            </div>
+            <p>Proportion of traffic to top 500 sites containing trackers
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-4">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="percentage">
+                {{header_numbers.average_nr_trackers|int}}
+            </div>
+            <p>Average number of trackers present on a site</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-4">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="percentage">
+                {{header_numbers.tracker_requests}}
+            </div>
+            <p>Average number of requests per page that track you</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="container">
+    <h2>Number of trackers on the most visited domains</h2>
+    <span class="subtitle">Sort by: </span>
+    <div>
+      {% include 'components/website-list.html' %}
+    </div>
+  </div>
+</section><!-- END of Website List -->
+
+{% endblock %}
