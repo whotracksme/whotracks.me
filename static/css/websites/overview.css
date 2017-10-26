@@ -1,0 +1,20 @@
+.websites-page .info-box {
+  margin-top: 40px;
+  margin-bottom: 10px; }
+.websites-page hr {
+  border-bottom: 3px solid #A069AB; }
+.websites-page .subtitle {
+  float: left;
+  margin-right: 12px; }
+.websites-page #multi-column-list li .count {
+  color: #A069AB;
+  border: 1px solid #f4e0ee;
+  padding: 0 2px;
+  font-family: 'FiraMono-Bold', monospace; }
+.websites-page #multi-column-list li a {
+  color: #0078CA; }
+.websites-page #multi-column-list li .label-category {
+  text-transform: uppercase;
+  border: none; }
+
+/*# sourceMappingURL=overview.css.map */
