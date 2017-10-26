@@ -1,0 +1,56 @@
+<ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#popularity">Popularity</a></li>
+      <li><a data-toggle="tab" href="#category">Company</a></li>
+</ul>
+<div class="list-container">
+    <div class="tab-content">
+        <div id="popularity" class="tab-pane fade in active">
+            <ul id="multi-column-list">
+                {% for tracker in tracker_list %}
+                    <li>
+                        {{loop.index}}. 
+                        <a href="{{ 'app'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
+                        {% if tracker.company_id %}
+                            <span>
+                                {{ tracker.company_id|get_company_name }}
+                            </span>
+                        {% else %}
+                            <span>
+                                -
+                            </span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                <li>
+                    <a 
+                        class="top-trackers"
+                        href="/trackers.html"
+                    >
+                        See All 500 Trackers
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="category" class="tab-pane fade">
+            <ul id="multi-column-list">
+                {% for tracker in trackers_list_cat %}
+                    <li>
+                        {{loop.index}}. 
+                        <a  href="{{ 'app'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
+                        {% if tracker.company_id %}
+                        <span>
+                            {{ tracker.company_id|get_company_name }}
+                        </span>
+                        {% else %}
+                            <span>
+                                -
+                            </span>    
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

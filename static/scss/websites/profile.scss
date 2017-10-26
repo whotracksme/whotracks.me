@@ -1,0 +1,53 @@
+@import 'colors';
+/* WEBSITES */
+#website-page .overview-header-box {
+
+  #doughnut {
+    height: 200px;
+  }
+
+  .doughnut-legend {
+    list-style: none;
+    margin-top: 20px;
+    padding-left: 0;
+    width: 170px;
+  }
+
+  .cat-item {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 2px 6px 2px;
+    margin-bottom: 2px;
+    display: inline-block;
+    font-size: 13px;
+  }
+
+  .doughnut-legend i {
+    font-size: 12px;
+    line-height: 12px;
+    padding-right: 2px;
+  }
+  .stats{
+    margin-bottom: 42px;
+  }
+}
+
+#multi-column-list {
+  a {
+    font-family: 'FiraMono-Regular', monospace;
+  }
+  .percentage {
+    font-size: 13px;
+    color: $red-txt-color;
+    font-family: 'FiraMono-Regular', monospace;
+  }
+}
+
+#website-page {
+  .plot-label {
+    color: $grey-txt-color;
+  }
+  .plot-subtitle {
+    color: $red-txt-color;
+  }
+}

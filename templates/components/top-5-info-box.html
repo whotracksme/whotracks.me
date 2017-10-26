@@ -1,0 +1,25 @@
+<div class="info-box">
+    <div class="row">
+    <div class="col-md-8">
+        <span class="percentage">
+            {{header_stats.by_cookies|to_percentage}}%
+        </span>
+        <p>
+            Trackers using cookies.
+        </p>
+        <span class="percentage">
+            {{header_stats.by_fingerprinting|to_percentage}}%
+
+        </span>
+        <p>
+            Trackers using fingerprinting.
+        </p>
+        <span class="percentage">
+            {{header_stats.data|b_to_mb}}MB
+        </span>
+        <p>
+            average data usage by trackers
+        </p>
+    </div>
+    </div>
+</div>
