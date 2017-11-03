@@ -5,22 +5,22 @@ type: primer
 publish: True
 date: 2017-07-22
 tags: primer, tracking
-header: blog/blog-trackers.jpg
+header_img: blog/blog-trackers.jpg
 +++
 
 
-A tracker is a company which collects information about you as you browse the web. Their scripts and [tracking pixels](/reports/tracking_pixel.html) are inserted into the websites you visit by publishers or advertising networks, usually in exchange for some service that the tracking company provides. Trackers usually use some kind of user identifier in order to link information about you from different sites, in order to build up a profile, based on your browsing history.
+A tracker is a company which collects information about you as you browse the web. Their scripts and [tracking pixels](/blog/tracking_pixel.html) are inserted into the websites you visit by publishers or advertising networks, usually in exchange for some service that the tracking company provides. Trackers usually use some kind of user identifier in order to link information about you from different sites, in order to build up a profile, based on your browsing history.
 
 We define a tracker as a third-party domain which is:
 
 - present on multiple (`> 10`) different websites with a significant combined traffic
-- uses [cookies](/reports/cookies.html) or [fingerprinting](/reports/fingerprinting.html) methods in order to transmit user identifiers
+- uses [cookies](/blog/cookies.html) or [fingerprinting](/blog/fingerprinting.html) methods in order to transmit user identifiers
  
 
 Why do trackers exist?
 ===
 
-The majority of the companies behind trackers offer services to website publishers. The publishers will put scripts or [tracking pixels](/reports/tracking_pixel.html) for these services onto their sites. There are many different use-cases for these services, such as:
+The majority of the companies behind trackers offer services to website publishers. The publishers will put scripts or [tracking pixels](/blog/tracking_pixel.html) for these services onto their sites. There are many different use-cases for these services, such as:
 
 - Analytics: used to measure how many people are visiting the site, where from etc. e.g. Google Analytics.
 - Advertising: provide advertising on site in order to monetise visits. e.g. DoubleClick, Outbrain.

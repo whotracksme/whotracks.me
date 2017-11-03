@@ -9,7 +9,7 @@
 {% endblock %}
 
 
-{% set active_page='reports' %}
+{% set active_page='blog' %}
 {% block content %}
 
 <section class="grey-bg">
@@ -23,14 +23,14 @@
 			</div>
 		</div>
 
-		{% for b in reports|batch(3) %}
+		{% for batch in blog_posts|batch(3) %}
 		<div class="row">
-			{% for report in b %}
-			{% if report.publish %}
-			<div class="col col-xs-12 col-sm-6 col-md-4">
-				{% include "components/report-card.html" %}
-			</div>
-			{% endif %}
+			{% for blog_post in batch %}
+				{% if blog_post.publish %}
+					<div class="col col-xs-12 col-sm-6 col-md-4">
+						{% include "components/blog-card.html" %}
+					</div>
+				{% endif %}
 			{% endfor %}
 		</div>
 		{% endfor %}

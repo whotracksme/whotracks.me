@@ -5,7 +5,7 @@ type: primer
 publish: True
 date: 2017-07-22
 tags: primer, tracking
-header: blog/blog-cookies.jpg
+header_img: blog/blog-cookies.jpg
 +++
 
 An HTTP cookie (also called web cookie, Internet cookie, browser cookie, or simply cookie) is a small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing. Cookies were designed to be a reliable mechanism for websites to remember stateful information (such as items added in the shopping cart in an online store) or to record the user's browsing activity (including clicking particular buttons, logging in, or recording which pages were visited in the past). They can also be used to remember arbitrary pieces of information that the user previously entered into form fields such as names, addresses, passwords, and credit card numbers.

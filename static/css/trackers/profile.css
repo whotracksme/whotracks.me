@@ -30,8 +30,7 @@
   #tracker-page .overview-info .overview-info-right {
     margin-top: 9px; }
 #tracker-page .overview-header-box h3 {
-  position: relative;
-  z-index: 2000; }
+  position: relative; }
 #tracker-page .overview-header-box .trackers-icon {
   width: 28px;
   margin-right: 10px;
@@ -49,8 +48,7 @@
     margin-top: -13px; }
 #tracker-page .overview-header-box .description {
   position: relative;
-  margin-left: 45px;
-  z-index: 2000; }
+  margin-left: 45px; }
 #tracker-page .overview-header-box .subtitle {
   font-size: 13px;
   color: #71869E;
@@ -77,8 +75,7 @@
   font-size: 13px;
   font-family: "FiraMono-Bold", monospace; }
 #tracker-page .overview-header-box .right-column {
-  padding-left: 0px;
-  z-index: 2000; }
+  padding-left: 0px; }
 #tracker-page #similar-trackers {
   color: #71869E;
   background-color: #F4F7F8;

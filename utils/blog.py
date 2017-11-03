@@ -12,6 +12,6 @@ def parse(fp):
         "publish": eval(publish.split(":")[1].strip()),
         "date": date.split(":")[1].strip(),
         "tags": tags.split(":")[-1].split(","),
-        "header": header.split(":")[1].strip(),
+        "header_img": header.split(":")[1].strip(),
         "body": body
     }

@@ -5,10 +5,10 @@ type: primer
 publish: True
 date: 2017-07-22
 tags: primer, tracking
-header: blog/blog-fingerprinting.jpg
+header_img: blog/blog-fingerprinting.jpg
 +++
 
-A device fingerprint or machine fingerprint or browser fingerprint is information collected about a remote computing device for the purpose of identification. Fingerprints can be used to fully or partially identify individual users or devices even when [cookies](/learn/cookies.html) are turned off.
+A device fingerprint or machine fingerprint or browser fingerprint is information collected about a remote computing device for the purpose of identification. Fingerprints can be used to fully or partially identify individual users or devices even when [cookies](/blog/cookies.html) are turned off.
 
 Basic web browser configuration information has long been collected by web analytics services in an effort to accurately measure real human web traffic and discount various forms of click fraud. With the assistance of client-side scripting languages, collection of much more esoteric parameters is possible [[1](http://browserspy.dk/)]. Assimilation of such information into a single string comprises a device fingerprint. In 2010, EFF measured at least 18.1 bits of entropy possible from browser fingerprinting, [[2](https://panopticlick.eff.org/static/browser-uniqueness.pdf)] but that was before the advancements of canvas fingerprinting, which claims to add another 5.7 bits.
 

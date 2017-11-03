@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold; }
   .container-post a {
     color: #0078CA; }
+    .container-post a code {
+      color: #0078CA;
+      font-weight: bold;
+      border-bottom: solid 1px; }
   .container-post a:hover {
     color: #CF635B;
     text-decoration: none;
@@ -43,10 +47,36 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 14px;
     color: #484848;
     margin-bottom: 10px; }
-  .container-post dl {
-    line-height: 26px; }
+  .container-post dt {
+    font-weight: 700;
+    margin-top: 25px;
+    font-size: 16px; }
+  .container-post dd {
+    line-height: 1.7;
+    margin-left: 50px; }
 
 .img-responsive {
   margin: auto; }
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  border-left: 5px solid #00aef0; }
+  blockquote p {
+    font-size: 19px !important;
+    color: #00aef0 !important;
+    font-style: italic !important; }
+
+pre {
+  padding: 0; }
+  pre code {
+    white-space: inherit; }
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #d14;
+  background-color: #f8f8f8;
+  border-radius: 4px; }
 
 /*# sourceMappingURL=post.css.map */

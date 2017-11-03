@@ -5,7 +5,7 @@ type: article
 publish: True
 date: 2017-07-22
 tags: privacy, circle
-header: blog/blog-facebook.jpg
+header_img: blog/blog-facebook.jpg
 +++
 
 The modern web is built around advertising. A multi-billion dollar industry ([$42bn in 2013 in the US](http://www.iab.net/about_the_iab/recent_press_releases/press_release_archive/press_release/pr-041014) and about [6bn in 2015](https://de.statista.com/statistik/daten/studie/456157/umfrage/umsaetze-im-markt-fuer-digitale-werbung-in-deutschland/) in Germany) primarily concerned with one question: How to make the most money by serving exactly the right ad, at the right time, to the right user.

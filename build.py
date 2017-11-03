@@ -4,8 +4,8 @@
 Module to build Tracking the Trackers site
 
 Usage:
-    buildsite ( all | home | trackers | websites |  companies | reports )
-    buildsite -h | --help
+    build ( site | home | trackers | websites |  companies | blog )
+    build -h | --help
 
 Options:
     -h, --help                   Show help message.
@@ -22,7 +22,7 @@ from utils.trackers import (
     sites_per_app_by_category,
     tracker_header_stats
 )
-from utils.reports import parse
+from utils.blog import parse as parse_blogpost
 from utils.websites import summary_stats, changes, sort_by_rank, sort_by_cat, tracked_by_category, header_stats
 from utils.companies import companies_present, get_company_name, website_doughnout, company_reach
 from utils.site_index import site_to_json
@@ -36,6 +36,7 @@ from plotting.trackers import ts_trend
 
 import os
 import json
+from datetime import datetime
 from multiprocessing import Process
 import concurrent.futures
 
@@ -91,12 +92,6 @@ def build_home(data):
 def build_trackers_list(data):
     apps = data.apps
 
-    text_content = {
-        "summary_title": "Tracker Stats",
-        "summary_description": "The proportion of page loads where cookies and\
-                                fingerprinting are used for tracking, and requests are done over Https"
-    }
-
     sorted_trackers = sorted(apps.values(), key=lambda a: a['overview']['reach'], reverse=True)
     sorted_trackers_cat = sorted(apps.values(), key=lambda a: data.get_app_name(a['overview']['id']) if 'company_id' not in a or 'company_id' in a and a['company_id'] in [None, "None"] else  a['company_id'])
 
@@ -106,7 +101,6 @@ def build_trackers_list(data):
     with open('_site/trackers.html', 'w') as fp:
         file_content = render_template(
             template=get_template(data, name="trackers.html"),
-            content=text_content,
             tracker_list=sorted_trackers,
             trackers_list_cat=sorted_trackers_cat,
             header_stats=tracker_header_stats(data.apps)
@@ -162,7 +156,6 @@ def tracker_page(template, aid, app, data):
 
 
 def build_tracker_pages(data):
-    # site_values, values, rects = site_tree_map(sites)
     apps = data.apps
     template = get_template(data, name='tracker-page.html', path_to_root='..')
 
@@ -176,46 +169,45 @@ def build_tracker_pages(data):
     print_progress(text="Tracker Pages")
 
 
-# ---------------------     Blog and Learn   ----------------------------
-def build_reports_list(data, entity='reports'):
-    with open('_site/{}.html'.format(entity), 'w') as fp:
-        reports = [parse(os.path.join("{}".format(entity), f)) for f in os.listdir("{}/".format(entity))]
-        reports = [r for r in reports if r['publish']]
+# ---------------------     Blog   ----------------------------
+def build_blogpost_list(data):
+    with open('_site/blog.html', 'w') as fp:
+        blog_posts = [parse_blogpost(os.path.join("{}".format("blog"), f)) for f in os.listdir("blog/")]
+        blog_posts = reversed(sorted(
+            [p for p in blog_posts if p['publish']], 
+            key=lambda p: datetime.strptime(p['date'], '%Y-%m-%d')
+        ))
+
         content = render_template(
-            template=get_template(data, "{}.html".format(entity)),
-            reports=reports
+            template=get_template(data, "blog.html"),
+            blog_posts=blog_posts
         )
         fp.write(content)
-        print_progress(text="{} List".format(entity.capitalize()))
+        print_progress(text="Blog List")
         return
 
 
-def build_report_pages(data, entity="reports"):
-    template = get_template(data, "report-page.html", render_markdown=True, path_to_root='..')
-    for f in os.listdir("{}/".format(entity)):
-        report = parse(os.path.join("{}".format(entity), f))
-        with open("_site/{0}/{1}.html".format(entity, report.get("filename")), 'w') as fp:
+def build_blogpost_pages(data):
+    template = get_template(data, "blog-page.html", render_markdown=True, path_to_root='..')
+    for f in os.listdir("blog/"):
+        blog_post = parse_blogpost(os.path.join("blog", f))
+        with open("_site/blog/{}.html".format(blog_post.get("filename")), 'w') as fp:
             fp.write(
                 render_template(
                     path_to_root='..',
                     template=template,
-                    report=report
+                    blog_post=blog_post
                 )
             )
-    print_progress(text="{}".format(entity.capitalize()))
+    print_progress(text="Blog Posts")
 
 
 # ---------------------     Websites   ----------------------------
 def build_website_list(data):
     sites = data.sites
-
-    text_content = {
-        "summary_title": "Top Website Stats",
-        "summary_description": "Proportion of requests on page load that go toward third party trackers\
-                                average number of trackers, and use Https in these top websites"
-    }
-
-    tracker_requests, tracker_buckets, https = summary_stats(sites)
+    tracker_requests, tracker_buckets, https = summary_stats(data.sites)
+    
+    # header stats
     tracker_values = []
     tracker_labels = []
     for (k, v) in tracker_buckets.items():
@@ -224,14 +216,13 @@ def build_website_list(data):
 
     header_numbers = header_stats(data.sites)
 
-    sorted_websites = sort_by_rank(sites)
-    sorted_websites_cat = sort_by_cat(sites)
+    sorted_websites = sort_by_rank(data.sites)
+    sorted_websites_cat = sort_by_cat(data.sites)
 
     # write to file
     with open('_site/websites.html', 'w') as fp:
         file_content = render_template(
             template=get_template(data, "websites.html"),
-            content=text_content,
             website_list=sorted_websites,
             website_list_cat=sorted_websites_cat,
             header_numbers=header_numbers
@@ -362,23 +353,24 @@ if __name__ == '__main__':
     with open("_site/sitemap.json", "w") as fp:
         json.dump(sitemap, fp)
 
-    if args["all"] or args['home']:
+    if args["site"] or args['home']:
         build_home(data=data_source)
 
-    if args['all'] or args['trackers']:
+    if args['site'] or args['trackers']:
         build_trackers_list(data=data_source)
         trackers_process = Process(target=build_tracker_pages, args=(data_source,))
         trackers_process.start()
 
-    if args['all'] or args['websites']:
+    if args['site'] or args['websites']:
         build_website_list(data_source)
         sites_process = Process(target=build_website_pages, args=(data_source,))
         sites_process.start()
 
-    if args['all'] or args['companies']:
-        company_process = Process(target=build_company_pages, args=(data_source,))
-        company_process.start()
+    # TODO: uncomment when company profiles are ready
+    # if args['site'] or args['companies']:
+    #     company_process = Process(target=build_company_pages, args=(data_source,))
+    #     company_process.start()
 
-    if args['all'] or args['reports']:
-        build_reports_list(data_source)
-        build_report_pages(data_source)
+    if args['site'] or args['blog']:
+        build_blogpost_list(data_source)
+        build_blogpost_pages(data_source)

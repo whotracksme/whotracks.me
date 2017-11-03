@@ -5,7 +5,7 @@ type: article
 publish: True
 date: 2017-07-22
 tags: privacy, circle
-header: blog/blog-anti-tracking.jpg
+header_img: blog/blog-anti-tracking.jpg
 +++
 
 

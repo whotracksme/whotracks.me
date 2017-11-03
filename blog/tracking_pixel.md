@@ -5,7 +5,7 @@ type: primer
 publish: True
 date: 2017-07-22
 tags: primer, tracking
-header: blog/blog-pixel.jpg
+header_img: blog/blog-pixel.jpg
 +++
 
 A tracking pixel, is one of various techniques used on web pages or email, to unobtrusively (usually invisibly) allow checking that a user has accessed some content. Common uses are email tracking and page tagging for web analytics. Alternative names are `web beacon`, `web bug`, `tracking bug`, `tag`, or `page tag`, `pixel tag`, `1×1 gif`, and `clear gif`. When implemented using JavaScript, they may be called JavaScript tags [[1](https://w2.eff.org/Privacy/Marketing/web_bug.html)]

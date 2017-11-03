@@ -39,6 +39,11 @@ h1, h2, h3, h4, h5, h6 {
 
     a{
         color: $link-color;
+        code {
+            color: $link-color;
+            font-weight: bold;
+            border-bottom: solid 1px;
+        }
     }
     a:hover{
         color: #CF635B;
@@ -58,10 +63,42 @@ h1, h2, h3, h4, h5, h6 {
         color: #484848;
         margin-bottom: 10px;
     }
-    dl{
-        line-height: 26px;
+    
+    dt {
+        font-weight: 700;
+        margin-top: 25px;
+        font-size: 16px;
     }
+    dd{
+        line-height: 1.7;
+        margin-left: 50px;
+    }  
+    
 }
 .img-responsive{
     margin: auto;
+}
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    border-left: 5px solid #00aef0;
+    p {
+        font-size: 19px !important;        
+        color: #00aef0 !important;
+        font-style: italic !important;    
+    }
+}
+
+pre {
+    padding: 0;
+    code {
+      white-space: inherit;
+    }
+}
+code{
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #d14;
+    background-color: #f8f8f8;
+    border-radius: 4px;
 }

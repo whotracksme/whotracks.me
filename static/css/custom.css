@@ -29,12 +29,12 @@ body {
   margin-top: -1px;
   height: 39px;
   background-color: transparent;
-  padding-left: 0;
   position: relative;
   z-index: 2; }
   .breadcrumb-bar .breadcrumb {
     color: #71869E;
-    background-color: transparent; }
+    background-color: transparent;
+    padding-left: 0; }
     .breadcrumb-bar .breadcrumb li + li:before {
       font-family: "FontAwesome";
       color: #71869E;
@@ -147,7 +147,17 @@ p {
   color: #71869E; }
 
 .easy-autocomplete-container ul {
-  top: 57px !important; }
+  top: 61px !important;
+  border: solid 1px #e3eced; }
+  .easy-autocomplete-container ul .eac-item {
+    font-size: 16px;
+    line-height: 1.7; }
+    .easy-autocomplete-container ul .eac-item a {
+      color: #2B5993; }
+  .easy-autocomplete-container ul .eac-category {
+    font-size: 16px !important;
+    color: #71869E !important;
+    background-color: #e3eced !important; }
 
 #imaginary_container {
   float: left; }
