@@ -28,7 +28,7 @@ var options = {
         maxNumberOfElements: 12,
         onChooseEvent: function() {
 			var url = $("#search-bar").getSelectedItemData().url;
-            window.location.href = url;
+            window.location.href = pathToRoot + "/" + url;
         },
         match: {
             enabled: true
