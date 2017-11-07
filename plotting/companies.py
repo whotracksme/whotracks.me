@@ -5,50 +5,6 @@ from datetime import datetime
 from plotting.colors import random_color, BiggestTrackerColors, CliqzColors
 
 
-def reach(google, facebook, dates):
-    """
-    Main Page Plot showing the reach of companies that track the most
-    Args:
-        google:   (list) - values for google
-        facebook: (list) - values for facebook
-        dates:    (list) - dates
-
-    Returns: Area Plot as div output
-
-    """
-    trace_high = scatter(x=dates, y=google, name="Google", color="#3cba54")
-    trace_low = scatter(x=dates, y=facebook, name="Facebook", color="#3b5998")
-    dangerous = scatter(x=dates, y=[20] * 11, name="Dangerous", color="#FF3232", fill=False, line_style="dot")
-    data = [trace_high, trace_low, dangerous]
-
-    layout = go.Layout(
-        dict(
-            xaxis=dict(
-                range=['2017-01-01', '2017-01-11']
-            ),
-            yaxis=dict(
-                title="Percentage of sites where company can track",
-                titlefont=dict(
-                    size=12,
-                    color="#666666"
-                )),
-            margin=set_margins(r=90),
-            legend=dict(
-                x=0,
-                y=50,
-                orientation="h"
-            ),
-            annotations=[
-                annotation(text="Facebook", x=dates[-1], y=facebook[-1], background_color="#3b5998"),
-                annotation(text="Google", x=dates[-1], y=google[-1], background_color="#3cba54"),
-                annotation(text="Dangerous", x=dates[-1], y=20, background_color="#FF3232")
-            ]
-        )
-    )
-    fig = dict(data=data, layout=layout)
-    return div_output(fig)
-
-
 def overview_bars(companies):
     x = []
     y = []

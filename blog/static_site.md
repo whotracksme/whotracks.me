@@ -38,35 +38,51 @@ engineering, and other fun stuff.
 
 Through whotracks.me, we want to cast some light on the tracking 
 landscape, but also make a point about trackers and **privacy by design**, 
-hence the choice of this being static site was pretty obvious. This 
+hence the choice of this being a static site was pretty obvious. This 
 meant that we could build the whole site offline, put it in a folder 
 and serve it through CDN.
 
 Given this will be updated a few times a month, build performance was not really 
 a big issue for us. But stubmling upon [a discussion](https://news.ycombinator.com/item?id=15507538) 
-about site generators' performance, and reading comments like: 
+about site generators' performance, some comments read: 
+
+- *"with Hugo + Pygments was taking ~20s for ~20 pages at the time"*
+- *"92 pages in 1s (full rebuild, No CSS magic tooling though)"*
+- *"Rust: ~10k pages in ~60s"*
 
 
+This sort of surprised me and made me realize I may be missing 
+something site generators do, which I do not know about. 
+Anyway, whotracks.me has roughly 1020 at the time
+this is written. On 1000 of these pages there are offline generated plots, 
+quite some data and a fair amount of tooling with respect to styling. 
+On a `Thinkpad x230` with an Intel `i3 processor`: 
 
 
-1. [Generating a static site (part 1)](/blog/tracker_free_site.html) - this article.
-2. Data and Visualization centric
-3. Search, for some definition of search.
-4. No third party trackers
-5. Fast
+```bash
+(venv) ➜  whotracks.me git:(master) ✗ time python build.py site
+Home page ............................... done
+Tracker list ............................ done
+Website list ............................ done
+Blog List ............................... done
+Blog Posts .............................. done
+Website pages ........................... done
+Tracker Pages ........................... done
+python build.py site  13.86s user 1.08s system 158% cpu 9.400 total
+```
+<br>
+
+This will be a 5 part series dedicated to: 
+
+1. [Generating a static site (part 1)](/blog/static_site_generation.html)
+2. [Visualization (part 2)](/blog/static_site_visualization.html)
+3. [Building a blog (part 3)](/blog/static_site_blog.html)
+4. Search, for some definition of search.
+5. No third party trackers and Fast
 
 The code and data to generate this site is open on github at
-[https://github.com/cliqz-oss/whotracks.me](`https://github.com/cliqz-oss/whotracks.me`).
+[`https://github.com/cliqz-oss/whotracks.me`](https://github.com/cliqz-oss/whotracks.me).
 
+<br><br>
 
-
-
-https://news.ycombinator.com/item?id=15507538
-
-> with Hugo + Pygments was taking ~20s for ~20 pages at the time
-> I'm a Gopher! just did it to get my feet wet in Hs) --- 92 pages in 1s (full rebuild; No CSS magic tooling though
-> Rust: ~10k pages in ~60s
-
-
-
-So let's start with [Generating a Static Site](/blog/static_site_templating.html):
+So let's start with [Generating a Static Site (part 1) ... ](/blog/static_site_templating.html)

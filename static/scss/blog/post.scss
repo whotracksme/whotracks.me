@@ -9,11 +9,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 64px;
 }
 .container-post{
-    max-width: 600px;
+    max-width: 700px;
     padding-bottom: 126px;
     
     #post-title{
-        font-family: "Open Sans Semibold", sans-serif;
+        font-family: sans-serif;
         font-size: 30px;
         color: #1A1925;
     }
@@ -91,6 +91,7 @@ blockquote {
 
 pre {
     padding: 0;
+    margin-top: 30px;
     code {
       white-space: inherit;
     }
