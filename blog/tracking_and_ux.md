@@ -1,5 +1,5 @@
 title: The Impact of Tracking on User Experience
-subtitle: The journey of adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
+subtitle: Beyond privacy - a survey of hidden and visible effects of tracking on user experience.
 author: no one
 type: article
 publish: True
