@@ -18,8 +18,8 @@ With that said, as if one needs to justify this, having plots accompany
 text and numbers, is typically a good idea, and we did add some plots.
 
 
-<img class="img-responsive" src="../static/img/blog/plotting/tracker-map.png"/>
-
+<img class="img-responsive img-with-padding" src="../static/img/blog/plotting/tracker-map.png"/>
+<p class="img-caption">Figure 1: Sankey plot used to represent a [tracker map](../websites/upornia.com.html)</p>
 
 
 # Offline plots with Plotly
@@ -115,7 +115,8 @@ def div_output(fig, display_mode_bar=False):
 
 Note that `display_mode_bar` is the set of options that shows up on the top 
 right corner of the plot when rendered by `plotly.js`, and it looks like this: 
-<img class="img-responsive" src="../static/img/blog/plotting/display_mode_bar.png">
+<img class="img-responsive img-with-padding" src="../static/img/blog/plotting/display_mode_bar.png">
+<p class="img-caption">Figure 2: Mode bar on top right corner of plotly plots.</p>
 
 `include_plotlyjs` is set to `False` to avoid `plotly.js` being loaded inline 
 with the `div` output for every plot. This is not necessary as it is already 
@@ -123,11 +124,14 @@ linked in [`base.html#L35`](https://github.com/cliqz-oss/whotracks.me/blob/maste
 
 
 ## Bar Chart
+On main page of this site, you will see this:
 
-<img class="img-responsive" src="../static/img/blog/plotting/bar-chart.png"> 
-The code to generate this can be found in [`plotting/companies#L8`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/companies.py#L8)
+<img class="img-responsive img-with-padding" src="../static/img/blog/plotting/bar-chart.png"> 
+<p class="img-caption">Figure 3: Horizontal bar chart on tracking reach of top 10 companies</p>
 
+The code to generate this can be found in [`plotting/companies#L8`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/companies.py#L8). 
 Let's write a simpler function for a horizontal bar plot to get the idea: 
+
 
 ```python
 def horizontal_bar_plot(x, y):
@@ -158,59 +162,86 @@ def horizontal_bar_plot(x, y):
     return div_output(fig)
 ```
 
-## Donought
-<img src="../static/img/blog/plotting/doughnut.png">
+
+##  Tracker Reach - trend Line
+This chart, as many others, was inspired by Edward Tufte's sparkline [2],
+drawn without axes or coordinates.
+
+<img class="img-responsive img-with-padding" src="../static/img/blog/plotting/sparkline.png">
+<p class="img-caption">Figure 4: Trend line of tracker reach.</p>
+
 
 ```python
 
-def profile_doughnut(values, labels, name, color_palette=False):
-    center_text = str(name)
 
-    trace = go.Pie(
-        values=values,
-        labels=labels,
-        hoverinfo="label",
-        hole=0.65,
-        textinfo="none",
-        marker=dict(
-            colors=set_category_colors(labels),
-            line=dict(
-                color=CliqzColors["white"],
-                width=0
+def sparkline(ts, t):
+    """
+    Sparkline for plotting line
+    Args:
+        ts: timeseries data
+        t: x-axis (time)
+
+    Returns: hmtl output of an interactive timeseries plot
+
+    """
+    y = list(map(lambda x: x * 100, ts)) # scaling percentages
+    trace0 = line(
+        x=t,
+        y=y,
+        color="#A069AB" #purple
+    )
+    trace1 = line(
+        x=[t[-1]],
+        y=[y[-1]],
+        color="#A069AB",
+        mode='markers'
+    )
+    layout = go.Layout(
+        dict(
+            showlegend=False,
+            height=100,
+            width=153,
+            hoverlabel=dict(
+                bgcolor="#1A1A25",
+                bordercolor="#00000000", # transparent
+                font=dict(
+                    family=CliqzFonts.mono,
+                    size=13,
+                    color="#BFCBD6"
+                )
+            ),
+            xaxis=dict(
+                autorange=True,
+                showgrid=False,
+                zeroline=False,
+                showline=False,
+                autotick=True,
+                hoverformat="%b %y",
+                ticks='',
+                showticklabels=False
+            ),
+            yaxis=dict(
+                # providing some padding for the sparkline
+                range=[min(y)*0.90, max(y)*1.05 if max(y) != y[-1] else max(y)*1.15],
+                showgrid=False,
+                zeroline=False,
+                showline=False,
+                autotick=True,
+                ticks='',
+                showticklabels=False
             )
         )
     )
-    data = [trace]
-    layout = dict(
-        showlegend=False,
-        paper_bgcolor=CliqzColors["transparent"],
-        plot_bgcolor=CliqzColors["transparent"],
-        autosize=True,
-        margin=set_margins(l=0, r=0, b=0, t=0, pad=10),
-
-        # Center Text
-        annotations=[
-            annotation(
-                text=center_text.upper(),
-                x=0.5,
-                y=0.5,
-                background_color=CliqzColors["transparent"],
-                shift_x=0,
-                text_size=30,
-                color="#333"
-            )
-        ]
-    )
+    data = [trace0, trace1]
     fig = dict(data=data, layout=layout)
-
     return div_output(fig)
-
 ```
+The code used to plot the sparkline seen in tracker profiles is defined 
+in [`plotting/trackers.py#L94`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/trackers.py#L94).
 
 
-## Minimalistic Trend Line
 ## Sankey
-
 
 ## References 
 [1] [Adding Words to the Brain's Visual Dictionary](http://www.jneurosci.org/content/35/12/4965.short) <br>
+[2] [Sparkline - Wikipedia](https://en.wikipedia.org/wiki/Sparkline) <br>
