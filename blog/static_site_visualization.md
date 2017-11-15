@@ -3,9 +3,9 @@ subtitle: The journey of adding search, data, plots and blog to 1000+ pages of t
 author: no one
 type: article
 publish: True
-date: 2017-11-02
+date: 2017-11-01
 tags: tracker-free, lightweight
-header_img: blog/blog-site.jpg
+header_img: blog/blog-site-p2.png
 +++
 
 A picture says a 1000 words - or so they say. A plot says a lot of
@@ -16,10 +16,6 @@ actually recognizes words as picures [1].
 
 With that said, as if one needs to justify this, having plots accompany
 text and numbers, is typically a good idea, and we did add some plots.
-
-
-<img class="img-responsive img-with-padding" src="../static/img/blog/plotting/tracker-map.png"/>
-<p class="img-caption">Figure 1: Sankey plot used to represent a [tracker map](../websites/upornia.com.html)</p>
 
 
 # Offline plots with Plotly
@@ -145,9 +141,9 @@ def horizontal_bar_plot(x, y):
         x=x,
         y=y,
         orientation='h'
-        marker={
-            "color": [c_purple]*2 + [c_gray]*8
-        },
+        marker=dict(
+            color=[c_purple]*2 + [c_gray]*8
+        ),
     )
     data = [trace]
     layout = go.Layout(
@@ -240,7 +236,110 @@ The code used to plot the sparkline seen in tracker profiles is defined
 in [`plotting/trackers.py#L94`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/trackers.py#L94).
 
 
-## Sankey
+## Sankey Diagrams
+Sankey diagrams are at visualizing flow volume metrics. Sometimes
+they are found under the name alluvial diagrams, although they originally are 
+different types of flow diagrams.
+
+<img class="img-responsive img-with-padding" src="../static/img/blog/plotting/tracker-map.png"/>
+<p class="img-caption">Figure 1: Sankey diagram used to represent a [tracker map](../websites/upornia.com.html)</p>
+
+In this site we use sankey diagrams in website profile 
+pages like [bahn.de](/websites/www.bahn.de.html) to map companies
+and the trackers they operate to the category of the tracker. The thickness
+of the link is a function of the frequency of of appearance of the tracker
+per page load in the given domain. So looking at the diagram above,
+we know that the dominant tracker category is advertising and Google operates
+the most trackers and has the highest frequency of appearance.
+
+Our Sankey Diagram function in Python looks like this:
+
+```python
+from plotting.utils import div_output
+
+def alluvial_plot(input_data):
+    data_trace = dict(
+        type='sankey',
+        domain=dict(
+            x=[0, 1],
+            y=[0, 1]
+        ),
+        hoverinfo="none",
+        orientation="h",
+        node=dict(
+            pad=10,
+            thickness=30,
+            label=list(map(lambda x: x.replace("_", " ").capitalize(), input_data['node']['label'])),
+            color=sndata['node']['color']
+        ),
+        link=dict(
+            source=input_data['link']['source'],
+            target=input_data['link']['target'],
+            value=input_data['link']['value'],
+            label=input_data['link']['label'],
+            color=["#dedede" for _ in range(len(input_data['link']['source']))]
+        )
+    )
+    layout = dict(
+        autosize=True,
+        font=dict(
+            size=12
+        )
+    )
+    fig = dict(data=[data_trace], layout=layout)
+    return div_output(fig)
+```
+ The problem in most references is that they take the structure of 
+input data as given and it may seem hard when trying to plot your own data.
+
+Here is how the input `sndata` is structured:
+
+```json
+input_data = {
+    "node":{
+        "label": [],
+        "color": []
+    },
+    "link": {
+        "source": [],
+        "target": [],
+        "value":  [],
+        "label":  [],
+        "color":  []
+    }
+}
+```
+As you notice, input_data has two main parts: node and link:
+
+**NODE**: `input_data["node"]` is responsible for building nodes. In our example these nodes are either
+categories of trackers or companies that operate them. The atributes of each node are two: 
+`label` and `color`. These are both lists of strings. These lists have to have equal length because
+the mapping of each label to a color is done based on the item's index in the list. 
+
+**LINK**: `input_data["link"]` is responsible for linking two nodes together. Each link has 
+the following attributes: `source`, `target`, `value`, `label` and `color`. So here is where the index of 
+`input_data["node"]["label"]` becomes very important given the way sankey plots have been implemented in 
+plotly. The `source` and `target` are lists of equal length, where the index is used to link. 
+
+<img class="img-responsive img-with-padding" src="../static/img/blog/plotting/node_label.png"/>
+<p class="img-caption">Figure 5: Node label ilustration</p>
+
+The elements in `source` and `target` are in fact the indexes of the source node and target 
+nodes in the `input_data["node"]["label"]`. So if we were to refer to the illustration in the 
+figure above, to render our sankey diagram we would have: 
+
+```python
+source = [1, 1, 1, ... ]
+target = [0, 2, len-2, ... ]
+```
+
+With that out of the way, the remaining are intuitive: `value` represents how thick the link should be, 
+`label` what name it has and `color` its color. All the `link` attributes are lists of equal length, and 
+the matching is done based on index.
+
+For details, have a look at the actual implementation of the `input_data` generation
+in [`utils/companies.py#L50`](https://github.com/cliqz-oss/whotracks.me/blob/master/utils/companies.py#L50). 
+
 
 ## References 
 [1] [Adding Words to the Brain's Visual Dictionary](http://www.jneurosci.org/content/35/12/4965.short) <br>

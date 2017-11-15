@@ -5,7 +5,7 @@ type: article
 publish: True
 date: 2017-11-07
 tags: tracker-free, lightweight
-header_img: blog/blog-site.jpg
+header_img: blog/tracking_and_ux/ux_header.png
 +++
 
 
@@ -13,7 +13,7 @@ We all have been in situations in which we felt that the Internet knows us too w
 
 
 ## A Positive Side to Tracking?
-But before we get started with the actual effects, let’s quickly clarify one thing: Trackers are not good or bad per se. In fact, trackers are often just a byproduct of innovative technologies that were invented to make the user’s life easier in the first place. 
+But before we get started with the actual effects, let’s quickly clarify one thing: Trackers are not good or bad per se. In fact, trackers are often just a byproduct of innovative technologies that were invented to make the user’s life easier in the first place.
 
 For example, content delivery networks (CDN) assure a speedy delivery of web pages, analytics tools help to better understand users to improve page structures, hosted fonts allow designers to ensure that fonts look as intended, and single sign-ons increase convenience while mitigating password fatigue. It's the way these technologies are implemented and used that decides on their impact on privacy and user experience.
 
@@ -28,17 +28,16 @@ One reason for this annoyance is that ads fight for the users’ attention—in 
 
 
 
-<PICTURE>
-*Figure 1: banner ads are intrusive and distracting. In this example they are placed right next to the content to get the users’ attention.*
+<img src="../static/img/blog/tracking_and_ux/banner.png"/>
+<p class="img-caption">Figure 1: banner ads are intrusive and distracting. In this example they are placed right next to the content to get the users’ attention.</p>
 
 
 ### Deception
 Another reason for annoyance is the use of native advertising: ads that are designed to resemble content as much as possible (Figure 2). The main goal is to maximize click-through rates on ads, while deliberately accepting the risk to mislead users. Although users are less likely to notice the presence of native advertising compared to traditional banner ads [9], it is more difficult for them to distinguish organic content from paid ads. 
 
 
-<PICTURE>
-*Figure 2: native advertising is deceptive as it makes it difficult for users to distinguish organic content from paid ads.*
-
+<img src="../static/img/blog/tracking_and_ux/native2.png"/>
+<p class="img-caption">Figure 2: native advertising is deceptive as it makes it difficult for users to distinguish organic content from paid ads.</p>
 
 
 ### Page Breakage
@@ -72,8 +71,9 @@ Why are transparency and control so important? Data collected by trackers reveal
 Both visible and hidden effects of trackers on user experience are non-trivial to address. Numerous applications or add-ons exist to remove ads from web pages or to reduce the effects of tracking. Adblock Plus and NoScript are two popular examples.
 
 
-<PICTURE>
-*Figure 3: an example of an ad block wall encouraging users to whitelist trackers.*
+<img src="../static/img/blog/tracking_and_ux/adwall2.png"/>
+<p class="img-caption">Figure 3: an example of an ad block wall encouraging users to whitelist trackers.</p>
+
 
 However, removing ads leads, similar to ads in the first place, to page breakage. News sites, for example, use adblock detection to put up ad block walls, asking users to whitelist ads in order to access the content (Figure 3). Ad block walls not only degrade the user experience but also reduce traffic to the underlying pages: a recent survey found that 74% of American adblock users choose to leave sites with adblock walls [1]. Another example are pages without visible ads, but that use scripts for tracking. Blocking all scripts offers protection, but makes modern web pages unusable as many features rely on scripting.
 

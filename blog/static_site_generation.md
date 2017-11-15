@@ -5,7 +5,7 @@ type: article
 publish: True
 date: 2017-11-02
 tags: tracker-free, lightweight
-header_img: blog/blog-site.jpg
+header_img: blog/blog-site-p1.png
 +++
 
 

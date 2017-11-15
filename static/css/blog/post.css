@@ -54,6 +54,8 @@ h1, h2, h3, h4, h5, h6 {
   .container-post dd {
     line-height: 1.7;
     margin-left: 50px; }
+  .container-post img {
+    width: 100%; }
   .container-post .img-with-padding {
     padding: 30px;
     margin-bottom: 30px;

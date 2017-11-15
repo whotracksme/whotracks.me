@@ -3,7 +3,7 @@ subtitle: The journey of adding search, data, plots and blog to 1000+ pages of t
 author: no one
 type: article
 publish: True
-date: 2017-11-02
+date: 2017-11-03
 tags: tracker-free, lightweight
 header_img: blog/blog-site.jpg
 +++
@@ -72,7 +72,7 @@ python build.py site  13.86s user 1.08s system 158% cpu 9.400 total
 ```
 <br>
 
-This will be a 5 part series dedicated to: 
+This will be a 5 part series dedicated to:
 
 1. [Generating a static site (part 1)](/blog/static_site_generation.html)
 2. [Visualization (part 2)](/blog/static_site_visualization.html)
