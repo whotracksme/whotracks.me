@@ -1,6 +1,6 @@
 title: Building whotracks.me
 subtitle: The journey of adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
-author: no one
+author: privacy team
 type: article
 publish: True
 date: 2017-11-03
@@ -8,29 +8,29 @@ tags: tracker-free, lightweight
 header_img: blog/blog-site.jpg
 +++
 
-At Cliqz and Ghostery, we [privately collect tracker data](/blog/where_is_the_data_from.html) 
+At Cliqz and Ghostery, we [collect anonymous data about trackers](/blog/where_is_the_data_from.html) 
 to power our [anti-tracking](blog/how_cliqz_antitracking_protects_users.html) technology.
 We see our anti-tracking as a community effort and as such we want to share a structured
 representation of this data to cast some light on the tracker landscape.
 
 
-Out of the three main entities involved on a page load: **users**, **websites** and **trackers**,
+Out of the three main entities involved in a page load: **users**, **websites** and **trackers**,
 we have data only on the last two. We'll start with:
 
 * Profiles of the [top 500 trackers](/trackers.html) 
 * Tracker data on the [top 500 domains](/websites.html).
 
 
-With these out of the way, a blog space woud also be needed. This for a couple
+With these out of the way, a blog space would be needed. This for two
 of reasons. We realised there was a need for a learning space where we 
-explain concepts referred to in the site. Let's call these **primers**. 
+explain concepts referred to in the site. We call these **primers**. 
 These define what we call a [tracker](/blog/what_is_a_tracker.html),
 what [cookies](/blog/cookies.html) and [fingerprinting](/blog/fingerprinting.html)
-or [where this data comes from](/blog/where_is_the_data_from.html), and 
-hopefully over time it will become a space for curious readers 
+are or [where this data comes from](/blog/where_is_the_data_from.html). 
+Hopefully over time it will become a space for curious readers 
 to be introduced to tracking technologies. The second reason is to have 
 a space where we'll be writing about particular trackers, technologies, papers,
-engineering, and other fun stuff.
+engineering, and other interesting topics.
 
 
 
@@ -54,8 +54,8 @@ The assumption would be that most of this time is spent parsing the
 markdown files. To build this site however, with the exception of the
 blog, the rest of the pages are mainly about instantiating a template,
 plugging some content, and writing to disk. So most likely a comparison between 
-site generators and this would be unfair. At the time this is written, 
-whotracks.me has roughly 1020 pages.  On 1000 of these pages there are 
+site generators and this would be unfair. At the time of writing, 
+whotracks.me has roughly 1020 pages. On 1000 of these pages there are 
 offline generated plots, quite some data and a fair amount of tooling 
 with respect to styling.  On a `Thinkpad x230` with an Intel `i3 processor`: 
 
@@ -80,7 +80,7 @@ This will be a 5 part series dedicated to:
 4. Search, for some definition of search.
 5. No third party trackers and Fast
 
-The code and data to generate this site is open on github at
+The code and data to generate this site is open-sourced at
 [`https://github.com/cliqz-oss/whotracks.me`](https://github.com/cliqz-oss/whotracks.me).
 
 <br><br>

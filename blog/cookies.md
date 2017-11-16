@@ -1,6 +1,6 @@
 title: Cookies
 subtitle: A small piece of data sent from a website, meant to "help", used to track.
-author: Privacy Knight
+author: privacy team
 type: primer
 publish: True
 date: 2017-07-22

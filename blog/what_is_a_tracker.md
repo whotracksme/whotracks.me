@@ -1,6 +1,6 @@
 title: What is a tracker?
 subtitle: Explaining what makes a particular domain a  tracker 
-author: Privacy Knight
+author: privacy team
 type: primer
 publish: True
 date: 2017-07-22

@@ -10,7 +10,7 @@ header_img: blog/blog-site-p1.png
 
 
 ## 1. Generating a static site
-We figured for this problem, speed of development and richness of the
+We figured that, for this problem, speed of development and richness of the
 ecosystem are very important, so we decided to go with Python. 
 Since it's a new project, and we had no dependencies, 
 we decided for [Python 3.6](https://docs.python.org/3.6/).
@@ -72,7 +72,7 @@ class DataSource:
             return "/reports/{}.html".format(id)
 ```
 
-We use [quote_plus](https://docs.python.org/2/library/urllib.html#utility-functions) 
+We use [quote_plus](https://docs.python.org/3.6/library/urllib.parse.html#url-quoting) 
 here to make sure we get properly formatted urls. This 
 is very useful to avoid errors in generating urls for entities whose id
 would cause issues such as `[24]7`, which is a 
@@ -189,11 +189,11 @@ while the template for tracker pages like [this one](/trackers/criteo.html)
 is defined here [`tracker-page.html`](https://github.com/cliqz-oss/whotracks.me/blob/master/templates/tracker-page.html).
 
 
-## Relavant files
+## Relevant files
 Do not forget to check the our [repository on github](https://github.com/cliqz-oss/whotracks.me) 
 for the actual implementation and more details. 
 Relevant files are:
 
 - [`buildsite.py`](https://github.com/cliqz-oss/whotracks.me/tree/master/buildsite.py): entry point for building pages
-- [`templating.py`](https://github.com/cliqz-oss/whotracks.me/tree/master/templating.py): handles the tempalting and path management (discussed here)
+- [`templating.py`](https://github.com/cliqz-oss/whotracks.me/tree/master/templating.py): handles the templating and path management (discussed here)
 - [`templates/`](https://github.com/cliqz-oss/whotracks.me/tree/master/templates) : Where all html templates and components are defined

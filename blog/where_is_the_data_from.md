@@ -1,6 +1,6 @@
 title: Where does the data come from?
 subtitle: An explanation of the origin of the data in this site, and why its collection is private.
-author: Privacy Knight
+author: privacy team
 type: primer
 publish: True
 date: 2017-07-22

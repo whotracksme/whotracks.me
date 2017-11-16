@@ -1,6 +1,6 @@
 title: Fingerprinting
 subtitle: Let me tell you what's unique about your device. 
-author: Privacy Knight
+author: privacy team
 type: primer
 publish: True
 date: 2017-07-22

@@ -1,6 +1,6 @@
 title: How Cliqz anti-tracking protects users from web tracking
 subtitle: Using an algorithmic, data-driven approach to remove unique identifiers that track users.
-author: Privacy Knight
+author: privacy team
 type: article
 publish: True
 date: 2017-07-22

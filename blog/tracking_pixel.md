@@ -1,6 +1,6 @@
 title: Tracking Pixel
 subtitle: So, ... did you read my email?
-author: Privacy Knight
+author: privacy team
 type: primer
 publish: True
 date: 2017-07-22

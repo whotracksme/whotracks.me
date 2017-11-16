@@ -1,6 +1,6 @@
 title: How facebook knows exactly what turns you on
 subtitle: A technical analysis of the methods used to track users as a third party. Deep dive into a couple of case studies.
-author: Privacy Knight
+author: privacy team
 type: article
 publish: True
 date: 2017-07-22
