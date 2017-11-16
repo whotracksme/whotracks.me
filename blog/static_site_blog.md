@@ -25,7 +25,7 @@ its life easy, we specify a given format in the post's markdown that looks like 
 
 ```md
 title: Building whotracks.me - Blog (part 3)
-subtitle: The journey of adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
+subtitle: Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
 author: privacy team
 type: article
 publish: True
@@ -37,8 +37,8 @@ header_img: blog/blog-site-p3.png
 <MARKDOWN BODY>
 ```
 
-These are all the components we need to render the snippet, and the actual blog post. As promised
-the parsing function, now is quite simple:
+These are all the components we need to render the snippet, and 
+the actual blog post. As promised the parsing function is quite simple:
 
 ```python
 def parse(fp):
@@ -61,14 +61,15 @@ def parse(fp):
     }
 ```
 
-Alright, so now we have a way to parse the markdown to generate all parts that we need and  
-the templates to render them, so we are left with styling. There are three elements we care about styling:
+Alright, so now we have a way to parse the markdown to generate all parts that we 
+need and the templates to render them, so we are left with styling. There are three 
+elements we need to style:
 
 - the blog post card (snippet) 
 - the actual post page. 
 - the code snippets style
 
-These are respectively defined in: 
+Their styles are respectively defined in: 
 
 - [`static/scss/blog/card.scss`](https://github.com/cliqz-oss/whotracks.me/blob/master/static/scss/blog/card.scss) 
 - [`static/scss/post/post.scss`](https://github.com/cliqz-oss/whotracks.me/blob/master/static/scss/blog/post.scss)
