@@ -9,10 +9,10 @@ header_img: blog/blog-site-p2.png
 +++
 
 A picture says a 1000 words - or so they say. A plot says a lot of
-words too. This is no suprise, as from a pure evolutionary perspective
-humans developed the ability to see objects sooner than reading. There is
-some recent research that shows that even when we read, our brain 
-actually recognizes words as picures [1]. 
+words too. This is no surprise, as from a pure evolutionary perspective
+humans developed the ability to see objects sooner than the ability to read. In fact,
+there is some recent research that shows that even when we read, our brain 
+actually recognizes words as pictures [1]. 
 
 With that said, as if one needs to justify this, having plots accompany
 text and numbers, is typically a good idea, and we did add some plots.
@@ -168,8 +168,6 @@ drawn without axes or coordinates.
 
 
 ```python
-
-
 def sparkline(ts, t):
     """
     Sparkline for plotting line
@@ -292,7 +290,7 @@ def alluvial_plot(input_data):
  The problem in most references is that they take the structure of 
 input data as given and it may seem hard when trying to plot your own data.
 
-Here is how the input `sndata` is structured:
+Here is how `input_data` is structured:
 
 ```json
 input_data = {

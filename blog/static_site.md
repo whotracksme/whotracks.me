@@ -43,20 +43,21 @@ meant that we could build the whole site offline, put it in a folder
 and serve it through CDN.
 
 Given this will be updated a few times a month, build performance was not really 
-a big issue for us. But stubmling upon [a discussion](https://news.ycombinator.com/item?id=15507538) 
+a big issue for us. But stumbling upon [a discussion](https://news.ycombinator.com/item?id=15507538) 
 about site generators' performance, some comments read: 
 
 - *"with Hugo + Pygments was taking ~20s for ~20 pages at the time"*
 - *"92 pages in 1s (full rebuild, No CSS magic tooling though)"*
 - *"Rust: ~10k pages in ~60s"*
 
-
-This sort of surprised me and made me realize I may be missing 
-something site generators do, which I do not know about. 
-Anyway, whotracks.me has roughly 1020 at the time
-this is written. On 1000 of these pages there are offline generated plots, 
-quite some data and a fair amount of tooling with respect to styling. 
-On a `Thinkpad x230` with an Intel `i3 processor`: 
+The assumption would be that most of this time is spent parsing the 
+markdown files. To build this site however, with the exception of the
+blog, the rest of the pages are mainly about instantiating a template,
+plugging some content, and writing to disk. So most likely a comparison between 
+site generators and this would be unfair. At the time this is written, 
+whotracks.me has roughly 1020 pages.  On 1000 of these pages there are 
+offline generated plots, quite some data and a fair amount of tooling 
+with respect to styling.  On a `Thinkpad x230` with an Intel `i3 processor`: 
 
 
 ```bash
@@ -70,7 +71,6 @@ Website pages ........................... done
 Tracker Pages ........................... done
 python build.py site  13.86s user 1.08s system 158% cpu 9.400 total
 ```
-<br>
 
 This will be a 5 part series dedicated to:
 

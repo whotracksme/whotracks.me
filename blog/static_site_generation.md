@@ -73,7 +73,7 @@ class DataSource:
 ```
 
 We use [quote_plus](https://docs.python.org/2/library/urllib.html#utility-functions) 
-here to make sure we get properly formated urls. This 
+here to make sure we get properly formatted urls. This 
 is very useful to avoid errors in generating urls for entities whose id
 would cause issues such as `[24]7`, which is a 
 [tracker](https://whotracks.me/trackers/24_7.html).
@@ -171,10 +171,11 @@ template that could look like this:
 {% endblock %}
 
 ```
-We have a [`base.html`]() where we define the shared html structure
-with all stylesheets and scripts. Inside the `body` in this base
-we declare a content block, which we will be populating in other
-templates (see [`base.html#L51`](https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html#L51)).
+We have a [`base.html`](https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html) 
+where we define the shared html structure with all stylesheets 
+and scripts. Inside the `body` in this base we declare a content block, 
+which we will be populating in other templates 
+(see [`base.html#L51`](https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html#L51)).
 
 So now in our `tracker-page.html` template we simply extend 
 base and start populating the content block, which in our 
