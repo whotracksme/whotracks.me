@@ -1,5 +1,5 @@
 title: Building whotracks.me - Blog (part 3)
-subtitle: The journey of adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
+subtitle: Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
 author: privacy team
 type: article
 publish: True

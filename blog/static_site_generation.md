@@ -1,5 +1,5 @@
 title: Building whotracks.me - Generating a static site (part 1)
-subtitle: The journey of adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
+subtitle: Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
 author: no one
 type: article
 publish: True
