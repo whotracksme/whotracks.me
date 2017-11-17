@@ -1,9 +1,10 @@
 
 
-![alt text](https://raw.githubusercontent.com/cliqz-oss/whotracks.me/master/static/img/who-tracksme-logo.png "whotracks.me")
+<img 
+alt="whotracks.me"
+style="width: 200px"
+src="https://raw.githubusercontent.com/cliqz-oss/whotracks.me/master/static/img/who-tracksme-logo.png">
 
-
-# WhoTracks.me
 Bringing Transparency to online tracking - built by Cliqz and Ghostery
 
 ___
@@ -27,37 +28,26 @@ $ source <name>/bin/activate
 $ pip install -r requirements.txt
 
 ```
-Furthermore you also need to install sass: [http://sass-lang.com/install](http://sass-lang.com/install)
+Furthermore you also need to install sass: 
+[http://sass-lang.com/install](http://sass-lang.com/install)
 
-### 1.2 Serve Site locally
+
+### 1.2 Build and Serve Site locally
 
 To build all the site, please run: 
 ```bash
-$ python buildsite all
+$ python build.py site
 ```
 
-For more options, if you have already built the site, and only want to rebuild tracker 
-pages for instance the build script can be used as shown below:
+Run `python build.py -h` to see how you can build only certain 
+parts you may have changed (e.g. blog, tracker pages etc). 
+A `_site/` directory will be created with the content of the site.
+
+To serve the site locally, run:
 
 ```bash
-buildsite: Module for building "Tracking the Trackers" site.
-
-Usage:
-    buildsite ( all | trackers | websites |  companies | reports )
-    buildsite -h | --help
-
-
-Options:
-    -h, --help                   Show help message.
-```
-All files will be stored `_site/`. 
-
-Then, `cd _site/` and serve the whole directory running:
-
-```bash
-$ python -m http.server
-```
-
+$ python serve.py
+```  
 The site should be accessible `localhost:8000`
 
 
@@ -69,4 +59,4 @@ We are happy to take contributions on:
 
 ## 3. License
 The content of this project itself is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/), and the underlying 
-source code used to generate and display that content is licensed under the MIT license.
+source code used to generate and display that content is licensed under the [MIT license](https://github.com/cliqz-oss/whotracks.me/blob/master/LICENSE.md).

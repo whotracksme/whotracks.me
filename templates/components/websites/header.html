@@ -4,7 +4,7 @@
             {% if profile.website_url is not none %}
             <h1>
                 <img class="icon" src="{{PATHS.static}}/img/website_globe.svg" width="23" height="23" />
-                <a target="_blank" href="//{{ profile.website_url }}">{{ profile.website_url | normalize_domain_name }}</a>
+                <a target="_blank" rel="noreferrer" href="//{{ profile.website_url }}">{{ profile.website_url | normalize_domain_name }}</a>
             </h1>
             {% else %}
             <h1>not a real domain </h1>
@@ -28,11 +28,11 @@
                 <div class="col-md-6 more-info">
                     <div>
                         <i class="fa fa-info-circle"></i>
-                        <a href="{{PATHS.reports}}/what_is_a_tracker.html">What is a tracker?</a>
+                        <a href="{{PATHS.blog}}/what_is_a_tracker.html">What is a tracker?</a>
                     </div>
                     <div>
                         <i class="fa fa-info-circle"></i>
-                        <a href="{{PATHS.reports}}/where_is_the_data_from.html">Where does the data come from?</a>
+                        <a href="{{PATHS.blog}}/where_is_the_data_from.html">Where does the data come from?</a>
                     </div>
                 </div>
             </div>

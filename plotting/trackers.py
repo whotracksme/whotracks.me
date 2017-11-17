@@ -93,10 +93,9 @@ def tracker_reach_ts(ts1, ts2, t):
 
 def ts_trend(ts, t):
     """
-    Timeseries trend line for two time-series
+    Sparkline for plotting line
     Args:
-        ts1: timeseries 1
-        ts2: timeseries 2
+        ts: timeseries data
         t: x-axis (time)
 
     Returns: hmtl output of an interactive timeseries plot
