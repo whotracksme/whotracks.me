@@ -43,18 +43,21 @@ body{
   margin-top: -1px;
   height: 39px;
   background-color: transparent;
-  padding-left: 0;
   position: relative;
   z-index: 2;
+
   .breadcrumb{
     color: $grey-txt-color;
     background-color: transparent;
+    padding-left: 0;
+    
     li + li:before {
       font-family: "FontAwesome";
       color: $grey-txt-color;
       content: "\f105 ";
       padding: 0 15px;      
     }
+   
     a{
       font-family: "Open Sans";
       color: inherit;
@@ -191,7 +194,20 @@ p {
 }
 
 .easy-autocomplete-container ul {
-  top: 57px !important;
+  top: 61px !important;
+  border: solid 1px $light-blue-gray;
+  .eac-item{
+    font-size: 16px;
+    line-height: 1.7;
+    a{
+      color: $dark-blue;
+    }
+  }
+  .eac-category{
+    font-size: 16px !important;
+    color: $grey-txt-color !important;
+    background-color: $light-blue-gray !important;
+  }
 }
 
 #imaginary_container {

@@ -1,5 +1,5 @@
 from collections import defaultdict
-from utils.reports import parse
+from utils.blog import parse
 import os
 
 
@@ -45,12 +45,12 @@ def site_to_json(data_source):
             weight=site.get("overview", {}).get("popularity", 0.01) * 10000
         )
 
-    for f in os.listdir("reports"):
-        report = parse(os.path.join("reports", f))
+    for f in os.listdir("blog"):
+        blogpost = parse(os.path.join("blog", f))
         submit_key(
-             name=report.get("title"),
+             name=blogpost.get("title"),
              type="blog",
-             url=data_source.url_for("report", report.get("filename")),
+             url=data_source.url_for("blog", blogpost.get("filename")),
              weight=1
          )
     return site_idx

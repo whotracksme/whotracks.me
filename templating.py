@@ -16,8 +16,7 @@ PATHS = {
     "trackers": '/trackers',
     "websites": '/websites',
     "companies": '/companies',
-    "reports": '/reports',
-    "learn": '/learn'
+    "blog": '/blog',
 }
 
 CATEGORY_DESC = {
@@ -82,10 +81,8 @@ class DataSource:
             return "{}/companies/{}.html".format(path_to_root, self.normalize_url(id))
         elif entity == "site":
             return "{}/websites/{}.html".format(path_to_root, self.get_site_name(id)).lower()
-        elif entity == "report":
-            return "{}/reports/{}.html".format(path_to_root, id)
-        elif entity == "learn":
-            return "{}/learn/{}.html".format(path_to_root, id)
+        elif entity == "blog":
+            return "{}/blog/{}.html".format(path_to_root, id)
 
     def get_app_name(self, id):
         return self.app_info.get(id).get('name') if id in self.app_info else id
@@ -142,7 +139,9 @@ def get_template(data_source, name, render_markdown=False, path_to_root='.'):
             extensions=[
                 'meta',
                 'fenced_code',
-                'extra'
+                'extra',
+                'toc',
+                'def_list'
             ]
         )
         env.filters["markdown"] = lambda text: Markup(md.convert(text))
@@ -180,7 +179,7 @@ def render_template(template, path_to_root='.', **context):
 
 
 def compile_scss_to_css(scss_folder, css_folder):
-    subprocess.call(["sass", "--update", "%s:%s"% (scss_folder, css_folder)])
+    subprocess.run(["sass", "--update", "%s:%s"% (scss_folder, css_folder)])
 
 
 def create_site_structure(static_path):
@@ -193,7 +192,7 @@ def create_site_structure(static_path):
                 <...>.html
             companies/
                 <...>.html
-            reports/
+            blog/
                 <...>.html
             static/
                 <...>
@@ -209,8 +208,8 @@ def create_site_structure(static_path):
         os.mkdir(os.path.join(SITE_PATH, PATHS.get("websites")[1:]))
     if not os.path.exists(os.path.join(SITE_PATH, PATHS.get("companies")[1:])):
         os.mkdir(os.path.join(SITE_PATH, PATHS.get("companies")[1:]))
-    if not os.path.exists(os.path.join(SITE_PATH, PATHS.get("reports")[1:])):
-        os.mkdir(os.path.join(SITE_PATH, PATHS.get("reports")[1:]))
+    if not os.path.exists(os.path.join(SITE_PATH, PATHS.get("blog")[1:])):
+        os.mkdir(os.path.join(SITE_PATH, PATHS.get("blog")[1:]))
 
     # compile scss to css
     scss_folder = os.path.join(static_path, "scss")

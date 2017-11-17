@@ -9,29 +9,33 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 64px;
 }
 .container-post{
-    max-width: 600px;
+    max-width: 700px;
     padding-bottom: 126px;
-    
+
     #post-title{
-        font-family: "Open Sans Semibold", sans-serif;
+        font-family: sans-serif;
         font-size: 30px;
         color: #1A1925;
     }
+
     #post-subtitle{
         font-family: "Open Sans", sans-serif;
         font-size: 16px;
         line-height: 26px;
         margin-bottom: 30px;
-        color: $grey-txt-color;   
+        color: $grey-txt-color;
     }
+
     h1{
         font-size: 23px;
 
     }
+
     h2 {
         font-size: 16px;
         text-transform: uppercase;
     }
+
     h3 {
         font-size: 16px;
         font-weight: bold;
@@ -39,12 +43,18 @@ h1, h2, h3, h4, h5, h6 {
 
     a{
         color: $link-color;
+        code {
+            color: $link-color;
+            font-weight: bold;
+            border-bottom: solid 1px;
+        }
     }
     a:hover{
         color: #CF635B;
         text-decoration: none;
         border-bottom: solid 2px #CF635B;
     }
+
     p{
         font-family: "Open Sans", sans-serif;
         font-size: 16px;
@@ -58,10 +68,64 @@ h1, h2, h3, h4, h5, h6 {
         color: #484848;
         margin-bottom: 10px;
     }
-    dl{
-        line-height: 26px;
+
+    dt {
+        font-weight: 700;
+        margin-top: 25px;
+        font-size: 16px;
+    }
+
+    dd{
+        line-height: 1.7;
+        margin-left: 50px;
+    }
+    img{
+        width: 100%;
+    }
+
+    .img-with-padding{
+        padding: 30px;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        border-radius: 2px;
+    }
+    .img-caption{
+        font-style: italic;
+        font-size:13px !important;
+        color: #666;
+        margin-top: -30px;
+        margin-bottom: 30px;
+    }
+    blockquote {
+        padding: 10px 20px;
+        margin: 0 0 20px;
+        border-left: 5px solid #00aef0;
+        p {
+            font-size: 19px !important;
+            color: #00aef0 !important;
+            font-style: italic !important;
+        }
     }
 }
 .img-responsive{
     margin: auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+pre{
+    padding: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border: none;
+    code {
+        white-space: inherit;
+    }
+}
+code{
+    padding: 2px 4px;
+    font-size: 85%;
+    font-family: 'FiraMono-Regular', monospace;
+    color: #222;
+    background-color: #f8f8f8;
+    border-radius: 4px;
 }
