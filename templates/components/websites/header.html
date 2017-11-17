@@ -4,7 +4,7 @@
             {% if profile.website_url is not none %}
             <h1>
                 <img class="icon" src="{{PATHS.static}}/img/website_globe.svg" width="23" height="23" />
-                <a target="_blank" href="//{{ profile.website_url }}">{{ profile.website_url | normalize_domain_name }}</a>
+                <a target="_blank" rel="noreferrer" href="//{{ profile.website_url }}">{{ profile.website_url | normalize_domain_name }}</a>
             </h1>
             {% else %}
             <h1>not a real domain </h1>

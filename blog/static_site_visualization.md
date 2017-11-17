@@ -27,7 +27,7 @@ images.
 The main components needed to plot something in plotly are five: `traces`, 
 `data`, `layout`, `figure` and the `plot`object, where they're put together.
 
-- **Traces** are [`graph objects`](/https://plot.ly/python/reference/) 
+- **Traces** are [`graph objects`](https://plot.ly/python/reference/) 
 populated with the input data needed. 
 - **Data** is a list of all traces
 - **Layout** is a dictionary of configuration options that determines the 
@@ -84,19 +84,19 @@ from plotly.offline import plot, iplot # the first one creates a file of the
                                        # viewable in a notebook.
 ```
 
-We will be using [`plottly.offline.plot`](/https://plot.ly/python/offline/) and
+We will be using [`plottly.offline.plot`](https://plot.ly/python/offline/) and
 choose `div` as the output type, which is very handy given it is html 
 that will go into the template where it will be rendered. This enables us to
 generate the plots completely offline and just link the minified 
 [`plotly.js`](https://github.com/cliqz-oss/whotracks.me/blob/master/static/js/plotly-v1.29.3.min.js) 
-in the head of [`base.html#L35`](https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html#L35). 
+in the head of [`base.html`](https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html). 
 One downside to consider, is the 2.8MB size of plotly.js though. For us however, 
 given the site will be served via CDN, this should be cached after the 
 first time it loads.
 
 Let's write a function with all options we need, that  will be used for all
 types of plots shown later in this post. This function is defined in 
-[`plotting/utils.py#L118`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/utils.py#L118):
+[`plotting/utils.py`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/utils.py):
 
 ```python
 def div_output(fig, display_mode_bar=False):
@@ -116,7 +116,7 @@ right corner of the plot when rendered by `plotly.js`, and it looks like this:
 
 `include_plotlyjs` is set to `False` to avoid `plotly.js` being loaded inline 
 with the `div` output for every plot. This is not necessary as it is already 
-linked in [`base.html#L35`](https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html#L35).
+linked in [`base.html`](https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html).
 
 
 ## Bar Chart
@@ -125,7 +125,7 @@ On main page of this site, you will see this:
 <img class="img-responsive img-with-padding" src="../static/img/blog/plotting/bar-chart.png"> 
 <p class="img-caption">Figure 3: Horizontal bar chart on tracking reach of top 10 companies</p>
 
-The code to generate this can be found in [`plotting/companies#L8`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/companies.py#L8). 
+The code to generate this can be found in [`plotting/companies`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/companies.py). 
 Let's write a simpler function for a horizontal bar plot to get the idea: 
 
 
@@ -231,7 +231,7 @@ def sparkline(ts, t):
     return div_output(fig)
 ```
 The code used to plot the sparkline seen in tracker profiles is defined 
-in [`plotting/trackers.py#L94`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/trackers.py#L94).
+in [`plotting/trackers.py`](https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/trackers.py).
 
 
 ## Sankey Diagrams
@@ -336,7 +336,7 @@ With that out of the way, the remaining are intuitive: `value` represents how th
 the matching is done based on index.
 
 For details, have a look at the actual implementation of the `input_data` generation
-in [`utils/companies.py#L50`](https://github.com/cliqz-oss/whotracks.me/blob/master/utils/companies.py#L50). 
+in [`utils/companies.py`](https://github.com/cliqz-oss/whotracks.me/blob/master/utils/companies.py). 
 
 
 ## References 

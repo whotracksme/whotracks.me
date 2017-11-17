@@ -35,6 +35,7 @@ from plotting.companies import overview_bars
 from plotting.trackers import ts_trend
 
 import os
+import subprocess
 import json
 from datetime import datetime
 from multiprocessing import Process
@@ -305,7 +306,6 @@ def build_website_pages(data):
 def company_page(template, company_data, data):
         company_data["logo"] = None
         company_id = company_data['overview']['id']
-        company_name = get_company_name(company_data)
 
         company_name = get_company_name(company_data)
         with open('_site/{}'.format(data.url_for('company', company_id)), 'w') as fp:
@@ -331,6 +331,19 @@ def build_company_pages(data):
     print_progress(text="Company pages")
 
 
+def copy_custom_error_pages(data):
+    error_pages = {
+        "not-found": get_template(data, "not-found.html"),
+        "tracker-not-found": get_template(data, "tracker-not-found.html"),
+        "website-not-found": get_template(data, "website-not-found.html")
+    }
+
+    for error, template in error_pages.items():
+        with open('_site/{}.html'.format(error), 'w') as fp:
+            fp.write(render_template(template=template))
+    return
+
+
 if __name__ == '__main__':
     args = docopt(__doc__)
 
@@ -352,6 +365,9 @@ if __name__ == '__main__':
     sitemap = site_to_json(data_source=data_source)
     with open("_site/sitemap.json", "w") as fp:
         json.dump(sitemap, fp)
+
+    # error pages
+    copy_custom_error_pages(data=data_source)
 
     if args["site"] or args['home']:
         build_home(data=data_source)

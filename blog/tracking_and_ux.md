@@ -12,10 +12,10 @@ header_img: blog/tracking_and_ux/ux_header.png
 We all have been in situations in which we felt that the 
 Internet knows us too well: When the pair of shoes that we looked 
 for suddenly starts to haunt us on almost every single web page. 
-The “magic” behind this phenomenon is called tracking and a 
-controversial topic due to security and privacy reasons. 
-However, tracking is not only relevant from a privacy-related 
-perspective as it also affects user experience in many ways. 
+The “magic” behind this phenomenon is called tracking - a 
+controversial topic, for security and privacy reasons. 
+However, tracking is not only relevant from a privacy 
+perspective, it also affects user experience in many ways. 
 While some of the effects are visible and obvious to everyone, 
 others are hidden behind the scenes.
 
@@ -23,7 +23,7 @@ others are hidden behind the scenes.
 ## A Positive Side to Tracking?
 But before we get started with the actual effects, let’s 
 quickly clarify one thing: Trackers are not good or bad per se. 
-In fact, trackers are often just a byproduct of innovative 
+In fact, trackers are often just a by-product of innovative 
 technologies that were invented to make the user’s life 
 easier in the first place.
 
@@ -50,8 +50,8 @@ One reason for this annoyance is that ads fight for the users’
 attention—in particular ads that use aggressive visuals or 
 animations (Figure 1). They distract users from the 
 actual page content and the task at hand. This seems to 
-contradict banner blindness, the phenomenon of having 
-learnt to ignore ads. But rather than ignoring ads per se, 
+contradict "banner blindness", the phenomenon of having 
+learnt to ignore ads. But rather than ignoring ads, 
 users seem to ignore the content instead, while 
 banners still cause distraction [7]. 
 
@@ -63,8 +63,8 @@ banners still cause distraction [7].
 Another reason for annoyance is the use of native 
 advertising: ads that are designed to resemble content 
 as much as possible (Figure 2). The main goal is to 
-maximize click-through rates on ads, while deliberately 
-accepting the risk to mislead users. Although users are 
+maximize click-through rates on ads by deliberately 
+misleading users on the nature of the content. Although users are 
 less likely to notice the presence of native advertising 
 compared to traditional banner ads [9], it is more 
 difficult for them to distinguish organic content from paid ads. 
@@ -79,33 +79,34 @@ Last but not least, ads and tracking increase page loading
 times: users have to wait substantially longer for 
 content to appear, which degrades the online user 
 experience. The average data usage by trackers 
-amounts to more than 6MB per page load [2]. Mozilla researchers 
-further found that the average number of reported 
-problems with web pages was higher for users without 
-tracking protection [3]. These users reported 
+amounts to more than 6MB per page load [2]. In a Mozilla study, 
+researchers further found that the average 
+number of reported problems with web pages was higher for 
+users with tracker blocking disabled, relative to those 
+with it enabled.[3]. These users reported 
 more often that web pages felt slow, laggy, or 
 unresponsive. This is surprising because tracking 
 protection is often the reason for such page breakage.
 
 ### Moments of embarrassment
 The facets discussed so far all relate to functional 
-problems (i.e., web pages do not work, users cannot 
+problems (i.e. web pages do not work, users cannot 
 complete their tasks, etc.). However, there is also 
 another dimension to the visual effects of tracking: 
 social implications. 
 
 In order to deliver the most relevant ads to the user, 
 they are often targeted and based on previous online 
-behaviours, such as page visits. For example, a 
-user would see ads for sneakers on a news page 
-after having searched for sneakers on a shopping 
+behaviors, such as page visits. For example, a 
+user would see ads for sports shoes on a news page 
+after having searched for them on a shopping 
 site. While the majority of users are opposed to 
 behavioral targeting and are concerned about 
 their privacy [4, 10], behavioral targeting can 
 affect the user experience in a much more direct 
 way, in particular when sharing a computer: Imagine 
 an online purchase for your loved one popping up 
-on a web page visited by the future gift recipient — surprise ruined. 
+on a web page visited by the future gift recipient — surprise ruined.
 Or imagine a friend looking over your shoulder and getting 
 a glimpse on an ad about something that you find embarrassing. 
 
@@ -121,7 +122,7 @@ the user experience.
 ### Lack of Transparency
 Most users are aware that their searches and interactions 
 are recorded when using services like Facebook or Amazon. 
-After all, they explicitly registered and logged in. 
+After all, they are explicitly registered and logged in. 
 Users understand that such services need to know 
 certain things to provide their services, for example, 
 to show interesting posts or to suggest new friends.
@@ -154,7 +155,7 @@ these visits through unique identifiers. Suddenly the
 virtual self turns into a real person: Profile pictures 
 from social networks reveal the visual appearance, 
 location sharing exposes home and workplace, and 
-shopping behaviour hint at personal preferences. 
+shopping behavior hint at personal preferences. 
 All this happens without the awareness of the 
 user—the user experience on the surface does not 
 reveal the operating network of trackers underneath 
@@ -190,8 +191,8 @@ Overall, tracking is a complex topic. Its technical
 foundation is hard to grasp for most users. Users 
 build their mental models about how trackers work 
 based on their own experiences. This leads to wrong 
-beliefs, such as Facebook cannot track users as 
-soon as they are logged out of the platform. On the 
+beliefs, such as that Facebook cannot track users once 
+they are logged out of the platform. On the 
 other hand, advertising is often the only revenue 
 stream for web sites. Users benefit from it as 
 websites can run without charging their users. 
