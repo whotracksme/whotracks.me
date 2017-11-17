@@ -14,21 +14,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {% block title %}
     {% endblock %}
-    <meta name="description" content="Bringing Transparency to online tracking - built by Cliqz and Ghostery">
+    <meta name="description" content="Bringing Transparency to Online Tracking - built by Cliqz and Ghostery">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{PATHS.static}}/img/cliqz-logo.png">
+    <!-- OG params for sharable content -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whotracks.me">
+    <meta property="og:title" content="WhoTracks.me - Bringing Transparency to Online Tracking">
+    <meta property="og:description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
+    <meta property="og:site_name" content="WhoTracks.me">
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="{{PATHS.static}}/img/favicon-2.ico">
     <link rel="stylesheet" href="{{PATHS.static}}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{PATHS.static}}/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{PATHS.static}}/css/custom.css">
-    <!-- CSS file -->
     <link rel="stylesheet" href="{{PATHS.static}}/css/easy-autocomplete.min.css">
+ 
     <!--add this block to templates that need extra styling-->
     {% block extra_styling %}
     {% endblock %}
 
     <!-- Using jQuery locally -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <script src="{{PATHS.static}}/js/jquery.min.js"></script>
 
     <!-- Plotly JS -->

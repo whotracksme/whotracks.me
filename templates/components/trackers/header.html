@@ -5,7 +5,7 @@
   {% endif %}
   {% if profile.website_url is not none %}
     <p id="domain">
-        <a target="_blank" href="{{ profile.website_url }}">{{ profile.website_url }}</a>
+        <a target="_blank" rel="noreferrer"  href="{{ profile.website_url }}">{{ profile.website_url }}</a>
     </p>
   {% endif %}
 </div>
@@ -17,7 +17,7 @@
         <p class="header">TRACKER RANK</p>
         <p class="tracker-rank">
           <span class="emphasis">{{ profile.rank }}</span>
-          /500 <i class="fa fa-long-arrow-down"></i>
+          /500
         </p>
         <p class="description">{{profile.rank|rank_label}}</p>
       </div>
@@ -28,7 +28,9 @@
           <div id="operates-under">
           {% for domain in profile.domains %}
             <p>
-              <a class="profile-label" target="_blank"
+              <a class="profile-label" 
+                 target="_blank"
+                 rel="noreferrer"
                  href="//{{domain}}"> {{ domain }}
               </a>
             </p>
