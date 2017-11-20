@@ -8,14 +8,11 @@ tags: tracker-free, lightweight
 header_img: blog/blog-site-p2.png
 +++
 
-A picture says a 1000 words - or so they say. A plot says a lot of
-words too. This is no surprise, as from a pure evolutionary perspective
-humans developed the ability to see objects sooner than the ability to read. In fact,
-there is some recent research that shows that even when we read, our brain 
-actually recognizes words as pictures [1]. 
-
-With that said, as if one needs to justify this, having plots accompany
-text and numbers, is typically a good idea, and we did add some plots.
+A picture says a 1000 words - or so they say. Interestingly,
+some recent research suggests that even when we read, our brain 
+actually recognizes words as pictures [1]. With that said, as if one needs to 
+justify this, having plots accompany text and numbers, is typically a good idea, 
+and we did add some plots.
 
 
 # Offline plots with Plotly
@@ -255,7 +252,7 @@ Our Sankey Diagram function in Python looks like this:
 ```python
 from plotting.utils import div_output
 
-def alluvial_plot(input_data):
+def sankey_plot(input_data):
     data_trace = dict(
         type='sankey',
         domain=dict(
@@ -268,7 +265,7 @@ def alluvial_plot(input_data):
             pad=10,
             thickness=30,
             label=list(map(lambda x: x.replace("_", " ").capitalize(), input_data['node']['label'])),
-            color=sndata['node']['color']
+            color=input_data['node']['color']
         ),
         link=dict(
             source=input_data['link']['source'],
@@ -287,8 +284,11 @@ def alluvial_plot(input_data):
     fig = dict(data=[data_trace], layout=layout)
     return div_output(fig)
 ```
- The problem in most references is that they take the structure of 
-input data as given and it may seem hard when trying to plot your own data.
+Having looked at a lot of examples of sankey plots, we noticed a recurrent
+pattern: they do a great job at explaining the plot aesthetics, but 
+take the structure of input data as given. This is a bit of a problem, because
+in most examples the input data is a huge json file, and figuring out the
+structure of such json file can become tedious.
 
 Here is how `input_data` is structured:
 
