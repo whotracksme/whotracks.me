@@ -16,47 +16,54 @@ This repository contains:
 
 
 ## 1. Building the site
-We use python 3.6 for rendering the site.
 
+Python 3.x is needed to build the site. We recommend creating a
+[virtualenv](https://docs.python.org/3/library/venv.html) to install the
+dependencies.
+
+With python 3.6:
+```bash
+$ python3 -m venv <name>
+```
+
+or:
 ```bash
 $ virtualenv -p <path to python 3> <name>
 ```
 
 ### 1.1 Install Dependencies 
+
 ```bash
 $ source <name>/bin/activate
 $ pip install -r requirements.txt
-
 ```
-Furthermore you also need to install sass: 
-[http://sass-lang.com/install](http://sass-lang.com/install)
+
+Furthermore you also need to [install sass](http://sass-lang.com/install)
 
 
 ### 1.2 Build and Serve Site locally
 
-To build all the site, please run: 
+To build the site, please run: 
 ```bash
-$ python build.py site
+$ python build.py
 ```
 
-Run `python build.py -h` to see how you can build only certain 
-parts you may have changed (e.g. blog, tracker pages etc). 
-A `_site/` directory will be created with the content of the site.
+For an interactive development mode, the `--serve` option can be provided to:
 
-To serve the site locally, run:
+1. Build the site
+2. Start serving locally (on `http://localhost:8000`)
+3. Watch for local changes and rebuild only what changed
 
-```bash
-$ python serve.py
-```  
-The site should be accessible `localhost:8000`
-
+All generated artifacts can be found in the `_site/` folder.
 
 ## 2. Contributing
+
 We are happy to take contributions on:
 * guest articles for our blog in the topics of tracking, privacy and security. Feel free to use the data in this repository if you need inspiration.
 * Curating our database of tracker profiles.
 
 
 ## 3. License
+
 The content of this project itself is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/), and the underlying 
 source code used to generate and display that content is licensed under the [MIT license](https://github.com/cliqz-oss/whotracks.me/blob/master/LICENSE.md).

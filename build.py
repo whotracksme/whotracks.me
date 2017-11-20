@@ -1,17 +1,35 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
+
 """
 Module to build Tracking the Trackers site
 
 Usage:
-    build ( site | home | trackers | websites |  companies | blog )
+    build [--serve]
     build -h | --help
 
 Options:
-    -h, --help                   Show help message.
+    --serve         Watch for changes and reload.
+    -h, --help      Show help message.
 """
 
+from datetime import datetime
+from multiprocessing import Process, Queue
+import atexit
+import concurrent.futures
+import http.server
+import json
+import os
+import socketserver
+import time
+import sys
+import signal
+
+
 from docopt import docopt
+from watchdog.observers import Observer
+import watchdog
+
 from utils.trackers import (
     prevalence,
     timeseries,
@@ -23,28 +41,43 @@ from utils.trackers import (
     tracker_header_stats
 )
 from utils.blog import parse as parse_blogpost
-from utils.websites import summary_stats, changes, sort_by_rank, sort_by_cat, tracked_by_category, header_stats
-from utils.companies import companies_present, get_company_name, website_doughnout, company_reach
+from utils.websites import (
+    changes,
+    header_stats,
+    sort_by_cat,
+    sort_by_rank,
+    summary_stats,
+    tracked_by_category
+)
+from utils.companies import (
+    companies_present,
+    company_reach,
+    get_company_name,
+    website_doughnout
+)
 from utils.site_index import site_to_json
 
-from templating import create_site_structure, get_template, render_template, Markup, DataSource
+from templating import (
+    DataSource,
+    Markup,
+    create_site_structure,
+    get_template,
+    render_template
+)
 
 from plotting.plots import profile_doughnut
 from plotting.sankey import alluvial_plot
 from plotting.companies import overview_bars
 from plotting.trackers import ts_trend
 
-import os
-import subprocess
-import json
-from datetime import datetime
-from multiprocessing import Process
-import concurrent.futures
+
+DATA_DIRECTORY = "data"
+STATIC_PATH = "static"
 
 
 def load_json_file(directory, name):
-    with open(directory + '/' + name + '.json') as fp:
-        return json.load(fp)
+    with open(os.path.join(directory, name + '.json')) as input_file:
+        return json.load(input_file)
 
 
 def print_progress(text, default_space=40):
@@ -57,15 +90,15 @@ def build_home(data):
     apps = data.apps
 
     sorted_trackers = sorted(apps.values(), key=lambda a: a['overview']['reach'], reverse=True)
-    sorted_trackers_cat = sorted(apps.values(), key=lambda a: '' if 'cat' not in a or 'cat' in a and a['cat'] is None else  a['cat'])
+    sorted_trackers_cat = sorted(apps.values(), key=lambda a: a.get('cat', '') or '')
 
-    for t in sorted_trackers:
-        if 'name' not in t:
-            t['name'] = t['overview']['id']
+    for tracker in sorted_trackers:
+        if 'name' not in tracker:
+            tracker['name'] = tracker['overview']['id']
 
-    for t in sorted_trackers_cat:
-        if 'name' not in t:
-            t['name'] = t['overview']['id']
+    for tracker in sorted_trackers_cat:
+        if 'name' not in tracker:
+            tracker['name'] = tracker['overview']['id']
 
     # most tracked sites by cat
     most_tracked_sites = tracked_by_category(data.sites, worst=True)
@@ -75,18 +108,17 @@ def build_home(data):
     top10 = company_reach(data.companies)
     header_graph = Markup(overview_bars(top10))
 
-    with open('_site/index.html', 'w') as fp:
-        content = render_template(
+    with open('_site/index.html', 'w') as output:
+        output.write(render_template(
             template=get_template(data, "index.html"),
             ts=header_graph,
             tracker_list=sorted_trackers[:20],
             trackers_list_cat=sorted_trackers_cat[:20],
             most_tracked_sites=most_tracked_sites,
             least_tracked_sites=least_tracked_sites
-        )
-        fp.write(content)
-        print_progress(text="Home page")
-        return
+        ))
+
+    print_progress(text="Generate home page")
 
 
 # ---------------------     Trackers   ----------------------------
@@ -94,22 +126,28 @@ def build_trackers_list(data):
     apps = data.apps
 
     sorted_trackers = sorted(apps.values(), key=lambda a: a['overview']['reach'], reverse=True)
-    sorted_trackers_cat = sorted(apps.values(), key=lambda a: data.get_app_name(a['overview']['id']) if 'company_id' not in a or 'company_id' in a and a['company_id'] in [None, "None"] else  a['company_id'])
+    sorted_trackers_cat = sorted(
+        apps.values(),
+        key=lambda a: data.get_app_name(
+            a['overview']['id']) if (
+                'company_id' not in a or
+                a['company_id'] in [None, "None"])
+            else a['company_id']
+    )
 
-    for t in sorted_trackers:
-        if 'name' not in t:
-            t['name'] = t['overview']['id']
-    with open('_site/trackers.html', 'w') as fp:
-        file_content = render_template(
+    for tracker in sorted_trackers:
+        if 'name' not in tracker:
+            tracker['name'] = tracker['overview']['id']
+
+    with open('_site/trackers.html', 'w') as output:
+        output.write(render_template(
             template=get_template(data, name="trackers.html"),
             tracker_list=sorted_trackers,
             trackers_list_cat=sorted_trackers_cat,
             header_stats=tracker_header_stats(data.apps)
-        )
+        ))
 
-        fp.write(file_content)
-        print_progress(text="Tracker list")
-        return
+    print_progress(text="Generate tracker list")
 
 
 def tracker_page(template, aid, app, data):
@@ -138,8 +176,8 @@ def tracker_page(template, aid, app, data):
     similar_tracker_list = similar_trackers(app, data.apps, n=4)
 
     # write to file
-    with open('_site/{}'.format(data.url_for('app', aid)), 'w') as fp:
-        content = render_template(
+    with open('_site/{}'.format(data.url_for('app', aid)), 'w') as output:
+        output.write(render_template(
             path_to_root='..',
             template=template,
             app=app,
@@ -151,63 +189,55 @@ def tracker_page(template, aid, app, data):
             website_types=website_types[:5], # top 3
             similar_trackers=similar_tracker_list,
             trends={"page": page_trend, "site": site_trend}
-        )
-        fp.write(content)
-        return
+        ))
 
 
 def build_tracker_pages(data):
     apps = data.apps
     template = get_template(data, name='tracker-page.html', path_to_root='..')
 
-    # NOTE: trying to make faster
-    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
-        futures = {executor.submit(tracker_page, template, aid, app, data): (aid, app)
-            for (aid, app) in list(sorted(apps.items(), key=lambda a: a[1]['overview']['reach'], reverse=True))}
-        for future in futures:
-            future.result()
+    for (aid, app) in apps.items():
+        tracker_page(template, aid, app, data)
 
-    print_progress(text="Tracker Pages")
+    print_progress(text="Generate tracker pages")
 
 
 # ---------------------     Blog   ----------------------------
-def build_blogpost_list(data):
-    with open('_site/blog.html', 'w') as fp:
-        blog_posts = [parse_blogpost(os.path.join("{}".format("blog"), f)) for f in os.listdir("blog/")]
-        blog_posts = reversed(sorted(
-            [p for p in blog_posts if p['publish']], 
-            key=lambda p: datetime.strptime(p['date'], '%Y-%m-%d')
-        ))
-
-        content = render_template(
+def build_blogpost_list(data, blog_posts):
+    with open('_site/blog.html', 'w') as output:
+        output.write(render_template(
             template=get_template(data, "blog.html"),
-            blog_posts=blog_posts
-        )
-        fp.write(content)
-        print_progress(text="Blog List")
-        return
+            blog_posts=[p for p in blog_posts if p['publish']]
+        ))
+    print_progress(text="Generate blog list")
 
 
-def build_blogpost_pages(data):
-    template = get_template(data, "blog-page.html", render_markdown=True, path_to_root='..')
-    for f in os.listdir("blog/"):
-        blog_post = parse_blogpost(os.path.join("blog", f))
-        with open("_site/blog/{}.html".format(blog_post.get("filename")), 'w') as fp:
-            fp.write(
+def build_blogpost_pages(data, blog_posts):
+    template = get_template(
+        data,
+        "blog-page.html",
+        render_markdown=True,
+        path_to_root='..'
+    )
+
+    for blog_post in blog_posts:
+        with open("_site/blog/{}.html".format(blog_post.get("filename")), 'w') as output:
+            output.write(
                 render_template(
                     path_to_root='..',
                     template=template,
                     blog_post=blog_post
                 )
             )
-    print_progress(text="Blog Posts")
+
+    print_progress(text="Generate blog posts")
 
 
 # ---------------------     Websites   ----------------------------
 def build_website_list(data):
     sites = data.sites
     tracker_requests, tracker_buckets, https = summary_stats(data.sites)
-    
+
     # header stats
     tracker_values = []
     tracker_labels = []
@@ -221,16 +251,14 @@ def build_website_list(data):
     sorted_websites_cat = sort_by_cat(data.sites)
 
     # write to file
-    with open('_site/websites.html', 'w') as fp:
-        file_content = render_template(
+    with open('_site/websites.html', 'w') as output:
+        output.write(render_template(
             template=get_template(data, "websites.html"),
             website_list=sorted_websites,
             website_list_cat=sorted_websites_cat,
             header_numbers=header_numbers
-        )
-        fp.write(file_content)
-        print_progress(text="Website list")
-        return
+        ))
+    print_progress(text="Generate website list")
 
 
 def website_page(template, site_id, rank, data):
@@ -265,11 +293,11 @@ def website_page(template, site_id, rank, data):
             apps_table.append(appdict)
 
     sorted_trackers = sorted(apps_table, key=lambda a: a['frequency'], reverse=True)
-    sorted_trackers_cat = sorted(list(apps_table), key=lambda a: a.get("company_id", "") if a.get("company_id") is not None else "")
+    sorted_trackers_cat = sorted(apps_table, key=lambda a: a.get("company_id", "") if a.get("company_id") is not None else "")
 
     # write to file
-    with open('_site/websites/{}.html'.format(site["name"]), 'w') as fp:
-        content = render_template(
+    with open('_site/websites/{}.html'.format(site["name"]), 'w') as output:
+        output.write(render_template(
             path_to_root='..',
             template=template,
             site=site,
@@ -281,54 +309,42 @@ def website_page(template, site_id, rank, data):
             tracker_categories=d_labels,
             tracker_list=sorted_trackers,
             trackers_list_cat=sorted_trackers_cat
-        )
-        fp.write(content)
-        return
+        ))
 
 
 def build_website_pages(data):
     sites = data.sites
     template = get_template(data, "website-page.html", path_to_root='..')
 
-    # NOTE: trying to make faster
-    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
-        futures = {executor.submit(website_page, template, site_id, rank + 1, data): (site_id, site)
-                   for rank, (site_id, site) in enumerate(sorted(sites.items(),
-                                                                 key=lambda s: s[1]['overview']['popularity'],
-                                                                 reverse=True))}
-        for future in futures:
-            future.result()
+    for rank, (site_id, site) in enumerate(sorted(sites.items(), key=lambda s: s[1]['overview']['popularity'], reverse=True)):
+        website_page(template, site_id, rank + 1, data)
 
-    print_progress(text="Website pages")
+    print_progress(text="Generate website pages")
 
 
 # ---------------------   Companies   ----------------------------
 def company_page(template, company_data, data):
-        company_data["logo"] = None
-        company_id = company_data['overview']['id']
+    company_data["logo"] = None
+    company_id = company_data['overview']['id']
 
-        company_name = get_company_name(company_data)
-        with open('_site/{}'.format(data.url_for('company', company_id)), 'w') as fp:
-            content = render_template(
-                path_to_root='..',
-                template=template,
-                demographics=company_data,
-                initials=company_name[:2]
-            )
-            fp.write(content)
-            return
+    company_name = get_company_name(company_data)
+    with open('_site/{}'.format(data.url_for('company', company_id)), 'w') as output:
+        output.write(render_template(
+            path_to_root='..',
+            template=template,
+            demographics=company_data,
+            initials=company_name[:2]
+        ))
 
 
 def build_company_pages(data):
     companies = data.companies
     template = get_template(data, "company-page.html")
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
-        futures = {executor.submit(company_page, template, company_data, data): company_data for (_, company_data) in companies.items()}
-        for future in futures:
-            future.result()
+    for company_data in companies.values():
+        company_page(template, company_data, data)
 
-    print_progress(text="Company pages")
+    print_progress(text="Generate company pages")
 
 
 def copy_custom_error_pages(data):
@@ -339,54 +355,246 @@ def copy_custom_error_pages(data):
     }
 
     for error, template in error_pages.items():
-        with open('_site/{}.html'.format(error), 'w') as fp:
-            fp.write(render_template(template=template))
-    return
+        with open('_site/{}.html'.format(error), 'w') as output:
+            output.write(render_template(template=template))
+
+
+def generate_sitemap(data, blog_posts):
+    # write sitemap to _site (to be used as index for static site search)
+    with open("_site/sitemap.json", "w") as output:
+        json.dump(
+            site_to_json(
+                data_source=data,
+                blog_posts=blog_posts),
+            output
+        )
+    print_progress(text='Generate sitemap index')
+
+
+DATA_FOLDER = 0x00000001
+STATIC_FOLDER = 0x00000002
+TEMPLATES_FOLDER = 0x00000004
+BLOG_FOLDER = 0x00000008
+ALL = (
+    DATA_FOLDER |
+    STATIC_FOLDER |
+    TEMPLATES_FOLDER |
+    BLOG_FOLDER
+)
+
+
+def handle_exit(*args):
+    sys.exit(0)
+
+
+def build(queue):
+    data_source = None
+    blog_posts = None
+
+    # Exit cleanly on CTRL-C
+    signal.signal(signal.SIGINT, handle_exit)
+
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        while True:
+            futures = []
+
+            # Wait for next event
+            event = queue.get()
+
+            # This means the build process should stop
+            if event is None:
+                return
+
+            ###################################################################
+            # Thist needs to be first, as other tasks will need to write in   #
+            # the resulting folders.                                          #
+            ###################################################################
+
+            # Depends on folder: 'static/'
+            if event & STATIC_FOLDER:
+                create_site_structure(static_path=STATIC_PATH)
+                print_progress(text='Create _site')
+
+
+            ###################################################################
+            # We then reload data in memory, before generating the site       #
+            ###################################################################
+
+            # Depends on folder: 'data/'
+            if data_source is None or event & DATA_FOLDER:
+                # class where all data can be accessed from
+                data_source = DataSource(
+                    load_json_file(DATA_DIRECTORY, 'overview'),
+                    load_json_file(DATA_DIRECTORY, 'apps'),
+                    load_json_file(DATA_DIRECTORY, 'companies'),
+                    load_json_file(DATA_DIRECTORY, 'sites')
+                )
+                print_progress(text='Load data sources')
+
+            # Depends on: 'blog/'
+            if blog_posts is None or event & BLOG_FOLDER:
+                blog_posts = [
+                    parse_blogpost(os.path.join("blog", f))
+                    for f in os.listdir("blog/")
+                ]
+                blog_posts.sort(
+                    key=lambda p: datetime.strptime(p['date'], '%Y-%m-%d'),
+                    reverse=True
+                )
+                print_progress(text='Load blog posts')
+
+
+            ###################################################################
+            # Once site structure has been created and data is refreshed, we  #
+            # can build all parts of the site in parallel, since there is no  #
+            # dependencies between them.                                      #
+            ###################################################################
+
+            # Depends on: 'templates/', 'data/'
+            if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
+                print_progress(text='Generate error pages')
+                copy_custom_error_pages(data=data_source)
+
+            # Depends on: 'data/'
+            if event & DATA_FOLDER:
+                # Home
+                futures.append(executor.submit(build_home, data=data_source))
+
+                # Trackers
+                futures.append(executor.submit(build_trackers_list, data=data_source))
+                futures.append(executor.submit(build_tracker_pages, data=data_source))
+
+                # Websites
+                futures.append(executor.submit(build_website_list, data=data_source))
+                futures.append(executor.submit(build_website_pages, data=data_source))
+
+            # Depends on: 'data/', 'blog/', 'templates/'
+            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
+                futures.append(executor.submit(
+                    build_blogpost_list,
+                    data=data_source,
+                    blog_posts=blog_posts
+                ))
+
+                futures.append(executor.submit(
+                    build_blogpost_pages,
+                    data=data_source,
+                    blog_posts=blog_posts
+                ))
+
+            # Depends on: 'data/', 'blog/'
+            if event & DATA_FOLDER or event & BLOG_FOLDER:
+                futures.append(executor.submit(
+                    generate_sitemap,
+                    data=data_source,
+                    blog_posts=blog_posts
+                ))
+
+            # TODO: uncomment when company profiles are ready
+            # if args['site'] or args['companies']:
+            #     company_process = Process(target=build_company_pages, args=(data_source,))
+            #     company_process.start()
+
+            concurrent.futures.wait(futures)
+            print('Done')
+
+
+def watch(queue):
+    """Watch changes in directories and yield events indicating where the change
+    happened: BLOG_FOLDER, STATIC_FOLDER, TEMPLATES_FOLDER, DATA_FOLDER. The
+    events are then consumed by `build` which will rebuild only what is needed
+    after each change.
+    """
+    watched_directories = {
+        'blog': BLOG_FOLDER,
+        'data': DATA_FOLDER,
+        'static': STATIC_FOLDER,
+        'templates': TEMPLATES_FOLDER
+    }
+
+    def handle_event(event):
+        path = event.src_path
+        directory = os.path.relpath(os.path.dirname(path))
+        if directory in watched_directories:
+            print('>', path, 'changed')
+            queue.put(watched_directories[directory])
+
+    class Callback(watchdog.events.FileSystemEventHandler):
+        def on_created(self, event):
+            handle_event(event)
+        def on_deleted(self, event):
+            handle_event(event)
+        def on_modified(self, event):
+            handle_event(event)
+        def on_moved(self, event):
+            handle_event(event)
+
+    observer = Observer()
+    observer.schedule(Callback(), '.', recursive=True)
+    observer.start()
+
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        observer.stop()
+    observer.join()
+
+
+def serve(cwd, port):
+    """Serve site locally."""
+    # Exit cleanly on CTRL-C
+    signal.signal(signal.SIGINT, handle_exit)
+
+    if not os.path.exists('_site'):
+        os.mkdir('_site')
+
+    os.chdir(cwd)
+    handler = http.server.SimpleHTTPRequestHandler
+
+    try:
+        with socketserver.TCPServer(("", port), handler) as httpd:
+            httpd.serve_forever()
+    except OSError as e:
+        print(e)
+        handle_exit()
+
+
+def main():
+    args = docopt(__doc__)
+
+    # Create pipe to communicate with builder process
+    queue = Queue()
+
+    # Start builder process
+    build_process = Process(target=build, args=(queue,))
+    build_process.start()
+
+    # Initial build
+    queue.put(ALL)
+
+    if args['--serve']:
+        # Start serving the website locally
+        port = 8000
+        print("Serving _site locally: http://localhost:{}".format(port))
+        serve_process = Process(target=serve, args=('_site/', port), daemon=True)
+        serve_process.start()
+
+        # Register a callback to handle termination properly
+        def cleanup():
+            print('Terminate child processes...')
+            serve_process.terminate()
+            build_process.terminate()
+            print('Exiting')
+
+        atexit.register(cleanup)
+
+        # Start watching for changes
+        watch(queue)
+    else:
+        # Signal build process to stop
+        queue.put(None)
 
 
 if __name__ == '__main__':
-    args = docopt(__doc__)
-
-    # create_site_structure
-    create_site_structure(static_path="static")
-
-    # loading data and generating pages for all entities
-    data_directory = "data"
-
-    # class where all data can be accessed from
-    data_source = DataSource(
-        load_json_file(data_directory, 'overview'),
-        load_json_file(data_directory, 'apps'),
-        load_json_file(data_directory, "companies"),
-        load_json_file(data_directory, 'sites')
-    )
-
-    # write sitemap to _site (to be used as index for static site search)
-    sitemap = site_to_json(data_source=data_source)
-    with open("_site/sitemap.json", "w") as fp:
-        json.dump(sitemap, fp)
-
-    # error pages
-    copy_custom_error_pages(data=data_source)
-
-    if args["site"] or args['home']:
-        build_home(data=data_source)
-
-    if args['site'] or args['trackers']:
-        build_trackers_list(data=data_source)
-        trackers_process = Process(target=build_tracker_pages, args=(data_source,))
-        trackers_process.start()
-
-    if args['site'] or args['websites']:
-        build_website_list(data_source)
-        sites_process = Process(target=build_website_pages, args=(data_source,))
-        sites_process.start()
-
-    # TODO: uncomment when company profiles are ready
-    # if args['site'] or args['companies']:
-    #     company_process = Process(target=build_company_pages, args=(data_source,))
-    #     company_process.start()
-
-    if args['site'] or args['blog']:
-        build_blogpost_list(data_source)
-        build_blogpost_pages(data_source)
+    main()

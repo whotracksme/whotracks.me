@@ -43,9 +43,10 @@ class DataSource:
         self.companies = companies
         self.sites = sites
 
-        self.db = load_tracker_db()
-        self.app_info = self.load_app_info()
-        self.company_info = self.load_company_info()
+        connection = load_tracker_db()
+        with connection:
+            self.app_info = self.load_app_info(connection)
+            self.company_info = self.load_company_info(connection)
 
         for id, app in self.apps.items():
             if id in self.app_info:
@@ -93,39 +94,37 @@ class DataSource:
     def get_site_name(self, id):
         return id if id in self.sites else None
 
-    def load_app_info(self):
-        cur = self.db.cursor()
+    def load_app_info(self, connection):
         col_names = ['id', 'name', 'description', 'cat', 'website_url', 'logo_url', 'company_id']
-        cur.execute('''SELECT trackers.id, trackers.name, description, categories.name, website_url, logo_url,
+        cur = connection.execute('''SELECT trackers.id, trackers.name, description, categories.name, website_url, logo_url,
                 company_id
             FROM trackers
             LEFT JOIN categories ON categories.id = category_id
             ''')
         app_info = {}
-        for row in cur.fetchall():
+        for row in cur:
             app_info[row[0]] = {col: row[i] for i, col in enumerate(col_names)}
             app_info[row[0]]['domains'] = []
 
-        cur.execute('SELECT tracker, domain FROM tracker_domains')
-        for app, domain in cur.fetchall():
+        cur = connection.execute('SELECT tracker, domain FROM tracker_domains')
+        for app, domain in cur:
             app_info[app]['domains'].append(domain)
 
         return app_info
 
-    def load_company_info(self):
-        cur = self.db.cursor()
+    def load_company_info(self, connection):
         col_names = ['id', 'name', 'description', 'about_us_url', 'privacy_contact_url', 'privacy_url', 'website_url',
                      'in_their_own_words', 'logo_url']
-        cur.execute('''SELECT {}
+        cur = connection.execute('''SELECT {}
             FROM companies
             '''.format(','.join(col_names)))
         company_info = {}
-        for row in cur.fetchall():
+        for row in cur:
             company_info[row[0]] = {col: row[i] for i, col in enumerate(col_names)}
             company_info[row[0]]['apps'] = {}
 
-        cur.execute('SELECT company_id, id, name FROM trackers WHERE company_id IS NOT NULL')
-        for cid, app_id, app_name in cur.fetchall():
+        cur = connection.execute('SELECT company_id, id, name FROM trackers WHERE company_id IS NOT NULL')
+        for cid, app_id, app_name in cur:
             company_info[cid]['apps'][app_id] = app_name
 
         return company_info

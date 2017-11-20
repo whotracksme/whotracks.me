@@ -1,6 +1,4 @@
 from collections import defaultdict
-from utils.blog import parse
-import os
 
 
 def normalize(s):
@@ -8,7 +6,7 @@ def normalize(s):
     return s.lower()
 
 
-def site_to_json(data_source):
+def site_to_json(data_source, blog_posts):
     site_idx = defaultdict(list)
 
     def submit_key(name, type, url, weight, idx=site_idx):
@@ -45,12 +43,12 @@ def site_to_json(data_source):
             weight=site.get("overview", {}).get("popularity", 0.01) * 10000
         )
 
-    for f in os.listdir("blog"):
-        blogpost = parse(os.path.join("blog", f))
+    for blogpost in blog_posts:
         submit_key(
-             name=blogpost.get("title"),
-             type="blog",
-             url=data_source.url_for("blog", blogpost.get("filename")),
-             weight=1
-         )
+            name=blogpost.get("title"),
+            type="blog",
+            url=data_source.url_for("blog", blogpost.get("filename")),
+            weight=1
+        )
+
     return site_idx

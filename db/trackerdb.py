@@ -6,12 +6,11 @@ def _tracker_db_path():
     return os.path.join(prefix, 'trackerdb.sql')
 
 def load_tracker_db(loc=':memory:'):
-    conn = sqlite3.connect(loc)
-    path = os.path.dirname(__file__)
+    connection = sqlite3.connect(loc)
     with open(_tracker_db_path()) as fp:
-        cur = conn.cursor()
-        cur.executescript(fp.read())
-    return conn
+        with connection:
+            connection.executescript(fp.read())
+    return connection
 
 def dump_tracker_db(conn):
     with open(_tracker_db_path(), 'w') as fp:
