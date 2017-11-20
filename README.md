@@ -33,7 +33,7 @@ Furthermore you also need to install sass: [http://sass-lang.com/install](http:/
 
 To build all the site, please run: 
 ```bash
-$ python buildsite all
+$ python buildsite.py all
 ```
 
 For more options, if you have already built the site, and only want to rebuild tracker 
