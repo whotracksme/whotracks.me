@@ -38,24 +38,29 @@ helper function found in `trackerdb.py`. Both files are located in the `db`
 folder at the root of the repository.
 
 ```python
-from trackerdb import load_tracker_db
+from db.trackerdb import load_tracker_db
 from collections import defaultdict
 
 # Categories to tracker domains
-trackers_by_category = defaultdict(list)
+tracker_domains_per_category = defaultdict(list)
+
+# Keep track of normalized "app" name for each tracker domain. A given "app"
+# such as "doubleclick" can use several domains: 2mdn.net, doubleclick.net, etc.
+tracker_domains_to_app = {}
 
 # Load trackers and group them by category
 sql_query = """
-  SELECT categories.name, domain FROM tracker_domains
+  SELECT categories.name, tracker, domain FROM tracker_domains
   INNER JOIN trackers ON trackers.id = tracker_domains.tracker
   INNER JOIN categories ON categories.id = trackers.category_id;
 """
 with load_tracker_db() as connection:
-    for (category, domain) in connection.execute(sql_query):
-        trackers_by_category[category].append(domain)
+    for (category, tracker, domain) in connection.execute(sql_query):
+        tracker_domains_per_category[category].append(domain)
+        tracker_domains_to_app[domain] = tracker
 ```
 
-Here is a sample of what we get in `trackers_by_category`. Note that if
+Here is a sample of what we get in `tracker_domains_per_category`. Note that if
 you run the same script, you might get slightly different results as the
 data is being constantly updated:
 
@@ -112,6 +117,81 @@ defaultdict(list, {
 ]})
 ```
 
+## Filtering based on tracking behavior
+
+It is tempting to generate filters for each domain loaded so far, but it
+would be very aggressive. Indeed, some domains identified as potential
+trackers might in fact not send unsafe identifiers (or not a lot).
+Fortunately, we can make use of the data from `data/apps.json` to learn
+more about each tracker. An *app* is an entity which can contain several
+domains (e.g.: *doubleclick* is an *app* for which we identified three
+domains: `2mdn.net`, `invitemedia.com` and `doubleclick.net`). We also
+provide information about companies to which each app belongs, but we
+will leave the exploration of this data for another article.
+
+```python
+import json
+
+with open('data/apps.json') as apps_data:
+    apps = json.load(apps_data)
+```
+
+`apps` is a dictionary with `keys` being *app ids* (e.g.: "google_analytics")
+and `values` containing all we know about each *app*. Let's take an example:
+
+* `apps["google_analytics"]`:
+
+```python
+{
+    "overview": {
+        "bad_qs": 0.4377430033329568,
+        "content_length": 14771.492718357234,
+        "cookies": 0.0015869678941083753,
+        "https": 0.7507222054912428,
+        "id": "google_analytics",
+        "reach": 0.44292899275150094,
+        "requests": 3.834100333790446,
+        "requests_tracking": 1.202157901660253,
+        "site_reach": 0.616005569531587,
+        "tracked": 0.4383474801843971
+    },
+    "history": ...,
+    "rank": ...,
+    "sites": ...
+}
+```
+
+That's a lot of data, and we plan to release a more complete
+documentation about what all this is about soon. For now let's just say
+that everything is already made accessible on the website, in form of
+nice graphs and aggregations!.
+
+For our use-case, we will only consider the field: `tracked`. It represents the
+proportion of requests made by this *app*, identified as tracking the user
+(using either identifying *cookies* or *fingerprinting*). In the case of
+`google_analytics`, it means that out of `100` requests, `43` contain enough
+information to identify you (if you don't use any privacy-enhancing extension).
+
+Before generating the filter list, let's keep only the trackers for
+which we saw at least `10%` of the requests tracking users. Please note
+that finding the right threshold would require some finer analysis, and
+could depend on the application.
+
+```python
+def filter_domains(domains):
+    for domain in domains:
+        app_name = tracker_domains_to_app[domain]
+        if app_name in apps:
+            app = apps[tracker_domains_to_app[domain]]
+            tracked = app['overview']['tracked']
+            if tracked >= 0.1:
+                yield domain
+```
+
+We need to check if the *app* exist first because we currently only have the
+*top 500* hosted on Github. We will host more in the future.
+
+
 ## Generating the lists
 
 We now proceed to generate the filter lists from these domains. They can take
@@ -130,23 +210,23 @@ def generate_adb_filters(domains):
     ADB syntax to be used in an adblocker"""
     for domain in domains:
         yield f"||{domain}$third-party"
-        
+
 def generate_hostname_filters(domains):
     """Given a list of domains, generate filters using
     the hostname syntax"""
     for domain in domains:
         yield f"127.0.0.1 {domain}"
-        
+
 # Generate filters with *ADB* syntax
 adb_filters = {
-    category: '\n'.join(generate_adb_filters(domains))
-    for (category, domains) in trackers_by_category.items()
+    category: '\n'.join(generate_adb_filters(filter_domains(domains)))
+    for (category, domains) in tracker_domains_per_category.items()
 }
 
 # Generate filters with *hostname* syntax
 hostname_filters = {
-    category: '\n'.join(generate_hostname_filters(domains))
-    for (category, domains) in trackers_by_category.items()
+    category: '\n'.join(generate_hostname_filters(filter_domains(domains)))
+    for (category, domains) in tracker_domains_per_category.items()
 }
 ```
 
@@ -204,6 +284,7 @@ To put it in a nutshell, here is what we just did:
 
 1. Load the data from `whotracks.me` to get access to tracker's information
 2. Create a mapping from tracking categories to list of domains
+3. Filter each domain based on the amount of tracking of each *app*
 3. Generate a filter list for each category
 
 There is so much more we can do with this database. At the moment the
