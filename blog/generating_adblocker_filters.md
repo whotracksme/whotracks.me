@@ -9,6 +9,18 @@ header_img: blog/blog-generate-adb-filters.jpg
 +++
 
 
+Most popular content blockers are using filter lists to decide what requests
+leaving the browser should be blocked. In this regard, filter lists act as a
+privacy *ground truth*: deciding what is safe, and what is not safe for users.
+It means that your privacy protection is only as good as the filters your are
+using. The community is doing an amazing job, but still there can be gaps in
+your protection; one such situation is when a new tracker appears.
+
+With the right data, updated regularly, we believe it is possible to
+build powerful tools to help increase user's privacy. Knowing more about
+trackers, in real time, allows to provide better antitracking but can also
+*help* the tedious process of curating the filter lists.
+
 In this post we'd like to demonstrate how we can make use of the
 open-sourced [whotracks.me](https://whotracks.me) data to automatically
 generate *up-to-date*, *per-category*, filter lists supported by the
@@ -16,7 +28,7 @@ most popular ad-blockers out there. While it might not immediately
 seem useful, leveraging this data can improve user experience and make
 maintaining the lists much easier.
 
-In the future, we can also imagine generating per-country lists as well,
+In the future, we can imagine generating per-country lists as well,
 in the spirit of the different *easylists* already in existence:
 
 * `DEU: Pornvertising blocking Germany`
