@@ -34,7 +34,7 @@ in the spirit of the different *easylists* already in existence:
 * `DEU: Pornvertising blocking Germany`
 * `DEU: Site_Analytics blocking Germany`
 * ...
-* `FR: Site_Analytics blocking Germany`
+* `FR: Site_Analytics blocking France`
 
 They could also be dispatched in the already existing lists such as
 `advertising`, `privacy`, etc. Another option could be to use this as
