@@ -8,6 +8,13 @@ tags: privacy, tracking, adblocking
 header_img: blog/blog-generate-adb-filters.jpg
 +++
 
+*TL;DR*  In this post we see how to:
+
+1. Load the data from `whotracks.me` to get access to tracker's information
+2. Create a mapping from tracking categories to list of domains
+3. Filter each domain based on the amount of tracking of each *app*
+3. Generate a filter list for each category
+
 
 Most popular content blockers are using filter lists to decide what requests
 leaving the browser should be blocked. In this regard, filter lists act as a
@@ -17,19 +24,19 @@ using. The community is doing an amazing job, but still there can be gaps in
 your protection; one such situation is when a new tracker appears.
 
 With the right data, updated regularly, we believe it is possible to
-build powerful tools to help increase user's privacy. Knowing more about
+build powerful tools to help increase users' privacy. Knowing more about
 trackers, in real time, allows to provide better antitracking but can also
 *help* the tedious process of curating the filter lists.
 
 In this post we'd like to demonstrate how we can make use of the
 open-sourced [whotracks.me](https://whotracks.me) data to automatically
 generate *up-to-date*, *per-category*, filter lists supported by the
-most popular ad-blockers out there. While it might not immediately
-seem useful, leveraging this data can improve user experience and make
-maintaining the lists much easier.
+most popular ad-blockers out there. Leveraging this data can improve
+user experience and make maintaining the lists easier.
 
 In the future, we can imagine generating per-country lists as well,
-in the spirit of the different *easylists* already in existence:
+in the spirit of the different [easylists](https://easylist.to/) already
+in existence:
 
 * `DEU: Pornvertising blocking Germany`
 * `DEU: Site_Analytics blocking Germany`
@@ -37,9 +44,9 @@ in the spirit of the different *easylists* already in existence:
 * `FR: Site_Analytics blocking France`
 
 They could also be dispatched in the already existing lists such as
-`advertising`, `privacy`, etc. Another option could be to use this as
-a tool to assist maintainers to keep an eye on the ecosystem; learning
-about new trackers in real time certainly seems useful.
+`advertising`, `privacy`, etc. Another option could be to use this as a
+tool to assist maintainers to keep an eye on the ecosystem; allowing to
+learn about new trackers in real time.
 
 Let's get started!
 
@@ -133,7 +140,11 @@ defaultdict(list, {
 
 It is tempting to generate filters for each domain loaded so far, but it
 would be very aggressive. Indeed, some domains identified as potential
-trackers might in fact not send unsafe identifiers (or not a lot).
+trackers might in fact not send unsafe identifiers (or not a lot). For example
+[createjs](https://whotracks.me/trackers/createjs.html) is not using any
+*fingerprinting* and does not seem to be doing tracking via *cookies*,
+hence, it should not be block systematically.
+
 Fortunately, we can make use of the data from `data/apps.json` to learn
 more about each tracker. An *app* is an entity which can contain several
 domains (e.g.: *doubleclick* is an *app* for which we identified three
@@ -153,7 +164,7 @@ and `values` containing all we know about each *app*. Let's take an example:
 
 * `apps["google_analytics"]`:
 
-```python
+```json
 {
     "overview": {
         "bad_qs": 0.4377430033329568,
@@ -176,18 +187,19 @@ and `values` containing all we know about each *app*. Let's take an example:
 That's a lot of data, and we plan to release a more complete
 documentation about what all this is about soon. For now let's just say
 that everything is already made accessible on the website, in form of
-nice graphs and aggregations!.
+nice graphs and aggregations!
 
-For our use-case, we will only consider the field: `tracked`. It represents the
-proportion of requests made by this *app*, identified as tracking the user
-(using either identifying *cookies* or *fingerprinting*). In the case of
-`google_analytics`, it means that out of `100` requests, `43` contain enough
-information to identify you (if you don't use any privacy-enhancing extension).
+For our use-case, we will only consider the field: `tracked`. It
+represents the proportion of page loads including *app*, identified as
+performing some form of tracking (using either identifying *cookies*
+or *fingerprinting*). In the case of `google_analytics`, it means that
+out of `100` page loads where `google_analytics` was present, tracking
+occurred `44` times.
 
-Before generating the filter list, let's keep only the trackers for
-which we saw at least `10%` of the requests tracking users. Please note
-that finding the right threshold would require some finer analysis, and
-could depend on the application.
+Before generating the filter list, let's keep only *apps* tracking
+users more than `10%` of the time. Please note that finding the right
+threshold would require some finer analysis, and could depend on the
+application.
 
 ```python
 def filter_domains(domains):
