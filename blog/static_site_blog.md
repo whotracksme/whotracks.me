@@ -73,4 +73,4 @@ Their styles are respectively defined in:
 
 - [`static/scss/blog/card.scss`](https://github.com/cliqz-oss/whotracks.me/blob/master/static/scss/blog/card.scss) 
 - [`static/scss/post/post.scss`](https://github.com/cliqz-oss/whotracks.me/blob/master/static/scss/blog/post.scss)
-- [`static/scss/post/github.scss`](https://github.com/cliqz-oss/whotracks.me/blob/master/static/scss/blog/github.scss)
+- [`static/scss/post/github.scss`](https://github.com/cliqz-oss/whotracks.me/blob/master/static/scss/blog/github.scss) 
