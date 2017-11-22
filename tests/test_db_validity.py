@@ -1,6 +1,6 @@
 import unittest
 import sqlite3
-from trackerdb import load_tracker_db
+from db.trackerdb import load_tracker_db
 
 class ValidateTrackerDatabase(unittest.TestCase):
 
