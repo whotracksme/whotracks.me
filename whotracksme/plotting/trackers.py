@@ -1,9 +1,10 @@
-import plotly.graph_objs as go
-from plotting.utils import set_margins, div_output, CliqzFonts, annotation
-from plotting.colors import CliqzColors
-from plotting.plots import scatter, hbar, line
 from statistics import mean
+import plotly.graph_objs as go
 import squarify
+
+from whotracksme.plotting.utils import set_margins, div_output, CliqzFonts, annotation
+from whotracksme.plotting.colors import CliqzColors
+from whotracksme.plotting.plots import scatter, hbar, line
 
 
 def tracker_cfh(https, fingerprinting, cookies):

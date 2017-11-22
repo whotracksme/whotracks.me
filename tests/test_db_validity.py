@@ -1,6 +1,8 @@
-import unittest
 import sqlite3
-from db.trackerdb import load_tracker_db
+import unittest
+
+from whotracksme.db.trackerdb import load_tracker_db
+
 
 class ValidateTrackerDatabase(unittest.TestCase):
 

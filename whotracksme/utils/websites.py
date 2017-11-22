@@ -1,6 +1,7 @@
 from collections import OrderedDict, defaultdict
 from statistics import mean
-from plotting.utils import arrow_style
+
+from whotracksme.plotting.utils import arrow_style
 
 
 def sort_by_rank(sites):

@@ -1,11 +1,14 @@
-from jinja2 import Environment, FileSystemLoader, Markup
-from plotting.colors import TrackerColors, SiteCategoryColors
-import markdown
+from urllib.parse import quote_plus
 import os
 import shutil
-from urllib.parse import quote_plus
 import subprocess
-from db.trackerdb import load_tracker_db
+
+from jinja2 import Environment, FileSystemLoader, Markup
+import markdown
+
+
+from whotracksme.db.trackerdb import load_tracker_db
+from whotracksme.plotting.colors import TrackerColors, SiteCategoryColors
 
 
 # Paths needed for generating urls

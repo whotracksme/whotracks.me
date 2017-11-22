@@ -1,9 +1,10 @@
-from plotting.utils import arrow_style
-from plotting.colors import SiteCategoryColors
-from datetime import datetime
 from collections import Counter, defaultdict
-import operator
+from datetime import datetime
 from statistics import mean
+import operator
+
+from whotracksme.plotting.utils import arrow_style
+from whotracksme.plotting.colors import SiteCategoryColors
 
 
 def prevalence(app):

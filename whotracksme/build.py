@@ -20,17 +20,18 @@ import concurrent.futures
 import http.server
 import json
 import os
-import socketserver
-import time
-import sys
+import pkgutil
 import signal
+import socketserver
+import sys
+import time
 
 
 from docopt import docopt
 from watchdog.observers import Observer
 import watchdog
 
-from utils.trackers import (
+from whotracksme.utils.trackers import (
     prevalence,
     timeseries,
     tracking_methods,
@@ -40,8 +41,8 @@ from utils.trackers import (
     sites_per_app_by_category,
     tracker_header_stats
 )
-from utils.blog import parse as parse_blogpost
-from utils.websites import (
+from whotracksme.utils.blog import parse as parse_blogpost
+from whotracksme.utils.websites import (
     changes,
     header_stats,
     sort_by_cat,
@@ -49,15 +50,17 @@ from utils.websites import (
     summary_stats,
     tracked_by_category
 )
-from utils.companies import (
+
+from whotracksme.utils.companies import (
     companies_present,
     company_reach,
     get_company_name,
     website_doughnout
 )
-from utils.site_index import site_to_json
 
-from templating import (
+from whotracksme.utils.site_index import site_to_json
+
+from whotracksme.templating import (
     DataSource,
     Markup,
     create_site_structure,
@@ -65,19 +68,18 @@ from templating import (
     render_template
 )
 
-from plotting.plots import profile_doughnut
-from plotting.sankey import alluvial_plot
-from plotting.companies import overview_bars
-from plotting.trackers import ts_trend
+from whotracksme.plotting.plots import profile_doughnut
+from whotracksme.plotting.sankey import alluvial_plot
+from whotracksme.plotting.companies import overview_bars
+from whotracksme.plotting.trackers import ts_trend
 
 
 DATA_DIRECTORY = "data"
 STATIC_PATH = "static"
 
 
-def load_json_file(directory, name):
-    with open(os.path.join(directory, name + '.json')) as input_file:
-        return json.load(input_file)
+def load_json_file(name):
+    return json.loads(pkgutil.get_data('whotracksme', f'data/{name}.json'))
 
 
 def print_progress(text, default_space=40):
@@ -424,10 +426,10 @@ def build(queue):
             if data_source is None or event & DATA_FOLDER:
                 # class where all data can be accessed from
                 data_source = DataSource(
-                    load_json_file(DATA_DIRECTORY, 'overview'),
-                    load_json_file(DATA_DIRECTORY, 'apps'),
-                    load_json_file(DATA_DIRECTORY, 'companies'),
-                    load_json_file(DATA_DIRECTORY, 'sites')
+                    load_json_file('overview'),
+                    load_json_file('apps'),
+                    load_json_file('companies'),
+                    load_json_file('sites')
                 )
                 print_progress(text='Load data sources')
 

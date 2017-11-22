@@ -1,7 +1,10 @@
-import unittest
-import json
 from operator import itemgetter
-from db.trackerdb import load_tracker_db, dump_tracker_db
+import json
+import pkgutil
+import unittest
+
+from whotracksme.db.trackerdb import load_tracker_db
+
 
 class TestDataIntegrity(unittest.TestCase):
 
@@ -9,7 +12,7 @@ class TestDataIntegrity(unittest.TestCase):
         self.conn = load_tracker_db()
 
     def test_all_trackers_have_db_entry(self):
-        apps = json.load(open('./data/apps.json'))
+        apps = json.loads(pkgutil.get_data('whotracksme', 'data/apps.json'))
         cur = self.conn.cursor()
         app_ids = sorted(apps.keys())
         db_trackers = cur.execute('select id, category_id from trackers where id IN ({}) order by id'.format(
@@ -21,7 +24,7 @@ class TestDataIntegrity(unittest.TestCase):
         self.assertEqual([], without_category)
 
     def test_all_companies_have_db_entry(self):
-        companies = json.load(open('./data/companies.json'))
+        companies = json.loads(pkgutil.get_data('whotracksme', 'data/companies.json'))
         cur = self.conn.cursor()
         company_ids = sorted(companies.keys())
         db_companies = cur.execute('select id from companies where id IN ({}) order by id'.format(

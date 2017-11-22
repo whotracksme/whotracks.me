@@ -1,5 +1,6 @@
-from plotting.colors import TrackerColors, CliqzColors
 from collections import defaultdict
+
+from whotracksme.plotting.colors import TrackerColors, CliqzColors
 
 
 def get_company(companies, company_id):
@@ -24,7 +25,7 @@ def get_company_name(company_dict):
 def website_doughnout(apps, site):
     trackers = site.get("apps")
     d = defaultdict(int)
-    
+
     for t in trackers:
         try:
             apid = t.get("app", None)
@@ -37,7 +38,7 @@ def website_doughnout(apps, site):
                 d[cat] += 1
         except KeyError:
             pass
-    
+
     values = []
     labels = []
     total = sum(d.values())
@@ -72,7 +73,7 @@ def companies_present(companies, apps, site):
         if category not in TrackerColors:
             category = "misc"
         company_id = app.get("company_id")
-        company = get_company(companies, company_id).get("name") 
+        company = get_company(companies, company_id).get("name")
         if company is None:
             # tracker considered as company itself
             company = app.get("name")

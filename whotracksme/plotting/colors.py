@@ -1,6 +1,6 @@
-import colour
 from collections import namedtuple
 from random import randint
+import colour
 
 
 CliqzColors = {
