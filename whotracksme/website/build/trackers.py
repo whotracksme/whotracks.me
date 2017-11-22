@@ -1,9 +1,21 @@
-from plotting.utils import arrow_style
-from plotting.colors import SiteCategoryColors
-from datetime import datetime
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 from collections import Counter, defaultdict
-import operator
+from datetime import datetime
 from statistics import mean
+
+from jinja2 import Markup
+
+from whotracksme.website.utils import print_progress
+from whotracksme.website.templates import (
+    get_template,
+    render_template,
+)
+from whotracksme.website.plotting.utils import arrow_style
+from whotracksme.website.plotting.colors import SiteCategoryColors
+from whotracksme.website.plotting.trackers import ts_trend
 
 
 def prevalence(app):
@@ -139,3 +151,82 @@ def tracker_header_stats(apps):
         "by_fingerprinting": sum(fingerpriting)/len(fingerpriting),
         "data": mean(data)
     }
+
+def build_trackers_list(data):
+    apps = data.apps
+
+    sorted_trackers = sorted(apps.values(), key=lambda a: a['overview']['reach'], reverse=True)
+    sorted_trackers_cat = sorted(
+        apps.values(),
+        key=lambda a: data.get_app_name(
+            a['overview']['id']) if (
+                'company_id' not in a or
+                a['company_id'] in [None, "None"])
+            else a['company_id']
+    )
+
+    for tracker in sorted_trackers:
+        if 'name' not in tracker:
+            tracker['name'] = tracker['overview']['id']
+
+    with open('_site/trackers.html', 'w') as output:
+        output.write(render_template(
+            template=get_template(data, name="trackers.html"),
+            tracker_list=sorted_trackers,
+            trackers_list_cat=sorted_trackers_cat,
+            header_stats=tracker_header_stats(data.apps)
+        ))
+
+    print_progress(text="Generate tracker list")
+
+
+def tracker_page(template, aid, app, data):
+    if 'name' not in app:
+        app['name'] = aid
+
+    # Tracker Reach ts
+    ts, page_reach, site_reach = timeseries(app)
+
+    # page_reach trend line
+    page_trend = Markup(ts_trend(ts=page_reach, t=ts))
+
+    # domain_reach trend line
+    site_trend = Markup(ts_trend(ts=site_reach, t=ts))
+
+    methods = tracking_methods(app)
+
+    # tag cloud data
+    sites_table = tag_cloud_data(aid, app, data)
+    sites_by_cat = sites_per_app_by_category(sites_table)
+
+    # for horizontal bar chart in profile
+    website_types = presence_by_site_type(app, data.sites)
+
+    # similar trackers
+    similar_tracker_list = similar_trackers(app, data.apps, n=4)
+
+    # write to file
+    with open('_site/{}'.format(data.url_for('app', aid)), 'w') as output:
+        output.write(render_template(
+            path_to_root='..',
+            template=template,
+            app=app,
+            profile=app,  # profile-card hack
+            prevalence=prevalence(app),
+            tracking_methods=methods,
+            website_list=sites_table,
+            sites_by_cat=sites_by_cat,
+            website_types=website_types[:5], # top 3
+            similar_trackers=similar_tracker_list,
+            trends={"page": page_trend, "site": site_trend}
+        ))
+
+
+def build_tracker_pages(data):
+    apps = data.apps
+    template = get_template(data, name='tracker-page.html', path_to_root='..')
+
+    for (aid, app) in apps.items():
+        tracker_page(template, aid, app, data)
+
+    print_progress(text="Generate tracker pages")
