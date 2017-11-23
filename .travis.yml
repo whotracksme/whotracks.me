@@ -11,10 +11,18 @@ script:
   - build_site
 
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: _site
-  target_branch: master
-  on:
-    branch: stagging
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: _site
+    target_branch: master
+    on:
+      branch: stagging
+  - deploy:
+    provider: pypi
+    distributions: "sdist bdist_wheel"
+    user: "Your username"
+    password:
+      secure: "Your encrypted password"
+    on:
+      tags: true
