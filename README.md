@@ -5,7 +5,7 @@ alt="whotracks.me"
 style="width: 200px"
 src="https://raw.githubusercontent.com/cliqz-oss/whotracks.me/master/static/img/who-tracksme-logo.png">
 
-Bringing Transparency to online tracking - built by Cliqz and Ghostery
+Bringing Transparency to online tracking - built by Cliqz and Ghostery.
 
 ___
 
@@ -16,7 +16,7 @@ This repository contains:
 * code to render the [whotracks.me](https://whotracks.me) site
 
 
-## Installation
+# Installation
 
 Python 3.x is needed to build the site. We recommend creating a
 [virtualenv](https://docs.python.org/3/library/venv.html) to install the

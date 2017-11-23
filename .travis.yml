@@ -4,7 +4,17 @@ python:
   - 3.6
 
 install:
-  - pip install '.[test]'
+  - pip install '.[test,website]'
 
 script:
   - pytest
+  - build_site
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: _site
+  target_branch: master
+  on:
+    branch: stagging
