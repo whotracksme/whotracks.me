@@ -34,7 +34,10 @@ body {
   .breadcrumb-bar .breadcrumb {
     color: #71869E;
     background-color: transparent;
-    padding-left: 0; }
+    padding-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0; }
     .breadcrumb-bar .breadcrumb li + li:before {
       font-family: "FontAwesome";
       color: #71869E;

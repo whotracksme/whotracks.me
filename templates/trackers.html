@@ -1,7 +1,15 @@
 {% extends "base.html" %} 
-    {% block title %}
-		<title>Trackers</title>
-    {% endblock %}
+{% block title %}
+  <title>WhoTracks.me | Trackers</title>
+{% endblock %}
+
+{% block og_params %}
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="WhoTracks.me | Trackers">    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whotracks.me/trackers">
+    <meta property="og:description" content="Top 500 most prevalent trackers on the web for a variety of categories such as advertising, analytics, customer interaction and more. More tracker profiles coming with each monthly release.">
+{% endblock %}
 
 
 {% set active_page='trackers' %}

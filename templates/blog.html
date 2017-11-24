@@ -1,8 +1,15 @@
 {% extends "base.html" %}
-    {% block title %}
-		<title>Blog</title>
-    {% endblock %}
+{% block title %}
+	<title>WhoTracks.me | Blog</title>
+{% endblock %}
 
+{% block og_params %}
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="WhoTracks.me | Blog">    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whotracks.me/blog">
+    <meta property="og:description" content="This is our tech blog. Here we will be discussing privacy technlogies, dissecting trackers, map the tracking landscape in websites and write about privacy-preserving engineering.">
+{% endblock %}
 
 {% block extra_styling %}
 <link rel="stylesheet" href="{{PATHS.static}}/css/blog/card.css">
@@ -18,7 +25,7 @@
 			<div class="row">
 				<div class="col-md-9 col-sm-9">
 					<h1>Blog</h1>
-					<div class="subtitle">A space of analysis of tracker behaviour</div>
+					<div class="subtitle">Privacy-preserving technlogies and engineering, dissecting trackers, mappping the tracking landscape in websites</div>
 				</div>
 			</div>
 		</div>

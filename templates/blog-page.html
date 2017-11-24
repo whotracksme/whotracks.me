@@ -1,7 +1,16 @@
 {% extends "base.html" %}
-    {% block title %}
-		<title>Blog | {{blog_post.title}}</title>
-    {% endblock %}
+{% block title %}
+    <title>Blog | {{blog_post.title}}</title>
+{% endblock %}
+
+{% block og_params %}
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Blog | {{ blog_post.title }}" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/{{blog_post.filename}}" />
+    <meta property="og:description" content="{{ blog_post.subtitle }}" />
+    <meta property="og:image" content="{{PATHS.static}}/img/{{blog_post.header_img}}" />
+{% endblock %}
 
 
 {% set active_page='blog' %}
