@@ -1,15 +1,33 @@
 
 from urllib.parse import quote_plus
+import json
+import pkgutil
 
 from whotracksme.data import load_tracker_db
 
 
+def load_json_file(name):
+    return json.loads(pkgutil.get_data('whotracksme', f'data/{name}.json'))
+
+def load_apps():
+    return load_json_file('apps')
+
+def load_overview():
+    return load_json_file('overview')
+
+def load_companies():
+    return load_json_file('companies')
+
+def load_sites():
+    return load_json_file('sites')
+
+
 class DataSource:
-    def __init__(self, overview, apps, companies, sites):
-        self.overview = overview
-        self.apps = apps
-        self.companies = companies
-        self.sites = sites
+    def __init__(self):
+        self.overview = load_overview()
+        self.apps = load_apps()
+        self.companies = load_companies()
+        self.sites = load_sites()
 
         connection = load_tracker_db()
         with connection:

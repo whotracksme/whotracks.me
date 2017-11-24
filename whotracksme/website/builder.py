@@ -36,10 +36,6 @@ DATA_DIRECTORY = "data"
 STATIC_PATH = "static"
 
 
-def load_json_file(name):
-    return json.loads(pkgutil.get_data('whotracksme', f'data/{name}.json'))
-
-
 DATA_FOLDER = 0x00000001
 STATIC_FOLDER = 0x00000002
 TEMPLATES_FOLDER = 0x00000004
@@ -93,12 +89,7 @@ class Builder:
             # Depends on folder: 'data/'
             if self.data_source is None or event & DATA_FOLDER:
                 # class where all data can be accessed from
-                data_source = DataSource(
-                    load_json_file('overview'),
-                    load_json_file('apps'),
-                    load_json_file('companies'),
-                    load_json_file('sites')
-                )
+                data_source = DataSource()
                 print_progress(text='Load data sources')
 
             # Depends on: 'blog/'
