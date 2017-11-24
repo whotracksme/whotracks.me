@@ -2,7 +2,7 @@ from collections import namedtuple
 import plotly
 import plotly.graph_objs as go
 
-from whotracksme.plotting.colors import TrackerColors, CliqzColors
+from whotracksme.website.plotting.colors import TrackerColors, CliqzColors
 
 
 FontSet = namedtuple("FontSet", 'mono regular')

@@ -1,9 +1,9 @@
 import plotly.graph_objs as go
 import squarify
 
-from whotracksme.plotting.utils import CliqzFonts, div_output, set_margins, annotation, set_line_style, set_category_colors
-from whotracksme.plotting.colors import CliqzColors, TrackerColors
-from whotracksme.plotting.colors import palette
+from whotracksme.website.plotting.utils import CliqzFonts, div_output, set_margins, annotation, set_line_style, set_category_colors
+from whotracksme.website.plotting.colors import CliqzColors, TrackerColors
+from whotracksme.website.plotting.colors import palette
 
 
 def profile_doughnut(values, labels, name, color_palette=False):

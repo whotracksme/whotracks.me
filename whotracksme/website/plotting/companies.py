@@ -1,9 +1,9 @@
 from datetime import datetime
 import plotly.graph_objs as go
 
-from whotracksme.plotting.utils import set_margins, annotation, div_output, overview_label
-from whotracksme.plotting.plots import scatter
-from whotracksme.plotting.colors import random_color, BiggestTrackerColors, CliqzColors
+from whotracksme.website.plotting.utils import set_margins, annotation, div_output, overview_label
+from whotracksme.website.plotting.plots import scatter
+from whotracksme.website.plotting.colors import random_color, BiggestTrackerColors, CliqzColors
 
 
 def overview_bars(companies):

@@ -8,16 +8,16 @@ install:
 
 script:
   - pytest
-  - build_site
+  - whotracksme website build
 
-# deploy:
-#   - provider: pages
-#     skip_cleanup: true
-#     github_token: $GITHUB_TOKEN
-#     local_dir: _site
-#     target_branch: master
-#     on:
-#       branch: stagging
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: _site
+    target_branch: gh-pages
+    on:
+      branch: master
 #   - deploy:
 #     provider: pypi
 #     distributions: "sdist bdist_wheel"

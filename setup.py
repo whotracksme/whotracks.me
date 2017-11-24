@@ -42,29 +42,27 @@ setup(
     extras_require={
         'website': [
             'colour',
+            'jinja2',
             'markdown',
             'plotly',
-            'jinja2',
             'squarify',
+            'watchdog',
         ],
         'test': [
             'pytest',
-        ],
-        'dev': [
-            'watchdog',
         ],
     },
     package_data={
         'whotracksme': [
             'data/*.json',
-            'db/*.sql',
+            'data/db/*.sql',
         ],
     },
     include_package_data=True,
     zip_safe=False,
     entry_points={
         'console_scripts': [
-            'build_site=whotracksme.build:main',
+            'whotracksme=whotracksme.main:main',
         ],
     },
 )

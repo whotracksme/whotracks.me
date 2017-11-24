@@ -1,5 +1,5 @@
-from whotracksme.plotting.utils import div_output, set_margins
-from whotracksme.plotting.colors import CliqzColors
+from whotracksme.website.plotting.utils import div_output, set_margins
+from whotracksme.website.plotting.colors import CliqzColors
 
 
 def alluvial_plot(sndata):
