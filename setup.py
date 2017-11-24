@@ -31,10 +31,13 @@ setup(
     author_email='privacy@cliqz.com',
     license='MIT',
     packages=find_packages(exclude=[
+        '_site',
         'blog',
-        'tests',
+        'contrib',
+        'data',
         'static',
         'templates',
+        'tests',
     ]),
     install_requires=[
         'docopt',
