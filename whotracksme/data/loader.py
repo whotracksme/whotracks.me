@@ -1,25 +1,39 @@
 
 from urllib.parse import quote_plus
 import json
+import sqlite3
 import pkgutil
 
-from whotracksme.data import load_tracker_db
+
+def load_asset(name):
+    return pkgutil.get_data(
+        'whotracksme',
+        f'data/assets/{name}'
+    ).decode('utf-8')
 
 
 def load_json_file(name):
-    return json.loads(pkgutil.get_data('whotracksme', f'data/{name}.json'))
+    return json.loads(load_asset(name))
+
+
+def load_tracker_db(loc=':memory:'):
+    connection = sqlite3.connect(loc)
+    with connection:
+        connection.executescript(load_asset('trackerdb.sql'))
+    return connection
+
 
 def load_apps():
-    return load_json_file('apps')
+    return load_json_file('apps.json')
 
 def load_overview():
-    return load_json_file('overview')
+    return load_json_file('overview.json')
 
 def load_companies():
-    return load_json_file('companies')
+    return load_json_file('companies.json')
 
 def load_sites():
-    return load_json_file('sites')
+    return load_json_file('sites.json')
 
 
 class DataSource:

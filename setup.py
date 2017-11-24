@@ -27,8 +27,8 @@ setup(
     ],
     keywords='tracking whotracksme whotracks.me',
     url='https://whotracks.me',
-    author='TODO',
-    author_email='TODO',
+    author='Cliqz Gmbh',
+    author_email='privacy@cliqz.com',
     license='MIT',
     packages=find_packages(exclude=[
         'blog',
@@ -54,8 +54,8 @@ setup(
     },
     package_data={
         'whotracksme': [
-            'data/*.json',
-            'data/db/*.sql',
+            'data/assets/*.json',
+            'data/assets/*.sql',
         ],
     },
     include_package_data=True,
