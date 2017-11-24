@@ -1,9 +1,8 @@
-_site/
+*.pyc
+.cache/
 .sass-cache/
 __pycache__/
-*.pyc
-
-.cache/
+_site/
 build/
 dist/
 whotrackme.egg-info/
