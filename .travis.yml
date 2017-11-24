@@ -8,7 +8,7 @@ install:
 
 script:
   - pytest
-  - whotracksme website build
+  - whotracksme website
 
 deploy:
   - provider: pages
