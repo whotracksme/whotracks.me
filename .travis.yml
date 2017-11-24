@@ -32,14 +32,3 @@ deploy:
 #       secure: "Your encrypted password"
 #     on:
 #       tags: true
-#   - deploy:
-#     provider: s3
-#     access_key_id: "YOUR AWS ACCESS KEY"
-#     secret_access_key: "YOUR AWS SECRET KEY"
-#     bucket: "S3 Bucket"
-#     skip_cleanup: true
-#     region: "Bucket region"
-#     before_deploy:
-#       - echo "Run some script"
-#     on:
-#       branch: production # Only deploys to S3 from the `production` branch
