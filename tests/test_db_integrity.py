@@ -1,5 +1,7 @@
 import unittest
-from db.trackerdb import load_tracker_db, dump_tracker_db
+
+from whotracksme.data import load_tracker_db
+
 
 class TestDbIntegrity(unittest.TestCase):
 

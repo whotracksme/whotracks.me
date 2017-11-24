@@ -1,5 +1,12 @@
-from plotting.colors import TrackerColors, CliqzColors
+
 from collections import defaultdict
+
+from whotracksme.website.utils import print_progress
+from whotracksme.website.templates import (
+    get_template,
+    render_template,
+)
+from whotracksme.website.plotting.colors import TrackerColors, CliqzColors
 
 
 def get_company(companies, company_id):
@@ -24,7 +31,7 @@ def get_company_name(company_dict):
 def website_doughnout(apps, site):
     trackers = site.get("apps")
     d = defaultdict(int)
-    
+
     for t in trackers:
         try:
             apid = t.get("app", None)
@@ -37,7 +44,7 @@ def website_doughnout(apps, site):
                 d[cat] += 1
         except KeyError:
             pass
-    
+
     values = []
     labels = []
     total = sum(d.values())
@@ -72,7 +79,7 @@ def companies_present(companies, apps, site):
         if category not in TrackerColors:
             category = "misc"
         company_id = app.get("company_id")
-        company = get_company(companies, company_id).get("name") 
+        company = get_company(companies, company_id).get("name")
         if company is None:
             # tracker considered as company itself
             company = app.get("name")
@@ -118,3 +125,26 @@ def companies_present(companies, apps, site):
 def company_reach(companies):
     sorted_companies = sorted(companies.values(), key=lambda c: c['rank'])
     return sorted_companies[:10]
+
+def company_page(template, company_data, data):
+    company_data["logo"] = None
+    company_id = company_data['overview']['id']
+
+    company_name = get_company_name(company_data)
+    with open('_site/{}'.format(data.url_for('company', company_id)), 'w') as output:
+        output.write(render_template(
+            path_to_root='..',
+            template=template,
+            demographics=company_data,
+            initials=company_name[:2]
+        ))
+
+
+def build_company_pages(data):
+    companies = data.companies
+    template = get_template(data, "company-page.html")
+
+    for company_data in companies.values():
+        company_page(template, company_data, data)
+
+    print_progress(text="Generate company pages")
