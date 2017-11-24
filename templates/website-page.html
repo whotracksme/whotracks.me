@@ -9,13 +9,26 @@
 
 {% endblock %}
 
+
+{% block og_params %}
+    <!-- OG params for sharable content -->
+    {% if profile.website_url is not none %}
+        <meta property="og:title" content="Website | {{ profile.website_url | normalize_domain_name }}" />
+    {% else %}
+        <meta property="og:title" content="Website | {{ site.overview.name }}" />
+    {% endif %}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/{{ 'site'|url_for(site.overview.name) }}" />
+    <meta property="og:description" content="Tracking landscape on {{ site.overview.name }}" />
+{% endblock %}
+
+
 <!-- Setting some vars used by breadcrumbs and navbar -->
 {% set active_page='websites' %}
 {% set active_page_name=profile.name %}
 
 
 {% block extra_styling %}
-    <link rel="stylesheet" href="{{PATHS.static}}/css/table.css">
     <link rel="stylesheet" href="{{PATHS.static}}/css/websites/profile.css">
 {% endblock %}
 
