@@ -24,4 +24,4 @@ RUN apt-get update && apt-get install -y ruby-sass build-essential
 COPY requirements.txt /home/jenkins/
 
 # Install python dependencies
-RUN pip install --no-cache-dir -r /home/jenkins/requirements.txt
+RUN pip install -r /home/jenkins/requirements.txt
