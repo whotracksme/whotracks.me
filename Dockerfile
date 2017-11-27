@@ -18,7 +18,7 @@ LABEL vendor="Cliqz GmbH" \
       version=${VERSION}
 
 # install sass
-RUN apt-get update && apt-get install -y ruby-sass
+RUN apt-get update && apt-get install -y ruby-sass build-essential
 
 # Copy application python requirements
 COPY requirements.txt /home/jenkins/
