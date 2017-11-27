@@ -3,19 +3,12 @@
 
 
 from multiprocessing import Process
-import http.server
 import os
-import signal
-import socketserver
-import sys
 import time
 
+from sanic import Sanic
 from watchdog.observers import Observer
 import watchdog
-
-
-def handle_exit(*args):
-    sys.exit(0)
 
 
 def watch(builder):
@@ -60,30 +53,21 @@ def watch(builder):
     observer.join()
 
 
-def serve_site(cwd, port):
+def serve_site(port):
     """Serve site locally."""
-    # Exit cleanly on CTRL-C
-    signal.signal(signal.SIGINT, handle_exit)
-
-    if not os.path.exists('_site'):
-        os.mkdir('_site')
-
-    os.chdir(cwd)
-    handler = http.server.SimpleHTTPRequestHandler
-
-    try:
-        with socketserver.TCPServer(("", port), handler) as httpd:
-            httpd.serve_forever()
-    except OSError as exception:
-        print(exception)
-        handle_exit()
+    app = Sanic(__name__, log_config=None)
+    app.static('/', './_site/index.html')
+    app.static('/', './_site/')
+    app.run(
+        host="0.0.0.0",
+        port=port,
+    )
 
 
 def serve(builder):
     # Start serving the website locally
-    port = 8001
-    print("Serving _site locally: http://localhost:{}".format(port))
-    serve_process = Process(target=serve_site, args=('_site/', port), daemon=True)
+    port = 8000
+    serve_process = Process(target=serve_site, args=(port,), daemon=True)
     serve_process.start()
 
     # Start watching for changes

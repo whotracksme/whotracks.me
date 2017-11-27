@@ -48,6 +48,7 @@ setup(
             'jinja2',
             'markdown',
             'plotly',
+            'sanic',
             'squarify',
             'watchdog',
         ],
