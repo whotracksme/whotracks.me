@@ -12,21 +12,17 @@ import os
 import boto3
 from docopt import docopt
 from mimetypes import MimeTypes
+from concurrent.futures import ThreadPoolExecutor
 
-def list_full_bucket(s3_client, bucket_name, bucket_prefix):
-    keys = []
-    is_truncated = True
-    next_marker = ''
-    while is_truncated == True:
-        response = s3_client.list_objects(Bucket=bucket_name, Prefix=bucket_prefix[1:], Marker=next_marker)
-        if 'Contents' not in response:
-            break
-        if 'IsTruncated' in response:
-            is_truncated = response['IsTruncated']
-        fetched_keys = [obj['Key'] for obj in response['Contents']]
-        keys += fetched_keys
-        next_marker = fetched_keys[-1]
-    return keys
+def iterate_bucket(s3_client, bucket_name, bucket_prefix):
+    pageinator = s3_client.get_paginator('list_objects_v2')
+
+    for page in pageinator.paginate(Bucket=bucket_name, Prefix=bucket_prefix):
+        if page['KeyCount'] == 0:
+            continue
+
+        for item in page['Contents']:
+            yield item['Key']
 
 def get_max_age(path, filename):
     if path.startswith('static/'):
@@ -45,7 +41,7 @@ def get_cache_control(path, filename, production=False):
     if not production:
         # one minute cache
         return 'max-age=60'
-    return 'max-age={}'.format(get_max_age(path, filename))
+    return f'max-age={get_max_age(path, filename)}'
 
 
 def get_content_type(local_path):
@@ -76,39 +72,52 @@ if __name__ == '__main__':
     # connect s3
     s3_client = boto3.client('s3')
 
-    # bucket = s3.Bucket(bucket_name)
-
     # list existing bucket contents
-    existing_keys = set(list_full_bucket(s3_client, bucket_name, bucket_prefix))
+    existing_keys = set(iterate_bucket(s3_client, bucket_name, bucket_prefix[1:]))
     print('Bucket contains', len(existing_keys), 'pages')
     uploaded = 0
     redirected = 0
 
-    for (dirpath, dirnames, filenames) in os.walk(site_dir):
-        print('Enter', dirpath)
-        s3_suffix = dirpath[len(site_dir) + 1:]
-        for filename in filenames:
-            if filename[0] == '.':
-                continue
+    def upload_file_to_s3(path, filename):
+        # path to local file
+        local_path = os.path.join(path, filename)
+        # relative folder of file
+        s3_suffix = path[len(site_dir) + 1:]
+        # full path from root of bucket
+        s3_path = os.path.join(bucket_prefix, s3_suffix, filename)[1:]
 
-            local_path = os.path.join(dirpath, filename)
-            s3_path = os.path.join(bucket_prefix, s3_suffix, filename)[1:]
-            cache_control = get_cache_control(s3_suffix, filename, production=production)
-            content_type = get_content_type(local_path)
+        # metadata to set on file
+        cache_control = get_cache_control(s3_suffix, filename, production=production)
+        content_type = get_content_type(local_path)
 
-            print('put', local_path, s3_path)
-            with open(local_path, 'rb') as fp:
-                s3_client.put_object(Bucket=bucket_name, Key=s3_path, Body=fp,
-                                     CacheControl=cache_control,
-                                     ContentType=content_type)
-                uploaded += 1
+        print('put', local_path, s3_path)
+        with open(local_path, 'rb') as fp:
+            s3_client.put_object(Bucket=bucket_name, Key=s3_path, Body=fp,
+                                 CacheControl=cache_control,
+                                 ContentType=content_type)
 
-            # setup redirects
-            html_path = f'{s3_path}.html'
-            if html_path in existing_keys:
-                print(f'redirect {html_path} to /{s3_path}')
-                s3_client.put_object(Bucket=bucket_name, Key=html_path,
-                                     WebsiteRedirectLocation=f'/{s3_path}')
-                redirected += 1
+        # setup redirects
+        html_path = f'{s3_path}.html'
+        if html_path in existing_keys:
+            print(f'redirect {html_path} to /{s3_path}')
+            s3_client.put_object(Bucket=bucket_name, Key=html_path,
+                                 WebsiteRedirectLocation=f'/{s3_path}')
+            # upload + redirect
+            return True, True
+        else:
+            # upload, no redirect
+            return True, False
+
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        for (dirpath, dirnames, filenames) in os.walk(site_dir):
+            print('Enter', dirpath)
+            files_to_upload = [f for f in filenames if not f[0] == '.']
+            uploads = executor.map(upload_file_to_s3, [dirpath] * len(files_to_upload), files_to_upload)
+
+            for (did_upload, did_rediect) in uploads:
+                if did_upload:
+                    uploaded += 1
+                if did_rediect:
+                    redirected += 1
 
     print(f'Complete: uploaded {uploaded}, redirected {redirected}')
