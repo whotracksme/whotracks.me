@@ -18,33 +18,39 @@ node('docker') {
     }
 
     img.inside('-u 0:0') {
-        stage('Install') {
-            sh("pip install '.[test,website]'")
-        }
+        try {
 
-        stage('Test') {
-            try {
-                sh(script: "pytest --junit-xml=${testReport}")
-            } catch(err) {
-                junit(testReport)
-                currentBuild.result = "FAILURE"
+            stage('Install') {
+                sh("pip install '.[test,website]'")
             }
-        }
 
-        stage('Build site') {
-            sh('whotracksme website')
-        }
-
-        stage('Publish Site') {
-            def deployArgs = ''
-            if (env.BRANCH_NAME.contains('PR')) {
-                deployArgs = "${stagingBucket} ${stagingPrefix}/${env.BRANCH_NAME}"
-            } else if (env.BRANCH_NAME == 'production') {
-                deployArgs = "${productionBucket} ${productionPrefix} --production"
-            } else {
-                deployArgs = "${stagingBucket} ${stagingPrefix}/latest"
+            stage('Test') {
+                try {
+                    sh(script: "pytest --junit-xml=${testReport}")
+                } catch(err) {
+                    junit(testReport)
+                    currentBuild.result = "FAILURE"
+                }
             }
-            sh("python deploy_to_s3.py ${deployArgs}")
+
+            stage('Build site') {
+                sh('whotracksme website')
+            }
+
+            stage('Publish Site') {
+                def deployArgs = ''
+                if (env.BRANCH_NAME.contains('PR')) {
+                    deployArgs = "${stagingBucket} ${stagingPrefix}/${env.BRANCH_NAME}"
+                } else if (env.BRANCH_NAME == 'production') {
+                    deployArgs = "${productionBucket} ${productionPrefix} --production"
+                } else {
+                    deployArgs = "${stagingBucket} ${stagingPrefix}/latest"
+                }
+                sh("python deploy_to_s3.py ${deployArgs}")
+            }
+        } finally {
+            // cleanup
+            sh('rm -rf _site; rm -rf .sass-cache')
         }
     }
 
