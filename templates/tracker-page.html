@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
+<!-- Default page title and description  -->
 {% block title %}
-	<title>Tracker | {{app.name}}</title>
+	<title>{{og.title}}</title>
+    <meta name="description" content="{{og.description}}">    
 {% endblock %}
 
+<!-- Open Graph params for sharable content -->
+{% include 'components/og-snippet.html' %}
 
 <!-- Setting some vars used by breadcrumbs and navbar -->
 {% set active_page='trackers' %}

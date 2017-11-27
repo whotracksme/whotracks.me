@@ -1,8 +1,13 @@
 {% extends "base.html" %}
-    {% block title %}
-		<title>Blog</title>
-    {% endblock %}
 
+<!-- Default page title and description  -->
+{% block title %}
+<title>{{og.title}}</title>
+<meta name="description" content="{{og.description}}">    
+{% endblock %}
+
+<!-- Open Graph params for sharable content -->
+{% include 'components/og-snippet.html' %}
 
 {% block extra_styling %}
 <link rel="stylesheet" href="{{PATHS.static}}/css/blog/card.css">
@@ -18,7 +23,7 @@
 			<div class="row">
 				<div class="col-md-9 col-sm-9">
 					<h1>Blog</h1>
-					<div class="subtitle">A space of analysis of tracker behaviour</div>
+					<div class="subtitle">Privacy-preserving technlogies and engineering, dissecting trackers, mappping the tracking landscape in websites</div>
 				</div>
 			</div>
 		</div>
