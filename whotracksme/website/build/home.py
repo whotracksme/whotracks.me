@@ -9,6 +9,7 @@ from whotracksme.website.utils import print_progress
 from whotracksme.website.templates import (
     get_template,
     render_template,
+    OG_SNIPPETS
 )
 
 
@@ -37,6 +38,7 @@ def build_home(data):
     with open('_site/index.html', 'w') as output:
         output.write(render_template(
             template=get_template(data, "index.html"),
+            og=OG_SNIPPETS["home"],
             ts=header_graph,
             tracker_list=sorted_trackers[:20],
             trackers_list_cat=sorted_trackers_cat[:20],

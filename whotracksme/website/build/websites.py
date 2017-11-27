@@ -13,6 +13,7 @@ from whotracksme.website.build.companies import (
 from whotracksme.website.templates import (
     get_template,
     render_template,
+    OG_SNIPPETS
 )
 
 from whotracksme.website.plotting.plots import profile_doughnut
@@ -141,6 +142,20 @@ def header_stats(sites):
         "tracker_requests": int(mean(tracker_requests))
     }
 
+
+def og_snippet_website_page(data, site):
+
+    og = OG_SNIPPETS.get('website-page').copy()
+    og['url'] = og['url'] + data.url_for('site', site['name']).replace('./', '')
+    og['title'] = og['title'] + site['name']
+    og['description'] = "Users are tracked in {0}% of visits to {1} and the average number of trackers per page is {2}".format(
+        round(site["overview"]["tracked"]*100, 1), 
+        site['name'],
+        round(site['overview']['mean_trackers'], 1)
+    )
+    return og
+    
+
 def build_website_list(data):
     sites = data.sites
     tracker_requests, tracker_buckets, https = summary_stats(data.sites)
@@ -161,6 +176,7 @@ def build_website_list(data):
     with open('_site/websites.html', 'w') as output:
         output.write(render_template(
             template=get_template(data, "websites.html"),
+            og=OG_SNIPPETS["websites"],
             website_list=sorted_websites,
             website_list_cat=sorted_websites_cat,
             header_numbers=header_numbers
@@ -181,6 +197,9 @@ def website_page(template, site_id, rank, data):
 
     methods = tracking_methods(site)
     tracker_changes = changes(site)
+
+    # og snippet
+    og = og_snippet_website_page(data, site)
 
     # tracker presence data
     sankey_data = companies_present(companies, apps, site=site)
@@ -207,6 +226,7 @@ def website_page(template, site_id, rank, data):
         output.write(render_template(
             path_to_root='..',
             template=template,
+            og=og,
             site=site,
             profile=profile,
             methods=methods,

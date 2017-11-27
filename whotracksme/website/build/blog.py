@@ -5,6 +5,7 @@ from whotracksme.website.utils import print_progress
 from whotracksme.website.templates import (
     render_template,
     get_template,
+    OG_SNIPPETS
 )
 
 
@@ -39,10 +40,20 @@ def load_blog_posts():
     return blog_posts
 
 
+def og_snippet_blog_page(data, blog_post):
+    og = OG_SNIPPETS.get('blog-page').copy()
+    og['url'] = og['url'] + data.url_for('blog', blog_post['filename']).replace('./', '')
+    og['title'] = og['title'] + blog_post['title']
+    og['description'] = blog_post['subtitle']
+    og['image'] = "https://whotracks.me/static/img/" + blog_post['header_img']
+    return og
+
+
 def build_blogpost_list(data, blog_posts):
     with open('_site/blog.html', 'w') as output:
         output.write(render_template(
             template=get_template(data, "blog.html"),
+            og=OG_SNIPPETS['blog'],
             blog_posts=[p for p in blog_posts if p['publish']]
         ))
     print_progress(text="Generate blog list")
@@ -62,6 +73,7 @@ def build_blogpost_pages(data, blog_posts):
                 render_template(
                     path_to_root='..',
                     template=template,
+                    og=og_snippet_blog_page(data, blog_post),
                     blog_post=blog_post
                 )
             )

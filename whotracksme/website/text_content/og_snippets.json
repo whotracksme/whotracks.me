@@ -1,0 +1,44 @@
+{
+    "home": {
+        "title": "WhoTracks.me - Bringing Transparency to Online Tracking",
+        "description": "Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular sites.",
+        "url":"https://whotracks.me/",        
+        "image": ""
+    },
+    "trackers": {
+        "title": "WhoTracks.me | Trackers",
+        "description": "Top 500 most prevalent trackers on the web for a variety of categories such as advertising, analytics, customer interaction and others. More tracker profiles coming with each monthly release.",
+        "url":"https://whotracks.me/trackers.html",
+        "image": ""
+    },
+    "websites": {
+        "title": "WhoTracks.me | Websites",
+        "description": "Tracking landscape in the top 500 most popular sites. Popular site profiles are being updated with every monthly release.",
+        "url":"https://whotracks.me/websites.html",
+        "image": ""
+    },
+    "blog": {
+        "title": "WhoTracks.me | Blog",
+        "description": "This is our tech blog where we write about privacy, dissecting trackers, mapping the tracking landscape in popular sites and write about privacy-preserving engineering.",
+        "url":"https://whotracks.me/blog.html",
+        "image": ""
+    },
+    "tracker-page": {
+        "title": "Tracker | ",
+        "description": "",
+        "url":"https://whotracks.me/",
+        "image": ""
+    },
+    "website-page": {
+        "title": "Website | ",
+        "description": "",
+        "url":"https://whotracks.me/",
+        "image": ""
+    },
+    "blog-page": {
+        "title": "Blog | ",
+        "description": "",
+        "url":"https://whotracks.me/",
+        "image": ""
+    }
+}

@@ -1,15 +1,13 @@
 {% extends "base.html" %}
+
+<!-- Default page title and description  -->
 {% block title %}
-	<title>WhoTracks.me | Blog</title>
+<title>{{og.title}}</title>
+<meta name="description" content="{{og.description}}">    
 {% endblock %}
 
-{% block og_params %}
-    <!-- OG params for sharable content -->
-    <meta property="og:title" content="WhoTracks.me | Blog">    
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://whotracks.me/blog">
-    <meta property="og:description" content="This is our tech blog. Here we will be discussing privacy technlogies, dissecting trackers, map the tracking landscape in websites and write about privacy-preserving engineering.">
-{% endblock %}
+<!-- Open Graph params for sharable content -->
+{% include 'components/og-snippet.html' %}
 
 {% block extra_styling %}
 <link rel="stylesheet" href="{{PATHS.static}}/css/blog/card.css">

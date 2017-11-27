@@ -1,12 +1,10 @@
 {% extends "base.html"  %}
 
-{% block title %}
-	{% if profile.website_url is not none %}
-		<title>Website | {{ profile.website_url | normalize_domain_name }}</title>
-	{% else %}
-		<title>Website profile</title>
-	{% endif %}
 
+<!-- Default page title and description  -->
+{% block title %}
+    <title>{{og.title}}</title>
+    <meta name="description" content="{{og.description}}">    
 {% endblock %}
 
 

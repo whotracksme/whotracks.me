@@ -12,6 +12,8 @@ from whotracksme.website.utils import print_progress
 from whotracksme.website.templates import (
     get_template,
     render_template,
+    OG_SNIPPETS,
+    CATEGORY_DESC
 )
 from whotracksme.website.plotting.utils import arrow_style
 from whotracksme.website.plotting.colors import SiteCategoryColors
@@ -152,6 +154,22 @@ def tracker_header_stats(apps):
         "data": mean(data)
     }
 
+
+def og_snippet_tracker_page(data, aid, app):
+    prevalence_stats = prevalence(app)
+
+    og = OG_SNIPPETS.get('tracker-page').copy()
+    og['url'] = og['url'] + data.url_for('app', aid).replace('./', '')
+    og['title'] = og['title'] + app['name']
+    og['description'] = "{0} is detected tracking {1}% of web traffic and is present on {2}% of known sites. Tracker category: {3}".format(
+        app['name'],
+        prevalence_stats['pages'],
+        prevalence_stats['domains'],
+        app['cat'].replace("_", " ").capitalize() + " - " + CATEGORY_DESC[app['cat']]
+    )
+    return og
+    
+
 def build_trackers_list(data):
     apps = data.apps
 
@@ -172,6 +190,7 @@ def build_trackers_list(data):
     with open('_site/trackers.html', 'w') as output:
         output.write(render_template(
             template=get_template(data, name="trackers.html"),
+            og=OG_SNIPPETS["trackers"],
             tracker_list=sorted_trackers,
             trackers_list_cat=sorted_trackers_cat,
             header_stats=tracker_header_stats(data.apps)
@@ -183,6 +202,9 @@ def build_trackers_list(data):
 def tracker_page(template, aid, app, data):
     if 'name' not in app:
         app['name'] = aid
+
+    # og snippet
+    og = og_snippet_tracker_page(data, aid, app)
 
     # Tracker Reach ts
     ts, page_reach, site_reach = timeseries(app)
@@ -209,6 +231,7 @@ def tracker_page(template, aid, app, data):
     with open('_site/{}'.format(data.url_for('app', aid)), 'w') as output:
         output.write(render_template(
             path_to_root='..',
+            og=og,
             template=template,
             app=app,
             profile=app,  # profile-card hack
