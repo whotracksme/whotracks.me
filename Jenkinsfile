@@ -21,7 +21,7 @@ node('docker') {
         try {
 
             stage('Install') {
-                sh("SANIC_NO_UVLOOP=true SANIC_NO_UJSON=true python -m pip install '.[test,website]'")
+                sh("python -m pip install '.[test,website]'")
             }
 
             stage('Test') {
