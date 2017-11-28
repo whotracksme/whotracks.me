@@ -1,25 +1,17 @@
 {% extends "base.html"  %}
 
 {% block title %}
-	{% if profile.website_url is not none %}
-		<title>Website | {{ profile.website_url | normalize_domain_name }}</title>
-	{% else %}
-		<title>Website profile</title>
-	{% endif %}
-
+    <title>Website | {{ site.overview.site }}</title>
+    <meta name="description" content="Tracking landscape on {{ site.overview.site }}. Percentage of pages you are tracked, average number of trackers per page, data-sharing with third parties and more.">
 {% endblock %}
 
 
 {% block og_params %}
     <!-- OG params for sharable content -->
-    {% if profile.website_url is not none %}
-        <meta property="og:title" content="Website | {{ profile.website_url | normalize_domain_name }}" />
-    {% else %}
-        <meta property="og:title" content="Website | {{ site.overview.name }}" />
-    {% endif %}
+    <meta property="og:title" content="Website | {{ site.overview.site }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="/{{ 'site'|url_for(site.overview.name) }}" />
-    <meta property="og:description" content="Tracking landscape on {{ site.overview.name }}" />
+    <meta property="og:url" content="https://whotracks.me/{{ 'site'|url_for(site.overview.site) }}" />
+    <meta property="og:description" content="Tracking landscape on {{ site.overview.site }}. Percentage of pages you are tracked, average number of trackers per page, data-sharing with third parties and more." />
 {% endblock %}
 
 

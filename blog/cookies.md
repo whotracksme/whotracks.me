@@ -1,5 +1,5 @@
 title: Cookies
-subtitle: A small piece of data sent from a website, meant to "help", used to track.
+subtitle: A small piece of data sent from a website, meant to 'help', used to track.
 author: privacy team
 type: primer
 publish: True
