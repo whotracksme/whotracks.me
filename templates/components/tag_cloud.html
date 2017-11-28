@@ -41,7 +41,6 @@
 			layout.start();
 
 			function draw(words) {
-				console.log('drawon', d3.select('#tag_cloud'));
 				d3.select('#tag_cloud')
 					.append("g")
 					.attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
