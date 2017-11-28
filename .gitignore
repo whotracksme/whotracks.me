@@ -6,5 +6,4 @@ _site/
 build/
 dist/
 whotrackme.egg-info/
-static/css/
 .DS_Store
