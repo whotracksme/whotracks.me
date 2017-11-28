@@ -195,10 +195,6 @@ def create_site_structure(static_path):
     if not os.path.exists(os.path.join(SITE_PATH, PATHS.get("blog")[1:])):
         os.mkdir(os.path.join(SITE_PATH, PATHS.get("blog")[1:]))
 
-    # compile scss to css
-    scss_folder = os.path.join(static_path, "scss")
-    css_folder = os.path.join(static_path, "css")
-    compile_scss_to_css(scss_folder, css_folder)
 
     # Copy static folder inside _site/ (if not there already)
     _site_static = os.path.join(SITE_PATH, "static")
@@ -207,3 +203,8 @@ def create_site_structure(static_path):
         shutil.copytree(static_path, _site_static)
     elif not os.path.exists(_site_static):
         shutil.copytree(static_path, _site_static)
+
+    # compile static/scss directly to _site/static/css
+    scss_folder = os.path.join(static_path, "scss")
+    css_folder = os.path.join("_site/static", "css")
+    compile_scss_to_css(scss_folder, css_folder)

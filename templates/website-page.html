@@ -1,13 +1,19 @@
 {% extends "base.html"  %}
 
 {% block title %}
-	{% if profile.website_url is not none %}
-		<title>Website | {{ profile.website_url | normalize_domain_name }}</title>
-	{% else %}
-		<title>Website profile</title>
-	{% endif %}
-
+    <title>Website | {{ site.overview.site }}</title>
+    <meta name="description" content="Tracking landscape on {{ site.overview.site }}. Percentage of pages you are tracked, average number of trackers per page, data-sharing with third parties and more.">
 {% endblock %}
+
+
+{% block og_params %}
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Website | {{ site.overview.site }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/{{ 'site'|url_for(site.overview.site) }}" />
+    <meta property="og:description" content="Tracking landscape on {{ site.overview.site }}. Percentage of pages you are tracked, average number of trackers per page, data-sharing with third parties and more." />
+{% endblock %}
+
 
 <!-- Setting some vars used by breadcrumbs and navbar -->
 {% set active_page='websites' %}
@@ -15,7 +21,6 @@
 
 
 {% block extra_styling %}
-    <link rel="stylesheet" href="{{PATHS.static}}/css/table.css">
     <link rel="stylesheet" href="{{PATHS.static}}/css/websites/profile.css">
 {% endblock %}
 

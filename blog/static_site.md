@@ -2,7 +2,7 @@ title: Building whotracks.me
 subtitle: Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
 author: privacy team
 type: article
-publish: True
+publish: False
 date: 2017-11-03
 tags: tracker-free, lightweight
 header_img: blog/blog-site.jpg

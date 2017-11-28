@@ -14,15 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {% block title %}
     {% endblock %}
-    <meta name="description" content="Bringing Transparency to Online Tracking - built by Cliqz and Ghostery">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- OG params for sharable content -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://whotracks.me">
-    <meta property="og:title" content="WhoTracks.me - Bringing Transparency to Online Tracking">
-    <meta property="og:description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
-    <meta property="og:site_name" content="WhoTracks.me">
+    {% block og_params %}
+    {% endblock %}
 
     <!-- Stylesheets -->
     <link rel="icon" href="{{PATHS.static}}/img/favicon-2.ico">
@@ -35,22 +30,18 @@
     {% block extra_styling %}
     {% endblock %}
 
-    <!-- Using jQuery locally -->
+    <!-- jQuery -->
     <script src="{{PATHS.static}}/js/jquery.min.js"></script>
-
     <!-- Plotly JS -->
     <script src="{{PATHS.static}}/js/plotly-v1.29.3.min.js"></script>
-    <script src="{{PATHS.static}}/js/bootstrap.min.js"></script>
-
-    <!-- JS file -->
-    <script src="{{PATHS.static}}/js/jquery.easy-autocomplete.js"></script>
     <!-- For relative path resolution -->
-    <script>var pathToRoot = "{{ PATHS.path_to_root }}"</script>
+    <script>
+        var pathToRoot = "{{ PATHS.path_to_root }}"
+    </script>       
 </head>
 
 <body>
 {% include "components/navbar.html" %}
-<script type="text/javascript" src="{{ PATHS.static }}/js/search-bar.js"></script>
 
 {% include "components/breadcrumb.html" %}
 
