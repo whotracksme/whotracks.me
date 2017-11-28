@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 
 {% block title %}
-	<title>WhoTracks.me</title>
+	<title>WhoTracks.me - Bringing Transparency to Online Tracking</title>
+    <meta name="description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
+{% endblock %}
+
+{% block og_params %}
+    <!-- OG params for sharable content -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whotracks.me">
+    <meta property="og:title" content="WhoTracks.me - Bringing Transparency to Online Tracking">
+    <meta property="og:description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
+    <meta property="og:image" content="https://whotracks.me/{{PATHS.static}}/img/tracking-matrix-bluebg.png">
 {% endblock %}
 
 {% set active_page='home' %}

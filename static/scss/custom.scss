@@ -50,6 +50,9 @@ body{
     color: $grey-txt-color;
     background-color: transparent;
     padding-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
     
     li + li:before {
       font-family: "FontAwesome";

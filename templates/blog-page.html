@@ -1,7 +1,17 @@
 {% extends "base.html" %}
-    {% block title %}
-		<title>Blog | {{blog_post.title}}</title>
-    {% endblock %}
+{% block title %}
+    <title>Blog | {{blog_post.title}}</title>
+    <meta name="description" content="{{ blog_post.subtitle }}">
+{% endblock %}
+
+{% block og_params %}
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="{{ blog_post.title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/{{ 'blog'|url_for(blog_post.filename) }}" />
+    <meta property="og:description" content="{{ blog_post.subtitle }}" />
+    <meta property="og:image" content="https://whotracks.me/blog/{{PATHS.static}}/img/{{blog_post.header_img}}" />
+{% endblock %}
 
 
 {% set active_page='blog' %}
@@ -26,7 +36,6 @@
     <div class="container container-post">
             <h3 id="post-title">{{ blog_post.title }}</h3>
             <p id="post-subtitle">{{ blog_post.subtitle }}</p>
-
 
             {{ blog_post.body | markdown }}
     </div>

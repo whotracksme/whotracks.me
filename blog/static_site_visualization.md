@@ -2,8 +2,8 @@ title: Building whotracks.me - Visualization (part 2)
 subtitle: Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.
 author: privacy team
 type: article
-publish: True
-date: 2017-11-01
+publish: False
+date: 2017-10-30
 tags: tracker-free, lightweight
 header_img: blog/blog-site-p2.png
 +++
