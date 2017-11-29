@@ -10,10 +10,12 @@ header_img: blog/blog-generate-adb-filters.jpg
 
 *TL;DR*  In this post we see how to:
 
-1. Load the data from `whotracks.me` to get access to tracker's information
+1. Load the data from [whotracks.me](https://github.com/cliqz-oss/whotracks.me) to get access to trackers' information
 2. Create a mapping from tracking categories to list of domains
 3. Filter each domain based on the amount of tracking of each *app*
 3. Generate a filter list for each category
+
+The full source code used in this article can be found on the [Github repository](https://github.com/cliqz-oss/whotracks.me/blob/master/contrib/generating_adblocker_filters.py).
 
 
 Most popular content blockers are using filter lists to decide what requests
@@ -25,7 +27,7 @@ your protection; one such situation is when a new tracker appears.
 
 With the right data, updated regularly, we believe it is possible to
 build powerful tools to help increase users' privacy. Knowing more about
-trackers, in real time, allows to provide better antitracking but can also
+trackers, in real time, allows to provide better anti-tracking but can also
 *help* the tedious process of curating the filter lists.
 
 In this post we'd like to demonstrate how we can make use of the
@@ -52,13 +54,20 @@ Let's get started!
 
 ## Loading the data
 
-We start by loading the tracker-related data from `trackerdb.sql`, using the
-helper function found in `trackerdb.py`. Both files are located in the `db`
-folder at the root of the repository.
+The first step is to install the `whotracksme` package, available on [PyPI](https://pypi.python.org/pypi/whotracksme)
+and [Github](https://github.com/cliqz-oss/whotracks.me). You can get started by
+installing `whotracksme` with `pip`:
+
+```sh
+$ pip install whotracksme
+```
+
+We start by loading the tracker-related data from [trackerdb.sql](https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/trackerdb.sql), using the
+helper function found in the `whotracksme.data` module:
 
 ```python
-from db.trackerdb import load_tracker_db
 from collections import defaultdict
+from whotracksme.data import load_tracker_db
 
 # Categories to tracker domains
 tracker_domains_per_category = defaultdict(list)
@@ -140,12 +149,12 @@ defaultdict(list, {
 
 It is tempting to generate filters for each domain loaded so far, but it
 would be very aggressive. Indeed, some domains identified as potential
-trackers might in fact not send unsafe identifiers (or not a lot). For example
+trackers might in fact not send [unsafe identifiers](https://whotracks.me/blog/what_is_a_tracker.html) (or not a lot). For example
 [createjs](https://whotracks.me/trackers/createjs.html) is not using any
 *fingerprinting* and does not seem to be doing tracking via *cookies*,
-hence, it should not be block systematically.
+hence, it should not be blocked systematically.
 
-Fortunately, we can make use of the data from `data/apps.json` to learn
+Fortunately, we can make use of the data from [apps.json](https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/apps.json) to learn
 more about each tracker. An *app* is an entity which can contain several
 domains (e.g.: *doubleclick* is an *app* for which we identified three
 domains: `2mdn.net`, `invitemedia.com` and `doubleclick.net`). We also
@@ -154,17 +163,17 @@ will leave the exploration of this data for another article.
 
 ```python
 import json
+from whotracksme.data import load_apps
 
-with open('data/apps.json') as apps_data:
-    apps = json.load(apps_data)
+apps = load_apps()
 ```
 
-`apps` is a dictionary with `keys` being *app ids* (e.g.: "google_analytics")
-and `values` containing all we know about each *app*. Let's take an example:
-
-* `apps["google_analytics"]`:
+`apps` is a dictionary with keys being *app ids* (e.g.: `google_analytics`)
+and values containing all we know about each *app*. Let's take an example:
 
 ```json
+apps["google_analytics"]
+
 {
     "overview": {
         "bad_qs": 0.4377430033329568,
@@ -193,8 +202,8 @@ For our use-case, we will only consider the field: `tracked`. It
 represents the proportion of page loads including *app*, identified as
 performing some form of tracking (using either identifying *cookies*
 or *fingerprinting*). In the case of `google_analytics`, it means that
-out of `100` page loads where `google_analytics` was present, tracking
-occurred `44` times.
+out of 100 page loads where `google_analytics` was present, tracking
+occurred 44 times.
 
 Before generating the filter list, let's keep only *apps* tracking
 users more than `10%` of the time. Please note that finding the right
@@ -212,8 +221,8 @@ def filter_domains(domains):
                 yield domain
 ```
 
-We need to check if the *app* exist first because we currently only have the
-*top 500* hosted on Github. We will host more in the future.
+We need to check if the *app* exists first because we currently only have the
+top 500 hosted on Github. We will host more in the future.
 
 
 ## Generating the lists
@@ -225,7 +234,7 @@ two forms:
 * Hostname syntax: `127.0.0.1 {domain}`
 
 Note that the second option will probably be too aggressive in a lot of
-cases, as it will also block the domain even if they are *first-party* (e.g.,
+cases, as it will also block the domain even if they are first-party (e.g.,
 `google.com` might get blocked by these rules).
 
 ```python
@@ -306,7 +315,7 @@ print(hostname_filters['advertising'])
 
 To put it in a nutshell, here is what we just did:
 
-1. Load the data from `whotracks.me` to get access to tracker's information
+1. Load the data from [whotracks.me](https://github.com/cliqz-oss/whotracks.me) to get access to trackers' information
 2. Create a mapping from tracking categories to list of domains
 3. Filter each domain based on the amount of tracking of each *app*
 3. Generate a filter list for each category
