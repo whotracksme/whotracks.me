@@ -9,7 +9,7 @@ with open(path.join(HERE, 'README.md')) as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
 setup(
-    name='whotrackme',
+    name='whotracksme',
     version='2017.11',
     description='Learn about tracking technologies, market structure and data-sharing on the web',
     long_description=LONG_DESCRIPTION,
