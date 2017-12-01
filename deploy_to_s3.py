@@ -50,6 +50,16 @@ def get_content_type(local_path):
     if guessed_type is None:
         if local_path.endswith('.css.map') or local_path.endswith('.js.map'):
             return 'application/json'
+        elif local_path.endswith('.otf'):
+            return 'font/opentype'
+        elif local_path.endswith('.eot'):
+            return 'application/vnd.ms-fontobject'
+        elif local_path.endswith('.ttf'):
+            return 'application/font-sfnt'
+        elif local_path.endswith('.woff'):
+            return 'application/font-woff'
+        elif local_path.endswith('.woff2'):
+            return 'application/font-woff2'
         return 'text/html'
     return guessed_type
 
