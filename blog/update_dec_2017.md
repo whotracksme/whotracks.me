@@ -8,21 +8,21 @@ tags: blog, update
 header_img: blog/blog-data-nov17.jpg
 +++
 
-We're happy update the site today with data from November 2017 - based on data from 100 million page loads. We're also expanding the amount of data we show, up to 600 top websites and 600 top trackers.
+We're happy to update the site today with data from November 2017 - based on data from 100 million page loads. We're also expanding the amount of data we show, up to 600 top websites and 600 top trackers.
 
 ## New Trackers in the database
 
 Increasing the number of trackers displayed meant that we needed to add company information for a new batch of tracker domains, as well as new entrants appearing in the top 500. Some interesting new entrants:
 
- * [Tru Optik](https://whotracks.me/trackers/truoptik.html), a company offering targeted advertising for Smart TVs, and claiming 70 Million US households in their 'Household Graph'. Their presence across major Germany sites suggests they might be using online ad networks in order to harvest user information and link it to active Smart TVs, where they can then push targeted adverts.
- * [Digitrust](https://whotracks.me/trackers/digitrust.html), a non-profit aiming to reducing the number of third-party requests per page. Their solution, however, is to create a unified user identifier, intending to prevent the need for trackers to synchronise pixels and tracking tokens on each page. Notably, they state that they [do not support](http://www.digitru.st/faqs/) the [Do Not Track](https://en.wikipedia.org/wiki/Do_Not_Track) standard, so their claims to be working in consumers interests are, at best, suspect.
- * [ORC International](https://whotracks.me/trackers/orc_international.html), the registered owner of the domain `emxdgt.com`, and a subsiduary of [Engine](http://www.enginegroup.com/), an Advertising Agency. Despite only appearing in our data recently, they have quickly rised to the top 300 trackers, and are listed in the [ads.txt](https://iabtechlab.com/ads-txt/) files as a reseller for several major US publications, such as [The Atlantic](https://www.theatlantic.com/ads.txt) and [CNET](https://www.cnet.com/ads.txt). Their ownership, and policy for the data collection is, however, not transparently disclosed.
+ * [Tru Optik](../trackers/truoptik.html), a company offering targeted advertising for Smart TVs, and claiming 70 Million US households in their 'Household Graph'. Their presence across major German sites suggests they might be using online ad networks in order to harvest user information and link it to active Smart TVs, where they can then push targeted adverts.
+ * [Digitrust](../trackers/digitrust.html), a non-profit aiming to reducing the number of third-party requests per page. Their solution, however, is to create a unified user identifier, intended to prevent the need for trackers to synchronise pixels and tracking tokens on each page. Notably, they state that they [do not support](http://www.digitru.st/faqs/) the [Do Not Track](https://en.wikipedia.org/wiki/Do_Not_Track) standard, so their claims to be working in consumers interests are, at best, suspect.
+ * [ORC International](../trackers/orc_international.html), the registered owner of the domain `emxdgt.com`, and a subsiduary of [Engine](http://www.enginegroup.com/), an Advertising Agency. Despite only appearing in our data recently, they have quickly risen up to the top 300 trackers, and are listed in the [ads.txt](https://iabtechlab.com/ads-txt/) files as a reseller for several major US publications, such as [The Atlantic](https://www.theatlantic.com/ads.txt) and [CNET](https://www.cnet.com/ads.txt). Their ownership, and policy for the data collection is, however, not transparently disclosed.
 
 ## Month-to-month trends
 
-The average number of trackers on top websites increased by 3%, to 10.0. heine.de, gutefrage.net, sportscheck.com and bild.de increased their number of trackers the most, each of them added on average 5 more trackers page page load. At the other end of the spectrum, paket.de, jackpot.de and hurriyet.com.tr had on average 5 fewer trackers per page.
+The average number of trackers on top websites increased by 3%, to 10.0. [Heine.de](../websites/heine.de.html), [gutefrage.net](../websites/gutefrage.net.html), [sportscheck.com](../websites/sportscheck.com.html) and [bild.de](../websites/bild.de.html) increased their number of trackers the most, each of them added on average 5 more trackers page page load. At the other end of the spectrum, [paket.de](../websites/paket.de.html), [jackpot.de](../websites/jackpot.de.htmwl) and [hurriyet.com.tr](../websites/hurriyet.com.tr.html) had on average 5 fewer trackers per page.
 
-On the tracker side, the biggest gain was by pmddby.com, which increased its reach by 9 times since October. Its profile is that of Spyware which is injecting ads into webpages for affected users, however at this time we were not able to determine the source - the WHOIS data for the domain is private.
+On the tracker side, the biggest gain was by [pmddby.com](../trackers/pmddby.com.html), which increased its reach by 9 times since October. Its profile is that of Spyware which is injecting ads into webpages for affected users, however at this time we were not able to determine the source - the WHOIS data for the domain is private.
 
 ## Additions to the dataset
 
