@@ -109,8 +109,8 @@ class Builder:
                 print_progress(text='Generate error pages')
                 copy_custom_error_pages(data=data_source)
 
-            # Depends on: 'data/'
-            if event & DATA_FOLDER:
+            # Depends on: 'data/', 'templates/'
+            if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
                 # Home
                 futures.append(executor.submit(build_home, data=data_source))
 
@@ -136,8 +136,8 @@ class Builder:
                     blog_posts=self.blog_posts
                 ))
 
-            # Depends on: 'data/', 'blog/'
-            if event & DATA_FOLDER or event & BLOG_FOLDER:
+            # Depends on: 'data/', 'blog/', 'templates/'
+            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
                 futures.append(executor.submit(
                     generate_sitemap,
                     data=data_source,
