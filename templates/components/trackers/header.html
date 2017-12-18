@@ -17,7 +17,7 @@
         <p class="header">TRACKER RANK</p>
         <p class="tracker-rank">
           <span class="emphasis">{{ profile.rank }}</span>
-          /500
+          /{{ trackers }}
         </p>
         <p class="description">{{profile.rank|rank_label}}</p>
       </div>
@@ -28,7 +28,7 @@
           <div id="operates-under">
           {% for domain in profile.domains %}
             <p>
-              <a class="profile-label" 
+              <a class="profile-label"
                  target="_blank"
                  rel="noreferrer"
                  href="//{{domain}}"> {{ domain }}

@@ -59,7 +59,7 @@
             <div class="col-md-4 col-sm-4">
                 <div class="panel panel-body">
                     <div class="card-top-1 card-purple">
-                        <h3 class="card-title">Google trackers are present on 79% of the web traffic</h3>
+                        <h3 class="card-title">Google trackers are present on {{ top10[0].overview.reach |to_percentage|round(0)|int }}% of the web traffic</h3>
                         <p class="card-subtitle">That is more than the next 4 biggest trackers combined.</p>
                     </div>
 
@@ -76,7 +76,7 @@
             <div class="col-md-4 col-sm-4">
                 <div class="panel panel-body">
                     <div class="card-top-2 card-purple">
-                        <h3 class="card-title">29% of the web has a hidden Facebook tracking pixel</h3>
+                        <h3 class="card-title">{{ top10[1].overview.reach |to_percentage|round(0)|int }}% of the web has a hidden Facebook tracking pixel</h3>
                         <p class="card-subtitle">Facebook knows more than what you just do on Facebook</p>
                     </div>
 
@@ -93,7 +93,7 @@
             <div class="col-md-4 col-sm-4">
                 <div class="panel panel-body">
                     <div class="card-top-3 card-gray">
-                        <h3 class="card-title">542 companies track more than 0.1% of the web traffic each.</h3>
+                        <h3 class="card-title">{{ trackers.gt01 }} companies track more than 0.1% of the web traffic each.</h3>
                         <p class="card-subtitle">Which of these have you heard of?</p>
                     </div>
 
@@ -172,15 +172,15 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="row">
                         <div class="col-md-11">
-                            <p class="percentage">188</p>
-                            <p>out of 500 top websites have more than 10 trackers per page.</p>
+                            <p class="percentage">{{ websites.gt10 }}</p>
+                            <p>out of {{ websites.count }} top websites have more than 10 trackers per page.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="row">
                         <div class="col-md-11">
-                            <p class="percentage">24<span class="mb">MB</span></p>
+                            <p class="percentage">{{ (websites.data / 1024 / 1024)|round|int }}<span class="mb">MB</span></p>
                             <p>of data per page load on average required by trackers
                             </p>
                         </div>
