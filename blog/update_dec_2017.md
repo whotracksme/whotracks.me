@@ -5,7 +5,7 @@ type: article
 publish: True
 date: 2017-12-08
 tags: blog, update
-header_img: blog/blog-data-nov17.jpg
+header_img: blog/blog-data-dec17.png
 +++
 
 We're happy to update the site today with data from November 2017 - based on data from 100 million page loads. We're also expanding the amount of data we show, up to 600 top websites and 600 top trackers.
