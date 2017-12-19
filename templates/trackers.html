@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block title %}
     <title>WhoTracks.me | Trackers</title>
     <meta name="description" content="Most prevalent trackers on the web for advertising, analytics, customer interaction and others. Updated monthly.">
@@ -6,7 +6,7 @@
 
 {% block og_params %}
     <!-- OG params for sharable content -->
-    <meta property="og:title" content="WhoTracks.me | Trackers">    
+    <meta property="og:title" content="WhoTracks.me | Trackers">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://whotracks.me/trackers.html">
     <meta property="og:description" content="Most prevalent trackers on the web for advertising, analytics, customer interaction and others. Updated monthly.">
@@ -27,7 +27,7 @@
         <div class="header">
           <h1>
             <span>TRACKERS RANK</span>
-            <span class="sub-title">Top 500 most prevalent trackers on the web</span>
+            <span class="sub-title">Top {{ tracker_list|count }} most prevalent trackers on the web</span>
           </h1>
           <span class="subtitle">Sort by: </span>
         </div>
