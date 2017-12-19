@@ -218,7 +218,8 @@ def tracker_page(template, aid, app, data):
             sites_by_cat=sites_by_cat,
             website_types=website_types[:5], # top 3
             similar_trackers=similar_tracker_list,
-            trends={"page": page_trend, "site": site_trend}
+            trends={"page": page_trend, "site": site_trend},
+            trackers=len(data.apps)
         ))
 
 

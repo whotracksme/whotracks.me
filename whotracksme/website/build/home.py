@@ -41,7 +41,17 @@ def build_home(data):
             tracker_list=sorted_trackers[:20],
             trackers_list_cat=sorted_trackers_cat[:20],
             most_tracked_sites=most_tracked_sites,
-            least_tracked_sites=least_tracked_sites
+            least_tracked_sites=least_tracked_sites,
+            websites={
+                'count': len(data.sites),
+                'gt10': len([s for s in data.sites.values() if s['overview']['mean_trackers'] >= 10.]),
+                'data': sum([s['overview']['content_length'] for s in data.sites.values()]) / len(data.sites)
+            },
+            trackers={
+                'count': len(apps),
+                'gt01': len([a for a in apps.values() if a['overview']['reach'] > 0.001]),
+            },
+            top10=top10
         ))
 
     print_progress(text="Generate home page")
