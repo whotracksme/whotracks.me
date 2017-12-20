@@ -26,11 +26,14 @@ def load_tracker_db(loc=':memory:'):
 def load_apps():
     return load_json_file('apps.json')
 
+
 def load_overview():
     return load_json_file('overview.json')
 
+
 def load_companies():
     return load_json_file('companies.json')
+
 
 def load_sites():
     return load_json_file('sites.json')
@@ -93,6 +96,34 @@ class DataSource:
 
     def get_site_name(self, id):
         return id if id in self.sites else None
+
+    def trackers_on_site(self, site):
+        """
+        Args:
+            site: a site dict from self.sites
+
+        Returns: (tracker :: dict,
+                  category of tracker :: string,
+                  company that owns the tracker :: string)
+        """
+
+        for t in site.get("apps"):
+            tracker_id = t["app"]
+            try:
+                tracker = self.apps[tracker_id]
+                tracker["frequency"] = t["frequency"]
+            except:
+                continue
+            if "name" not in tracker:
+                tracker["name"] = tracker_id
+            category = tracker.get("cat", "unknown")
+            if category == "extensions":
+                continue
+
+            company_id = tracker.get("company_id")
+            company_name = self.companies.get(company_id, {}).get("name") or tracker["name"]
+
+            yield tracker, category, company_name
 
     def load_app_info(self, connection):
         col_names = ['id', 'name', 'description', 'cat', 'website_url', 'logo_url', 'company_id']

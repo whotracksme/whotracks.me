@@ -6,7 +6,7 @@ from whotracksme.website.templates import (
     get_template,
     render_template,
 )
-from whotracksme.website.plotting.colors import TrackerColors, CliqzColors
+from whotracksme.website.plotting.colors import TrackerCategoryColors, CliqzColors
 
 
 def get_company(companies, company_id):
@@ -54,77 +54,55 @@ def website_doughnout(apps, site):
     return values, labels, total
 
 
-def companies_present(companies, apps, site):
-    trackers = site.get("apps")
-
-    node_label = []
+def tracker_map_data(site, data):
+    nodes = []
     link_source = []
     link_target = []
     link_value = []
     link_label = []
 
-    for t in trackers:
-        app_id = t["app"]
-        try:
-            app = apps[app_id]
-        except:
-            continue
+    for (tracker, category, company) in data.trackers_on_site(site):
 
-        if 'name' not in app:
-            app['name'] = app_id
-        tracker_name = app["name"]
-        category = app.get("cat", 'misc')
-        if category == "extensions":
-            continue
-        if category not in TrackerColors:
-            category = "misc"
-        company_id = app.get("company_id")
-        company = get_company(companies, company_id).get("name")
-        if company is None:
-            # tracker considered as company itself
-            company = app.get("name")
+        # category node index in nodes
+        if category in nodes:
+            cat_idx = nodes.index(category)
+        else:
+            nodes.append(category)
+            cat_idx = len(nodes) - 1
 
-        # TODO: This must be simpler
-        if category in node_label:
-            c_idx = node_label.index(category)
+            # company node index in nodes
+        if company in nodes:
+            com_idx = nodes.index(company)
         else:
-            node_label.append(category)
-            c_idx = len(node_label) - 1
-        if company in node_label:
-            com_idx = node_label.index(company)
-        else:
-            node_label.append(company)
-            com_idx = len(node_label) - 1
-        link_source.append(c_idx)
+            nodes.append(company)
+            com_idx = len(nodes) - 1
+
+        link_source.append(cat_idx)
         link_target.append(com_idx)
-        link_label.append(tracker_name)
-        link_value.append(100.0 * t["frequency"])
+        link_label.append(tracker["name"])
+        link_value.append(100.0 * tracker["frequency"])
 
-    label_colors = []
-    for l in node_label:
-        if l in TrackerColors:
-            label_colors.append(TrackerColors[l])
-        else:
-            label_colors.append(CliqzColors["purple"])
+    label_colors = [TrackerCategoryColors[l] if l in TrackerCategoryColors else CliqzColors["purple"] for l in nodes]
 
-    return {
-        "node": {
-            "label": node_label,
-            "color": label_colors
-        },
-        "link": {
-            "source": link_source,
-            "target": link_target,
-            "value": link_value,
-            "label": link_label,
-            "color": ["rgba(227, 163, 43, 0.2)"] * len(link_label)
-        }
-    }
+    return dict(
+        node=dict(
+            label=nodes,
+            color=label_colors
+        ),
+        link=dict(
+            source=link_source,
+            target=link_target,
+            value=link_value,
+            label=link_label,
+            color=["rgba(227, 163, 43, 0.2)"] * len(link_label)
+        )
+    )
 
 
 def company_reach(companies):
     sorted_companies = sorted(companies.values(), key=lambda c: c['rank'])
     return sorted_companies[:10]
+
 
 def company_page(template, company_data, data):
     company_data["logo"] = None

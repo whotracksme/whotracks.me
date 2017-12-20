@@ -2,7 +2,7 @@ from collections import namedtuple
 import plotly
 import plotly.graph_objs as go
 
-from whotracksme.website.plotting.colors import TrackerColors, CliqzColors
+from whotracksme.website.plotting.colors import TrackerCategoryColors, CliqzColors
 
 
 FontSet = namedtuple("FontSet", 'mono regular')
@@ -15,7 +15,7 @@ CliqzFonts = FontSet(
 def set_category_colors(tracker_labels):
     colors = []
     for l in tracker_labels:
-        colors.append(TrackerColors[l])
+        colors.append(TrackerCategoryColors[l])
     return colors
 
 

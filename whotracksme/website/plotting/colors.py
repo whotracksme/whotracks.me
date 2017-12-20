@@ -1,4 +1,3 @@
-from collections import namedtuple
 from random import randint
 import colour
 
@@ -18,7 +17,7 @@ CliqzColors = {
     "gray_blue": "#5F7C86"
 }
 
-TrackerColors = {
+TrackerCategoryColors = {
     "advertising": "#BF90D2",
     "comments": "#43B7C5",
     "customer_interaction": "#FCC156",

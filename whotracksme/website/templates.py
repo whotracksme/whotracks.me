@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader, Markup
 import markdown
 
 from whotracksme.website.utils import print_progress
-from whotracksme.website.plotting.colors import TrackerColors, SiteCategoryColors
+from whotracksme.website.plotting.colors import TrackerCategoryColors, SiteCategoryColors
 
 
 def normalize(s):
@@ -155,7 +155,7 @@ def render_template(template, path_to_root='.', **context):
     paths['path_to_root'] = path_to_root
     return template.render(
         PATHS=paths,
-        TRACKER_CATEGORIES=TrackerColors,
+        TRACKER_CATEGORIES=TrackerCategoryColors,
         SITE_CATEGORIES=SiteCategoryColors,
         CATEGORY_DESC=CATEGORY_DESC,
         **context

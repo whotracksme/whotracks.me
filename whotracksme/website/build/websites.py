@@ -8,7 +8,7 @@ from jinja2 import Markup
 from whotracksme.website.plotting.utils import arrow_style
 from whotracksme.website.utils import print_progress
 from whotracksme.website.build.companies import (
-    companies_present,
+    tracker_map_data,
     website_doughnout,
 )
 from whotracksme.website.templates import (
@@ -18,7 +18,6 @@ from whotracksme.website.templates import (
 
 from whotracksme.website.plotting.plots import profile_doughnut
 from whotracksme.website.plotting.sankey import alluvial_plot
-
 
 
 def sort_by_rank(sites):
@@ -107,7 +106,6 @@ def tracking_methods(site):
 
 def changes(site):
     change_in = defaultdict(dict)
-    overview = site.get("overview")
     history = site.get("history")
 
     try:
@@ -142,8 +140,8 @@ def header_stats(sites):
         "tracker_requests": int(mean(tracker_requests))
     }
 
+
 def build_website_list(data):
-    sites = data.sites
     tracker_requests, tracker_buckets, https = summary_stats(data.sites)
 
     # header stats
@@ -170,7 +168,6 @@ def build_website_list(data):
 
 
 def website_page(template, site_id, rank, data):
-    companies = data.companies
     apps = data.apps
     site = data.sites.get(site_id)
     # website url is the most common subdomain
@@ -186,7 +183,7 @@ def website_page(template, site_id, rank, data):
     tracker_changes = changes(site)
 
     # tracker presence data
-    sankey_data = companies_present(companies, apps, site=site)
+    sankey_data = tracker_map_data(site, data)
     d_values, d_labels, d_total = website_doughnout(apps, site)
     profile_dough = Markup(profile_doughnut(d_values, d_labels, d_total))
 
