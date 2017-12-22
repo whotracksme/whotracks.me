@@ -36,14 +36,17 @@ def website_doughnout(apps, site):
         try:
             apid = t.get("app", None)
             if apid is not None and apid != "None":
-                app = apps[t.get("app")]
+                app = apps.get_tracker(apid)
+                if app is None:
+                    continue
+                # app = apps[t.get("app")]
 
                 cat = app.get("cat")
                 if cat is None or cat == "None":
-                    cat = "misc"
+                    cat = "unknown"
                 d[cat] += 1
         except KeyError:
-            pass
+            continue
 
     values = []
     labels = []
@@ -61,7 +64,7 @@ def tracker_map_data(site, data):
     link_value = []
     link_label = []
 
-    for (tracker, category, company) in data.trackers_on_site(site):
+    for (tracker, category, company) in data.sites.trackers_on_site(site, data.apps, data.companies):
 
         # category node index in nodes
         if category in nodes:

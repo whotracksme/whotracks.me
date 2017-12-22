@@ -120,7 +120,7 @@ $(document).ready(function() {
         <div class="container">
             <div class="row">
                 <h2 class="title">Presence on top sites</h2>
-                {% if website_list|length > 0%}
+                {% if sites_by_cat|length > 0 %}
                     {% include "components/tag_cloud.html" %}
                 {% endif %}
             </div>

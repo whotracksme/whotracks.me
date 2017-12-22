@@ -100,7 +100,6 @@ def ts_trend(ts, t):
         t: x-axis (time)
 
     Returns: hmtl output of an interactive timeseries plot
-
     """
     y = list(map(lambda x: x * 100, ts))
     trace0 = line(
@@ -140,7 +139,7 @@ def ts_trend(ts, t):
                 showticklabels=False
             ),
             yaxis=dict(
-                range=[min(y)*0.90, max(y)*1.05 if max(y) != y[-1] else max(y)*1.15],
+                range=[min(y) * 0.90, max(y) * 1.05 if max(y) != y[-1] else max(y) * 1.15],
                 showgrid=False,
                 zeroline=False,
                 showline=False,
@@ -166,33 +165,33 @@ def site_tree_map(sites):
     height = 700
 
     normed = squarify.normalize_sizes(values, width, height)
-    rects = squarify.squarify(normed, x, y, width, height)
+    rectangles = squarify.squarify(normed, x, y, width, height)
 
-    return site_values, values, rects
+    return site_values, values, rectangles
 
 
-def tracker_map(app, site_values, values, rects):
+def tracker_map(app, site_values, rectangles):
     print(app["overview"]["id"])
     site_where_app = [s.get("site") for s in app.get("sites")]
-    color_brewer = [CliqzColors["red"] if t[0] in site_where_app else CliqzColors["bright_gray"] for t in site_values ]
+    color_brewer = [CliqzColors["red"] if t[0] in site_where_app else CliqzColors["bright_gray"] for t in site_values]
 
     shapes = []
     counter = 0
 
-    for r in rects:
-        shapes.append( 
+    for r in rectangles:
+        shapes.append(
             dict(
-                type = 'rect', 
-                x0 = r['x'], 
-                y0 = r['y'], 
-                x1 = r['x']+r['dx'], 
-                y1 = r['y']+r['dy'],
-                line = dict(
+                type='rect',
+                x0=r['x'],
+                y0=r['y'],
+                x1=r['x'] + r['dx'],
+                y1=r['y'] + r['dy'],
+                line=dict(
                     color=CliqzColors["white"],
                     width=0.5
-                    ),
+                ),
                 fillcolor=color_brewer[counter]
-            ) 
+            )
         )
         counter = counter + 1
         if counter >= len(color_brewer):
@@ -200,13 +199,13 @@ def tracker_map(app, site_values, values, rects):
 
     # For hover text
     trace0 = go.Scatter(
-        x = [ r['x']+(r['dx']/2) for r in rects ], 
-        y = [ r['y']+(r['dy']/2) for r in rects ],
-        text = [ v[0] for v in site_values ],
-        mode = 'markers',
+        x=[r['x'] + (r['dx'] / 2) for r in rectangles],
+        y=[r['y'] + (r['dy'] / 2) for r in rectangles],
+        text=[v[0] for v in site_values],
+        mode='markers',
         hoverinfo="text"
     )
-            
+
     layout = dict(
         autosize=True,
         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),

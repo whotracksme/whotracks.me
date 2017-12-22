@@ -30,15 +30,15 @@ def site_to_json(data_source, blog_posts):
             "weight": weight
         })
 
-    for app_id, app in data_source.apps.items():
+    for (app_id, app) in data_source.apps.iter():
         submit_key(
-            name=data_source.get_app_name(app_id),
+            name=data_source.apps.get_name(app_id),
             type="tracker",
             url=data_source.url_for("app", app_id),
             weight=(1.0 / app.get("rank", 1)) * 1000
         )
 
-    for company_id, company in data_source.companies.items():
+    for (company_id, company) in data_source.companies.items():
         submit_key(
             name=data_source.get_company_name(company_id),
             type="company",
@@ -46,9 +46,9 @@ def site_to_json(data_source, blog_posts):
             weight=len(company.get("overview", {}).get("apps", {})) or 1
         )
 
-    for site_id, site in data_source.sites.items():
+    for (site_id, site) in data_source.sites.iter():
         submit_key(
-            name=data_source.get_site_name(site_id),
+            name=data_source.sites.get_name(site_id),
             type="site",
             url=data_source.url_for("site", site_id),
             weight=site.get("overview", {}).get("popularity", 0.01) * 10000
@@ -132,7 +132,7 @@ def get_template(data_source, name, render_markdown=False, path_to_root='.'):
     env.filters["prettify_label"] = lambda text: text.replace("_", " ").capitalize() if text not in [None, "None", ""] else ""
     env.filters["normalize_domain_name"] = lambda text: text.replace("www.", "")
     env.filters["url_for"] = lambda entity, id: data_source.url_for(entity, id, path_to_root=path_to_root)
-    env.filters["get_app_name"] = lambda id: data_source.get_app_name(id)
+    env.filters["get_app_name"] = lambda id: data_source.apps.get_name(id)
     env.filters["get_company_name"] = lambda id: data_source.get_company_name(id)
     env.filters["get_site_name"] = lambda id: data_source.get_site_name(id)
 
@@ -140,7 +140,7 @@ def get_template(data_source, name, render_markdown=False, path_to_root='.'):
     env.filters["round2"] = lambda x: round(x, 1)
     env.filters["percentage"] = lambda x, y: round((x / y) * 100, 1)
     env.filters["to_percentage"] = lambda x: round(x*100, 1)
-    env.filters["rank_label"] = lambda r: data_source.rank_label(r)
+    env.filters["rank_label"] = lambda id: data_source.apps.get_rank_label(id)
     return env.get_template(name)
 
 

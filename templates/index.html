@@ -125,17 +125,17 @@
                 <div class="tab-content">
                     <div id="traffic" class="tab-pane fade in active">
                         <ul id="multi-column-list">
-                            {% for (cat, sites) in most_tracked_sites.items() %}
-                            {% for site in sites %}
+                            {% for (category, sites) in most_tracked_sites.items() %}
+                                {% for site in sites %}
+                                    <li>
+                                        <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
+                                        <a href="{{ 'site'|url_for(site.site) }}">{{ site.site | normalize_domain_name }}</a>
+                                        <span class="count">{{site.mean_trackers|int}}</span>
+                                        <span class="subtitle">{{ site.category }}</span>
+                                    </li>
+                                {% endfor %}
+                            {% endfor %}
                                 <li>
-                                    <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
-                                    <a href="{{ 'site'|url_for(site.site) }}">{{ site["site"] | normalize_domain_name }}</a>
-                                    <span class="count">{{site["mean_trackers"]|int}}</span>
-                                    <span class="subtitle">{{ cat }}</span>
-                                </li>
-                            {% endfor %}
-                            {% endfor %}
-                                 <li>
                                     <a href="{{PATHS.static}}/websites.html" class="all-websites">
                                         All websites
                                         <i class="fa fa-angle-right"></i>
@@ -146,15 +146,15 @@
 
                     <div id="trackersNum" class="tab-pane fade">
                         <ul id="multi-column-list">
-                            {% for (cat, sites) in most_tracked_sites.items() %}
-                            {% for site in sites %}
-                                <li>
-                                    <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
-                                    <a href="{{ 'site'|url_for(site.site) }}">{{ site["site"] | normalize_domain_name }}</a>
-                                    <span class="count">{{site["mean_trackers"]|int}}</span>
-                                    <span class="subtitle">{{ cat }}</span>
-                                </li>
-                            {% endfor %}
+                            {% for (category, sites) in most_tracked_sites.items() %}
+                                {% for site in sites %}
+                                    <li>
+                                        <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
+                                        <a href="{{ 'site'|url_for(site.site) }}">{{ site.site | normalize_domain_name }}</a>
+                                        <span class="count">{{site.mean_trackers|int}}</span>
+                                        <span class="subtitle">{{ site.category }}</span>
+                                    </li>
+                                {% endfor %}
                             {% endfor %}
                                 <li>
                                     <a href="{{PATHS.static}}/websites.html" class="all-websites">
