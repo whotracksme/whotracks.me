@@ -29,22 +29,6 @@ def set_margins(l=60, r=60, b=40, t=0, pad=5):
     )
 
 
-def arrow_style(val):
-    """
-    Defines styling for badges (ui elements)
-    Args:
-        val: float (positive or negative)
-
-    Returns: background-color, color, class for font awesome icons
-
-    """
-    if round(val, 1) < 0:
-        return "#50B1A2", "#fff", "down"
-    if round(val, 1) > 0:
-        return "#C3043E", "#fff", "up"
-    return "#FFC802", "#444", "right"
-
-
 def set_line_style(color, width=3, line_style="solid"):
     """
     Defines default styling of scatter graphs with some smoothing.

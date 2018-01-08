@@ -57,14 +57,14 @@ def website_doughnout(apps, site):
     return values, labels, total
 
 
-def tracker_map_data(site, data):
+def tracker_map_data(site_id, data):
     nodes = []
     link_source = []
     link_target = []
     link_value = []
     link_label = []
 
-    for (tracker, category, company) in data.sites.trackers_on_site(site, data.apps, data.companies):
+    for (tracker, category, company) in data.sites.trackers_on_site(site_id, data.trackers, data.companies):
 
         # category node index in nodes
         if category in nodes:
@@ -73,7 +73,7 @@ def tracker_map_data(site, data):
             nodes.append(category)
             cat_idx = len(nodes) - 1
 
-            # company node index in nodes
+        # company node index in nodes
         if company in nodes:
             com_idx = nodes.index(company)
         else:

@@ -9,7 +9,7 @@
                 {% for tracker in tracker_list %}
                     <li>
                         {{loop.index}}. 
-                        <a href="{{ 'app'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
+                        <a href="{{ 'tracker'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
                         {% if tracker.company_id %}
                             <span>
                                 {{ tracker.company_id|get_company_name }}
@@ -26,7 +26,7 @@
                         class="top-trackers"
                         href="/trackers.html"
                     >
-                        See All {{ trackers.count }} Trackers
+                        See All {{ tracker_stats.count }} Trackers
                         <i class="fa fa-angle-right"></i>
                     </a>
                 </li>
@@ -35,10 +35,10 @@
 
         <div id="category" class="tab-pane fade">
             <ul id="multi-column-list">
-                {% for tracker in trackers_list_cat %}
+                {% for tracker in trackers_list_company %}
                     <li>
                         {{loop.index}}. 
-                        <a  href="{{ 'app'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
+                        <a  href="{{ 'tracker'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
                         {% if tracker.company_id %}
                         <span>
                             {{ tracker.company_id|get_company_name }}
@@ -46,7 +46,7 @@
                         {% else %}
                             <span>
                                 -
-                            </span>    
+                            </span>
                         {% endif %}
                     </li>
                 {% endfor %}
