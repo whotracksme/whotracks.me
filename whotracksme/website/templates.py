@@ -71,19 +71,19 @@ PATHS = {
 }
 
 CATEGORY_DESC = {
-	"advertising": "Provides advertising or advertising-related services such as data collection, behavioral analysis or retargeting.",
-	"comments": "Enables comments sections for articles and product reviews.",
-	"customer_interaction": "Includes chat, email messaging, customer support, and other interaction tools.",
-	"essential": "Includes tag managers, privacy notices, and technologies that are critical to the functionality of a website.",
-	"adult_advertsing": "Delivers advertisements that generally appear on adult content sites.",
-	"site_analytics": "Collects and analyzes data related to site usage and performance.",
-	"social_media": "Integrates features related to social media sites.",
-	"audio_video_player": "Enables websites to publish, distribute, and optimize video and audio content.",
-	"cdn": "Content delivery network that delivers resources for different site utilies and usually for many different customers.",
-	"misc": "This tracker does not fit in other categories or has not yet been labelled.",
-	"pornvertising": "Delivers advertisements that generally appear on adult content sites.",
-	"hosting": "This is a service used by the content provider or site owner.",
-	"extensions": "This are browser addons that collect user data"
+    "advertising": "Provides advertising or advertising-related services such as data collection, behavioral analysis or retargeting.",
+    "comments": "Enables comments sections for articles and product reviews.",
+    "customer_interaction": "Includes chat, email messaging, customer support, and other interaction tools.",
+    "essential": "Includes tag managers, privacy notices, and technologies that are critical to the functionality of a website.",
+    "adult_advertsing": "Delivers advertisements that generally appear on adult content sites.",
+    "site_analytics": "Collects and analyzes data related to site usage and performance.",
+    "social_media": "Integrates features related to social media sites.",
+    "audio_video_player": "Enables websites to publish, distribute, and optimize video and audio content.",
+    "cdn":  "Content delivery network that delivers resources for different site utilies and usually for many different customers.",
+    "misc": "This tracker does not fit in other categories or has not yet been labelled.",
+    "pornvertising": "Delivers advertisements that generally appear on adult content sites.",
+    "hosting": "This is a service used by the content provider or site owner.",
+    "extensions": "These are browser addons that collect user data"
 }
 
 
