@@ -67,14 +67,13 @@ class DataSource:
 
 		# TODO: Remove when supported in data generation
 		for id, site in _sites.items():
-			site['overview']['category'] = site.get('category', 'misc')
+			site['overview']['category'] = site.get('category', 'unknown')
 
 		for id, company in self.companies.items():
 			if id in self.company_info:
 				for k, v in self.company_info[id].items():
 					company[k] = v
 
-		# TODO: Remove comment when refactoring is done
 		self.trackers = Trackers(_apps)
 		self.sites = Sites(_sites)
 
@@ -318,17 +317,17 @@ class Sites:
 
 	# Methods for one specific site
 	# -----------------------------
-	def get_site(self, site_id):
-		return self._sites.get(site_id, {})
+	def get_site(self, id):
+		return self._sites.get(id, {})
 
-	def get_name(self, site_id):
+	def get_name(self, id):
 		# NOTE: THis is weird
-		return site_id if site_id in self._sites else None
+		return id if id in self._sites else None
 
-	def tracking_methods(self, site_id):
+	def tracking_methods(self, id):
 		"""
 		Args:
-			site_id: id of site to access
+			id: id of site to access, the site's url
 
 		Returns: {'cookies:: bool, 'fingerprinting':: bool}
 				based on chosen threshold by privacy team.
@@ -338,18 +337,18 @@ class Sites:
 			"cookies": False,
 			"fingerprinting": False
 		}
-		if self.get_site(site_id).get("overview", {}).get("cookies") > 0.2:
+		if self.get_site(id).get("overview", {}).get("cookies") > 0.2:
 			methods["cookies"] = True
-		if self.get_site(site_id).get("overview", {}).get("bad_qs") > 0.1:
+		if self.get_site(id).get("overview", {}).get("bad_qs") > 0.1:
 			methods["fingerprinting"] = True
 		return methods
 
-	def trackers_on_site(self, site_id, trackers, companies):
+	def trackers_on_site(self, id, trackers, companies):
 		"""
 		Args:
-			site: a site dict from self._sites
+			id: a site dict from self._sites
 			trackers: DataSource.trackers
-			companies: DataSource companies
+			companies: DataSource.companies
 
 		Returns:
 			tracker :: dict,
@@ -357,7 +356,7 @@ class Sites:
 			company_name :: string
 		"""
 
-		for t in self.get_site(site_id).get('apps'):
+		for t in self.get_site(id).get('apps'):
 			tracker_id = t['app']
 			try:
 				tracker = trackers.get_tracker(tracker_id)
@@ -372,11 +371,11 @@ class Sites:
 			company_name = companies.get(company_id, {}).get('name') or tracker['name']
 			yield (tracker, category, company_name)
 
-	def mean_trackers_timeseries(self, site_id):
+	def mean_trackers_timeseries(self, id):
 		"""
 		Args:
-			site_id: site_id, e.g.: ebay.de
+			id: id, e.g.: ebay.de
 
 		Returns: [(ts0, mean_trackers0, ... ]
 		"""
-		return [(s.get('ts'), s.get('mean_trackers')) for s in self.get_site(site_id).get('history')]
+		return [(s.get('ts'), s.get('mean_trackers')) for s in self.get_site(id).get('history')]
