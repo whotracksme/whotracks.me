@@ -8,9 +8,11 @@ tags: trackers, sankey
 header_img: blog/trackers_on_site/blog-sankey-1.png
 +++
 
-In this post we'll try to do two things: show you how to use whotracks.me data
-and API to investigate trackers on reddit, or any of your favorite sites, and teach 
-you how to easily build sankey diagrams. We'll start with the second. 
+In this post we'll try to do two things: 
+
+1. teach you how to easily build sankey diagrams. We'll start with the second.
+2. show you how to use whotracks.me data and API to investigate trackers on reddit, or any of your favourite sites, using sankey diagrams
+
 
 ## Sankey Diagrams 
 When building the tracker maps that you see on popular site profiles on whotracks.me, 
@@ -20,16 +22,16 @@ hat own the trackers. Each link would be a tracker, going from a category to a c
 <img alt="Trackers on Tumblr" class="img-responsive img-with-padding" src="../static/img/blog/trackers_on_site/tumblr.png">
 <p class="img-caption">Figure 1: Sankey diagram used to represent a [tracker map](../websites/tumblr.com.html)</p>
 
-Sankey diagrams are at visualizing flow volume metrics. Sometimes
+Sankey diagrams are great at visualizing flow volume metrics. Sometimes
 they are found under the name alluvial diagrams, although they originally are 
-different types of flow diagrams.
+different types of flow diagrams [1].
 
-Given we had decided to use plottly.offline to generate the interactive images,
-on the site, we wanted to use the sankey diagram supported in plotly, the vizualisation 
+We wanted to use the sankey diagram supported in plotly [2], the visualisation 
 library of choice used in whotracks.me. The function itself is pretty simple, 
-as you will see in a bit `sankey_diagram()`, but figuring out how the structure 
-of the input data was not as straightforward. Hopefully the following example will 
-make it easier for those reading this post, should they ever decided to try 
+as you will see in a bit when we define `sankey_diagram()`. The challenge to creating 
+sankey diagrams with Plotly is understanding the required structure of the input data 
+required by the plotting function. Hopefully the following example will 
+make it easier for those reading this post, should they ever decide to try 
 sankey diagrams.
 
 The goal here is to show a very small dataset, structured in a way that the 
@@ -46,7 +48,7 @@ city_data = dict(
         links = dict(
             source=[0, 0, 0, 4, 4, 4],
             target=[1, 2, 3, 5, 6, 7],
-            value= [1.5, 3.5, 1, 2.2, 0.5, 0.2],
+            value= [3.5, 1.5, 1, 2.2, 0.5, 0.2],
             label=["capital", "city", "city",   "capital", "city",  "city"],
             color=["black",   "red",  "yellow", "blue",    "whitesmoke", "red"]
         )
@@ -69,7 +71,7 @@ paired based on index.
 
 ## Plotting a sankey diagram
 
-Now let's write a simple function to plot these data nicely. Most of the work has 
+Now let's write a simple function to plot this data nicely. Most of the work has 
 already been done, given we're feeding the data in a format that's easy to parse.
 
 ```python
@@ -116,11 +118,11 @@ and we're done.
 
 
 # From Cities to Trackers
-Doing Sankey diagrams for cities may have been fun. Not sure the result of 
-doing the same for trackers on your favorite sites will be equally fun. In fact 
-it may be terrifying. We'll be using public data from whotracks.me to map tracker 
-categories to Companies present on a particular site. Each link will be a tracker 
-the company owns. This gives immediate visual insights on who's watching you an why.
+Doing Sankey diagrams for cities may have been fun. The result of doing the same for 
+trackers on your favourite sites might not be as fun -it may in fact be terrifying. 
+We'll be using public data from whotracks.me to map tracker categories to companies 
+present on a particular site. Each link will be a tracker the company owns. 
+This gives immediate visual insights on who's watching you and why.
 
 ## Terse intro to the API
 The data and API for whotracksme us available on Pypi and you can easily install it 
@@ -143,14 +145,13 @@ landscape in reddit. To do that, we only need to know the reddit `site_id`,
 which is `reddit.com`. Each site has a `site_id`, most often its url. 
 
 
-
 ## Preparing reddit tracker data for sankey diagram
 Here we will be mapping companies and the trackers they operate to the category 
 of the tracker. The thickness of the link is a function of the frequency of 
 appearance of the tracker per page load in the given domain. 
 
 ```python
-def sankey_data(site_id, data=DATA):
+def sankey_data(site_id, data_source):
 
     nodes = []
     link_source = []
@@ -158,7 +159,7 @@ def sankey_data(site_id, data=DATA):
     link_value = []
     link_label = []
 
-    for (tracker, category, company) in data.sites.trackers_on_site(site_id, data.trackers, data.companies):
+    for (tracker, category, company) in data_source.sites.trackers_on_site(site_id, data_source.trackers, data_source.companies):
 
         # index of this category in nodes
         if category in nodes:
@@ -196,19 +197,22 @@ def sankey_data(site_id, data=DATA):
     )
 ```
 Now that we have a function to generate the data in the format we need it, let's 
-run it for reddit and plot the sankey diagram to investigate the tracking landscape: 
+run it for reddit and plot the sankey diagram to investigate the tracking landscape:
 
 ```python
-input_data = sankey_data(reddit_id, data=DATA)
-sankey_diagram(input_data, reddit_id)
+input_data = sankey_data('reddit.com', data_source=DataSource())
+sankey_diagram(input_data, 'Tracker Map on reddit.com')
 ```
 
 <img alt="Reddit Tracking Landscape" class="img-responsive img-with-padding" src="../static/img/blog/trackers_on_site/reddit.png">
-<p class="img-caption">Figure 1: Tracking landscape in reddit.com</p>
+<p class="img-caption">Figure 1: Tracking landscape on reddit.com</p>
 
 We see that most tracking happens for advertising reasons. 
 [Amazon Associates](../trackers/amazon_associates.html) is also big on advertising on 
 reddit (lot's of affiliate links). In terms of number of trackers, Google has the most eyes on 
 reddit users.
 
-You can see the full notebook [here](https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/tracker_map_notebook.ipynb): 
+## References
+[[1] Sankey Diagrams](https://en.wikipedia.org/wiki/Sankey_diagram) <br>
+[[2] Plotly - Python Graphing Library](https://plot.ly/python/)<br>
+[[3] Jupyter Notebook on this post](https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/tracker_map_notebook.ipynb): 
