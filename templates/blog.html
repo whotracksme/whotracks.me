@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-	<title>WhoTracks.me | Blog</title>
+    <title>WhoTracks.me | Blog</title>
     <meta name="description" content="This is our tech blog where we write about privacy, dissect trackers and map the tracking landscape in popular sites.">
 {% endblock %}
 
@@ -21,28 +21,28 @@
 {% block content %}
 
 <section class="grey-bg">
-	<div class="container blog-page">
-		<div class="header">
-			<div class="row">
-				<div class="col-md-9 col-sm-9">
-					<h1>Blog</h1>
-					<div class="subtitle">This is our tech blog where we write about privacy, dissect trackers and map the tracking landscape in popular sites.</div>
-				</div>
-			</div>
-		</div>
+    <div class="container blog-page">
+        <div class="header">
+            <div class="row">
+                <div class="col-md-9 col-sm-9">
+                    <h1>Blog</h1>
+                    <div class="subtitle">This is our tech blog where we write about privacy, dissect trackers and map the tracking landscape in popular sites.</div>
+                </div>
+            </div>
+        </div>
 
-		{% for batch in blog_posts|batch(3) %}
-		<div class="row">
-			{% for blog_post in batch %}
-				{% if blog_post.publish %}
-					<div class="col col-xs-12 col-sm-6 col-md-4">
-						{% include "components/blog-card.html" %}
-					</div>
-				{% endif %}
-			{% endfor %}
-		</div>
-		{% endfor %}
-	</div>
+        {% for batch in blog_posts|batch(3) %}
+        <div class="row">
+            {% for blog_post in batch %}
+                {% if blog_post.publish %}
+                    <div class="col col-xs-12 col-sm-6 col-md-4">
+                        {% include "components/blog-card.html" %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
 </section>
 
 {% endblock %}

@@ -2,7 +2,7 @@ from collections import namedtuple
 import plotly
 import plotly.graph_objs as go
 
-from whotracksme.website.plotting.colors import TrackerCategoryColors, CliqzColors
+from whotracksme.website.plotting.colors import tracker_category_colors, cliqz_colors
 
 
 FontSet = namedtuple("FontSet", 'mono regular')
@@ -15,7 +15,7 @@ CliqzFonts = FontSet(
 def set_category_colors(tracker_labels):
     colors = []
     for l in tracker_labels:
-        colors.append(TrackerCategoryColors[l])
+        colors.append(tracker_category_colors[l])
     return colors
 
 
@@ -75,7 +75,7 @@ def annotation(text, x, y, background_color, shift_x=-1, text_size=12, color="wh
     )
 
 
-def overview_label(text, x, y, text_size=12, shift_x=-1, color=CliqzColors["black"]):
+def overview_label(text, x, y, text_size=12, shift_x=-1, color=cliqz_colors["black"]):
     if shift_x == -1:
         shift_x = 4 * len(text) + 10
 
