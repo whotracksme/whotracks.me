@@ -1,8 +1,12 @@
+
+
 from collections import namedtuple
 import plotly
 import plotly.graph_objs as go
 
-from whotracksme.website.plotting.colors import TrackerColors, CliqzColors
+from whotracksme.website.plotting.colors import (
+    tracker_category_colors, cliqz_colors
+)
 
 
 FontSet = namedtuple("FontSet", 'mono regular')
@@ -15,7 +19,7 @@ CliqzFonts = FontSet(
 def set_category_colors(tracker_labels):
     colors = []
     for l in tracker_labels:
-        colors.append(TrackerColors[l])
+        colors.append(tracker_category_colors[l])
     return colors
 
 
@@ -29,28 +33,13 @@ def set_margins(l=60, r=60, b=40, t=0, pad=5):
     )
 
 
-def arrow_style(val):
-    """
-    Defines styling for badges (ui elements)
-    Args:
-        val: float (positive or negative)
-
-    Returns: background-color, color, class for font awesome icons
-
-    """
-    if round(val, 1) < 0:
-        return "#50B1A2", "#fff", "down"
-    if round(val, 1) > 0:
-        return "#C3043E", "#fff", "up"
-    return "#FFC802", "#444", "right"
-
-
 def set_line_style(color, width=3, line_style="solid"):
     """
     Defines default styling of scatter graphs with some smoothing.
     Args:
-        color:
-        line_style:
+        color: line color
+        width: line width
+        line_style: line style (solid, dashed, ...)
 
     Returns: line_style dict parameters
 
@@ -91,7 +80,7 @@ def annotation(text, x, y, background_color, shift_x=-1, text_size=12, color="wh
     )
 
 
-def overview_label(text, x, y, text_size=12, shift_x=-1, color=CliqzColors["black"]):
+def overview_label(text, x, y, text_size=12, shift_x=-1, color=cliqz_colors["black"]):
     if shift_x == -1:
         shift_x = 4 * len(text) + 10
 

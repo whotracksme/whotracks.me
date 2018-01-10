@@ -1,9 +1,7 @@
-from collections import namedtuple
 from random import randint
 import colour
 
-
-CliqzColors = {
+cliqz_colors = {
     "purple": "#A069AB",
     "blue": "#00AEF0",
     "black": "#1A1A25",
@@ -18,7 +16,7 @@ CliqzColors = {
     "gray_blue": "#5F7C86"
 }
 
-TrackerColors = {
+tracker_category_colors = {
     "advertising": "#BF90D2",
     "comments": "#43B7C5",
     "customer_interaction": "#FCC156",
@@ -27,7 +25,7 @@ TrackerColors = {
     "site_analytics": "#84D7F0",
     "social_media": "#87BCEF",
     "audio_video_player": "#F86D4F",
-    "cdn":  "#C0BB61",
+    "cdn": "#C0BB61",
     "misc": "#80C87D",
     "pornvertising": "#E3A2D4",
     "hosting": "#444",
@@ -35,8 +33,7 @@ TrackerColors = {
     "extensions": "orange"
 }
 
-
-SiteCategoryColors = {
+site_category_colors = {
     '': "#000",
     'Adult': "#FFAEB9",
     'Banking': "#FFE4C4",
@@ -48,8 +45,7 @@ SiteCategoryColors = {
     'Reference': "#E0EEEE"
 }
 
-
-BiggestTrackerColors = {
+biggest_tracker_colors = {
     'Google': "#008744",
     'Facebook': "#3b5998",
     'Amazon associates': "#ff9900",
@@ -72,4 +68,3 @@ def palette(color1, color2, number_of_shades):
 def random_color():
     r = lambda: randint(0, 255)
     return '#%02X%02X%02X' % (r(), r(), r())
-

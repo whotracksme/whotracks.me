@@ -1,4 +1,3 @@
-
 from collections import defaultdict
 import json
 import os
@@ -9,19 +8,16 @@ from jinja2 import Environment, FileSystemLoader, Markup
 import markdown
 
 from whotracksme.website.utils import print_progress
-from whotracksme.website.plotting.colors import TrackerColors, SiteCategoryColors
-
-
-def normalize(s):
-    # TODO: add other normalization features
-    return s.lower()
+from whotracksme.website.plotting.colors import (
+    tracker_category_colors, site_category_colors
+)
 
 
 def site_to_json(data_source, blog_posts):
     site_idx = defaultdict(list)
 
     def submit_key(name, type, url, weight, idx=site_idx):
-        _name = normalize(name)
+        _name = name.lower()
         idx[type].append({
             "name": name,
             "normalized_name": _name,
@@ -30,15 +26,15 @@ def site_to_json(data_source, blog_posts):
             "weight": weight
         })
 
-    for app_id, app in data_source.apps.items():
+    for (tracker_id, tracker) in data_source.trackers.iter():
         submit_key(
-            name=data_source.get_app_name(app_id),
+            name=data_source.trackers.get_name(tracker_id),
             type="tracker",
-            url=data_source.url_for("app", app_id),
-            weight=(1.0 / app.get("rank", 1)) * 1000
+            url=data_source.url_for("tracker", tracker_id),
+            weight=(1.0 / tracker.get("rank", 1)) * 1000
         )
 
-    for company_id, company in data_source.companies.items():
+    for (company_id, company) in data_source.companies.items():
         submit_key(
             name=data_source.get_company_name(company_id),
             type="company",
@@ -46,9 +42,9 @@ def site_to_json(data_source, blog_posts):
             weight=len(company.get("overview", {}).get("apps", {})) or 1
         )
 
-    for site_id, site in data_source.sites.items():
+    for (site_id, site) in data_source.sites.iter():
         submit_key(
-            name=data_source.get_site_name(site_id),
+            name=data_source.sites.get_name(site_id),
             type="site",
             url=data_source.url_for("site", site_id),
             weight=site.get("overview", {}).get("popularity", 0.01) * 10000
@@ -63,6 +59,7 @@ def site_to_json(data_source, blog_posts):
         )
 
     return site_idx
+
 
 # Paths needed for generating urls
 SITE_PATH = os.path.abspath('_site')
@@ -90,6 +87,7 @@ CATEGORY_DESC = {
     "hosting": "This is a service used by the content provider or site owner.",
     "extensions": "These are browser addons that collect user data"
 }
+
 
 def copy_custom_error_pages(data):
     error_pages = {
@@ -131,56 +129,50 @@ def get_template(data_source, name, render_markdown=False, path_to_root='.'):
         env.filters["markdown"] = lambda text: Markup(md.convert(text))
     env.filters["prettify_label"] = lambda text: text.replace("_", " ").capitalize() if text not in [None, "None", ""] else ""
     env.filters["normalize_domain_name"] = lambda text: text.replace("www.", "")
+    env.filters["absolute_og_urls"] = lambda url: url.replace("../", "")
     env.filters["url_for"] = lambda entity, id: data_source.url_for(entity, id, path_to_root=path_to_root)
-    env.filters["get_app_name"] = lambda id: data_source.get_app_name(id)
+    env.filters["get_app_name"] = lambda id: data_source.trackers.get_name(id)
     env.filters["get_company_name"] = lambda id: data_source.get_company_name(id)
-    env.filters["get_site_name"] = lambda id: data_source.get_site_name(id)
+    env.filters["get_site_name"] = lambda id: data_source.sites.get_name(id)
 
-    env.filters["b_to_mb"] = lambda b: round(b / 10**6, 1)
+    env.filters["b_to_mb"] = lambda b: round(b / 10 ** 6, 1)
     env.filters["round2"] = lambda x: round(x, 1)
     env.filters["percentage"] = lambda x, y: round((x / y) * 100, 1)
-    env.filters["to_percentage"] = lambda x: round(x*100, 1)
-    env.filters["rank_label"] = lambda r: data_source.rank_label(r)
+    env.filters["to_percentage"] = lambda x: round(x * 100, 1)
+    env.filters["rank_label"] = lambda id: data_source.trackers.get_rank_label(id)
     return env.get_template(name)
 
 
 def render_template(template, path_to_root='.', **context):
     """
-    :param template: Jinja2 template to be rendered
-    :param context: The variables that should be available in the
-                    context of the template.
-    :return: populated template
+    Args:
+        template: Jinja2 template to be rendered
+        path_to_root: to have relative paths
+        **context: Available variables in template.
+
+    Returns: populated template
     """
     paths = {k: path_to_root + path for k, path in PATHS.items()}
     paths['path_to_root'] = path_to_root
     return template.render(
         PATHS=paths,
-        TRACKER_CATEGORIES=TrackerColors,
-        SITE_CATEGORIES=SiteCategoryColors,
+        TRACKER_CATEGORIES=tracker_category_colors,
+        SITE_CATEGORIES=site_category_colors,
         CATEGORY_DESC=CATEGORY_DESC,
         **context
     )
 
 
 def compile_scss_to_css(scss_folder, css_folder):
-    subprocess.run(["sass", "--update", "%s:%s"% (scss_folder, css_folder)])
+    subprocess.run(["sass", "--update", "%s:%s" % (scss_folder, css_folder)])
 
 
 def create_site_structure(static_path):
     """
-    :return:
-        _site/
-            trackers/
-                <...>.html
-            websites/
-                <...>.html
-            companies/
-                <...>.html
-            blog/
-                <...>.html
-            static/
-                <...>
+    Args:
+        static_path: path to static folder
 
+    Returns: rendered site ready to publish (_site)
     """
     if not os.path.exists('data'):
         os.mkdir('data')
@@ -194,7 +186,6 @@ def create_site_structure(static_path):
         os.mkdir(os.path.join(SITE_PATH, PATHS.get("companies")[1:]))
     if not os.path.exists(os.path.join(SITE_PATH, PATHS.get("blog")[1:])):
         os.mkdir(os.path.join(SITE_PATH, PATHS.get("blog")[1:]))
-
 
     # Copy static folder inside _site/ (if not there already)
     _site_static = os.path.join(SITE_PATH, "static")
