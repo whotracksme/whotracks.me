@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}
-	<title>Tracker | {{app.name}}</title>
+    <title>Tracker | {{app.name}}</title>
     <meta name="description" content="Tracker profile of {{ app.name }}. Reach, domains it operates under, tracking technology, web presence by type of site and more.">
 {% endblock %}
 
 {% block og_params %}
     <!-- OG params for sharable content -->
-    <meta property="og:title" content="Tracker | {{ app.name }}">    
+    <meta property="og:title" content="Tracker | {{ app.name }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://whotracks.me/{{ 'app'|url_for(app.overview.id) }}">
+    <meta property="og:url" content="https://whotracks.me/{{ 'tracker'|url_for(app.overview.id) | absolute_og_urls }}">
     <meta property="og:description" content="Tracker profile of {{ app.name }}. Reach, domains it operates under, tracking technology, web presence by type of site and more.">
 {% endblock %}
 
@@ -67,17 +67,17 @@ $(document).ready(function() {
                     <div class="row tracker-category">
                         <div class="col-md-11">
                         <h4>TRACKER CATEGORY</h4>
-                        {% if app.cat %}                              
+                        {% if app.cat %}
                             <span class="cat-item">
-                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES[app.cat] }}" aria-hidden="true"></i> 
-                                {{app.cat|prettify_label}}                                         
+                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES[app.cat] }}" aria-hidden="true"></i>
+                                {{app.cat|prettify_label}}
                             </span>
                             <p class="tracker-desc">{{CATEGORY_DESC[app.cat]}}</p>
                         {% else %}
-                            
+
                             <span class="cat-item">
-                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES['misc'] }}" aria-hidden="true"></i> 
-                                misc                                         
+                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES['misc'] }}" aria-hidden="true"></i>
+                                misc
                             </span>
                             <p class="tracker-desc">
                                 {{ CATEGORY_DESC["misc"]}}
@@ -120,7 +120,7 @@ $(document).ready(function() {
         <div class="container">
             <div class="row">
                 <h2 class="title">Presence on top sites</h2>
-                {% if website_list|length > 0%}
+                {% if sites_by_cat|length > 0 %}
                     {% include "components/tag_cloud.html" %}
                 {% endif %}
             </div>
