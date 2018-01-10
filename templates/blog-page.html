@@ -8,9 +8,9 @@
     <!-- OG params for sharable content -->
     <meta property="og:title" content="{{ blog_post.title }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://whotracks.me/{{ 'blog'|url_for(blog_post.filename) }}" />
+    <meta property="og:url" content="https://whotracks.me/{{ 'blog'|url_for(blog_post.filename)|absolute_og_urls }}" />
     <meta property="og:description" content="{{ blog_post.subtitle }}" />
-    <meta property="og:image" content="https://whotracks.me/blog/{{PATHS.static}}/img/{{blog_post.header_img}}" />
+    <meta property="og:image" content="https://whotracks.me/{{PATHS.static|absolute_og_urls}}/img/{{blog_post.header_img}}" />
 {% endblock %}
 
 

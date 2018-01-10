@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-	<title>WhoTracks.me - Bringing Transparency to Online Tracking</title>
+    <title>WhoTracks.me - Bringing Transparency to Online Tracking</title>
     <meta name="description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
 {% endblock %}
 
@@ -93,7 +93,7 @@
             <div class="col-md-4 col-sm-4">
                 <div class="panel panel-body">
                     <div class="card-top-3 card-gray">
-                        <h3 class="card-title">{{ trackers.gt01 }} companies track more than 0.1% of the web traffic each.</h3>
+                        <h3 class="card-title">{{ tracker_stats.gt01 }} companies track more than 0.1% of the web traffic each.</h3>
                         <p class="card-subtitle">Which of these have you heard of?</p>
                     </div>
 
@@ -114,27 +114,25 @@
 
     <div class="container">
         <div class="most-tracked-websites">
-            <h2>The most tracked websites
-                <span class="subtitle">(top 2 per category)</span>
+            <h2>Websites with the most (and least) tracking
+                <span class="subtitle"></span>
             </h2>
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#traffic">Traffic</a></li>
-                <li><a data-toggle="tab" href="#trackersNum">Average number of trackers</a></li>
+                <li class="active"><a data-toggle="tab" href="#traffic">Most Tracked</a></li>
+                <li><a data-toggle="tab" href="#trackersNum">Least Tracked</a></li>
             </ul>
             <div class="list-container">
                 <div class="tab-content">
                     <div id="traffic" class="tab-pane fade in active">
                         <ul id="multi-column-list">
-                            {% for (cat, sites) in most_tracked_sites.items() %}
-                            {% for site in sites %}
-                                <li>
-                                    <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
-                                    <a href="{{ 'site'|url_for(site.site) }}">{{ site["site"] | normalize_domain_name }}</a>
-                                    <span class="count">{{site["mean_trackers"]|int}}</span>
-                                    <span class="subtitle">{{ cat }}</span>
-                                </li>
-                            {% endfor %}
-                            {% endfor %}
+                                {% for site in most_tracked_sites %}
+                                    <li>
+                                        <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
+                                        <a href="{{ 'site'|url_for(site.overview.site) }}">{{ site.overview.site | normalize_domain_name }}</a>
+                                        <span class="count">{{site.overview.mean_trackers|int}}</span>
+                                        <span class="subtitle">{{ site.overview.category }}</span>
+                                    </li>
+                                {% endfor %}
                                  <li>
                                     <a href="./websites.html" class="all-websites">
                                         All websites
@@ -146,16 +144,14 @@
 
                     <div id="trackersNum" class="tab-pane fade">
                         <ul id="multi-column-list">
-                            {% for (cat, sites) in most_tracked_sites.items() %}
-                            {% for site in sites %}
-                                <li>
-                                    <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
-                                    <a href="{{ 'site'|url_for(site.site) }}">{{ site["site"] | normalize_domain_name }}</a>
-                                    <span class="count">{{site["mean_trackers"]|int}}</span>
-                                    <span class="subtitle">{{ cat }}</span>
-                                </li>
-                            {% endfor %}
-                            {% endfor %}
+                                {% for site in least_tracked_sites %}
+                                    <li>
+                                        <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
+                                        <a href="{{ 'site'|url_for(site.overview.site) }}">{{ site.overview.site | normalize_domain_name }}</a>
+                                        <span class="count">{{site.overview.mean_trackers|int}}</span>
+                                        <span class="subtitle">{{ site.overview.category }}</span>
+                                    </li>
+                                {% endfor %}
                                 <li>
                                     <a href="./websites.html" class="all-websites">
                                         All websites

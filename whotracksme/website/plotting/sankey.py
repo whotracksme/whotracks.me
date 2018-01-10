@@ -1,8 +1,8 @@
 from whotracksme.website.plotting.utils import div_output, set_margins
-from whotracksme.website.plotting.colors import CliqzColors
+from whotracksme.website.plotting.colors import cliqz_colors
 
 
-def alluvial_plot(sndata):
+def sankey_plot(sndata):
     data_trace = dict(
         type='sankey',
         domain=dict(

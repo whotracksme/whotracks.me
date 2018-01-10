@@ -42,18 +42,15 @@ To get started with the data, everything you need can be found in
 `whotracksme.data`:
 
 ```python
-from whotracksme.data import (
-    load_apps,
-    load_companies,
-    load_overview,
-    load_sites,
-    load_tracker_db,
-)
+from whotracksme.data.loader import DataSource
 
-print(load_apps())
+# available entities
+DataSource().trackers
+DataSource().companies
+DataSource().sites
 ```
 
-For more examples of scripts, have a look in the [contrib](./contrib) folder!
+For examples of scripts, have a look in the [contrib](./contrib) folder!
 
 # Building the site
 

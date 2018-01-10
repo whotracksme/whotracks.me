@@ -3,7 +3,7 @@ import plotly.graph_objs as go
 import squarify
 
 from whotracksme.website.plotting.utils import set_margins, div_output, CliqzFonts, annotation
-from whotracksme.website.plotting.colors import CliqzColors
+from whotracksme.website.plotting.colors import cliqz_colors
 from whotracksme.website.plotting.plots import scatter, hbar, line
 
 
@@ -28,7 +28,7 @@ def tracker_cfh(https, fingerprinting, cookies):
     )
     trace2 = hbar(
         label="No",
-        color=CliqzColors["bright_gray"],
+        color=cliqz_colors["bright_gray"],
         https=1 - https,
         fingerprinting=1 - fingerprinting,
         cookies=1 - cookies
@@ -36,8 +36,8 @@ def tracker_cfh(https, fingerprinting, cookies):
 
     data = [trace1, trace2]
     layout = go.Layout(
-        paper_bgcolor=CliqzColors["transparent"],
-        plot_bgcolor=CliqzColors["transparent"],
+        paper_bgcolor=cliqz_colors["transparent"],
+        plot_bgcolor=cliqz_colors["transparent"],
         autosize=True,
         barmode="stack",
         margin=set_margins(l=120, r=100, t=20),
@@ -47,7 +47,7 @@ def tracker_cfh(https, fingerprinting, cookies):
             tickfont=dict(
                 family=CliqzFonts.regular,
                 size=13,
-                color=CliqzColors["black"]
+                color=cliqz_colors["black"]
             ),
         ))
     fig = go.Figure(data=data, layout=layout)
@@ -69,13 +69,13 @@ def tracker_reach_ts(ts1, ts2, t):
         x=t,
         y=ts1,
         name="Domain Reach",
-        color=CliqzColors["purple"]
+        color=cliqz_colors["purple"]
     )
     trace1 = scatter(
         x=t,
         y=ts2,
         name="Page Reach",
-        color=CliqzColors["blue"]
+        color=cliqz_colors["blue"]
     )
     layout = go.Layout(
         margin=set_margins(t=30),
@@ -100,18 +100,17 @@ def ts_trend(ts, t):
         t: x-axis (time)
 
     Returns: hmtl output of an interactive timeseries plot
-
     """
     y = list(map(lambda x: x * 100, ts))
     trace0 = line(
         x=t,
         y=y,
-        color=CliqzColors["purple"]
+        color=cliqz_colors["purple"]
     )
     trace1 = line(
         x=[t[-1]],
         y=[y[-1]],
-        color=CliqzColors["purple"],
+        color=cliqz_colors["purple"],
         mode='markers'
     )
     layout = go.Layout(
@@ -121,12 +120,12 @@ def ts_trend(ts, t):
             height=100,
             width=153,
             hoverlabel=dict(
-                bgcolor=CliqzColors["black"],
-                bordercolor=CliqzColors["transparent"],
+                bgcolor=cliqz_colors["black"],
+                bordercolor=cliqz_colors["transparent"],
                 font=dict(
                     family=CliqzFonts.mono,
                     size=13,
-                    color=CliqzColors["bright_gray"]
+                    color=cliqz_colors["bright_gray"]
                 )
             ),
             xaxis=dict(
@@ -140,7 +139,7 @@ def ts_trend(ts, t):
                 showticklabels=False
             ),
             yaxis=dict(
-                range=[min(y)*0.90, max(y)*1.05 if max(y) != y[-1] else max(y)*1.15],
+                range=[min(y) * 0.90, max(y) * 1.05 if max(y) != y[-1] else max(y) * 1.15],
                 showgrid=False,
                 zeroline=False,
                 showline=False,
@@ -166,33 +165,33 @@ def site_tree_map(sites):
     height = 700
 
     normed = squarify.normalize_sizes(values, width, height)
-    rects = squarify.squarify(normed, x, y, width, height)
+    rectangles = squarify.squarify(normed, x, y, width, height)
 
-    return site_values, values, rects
+    return site_values, values, rectangles
 
 
-def tracker_map(app, site_values, values, rects):
+def tracker_map(app, site_values, rectangles):
     print(app["overview"]["id"])
     site_where_app = [s.get("site") for s in app.get("sites")]
-    color_brewer = [CliqzColors["red"] if t[0] in site_where_app else CliqzColors["bright_gray"] for t in site_values ]
+    color_brewer = [cliqz_colors["red"] if t[0] in site_where_app else cliqz_colors["bright_gray"] for t in site_values]
 
     shapes = []
     counter = 0
 
-    for r in rects:
-        shapes.append( 
+    for r in rectangles:
+        shapes.append(
             dict(
-                type = 'rect', 
-                x0 = r['x'], 
-                y0 = r['y'], 
-                x1 = r['x']+r['dx'], 
-                y1 = r['y']+r['dy'],
-                line = dict(
-                    color=CliqzColors["white"],
+                type='rect',
+                x0=r['x'],
+                y0=r['y'],
+                x1=r['x'] + r['dx'],
+                y1=r['y'] + r['dy'],
+                line=dict(
+                    color=cliqz_colors["white"],
                     width=0.5
-                    ),
+                ),
                 fillcolor=color_brewer[counter]
-            ) 
+            )
         )
         counter = counter + 1
         if counter >= len(color_brewer):
@@ -200,13 +199,13 @@ def tracker_map(app, site_values, values, rects):
 
     # For hover text
     trace0 = go.Scatter(
-        x = [ r['x']+(r['dx']/2) for r in rects ], 
-        y = [ r['y']+(r['dy']/2) for r in rects ],
-        text = [ v[0] for v in site_values ],
-        mode = 'markers',
+        x=[r['x'] + (r['dx'] / 2) for r in rectangles],
+        y=[r['y'] + (r['dy'] / 2) for r in rectangles],
+        text=[v[0] for v in site_values],
+        mode='markers',
         hoverinfo="text"
     )
-            
+
     layout = dict(
         autosize=True,
         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
