@@ -9,7 +9,7 @@
                 {% for tracker in tracker_list %}
                     <li>
                         {{loop.index}}. 
-                        <a href="{{ 'app'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
+                        <a href="{{ 'tracker'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
                         <span class="percentage">{{tracker.frequency|to_percentage}}%</span>
                         {% if tracker.company_id %}
                         <span>
@@ -30,7 +30,7 @@
                 {% for tracker in trackers_list_cat %}
                     <li>
                         {{loop.index}}. 
-                        <a  href="{{ 'app'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
+                        <a  href="{{ 'tracker'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
                         <span class="percentage">{{tracker.frequency|to_percentage}}%</span>
                         {% if tracker.company_id %}
                         <span>

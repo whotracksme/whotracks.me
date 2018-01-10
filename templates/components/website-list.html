@@ -16,7 +16,7 @@
                     <span class="count">{{website_list[i].overview.mean_trackers|int}}</span>
                     {% if website_list[i].category %}
                         <span class="label label-category">
-                            {{ website_list[i].category }}
+                            {{ website_list[i].overview.category }}
                         </span>
                     {% endif %}
                 </li>
@@ -32,9 +32,9 @@
                         href="{{ 'site'|url_for(website_list_cat[i].name) }}" class="entity-name"
                     >{{ website_list_cat[i].name | normalize_domain_name }}</a>
                      <span class="count">{{website_list[i].overview.mean_trackers|int}}</span>
-                    {% if website_list_cat[i].category %}
+                    {% if website_list_cat[i].overview.category %}
                         <span class="label label-category">
-                            {{ website_list_cat[i].category }}
+                            {{ website_list_cat[i].overview.category }}
                         </span>
                     {% endif %}
                 </li>

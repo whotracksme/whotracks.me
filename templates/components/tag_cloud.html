@@ -2,113 +2,111 @@
 <script src="{{PATHS.static}}/js/d3.layout.cloud.js"></script>
 
 <script>
-		function sanitiseCategory(cat) {
-			return cat.replace(/\s/g, '_').toLowerCase();
-		}
+        function sanitiseCategory(cat) {
+            return cat.replace(/\s/g, '_').toLowerCase();
+        }
 
-		function drawTagCloud(cat, siteList) {
-			var container = document.getElementById('tag_cloud_container');
-			var width = Math.max(container.offsetWidth, 300);
-			var height = Math.max(container.offsetHeight - 5, 400);
-			var containerSvg = document.getElementById('tag_cloud');
-			containerSvg.setAttribute('width', width);
-			containerSvg.setAttribute('height', height);
+        function drawTagCloud(cat, siteList) {
+            var container = document.getElementById('tag_cloud_container');
+            var width = Math.max(container.offsetWidth, 300);
+            var height = Math.max(container.offsetHeight - 5, 400);
+            var containerSvg = document.getElementById('tag_cloud');
+            containerSvg.setAttribute('width', width);
+            containerSvg.setAttribute('height', height);
 
-			var sites = JSON.parse(siteList);
-			var minSize = 20;
-			var maxSize = 100;
-			var scaleFactor = (maxSize - minSize) / 0.3;
+            var sites = JSON.parse(siteList);
+            var minSize = 20;
+            var maxSize = 100;
+            var scaleFactor = (maxSize - minSize) / 0.3;
 
-			var layout = d3.layout.cloud()
-				.size([width, height])
-				.words(sites.map(function (d) {
-					return {
-						text: d.site.replace('www.', ''),
-						size: Math.min(maxSize, minSize + d.frequency * scaleFactor),
-						rotate: 0,
-						opacity: 0.5 + (d.site_freq || 0. * 0.7),
-						colour: d.site_cat,
-						href: d.url,
-						category: d.category,
-					};
-				}))
-				.padding(3)
-				.rotate(function (d) { return 0 })
-				.font("Impact")
-				.fontSize(function (d) { return d.size; })
-				.on("end", draw);
+            var layout = d3.layout.cloud()
+                .size([width, height])
+                .words(sites.map(function (d) {
+                    return {
+                        text: d.site.replace('www.', ''),
+                        size: Math.min(maxSize, minSize + d.frequency * scaleFactor),
+                        rotate: 0,
+                        opacity: 0.5 + (d.site_freq || 0. * 0.7),
+                        colour: d.site_cat,
+                        href: d.url,
+                        category: d.category,
+                    };
+                }))
+                .padding(3)
+                .rotate(function (d) { return 0 })
+                .font("Impact")
+                .fontSize(function (d) { return d.size; })
+                .on("end", draw);
 
-			layout.start();
+            layout.start();
 
-			function draw(words) {
-				d3.select('#tag_cloud')
-					.append("g")
-					.attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
-					.selectAll("text")
-					.data(words)
-					.enter().append("text")
-					.style("font-size", function (d) { return d.size + "px"; })
-					.style("font-family", "Helvetica")
-					.style("fill", function (d) { return d.colour })
-					.attr("class", function (d) { return "category-" + sanitiseCategory(d.category) })
-					.attr("opacity", function (d) { return d.opacity })
-					.attr("text-anchor", "middle")
-					.attr("transform", function (d) {
-						return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-					})
-					.insert('a')
-					.attr("href", function (d) { return d.href })
-					.text(function (d) { return d.text; });
-			}
-		}
+            function draw(words) {
+                d3.select('#tag_cloud')
+                    .append("g")
+                    .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                    .selectAll("text")
+                    .data(words)
+                    .enter().append("text")
+                    .style("font-size", function (d) { return d.size + "px"; })
+                    .style("font-family", "Helvetica")
+                    .style("fill", function (d) { return d.colour })
+                    .attr("class", function (d) { return "category-" + sanitiseCategory(d.category) })
+                    .attr("opacity", function (d) { return d.opacity })
+                    .attr("text-anchor", "middle")
+                    .attr("transform", function (d) {
+                        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                    })
+                    .insert('a')
+                    .attr("href", function (d) { return d.href })
+                    .text(function (d) { return d.text; });
+            }
+        }
 
-		var activeCategories = [];
+        var activeCategories = [];
 
-		function toggleTagCloudCategory(cat) {
-			if (cat === "all") {
-				// unselect buttons
-				activeCategories.forEach(function(otherCat) {
-					document.getElementById('button-' + otherCat).classList.remove('active');
-				});
-				document.getElementById('button-all').classList.add('active');
-				// make everything visible
-				d3.selectAll("#tag_cloud text").style("visibility", "visible");
-				activeCategories = [];
-			} else {
-				document.getElementById('button-all').classList.remove('active');
-				document.getElementById('button-' + cat).classList.add('active');
+        function toggleTagCloudCategory(cat) {
+            if (cat === "all") {
+                // unselect buttons
+                activeCategories.forEach(function(otherCat) {
+                    document.getElementById('button-' + otherCat).classList.remove('active');
+                });
+                document.getElementById('button-all').classList.add('active');
+                // make everything visible
+                d3.selectAll("#tag_cloud text").style("visibility", "visible");
+                activeCategories = [];
+            } else {
+                document.getElementById('button-all').classList.remove('active');
+                document.getElementById('button-' + cat).classList.add('active');
 
-				if (activeCategories.length === 0) {
-					// hide everything
-					d3.selectAll("#tag_cloud text").style("visibility", "hidden");
-				}
-				// make just elements from specified categories visible
-				d3.selectAll("#tag_cloud text.category-" + sanitiseCategory(cat)).style("visibility", "visible");
-				activeCategories.push(cat);
-			}
-		}
-	</script>
+                if (activeCategories.length === 0) {
+                    // hide everything
+                    d3.selectAll("#tag_cloud text").style("visibility", "hidden");
+                }
+                // make just elements from specified categories visible
+                d3.selectAll("#tag_cloud text.category-" + sanitiseCategory(cat)).style("visibility", "visible");
+                activeCategories.push(cat);
+            }
+        }
+    </script>
 
 
 <ul class="nav nav-tabs">
-	<li class="active" id="button-all">
-		<a href="#all" onclick="toggleTagCloudCategory('all')">Show all</a>
-	</li>
-	{% for cat in sites_by_cat.keys()|sort %}
-		{% if cat %}
-			<li id="button-{{cat}}">
-				<a href="#{{cat}}" onclick="toggleTagCloudCategory('{{cat}}')">{{cat|prettify_label}}</a>
-			</li>
-		{% endif %}
-	{% endfor %}
+    <li class="active" id="button-all">
+        <a href="#all" onclick="toggleTagCloudCategory('all')">Show all</a>
+    </li>
+    {% for cat in sites_by_cat.keys()|sort %}
+        {% if cat %}
+            <li id="button-{{cat}}">
+                <a href="#{{cat}}" onclick="toggleTagCloudCategory('{{cat}}')">{{cat|prettify_label}}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
 </ul>
 
 <div class="tab-content">
-	<div id="tag_cloud_container" class="tab-pane fade in active">
-		<svg id="tag_cloud" height=400></svg>
-		<script>drawTagCloud('all', '{{ website_list|tojson|safe }}')</script>
-	</div>
+    <div id="tag_cloud_container" class="tab-pane fade in active">
+        <svg id="tag_cloud" height=400></svg>
+        <script>drawTagCloud('all', '{{ website_list|tojson|safe }}')</script>
+    </div>
 
 </div>
-
-

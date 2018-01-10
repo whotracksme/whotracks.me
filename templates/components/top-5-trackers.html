@@ -3,8 +3,8 @@
         <ul class="top-5-list">
             {% for i in range(0,5) %}
                 <li>
-                    {{loop.index}}. 
-                        <a href="{{ 'app'|url_for(tracker_list[i].overview.id) }}" class="entity-name">{{ tracker_list[i].name }}</a>
+                    {{loop.index}}.
+                        <a href="{{ 'tracker'|url_for(tracker_list[i].overview.id) }}" class="entity-name">{{ tracker_list[i].name }}</a>
                         {% if tracker_list[i].company_id %}
                             <span class="category">
                                 {{ tracker_list[i].company_id|get_company_name }}

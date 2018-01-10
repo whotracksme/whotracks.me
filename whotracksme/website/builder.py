@@ -3,8 +3,6 @@
 
 
 import concurrent.futures
-import json
-import pkgutil
 
 from whotracksme.data.loader import DataSource
 
@@ -22,7 +20,6 @@ from whotracksme.website.build.trackers import (
     build_trackers_list,
     build_tracker_pages,
 )
-
 from whotracksme.website.templates import (
     create_site_structure,
     copy_custom_error_pages,
@@ -72,7 +69,7 @@ class Builder:
         futures = []
         with concurrent.futures.ThreadPoolExecutor() as executor:
             ###################################################################
-            # Thist needs to be first, as other tasks will need to write in   #
+            # This needs to be first, as other tasks will need to write in   #
             # the resulting folders.                                          #
             ###################################################################
 
