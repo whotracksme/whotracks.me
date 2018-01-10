@@ -1,13 +1,9 @@
 from jinja2 import Markup
 
 from whotracksme.website.plotting.companies import overview_bars
-
 from whotracksme.website.build.companies import company_reach
 from whotracksme.website.utils import print_progress
-from whotracksme.website.templates import (
-    get_template,
-    render_template,
-)
+from whotracksme.website.templates import get_template, render_template
 
 
 def build_home(data):

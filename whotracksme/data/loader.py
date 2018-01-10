@@ -1,7 +1,8 @@
+
 from urllib.parse import quote_plus
 from collections import Counter, defaultdict
 from statistics import mean
-import datetime
+from datetime import datetime
 import json
 import sqlite3
 import pkgutil
@@ -62,8 +63,8 @@ class DataSource:
                     app['name'] = id
                 if not app['company_id']:
                     app['company_id'] = app['name']
-                # TODO: Remove when supported in data generation
-                app['overview']['company_id'] = app['company_id']  # added to simplify `Trackers.sort_by()`
+                # added to simplify `Trackers.sort_by()`
+                app['overview']['company_id'] = app['company_id']
 
         # TODO: Remove when supported in data generation
         for id, site in _sites.items():
@@ -83,23 +84,29 @@ class DataSource:
 
     def url_for(self, entity, id, path_to_root='.'):
         if entity == 'tracker':
-            return '{}/trackers/{}.html'.format(path_to_root, self.normalize_url(id))
+            return f'{path_to_root}/trackers/{self.normalize_url(id)}.html'
         elif entity == 'company':
-            return '{}/companies/{}.html'.format(path_to_root, self.normalize_url(id))
+            return f'{path_to_root}/companies/{self.normalize_url(id)}.html'
         elif entity == 'site':
-            return '{}/websites/{}.html'.format(path_to_root, self.sites.get_name(id)).lower()
+            return f'{path_to_root}/websites/{self.normalize_url(id)}.html'.lower()
         elif entity == 'blog':
-            return '{}/blog/{}.html'.format(path_to_root, id)
+            return f'{path_to_root}/blog/{self.normalize_url(id)}.html'
 
     def get_company_name(self, id):
-        return self.company_info.get(id).get('name') if id in self.company_info else id
+        return self.company_info.get(id).get('name') \
+            if id in self.company_info else id
 
     def load_app_info(self, connection):
-        col_names = ['id', 'name', 'description', 'cat', 'website_url', 'logo_url', 'company_id']
+        col_names = [
+            'id', 'name', 'description', 'cat', 'website_url', 'logo_url',
+            'company_id'
+        ]
         cur = connection.execute(
-            '''SELECT trackers.id, trackers.name, description, categories.name, website_url, logo_url, company_id
+            '''SELECT trackers.id, trackers.name, description, 
+            categories.name, website_url, logo_url, company_id
             FROM trackers
-            LEFT JOIN categories ON categories.id = category_id''')
+            LEFT JOIN categories ON categories.id = category_id'''
+        )
         app_info = {}
         for row in cur:
             app_info[row[0]] = {col: row[i] for i, col in enumerate(col_names)}
@@ -112,14 +119,23 @@ class DataSource:
         return app_info
 
     def load_company_info(self, connection):
-        col_names = ['id', 'name', 'description', 'about_us_url', 'privacy_contact_url', 'privacy_url', 'website_url', 'in_their_own_words', 'logo_url']
-        cur = connection.execute('''SELECT {} FROM companies'''.format(','.join(col_names)))
+        columns = [
+            'id', 'name', 'description', 'about_us_url', 'privacy_contact_url',
+            'privacy_url', 'website_url', 'in_their_own_words', 'logo_url'
+        ]
+        cur = connection.execute(
+            '''SELECT {} FROM companies'''.format(','.join(columns))
+        )
         company_info = {}
         for row in cur:
-            company_info[row[0]] = {col: row[i] for i, col in enumerate(col_names)}
+            company_info[row[0]] = {col: row[i] for i, col in enumerate(columns)}
             company_info[row[0]]['apps'] = {}
 
-        cur = connection.execute('SELECT company_id, id, name FROM trackers WHERE company_id IS NOT NULL')
+        cur = connection.execute(
+            '''SELECT company_id, id, name 
+            FROM trackers 
+            WHERE company_id IS NOT NULL'''
+        )
         for cid, app_id, app_name in cur:
             company_info[cid]['apps'][app_id] = app_name
 
@@ -127,13 +143,13 @@ class DataSource:
 
 
 class Trackers:
-    def __init__(self, apps):
-        self._apps = apps
+    def __init__(self, trackers):
+        self._trackers = trackers
 
     # Summary methods across all trackers
     # -----------------------------------
     def iter(self):
-        for (tracker_id, tracker) in self._apps.items():
+        for (tracker_id, tracker) in self._trackers.items():
             yield (tracker_id, tracker)
 
     def sort_by(self, metric="reach", descending=True):
@@ -145,7 +161,11 @@ class Trackers:
         Returns: list of tracker objects, sorted by metric
 
         """
-        return sorted(self._apps.values(), key=lambda a: a['overview'][metric], reverse=descending)
+        return sorted(
+            self._trackers.values(),
+            key=lambda a: a['overview'][metric],
+            reverse=descending
+        )
 
     def summary_stats(self):
         """
@@ -155,14 +175,23 @@ class Trackers:
         cookies = []
         fingerpriting = []
         data_consumption = []
-        for tracker_id, tracker in self._apps.items():
-            cookies.append(True if tracker.get('overview', {}).get('cookies') > 0.2 else False)
-            fingerpriting.append(True if tracker.get('overview', {}).get('bad_qs') > 0.1 else False)
-            data_consumption.append(tracker.get('overview', {}).get('content_length', 0))
+        for tracker_id, tracker in self._trackers.items():
+            cookies.append(
+                True if tracker.get('overview', {}).get('cookies') > 0.2
+                else False
+            )
+            fingerpriting.append(
+                True if tracker.get('overview', {}).get('bad_qs') > 0.1
+                else False
+            )
+            data_consumption.append(
+                tracker.get('overview', {}).get('content_length', 0)
+            )
 
         return {
-            'count': len(self._apps),
-            'gt01': len([a for a in self._apps.values() if a['overview']['reach'] > 0.001]),
+            'count': len(self._trackers),
+            'gt01': len([a for a in self._trackers.values()
+                         if a['overview']['reach'] > 0.001]),
             'by_cookies': sum(cookies) / len(cookies),
             'by_fingerprinting': sum(fingerpriting) / len(fingerpriting),
             'data': mean(data_consumption)
@@ -171,11 +200,11 @@ class Trackers:
     # Methods for a specific Tracker
     # ------------------------------
     def get_tracker(self, id):
-        return self._apps.get(id)
+        return self._trackers.get(id)
 
     def get_name(self, id):
         # TODO: This is odd, are there id-s of trackers that are not in apps?
-        return self._apps.get(id).get('name') if id in self._apps else id
+        return self._trackers.get(id).get('name') if id in self._trackers else id
 
     def get_rank(self, id):
         return self.get_tracker(id).get('rank')
@@ -222,17 +251,21 @@ class Trackers:
     def get_reach(self, id):
         reach = defaultdict(list)
 
-        for t in self._apps.get(id).get('history'):
+        for t in self._trackers.get(id).get('history'):
             reach['page'].append(t.get('reach'))
             reach['ts'].append(t.get('ts'))
             reach['site'].append(t.get('site_reach'))
 
-        reach['ts'] = [datetime.datetime.strptime(t, '%Y-%m') for t in reach['ts']]
+        reach['ts'] = [datetime.strptime(t, '%Y-%m') for t in reach['ts']]
         return reach
 
     def get_presence_by_site_category(self, id, sites):
         categories = Counter(
-            filter(lambda c: len(c) > 0, [sites.get_site(s['site']).get('category', '') for s in self._apps.get(id).get('sites')])
+            filter(
+                lambda c: len(c) > 0,
+                [sites.get_site(s['site']).get('category', '')
+                 for s in self._trackers.get(id).get('sites')]
+            )
         )
 
         if categories.items():
@@ -240,9 +273,15 @@ class Trackers:
             total = sum(categories.values())
             for (k, v) in categories.items():
                 if not k == '':
-                    normalized_categories.append((k, round(100 * (v / float(total)))))
+                    normalized_categories.append(
+                        (k, round(100 * (v / float(total))))
+                    )
 
-            return sorted(normalized_categories, key=lambda x: x[1], reverse=True)
+            return sorted(
+                normalized_categories,
+                key=lambda x: x[1],
+                reverse=True
+            )
         return []
 
     def similar_trackers(self, id, n=4):
@@ -256,7 +295,7 @@ class Trackers:
                    and the company_id
         """
         sorted_trackers = self.sort_by(metric="reach")
-        tracker = self._apps.get(id)
+        tracker = self._trackers.get(id)
         top_n = []
 
         for t in sorted_trackers:
@@ -264,7 +303,8 @@ class Trackers:
                 break
             similar_tracker = {}
 
-            if t.get('cat') == tracker.get('cat') and t.get('overview', {}).get('id') != tracker.get('id'):
+            if t.get('cat') == tracker.get('cat') and \
+                    t.get('overview', {}).get('id') != tracker.get('id'):
                 similar_tracker['id'] = t['overview']['id']
                 similar_tracker['company_id'] = t['company_id']
                 top_n.append(similar_tracker)
@@ -272,7 +312,7 @@ class Trackers:
         return top_n
 
     def iter_sites(self, id):
-        for site in self._apps.get(id).get('sites', []):
+        for site in self._trackers.get(id).get('sites', []):
             yield site
 
 
@@ -287,7 +327,11 @@ class Sites:
             yield (site_id, site)
 
     def sort_by(self, metric='popularity', descending=True):
-        return sorted(self._sites.values(), key=lambda s: s['overview'][metric], reverse=descending)
+        return sorted(
+            self._sites.values(),
+            key=lambda s: s['overview'][metric],
+            reverse=descending
+        )
 
     def summary_stats(self):
         """
@@ -299,7 +343,7 @@ class Sites:
         tracker_requests = []
         data_consumption = []
         gt10 = 0
-        for (site_id, site) in self.iter():
+        for (_, site) in self.iter():
             have_trackers.append(site['overview']['tracked'])
             average_nr_trackers.append(site['overview']['mean_trackers'])
             if site['overview']['mean_trackers'] >= 10:
@@ -321,7 +365,7 @@ class Sites:
         return self._sites.get(id, {})
 
     def get_name(self, id):
-        # NOTE: THis is weird
+        # NOTE: This is weird
         return id if id in self._sites else None
 
     def tracking_methods(self, id):
@@ -361,14 +405,14 @@ class Sites:
             try:
                 tracker = trackers.get_tracker(tracker_id)
                 tracker['frequency'] = t['frequency']
-            except:
+            except TypeError:
                 continue
             category = tracker.get('cat', 'unknown')
             if category == 'extensions':
                 continue
 
-            company_id = tracker.get('company_id')
-            company_name = companies.get(company_id, {}).get('name') or tracker['name']
+            cid = tracker.get('company_id')
+            company_name = companies.get(cid, {}).get('name') or tracker['name']
             yield (tracker, category, company_name)
 
     def mean_trackers_timeseries(self, id):
@@ -378,4 +422,5 @@ class Sites:
 
         Returns: [(ts0, mean_trackers0, ... ]
         """
-        return [(s.get('ts'), s.get('mean_trackers')) for s in self.get_site(id).get('history')]
+        return [(s.get('ts'), s.get('mean_trackers'))
+                for s in self.get_site(id).get('history')]

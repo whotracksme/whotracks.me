@@ -1,7 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
-
 from collections import defaultdict
 
 from jinja2 import Markup
@@ -11,7 +7,7 @@ from whotracksme.website.templates import (
     get_template,
     render_template,
 )
-from whotracksme.website.plotting.colors import SiteCategoryColors
+from whotracksme.website.plotting.colors import site_category_colors
 from whotracksme.website.plotting.trackers import ts_trend
 
 
@@ -37,10 +33,12 @@ def tag_cloud_data(tracker_id, data):
     all_sites = [{
         'site': s['site'],
         'frequency': s['frequency'],
-        'url': data.url_for('site', s['site'], path_to_root='..') if data.sites.get_name(
-            s['site']) is not None else None,
+        'url': data.url_for('site', s['site'], path_to_root='..')
+        if data.sites.get_name(s['site']) is not None else None,
         'site_freq': get_site_frequency(s['site']),
-        'site_cat': SiteCategoryColors.get(data.sites.get_site(s['site']).get('category', '').strip(), '#000'),
+        'site_cat': site_category_colors.get(
+            data.sites.get_site(s['site']).get('category', '').strip(), '#000'
+        ),
         'category': data.sites.get_site(s['site']).get('category', '').strip()
     } for s in data.trackers.iter_sites(tracker_id)]
 
@@ -62,7 +60,10 @@ def build_trackers_list(data):
         output.write(render_template(
             template=get_template(data, name="trackers.html"),
             tracker_list=data.trackers.sort_by(metric="reach"),
-            trackers_list_company=data.trackers.sort_by(metric="company_id", descending=False),
+            trackers_list_company=data.trackers.sort_by(
+                metric="company_id",
+                descending=False
+            ),
             header_stats=data.trackers.summary_stats()
         ))
 
@@ -85,7 +86,7 @@ def tracker_page(template, tracker_id, tracker, data):
     # for horizontal bar chart in profile
     website_types = data.trackers.get_presence_by_site_category(tracker_id, data.sites)
 
-    with open('_site/{}'.format(data.url_for('tracker', tracker_id)), 'w') as output:
+    with open(f'_site/{data.url_for("tracker", tracker_id)}', 'w') as output:
         output.write(render_template(
             path_to_root='..',
             template=template,

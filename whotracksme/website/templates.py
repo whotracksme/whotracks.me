@@ -8,7 +8,9 @@ from jinja2 import Environment, FileSystemLoader, Markup
 import markdown
 
 from whotracksme.website.utils import print_progress
-from whotracksme.website.plotting.colors import tracker_category_colors, SiteCategoryColors
+from whotracksme.website.plotting.colors import (
+    tracker_category_colors, site_category_colors
+)
 
 
 def site_to_json(data_source, blog_posts):
@@ -28,7 +30,7 @@ def site_to_json(data_source, blog_posts):
         submit_key(
             name=data_source.trackers.get_name(tracker_id),
             type="tracker",
-            url=data_source.url_for("app", tracker_id),
+            url=data_source.url_for("tracker", tracker_id),
             weight=(1.0 / tracker.get("rank", 1)) * 1000
         )
 
@@ -127,6 +129,7 @@ def get_template(data_source, name, render_markdown=False, path_to_root='.'):
         env.filters["markdown"] = lambda text: Markup(md.convert(text))
     env.filters["prettify_label"] = lambda text: text.replace("_", " ").capitalize() if text not in [None, "None", ""] else ""
     env.filters["normalize_domain_name"] = lambda text: text.replace("www.", "")
+    env.filters["absolute_og_urls"] = lambda url: url.replace("../", "")
     env.filters["url_for"] = lambda entity, id: data_source.url_for(entity, id, path_to_root=path_to_root)
     env.filters["get_app_name"] = lambda id: data_source.trackers.get_name(id)
     env.filters["get_company_name"] = lambda id: data_source.get_company_name(id)
@@ -145,7 +148,7 @@ def render_template(template, path_to_root='.', **context):
     Args:
         template: Jinja2 template to be rendered
         path_to_root: to have relative paths
-        **context: The variables that should be available in the context of the template.
+        **context: Available variables in template.
 
     Returns: populated template
     """
@@ -154,7 +157,7 @@ def render_template(template, path_to_root='.', **context):
     return template.render(
         PATHS=paths,
         TRACKER_CATEGORIES=tracker_category_colors,
-        SITE_CATEGORIES=SiteCategoryColors,
+        SITE_CATEGORIES=site_category_colors,
         CATEGORY_DESC=CATEGORY_DESC,
         **context
     )
@@ -169,7 +172,7 @@ def create_site_structure(static_path):
     Args:
         static_path: path to static folder
 
-    Returns: _site/ folder with trackers, websites, companies, blog and static directories in.
+    Returns: rendered site ready to publish (_site)
     """
     if not os.path.exists('data'):
         os.mkdir('data')

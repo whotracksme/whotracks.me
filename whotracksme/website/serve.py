@@ -34,10 +34,13 @@ def watch(builder):
     class Callback(watchdog.events.FileSystemEventHandler):
         def on_created(self, event):
             handle_event(event)
+
         def on_deleted(self, event):
             handle_event(event)
+
         def on_modified(self, event):
             handle_event(event)
+
         def on_moved(self, event):
             handle_event(event)
 

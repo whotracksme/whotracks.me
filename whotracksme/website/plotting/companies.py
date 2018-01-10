@@ -3,7 +3,7 @@ import plotly.graph_objs as go
 
 from whotracksme.website.plotting.utils import set_margins, annotation, div_output, overview_label
 from whotracksme.website.plotting.plots import scatter
-from whotracksme.website.plotting.colors import random_color, BiggestTrackerColors, cliqz_colors
+from whotracksme.website.plotting.colors import random_color, biggest_tracker_colors, cliqz_colors
 
 
 def overview_bars(companies):

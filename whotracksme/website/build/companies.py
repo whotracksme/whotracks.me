@@ -6,7 +6,9 @@ from whotracksme.website.templates import (
     get_template,
     render_template,
 )
-from whotracksme.website.plotting.colors import tracker_category_colors, cliqz_colors
+from whotracksme.website.plotting.colors import (
+    tracker_category_colors, cliqz_colors
+)
 
 
 def get_company(companies, company_id):
@@ -85,7 +87,8 @@ def tracker_map_data(site_id, data):
         link_label.append(tracker["name"])
         link_value.append(100.0 * tracker["frequency"])
 
-    label_colors = [tracker_category_colors[l] if l in tracker_category_colors else cliqz_colors["purple"] for l in nodes]
+    label_colors = [tracker_category_colors[l] if l in tracker_category_colors
+                    else cliqz_colors["purple"] for l in nodes]
 
     return dict(
         node=dict(
@@ -102,9 +105,9 @@ def tracker_map_data(site_id, data):
     )
 
 
-def company_reach(companies):
+def company_reach(companies, n=10):
     sorted_companies = sorted(companies.values(), key=lambda c: c['rank'])
-    return sorted_companies[:10]
+    return sorted_companies[:n]
 
 
 def company_page(template, company_data, data):
@@ -112,7 +115,7 @@ def company_page(template, company_data, data):
     company_id = company_data['overview']['id']
 
     company_name = get_company_name(company_data)
-    with open('_site/{}'.format(data.url_for('company', company_id)), 'w') as output:
+    with open(f'_site/{data.url_for("company", company_id)}', 'w') as output:
         output.write(render_template(
             path_to_root='..',
             template=template,

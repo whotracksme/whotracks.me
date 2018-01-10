@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from operator import itemgetter
 
@@ -36,7 +38,10 @@ def website_page(template, site, rank, data):
     site_id = site['overview']['site']
 
     # website url is the most common subdomain
-    website_url = sorted(site.get('subdomains').items(), key=itemgetter(1), reverse=True)[0][0]
+    website_url = sorted(
+        site.get('subdomains').items(),
+        key=itemgetter(1),
+        reverse=True)[0][0]
     profile = {
         "rank": rank,
         "website_url": website_url,
@@ -56,15 +61,23 @@ def website_page(template, site, rank, data):
     # apps per site data
     tracker_table = []
     for a in site.get("apps"):
-        f = a.get("frequency")
+        freq = a.get("frequency")
         tracker_id = a.get("app")
         if data.trackers.get_tracker(tracker_id):
             tracker = data.trackers.get_tracker(tracker_id)
-            tracker["frequency"] = f
+            tracker["frequency"] = freq
             tracker_table.append(tracker)
 
-    sorted_trackers = sorted(tracker_table, key=lambda a: a['frequency'], reverse=True)
-    sorted_trackers_cat = sorted(tracker_table, key=lambda a: a.get("company_id", "") if a.get("company_id") is not None else "")
+    sorted_trackers = sorted(
+        tracker_table,
+        key=lambda a: a['frequency'],
+        reverse=True
+    )
+    sorted_trackers_cat = sorted(
+        tracker_table,
+        key=lambda a: a.get("company_id", "")
+        if a.get("company_id") is not None else ""
+    )
 
     with open('_site/websites/{}.html'.format(site["name"]), 'w') as output:
         output.write(render_template(

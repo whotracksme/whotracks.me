@@ -1,8 +1,12 @@
+
+
 from collections import namedtuple
 import plotly
 import plotly.graph_objs as go
 
-from whotracksme.website.plotting.colors import tracker_category_colors, cliqz_colors
+from whotracksme.website.plotting.colors import (
+    tracker_category_colors, cliqz_colors
+)
 
 
 FontSet = namedtuple("FontSet", 'mono regular')
@@ -33,8 +37,9 @@ def set_line_style(color, width=3, line_style="solid"):
     """
     Defines default styling of scatter graphs with some smoothing.
     Args:
-        color:
-        line_style:
+        color: line color
+        width: line width
+        line_style: line style (solid, dashed, ...)
 
     Returns: line_style dict parameters
 

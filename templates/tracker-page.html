@@ -9,7 +9,7 @@
     <!-- OG params for sharable content -->
     <meta property="og:title" content="Tracker | {{ app.name }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://whotracks.me/{{ 'app'|url_for(app.overview.id) }}">
+    <meta property="og:url" content="https://whotracks.me/{{ 'tracker'|url_for(app.overview.id) | absolute_og_urls }}">
     <meta property="og:description" content="Tracker profile of {{ app.name }}. Reach, domains it operates under, tracking technology, web presence by type of site and more.">
 {% endblock %}
 

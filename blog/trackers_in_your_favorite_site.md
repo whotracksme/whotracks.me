@@ -10,14 +10,15 @@ header_img: blog/trackers_on_site/blog-sankey-1.png
 
 In this post we'll try to do two things: 
 
-1. teach you how to easily build sankey diagrams. We'll start with the second.
-2. show you how to use whotracks.me data and API to investigate trackers on reddit, or any of your favourite sites, using sankey diagrams
+1. teach you how to easily build sankey diagrams.
+2. show you how to use whotracks.me data and API to investigate trackers on reddit, 
+or any of your favourite sites, using sankey diagrams
 
 
 ## Sankey Diagrams 
 When building the tracker maps that you see on popular site profiles on whotracks.me, 
-sankey diagrams seemed like a good fit to map categories of tracking to companies t
-hat own the trackers. Each link would be a tracker, going from a category to a company. 
+sankey diagrams seemed like a good fit to map categories of tracking to companies that
+own the trackers. Each link would be a tracker, going from a category to a company.
 
 <img alt="Trackers on Tumblr" class="img-responsive img-with-padding" src="../static/img/blog/trackers_on_site/tumblr.png">
 <p class="img-caption">Figure 1: Sankey diagram used to represent a [tracker map](../websites/tumblr.com.html)</p>
@@ -85,11 +86,11 @@ def sankey_diagram(sndata, title):
             pad=10,
             thickness=30,
             # label could easily be equal to sndatap['node]['label']. The following is just cosmetics
-            label=list(map(lambda x: x.replace("_", " ").capitalize(), sndata['node']['label'])),
-            color=sndata['node']['color']
+            label=list(map(lambda x: x.replace("_", " ").capitalize(), sndata['nodes']['label'])),
+            color=sndata['nodes']['color']
         ),
-        link=sndata["link"],
-        
+        link=sndata["links"],
+
         # configuration options for the diagram
         domain=dict(
             x=[0, 1],
@@ -116,6 +117,8 @@ and we're done.
 <img alt="Simple sankey diagram" class="img-responsive img-with-padding" src="../static/img/blog/trackers_on_site/cities.png">
 <p class="img-caption">Figure 1: Simple example of a sankey digram for cities</p>
 
+Trying to create the flags of these countries did not end up being
+such an aesthetically good idea.
 
 # From Cities to Trackers
 Doing Sankey diagrams for cities may have been fun. The result of doing the same for 
@@ -131,7 +134,7 @@ running `pip install whotracksme`.
 
 ```python
 from whotracksme.data.loader import DataSource
-from whotracksme.website.plotting.colors import TrackerCategoryColors, CliqzColors
+from whotracksme.website.plotting.colors import tracker_categoryColors, cliqz_colors
 ``` 
 
 DataSource is a class that provides access to trackers, companies that own them, and 
@@ -180,14 +183,14 @@ def sankey_data(site_id, data_source):
         link_label.append(tracker["name"])
         link_value.append(100.0 * tracker["frequency"])
 
-    label_colors = [TrackerCategoryColors[l] if l in TrackerCategoryColors else CliqzColors["purple"] for l in nodes]
+    label_colors = [tracker_categoryColors[l] if l in tracker_category_colors else cliqz_colors["purple"] for l in nodes]
 
     return dict(
-        node = dict(
+        nodes = dict(
             label=nodes,
             color=label_colors
         ),
-        link = dict(
+        links = dict(
             source=link_source,
             target=link_target,
             value=link_value,
@@ -207,12 +210,14 @@ sankey_diagram(input_data, 'Tracker Map on reddit.com')
 <img alt="Reddit Tracking Landscape" class="img-responsive img-with-padding" src="../static/img/blog/trackers_on_site/reddit.png">
 <p class="img-caption">Figure 1: Tracking landscape on reddit.com</p>
 
-We see that most tracking happens for advertising reasons. 
-[Amazon Associates](../trackers/amazon_associates.html) is also big on advertising on 
-reddit (lot's of affiliate links). In terms of number of trackers, Google has the most eyes on 
-reddit users.
+We see that most tracking happens for advertising reasons. Although it does not seem like it, 
+Reddit is keeping the set of advertisers they expose their users somwhat limited compared to 
+other portals and news sites. In terms of number of trackers, Google has the most eyes on 
+reddit users. For more details on the tracking landscape on reddit, head over to 
+reddit's [profile page](https://whotracks.me/websites/reddit.com.html) on whotracks.me. 
+
 
 ## References
-[[1] Sankey Diagrams](https://en.wikipedia.org/wiki/Sankey_diagram) <br>
+[[1] Sankey Diagrams](https://en.wikipedia.org/wiki/Sankey_diagram) - Wikipedia<br>
 [[2] Plotly - Python Graphing Library](https://plot.ly/python/)<br>
-[[3] Jupyter Notebook on this post](https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/tracker_map_notebook.ipynb): 
+[[3] Jupyter Notebook on this post](https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/tracker_map_notebook.ipynb)

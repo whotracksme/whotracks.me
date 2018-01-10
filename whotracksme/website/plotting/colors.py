@@ -33,7 +33,7 @@ tracker_category_colors = {
     "extensions": "orange"
 }
 
-SiteCategoryColors = {
+site_category_colors = {
     '': "#000",
     'Adult': "#FFAEB9",
     'Banking': "#FFE4C4",
@@ -45,7 +45,7 @@ SiteCategoryColors = {
     'Reference': "#E0EEEE"
 }
 
-BiggestTrackerColors = {
+biggest_tracker_colors = {
     'Google': "#008744",
     'Facebook': "#3b5998",
     'Amazon associates': "#ff9900",
