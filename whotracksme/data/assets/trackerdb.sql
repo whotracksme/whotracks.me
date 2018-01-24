@@ -2485,6 +2485,7 @@ INSERT INTO "tracker_domains" VALUES('impact_radius','impactradius-tag.com');
 INSERT INTO "tracker_domains" VALUES('airbnb','musthird.com');
 INSERT INTO "tracker_domains" VALUES('widespace','widespace.com');
 INSERT INTO "tracker_domains" VALUES('platform360','pfrm.co');
+INSERT INTO "tracker_domains" VALUES('kaeufersiegel.de','kaeufersiegel.de');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -3718,6 +3719,7 @@ INSERT INTO "trackers" VALUES('jivochat','JivoChat',NULL,2,'https://www.jivochat
 INSERT INTO "trackers" VALUES('airbnb','Airbnb',NULL,6,'https://affiliate.withairbnb.com/',NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('widespace','Widespace',NULL,4,'https://www.widespace.com/',NULL,NULL,'1906',NULL);
 INSERT INTO "trackers" VALUES('platform360','Platform360',NULL,4,'http://www.platform360.co/#home',NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('kaeufersiegel.de','Käufersiegel',NULL,2,'https://www.kaeufersiegel.de/',NULL,NULL,NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
