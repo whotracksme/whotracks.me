@@ -32,10 +32,10 @@ def get_max_age(path, filename):
         # minified JS: one week cache
         if '.min.js' in filename or '.min.css' in filename:
             return 604800
-        # one day cache
-        return 86400
-    # default 30min cache for html pages
-    return 1800
+        # one week cache
+        return 604800
+    # default 1day cache for html pages
+    return 86400
 
 def get_cache_control(path, filename, production=False):
     if not production:
