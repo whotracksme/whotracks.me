@@ -85,7 +85,6 @@ INSERT INTO "companies" VALUES('exoclick','ExoClick','ExoClick is an ad network 
 INSERT INTO "companies" VALUES('marin_software','Marin Software','Marin Software is a paid search management platform. It offers a browser application to help advertisers and agencies managing paid search advertising campaigns across other major search sites.
 ',' http://www.marinsoftware.com/about-us/why-marin',' http://www.marinsoftware.com/about-us/contact-us',' http://www.marinsoftware.com/privacy/privacy-central','http://www.marinsoftware.com/','"Marin Software is a leading provider of online advertising management solutions, offering an integrated platform for managing search, display, and social marketing."','http://cdn.betteradvertising.com/logos/marinsoftware.png','226');
 INSERT INTO "companies" VALUES('advolution','Advolution','None','Not found','Not found','http://www.advolution.de/datenschutz.php','http://www.advolution.de','"Advolution specializes in web based software development and interface design for digital marketing processes."','http://cdn.betteradvertising.com/logos/advolution.png','3036');
-INSERT INTO "companies" VALUES('nexage','Nexage','Nexage is the leading provider of market liquidity for buyers and sellers in the mobile advertising market. The Nexage Revenue Platform, comprised of an RTB exchange and mediation, maximizes revenue for publishers and developers, and campaign ROI for demand sources and advertisers.','Not found','http://www.nexage.com/contact-us','http://www.nexage.com/privacy-policy/','http://www.nexage.com/','"Nexage is the leading provider of market liquidity for buyers and sellers in the mobile advertising market. The Nexage Revenue Platform, comprised of an RTB exchange and mediation, maximizes revenue for publishers and developers, and campaign ROI for demand sources and advertisers."','http://cdn.betteradvertising.com/logos/nexage1.png','539');
 INSERT INTO "companies" VALUES('just_premium','Just Premium','None','Not found','Not found','Not found','http://justpremium.com/','"JustPremium is the world''s first RTB Ad Exchange for High-Impact Adsizes in the Netherlands, Germany, and Belgium. This new exchange offers advertisers state-of-the-art Rich Media Ads on a network of Premium Publishers."','http://cdn.betteradvertising.com/logos/justpremium.png','2882');
 INSERT INTO "companies" VALUES('bazaarvoice','Bazaarvoice','Bazaarvoice is a Software as a Service (SaaS) company that enables the world’s biggest brands to capture, analyze, and most importantly, act upon social data – to drive true, customer-centric change.
 
@@ -232,7 +231,6 @@ experts is 100% dedicated to programmatic.
 ','Not found','2690');
 INSERT INTO "companies" VALUES('powerlinks','PowerLinks','None','http://www.powerlinks.com/about','http://www.powerlinks.com/contact-us','http://www.powerlinks.com/privacy-policy/','http://www.powerlinks.com/','"PowerLinks delivers ad management and ad serving solutions to companies that buy, create or sell online advertising. Leading web publishers, advertisers, ad networks and agencies use PowerLinks in order to incrementally grow their online advertising businesses. Our products offer market leading rich media, video and mobile compatibility which combine with PowerLinks expertise in ad serving and media planning. This allows us to deliver a high ROI for advertisers whilst empowering publishers to remain in complete control of their web assets."','http://cdn.betteradvertising.com/logos/powerlinks.png','2197');
 INSERT INTO "companies" VALUES('ve_interactive__formely_gdm_digital_','VE Interactive (Formely GDM Digital)','','  https://www.veinteractive.com/us/about-us/','http://www.veinteractive.com/about-us/legal-policies/privacy-policy/',' https://www.veinteractive.com/us/about-us/contact-us/','http://www.veinteractive.com/','"Ve is a world-leading technology company whose platform has become an essential component for any online business to acquire, engage and convert customers."','http://cdn.betteradvertising.com/logos/velogo_primary_resized.jpg','1810');
-INSERT INTO "companies" VALUES('smaato','Smaato','Smaato operates a mobile advertising optimization platform called SOMA. Through an open API and a range of Software Developer Kits (SDKs), SOMA can be integrated with ad networks, ad inventory owners (publishers, developers and operators) and third party ad technology providers.','http://www.smaato.com/company/','http://www.smaato.com/contacts/','http://www.smaato.com/privacy/','http://www.smaato.com/','"Smaato provides Ads for Apps – operating the leading mobile advertising optimization platform called SOMA. SOMA’s unique feature is the aggregation of 70+ leading ad networks globally to maximize mobile advertising revenues. Through an open API and the widest range of SDKs, SOMA can be easily integrated with ad networks, ad inventory owners (publishers, developers and operators) and 3rd party ad technology providers."','http://cdn.betteradvertising.com/logos/smaato.png','920');
 INSERT INTO "companies" VALUES('turn_inc.','Turn Inc.','Turn is an online data-driven technology and software services company. They provide technology to bring efficiencies of search to display advertising and connect advertising agencies with targeted audiences. Turn also provides technology infrastructure, optimization algorithms, real-time analytics, and media and data management for delivery of data-driven digital advertising.','http://www.turn.com/company','http://www.turn.com/company/contact-us',' http://www.turn.com/trust/privacy-guidelines','http://www.turn.com','"Turn has developed the digital advertising industry’s only integrated, end-to-end platforms for data and media management. The Turn Audience Platform and Turn Media Platform are currently utilized to manage digital advertising campaigns for Global 2,000 brands. Turn’s global infrastructure, intuitive software and analytics, and open ecosystem for partners – all available in a real-time integrated environment – represent the future of digital advertising."
 to:
 "What makes Turn different?
@@ -425,7 +423,6 @@ INSERT INTO "companies" VALUES('seznam','Seznam','None','https://onas.seznam.cz/
 INSERT INTO "companies" VALUES('komoona','Komoona','',' http://www.komoona.com/#about-us','http://www.komoona.com/#contact-us','Not found','http://www.komoona.com/#home','"Our mission is to bring true monetization and optimization abilities to the long tail and maximize publisher’s income. With billions of impressions being served through our system, we are able to offer sites of all caliber services that are usually only available for top brand publishers."','http://cdn.betteradvertising.com/logos/komoona.png','1865');
 INSERT INTO "companies" VALUES('intercom','Intercom','Intercom is a customer relationship management and messaging tool for web app owners.','https://www.intercom.com/about','https://www.intercom.com/contact','https://docs.intercom.com/pricing-privacy-and-terms/intercom-inc-privacy-policy','https://www.intercom.com/','Intercom is a customer relationship management and messaging tool for web app owners.','http://cdn.betteradvertising.com/logos/intercom.png','1161');
 INSERT INTO "companies" VALUES('cxense','Cxense','cXense provides web-based services to businesses to improve the overall relevance of their web applications. These services are advertising, analytics, search and personalization.','https://www.cxense.com/about-us',' https://www.cxense.com/contact-us','http://www.cxense.com/about-us/privacy-policy','http://www.cxense.com/','"Cxense (pronounced see•sense) is a global software company founded by a team of software and internet media leaders who share a passion for delivering innovative and intuitive solutions that help companies understand their audience and build great online user experiences."','http://cdn.betteradvertising.com/logos/cxense2.png','1160');
-INSERT INTO "companies" VALUES('vimeo','Vimeo','"Vimeo is home to communities looking for a place to share their moments and creativity with friends, family, or other users. These videos are created with care by our users and seen throughout the world."','http://vimeo.com/about','Not found','http://vimeo.com/privacy','http://vimeo.com/','"Vimeo is home to communities looking for a place to share their moments and creativity with friends, family, or other users. These videos are created with care by our users and seen throughout the world."','http://cdn.betteradvertising.com/logos/vimeo.png','1552');
 INSERT INTO "companies" VALUES('rythmone','RythmOne','None','https://www.rhythmone.com/about','Not found','https://www.rhythmone.com/privacy-policy','https://www.rhythmone.com/','Our mission is to enrich consumer experiences online by enabling access to content anytime, anywhere. To this end, RhythmOne connects audiences with premium content and advertising across the web.  We work with advertisers, publishers and content providers to provide value through:
 
 Fully integrated advertising solutions, spanning desktop and mobile video, rich media, display, social and native formats.
@@ -582,7 +579,6 @@ INSERT INTO "companies" VALUES('conviva','Conviva','Convivia is an Internet vide
 INSERT INTO "companies" VALUES('heatmap','Heatmap','None','Not found','https://heatmap.me/contact-us','https://heatmap.me/privacy','https://heatmap.me/','"Most online contents are short-lived and only real-time analytics allow you to act right on time."','http://cdn.betteradvertising.com/logos/heatmap.png','3511');
 INSERT INTO "companies" VALUES('net-metrix','NET-Metrix','None','http://www.net-metrix.ch/ueber-uns','Not found','http://www.net-metrix.ch/ueber-uns/datenschutz','http://www.net-metrix.ch/','"The NET-Metrix AG is an independent Swiss authority for Internet usage research. We offer the most comprehensive research system to use web offerings in Switzerland and Liechtenstein. NET-Metrix provides the market with standardized and certified data."','http://cdn.betteradvertising.com/logos/netmetrix.png','2625');
 INSERT INTO "companies" VALUES('research_now','Research Now','None','http://www.researchnow.com/en-US/AboutUs.aspx','http://www.researchnow.com/en-US/ContactUs/Dallas.aspx','http://www.researchnow.com/en-US/Help/PrivacyPolicy.aspx','http://www.researchnow.com/','"We are the world’s leading digital data collection company, and uniquely positioned as a true single source solution for any and all research projects."','http://cdn.betteradvertising.com/logos/researchnow1.png','2770');
-INSERT INTO "companies" VALUES('yahoo','Yahoo!','Yahoo! is a search engine and Internet services firm. They offer a variety of other online services including: news, weather, traffic, maps, email, a web analytics platform, etc. Yahoo! also operates an ad network called Yahoo! Ad Network.',' https://about.yahoo.com/','http://help.yahoo.com/l/us/yahoo/privacy/general.html?pir=TGhybLBibUlrv7FYoOsYo3ZTku0ut5XodNnAipwwx1Dmdzg4bd6kEBH2hmHuMd4JHcummxA83nI-','https://policies.yahoo.com/us/en/yahoo/privacy/index.htm','http://www.yahoo.com/','"Welcome to Yahoo!, the world''s most visited home page. Quickly find what you''re searching for, get in touch with friends and stay in-the-know with the latest news and information."','http://cdn.betteradvertising.com/logos/yahoo.png','253');
 INSERT INTO "companies" VALUES('unruly','Unruly','','http://unruly.co/about-us/#intro','https://unruly.co/contact-us/','http://unruly.co/privacy/','http://unruly.co/','"Video ad tech company Unruly is the leading programmatic platform for social video advertising, powered by UnrulyX, the first supply side platform (SSP) for mobile video to offer scaled delivery of native ad formats and guarantee the viewability of premium video impressions bought via RTB."','http://cdn.betteradvertising.com/logos/unruly.png','1904');
 INSERT INTO "companies" VALUES('mediametrie','Mediametrie','Mediametrie is a media research company. It offers marketing test services for measuring the effectiveness of advertising and promotions on sales and attitudes. They measure audiences and conduct media research for companies within the media and communications market. ','http://www.mediametrie.com/mediametrie/index.php','http://www.mediametrie.com/mediametrie/contact.php','http://www.mediametrie.com/pages/privacy-policy.php?page=86','http://www.mediametrie.com/','"Médiamétrie is now the benchmark when it comes to audience measurement. The company is developing its range of services and extending its scope by working on new media, telephony, new multimedia practices, Cross-media, etc." ','http://cdn.betteradvertising.com/logos/mediametrie1.png','379');
 INSERT INTO "companies" VALUES('getintent','GetIntent','None','http://getintent.com/en/about/','Not found','Not found','http://www.getintent.com/','"GetIntent is a Russian pioneering DSP (Demand Side Platform) targeted mostly to eCommerce web-sites. Our unique machine-learning algorithms open new horizons to audience and programmatic buying. We know intentions of your customers."','http://cdn.betteradvertising.com/logos/getintent.png','3163');
@@ -626,7 +622,6 @@ tawk.to is jam packed with all the features you need to provide winning customer
 Every day we listen to user feedback, to learn more about the features we should be focussing on. Feel free to chat with us at any time to discuss your specific live chat needs."','http://cdn.betteradvertising.com/logos/tawk.png','4210');
 INSERT INTO "companies" VALUES('visualiq','VisualIQ','Founded in 2006, Visual IQ is the world’s leading cross channel marketing intelligence software company. Our IQ Intelligence Suite™ of hosted software products reveals cross channel performance insights hidden within your marketing data, providing both executive level and practitioner level recommendations to improve your marketing performance. Visual IQ is listed as a “leader” in The Forrester Wave™: Interactive Attribution, Q4 2009.','http://www.visualiq.com/about','http://www.visualiq.com/contact-us/form','http://visualiq.com/privacy','http://visualiq.com/','"Visual IQ is the world’s leading cross channel marketing intelligence software company. Our IQ Intelligence Suite™ of hosted software products reveals cross channel performance insights hidden within your marketing data, providing both executive level and practitioner level recommendations to improve your marketing performance."','http://cdn.betteradvertising.com/logos/visualiq.png','1095');
 INSERT INTO "companies" VALUES('answers.com','Answers.com','None','http://wiki.answers.com/page/about_us','Not found','http://wiki.answers.com/about/legal_notices.html#privacy','http://www.answers.com/','"Answers Corporation is the world’s leading Q&A resource, delivering trusted answers to all of your questions through web, mobile, and social channels. We harness the knowledge from our vast community of online experts, syndicated sites, and social media platforms to connect you with the most timely and relevant information."','http://cdn.betteradvertising.com/logos/answerscom1.png','2110');
-INSERT INTO "companies" VALUES('aol','AOL','AOL is a web services company with a network of premium and niche content sites. AOL''s business spans the Internet with online and local content, and products and services available to consumers, publishers and advertisers. With one of the industry''s largest advertising networks, Platform A, AOL engages consumers with online advertising services on both its owned and operated properties as well as third-party websites. In addition, AOL operates a premium subscription-based access service in the United States.','http://www.corp.aol.com/about-aol','Not found','http://privacy.aol.com/privacy-policy/','http://corp.aol.com/','"AOL is a leading-edge web services company, with an offering of premium and niche content sites, world-class tools and platforms."','http://cdn.betteradvertising.com/logos/aol2.png ','244');
 INSERT INTO "companies" VALUES('refined_labs','Refined Labs','None','http://www.refinedlabs.com/en/about-refined-labs','http://www.refinedlabs.com/en/contact',' https://www.refinedlabs.com/datenschutz-website','  https://www.refinedlabs.com/','"Refined Labs is a leading provider of performance marketing software."','http://cdn.betteradvertising.com/logos/refinedlabs1.png','2062');
 INSERT INTO "companies" VALUES('cedexis','Cedexis','Cedexis provides a collective intelligence platform for next-generation web traffic management strategies. Cedexis Radar provides IT organizations with the collective intelligence necessary to evaluate and compare a wide range of infrastructure options, from traditional data centers and delivery networks to emerging cloud storage and cloud computing platforms.','http://www.cedexis.com/about/','http://www.cedexis.com/contact/','http://www.cedexis.com/privacy-policy/  ','http://www.cedexis.com/','"Founded in 2009, Cedexis optimizes web performance across data centers, content delivery networks (CDNs) and clouds, for companies that want to ensure 100% availability and extend their reach to new global markets."','http://cdn.betteradvertising.com/logos/cedexis.png','691');
 INSERT INTO "companies" VALUES('hurra_communications','Hurra Communications','Hurra Communications is a Germany based company that provides search engine marketing solutions. They offer search engine campaign design and optimization services. Hurra also provides production promotional tools and design and produce direct response and Web television advertising campaigns.
@@ -749,7 +744,6 @@ Smartsupp can be used on any website. Take a look at our tutorials for integrati
 Answer chats from your smartphone
 Chat with visitors from anywhere using your mobile devices. How to set it up?"
 ','http://','4250');
-INSERT INTO "companies" VALUES('flickr','Flickr','"Show off your favorite photos and videos to the world, securely and privately show content to your friends and family, or blog the photos and videos you take with a cameraphone."','http://www.flickr.com/about/','http://help.yahoo.com/fast/help/us/privacy/cgi_feedback?radio30=radio305','https://policies.yahoo.com/us/en/yahoo/privacy/index.htm','http://www.flickr.com/','"Show off your favorite photos and videos to the world, securely and privately show content to your friends and family, or blog the photos and videos you take with a cameraphone."','http://cdn.betteradvertising.com/logos/flickr.png','1472');
 INSERT INTO "companies" VALUES('infectious_media','Infectious Media','Infectious Media provides online media buying services to advertisers and agencies. Infectious Media uses a proprietary technology platform called Impression Desk that ensure that advertisements are shown to the most relevant users on the most relevant websites.  ',' http://www.infectiousmedia.com/about-us/',' http://www.infectiousmedia.com/contact-us/','http://infectiousmedia.com/privacy-policy/','http://www.infectiousmedia.com/','"We are specialists in intelligent online display. We deliver a fully managed service which combines advanced analytics with proprietary targeting and optimisation tools to power efficient real-time display advertising."','http://cdn.betteradvertising.com/logos/infectiousmedia1.png','650');
 INSERT INTO "companies" VALUES('vibrant_media','Vibrant Media','Vibrant Media is a contextual advertising network hosting the IntelliTXT platform on Web sites. The IntelliTXT platform underlines keywords on a site and serves an advertisement associated with those words when users hover of them. Advertisers pay to have their ads associated with particular words.','http://www.vibrantmedia.com/about-us/','http://www.vibrantmedia.com/contact-us/','http://www.vibrantmedia.com/privacy-policy/','http://www.vibrantmedia.com','"In 2000, two entrepreneurs had a vision to change advertising on the web. They saw an opportunity to enhance the user experience by connecting consumers directly to relevant branded content. This original native advertising concept became the game-changing cornerstone on which Vibrant was built. After nearly 15 years, a network of 6,600 sites, dozens of brand partners, billions of views, and eight premium product solutions, Vibrant is truly transforming content connections."','http://cdn.betteradvertising.com/logos/vibrant.png','179');
 INSERT INTO "companies" VALUES('mythings_','MyThings ','MyThings is a performance based advertising network focused on retargeting solutions. They analyze on-site browsing behavior then present individualized, dynamic advertising banners to visitors wherever they surf the web. For example, if a visitor leaves the site without purchasing from a Web page featuring sweaters, the advertising messages presented to that visitor when they are browsing a different website, may include messages about sweater promotions.','http://www.mythings.com/default.htm#section2','http://www.mythings.com/default.htm#section6','http://www.mythings.com/?page_id=8338','http://www.mythings.com/','myThings is the global leader in customized programmatic ad solutions. Running personalized retargeting campaigns on desktop, mobile and Facebook, the company personalizes over 5 billion impressions a month for the largest e-commerce brands in 30 markets including Adidas, Walmart, ToysRUs, Very.co.uk, Littlewoods, Zalando, Orange, Best Buy, and Microsoft.','http://www.mythings.com/wp-content/themes/mythings/images/logo.png','617');
@@ -765,8 +759,6 @@ INSERT INTO "companies" VALUES('perfect_audience','Perfect Audience','None','htt
 INSERT INTO "companies" VALUES('wistia','Wistia','Wistia is a provider of online video hosting technology for businesses. Their tools make it easy to embed videos on publisher websites and in email campaigns, manage and share internal videos, and track the engagement of viewers.','https://wistia.com/about/yearbook',' https://wistia.com/support/contact','http://wistia.com/privacy','http://wistia.com/','"(Wistia) provides the best online video management experience possible. Our goal is to enable every business on the planet to get more value from their videos."','http://cdn.betteradvertising.com/logos/wistia1.png','1307');
 INSERT INTO "companies" VALUES('adtiger','AdTiger','AdTiger is an German marketing agency. AdTiger.de is a project of arejo Ltd.','http://www.adtiger.de/ueber-uns7/ueber-uns06/',' http://www.adtiger.de/contact/','http://www.adtiger.de/diverse-seiten/datenschutz9/','http://www.adtiger.de','"AdTiger is an established independent online marketer. Our extensive premium portfolio includes over 1,000 sites with monthly around 750 million page impressions. Thus AdTiger is one of the largest marketers. We offer our customers in addition to exclusive sites on a range of issues and channels cost RON bookings for high range. Den we market websites we offer not only fair condition models especially a safe and predictable workload."','http://cdn.betteradvertising.com/logos/adtiger.png','341');
 INSERT INTO "companies" VALUES('heap','Heap','None','https://heapanalytics.com/about','Not found','https://heapanalytics.com/privacy','https://heapanalytics.com/','"Heap automatically captures every user action in your app and lets you measure it all. Clicks, taps, swipes, form submissions, page views, and more."','http://cdn.betteradvertising.com/logos/heap-logo.png','2695');
-INSERT INTO "companies" VALUES('convertro','Convertro','Convertro provides online conversion and media attribution solutions for companies. It offers visitor tracking, media attribution, and phone tracking solutions.  Their Visitor tracking code captures conversion events and all associated visitor sessions and referring sources.
-','http://www.convertro.com/about-us','','http://privacy.aol.com/','http://www.convertro.com/','"Convertro provides advertisers enhanced transparency into the effectiveness of their marketing channels by tracking many more customer-initiated marketing interactions than possible with conventional approaches including the ability to correlate sales completed offline with the online marketing channels driving the sale."','http://cdn.betteradvertising.com/logos/convertro1.png','842');
 INSERT INTO "companies" VALUES('gravatar','Gravatar','None','http://en.gravatar.com/support/what-is-gravatar/','Not found','http://automattic.com/privacy/','http://en.gravatar.com/','"Your Gravatar is an image that follows you from site to site appearing beside your name when you do things like comment or post on a blog."','http://cdn.betteradvertising.com/logos/gravatar.png','2867');
 INSERT INTO "companies" VALUES('mail.ru_group','Mail.Ru Group','"Mail.Ru is the foremost Russian Internet portal, serving the entertainment and communication needs of the global Russian-speaking community with a comprehensive array of more than 40 services including the largest Russian free e-mail service, instant messenger Mail.Ru Agent, national social network My Mir@Mail.Ru, and search engine Poisk@Mail.Ru."','','Not found','Not found','http://mail.ru/','"Mail.Ru is the foremost Russian Internet portal, serving the entertainment and communication needs of the global Russian-speaking community with a comprehensive array of more than 40 services including the largest Russian free e-mail service, instant messenger Mail.Ru Agent, national social network My Mir@Mail.Ru, and search engine Poisk@Mail.Ru."','http://cdn.betteradvertising.com/logos/mailru.png','1316');
 INSERT INTO "companies" VALUES('magnetic','Magnetic','Magnetic provide tools for advertisers and publishers to leverage search data to target and retarget ad campaigns to the most relevant audience online.','http://www.magnetic.com/about/','http://www.magnetic.com/contact-us/','http://www.magnetic.com/about/privacy/','http://www.magnetic.com/','"Magnetic is a technology company with a marketing platform for enterprises, brands and agencies. Our prospecting, remarketing and merchandising solutions help marketers find, keep and bring back customers across channels and devices. These solutions are powered by our unique data including purchase intent and behavioral insights."','http://cdn.betteradvertising.com/logos/magnetic.png','532');
@@ -872,7 +864,7 @@ INSERT INTO "companies" VALUES('gruner_jahr_ag','Gruner + Jahr AG',NULL,NULL,NUL
 INSERT INTO "companies" VALUES('united_internet','United Internet AG',NULL,NULL,NULL,NULL,'https://www.united-internet.de/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('kbm_group','KBM Group',NULL,NULL,NULL,NULL,'https://www.kbmg.com/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('emarsys','Emarsys',NULL,NULL,NULL,NULL,'https://www.emarsys.com/',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('iac_apps','IAC Applications',NULL,'',NULL,NULL,'http://www.iacapps.com/',NULL,NULL,NULL);
+INSERT INTO "companies" VALUES('iac_apps','IAC (InterActiveCorp)',NULL,'',NULL,NULL,'http://iac.com/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('optimise_it','Optimise-it',NULL,NULL,NULL,NULL,'http://www.optimise-it.de/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('dentsu_aegis_network','Dentsu Aegis Network',NULL,NULL,NULL,NULL,'http://www.dentsuaegisnetwork.com/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('lightInthebox','LightInTheBox.com',NULL,NULL,NULL,NULL,'http://www.lightinthebox.com/',NULL,NULL,NULL);
@@ -905,6 +897,9 @@ INSERT INTO "companies" VALUES('engine_group','Engine',NULL,NULL,NULL,NULL,'http
 INSERT INTO "companies" VALUES('highco','HighCo',NULL,NULL,NULL,NULL,'https://www.highco.com/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('united_inc','United Inc.',NULL,NULL,NULL,NULL,'http://united.jp/en/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('ironsource','ironSource',NULL,NULL,NULL,NULL,'www.ironsrc.com',NULL,NULL,NULL);
+INSERT INTO "companies" VALUES('prosieben_sat1','ProSiebenSat.1 Media',NULL,NULL,NULL,NULL,'http://www.prosiebensat1.com/',NULL,NULL,NULL);
+INSERT INTO "companies" VALUES('verizon','Verizon',NULL,NULL,NULL,NULL,'https://www.verizon.com/',NULL,NULL,NULL);
+INSERT INTO "companies" VALUES('spearhead','Spearhead Integrated Marketing Communication',NULL,NULL,NULL,NULL,'http://www.spearhead.com.cn/',NULL,NULL,NULL);
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -1709,7 +1704,6 @@ INSERT INTO "tracker_domains" VALUES('findizer.fr','findizer.fr');
 INSERT INTO "tracker_domains" VALUES('wix.com','wix.com');
 INSERT INTO "tracker_domains" VALUES('7tv.de','7tv.de');
 INSERT INTO "tracker_domains" VALUES('opta.net','opta.net');
-INSERT INTO "tracker_domains" VALUES('btelligent.net','btelligent.net');
 INSERT INTO "tracker_domains" VALUES('zedo','zedo.com');
 INSERT INTO "tracker_domains" VALUES('alibaba.com','alibaba.com');
 INSERT INTO "tracker_domains" VALUES('crossengage','crossengage.io');
@@ -1727,7 +1721,7 @@ INSERT INTO "tracker_domains" VALUES('king.com','king.com');
 INSERT INTO "tracker_domains" VALUES('admeira.ch','admeira.ch');
 INSERT INTO "tracker_domains" VALUES('propeller_ads','onclasrv.com');
 INSERT INTO "tracker_domains" VALUES('adventori','adventori.com');
-INSERT INTO "tracker_domains" VALUES('kctag.net','kctag.net');
+INSERT INTO "tracker_domains" VALUES('kairion.de','kctag.net');
 INSERT INTO "tracker_domains" VALUES('stayfriends.de','stayfriends.de');
 INSERT INTO "tracker_domains" VALUES('apester','apester.com');
 INSERT INTO "tracker_domains" VALUES('bulkhentai.com','bulkhentai.com');
@@ -1758,7 +1752,6 @@ INSERT INTO "tracker_domains" VALUES('quisma','qservz.com');
 INSERT INTO "tracker_domains" VALUES('pusher.com','pusher.com');
 INSERT INTO "tracker_domains" VALUES('blogsmithmedia.com','blogsmithmedia.com');
 INSERT INTO "tracker_domains" VALUES('sojern','sojern.com');
-INSERT INTO "tracker_domains" VALUES('adkernel.com','adkernel.com');
 INSERT INTO "tracker_domains" VALUES('sublime_skinz','ayads.co');
 INSERT INTO "tracker_domains" VALUES('keen_io','keen.io');
 INSERT INTO "tracker_domains" VALUES('keen_io','dc8na2hxrj29i.cloudfront.net');
@@ -1788,7 +1781,6 @@ INSERT INTO "tracker_domains" VALUES('media-imdb.com','media-imdb.com');
 INSERT INTO "tracker_domains" VALUES('marketo','mktoresp.com');
 INSERT INTO "tracker_domains" VALUES('marketo','marketo.com');
 INSERT INTO "tracker_domains" VALUES('marketo','marketo.net');
-INSERT INTO "tracker_domains" VALUES('smartertravel.com','smartertravel.com');
 INSERT INTO "tracker_domains" VALUES('shopify_stats','shopify.com');
 INSERT INTO "tracker_domains" VALUES('dc_stormiq','dc-storm.com');
 INSERT INTO "tracker_domains" VALUES('dc_stormiq','stormcontainertag.com');
@@ -1806,7 +1798,6 @@ INSERT INTO "tracker_domains" VALUES('connextra','connextra.com');
 INSERT INTO "tracker_domains" VALUES('yandex_adexchange','yandexadexchange.net');
 INSERT INTO "tracker_domains" VALUES('digicert_trust_seal','digicert.com');
 INSERT INTO "tracker_domains" VALUES('urban-media.com','urban-media.com');
-INSERT INTO "tracker_domains" VALUES('mapbox.com','mapbox.com');
 INSERT INTO "tracker_domains" VALUES('marketgrid','marketgid.com');
 INSERT INTO "tracker_domains" VALUES('adtiger','adtiger.de');
 INSERT INTO "tracker_domains" VALUES('pulpix.com','pulpix.com');
@@ -1823,7 +1814,6 @@ INSERT INTO "tracker_domains" VALUES('magnetic','d3ezl4ajpp2zy8.cloudfront.net')
 INSERT INTO "tracker_domains" VALUES('magnetic','domdex.net');
 INSERT INTO "tracker_domains" VALUES('schneevonmorgen.com','schneevonmorgen.com');
 INSERT INTO "tracker_domains" VALUES('fullstory','fullstory.com');
-INSERT INTO "tracker_domains" VALUES('videoamp.com','videoamp.com');
 INSERT INTO "tracker_domains" VALUES('vicomi.com','vicomi.com');
 INSERT INTO "tracker_domains" VALUES('alipay.com','alipay.com');
 INSERT INTO "tracker_domains" VALUES('deichmann.com','deichmann.com');
@@ -1847,8 +1837,6 @@ INSERT INTO "tracker_domains" VALUES('toplist.cz','toplist.cz');
 INSERT INTO "tracker_domains" VALUES('microsoft','microsofttranslator.com');
 INSERT INTO "tracker_domains" VALUES('optimicdn.com','optimicdn.com');
 INSERT INTO "tracker_domains" VALUES('bounce_exchange','bounceexchange.com');
-INSERT INTO "tracker_domains" VALUES('apa.at','apa.at');
-INSERT INTO "tracker_domains" VALUES('stylight.net','stylight.net');
 INSERT INTO "tracker_domains" VALUES('adrom','txt.eu');
 INSERT INTO "tracker_domains" VALUES('rtblab','rvty.net');
 INSERT INTO "tracker_domains" VALUES('google_users','1e100cdn.net');
@@ -1856,7 +1844,6 @@ INSERT INTO "tracker_domains" VALUES('haendlerbund.de','haendlerbund.de');
 INSERT INTO "tracker_domains" VALUES('symantec','symantec.com');
 INSERT INTO "tracker_domains" VALUES('symantec','thawte.com');
 INSERT INTO "tracker_domains" VALUES('cdn-net.com','cdn-net.com');
-INSERT INTO "tracker_domains" VALUES('metadsp.co.uk','metadsp.co.uk');
 INSERT INTO "tracker_domains" VALUES('omarsys.com','omarsys.com');
 INSERT INTO "tracker_domains" VALUES('adfox','adwolf.ru');
 INSERT INTO "tracker_domains" VALUES('adfox','adfox.ru');
@@ -1879,7 +1866,6 @@ INSERT INTO "tracker_domains" VALUES('sailthru_horizon','sailthru.com');
 INSERT INTO "tracker_domains" VALUES('datacaciques.com','datacaciques.com');
 INSERT INTO "tracker_domains" VALUES('mediarithmics.com','mediarithmics.com');
 INSERT INTO "tracker_domains" VALUES('clicktripz','clicktripz.com');
-INSERT INTO "tracker_domains" VALUES('leadlab.click','leadlab.click');
 INSERT INTO "tracker_domains" VALUES('apicit.net','apicit.net');
 INSERT INTO "tracker_domains" VALUES('microsoft','microsoftonline.com');
 INSERT INTO "tracker_domains" VALUES('glomex.com','glomex.cloud');
@@ -1916,8 +1902,7 @@ INSERT INTO "tracker_domains" VALUES('tumblr_buttons','platform.tumblr.com');
 INSERT INTO "tracker_domains" VALUES('fandommetrics.com','fandommetrics.com');
 INSERT INTO "tracker_domains" VALUES('hotelreservation.com','hotelreservation.com');
 INSERT INTO "tracker_domains" VALUES('netseer','netseer.com');
-INSERT INTO "tracker_domains" VALUES('tracdelight.com','tracdelight.com');
-INSERT INTO "tracker_domains" VALUES('githubusercontent.com','githubusercontent.com');
+INSERT INTO "tracker_domains" VALUES('github','githubusercontent.com');
 INSERT INTO "tracker_domains" VALUES('vivalu','vi-tag.net');
 INSERT INTO "tracker_domains" VALUES('errorception','d15qhc0lu1ghnk.cloudfront.net');
 INSERT INTO "tracker_domains" VALUES('errorception','errorception.com');
@@ -1933,23 +1918,17 @@ INSERT INTO "tracker_domains" VALUES('aniview.com','aniview.com');
 INSERT INTO "tracker_domains" VALUES('onclickmax.com','onclickmax.com');
 INSERT INTO "tracker_domains" VALUES('decibel_insight','decibelinsight.net');
 INSERT INTO "tracker_domains" VALUES('adobe_tagmanager','adobetag.com');
-INSERT INTO "tracker_domains" VALUES('mdgms.com','mdgms.com');
 INSERT INTO "tracker_domains" VALUES('overheat.it','overheat.it');
 INSERT INTO "tracker_domains" VALUES('snowplow','playwire.com');
 INSERT INTO "tracker_domains" VALUES('snowplow','dc8xl0ndzn2cb.cloudfront.net');
 INSERT INTO "tracker_domains" VALUES('snowplow','d346whrrklhco7.cloudfront.net');
 INSERT INTO "tracker_domains" VALUES('snowplow','d78fikflryjgj.cloudfront.net');
-INSERT INTO "tracker_domains" VALUES('tovarro.com','tovarro.com');
 INSERT INTO "tracker_domains" VALUES('psyma','psyma.com');
-INSERT INTO "tracker_domains" VALUES('trustami.com','trustami.com');
 INSERT INTO "tracker_domains" VALUES('bauer_media','bauernative.com');
-INSERT INTO "tracker_domains" VALUES('readspeaker.com','readspeaker.com');
 INSERT INTO "tracker_domains" VALUES('homeaway','homeaway.com');
-INSERT INTO "tracker_domains" VALUES('mynativeplatform.com','mynativeplatform.com');
 INSERT INTO "tracker_domains" VALUES('perfect_audience','perfectaudience.com');
 INSERT INTO "tracker_domains" VALUES('perfect_audience','prfct.co');
 INSERT INTO "tracker_domains" VALUES('itineraire.info','itineraire.info');
-INSERT INTO "tracker_domains" VALUES('vertamedia.com','vertamedia.com');
 INSERT INTO "tracker_domains" VALUES('revcontent','revcontent.com');
 INSERT INTO "tracker_domains" VALUES('algolia.net','algolia.net');
 INSERT INTO "tracker_domains" VALUES('zergnet','zergnet.com');
@@ -1991,11 +1970,9 @@ INSERT INTO "tracker_domains" VALUES('yandex.api','yandex.st');
 INSERT INTO "tracker_domains" VALUES('xceler8.io','xceler8.io');
 INSERT INTO "tracker_domains" VALUES('snacktv','snacktv.de');
 INSERT INTO "tracker_domains" VALUES('trafficforce','trafficforce.com');
-INSERT INTO "tracker_domains" VALUES('bfmio.com','bfmio.com');
 INSERT INTO "tracker_domains" VALUES('lucky_orange','luckyorange.net');
 INSERT INTO "tracker_domains" VALUES('lacmp.net','lacmp.net');
 INSERT INTO "tracker_domains" VALUES('rollbar','d37gvrvc0wt4s1.cloudfront.net');
-INSERT INTO "tracker_domains" VALUES('sentifi.com','sentifi.com');
 INSERT INTO "tracker_domains" VALUES('baur.de','baur.de');
 INSERT INTO "tracker_domains" VALUES('vepxl1.net','vepxl1.net');
 INSERT INTO "tracker_domains" VALUES('adwebster','adwebster.com');
@@ -2018,18 +1995,14 @@ INSERT INTO "tracker_domains" VALUES('flattr_button','flattr.com');
 INSERT INTO "tracker_domains" VALUES('sstatic.net','sstatic.net');
 INSERT INTO "tracker_domains" VALUES('trustwave.com','trustwave.com');
 INSERT INTO "tracker_domains" VALUES('siteimprove','siteimprove.com');
-INSERT INTO "tracker_domains" VALUES('tunnl.com','tunnl.com');
 INSERT INTO "tracker_domains" VALUES('adtrue','adtrue.com');
 INSERT INTO "tracker_domains" VALUES('1000mercis','mmtro.com');
-INSERT INTO "tracker_domains" VALUES('ringier.ch','ringier.ch');
 INSERT INTO "tracker_domains" VALUES('ipg_mediabrands','mbww.com');
 INSERT INTO "tracker_domains" VALUES('tradetracker','tradetracker.net');
 INSERT INTO "tracker_domains" VALUES('adnologies','heias.com');
 INSERT INTO "tracker_domains" VALUES('24-ads.com','24-ads.com');
 INSERT INTO "tracker_domains" VALUES('pushnative.com','pushnative.com');
 INSERT INTO "tracker_domains" VALUES('flag_counter','flagcounter.com');
-INSERT INTO "tracker_domains" VALUES('dynatrace.com','dynatrace.com');
-INSERT INTO "tracker_domains" VALUES('blogfoster.com','blogfoster.com');
 INSERT INTO "tracker_domains" VALUES('dstillery','media6degrees.com');
 INSERT INTO "tracker_domains" VALUES('office.net','office.net');
 INSERT INTO "tracker_domains" VALUES('tinypass','tinypass.com');
@@ -2040,7 +2013,6 @@ INSERT INTO "tracker_domains" VALUES('blink_new_media','bnmla.com');
 INSERT INTO "tracker_domains" VALUES('acquia.com','acquia.com');
 INSERT INTO "tracker_domains" VALUES('gravity_insights','grvcdn.com');
 INSERT INTO "tracker_domains" VALUES('gravity_insights','gravity.com');
-INSERT INTO "tracker_domains" VALUES('statsevent.com','statsevent.com');
 INSERT INTO "tracker_domains" VALUES('microsoft','s-microsoft.com');
 INSERT INTO "tracker_domains" VALUES('padstm.com','padstm.com');
 INSERT INTO "tracker_domains" VALUES('baynote_observer','baynote.net');
@@ -2053,7 +2025,6 @@ INSERT INTO "tracker_domains" VALUES('vi','digitaltarget.ru');
 INSERT INTO "tracker_domains" VALUES('livefyre','fyre.co');
 INSERT INTO "tracker_domains" VALUES('livefyre','livefyre.com');
 INSERT INTO "tracker_domains" VALUES('digiteka.net','digiteka.net');
-INSERT INTO "tracker_domains" VALUES('nscontext.eu','nscontext.eu');
 INSERT INTO "tracker_domains" VALUES('research_now','researchnow.com');
 INSERT INTO "tracker_domains" VALUES('rewe-static.de','rewe-static.de');
 INSERT INTO "tracker_domains" VALUES('baidu_ads','baidu.com');
@@ -2067,7 +2038,6 @@ INSERT INTO "tracker_domains" VALUES('smi2.ru','smi2.ru');
 INSERT INTO "tracker_domains" VALUES('vooxe.com','vooxe.com');
 INSERT INTO "tracker_domains" VALUES('walmart','walmart.com');
 INSERT INTO "tracker_domains" VALUES('mnet-ad.net','mnet-ad.net');
-INSERT INTO "tracker_domains" VALUES('y-track.com','y-track.com');
 INSERT INTO "tracker_domains" VALUES('smi2.ru','smi2.net');
 INSERT INTO "tracker_domains" VALUES('nice264.com','nice264.com');
 INSERT INTO "tracker_domains" VALUES('vidazoo.com','vidazoo.com');
@@ -2076,7 +2046,6 @@ INSERT INTO "tracker_domains" VALUES('heap','heapanalytics.com');
 INSERT INTO "tracker_domains" VALUES('kaloo.ga','kaloo.ga');
 INSERT INTO "tracker_domains" VALUES('thevideo.me','thevideo.me');
 INSERT INTO "tracker_domains" VALUES('layer-ad.org','layer-ad.org');
-INSERT INTO "tracker_domains" VALUES('trvl-px.com','trvl-px.com');
 INSERT INTO "tracker_domains" VALUES('loop11','loop11.com');
 INSERT INTO "tracker_domains" VALUES('spot.im','spot.im');
 INSERT INTO "tracker_domains" VALUES('howtank.com','howtank.com');
@@ -2109,9 +2078,7 @@ INSERT INTO "tracker_domains" VALUES('adocean','adocean.pl');
 INSERT INTO "tracker_domains" VALUES('amadeus.net','amadeus.net');
 INSERT INTO "tracker_domains" VALUES('c1_exchange','c1exchange.com');
 INSERT INTO "tracker_domains" VALUES('netbiscuits','netbiscuits.net');
-INSERT INTO "tracker_domains" VALUES('bannerflow.com','bannerflow.com');
 INSERT INTO "tracker_domains" VALUES('expedia','expedia.com');
-INSERT INTO "tracker_domains" VALUES('mathjax.org','mathjax.org');
 INSERT INTO "tracker_domains" VALUES('nonstop_consulting','trkme.net');
 INSERT INTO "tracker_domains" VALUES('jumptap','jumptap.com');
 INSERT INTO "tracker_domains" VALUES('mozilla.net','mozilla.net');
@@ -2126,7 +2093,6 @@ INSERT INTO "tracker_domains" VALUES('fstrk.net','fstrk.net');
 INSERT INTO "tracker_domains" VALUES('toro','toroadvertisingmedia.com');
 INSERT INTO "tracker_domains" VALUES('toro','toro-tags.com');
 INSERT INTO "tracker_domains" VALUES('toro','toroadvertising.com');
-INSERT INTO "tracker_domains" VALUES('kaeufersiegel.de','kaeufersiegel.de');
 INSERT INTO "tracker_domains" VALUES('content.ad','content.ad');
 INSERT INTO "tracker_domains" VALUES('babator.com','babator.com');
 INSERT INTO "tracker_domains" VALUES('algovid.com','algovid.com');
@@ -2182,8 +2148,6 @@ INSERT INTO "tracker_domains" VALUES('lswcdn.net','lswcdn.net');
 INSERT INTO "tracker_domains" VALUES('bigpoint','bpcdn.net');
 INSERT INTO "tracker_domains" VALUES('trustarc','truste.com');
 INSERT INTO "tracker_domains" VALUES('adbetclickin.pink','adbetclickin.pink');
-INSERT INTO "tracker_domains" VALUES('dotmetrics.net','dotmetrics.net');
-INSERT INTO "tracker_domains" VALUES('cnetcontent.com','cnetcontent.com');
 INSERT INTO "tracker_domains" VALUES('mytoys.de','mytoys.de');
 INSERT INTO "tracker_domains" VALUES('videoadex.com','videoadex.com');
 INSERT INTO "tracker_domains" VALUES('monster_advertising','monster.com');
@@ -2207,7 +2171,6 @@ INSERT INTO "tracker_domains" VALUES('adsnative','adsnative.com');
 INSERT INTO "tracker_domains" VALUES('bitdefender.de','bitdefender.de');
 INSERT INTO "tracker_domains" VALUES('sophus3','sophus3.com');
 INSERT INTO "tracker_domains" VALUES('rightnowtech.com','rightnowtech.com');
-INSERT INTO "tracker_domains" VALUES('video-cdn.net','video-cdn.net');
 INSERT INTO "tracker_domains" VALUES('shareaholic','dtym7iokkjlif.cloudfront.net');
 INSERT INTO "tracker_domains" VALUES('shareaholic','shareaholic.com');
 INSERT INTO "tracker_domains" VALUES('wistia','wistia.com');
@@ -2220,7 +2183,6 @@ INSERT INTO "tracker_domains" VALUES('qualaroo','qualaroo.com');
 INSERT INTO "tracker_domains" VALUES('logsss.com','logsss.com');
 INSERT INTO "tracker_domains" VALUES('internetstores.de','internetstores.de');
 INSERT INTO "tracker_domains" VALUES('github','github.com');
-INSERT INTO "tracker_domains" VALUES('com.ru','com.ru');
 INSERT INTO "tracker_domains" VALUES('post_affiliate_pro','postaffiliatepro.com');
 INSERT INTO "tracker_domains" VALUES('guj.de','guj.de');
 INSERT INTO "tracker_domains" VALUES('vtrtl.de','vtrtl.de');
@@ -2518,6 +2480,19 @@ INSERT INTO "tracker_domains" VALUES('impact_radius','impactradius-tag.com');
 INSERT INTO "tracker_domains" VALUES('airbnb','musthird.com');
 INSERT INTO "tracker_domains" VALUES('widespace','widespace.com');
 INSERT INTO "tracker_domains" VALUES('platform360','pfrm.co');
+INSERT INTO "tracker_domains" VALUES('kaeufersiegel.de','kaeufersiegel.de');
+INSERT INTO "tracker_domains" VALUES('alexa_metrics','alexametrics.com');
+INSERT INTO "tracker_domains" VALUES('xing','xing.com');
+INSERT INTO "tracker_domains" VALUES('mapbox','mapbox.com');
+INSERT INTO "tracker_domains" VALUES('startapp','startappservice.com');
+INSERT INTO "tracker_domains" VALUES('ipify','ipify.org');
+INSERT INTO "tracker_domains" VALUES('yahoo','yimg.jp');
+INSERT INTO "tracker_domains" VALUES('keywee','keywee.co');
+INSERT INTO "tracker_domains" VALUES('expedia','trvl-px.com');
+INSERT INTO "tracker_domains" VALUES('rtbsuperhub.com','rtbsuperhub.com');
+INSERT INTO "tracker_domains" VALUES('bebi','bebi.com');
+INSERT INTO "tracker_domains" VALUES('smarter_travel','smartertravel.com');
+INSERT INTO "tracker_domains" VALUES('giphy.com','giphy.com');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -2600,7 +2575,7 @@ INSERT INTO "trackers" VALUES('adomik','Adomik',NULL,4,NULL,NULL,NULL,'c_m2',NUL
 INSERT INTO "trackers" VALUES('adobe_dynamic_tag_management','Adobe Dynamic Tag Management',NULL,5,NULL,NULL,'adobe','2307',NULL);
 INSERT INTO "trackers" VALUES('united_internet_media_gmbh','United Internet Media GmbH',NULL,4,NULL,NULL,'united_internet','c_m4',NULL);
 INSERT INTO "trackers" VALUES('emetriq','emetriq',NULL,4,NULL,NULL,'emetriq','2300',NULL);
-INSERT INTO "trackers" VALUES('adtech','ADTECH','Headquartered in Frankfurt (Germany), the company''s flagship product is an integrated ad serving platform - amended by features for mobile devices and video ads. These enable web publishers to manage, serve and evaluate virtually any kind of online advertising campaigns. ADTECH allows its customers to enhance efficiency, reliability and ROI in their online advertising businesses. Globally, ADTECH AG, founded in 1998 works with customers in more than 40 countries.',6,'http://www.adtechus.com/','http://cdn.betteradvertising.com/logos/adtech.png','aol','355',NULL);
+INSERT INTO "trackers" VALUES('adtech','ADTECH','Headquartered in Frankfurt (Germany), the company''s flagship product is an integrated ad serving platform - amended by features for mobile devices and video ads. These enable web publishers to manage, serve and evaluate virtually any kind of online advertising campaigns. ADTECH allows its customers to enhance efficiency, reliability and ROI in their online advertising businesses. Globally, ADTECH AG, founded in 1998 works with customers in more than 40 countries.',6,'http://www.adtechus.com/','http://cdn.betteradvertising.com/logos/adtech.png','verizon','355',NULL);
 INSERT INTO "trackers" VALUES('outbrain','Outbrain',NULL,8,NULL,NULL,'outbrain','c_134',NULL);
 INSERT INTO "trackers" VALUES('hotjar','Hotjar',NULL,6,'http://www.hotjar.com/','http://','hotjar','2199',NULL);
 INSERT INTO "trackers" VALUES('atlas','Atlas','',4,'https://atlassolutions.com','http://cdn.betteradvertising.com/logos/microsoftadcenter.png','facebook','185',NULL);
@@ -2610,10 +2585,10 @@ AT Internet is an independent and trustworthy company that enables an integral a
 
 ',6,'http://www.xiti.com/','http://cdn.betteradvertising.com/logos/xiti.png','at_internet','50',NULL);
 INSERT INTO "trackers" VALUES('aggregate_knowledge','Aggregate Knowledge','Aggregate Knowledge is an audience management and ad serving technology platform focused on assisting advertisers to optimize their creative briefs and manage their audience segments under one roof. Provides a personalized discovery solution that collects, aggregates, and analyzes the anonymous click-stream data from publisher and retailer websites to personalize marketing interactions via on site widgets, emails, and display ads. The same data is used with ad serving logs, click-through, view-through, and conversion data for the purpose of re-targeting past site visitors with personalized ads and delivering site and campaign analytics to advertisers and site owners.',4,'http://www.aggregateknowledge.com/','http://cdn.betteradvertising.com/logos/aggregateknowledge.png','neustar','400',NULL);
-INSERT INTO "trackers" VALUES('yahoo','Yahoo!',NULL,6,NULL,NULL,'yahoo','c_253',NULL);
+INSERT INTO "trackers" VALUES('yahoo','Yahoo!',NULL,6,NULL,NULL,'verizon','c_253',NULL);
 INSERT INTO "trackers" VALUES('trusted_shops','Trusted Shops',NULL,6,NULL,NULL,'trusted_shops','2816',NULL);
 INSERT INTO "trackers" VALUES('taboola','Taboola','',4,'http://www.taboola.com','http://cdn.betteradvertising.com/logos/taboola.png','taboola','951',NULL);
-INSERT INTO "trackers" VALUES('smart_adserver','SMART AdServer','Smart AdServer develops and markets ad serving technologies for the management of online campaigns for media agencies and publishers. They provide publishers, ad networks, agencies and advertisers with an integrated display, video, rich-media and mobile ad serving solution. Smart  AdServer is a subsidiary of the Axel Springer Group.',4,'http://www.smartadserver.co.uk/','http://cdn.betteradvertising.com/logos/smartadserver.png','smart_adserver','502',NULL);
+INSERT INTO "trackers" VALUES('smart_adserver','SMART AdServer','Smart AdServer develops and markets ad serving technologies for the management of online campaigns for media agencies and publishers. They provide publishers, ad networks, agencies and advertisers with an integrated display, video, rich-media and mobile ad serving solution. Smart  AdServer is a subsidiary of the Axel Springer Group.',4,'http://www.smartadserver.co.uk/','http://cdn.betteradvertising.com/logos/smartadserver.png','smart_adserver','502',NULL);
 INSERT INTO "trackers" VALUES('quantcast','Quantcast','Quantcast is a new breed of audience service, focused on helping buyers and sellers quantify the real-time characteristics of digital media consumers against which they can activate addressable advertising solutions. Quantcast provides publishers, marketers and agencies unmatched capabilities to measure, organize, discover and transact based on directly-measured traffic and inferred audience data.',4,'http://www.quantcast.com/','http://cdn.betteradvertising.com/logos/quantcast.png','quantcast','16',NULL);
 INSERT INTO "trackers" VALUES('adality_gmbh','adality GmbH',NULL,4,NULL,NULL,NULL,'c_m6',NULL);
 INSERT INTO "trackers" VALUES('omniture__adobe_analytics_','Omniture (Adobe Analytics)','Omniture SiteCatalyst® provides marketers with actionable, real-time intelligence about online strategies and marketing initiatives. SiteCatalyst helps marketers quickly identify the most profitable paths through their Web site, determine where visitors are navigating away from their site, and identify critical success metrics for online marketing campaigns. SiteCatalyst is part of the Omniture Online Business Optimization Suite.',6,'http://www.omniture.com/en/','http://cdn.betteradvertising.com/logos/omniture.png','adobe','19',NULL);
@@ -2642,7 +2617,7 @@ Turn''s technology constantly "learns" by monitoring all ad impressions, clicks,
 INSERT INTO "trackers" VALUES('tapad','Tapad','Tapad is an ad network and demand side platform focused on mobile advertising that combines audience buying and cross-platform targeting. The Tapad network serves as a single point of access for all advertising on smart devices.',4,'http://www.tapad.com/ ','http://cdn.betteradvertising.com/logos/tapad.png','telenor','1176',NULL);
 INSERT INTO "trackers" VALUES('exoclick','ExoClick','ExoClick is an ad network that also offers a ''domain parking'' solution that allows publishers to monetize unused domains through Search Engine Optimization and advertising.  ',3,'http://exoclick.com/','http://cdn.betteradvertising.com/logos/exoclick.png','exoclick','702',NULL);
 INSERT INTO "trackers" VALUES('liveramp','LiveRamp','Rapleaf''s database of consumer information helps businesses segment customers, understand consumer penetration across social media, and investigate fraud.',4,'http://www.rapleaf.com/','http://cdn.betteradvertising.com/logos/rapleaf.png','acxiom','242',NULL);
-INSERT INTO "trackers" VALUES('advertising.com','Advertising.com','Platform-A integrates AOL''s leading media properties, TACODA''s behavioral technology and Advertising.com''s mass reach into a unified solution for advertisers and publishers. Our mission is to operate the world''s most effective, efficient marketplace for the buying and selling of digital advertising.',4,'http://www.platform-a.com/','http://cdn.betteradvertising.com/logos/aoladvertising.png','aol','88',NULL);
+INSERT INTO "trackers" VALUES('advertising.com','Advertising.com','Platform-A integrates AOL''s leading media properties, TACODA''s behavioral technology and Advertising.com''s mass reach into a unified solution for advertisers and publishers. Our mission is to operate the world''s most effective, efficient marketplace for the buying and selling of digital advertising.',4,'http://www.platform-a.com/','http://cdn.betteradvertising.com/logos/aoladvertising.png','verizon','88',NULL);
 INSERT INTO "trackers" VALUES('xhamster','xHamster',NULL,3,NULL,NULL,NULL,'c_m3',NULL);
 INSERT INTO "trackers" VALUES('plista','Plista','plista GmbH is a German advertising network. They offer various advertising formats within the text/image, video and display/IAB layouts, as well as a powerful white label self-booking platform.',4,'http://www.plista.com','http://cdn.betteradvertising.com/logos/plista.png','plista','710',NULL);
 INSERT INTO "trackers" VALUES('netratings_sitecensus','NetRatings SiteCensus','SiteCensus is a browser-based audience measurement tool that provides in-depth tracking and analysis of your Web site users, site performance and other critical measurement data. Examine your site performance, usage trends, content and product placement, visitor loyalty, search engine performance and visitor behavior. Analysis is delivered via concisely constructed reporting modules so that each important process can be researched independently and benchmarked internally.',4,'http://www.nielsen-online.com','http://cdn.betteradvertising.com/logos/nielsen.png','nielsen','43',NULL);
@@ -2651,7 +2626,7 @@ INSERT INTO "trackers" VALUES('vg_wort','VG Wort','VG Wort is a German online da
 INSERT INTO "trackers" VALUES('buysellads','BuySellAds','We help online advertisers and website publishers buy  and sell ads better.
 Buying and selling ads isn’t rocket science. We won’t confuse you with fancy algorithms or make you wonder how we do what we do. It’s as simple as selecting the website you want to advertise on, and then paying for the ad. After that, we get out of your way so that you can get on with your day. We don’t “mark up” prices — the website owners set their own pricing — and every aspect of our system is transparent.',4,'http://buysellads.com/','http://cdn.betteradvertising.com/logos/buysellads.com.png','buysellads.com','259',NULL);
 INSERT INTO "trackers" VALUES('traffic_stars','Traffic Stars',NULL,3,NULL,NULL,'traffic_stars','2817',NULL);
-INSERT INTO "trackers" VALUES('brightroll','BrightRoll','BrightRoll is a video advertising network that helps major brands and agencies execute targeted and scalable video ad campaigns across the industry''s leading publishers. These campaigns include proprietary campaign execution, inventory management and advertising delivery. The BrightRoll Exchange (BRX) is a self-service online video ad-buying platform that provides buyers with efficient and transparent access to video inventory.',4,'http://www.brightroll.com/','http://cdn.betteradvertising.com/logos/brightroll.png','yahoo','500',NULL);
+INSERT INTO "trackers" VALUES('brightroll','BrightRoll','BrightRoll is a video advertising network that helps major brands and agencies execute targeted and scalable video ad campaigns across the industry''s leading publishers. These campaigns include proprietary campaign execution, inventory management and advertising delivery. The BrightRoll Exchange (BRX) is a self-service online video ad-buying platform that provides buyers with efficient and transparent access to video inventory.',4,'http://www.brightroll.com/','http://cdn.betteradvertising.com/logos/brightroll.png','verizon','500',NULL);
 INSERT INTO "trackers" VALUES('rocket_fuel','Rocket Fuel','Rocket Fuel provides a simple yet sophisticated way to manage, run and evaluate successful online campaigns. Our technology focuses on finding desirable audience characteristics rather than mere impressions. Through rapid automated testing and user-level targeting we find the individuals that matter. With “progressive optimization” we turn quantitative learning into actionable improvements for each campaign. The result is higher performance – against your metrics – over the run of the campaign.
 
 But, we’re not just about automation. We also provide a dedicated analyst, real-time reporting and feedback so you''ll never be caught off guard or unable to respond to clients or senior management with timely information.',4,'http://rocketfuelinc.com/','http://cdn.betteradvertising.com/logos/rocketfuel.png','sizmek','192',NULL);
@@ -2806,7 +2781,7 @@ INSERT INTO "trackers" VALUES('userlike.com','Userlike',NULL,2,'https://www.user
 INSERT INTO "trackers" VALUES('vkontakte_widgets','VKontakte',NULL,7,'http://vk.com/developers.php','http://cdn.betteradvertising.com/logos/fringegroup.png',NULL,'675',NULL);
 INSERT INTO "trackers" VALUES('cdn13.com','cdn13.com',NULL,8,NULL,NULL,NULL,'cdn13.com',NULL);
 INSERT INTO "trackers" VALUES('ad_spirit','Ad Spirit','AdSpirit.de is an independent ad serving solution that provides an ad serving platform for publishers/advertisers, marketers and agencies. AdSpirit is a Linux-based system with an Apache server and mySQL as the database server. ',4,'http://www.adspirit.de ','http://cdn.betteradvertising.com/logos/adspirit.png','adspirit','871',NULL);
-INSERT INTO "trackers" VALUES('aol_cdn','AOL CDN',NULL,6,NULL,NULL,'aol','2325',NULL);
+INSERT INTO "trackers" VALUES('aol_cdn','AOL CDN',NULL,6,NULL,NULL,'verizon','2325',NULL);
 INSERT INTO "trackers" VALUES('buzzadexchange.com','buzzadexchange.com',NULL,4,NULL,NULL,NULL,'buzzadexchange.com',NULL);
 INSERT INTO "trackers" VALUES('gemius','Gemius','Gemius SA is the largest online research agency in Central and Eastern Europe. The company has been dedicated to Internet market research since its founding in 1999. By focusing the business on maximizing credibility, quality and accuracy the company has been able to grow into the largest online market research agency in Central and Eastern Europe in less than 5 years.
 Gemius SA provides a wide range of Internet research to brand name clients throughout Eastern Europe. Gemius provides data on Internet users'' behavior (gemiusTraffic), Internet audience profiles (gemiusProfile), or online advertising campaign effectiveness (gemiusEffect). Gemius'' gemiusAudience research is the online advertising currency across Eastern Europe, where by working with key joint-industry committees and other market players Gemius provides accurate, high-quality measurement of online audiences for media planners, buyers and sellers.',4,'http://www.gemius.com','http://cdn.betteradvertising.com/logos/gemius.png','gemius_sa','313',NULL);
@@ -2848,7 +2823,7 @@ For everyday people, LivePerson is an online destination, community and marketpl
 
 And for businesses, LivePerson humanizes the online experience, increasing sales, customer satisfaction and loyalty. More than 7,000 companies, including some of the largest and most-recognized global brands, use LivePerson''s real-time chat platform to communicate and build relationships with their customers on the Web. See our business solutions',2,'http://www.liveperson.com/','http://cdn.betteradvertising.com/logos/liveperson.png','liveperson','106',NULL);
 INSERT INTO "trackers" VALUES('contentpass','Contentpass',NULL,4,'https://www.contentpass.de/',NULL,NULL,'contentpass.net',NULL);
-INSERT INTO "trackers" VALUES('adap.tv','Adap.tv','Adap.tv is an online video serving and management technology. Their advertising platform One Source, allows publishers and advertisers to match relevant advertising with online video content.  Their technology analyzes video, audio, and metadata to serve contextually relevant ads in a viewer-friendly manner.  The adap.tv video exchange enables buying and selling decisions in real-time.',4,'http://www.adap.tv/','http://cdn.betteradvertising.com/logos/adaptv.png','aol','573',NULL);
+INSERT INTO "trackers" VALUES('adap.tv','Adap.tv','Adap.tv is an online video serving and management technology. Their advertising platform One Source, allows publishers and advertisers to match relevant advertising with online video content.  Their technology analyzes video, audio, and metadata to serve contextually relevant ads in a viewer-friendly manner.  The adap.tv video exchange enables buying and selling decisions in real-time.',4,'http://www.adap.tv/','http://cdn.betteradvertising.com/logos/adaptv.png','verizon','573',NULL);
 INSERT INTO "trackers" VALUES('adgoal','adgoal',NULL,4,'http://www.adgoal.de/','','adgoal','1186',NULL);
 INSERT INTO "trackers" VALUES('tns','TNS','Various tracking remnants and currently active companies utilizing the same base technology provided by Bluemetrix.
 
@@ -2864,7 +2839,7 @@ Used in an IT department the help desk serves as the ERP system of the IT organi
 
 Zendesk clients are support organizations that embraces agile methods to service their customers. Organizations that are focused on executing strategic and tactical objects of their businesses, rather than scraping together a large application portfolio and building up a massive team to serve it all. ',2,'http://www.zendesk.com/','http://cdn.betteradvertising.com/logos/zendesk.png','zendesk','222',NULL);
 INSERT INTO "trackers" VALUES('kiosked','Kiosked',NULL,4,'http://www.kiosked.com/','http://','kiosked','1985',NULL);
-INSERT INTO "trackers" VALUES('alephd.com','alephd',NULL,4,'https://www.alephd.com/',NULL,'aol','alephd.com',NULL);
+INSERT INTO "trackers" VALUES('alephd.com','alephd',NULL,4,'https://www.alephd.com/',NULL,'verizon','alephd.com',NULL);
 INSERT INTO "trackers" VALUES('24_7','[24]7',NULL,2,'http://www.247-inc.com/','http://',NULL,'1670',NULL);
 INSERT INTO "trackers" VALUES('epoq','epoq',NULL,4,'http://www.epoq.de/','http://','epoq','1801',NULL);
 INSERT INTO "trackers" VALUES('madeleine.de','madeleine.de',NULL,4,NULL,NULL,NULL,'madeleine.de',NULL);
@@ -2873,7 +2848,7 @@ INSERT INTO "trackers" VALUES('nt.vc','Next Tuesday GmbH',NULL,8,'http://www.nex
 INSERT INTO "trackers" VALUES('radiumone','RadiumOne','RadiumOne is an online advertising network that works with publishers around the world buying display advertising space and re-selling it in targeted packages to advertisers and agencies. The targeting options available range from geographic locations to user interest-based.',4,'http://www.radiumone.com/index.html','http://cdn.betteradvertising.com/logos/radiumone.png','rhythmone','492',NULL);
 INSERT INTO "trackers" VALUES('o2online.de','o2online.de',NULL,8,'https://www.o2online.de/',NULL,NULL,'o2online.de',NULL);
 INSERT INTO "trackers" VALUES('zencoder','Zencoder',NULL,0,NULL,NULL,'zencoder','2607',NULL);
-INSERT INTO "trackers" VALUES('tripadvisor','TripAdvisor',NULL,8,NULL,NULL,NULL,'c_1402',NULL);
+INSERT INTO "trackers" VALUES('tripadvisor','TripAdvisor',NULL,8,NULL,NULL,'iac_apps','c_1402',NULL);
 INSERT INTO "trackers" VALUES('imgur','Imgur',NULL,8,NULL,NULL,NULL,'c_1736',NULL);
 INSERT INTO "trackers" VALUES('hurra_tracker','Hurra Tracker','Hurra Communications is a Germany based company that provides search engine marketing solutions. They offer search engine campaign design and optimization services.  Hurra also provides production promotional tools and design and produce direct response and Web television advertising campaigns.
 ',4,'http://www.hurra.com/en/','http://cdn.betteradvertising.com/logos/hurra.png','hurra_communications','580',NULL);
@@ -2893,7 +2868,7 @@ INSERT INTO "trackers" VALUES('ixi_digital','IXI Digital',NULL,4,NULL,NULL,'ixi_
 INSERT INTO "trackers" VALUES('iadvize','iAdvize',NULL,2,'http://www.iadvize.com/','','iadvize','1216',NULL);
 INSERT INTO "trackers" VALUES('igodigital','iGoDigital','iGoDigital offers a suite of product recommendations and social commerce solutions to online retailers. The individual tools that iGoDigital offers range from product finders, to customized selling or guided selling tools, to product attribute libraries.',2,'http://igodigital.com/','http://cdn.betteradvertising.com/logos/igodigital.png','igodigital','1334',NULL);
 INSERT INTO "trackers" VALUES('sharethrough','ShareThrough','Sharethrough is a social video advertising platform and provides viral media distribution solutions. Sharethrough gives content owners and advertisers, access to various consumers. They also distribute video ads across social websites, games, apps, and advertising exchanges,',4,'http://www.sharethrough.com/','http://cdn.betteradvertising.com/logos/sharethrough.png','sharethrough','1368',NULL);
-INSERT INTO "trackers" VALUES('vimeo','Vimeo',NULL,0,NULL,NULL,'vimeo','2727',NULL);
+INSERT INTO "trackers" VALUES('vimeo','Vimeo',NULL,0,NULL,NULL,'iac_apps','2727',NULL);
 INSERT INTO "trackers" VALUES('metrigo','Metrigo',NULL,4,'http://metrigo.com/','http://cdn.betteradvertising.com/logos/metrigo.png','metrigo','1471',NULL);
 INSERT INTO "trackers" VALUES('i-behavior','i-Behavior','I-Behavior is a behavioral targeting company that provides database marketing solutions for multi-channel marketers and advertisers. Their key focus is direct targeting, online targeting, and retail insight based on buying behavior across industry verticals, including catalog and retail.  I-Behavior aggregates anonymous online and offline data to determine which offers will be the most relevant to display to consumers.',4,'http://www.i-behavior.com/','http://cdn.betteradvertising.com/logos/ibehavior.png','kbm_group','727',NULL);
 INSERT INTO "trackers" VALUES('perfect_market','Perfect Market',NULL,4,'http://perfectmarket.com/','http://','perfect_market','1691',NULL);
@@ -2945,7 +2920,7 @@ INSERT INTO "trackers" VALUES('klarna.com','Klarna',NULL,2,'https://www.klarna.c
 INSERT INTO "trackers" VALUES('sift_science','Sift Science',NULL,6,'https://siftscience.com/','http://','sift_science','1637',NULL);
 INSERT INTO "trackers" VALUES('congstar.de','congstar.de',NULL,4,NULL,NULL,NULL,'congstar.de',NULL);
 INSERT INTO "trackers" VALUES('dtscout.com','Dtscout',NULL,6,'http://www.dtscout.com/',NULL,NULL,'dtscout.com',NULL);
-INSERT INTO "trackers" VALUES('smaato','Smaato','Smaato operates a mobile advertising optimization platform called SOMA. Through an open API and a range of Software Developer Kits (SDKs), SOMA can be integrated with ad networks, ad inventory owners (publishers, developers and operators) and third party ad technology providers.',4,'http://www.smaato.com/','http://cdn.betteradvertising.com/logos/smaato.png','smaato','1647',NULL);
+INSERT INTO "trackers" VALUES('smaato','Smaato','Smaato operates a mobile advertising optimization platform called SOMA. Through an open API and a range of Software Developer Kits (SDKs), SOMA can be integrated with ad networks, ad inventory owners (publishers, developers and operators) and third party ad technology providers.',4,'http://www.smaato.com/','http://cdn.betteradvertising.com/logos/smaato.png','spearhead','1647',NULL);
 INSERT INTO "trackers" VALUES('spotscenered.info','spotscenered.info',NULL,11,NULL,NULL,NULL,'spotscenered.info','15/11/17: Private whois.');
 INSERT INTO "trackers" VALUES('adriver','AdRiver','Want to know the effectiveness of an advertising campaign? AdRiver system gives you a complete set of tools for its analysis: Online statistics running an advertising campaign with the guest logon to the advertiser. Accurate statistics on the interactive storage media (see the user interact with the banner) and unique product. AdRiver Report . automatic generation of detailed reports AdRiver Report.
 ',4,'http://www.adriver.ru/','http://cdn.betteradvertising.com/logos/adriver.png','ad_river','209',NULL);
@@ -3035,7 +3010,7 @@ INSERT INTO "trackers" VALUES('belboon_gmbh','belboon GmbH',NULL,8,NULL,NULL,NUL
 INSERT INTO "trackers" VALUES('web.de','web.de',NULL,8,'https://web.de/',NULL,NULL,'web.de',NULL);
 INSERT INTO "trackers" VALUES('iasds01.com','iasds01.com',NULL,NULL,NULL,NULL,NULL,'iasds01.com',NULL);
 INSERT INTO "trackers" VALUES('autoscout24.net','autoscout24.net',NULL,NULL,NULL,NULL,NULL,'autoscout24.net',NULL);
-INSERT INTO "trackers" VALUES('flickr_badge','Flickr','"Show off your favorite photos and videos to the world, securely and privately show content to your friends and family, or blog the photos and videos you take with a cameraphone."',7,'http://www.flickr.com/','http://cdn.betteradvertising.com/logos/flickr.png','flickr','1928',NULL);
+INSERT INTO "trackers" VALUES('flickr_badge','Flickr','"Show off your favorite photos and videos to the world, securely and privately show content to your friends and family, or blog the photos and videos you take with a cameraphone."',7,'http://www.flickr.com/','http://cdn.betteradvertising.com/logos/flickr.png','verizon','1928',NULL);
 INSERT INTO "trackers" VALUES('globalsign','GlobalSign',NULL,8,NULL,NULL,NULL,'c_2400',NULL);
 INSERT INTO "trackers" VALUES('adloox','Adloox','"Our mission: to enable advertisers and media agencies to protect their digital communication and to help adnetworks and platforms to raise the value of their inventory."',4,'http://www.adloox.com','http://cdn.betteradvertising.com/logos/adloox.png','adloox','943',NULL);
 INSERT INTO "trackers" VALUES('groupm_server','GroupM Server','Holding company and server.',4,'http://www.groupm.com/','http://cdn.betteradvertising.com/logos/groupm.png','groupm','456',NULL);
@@ -3057,7 +3032,7 @@ INSERT INTO "trackers" VALUES('oclasrv.com','oclasrv.com',NULL,11,NULL,NULL,NULL
 INSERT INTO "trackers" VALUES('flxone','FLXONE',NULL,4,'http://www.flxone.com/','http://','flxone','1667',NULL);
 INSERT INTO "trackers" VALUES('shopgate.com','Shopgate',NULL,2,'https://www.shopgate.com/',NULL,NULL,'shopgate.com',NULL);
 INSERT INTO "trackers" VALUES('mapandroute.de','Map and Route',NULL,2,'http://www.mapandroute.de/',NULL,NULL,'mapandroute.de',NULL);
-INSERT INTO "trackers" VALUES('vidible','Vidible',NULL,4,'http://vidible.tv/','http://','aol','2207',NULL);
+INSERT INTO "trackers" VALUES('vidible','Vidible',NULL,4,'http://vidible.tv/','http://','verizon','2207',NULL);
 INSERT INTO "trackers" VALUES('tradelab','Tradelab',NULL,4,'http://www.tradelab.fr/','http://','tradelab','1641',NULL);
 INSERT INTO "trackers" VALUES('twyn','Twyn','',4,'http://www.twyn.com','http://cdn.betteradvertising.com/logos/twyn.png','twyn','887',NULL);
 INSERT INTO "trackers" VALUES('catchpoint','Catchpoint',NULL,6,'http://www.catchpoint.com/','http://','catchpoint_systems','1800',NULL);
@@ -3066,7 +3041,7 @@ INSERT INTO "trackers" VALUES('similardeals.net','SimilarDeals',NULL,8,'http://w
 INSERT INTO "trackers" VALUES('adult_webmaster_empire','Adult Webmaster Empire','',3,'http://www.awempire.com/','http://cdn.betteradvertising.com/logos/adultwebmasterempire.png','adult_webmaster_empire','986',NULL);
 INSERT INTO "trackers" VALUES('usemax','Usemax',NULL,4,'http://www.usemax.de','','usemax','1414',NULL);
 INSERT INTO "trackers" VALUES('autoscout24.com','autoscout24.com',NULL,NULL,NULL,NULL,NULL,'autoscout24.com',NULL);
-INSERT INTO "trackers" VALUES('nexage','Nexage','Nexage is the leading provider of market liquidity for buyers and sellers in the mobile advertising market. The Nexage Revenue Platform, comprised of an RTB exchange and mediation, maximizes revenue for publishers and developers, and campaign ROI for demand sources and advertisers.',4,'http://www.nexage.com/','http://cdn.betteradvertising.com/logos/nexage1.png','nexage','1478',NULL);
+INSERT INTO "trackers" VALUES('nexage','Nexage','Nexage is the leading provider of market liquidity for buyers and sellers in the mobile advertising market. The Nexage Revenue Platform, comprised of an RTB exchange and mediation, maximizes revenue for publishers and developers, and campaign ROI for demand sources and advertisers.',4,'http://www.nexage.com/','http://cdn.betteradvertising.com/logos/nexage1.png','verizon','1478',NULL);
 INSERT INTO "trackers" VALUES('doubleverify','DoubleVerify','DoubleVerify is a provider of online media verification. We help increase online advertising accountability and transparency by providing agencies, marketers, publishers and ad networks with real-time audit and verification of online advertising transactions.',4,'http://www.doubleverify.com/','http://cdn.betteradvertising.com/logos/doubleverify.png','doubleverify','217',NULL);
 INSERT INTO "trackers" VALUES('octapi.net','octapi.net',NULL,11,NULL,NULL,NULL,'octapi.net',NULL);
 INSERT INTO "trackers" VALUES('eloqua','Eloqua','Web analytics software can tell you how many visitors viewed a page for accurate marketing campaign measurement. Eloqua identifies each visitor so you can contact them and sell to them.
@@ -3130,7 +3105,6 @@ INSERT INTO "trackers" VALUES('findizer.fr','Findizer',NULL,8,'http://www.findiz
 INSERT INTO "trackers" VALUES('wix.com','Wix',NULL,8,'https://www.wix.com/',NULL,NULL,'wix.com',NULL);
 INSERT INTO "trackers" VALUES('7tv.de','7tv.de',NULL,0,'https://www.7tv.de/',NULL,NULL,'7tv.de',NULL);
 INSERT INTO "trackers" VALUES('opta.net','opta.net',NULL,NULL,NULL,NULL,NULL,'opta.net',NULL);
-INSERT INTO "trackers" VALUES('btelligent.net','btelligent.net',NULL,NULL,NULL,NULL,NULL,'btelligent.net',NULL);
 INSERT INTO "trackers" VALUES('zedo','Zedo','ZEDO is an Internet ad serving company that has been offering a variety of products and services to top web sites, advertisers and networks since 1999. ZEDO''s Third Generation Ad Serving\u2122 technology is designed to help web sites, advertisers and networks lower their operating costs and increase their revenue. Currently, the technology serves over 25 billion ads a month for hundreds of sites and leads the industry in scalability, ease of use and features.',4,'http://www.zedo.com/','http://cdn.betteradvertising.com/logos/zedo.png','zedo','102',NULL);
 INSERT INTO "trackers" VALUES('alibaba.com','Alibaba',NULL,8,NULL,NULL,'alibaba','alibaba.com',NULL);
 INSERT INTO "trackers" VALUES('crossengage','CrossEngage',NULL,6,NULL,NULL,'crossengage','2621',NULL);
@@ -3145,7 +3119,6 @@ INSERT INTO "trackers" VALUES('bombora','Bombora',NULL,6,NULL,'http://cdn.better
 INSERT INTO "trackers" VALUES('king.com','King.com',NULL,4,NULL,NULL,'king.com','2689',NULL);
 INSERT INTO "trackers" VALUES('admeira.ch','AdMeira',NULL,4,'http://admeira.ch/',NULL,NULL,'admeira.ch',NULL);
 INSERT INTO "trackers" VALUES('adventori','ADventori',NULL,8,NULL,NULL,NULL,'c_3265',NULL);
-INSERT INTO "trackers" VALUES('kctag.net','kairion',NULL,4,'https://kairion.de/',NULL,NULL,'kctag.net',NULL);
 INSERT INTO "trackers" VALUES('stayfriends.de','stayfriends.de',NULL,8,'https://www.stayfriends.de/',NULL,NULL,'stayfriends.de',NULL);
 INSERT INTO "trackers" VALUES('apester','Apester',NULL,4,'http://apester.com/',NULL,'apester','2930',NULL);
 INSERT INTO "trackers" VALUES('bulkhentai.com','bulkhentai.com',NULL,3,NULL,NULL,NULL,'bulkhentai.com',NULL);
@@ -3153,7 +3126,7 @@ INSERT INTO "trackers" VALUES('metapeople','Metapeople',NULL,4,'http://www.metap
 INSERT INTO "trackers" VALUES('smartlook','Smartlook',NULL,2,NULL,NULL,'smartlook','2638',NULL);
 INSERT INTO "trackers" VALUES('getintent','GetIntent',NULL,4,'http://www.getintent.com/','http://','getintent','2004',NULL);
 INSERT INTO "trackers" VALUES('sumome','SumoMe',NULL,6,'http://sumome.com/','http://','sumome','2177',NULL);
-INSERT INTO "trackers" VALUES('kairion.de','kairion.de',NULL,NULL,NULL,NULL,NULL,'kairion.de',NULL);
+INSERT INTO "trackers" VALUES('kairion.de','kairion',NULL,4,'https://kairion.de/',NULL,'prosieben_sat1','',NULL);
 INSERT INTO "trackers" VALUES('trsv3.com','trsv3.com',NULL,11,NULL,NULL,NULL,'trsv3.com',NULL);
 INSERT INTO "trackers" VALUES('powerlinks','PowerLinks',NULL,4,'http://www.powerlinks.com/','http://','powerlinks','1300',NULL);
 INSERT INTO "trackers" VALUES('lifestreet_media','LifeStreet Media','Founded in 2005, LifeStreet Media has become the largest social media ad network, serving billions of impressions each month into 8,000+ applications and sites to a global audience of over 100 million. The company’s proprietary technology, customer focus, and commitment to compliance with advertising guidelines have allowed it to quickly achieve market leadership. Fusing optimization technology with human insight, LifeStreet Media relentlessly creates and optimizes thousands of ads and landing pages on behalf of its advertisers. This approach maximizes revenues, eliminates guesswork, and saves time and resources for advertisers, developers and publishers alike.',4,'http://lifestreetmedia.com/','http://cdn.betteradvertising.com/logos/lifestreetmedia.png','lifestreet_media','1149',NULL);
@@ -3174,7 +3147,6 @@ INSERT INTO "trackers" VALUES('quisma','Quisma','QUISMA is a German performance 
 INSERT INTO "trackers" VALUES('pusher.com','Pusher',NULL,6,'https://pusher.com/',NULL,NULL,'pusher.com',NULL);
 INSERT INTO "trackers" VALUES('blogsmithmedia.com','blogsmithmedia.com',NULL,NULL,NULL,NULL,NULL,'blogsmithmedia.com',NULL);
 INSERT INTO "trackers" VALUES('sojern','Sojern','Sojern is a travel oriented ad network for both online and offline advertising. Sojern has partnerships directly with airlines that allow them to place advertisements on boarding passes and other non-traditional offline media. ',4,'http://www.sojern.com/','http://cdn.betteradvertising.com/logos/sojern.png','sojern','1698',NULL);
-INSERT INTO "trackers" VALUES('adkernel.com','adkernel.com',NULL,NULL,NULL,NULL,NULL,'adkernel.com',NULL);
 INSERT INTO "trackers" VALUES('sublime_skinz','Sublime Skinz',NULL,4,NULL,NULL,NULL,'2962',NULL);
 INSERT INTO "trackers" VALUES('keen_io','Keen IO',NULL,6,'https://keen.io','http://','keen_io','1820',NULL);
 INSERT INTO "trackers" VALUES('digiteka','Digiteka',NULL,4,NULL,NULL,'digiteka','2773',NULL);
@@ -3200,7 +3172,6 @@ INSERT INTO "trackers" VALUES('media-imdb.com','media-imdb.com',NULL,NULL,NULL,N
 INSERT INTO "trackers" VALUES('marketo','Marketo','Unite Sales and Marketing to Drive Revenue and Improve Marketing Accountability
 
 Marketo provides sophisticated yet easy marketing automation software that helps marketing and sales work together to drive revenue and improve marketing accountability. Marketo’s Lead Management and Lead Insight for Sales solutions include email marketing, lead nurturing, lead scoring, and closed-loop reporting capabilities to generate and qualify sales leads, shorten sales cycles, demonstrate marketing ROI, and drive revenue growth.',4,'http://www.marketo.com/','http://cdn.betteradvertising.com/logos/marketo.png','marketo','159',NULL);
-INSERT INTO "trackers" VALUES('smartertravel.com','smartertravel.com',NULL,NULL,NULL,NULL,NULL,'smartertravel.com',NULL);
 INSERT INTO "trackers" VALUES('shopify_stats','Shopify Stats',NULL,4,'http://www.shopify.com/','http://','shopify','1272',NULL);
 INSERT INTO "trackers" VALUES('dc_stormiq','DC StormIQ','StormIQ™ is an integrated web analytics and PPC optimisation platform, offering unbeatable tracking, reporting and optimisation.',4,'http://www.dc-storm.com/','http://cdn.betteradvertising.com/logos/dcstorm.png','dc_storm','250',NULL);
 INSERT INTO "trackers" VALUES('maxpoint_interactive','MaxPoint Interactive','MaxPoint is an online advertising technology company that offers neighborhood level targeting to compel in-store purchase for national and local brands. The company identifies potential customers through customized consumer profiles and Digital Zip, their neighborhood-level targeting technology. This enables ad targeting to a specific location within a retailerâ€™s trade area and campaigns to match demand for a specific product.',4,'http://www.maxpointinteractive.com/','http://cdn.betteradvertising.com/logos/maxpoint.png','maxpoint_interactive','724',NULL);
@@ -3209,12 +3180,11 @@ INSERT INTO "trackers" VALUES('onaudience','OnAudience',NULL,4,'http://www.onaud
 INSERT INTO "trackers" VALUES('uservoice','UserVoice','UserVoice Inc provides products to individuals/enterprises to improve their business by obtaining customer feedback,votes and providing forums. The products are available to customers for startups, enterprise,conferences, non profits,etc.',2,'http://uservoice.com/','http://cdn.betteradvertising.com/logos/uservoice.png','uservoice','59',NULL);
 INSERT INTO "trackers" VALUES('owneriq','OwnerIQ','OwnerIQ operates a network of channel-focused websites to help find and store must have self-support product information. This enables marketing professionals to target their online market communications, including advertising, direct marketing, and market research by using consumers purchase behavior; and brand advertisers with customized programs to target consumers based on products they already own.',4,'http://www.owneriq.com/','http://cdn.betteradvertising.com/logos/owneriq.png','owneriq','359',NULL);
 INSERT INTO "trackers" VALUES('convertro','Convertro','Convertro provides online conversion and media attribution solutions for companies. It offers visitor tracking, media attribution, and phone tracking solutions.  Their Visitor tracking code captures conversion events and all associated visitor sessions and referring sources.
-',4,'http://www.convertro.com/','http://cdn.betteradvertising.com/logos/convertro.png','convertro','582',NULL);
+',4,'http://www.convertro.com/','http://cdn.betteradvertising.com/logos/convertro.png','verizon','582',NULL);
 INSERT INTO "trackers" VALUES('connextra','Connextra','Connextra is an ad serving company focused on the gambling and travel industries. Their technology enables integration of live pricing into online ads helping to maximize the performance of the creative and to improve results from publishing partners and affiliates. Connextra''s services include IP and browser targeting, linking live data to editorial content, real-time statistics and reporting and real-time editing of Flash, HTML or GIF advertisements.',4,'http://connextra.com/','http://cdn.betteradvertising.com/logos/connextra.png','connextra','472',NULL);
 INSERT INTO "trackers" VALUES('yandex_adexchange','Yandex AdExchange',NULL,4,NULL,NULL,'yandex','2914',NULL);
 INSERT INTO "trackers" VALUES('digicert_trust_seal','Digicert Trust Seal','"SSL Certificates from DigiCert provide the strongest 2048-Bit and SHA-2 encryption available in a variety of options designed to meet your needs."',5,'http://www.digicert.com/','http://cdn.betteradvertising.com/logos/digicert.png','digicert','2108',NULL);
 INSERT INTO "trackers" VALUES('urban-media.com','urban-media.com',NULL,NULL,NULL,NULL,NULL,'urban-media.com',NULL);
-INSERT INTO "trackers" VALUES('mapbox.com','mapbox.com',NULL,NULL,NULL,NULL,NULL,'mapbox.com',NULL);
 INSERT INTO "trackers" VALUES('marketgrid','Marketgrid',NULL,4,NULL,NULL,'marketgid_ru','2855',NULL);
 INSERT INTO "trackers" VALUES('adtiger','AdTiger','AdTiger is an German marketing agency. AdTiger.de is a project of arejo Ltd.',4,'http://www.adtiger.de/','http://cdn.betteradvertising.com/logos/adtiger.png','adtiger','276',NULL);
 INSERT INTO "trackers" VALUES('pulpix.com','pulpix.com',NULL,NULL,NULL,NULL,NULL,'pulpix.com',NULL);
@@ -3229,7 +3199,6 @@ INSERT INTO "trackers" VALUES('apple','Apple','Apple is an American multinationa
 INSERT INTO "trackers" VALUES('magnetic','Magnetic','Magnetic provide tools for advertisers and publishers to leverage search data to target and retarget ad campaigns to the most relevant audience online.',4,'http://www.magnetic.is','http://cdn.betteradvertising.com/logos/magnetic.png','magnetic','526',NULL);
 INSERT INTO "trackers" VALUES('schneevonmorgen.com','Schnee von Morgen',NULL,0,'http://www.schneevonmorgen.com/',NULL,NULL,'schneevonmorgen.com',NULL);
 INSERT INTO "trackers" VALUES('fullstory','FullStory',NULL,6,NULL,NULL,'fullstory','2372',NULL);
-INSERT INTO "trackers" VALUES('videoamp.com','videoamp.com',NULL,NULL,NULL,NULL,NULL,'videoamp.com',NULL);
 INSERT INTO "trackers" VALUES('vicomi.com','vicomi.com',NULL,NULL,NULL,NULL,NULL,'vicomi.com',NULL);
 INSERT INTO "trackers" VALUES('alipay.com','Alipay',NULL,2,'https://www.alipay.com/',NULL,'alibaba','alipay.com',NULL);
 INSERT INTO "trackers" VALUES('deichmann.com','deichmann.com',NULL,4,NULL,NULL,NULL,'deichmann.com',NULL);
@@ -3242,12 +3211,9 @@ INSERT INTO "trackers" VALUES('avocet','Avocet',NULL,8,NULL,NULL,NULL,'c_3588',N
 INSERT INTO "trackers" VALUES('toplist.cz','toplist.cz',NULL,11,NULL,NULL,NULL,'toplist.cz',NULL);
 INSERT INTO "trackers" VALUES('optimicdn.com','OptimiCDN',NULL,9,'https://en.optimicdn.com/',NULL,NULL,'optimicdn.com',NULL);
 INSERT INTO "trackers" VALUES('bounce_exchange','Bounce Exchange',NULL,4,'http://bounceexchange.com','http://','bounce_exchange','1463',NULL);
-INSERT INTO "trackers" VALUES('apa.at','apa.at',NULL,NULL,NULL,NULL,NULL,'apa.at',NULL);
-INSERT INTO "trackers" VALUES('stylight.net','stylight.net',NULL,NULL,NULL,NULL,NULL,'stylight.net',NULL);
 INSERT INTO "trackers" VALUES('rtblab','RTBmarkt',NULL,4,'http://www.rtbmarkt.de/en/home/','',NULL,'1196',NULL);
 INSERT INTO "trackers" VALUES('haendlerbund.de','Händlerbund',NULL,2,'https://www.haendlerbund.de/en',NULL,NULL,'haendlerbund.de',NULL);
 INSERT INTO "trackers" VALUES('cdn-net.com','cdn-net.com',NULL,NULL,NULL,NULL,NULL,'cdn-net.com',NULL);
-INSERT INTO "trackers" VALUES('metadsp.co.uk','metadsp.co.uk',NULL,NULL,NULL,NULL,NULL,'metadsp.co.uk',NULL);
 INSERT INTO "trackers" VALUES('omarsys.com','Omarsys',NULL,4,'http://omarsys.com/',NULL,'xcaliber','omarsys.com',NULL);
 INSERT INTO "trackers" VALUES('adfox','AdFox','Russian text advertising company.',4,'http://adfox.ru','http://cdn.betteradvertising.com/logos/adfox.png','adfox','422',NULL);
 INSERT INTO "trackers" VALUES('iperceptions','iPerceptions','   1.  Who is coming to your website?
@@ -3271,7 +3237,6 @@ INSERT INTO "trackers" VALUES('sailthru_horizon','Sailthru Horizon','',4,'https:
 INSERT INTO "trackers" VALUES('datacaciques.com','datacaciques.com',NULL,NULL,NULL,NULL,NULL,'datacaciques.com',NULL);
 INSERT INTO "trackers" VALUES('mediarithmics.com','Mediarithmics',NULL,4,'http://www.mediarithmics.com/en/',NULL,NULL,'mediarithmics.com',NULL);
 INSERT INTO "trackers" VALUES('clicktripz','ClickTripz',NULL,4,'https://www.clicktripz.com','http://','clicktripz','1977',NULL);
-INSERT INTO "trackers" VALUES('leadlab.click','leadlab.click',NULL,NULL,NULL,NULL,NULL,'leadlab.click',NULL);
 INSERT INTO "trackers" VALUES('apicit.net','apicit.net',NULL,NULL,NULL,NULL,NULL,'apicit.net',NULL);
 INSERT INTO "trackers" VALUES('ampproject.org','ampproject.org',NULL,NULL,NULL,NULL,NULL,'ampproject.org',NULL);
 INSERT INTO "trackers" VALUES('deviantart.net','deviantart.net',NULL,NULL,NULL,NULL,NULL,'deviantart.net',NULL);
@@ -3302,8 +3267,6 @@ INSERT INTO "trackers" VALUES('tumblr_buttons','Tumblr Buttons','Tumblr is a pla
 INSERT INTO "trackers" VALUES('fandommetrics.com','fandommetrics.com',NULL,NULL,NULL,NULL,NULL,'fandommetrics.com',NULL);
 INSERT INTO "trackers" VALUES('hotelreservation.com','hotelreservation.com',NULL,NULL,NULL,NULL,NULL,'hotelreservation.com',NULL);
 INSERT INTO "trackers" VALUES('netseer','NetSeer','NetSeer is a technology start-up focused on contextual media and ad targeting.',4,'http://www.netseer.com/','http://cdn.betteradvertising.com/logos/netseer.png','netseer','608',NULL);
-INSERT INTO "trackers" VALUES('tracdelight.com','tracdelight.com',NULL,NULL,NULL,NULL,NULL,'tracdelight.com',NULL);
-INSERT INTO "trackers" VALUES('githubusercontent.com','githubusercontent.com',NULL,NULL,NULL,NULL,NULL,'githubusercontent.com',NULL);
 INSERT INTO "trackers" VALUES('vivalu','VIVALU',NULL,4,NULL,NULL,'vivalu','2290',NULL);
 INSERT INTO "trackers" VALUES('errorception','Errorception','',6,'http://errorception.com/','http://cdn.betteradvertising.com/logos/errorception.png','errorception','982',NULL);
 INSERT INTO "trackers" VALUES('iias.eu','iias.eu',NULL,NULL,NULL,NULL,NULL,'iias.eu',NULL);
@@ -3313,19 +3276,13 @@ INSERT INTO "trackers" VALUES('aniview.com','AniView',NULL,4,'https://www.anivie
 INSERT INTO "trackers" VALUES('onclickmax.com','onclickmax.com',NULL,NULL,NULL,NULL,NULL,'onclickmax.com',NULL);
 INSERT INTO "trackers" VALUES('decibel_insight','Decibel Insight',NULL,6,NULL,NULL,'decibel_insight','2232',NULL);
 INSERT INTO "trackers" VALUES('adobe_tagmanager','Adobe TagManager','Adobe is a diversified software company. They offer a line of business and mobile software and services tools used by professionals, designers, knowledge workers and developers for creating, managing and delivering content across multiple operating systems, devices and media. Adobe''s products include Photoshop, Portable Document Format (PDF), their server software product, ColdFusion and development tools including AIR and Flash. Their online marketing suite is powered by Omniture.  ',4,'http://www.adobe.com/','http://cdn.betteradvertising.com/logos/adobesystems.png','adobe','1377',NULL);
-INSERT INTO "trackers" VALUES('mdgms.com','mdgms.com',NULL,NULL,NULL,NULL,NULL,'mdgms.com',NULL);
 INSERT INTO "trackers" VALUES('overheat.it','overheat.it',NULL,NULL,NULL,NULL,NULL,'overheat.it',NULL);
 INSERT INTO "trackers" VALUES('snowplow','Snowplow',NULL,6,NULL,NULL,'snowplow','2671',NULL);
-INSERT INTO "trackers" VALUES('tovarro.com','tovarro.com',NULL,NULL,NULL,NULL,NULL,'tovarro.com',NULL);
 INSERT INTO "trackers" VALUES('psyma','Psyma',NULL,4,'http://www.psyma.com/','http://','psyma','1850',NULL);
-INSERT INTO "trackers" VALUES('trustami.com','trustami.com',NULL,NULL,NULL,NULL,NULL,'trustami.com',NULL);
 INSERT INTO "trackers" VALUES('bauer_media','Bauer Media',NULL,4,NULL,NULL,'bauer_media','2911',NULL);
-INSERT INTO "trackers" VALUES('readspeaker.com','readspeaker.com',NULL,NULL,NULL,NULL,NULL,'readspeaker.com',NULL);
 INSERT INTO "trackers" VALUES('homeaway','HomeAway',NULL,8,NULL,NULL,NULL,'c_2665',NULL);
-INSERT INTO "trackers" VALUES('mynativeplatform.com','mynativeplatform.com',NULL,NULL,NULL,NULL,NULL,'mynativeplatform.com',NULL);
 INSERT INTO "trackers" VALUES('perfect_audience','Perfect Audience',NULL,4,'https://www.perfectaudience.com/','','perfect_audience','1403',NULL);
 INSERT INTO "trackers" VALUES('itineraire.info','itineraire.info',NULL,NULL,NULL,NULL,NULL,'itineraire.info',NULL);
-INSERT INTO "trackers" VALUES('vertamedia.com','vertamedia.com',NULL,NULL,NULL,NULL,NULL,'vertamedia.com',NULL);
 INSERT INTO "trackers" VALUES('revcontent','RevContent',NULL,4,'https://www.revcontent.com/','http://','revcontent','2195',NULL);
 INSERT INTO "trackers" VALUES('algolia.net','algolia.net',NULL,NULL,NULL,NULL,NULL,'algolia.net',NULL);
 INSERT INTO "trackers" VALUES('zergnet','ZergNet','',2,'http://www.zergnet.com/info','http://cdn.betteradvertising.com/logos/zergnet.png','zergnet','1124',NULL);
@@ -3357,12 +3314,10 @@ INSERT INTO "trackers" VALUES('innogames.de','InnoGames',NULL,8,'https://www.inn
 INSERT INTO "trackers" VALUES('districtm.io','district m',NULL,4,'https://districtm.net/',NULL,NULL,'districtm.io',NULL);
 INSERT INTO "trackers" VALUES('yandex.api','Yandex.API','Yandex is a Russian search engine and Internet services firm. They also offer a variety of other online services including: news, weather, traffic, maps, personal email, and a web analytics platform. Yandex also operates an ad network.',2,'http://api.yandex.ru/','http://cdn.betteradvertising.com/logos/yandex.png','yandex','670',NULL);
 INSERT INTO "trackers" VALUES('xceler8.io','xceler8.io',NULL,NULL,NULL,NULL,NULL,'xceler8.io',NULL);
-INSERT INTO "trackers" VALUES('snacktv','SnackTV',NULL,6,NULL,NULL,'yahoo','2519',NULL);
+INSERT INTO "trackers" VALUES('snacktv','SnackTV',NULL,6,NULL,NULL,NULL,'2519',NULL);
 INSERT INTO "trackers" VALUES('trafficforce','TrafficForce',NULL,4,'http://www.trafficforce.com/','http://','trafficforce','2089',NULL);
-INSERT INTO "trackers" VALUES('bfmio.com','bfmio.com',NULL,NULL,NULL,NULL,NULL,'bfmio.com',NULL);
 INSERT INTO "trackers" VALUES('lacmp.net','lacmp.net',NULL,NULL,NULL,NULL,NULL,'lacmp.net',NULL);
 INSERT INTO "trackers" VALUES('rollbar','Rollbar',NULL,6,'http://www.rollbar.com/','http://','rollbar','1828',NULL);
-INSERT INTO "trackers" VALUES('sentifi.com','sentifi.com',NULL,NULL,NULL,NULL,NULL,'sentifi.com',NULL);
 INSERT INTO "trackers" VALUES('baur.de','baur.de',NULL,8,NULL,NULL,NULL,'baur.de',NULL);
 INSERT INTO "trackers" VALUES('vepxl1.net','vepxl1.net',NULL,NULL,NULL,NULL,NULL,'vepxl1.net',NULL);
 INSERT INTO "trackers" VALUES('adwebster','adwebster',NULL,4,'http://adwebster.com','http://','adwebster','2071',NULL);
@@ -3384,10 +3339,8 @@ INSERT INTO "trackers" VALUES('flattr_button','Flattr Button','"Flattr is the wo
 INSERT INTO "trackers" VALUES('sstatic.net','sstatic.net',NULL,NULL,NULL,NULL,NULL,'sstatic.net',NULL);
 INSERT INTO "trackers" VALUES('trustwave.com','trustwave.com',NULL,NULL,NULL,NULL,NULL,'trustwave.com',NULL);
 INSERT INTO "trackers" VALUES('siteimprove','Siteimprove','"With Siteimprove Analytics it''s possible to follow your users'' behavior minute by minute, at any time of the day. An effective, clear, page-by-page analysis provides web editors with the unique potential to react quickly to significant changes in visitor behavior."',6,'http://siteimprove.com','http://cdn.betteradvertising.com/logos/siteimprove.png','siteimprove','966',NULL);
-INSERT INTO "trackers" VALUES('tunnl.com','tunnl.com',NULL,NULL,NULL,NULL,NULL,'tunnl.com',NULL);
 INSERT INTO "trackers" VALUES('adtrue','Adtrue',NULL,4,NULL,NULL,'adtrue','2730',NULL);
 INSERT INTO "trackers" VALUES('1000mercis','1000mercis',NULL,6,NULL,NULL,'1000mercis','2662',NULL);
-INSERT INTO "trackers" VALUES('ringier.ch','ringier.ch',NULL,NULL,NULL,NULL,NULL,'ringier.ch',NULL);
 INSERT INTO "trackers" VALUES('ipg_mediabrands','IPG Mediabrands',NULL,4,NULL,NULL,'ipg_mediabrands','2936',NULL);
 INSERT INTO "trackers" VALUES('tradetracker','TradeTracker','TradeTracker is a SaaS (Software as a Service) provider.  Their tracking software helps advertisers assess their ad performance and provide access to a network of affiliates.
 ',4,'http://www.tradetracker.com','http://cdn.betteradvertising.com/logos/tradetracker.png','tradetracker','556',NULL);
@@ -3395,8 +3348,6 @@ INSERT INTO "trackers" VALUES('adnologies','Adnologies','Adnologies GmbH is a pr
 INSERT INTO "trackers" VALUES('24-ads.com','24-ads.com',NULL,NULL,NULL,NULL,NULL,'24-ads.com',NULL);
 INSERT INTO "trackers" VALUES('pushnative.com','pushnative.com',NULL,11,NULL,NULL,NULL,'pushnative.com',NULL);
 INSERT INTO "trackers" VALUES('flag_counter','Flag Counter','"Add our free counter to any webpage and collect flags from all over the world. Every time someone from a new country visits your site, a flag will be added to your counter...Clicking on your Flag Counter will reveal amazing information and charts!"',4,'http://flagcounter.com/','http://cdn.betteradvertising.com/logos/flagcounter.png','flag_counter','1153',NULL);
-INSERT INTO "trackers" VALUES('dynatrace.com','dynatrace.com',NULL,NULL,NULL,NULL,NULL,'dynatrace.com',NULL);
-INSERT INTO "trackers" VALUES('blogfoster.com','blogfoster.com',NULL,NULL,NULL,NULL,NULL,'blogfoster.com',NULL);
 INSERT INTO "trackers" VALUES('dstillery','Dstillery','The patent pending algorithms and methods connect a brand''s existing customers with user segments composed entirely of consumers who are interwoven via the social graph. These bespoke Media6 segments are both completely customized for each advertiser and enormously scalable.',4,'http://www.media6degrees.com/','http://cdn.betteradvertising.com/logos/media6degrees.png',NULL,'147',NULL);
 INSERT INTO "trackers" VALUES('office.net','office.net',NULL,8,NULL,NULL,'microsoft','office.net',NULL);
 INSERT INTO "trackers" VALUES('tinypass','Tinypass',NULL,5,'http://www.tinypass.com/','http://','piano__previously_tinypass_','1834',NULL);
@@ -3406,7 +3357,6 @@ INSERT INTO "trackers" VALUES('cpmstar','CPMStar','CPMStar has been providing so
 INSERT INTO "trackers" VALUES('blink_new_media','Blink New Media','Engage:BDR is a global display advertising network with a proprietary ad serving technology, Blink New Media.  They specialize in Brand-safe and placement-specific inventory that they buy directly through publishers.  ',4,'http://engagebdr.com/','http://cdn.betteradvertising.com/logos/engagebdr.png','engage:bdr__blink_new_media_','729',NULL);
 INSERT INTO "trackers" VALUES('acquia.com','acquia.com',NULL,NULL,NULL,NULL,NULL,'acquia.com',NULL);
 INSERT INTO "trackers" VALUES('gravity_insights','Gravity Insights','Gravity is a technology for personalization of content across the Internet. Their platform sifts through and analyzes natural language across client sites to build "interest graphs" for website and content optimization. They also own an analytics platform called Gravity Insights.',6,'http://www.gravity.com/','http://cdn.betteradvertising.com/logos/gravity.png','gravity','782',NULL);
-INSERT INTO "trackers" VALUES('statsevent.com','statsevent.com',NULL,NULL,NULL,NULL,NULL,'statsevent.com',NULL);
 INSERT INTO "trackers" VALUES('padstm.com','padstm.com',NULL,NULL,NULL,NULL,NULL,'padstm.com',NULL);
 INSERT INTO "trackers" VALUES('baynote_observer','Baynote Observer','Baynote Observer
 Based on UseRank technology, we break through the bias, noise, and gaming of click-based approaches by using dozens of different behavioral heuristics that accurately determine your visitor''s true intent. A small sample of what we look at includes:
@@ -3433,7 +3383,6 @@ INSERT INTO "trackers" VALUES('vi','Vi',NULL,4,'http://www.vi.ru/','http://','vi
 INSERT INTO "trackers" VALUES('livefyre','Livefyre',NULL,1,'http://www.livefyre.com/','','livefyre','1420',NULL);
 INSERT INTO "trackers" VALUES('digiteka.net','digiteka.net',NULL,NULL,NULL,NULL,NULL,'digiteka.net',NULL);
 INSERT INTO "trackers" VALUES('tremor_video','Tremor Video',NULL,0,NULL,NULL,NULL,'tremorhub.com',NULL);
-INSERT INTO "trackers" VALUES('nscontext.eu','nscontext.eu',NULL,NULL,NULL,NULL,NULL,'nscontext.eu',NULL);
 INSERT INTO "trackers" VALUES('research_now','Research Now',NULL,4,'http://www.researchnow.com/','http://','research_now','1727',NULL);
 INSERT INTO "trackers" VALUES('rewe-static.de','rewe-static.de',NULL,NULL,NULL,NULL,NULL,'rewe-static.de',NULL);
 INSERT INTO "trackers" VALUES('baidu_ads','Baidu Ads',NULL,4,'http://www.baidu.com/','http://cdn.betteradvertising.com/logos/baidu.png','baidu','1572',NULL);
@@ -3445,14 +3394,12 @@ INSERT INTO "trackers" VALUES('smi2.ru','smi2.ru',NULL,4,'https://smi2.ru/',NULL
 INSERT INTO "trackers" VALUES('vooxe.com','vooxe.com',NULL,NULL,NULL,NULL,NULL,'vooxe.com',NULL);
 INSERT INTO "trackers" VALUES('walmart','Walmart',NULL,8,NULL,NULL,NULL,'c_793',NULL);
 INSERT INTO "trackers" VALUES('mnet-ad.net','mnet-ad.net',NULL,NULL,NULL,NULL,NULL,'mnet-ad.net',NULL);
-INSERT INTO "trackers" VALUES('y-track.com','y-track.com',NULL,NULL,NULL,NULL,NULL,'y-track.com',NULL);
 INSERT INTO "trackers" VALUES('nice264.com','nice264.com',NULL,NULL,NULL,NULL,NULL,'nice264.com',NULL);
 INSERT INTO "trackers" VALUES('vidazoo.com','vidazoo.com',NULL,NULL,NULL,NULL,NULL,'vidazoo.com',NULL);
 INSERT INTO "trackers" VALUES('heap','Heap',NULL,6,'https://heapanalytics.com/','http://','heap','1648',NULL);
 INSERT INTO "trackers" VALUES('kaloo.ga','kaloo.ga',NULL,NULL,NULL,NULL,NULL,'kaloo.ga',NULL);
 INSERT INTO "trackers" VALUES('thevideo.me','thevideo.me',NULL,NULL,NULL,NULL,NULL,'thevideo.me',NULL);
 INSERT INTO "trackers" VALUES('layer-ad.org','Layer-ADS.net',NULL,4,'http://layer-ads.net/',NULL,NULL,'layer-ad.org',NULL);
-INSERT INTO "trackers" VALUES('trvl-px.com','trvl-px.com',NULL,NULL,NULL,NULL,NULL,'trvl-px.com',NULL);
 INSERT INTO "trackers" VALUES('loop11','Loop11',NULL,6,NULL,NULL,'360i','2314',NULL);
 INSERT INTO "trackers" VALUES('spot.im','Spot.IM',NULL,7,'https://www.spot.im/','http://','spot.im','2194',NULL);
 INSERT INTO "trackers" VALUES('howtank.com','howtank.com',NULL,NULL,NULL,NULL,NULL,'howtank.com',NULL);
@@ -3470,14 +3417,12 @@ INSERT INTO "trackers" VALUES('sumologic.com','sumologic.com',NULL,NULL,NULL,NUL
 INSERT INTO "trackers" VALUES('raygun','Raygun',NULL,4,NULL,NULL,'raygun','2373',NULL);
 INSERT INTO "trackers" VALUES('yahoo_japan','Yahoo! Japan',NULL,8,NULL,NULL,NULL,'c_2456',NULL);
 INSERT INTO "trackers" VALUES('effective_measure','Effective Measure','Effective Measure is a web analytics company that provides data about visitors to a website. Their patent-pending Digital Helix technology addresses cookie deletion issues and unique visitor audience calculations. This allows advertisers and publishers to define and measure audience numbers accurately without duplication, and track data points over a specific time period.',4,'http://www.effectivemeasure.com/','http://cdn.betteradvertising.com/logos/effectivemeasure.png','effective_measure','534',NULL);
-INSERT INTO "trackers" VALUES('bluelithium','Bluelithium','We use data from 155 million online consumers worldwide, sophisticated analytics and advanced targeting technologies to create value for both marketers and publishers.',4,'http://www.bluelithium.com/','http://cdn.betteradvertising.com/logos/yahoo.png','yahoo','150',NULL);
+INSERT INTO "trackers" VALUES('bluelithium','Bluelithium','We use data from 155 million online consumers worldwide, sophisticated analytics and advanced targeting technologies to create value for both marketers and publishers.',4,'http://www.bluelithium.com/','http://cdn.betteradvertising.com/logos/yahoo.png','verizon','150',NULL);
 INSERT INTO "trackers" VALUES('adocean','AdOcean','AdOcean is a Poland based technology company.  Their ad serving system separates the main server, which acts as the management system, from the ad impression servers.  This allows for effective management on a high volume of advertisements by requiring less communication between the server and the web browsers of the users. The data on each ad impression are recorded in a database and used to build statistics for campaigns. AdOcean is a Gemius S.A. company.',4,'http://adocean.cz/en','http://cdn.betteradvertising.com/logos/adocean.png','adocean','621',NULL);
 INSERT INTO "trackers" VALUES('amadeus.net','amadeus.net',NULL,NULL,NULL,NULL,NULL,'amadeus.net',NULL);
 INSERT INTO "trackers" VALUES('c1_exchange','C1 Exchange',NULL,4,NULL,NULL,'c1_exchange_','2942',NULL);
 INSERT INTO "trackers" VALUES('netbiscuits','Netbiscuits',NULL,6,'http://www.netbiscuits.net/','http://','netbiscuits','2192',NULL);
-INSERT INTO "trackers" VALUES('bannerflow.com','bannerflow.com',NULL,NULL,NULL,NULL,NULL,'bannerflow.com',NULL);
-INSERT INTO "trackers" VALUES('expedia','Expedia',NULL,8,NULL,NULL,NULL,'c_510',NULL);
-INSERT INTO "trackers" VALUES('mathjax.org','mathjax.org',NULL,NULL,NULL,NULL,NULL,'mathjax.org',NULL);
+INSERT INTO "trackers" VALUES('expedia','Expedia',NULL,8,'https://www.trvl-px.com/',NULL,'iac_apps','c_510',NULL);
 INSERT INTO "trackers" VALUES('nonstop_consulting','nonstop Consulting',NULL,4,'http://www.nonstopconsulting.co.uk','','united_digital_group__fka_nonstopconsulting_','1409',NULL);
 INSERT INTO "trackers" VALUES('jumptap','Jumptap','Jumptap is a mobile advertising network that consists of operators (wireless carriers), publishers (provides subscribers and data to advertisers), and developer applications (iPhone).  Jumptap offers advertisers and agencies advertising solutions to reach their audience and make content relevant for mobile users. They can run ads across a comprehensive set of premium mobile channels including 10 different audience segmented packages.',4,'http://www.jumptap.com/','http://cdn.betteradvertising.com/logos/jumptap.png','millenial_media__jumptap_','1476',NULL);
 INSERT INTO "trackers" VALUES('mozilla.net','mozilla.net',NULL,NULL,NULL,NULL,NULL,'mozilla.net',NULL);
@@ -3488,7 +3433,6 @@ INSERT INTO "trackers" VALUES('maxmind','MaxMind','"MaxMind provides IP intellig
 INSERT INTO "trackers" VALUES('rentalcars.com','rentalcars.com',NULL,NULL,NULL,NULL,NULL,'rentalcars.com',NULL);
 INSERT INTO "trackers" VALUES('fstrk.net','fstrk.net',NULL,NULL,NULL,NULL,NULL,'fstrk.net',NULL);
 INSERT INTO "trackers" VALUES('toro','TORO',NULL,4,'http://toroadvertising.com/','http://','toro_advertising','1984',NULL);
-INSERT INTO "trackers" VALUES('kaeufersiegel.de','kaeufersiegel.de',NULL,NULL,NULL,NULL,NULL,'kaeufersiegel.de',NULL);
 INSERT INTO "trackers" VALUES('content.ad','Content.ad',NULL,4,'https://www.content.ad/','','content.ad','1192',NULL);
 INSERT INTO "trackers" VALUES('aemediatraffic','Aemediatraffic',NULL,6,NULL,NULL,NULL,'aemediatraffic.com','16/11/17: hprofits.com is a login page with copyright Aemediatraffic. aemediatraffic.com has a similar login landing. Seems to be Ukraine-based company.');
 INSERT INTO "trackers" VALUES('babator.com','babator.com',NULL,NULL,NULL,NULL,NULL,'babator.com',NULL);
@@ -3540,8 +3484,6 @@ INSERT INTO "trackers" VALUES('maru-edu','Maru-EDU',NULL,2,NULL,NULL,'maruedr','
 INSERT INTO "trackers" VALUES('lswcdn.net','lswcdn.net',NULL,NULL,NULL,NULL,NULL,'lswcdn.net',NULL);
 INSERT INTO "trackers" VALUES('trustarc','TrustArc',NULL,5,NULL,NULL,'trustarc','c_775',NULL);
 INSERT INTO "trackers" VALUES('adbetclickin.pink','adbetnet',NULL,4,'http://adbetnet.com/',NULL,NULL,'adbetclickin.pink',NULL);
-INSERT INTO "trackers" VALUES('dotmetrics.net','dotmetrics.net',NULL,NULL,NULL,NULL,NULL,'dotmetrics.net',NULL);
-INSERT INTO "trackers" VALUES('cnetcontent.com','cnetcontent.com',NULL,NULL,NULL,NULL,NULL,'cnetcontent.com',NULL);
 INSERT INTO "trackers" VALUES('mytoys.de','mytoys.de',NULL,NULL,NULL,NULL,NULL,'mytoys.de',NULL);
 INSERT INTO "trackers" VALUES('videoadex.com','videoadex.com',NULL,NULL,NULL,NULL,NULL,'videoadex.com',NULL);
 INSERT INTO "trackers" VALUES('monster_advertising','Monster Advertising','Monster.com is a career and recruitment resource. The Monster Career Ad Network sources job postings automatically from Monster or MonsterTRAK, develops the postings into a creative ad that is then targeted toward appropriate candidates via strategic placements throughout the web. Monster.com is the flagship brand of Monster Worldwide, Inc.',4,'http://www.monster.com/','http://cdn.betteradvertising.com/logos/monster.png','monster_worldwide','1534',NULL);
@@ -3565,7 +3507,6 @@ INSERT INTO "trackers" VALUES('adsnative','adsnative',NULL,4,'http://www.adsnati
 INSERT INTO "trackers" VALUES('bitdefender.de','bitdefender.de',NULL,NULL,NULL,NULL,NULL,'bitdefender.de',NULL);
 INSERT INTO "trackers" VALUES('sophus3','Sophus3','Sophus3 is a provider of tools for website analysis and optimization services.',4,'http://www.sophus3.com/ ','http://cdn.betteradvertising.com/logos/sophus3.png','sophus3','714',NULL);
 INSERT INTO "trackers" VALUES('rightnowtech.com','rightnowtech.com',NULL,NULL,NULL,NULL,NULL,'rightnowtech.com',NULL);
-INSERT INTO "trackers" VALUES('video-cdn.net','video-cdn.net',NULL,NULL,NULL,NULL,NULL,'video-cdn.net',NULL);
 INSERT INTO "trackers" VALUES('shareaholic','Shareaholic',NULL,4,'hhttps://www.shareaholic.com/','http://cdn.betteradvertising.com/logos/shareaholic1.png','shareaholic','1421',NULL);
 INSERT INTO "trackers" VALUES('wistia','Wistia',NULL,6,NULL,NULL,'wistia','2336',NULL);
 INSERT INTO "trackers" VALUES('motherlessmedia.com','motherlessmedia.com',NULL,NULL,NULL,NULL,NULL,'motherlessmedia.com',NULL);
@@ -3576,7 +3517,6 @@ INSERT INTO "trackers" VALUES('qualaroo','Qualaroo',NULL,6,NULL,NULL,NULL,'c_245
 INSERT INTO "trackers" VALUES('logsss.com','logsss.com',NULL,11,NULL,NULL,NULL,'logsss.com',NULL);
 INSERT INTO "trackers" VALUES('internetstores.de','internetstores.de',NULL,NULL,NULL,NULL,NULL,'internetstores.de',NULL);
 INSERT INTO "trackers" VALUES('github','GitHub',NULL,2,NULL,NULL,NULL,'c_1618',NULL);
-INSERT INTO "trackers" VALUES('com.ru','com.ru',NULL,NULL,NULL,NULL,NULL,'com.ru',NULL);
 INSERT INTO "trackers" VALUES('post_affiliate_pro','Post Affiliate Pro',NULL,4,'http://www.qualityunit.com/','','qualityunit','1411',NULL);
 INSERT INTO "trackers" VALUES('guj.de','guj.de',NULL,NULL,NULL,NULL,NULL,'guj.de',NULL);
 INSERT INTO "trackers" VALUES('vtrtl.de','vtrtl.de',NULL,NULL,NULL,NULL,NULL,'vtrtl.de',NULL);
@@ -3784,6 +3724,15 @@ INSERT INTO "trackers" VALUES('jivochat','JivoChat',NULL,2,'https://www.jivochat
 INSERT INTO "trackers" VALUES('airbnb','Airbnb',NULL,6,'https://affiliate.withairbnb.com/',NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('widespace','Widespace',NULL,4,'https://www.widespace.com/',NULL,NULL,'1906',NULL);
 INSERT INTO "trackers" VALUES('platform360','Platform360',NULL,4,'http://www.platform360.co/#home',NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('kaeufersiegel.de','Käufersiegel',NULL,2,'https://www.kaeufersiegel.de/',NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('mapbox','Mapbox',NULL,2,'https://www.mapbox.com/',NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('startapp','StartApp',NULL,4,'https://www.startapp.com/',NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('ipify','ipify',NULL,8,'https://www.ipify.org/',NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('keywee','Keywee',NULL,6,'https://keywee.co/',NULL,NULL,'3124',NULL);
+INSERT INTO "trackers" VALUES('rtbsuperhub.com','rtbsuperhub.com',NULL,4,NULL,NULL,NULL,NULL,'2/2/18: No whois information');
+INSERT INTO "trackers" VALUES('bebi','Bebi Media',NULL,4,'https://www.bebi.com/',NULL,NULL,'2244',NULL);
+INSERT INTO "trackers" VALUES('smarter_travel','Smarter Travel Media',NULL,4,'https://www.smartertravel.com/',NULL,'iac_apps',NULL,NULL);
+INSERT INTO "trackers" VALUES('giphy.com','Giphy',NULL,7,'https://giphy.com/',NULL,NULL,NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
