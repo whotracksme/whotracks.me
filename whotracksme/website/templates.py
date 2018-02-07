@@ -129,7 +129,7 @@ def get_template(data_source, name, render_markdown=False, path_to_root='.'):
         env.filters["markdown"] = lambda text: Markup(md.convert(text))
     env.filters["prettify_label"] = lambda text: text.replace("_", " ").capitalize() if text not in [None, "None", ""] else ""
     env.filters["normalize_domain_name"] = lambda text: text.replace("www.", "")
-    env.filters["absolute_og_urls"] = lambda url: url.replace("../", "")
+    env.filters["absolute_og_urls"] = lambda url: url.replace("../", "").replace("./", "")
     env.filters["url_for"] = lambda entity, id: data_source.url_for(entity, id, path_to_root=path_to_root)
     env.filters["get_app_name"] = lambda id: data_source.trackers.get_name(id)
     env.filters["get_company_name"] = lambda id: data_source.get_company_name(id)

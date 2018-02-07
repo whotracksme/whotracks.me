@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://whotracks.me">
     <meta property="og:title" content="WhoTracks.me - Bringing Transparency to Online Tracking">
     <meta property="og:description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
-    <meta property="og:image" content="https://whotracks.me/{{PATHS.static}}/img/tracking-matrix-bluebg.png">
+    <meta property="og:image" content="https://whotracks.me/{{PATHS.static|absolute_og_urls}}/img/tracking-matrix-bluebg.png">
 {% endblock %}
 
 {% set active_page='home' %}
@@ -53,6 +53,7 @@
             </div>
         </div>
         {{ ts }}
+        <p class="plot-caption">See <a href="/companies/reach-chart.html">Full Chart</a></p>
         <div class="row home-panel">
 
             <!-- Tracker Stats -->

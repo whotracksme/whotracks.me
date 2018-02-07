@@ -8,6 +8,7 @@ Whotracks.me website development tool.
 Usage:
     whotracksme website [serve]
     whotracksme data [list]
+    whotracksme db (create|dump)
     whotracksme -h | --help
 
 Options:
@@ -17,8 +18,11 @@ Options:
 
 
 import docopt
+import os
+import sqlite3
 from whotracksme.website.builder import Builder
 from whotracksme.website.serve import serve
+from whotracksme.data.loader import load_tracker_db
 
 
 class objectview:
@@ -50,6 +54,15 @@ def main():
     elif args.data:
         # TODO - allow basic exploration of the data
         pass
+    elif args.db:
+        if args.create:
+            load_tracker_db(loc='tracker.db')
+        elif args.dump:
+            tracker_db_path = os.path.join(os.path.dirname(__file__), 'data', 'assets', 'trackerdb.sql')
+            conn = sqlite3.connect('tracker.db')
+            with open(tracker_db_path, 'w') as fp:
+                for line in conn.iterdump():
+                    fp.write('%s\n' % line)
 
 
 if __name__ == '__main__':
