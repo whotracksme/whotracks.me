@@ -26,6 +26,7 @@ from whotracksme.website.templates import (
     generate_sitemap,
 )
 # from whotracksme.website.build.companies import build_company_pages
+from whotracksme.website.build.companies import build_company_reach_chart_page
 
 from whotracksme.website.utils import print_progress
 
@@ -118,6 +119,9 @@ class Builder:
                 # Websites
                 futures.append(executor.submit(build_website_list, data=data_source))
                 futures.append(executor.submit(build_website_pages, data=data_source))
+
+                # Companies
+                futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
 
             # Depends on: 'data/', 'blog/', 'templates/'
             if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
