@@ -1,11 +1,13 @@
 
 from collections import defaultdict
+from jinja2 import Markup
 
 from whotracksme.website.utils import print_progress
 from whotracksme.website.templates import (
     get_template,
     render_template,
 )
+from whotracksme.website.plotting.companies import overview_bars
 from whotracksme.website.plotting.colors import (
     tracker_category_colors, cliqz_colors
 )
@@ -132,3 +134,16 @@ def build_company_pages(data):
         company_page(template, company_data, data)
 
     print_progress(text="Generate company pages")
+
+def build_company_reach_chart_page(data):
+    top100 = company_reach(data.companies, n=100)
+    chart = Markup(overview_bars(top100, highlight=10, custom_height=3000))
+    template = get_template(data, name='reach-chart-page.html', path_to_root='..')
+
+    with open('_site/companies/reach-chart.html', 'w') as output:
+        output.write(render_template(
+            path_to_root='..',
+            template=template,
+            chart=chart,
+        ))
+        print_progress(text="Generate company reach chart")
