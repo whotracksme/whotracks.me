@@ -3267,10 +3267,7 @@ INSERT INTO "trackers" VALUES('tumblr_buttons','Tumblr Buttons','Tumblr is a pla
 INSERT INTO "trackers" VALUES('fandommetrics.com','fandommetrics.com',NULL,NULL,NULL,NULL,NULL,'fandommetrics.com',NULL);
 INSERT INTO "trackers" VALUES('hotelreservation.com','hotelreservation.com',NULL,NULL,NULL,NULL,NULL,'hotelreservation.com',NULL);
 INSERT INTO "trackers" VALUES('netseer','NetSeer','NetSeer is a technology start-up focused on contextual media and ad targeting.',4,'http://www.netseer.com/','http://cdn.betteradvertising.com/logos/netseer.png','netseer','608',NULL);
-<<<<<<< HEAD
-=======
 INSERT INTO "trackers" VALUES('githubusercontent.com','githubusercontent.com',NULL,NULL,NULL,NULL,NULL,'githubusercontent.com',NULL);
->>>>>>> Remove tracker db entries.
 INSERT INTO "trackers" VALUES('vivalu','VIVALU',NULL,4,NULL,NULL,'vivalu','2290',NULL);
 INSERT INTO "trackers" VALUES('errorception','Errorception','',6,'http://errorception.com/','http://cdn.betteradvertising.com/logos/errorception.png','errorception','982',NULL);
 INSERT INTO "trackers" VALUES('iias.eu','iias.eu',NULL,NULL,NULL,NULL,NULL,'iias.eu',NULL);
@@ -3426,11 +3423,7 @@ INSERT INTO "trackers" VALUES('adocean','AdOcean','AdOcean is a Poland based tec
 INSERT INTO "trackers" VALUES('amadeus.net','amadeus.net',NULL,NULL,NULL,NULL,NULL,'amadeus.net',NULL);
 INSERT INTO "trackers" VALUES('c1_exchange','C1 Exchange',NULL,4,NULL,NULL,'c1_exchange_','2942',NULL);
 INSERT INTO "trackers" VALUES('netbiscuits','Netbiscuits',NULL,6,'http://www.netbiscuits.net/','http://','netbiscuits','2192',NULL);
-<<<<<<< HEAD
-INSERT INTO "trackers" VALUES('expedia','Expedia',NULL,8,'https://www.trvl-px.com/',NULL,'iac_apps','c_510',NULL);
-=======
 INSERT INTO "trackers" VALUES('expedia','Expedia',NULL,8,NULL,NULL,NULL,'c_510',NULL);
->>>>>>> Remove tracker db entries.
 INSERT INTO "trackers" VALUES('nonstop_consulting','nonstop Consulting',NULL,4,'http://www.nonstopconsulting.co.uk','','united_digital_group__fka_nonstopconsulting_','1409',NULL);
 INSERT INTO "trackers" VALUES('jumptap','Jumptap','Jumptap is a mobile advertising network that consists of operators (wireless carriers), publishers (provides subscribers and data to advertisers), and developer applications (iPhone).  Jumptap offers advertisers and agencies advertising solutions to reach their audience and make content relevant for mobile users. They can run ads across a comprehensive set of premium mobile channels including 10 different audience segmented packages.',4,'http://www.jumptap.com/','http://cdn.betteradvertising.com/logos/jumptap.png','millenial_media__jumptap_','1476',NULL);
 INSERT INTO "trackers" VALUES('mozilla.net','mozilla.net',NULL,NULL,NULL,NULL,NULL,'mozilla.net',NULL);

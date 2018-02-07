@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>WhoTracks.me | Who Tracks the Most</title>
+    <meta name="description" content="The reach of trackers grouped by companies that own them.">
+{% endblock %}
+
+{% block extra_styling %}
+    <link rel="stylesheet" href="{{PATHS.static}}/css/companies/reach-chart.css">
+{% endblock %}
+
+{% block content %}
+<section class="grey-bg top-buffer">
+    <div class="container">
+        <div class="row home-plot">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-9 col-sm-9">
+                        <h2 class="plot-title">Company Tracking Reach</h2>
+                        <p class="plot-subtitle">
+                            Proportion of the web traffic tracked by trackers owned by these companies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 checkout">
+                <h4>READ OUR PAPER:</h4>
+
+                    <i class="fa fa-file-text-o"></i>
+                    <span style="font-size: 13px">
+                        <a
+                            target="_blank"
+                            href="https://static.cliqz.com/wp-content/uploads/2016/07/Cliqz-Studie-Tracking-the-Trackers.pdf">
+                            Tracking the Trackers
+                        </a>
+                    </span>
+
+            </div>
+        </div>
+        {{ chart }}
+        <p class="plot-caption">Generated from Cliqz and Ghostery Anti-Tracking data</p>
+    </div>
+</section>
+{% endblock %}
