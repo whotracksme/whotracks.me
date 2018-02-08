@@ -2632,7 +2632,7 @@ INSERT INTO "trackers" VALUES('rocket_fuel','Rocket Fuel','Rocket Fuel provides 
 But, we’re not just about automation. We also provide a dedicated analyst, real-time reporting and feedback so you''ll never be caught off guard or unable to respond to clients or senior management with timely information.',4,'http://rocketfuelinc.com/','http://cdn.betteradvertising.com/logos/rocketfuel.png','sizmek','192',NULL);
 INSERT INTO "trackers" VALUES('gravatar','Gravatar',NULL,7,'http://en.gravatar.com/','http://','gravatar','1773',NULL);
 INSERT INTO "trackers" VALUES('zanox','Zanox','Zanox is a performance-based network and marketing services provider. They also offer expanded statistics functions for advertising on their network as well as tools for professional search engine marketing. The Zanox network is based in continental Europe with operations in the U.S.',4,'http://www.zanox.com/us/','http://cdn.betteradvertising.com/logos/zanox.png',NULL,'548',NULL);
-INSERT INTO "trackers" VALUES('roq.ad','Roq.ad',NULL,4,NULL,NULL,NULL,'c_m8',NULL);
+INSERT INTO "trackers" VALUES('roq.ad','Roq.ad',NULL,4,'https://www.roq.ad/',NULL,NULL,'c_m8',NULL);
 INSERT INTO "trackers" VALUES('pornhub','PornHub',NULL,3,NULL,NULL,NULL,'c_m9',NULL);
 INSERT INTO "trackers" VALUES('drawbridge','Drawbridge','Adsymptotic provides mobile advertising technology and cross-device data from desktop to mobile. The company''s proprietary technology drives ad serving decisions using cross-device audience behavioral signals, improving the likelihood of finding the right people, on the right device.
 ',4,'http://www.drawbrid.ge/','http://cdn.betteradvertising.com/logos/drawbridge.png','drawbridge','1291',NULL);
@@ -2655,7 +2655,7 @@ As a single source solution, all targeting strategies, creative services, analyt
 INSERT INTO "trackers" VALUES('jw_player','JW Player',NULL,0,NULL,NULL,'jw_player','2530',NULL);
 INSERT INTO "trackers" VALUES('paypal','PayPal',NULL,2,'https://www.paypal.com',NULL,'paypal','c_2595',NULL);
 INSERT INTO "trackers" VALUES('seeding_alliance','Seeding Alliance',NULL,4,'http://seeding-alliance.de',NULL,NULL,'nativendo.de',NULL);
-INSERT INTO "trackers" VALUES('affilinet','affilinet',NULL,4,NULL,NULL,'axel_springer','2330',NULL);
+INSERT INTO "trackers" VALUES('affilinet','affilinet',NULL,4,'https://www.affili.net/',NULL,'axel_springer','2330',NULL);
 INSERT INTO "trackers" VALUES('etracker','etracker','Real-time Webanalytics instead of Logfile-Analysis, free counter or visitorcounter
 
 Increase your online success with premium website analysis, campaign controlling and live web analytics. Save ressources, time and money with our inexpensive SaaS outsourcing solutions.',6,'http://www.etracker.com/en/','http://cdn.betteradvertising.com/logos/etracker.png','etracker_gmbh','186',NULL);
