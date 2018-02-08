@@ -100,7 +100,7 @@ $(document).ready(function() {
                     <ul>
                         {% for tracker in similar_trackers %}
                             <li>
-                                <a href="{{ 'app'|url_for(tracker.id) }}" class="entity-name">
+                                <a href="{{ 'tracker'|url_for(tracker.id) }}" class="entity-name">
                                 {{ tracker.id|get_app_name }}
                                 </a>
                                 {% if tracker.company_id %}
