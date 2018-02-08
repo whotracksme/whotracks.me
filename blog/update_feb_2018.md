@@ -5,7 +5,7 @@ type: article
 publish: True
 date: 2018-02-06
 tags: blog, update
-header_img: blog/blog-data-feb18.png
+header_img: blog/blog-data-feb18-2.png
 +++
 
 _This post is one of our regular monthly blogs accompanying an update to the data displayed on WhoTracks.Me. In these posts we introduce what data has been added as well as point out interesting trends and case-studies we found in the last month. Previous month's posts can be found here: [January 2018](./update_jan_2018.html), [December 2017](./update_dec_2017.html)._
