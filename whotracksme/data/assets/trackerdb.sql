@@ -404,7 +404,6 @@ INSERT INTO "companies" VALUES('pushcrew','Pushcrew','None','http://','https://p
 INSERT INTO "companies" VALUES('clickonometrics','Clickonometrics','None','Not found','http://clickonometrics.pl/','Not found','http://clickonometrics.pl/','"We develop tools and technologies that collect and analyze data for business. We support companies and institutions operating in the online advertising market."
 
 Translated by Google Translate','http://cdn.betteradvertising.com/logos/clickonometrics.png','2889');
-INSERT INTO "companies" VALUES('wordpress.com','WordPress.com','WordPress.com is a hosted version of the open source blogging package WordPress. WordPress.com offers more limited functionality on the look, feel and capabilities of the WordPress blogs they host. They generate revenue by offering paid a la carte upgrades on their hosted blogs. WordPress.com is owned by Automattic.','http://en.wordpress.com/about/','http://en.support.wordpress.com/contact/','https://automattic.com/privacy/','http://www.wordpress.com','"We created WordPress.com, a hosted version of the open source package where you can start a blog in seconds without any technical knowledge."','http://cdn.betteradvertising.com/logos/wordpressdotcom.png','21');
 INSERT INTO "companies" VALUES('adtrue','AdTrue','None','http://adtrue.com/about/','http://adtrue.com/contact/','Not found','http://adtrue.com/','','http://adtrue.com/logo-dark-adtrue.png','4648');
 INSERT INTO "companies" VALUES('ensighten','Ensighten','Ensighten provides tag management technology. Ensighten Manage, the company''s flagship product, supports all vendors in a native format, as well as within Flash and other compiled applications. It eliminates the need for development resources to implement, customize or remove vendor tags in any technological environment.
 ','http://www.ensighten.com/company/about-us/','http://www.ensighten.com/company/contact-us/','http://www.ensighten.com/privacy-policy/','http://www.ensighten.com','"Ensighten''s tag management platform for web, flash and mobile provides organizations with web agility - allowing them to effectively deploy, manage, test and optimize 3rd party applications for analytics, advertising, content targeting and many others."','http://cdn.betteradvertising.com/logos/ensighten.png','728');
@@ -900,6 +899,7 @@ INSERT INTO "companies" VALUES('ironsource','ironSource',NULL,NULL,NULL,NULL,'ww
 INSERT INTO "companies" VALUES('prosieben_sat1','ProSiebenSat.1 Media',NULL,NULL,NULL,NULL,'http://www.prosiebensat1.com/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('verizon','Verizon',NULL,NULL,NULL,NULL,'https://www.verizon.com/',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('spearhead','Spearhead Integrated Marketing Communication',NULL,NULL,NULL,NULL,'http://www.spearhead.com.cn/',NULL,NULL,NULL);
+INSERT INTO "companies" VALUES('automattic','Automattic',NULL,NULL,NULL,NULL,'https://automattic.com/',NULL,NULL,NULL);
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -2493,6 +2493,10 @@ INSERT INTO "tracker_domains" VALUES('rtbsuperhub.com','rtbsuperhub.com');
 INSERT INTO "tracker_domains" VALUES('bebi','bebi.com');
 INSERT INTO "tracker_domains" VALUES('smarter_travel','smartertravel.com');
 INSERT INTO "tracker_domains" VALUES('giphy.com','giphy.com');
+INSERT INTO "tracker_domains" VALUES('userlike.com','dq4irj27fs462.cloudfront.net');
+INSERT INTO "tracker_domains" VALUES('userlike.com','userlike-cdn-widgets.s3-eu-west-1.amazonaws.com');
+INSERT INTO "tracker_domains" VALUES('jetpack','pixel.wp.com');
+INSERT INTO "tracker_domains" VALUES('jetpack','stats.wp.com');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -2670,13 +2674,13 @@ INSERT INTO "trackers" VALUES('linkedin','LinkedIn',NULL,8,NULL,NULL,'linkedin',
 INSERT INTO "trackers" VALUES('sevenone_media','SevenOne Media',NULL,4,NULL,NULL,NULL,'c_m11',NULL);
 INSERT INTO "trackers" VALUES('browser_update','Browser Update','Browser-Update is a widget that informs website visitors to update their browser if their current one is ''out-of-date''.',2,'http://www.browser-update.org/','http://cdn.betteradvertising.com/logos/browserupdate.png','browser-update','774',NULL);
 INSERT INTO "trackers" VALUES('intelliad','intelliAd',NULL,4,'http://www.intelliad.de/','http://','intelliad','1289',NULL);
-INSERT INTO "trackers" VALUES('wordpress_stats','Wordpress Stats','There are hundreds of plugins and services which can provide statistics about your visitors. However I found that even though something like Google Analytics provides an incredible depth of information, it can be overwhelming and doesn''t really highlight what''s most interesting to me as a writer. That''s why Automattic created its own stats system, to focus on just the most popular metrics a blogger wants to track and provide them in a clear and concise interface.
+INSERT INTO "trackers" VALUES('wordpress_stats','WordPress','There are hundreds of plugins and services which can provide statistics about your visitors. However I found that even though something like Google Analytics provides an incredible depth of information, it can be overwhelming and doesn''t really highlight what''s most interesting to me as a writer. That''s why Automattic created its own stats system, to focus on just the most popular metrics a blogger wants to track and provide them in a clear and concise interface.
 
 Installing this stats plugin is much like installing Akismet, all you need is to put in your API Key and the rest is automatic.
 
 Once it''s running it''ll begin collecting information about your pageviews, which posts and pages are the most popular, where your traffic is coming from, and what people click on when they leave. It''ll also add a link to your dashboard which allows you to see all your stats on a single page. Less is more.
 
-Finally, because all of the processing and collection runs on our servers and not yours, it doesn''t cause any additional load on your hosting account. In fact, it''s one of the fastest stats system, hosted or not hosted, that you can use.',6,'http://wordpress.org/extend/plugins/stats/','http://cdn.betteradvertising.com/logos/wordpressdotcom.png','wordpress.com','24',NULL);
+Finally, because all of the processing and collection runs on our servers and not yours, it doesn''t cause any additional load on your hosting account. In fact, it''s one of the fastest stats system, hosted or not hosted, that you can use.',6,'http://wordpress.org/extend/plugins/stats/','http://cdn.betteradvertising.com/logos/wordpressdotcom.png','automattic','24',NULL);
 INSERT INTO "trackers" VALUES('spotxchange','SpotXchange','SpotXchange is an online video marketplace where advertisers and publishers can exchange media on an auction basis.  Publishers can select from a variety of video advertising types within a deep pool of brand and local advertisers.  Self-service tools provide real-time metrics and the ability to call ads and configure them on the fly.',4,'http://www.spotxchange.com/','http://cdn.betteradvertising.com/logos/spotxchange.png ','rtl_group','503',NULL);
 INSERT INTO "trackers" VALUES('dataxu','DataXu','DataXu is an optimization platform powered by bidding algorithms that evolve based on ad campaign performance insights.  This allows them to value, buy and optimize each ad impression in real-time for decision opportunities as they occur.  DataXu''s approach is designed to improve on technologies that require pre-optimized categories or broad audience segments.  ',4,'http://www.dataxu.com/','http://cdn.betteradvertising.com/logos/dataxu.png','dataxu','353',NULL);
 INSERT INTO "trackers" VALUES('liveinternet','LiveInternet','Web analytics company providing metrics for site traffic, website ranking, page views, audience comparision, and session duration.',1,'http://www.liveinternet.ru/','http://cdn.betteradvertising.com/logos/liveinternet.png','liveinternet','237',NULL);
@@ -3712,7 +3716,7 @@ INSERT INTO "trackers" VALUES('lucky_orange','Lucky Orange',NULL,6,'http://www.l
 INSERT INTO "trackers" VALUES('advertserve','AdvertServe',NULL,4,'https://secure.advertserve.com/',NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('nano_interactive','Nano Interactive',NULL,4,'http://www.nanointeractive.com/home/de',NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('94j7afz2nr.xyz','94j7afz2nr.xyz',NULL,12,NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('wordpress_ads','Wordpress Ads',NULL,4,'https://wordpress.com/',NULL,'wordpress.com',NULL,NULL);
+INSERT INTO "trackers" VALUES('wordpress_ads','Wordpress Ads',NULL,4,'https://wordpress.com/',NULL,'automattic',NULL,NULL);
 INSERT INTO "trackers" VALUES('tubecorporate','Tube Corporate',NULL,3,'https://tubecorporate.com/',NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('ownpage','Ownpage',NULL,2,'http://www.ownpage.fr/index.en.html',NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('dianomi','Diamoni',NULL,4,'http://www.dianomi.com/cms/',NULL,NULL,'2024',NULL);
@@ -3733,6 +3737,7 @@ INSERT INTO "trackers" VALUES('rtbsuperhub.com','rtbsuperhub.com',NULL,4,NULL,NU
 INSERT INTO "trackers" VALUES('bebi','Bebi Media',NULL,4,'https://www.bebi.com/',NULL,NULL,'2244',NULL);
 INSERT INTO "trackers" VALUES('smarter_travel','Smarter Travel Media',NULL,4,'https://www.smartertravel.com/',NULL,'iac_apps',NULL,NULL);
 INSERT INTO "trackers" VALUES('giphy.com','Giphy',NULL,7,'https://giphy.com/',NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('jetpack','Jetpack',NULL,6,'https://jetpack.com/',NULL,'automattic',NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
