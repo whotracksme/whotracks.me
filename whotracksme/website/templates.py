@@ -88,7 +88,7 @@ CATEGORY_DESC = {
     "misc": "This tracker does not fit in other categories or has not yet been labelled.",
     "pornvertising": "Delivers advertisements that generally appear on adult content sites.",
     "hosting": "This is a service used by the content provider or site owner.",
-    "extensions": "This are browser addons that collect user data"
+    "extensions": "These are browser addons that collect user data"
 }
 
 def copy_custom_error_pages(data):
