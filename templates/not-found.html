@@ -5,6 +5,16 @@
     <meta name="description" content="The page you are trying to visit does not exist. We have lots of other interesting things for you to see though, visit https://whotracks.me to find out.">
 {% endblock %}
 
+
+{% block extra_styling %}
+    <link rel="icon" href="/static/img/favicon-2.ico">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static//css/custom.css">
+    <link rel="stylesheet" href="/static/css/easy-autocomplete.min.css">
+{% endblock %}
+
+
 {% block og_params %}
     <!-- OG params for sharable content -->
     <meta property="og:title" content="WhoTracks.me | Page Not Found">    
@@ -19,7 +29,7 @@
 <div style="height: 100vh">
     <div class="container">
         <h1 style="margin-top: 200px;">Page not Found</h1>
-        <p>The page you are trying to visit, with a very high probability, does not exist. We have lots of other
+        <p>We could not find the page you are looking for. We have lots of other
         interesting things for you to see though. Did you check our <a href="/trackers.html">trackers page</a>?</p>
     </div>
 </div>

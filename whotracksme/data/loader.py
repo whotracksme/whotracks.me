@@ -320,6 +320,9 @@ class Trackers:
 
         return top_n
 
+    def get_domains(self, id):
+        return self._trackers.get(id).get('domains', [])
+
     def iter_sites(self, id):
         for site in self._trackers.get(id).get('sites', []):
             yield site
