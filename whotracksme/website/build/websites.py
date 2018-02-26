@@ -1,6 +1,7 @@
 
 from collections import OrderedDict, defaultdict
 from statistics import mean
+from operator import itemgetter
 
 from jinja2 import Markup
 
@@ -172,9 +173,11 @@ def website_page(template, site_id, rank, data):
     companies = data.companies
     apps = data.apps
     site = data.sites.get(site_id)
+    # website url is the most common subdomain
+    website_url = sorted(site.get('subdomains').items(), key=itemgetter(1), reverse=True)[0][0]
     profile = {
         "rank": rank,
-        "website_url": site["overview"]["site"],
+        "website_url": website_url,
         "name":  site["overview"]["site"],
         "overview": site["overview"]
     }
