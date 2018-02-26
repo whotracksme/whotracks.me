@@ -65,6 +65,16 @@ class DataSource:
                     app['company_id'] = app['name']
                 # added to simplify `Trackers.sort_by()`
                 app['overview']['company_id'] = app['company_id']
+            else:
+                print(f'missing app info for {id}')
+                app['name'] = id
+                app['company_id'] = 'fill me in'
+                app['overview']['company_id'] = 'fill me in'
+            if 'cat' not in app:
+                print(f'missing category for {id}')
+            elif app['cat'] is None:
+                print(f'category is none: {id}')
+                # app['cat'] = 'unknown'
 
         # TODO: Remove when supported in data generation
         for id, site in _sites.items():
