@@ -98,12 +98,12 @@ class DataSource:
 
     def load_app_info(self, connection):
         col_names = [
-            'id', 'name', 'description', 'cat', 'website_url', 'logo_url',
+            'id', 'name', 'cat', 'website_url',
             'company_id'
         ]
         cur = connection.execute(
-            '''SELECT trackers.id, trackers.name, description, 
-            categories.name, website_url, logo_url, company_id
+            '''SELECT trackers.id, trackers.name,
+            categories.name, website_url, company_id
             FROM trackers
             LEFT JOIN categories ON categories.id = category_id'''
         )
@@ -120,8 +120,7 @@ class DataSource:
 
     def load_company_info(self, connection):
         columns = [
-            'id', 'name', 'description', 'about_us_url', 'privacy_contact_url',
-            'privacy_url', 'website_url', 'in_their_own_words', 'logo_url'
+            'id', 'name', 'description', 'privacy_url', 'website_url',
         ]
         cur = connection.execute(
             '''SELECT {} FROM companies'''.format(','.join(columns))
@@ -132,8 +131,8 @@ class DataSource:
             company_info[row[0]]['apps'] = {}
 
         cur = connection.execute(
-            '''SELECT company_id, id, name 
-            FROM trackers 
+            '''SELECT company_id, id, name
+            FROM trackers
             WHERE company_id IS NOT NULL'''
         )
         for cid, app_id, app_name in cur:
