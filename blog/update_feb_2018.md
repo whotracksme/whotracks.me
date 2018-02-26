@@ -5,10 +5,12 @@ type: article
 publish: True
 date: 2018-02-06
 tags: blog, update
-header_img: blog/blog-data-feb18.png
+header_img: blog/blog-data-feb18-2.png
 +++
 
-We've updated the site today with data collected during January 2018. Due to increased distribution, we have over 115 million page loads this month, an increase of 15% over previous months. The regions from which we are getting data is also diversifying. While 70% of the data still comes from German users, we now have more significant US and international data. We plan to have sufficient data in the coming months in order to provide region-specific tracking breakdowns.
+_This post is one of our regular monthly blogs accompanying an update to the data displayed on WhoTracks.Me. In these posts we introduce what data has been added as well as point out interesting trends and case-studies we found in the last month. Previous month's posts can be found here: [January 2018](./update_jan_2018.html), [December 2017](./update_dec_2017.html)._
+
+We've updated the site today with data collected during January 2018. Due to increased distribution, we have over 115 million page loads this month, an increase of 15% over previous months (see [Where does the data come from?](./where_is_the_data_from.html) for more background on our data collection). The regions from which we are getting data is also diversifying. While 70% of the data still comes from German users, we now have more significant US and international data. We plan to have sufficient data in the coming months in order to provide region-specific tracking breakdowns.
 
 ## The tracking shell game
 
