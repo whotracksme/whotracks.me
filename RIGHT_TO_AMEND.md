@@ -16,7 +16,11 @@ data.
 1. Please reach out by opening an issue in the repository.
 2. Identify yourself, and your role in the organization on behalf of which you are 
    proposing an amendment of the data.
+<<<<<<< HEAD
 3. Provide urls to the whotracks.me pages that contain innacuracies (e.g. https://whotracks.me/trackers/<name>)
+=======
+3. Provide urls to the whotracks.me pages that contain innacuracies (e.g. https://whotracks.me/trackers/`rest of url`)
+>>>>>>> 6992f66... added right to ammend guide
 4. Clearly list the innacurac(y/ies), and for each write a sentence or two providing 
    evidence/justification w.r.t. why the current information is not correct.
 
