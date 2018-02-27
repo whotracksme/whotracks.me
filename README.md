@@ -11,8 +11,8 @@ ___
 
 This repository contains:
 
-* data on trackers and websites as shown on [whotracks.me](https://whotracks.me) (`./data`)
-* database mapping tracker domains to companies (`./db`)
+* data on trackers and websites as shown on [whotracks.me](https://whotracks.me) (WTM)
+* database mapping tracker domains to companies
 * code to render the [whotracks.me](https://whotracks.me) site
 
 
@@ -22,11 +22,15 @@ Python 3.x is needed to build the site. We recommend creating a
 [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) (or
 `pipenv`) to install the dependencies.
 
+Furthermore, you will need to [install sass](http://sass-lang.com/install).
+
+
 ## From Pypi
 
 ```sh
 $ pip install whotracksme
 ```
+
 
 ## From source
 
@@ -35,6 +39,7 @@ $ pip install -e .
 ```
 
 That's all you need to get started!
+
 
 # Using the data
 
@@ -52,6 +57,7 @@ DataSource().sites
 
 For examples of scripts, have a look in the [contrib](./contrib) folder!
 
+
 # Building the site
 
 Building the site requires a few extra dependencies, not installed by default to
@@ -67,8 +73,6 @@ Or if you do it from source:
 $ pip install -e '.[website]'
 ```
 
-*Furthermore* you also need to [install sass](http://sass-lang.com/install).
-
 
 Once this is done, you will have access to a `whotracksme` entry point that can
 be used this way:
@@ -82,6 +86,7 @@ website.
 
 All generated artifacts can be found in the `_site/` folder.
 
+
 ## Tests
 
 To run tests, you will need `pytest`, or simply install `whotacksme` with the
@@ -92,11 +97,18 @@ $ pip install -e '.[test,website]'
 $ pytest
 ```
 
+
 # Contributing
 
 We are happy to take contributions on:
-* guest articles for our blog in the topics of tracking, privacy and security. Feel free to use the data in this repository if you need inspiration.
-* Curating our database of tracker profiles.
+* Guest articles for our blog in the topics of tracking, privacy and security. Feel free to use the data in this repository if you need inspiration.
+* Feature requests that are doable using the WTM database.
+* Curating our database of tracker profiles. Open an issue if you spot anything odd.
+
+
+# Right to Amend
+Please read our [Guideline for 3rd parties](https://github.com/cliqz-oss/whotracks.me/blob/master/RIGHT_TO_AMEND.md) 
+wanting to suggest corrections to their data.
 
 
 # License
