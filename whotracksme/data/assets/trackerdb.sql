@@ -485,6 +485,11 @@ INSERT INTO "companies" VALUES('thoma_bravo','Thoma Bravo',NULL,NULL,'https://th
 INSERT INTO "companies" VALUES('vivendi','Vivendi',NULL,NULL,'https://vivendi.com/',NULL);
 INSERT INTO "companies" VALUES('rakuten','Rakuten',NULL,NULL,'http://global.rakuten.com/corp/',NULL);
 INSERT INTO "companies" VALUES('telstra','Telstra',NULL,NULL,'https://www.telstraglobal.com/',NULL);
+INSERT INTO "companies" VALUES('naver','NAVER Corp',NULL,NULL,'http://www.naver.com/','4249');
+INSERT INTO "companies" VALUES('mailerlite','MailerLite',NULL,'https://www.mailerlite.com/privacy-policy','https://www.mailerlite.com/',NULL);
+INSERT INTO "companies" VALUES('mycom_bv','My.com B.V.',NULL,NULL,'https://mediator.media/',NULL);
+INSERT INTO "companies" VALUES('kwanko','Kwanko',NULL,'https://www.kwanko.com/en/privacy-policy/','https://www.kwanko.com/',NULL);
+INSERT INTO "companies" VALUES('mopinion','Mopinion','Mopinion is a Rotterdam (NL) based technology company founded in 2013. It offers customer feedback analytics software for websites and apps.','https://mopinion.com/privacy/','https://mopinion.com/',NULL);
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -2161,6 +2166,11 @@ INSERT INTO "tracker_domains" VALUES('blueconic.net','blueconic.net');
 INSERT INTO "tracker_domains" VALUES('flocktory.com','flocktory.com');
 INSERT INTO "tracker_domains" VALUES('messenger.com','messenger.com');
 INSERT INTO "tracker_domains" VALUES('ooyala.com','ooyala.com');
+INSERT INTO "tracker_domains" VALUES('naver.com','naver.com');
+INSERT INTO "tracker_domains" VALUES('mailerlite.com','mailerlite.com');
+INSERT INTO "tracker_domains" VALUES('mediator.media','mediator.media');
+INSERT INTO "tracker_domains" VALUES('metaffiliation.com','de.netaffiliation.com');
+INSERT INTO "tracker_domains" VALUES('mopinion.com','mopinion.com');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -3287,6 +3297,11 @@ INSERT INTO "trackers" VALUES('userzoom.com','UserZoom',3,'https://www.userzoom.
 INSERT INTO "trackers" VALUES('flocktory.com','Flocktory',4,'https://www.flocktory.com/',NULL,'2761',NULL);
 INSERT INTO "trackers" VALUES('messenger.com','Facebook Messenger',7,'https://messenger.com','facebook',NULL,NULL);
 INSERT INTO "trackers" VALUES('ooyala.com','Ooyala',0,'https://www.ooyala.com/','telstra',NULL,NULL);
+INSERT INTO "trackers" VALUES('naver.com','Naver',8,'https://www.naver.com/','naver','2456','humera');
+INSERT INTO "trackers" VALUES('mailerlite.com','Mailerlite',10,'https://www.mailerlite.com/','mailerlite',NULL,'humera - email provider');
+INSERT INTO "trackers" VALUES('mediator.media','Mediator',6,'https://mediator.media/','mycom_bv',NULL,'humera ');
+INSERT INTO "trackers" VALUES('metaffiliation.com','Netaffiliation',4,'http://de.netaffiliation.com/','kwanko',NULL,'humera - metaffiliation redirects to netaffiliation');
+INSERT INTO "trackers" VALUES('mopinion.com','Mopinion',2,'https://mopinion.com/','mopinion',NULL,'humera');
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
