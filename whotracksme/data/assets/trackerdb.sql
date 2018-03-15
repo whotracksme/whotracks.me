@@ -507,13 +507,13 @@ INSERT INTO "companies" VALUES('bannerflow','Bannerflow','','https://www.bannerf
 INSERT INTO "companies" VALUES('beeketing','Beeketing',NULL,'https://beeketing.com/privacy-policy','https://beeketing.com/','4161');
 INSERT INTO "companies" VALUES('bemobile','Bemobile','','','http://bemobile.ua/en/',NULL);
 INSERT INTO "companies" VALUES('between_digital','Between Digital',NULL,'http://betweendigital.ru/privacy-policy','http://betweendigital.ru/ssp','2492');
-INSERT INTO "compananies" VALUES('macropod_software','Macropod Software Pty Ltd','','','http://www.macropodsoftware.com/index.html',NULL);
+INSERT INTO "companies" VALUES('macropod_software','Macropod Software Pty Ltd','','','http://www.macropodsoftware.com/index.html',NULL);
 INSERT INTO "companies" VALUES('cbs_interactive','CBS Interactive',NULL,'https://www.cbsinteractive.com/legal/cbsi/privacy-policy','https://www.cbsinteractive.com/','425');
-INSERT INTO "companiesies" VALUES('bid.run','Bid.Run',NULL,NULL,'http://bid.run/','4986');
+INSERT INTO "companies" VALUES('bid.run','Bid.Run',NULL,NULL,'http://bid.run/','4986');
 INSERT INTO "companies" VALUES('bigcommerce','BigCommerce',NULL,'https://www.bigcommerce.com/privacy/','https://www.bigcommerce.com/',NULL);
 INSERT INTO "companies" VALUES('blogfoster','Blogfoster GmbH',NULL,'http://www.blogfoster.com/datenschutz/','http://www.blogfoster.com/',NULL);
 INSERT INTO "companies" VALUES('blue_triangle_technologies_inc','Blue Triangle Technologies Inc',NULL,'https://www.bluetriangletech.com/privacy-policy/','https://www.bluetriangletech.com/','3355');
-INSERT INTO "comp" VALUES('cdnvideo','CDNvideo','','','https://www.cdnvideo.com/',NULL);
+INSERT INTO "companies" VALUES('cdnvideo','CDNvideo','','','https://www.cdnvideo.com/',NULL);
 INSERT INTO "companies" VALUES('clearbit','Clearbit','','https://clearbit.com/privacy','https://clearbit.com/',NULL);
 INSERT INTO "companies" VALUES('umeng','Umeng','','https://www.umeng.com/policy.html?spm=a211g2.181323.0.0.5c633604LabXL1','http://www.umeng.com/','1069');
 INSERT INTO "companies" VALUES('conde_nast','Condé Nast ',NULL,'http://www.condenast.com/privacy-policy/#privacypolicy','http://www.condenast.com/','1951');
