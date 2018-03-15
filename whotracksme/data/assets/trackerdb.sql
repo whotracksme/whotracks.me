@@ -507,13 +507,13 @@ INSERT INTO "companies" VALUES('bannerflow','Bannerflow','','https://www.bannerf
 INSERT INTO "companies" VALUES('beeketing','Beeketing',NULL,'https://beeketing.com/privacy-policy','https://beeketing.com/','4161');
 INSERT INTO "companies" VALUES('bemobile','Bemobile','','','http://bemobile.ua/en/',NULL);
 INSERT INTO "companies" VALUES('between_digital','Between Digital',NULL,'http://betweendigital.ru/privacy-policy','http://betweendigital.ru/ssp','2492');
-INSERT INTO "companies" VALUES('bid.run','Bid.Run',NULL,NULL,'http://bid.run/','4986');
+INSERT INTO "compananies" VALUES('macropod_software','Macropod Software Pty Ltd','','','http://www.macropodsoftware.com/index.html',NULL);
+INSERT INTO "companies" VALUES('cbs_interactive','CBS Interactive',NULL,'https://www.cbsinteractive.com/legal/cbsi/privacy-policy','https://www.cbsinteractive.com/','425');
+INSERT INTO "companiesies" VALUES('bid.run','Bid.Run',NULL,NULL,'http://bid.run/','4986');
 INSERT INTO "companies" VALUES('bigcommerce','BigCommerce',NULL,'https://www.bigcommerce.com/privacy/','https://www.bigcommerce.com/',NULL);
 INSERT INTO "companies" VALUES('blogfoster','Blogfoster GmbH',NULL,'http://www.blogfoster.com/datenschutz/','http://www.blogfoster.com/',NULL);
 INSERT INTO "companies" VALUES('blue_triangle_technologies_inc','Blue Triangle Technologies Inc',NULL,'https://www.bluetriangletech.com/privacy-policy/','https://www.bluetriangletech.com/','3355');
-INSERT INTO "companies" VALUES('macropod_software','Macropod Software Pty Ltd','','','http://www.macropodsoftware.com/index.html',NULL);
-INSERT INTO "companies" VALUES('cbs_interactive','CBS Interactive',NULL,'https://www.cbsinteractive.com/legal/cbsi/privacy-policy','https://www.cbsinteractive.com/','425');
-INSERT INTO "companies" VALUES('cdnvideo','CDNvideo','','','https://www.cdnvideo.com/',NULL);
+INSERT INTO "comp" VALUES('cdnvideo','CDNvideo','','','https://www.cdnvideo.com/',NULL);
 INSERT INTO "companies" VALUES('clearbit','Clearbit','','https://clearbit.com/privacy','https://clearbit.com/',NULL);
 INSERT INTO "companies" VALUES('umeng','Umeng','','https://www.umeng.com/policy.html?spm=a211g2.181323.0.0.5c633604LabXL1','http://www.umeng.com/','1069');
 INSERT INTO "companies" VALUES('conde_nast','Condé Nast ',NULL,'http://www.condenast.com/privacy-policy/#privacypolicy','http://www.condenast.com/','1951');
@@ -3118,7 +3118,7 @@ INSERT INTO "trackers" VALUES('adbetclickin.pink','adbetnet',4,'http://adbetnet.
 INSERT INTO "trackers" VALUES('mytoys.de','mytoys.de',NULL,NULL,NULL,'mytoys.de',NULL);
 INSERT INTO "trackers" VALUES('videoadex.com','videoadex.com',NULL,NULL,NULL,'videoadex.com',NULL);
 INSERT INTO "trackers" VALUES('monster_advertising','Monster Advertising',4,'http://www.monster.com/','monster_worldwide','1534',NULL);
-INSERT INTO "trackers" VALUES('atlassian.net','Atlassian',2,'https://www.atlassian.com/',NULL,'atlassian',NULL);
+INSERT INTO "trackers" VALUES('atlassian.net','Atlassian',2,'https://www.atlassian.com/','atlassian',NULL,NULL);
 INSERT INTO "trackers" VALUES('siteimprove_analytics','SiteImprove Analytics',6,NULL,'siteimprove','2452',NULL);
 INSERT INTO "trackers" VALUES('mirtesen.ru','mirtesen.ru',7,'https://mirtesen.ru/',NULL,'mirtesen.ru',NULL);
 INSERT INTO "trackers" VALUES('conrad.com','conrad.com',NULL,NULL,NULL,'conrad.com',NULL);
@@ -3287,7 +3287,7 @@ INSERT INTO "trackers" VALUES('wikia_cdn','Wikia CDN',9,NULL,'wikia',NULL,'16/11
 INSERT INTO "trackers" VALUES('insightexpress','InsightExpress',6,'https://www.millwardbrowndigital.com/','millward_brown',NULL,NULL);
 INSERT INTO "trackers" VALUES('platformone','Platform One',4,'https://www.platform-one.co.jp/','daconsortium',NULL,'16/11/17: Optout page at http://feedback.impact-ad.jp/optout');
 INSERT INTO "trackers" VALUES('adrom','adRom',4,'http://www.adrom.net/',NULL,NULL,'16/11/17: txt.eu registered to adRom GmbH');
-INSERT INTO "trackers" VALUES('purch','Purch',4,'http://www.purch.com/',NULL,NULL,'16/11/17: serveboom.com registered to Bestofmedia, which was acquired by Purch.');
+INSERT INTO "trackers" VALUES('purch','Purch',4,'http://www.purch.com/','purch',NULL,'16/11/17: serveboom.com registered to Bestofmedia, which was acquired by Purch.');
 INSERT INTO "trackers" VALUES('tumblr_analytics','Tumblr Analytics',6,NULL,'tumblr',NULL,'16/11/17: sre-perim.com registered to Tumblr and called via a Cedexis script on Tumblr blogs.');
 INSERT INTO "trackers" VALUES('scoota','Scoota',4,'http://scoota.com/',NULL,NULL,'16/11/17: rockabox.co registered to Rockabox Media Ltd. From the Scoota website: ''Scoota is the trading name of Rockabox Media Ltd.''');
 INSERT INTO "trackers" VALUES('bitly','Bitly',6,'https://bitly.com/',NULL,NULL,NULL);
