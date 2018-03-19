@@ -6,7 +6,9 @@ from datetime import datetime
 import json
 import sqlite3
 import pkgutil
-
+import os
+import pandas as pd
+import re
 
 def load_asset(name):
     return pkgutil.get_data(
@@ -42,12 +44,21 @@ def load_sites():
     return load_json_file('sites.json')
 
 
+def get_data_dir():
+    module_info = list(filter(lambda mod: mod.name == 'whotracksme.data.assets', pkgutil.walk_packages('whotracksme.data')))[0]
+    return f'{module_info.module_finder.path}/assets'
+
+
 class DataSource:
     def __init__(self):
-        _apps = load_apps()
-        _sites = load_sites()
-        self.companies = load_companies()
-        self.overview = load_overview()
+        # _apps = load_apps()
+        # _sites = load_sites()
+        # self.companies = load_companies()
+        # self.overview = load_overview()
+        self.data_dir = get_data_dir()
+        month_matcher = re.compile('[0-9]{4}-[0-9]{2}')
+        self.data_months = [month for month in os.listdir(self.data_dir) if os.path.isdir(f'{self.data_dir}/{month}') and month_matcher.fullmatch(month) is not None]
+        print('data available for months:', self.data_months)
 
         # Add demographics info to trackers and companies
         connection = load_tracker_db()
@@ -55,38 +66,38 @@ class DataSource:
             self.app_info = self.load_app_info(connection)
             self.company_info = self.load_company_info(connection)
 
-        for id, app in _apps.items():
-            if id in self.app_info:
-                for k, v in self.app_info[id].items():
-                    app[k] = v
-                if not app['name']:
-                    app['name'] = id
-                if not app['company_id']:
-                    app['company_id'] = app['name']
-                # added to simplify `Trackers.sort_by()`
-                app['overview']['company_id'] = app['company_id']
-            else:
-                print(f'missing app info for {id}')
-                app['name'] = id
-                app['company_id'] = 'fill me in'
-                app['overview']['company_id'] = 'fill me in'
-            if 'cat' not in app:
-                print(f'missing category for {id}')
-            elif app['cat'] is None:
-                print(f'category is none: {id}')
-                # app['cat'] = 'unknown'
+        # for id, app in _apps.items():
+        #     if id in self.app_info:
+        #         for k, v in self.app_info[id].items():
+        #             app[k] = v
+        #         if not app['name']:
+        #             app['name'] = id
+        #         if not app['company_id']:
+        #             app['company_id'] = app['name']
+        #         # added to simplify `Trackers.sort_by()`
+        #         app['overview']['company_id'] = app['company_id']
+        #     else:
+        #         print(f'missing app info for {id}')
+        #         app['name'] = id
+        #         app['company_id'] = 'fill me in'
+        #         app['overview']['company_id'] = 'fill me in'
+        #     if 'cat' not in app:
+        #         print(f'missing category for {id}')
+        #     elif app['cat'] is None:
+        #         print(f'category is none: {id}')
+        #         # app['cat'] = 'unknown'
 
         # TODO: Remove when supported in data generation
-        for id, site in _sites.items():
-            site['overview']['category'] = site.get('category', 'unknown')
+        # for id, site in _sites.items():
+        #     site['overview']['category'] = site.get('category', 'unknown')
 
-        for id, company in self.companies.items():
-            if id in self.company_info:
-                for k, v in self.company_info[id].items():
-                    company[k] = v
+        # for id, company in self.companies.items():
+        #     if id in self.company_info:
+        #         for k, v in self.company_info[id].items():
+        #             company[k] = v
 
-        self.trackers = Trackers(_apps)
-        self.sites = Sites(_sites)
+        self.trackers = Trackers(self.data_dir, self.data_months, self.app_info)
+        #self.sites = Sites(self.data_dir, self.data_months)
 
     @staticmethod
     def normalize_url(url_substring):
@@ -152,14 +163,23 @@ class DataSource:
 
 
 class Trackers:
-    def __init__(self, trackers):
-        self._trackers = trackers
+    def __init__(self, data_dir, data_months, tracker_info, region='global'):
+        self.last_month = max(data_months)
+        self.df = pd.concat([pd.read_csv(f'{data_dir}/{month}/{region}/trackers.csv') for month in data_months])
+        self.info = tracker_info
+        # add company_id column
+        self.df['company_id'] = pd.Series(
+            [tracker_info.get(tracker, {}).get('company_id', tracker)
+            for tracker in self.df.tracker], index=self.df.index)
+        self.df['category'] = pd.Series(
+            [tracker_info.get(tracker, {}).get('category', 'unknown')
+            for tracker in self.df.tracker], index=self.df.index)
 
     # Summary methods across all trackers
     # -----------------------------------
     def iter(self):
-        for (tracker_id, tracker) in self._trackers.items():
-            yield (tracker_id, tracker)
+        for row in self.df.itertuples():
+            yield (row.tracker, row)
 
     def sort_by(self, metric="reach", descending=True):
         """
@@ -170,50 +190,32 @@ class Trackers:
         Returns: list of tracker objects, sorted by metric
 
         """
-        return sorted(
-            self._trackers.values(),
-            key=lambda a: a['overview'][metric],
-            reverse=descending
-        )
+        return self.df[self.df['month'] == self.last_month]\
+            .sort_values(by=[metric], ascending=not descending)
 
     def summary_stats(self):
         """
         Returns: Summary stats across all trackers.
 
         """
-        cookies = []
-        fingerpriting = []
-        data_consumption = []
-        for tracker_id, tracker in self._trackers.items():
-            cookies.append(
-                True if tracker.get('overview', {}).get('cookies') > 0.2
-                else False
-            )
-            fingerpriting.append(
-                True if tracker.get('overview', {}).get('bad_qs') > 0.1
-                else False
-            )
-            data_consumption.append(
-                tracker.get('overview', {}).get('content_length', 0)
-            )
-
+        # snapshot of last month in the data
+        ss = self.df[self.df.month == self.last_month]
         return {
-            'count': len(self._trackers),
-            'gt01': len([a for a in self._trackers.values()
-                         if a['overview']['reach'] > 0.001]),
-            'by_cookies': sum(cookies) / len(cookies),
-            'by_fingerprinting': sum(fingerpriting) / len(fingerpriting),
-            'data': mean(data_consumption)
+            'count': len(ss),
+            'gt01': len(ss[ss.reach > 0.001]),
+            'by_cookies': len(ss[ss.cookies > 0.2]) / len(ss),
+            'by_fingerprinting': len(ss[ss.bad_qs > 0.1]) / len(ss),
+            'data': ss['content_length'].mean()
         }
 
     # Methods for a specific Tracker
     # ------------------------------
     def get_tracker(self, id):
-        return self._trackers.get(id)
+        return self.info.get(id)
 
     def get_name(self, id):
         # TODO: This is odd, are there id-s of trackers that are not in apps?
-        return self._trackers.get(id).get('name') if id in self._trackers else id
+        return self.info.get(id).get('name') if id in self.info else id
 
     def get_rank(self, id):
         return self.get_tracker(id).get('rank')

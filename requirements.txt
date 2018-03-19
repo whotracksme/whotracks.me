@@ -16,6 +16,7 @@ jupyter-core==4.4.0
 Markdown==2.6.9
 MarkupSafe==1.0
 nbformat==4.4.0
+pandas==0.22.0
 pathtools==0.1.2
 plotly==2.2.2
 py==1.5.2

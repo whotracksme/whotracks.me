@@ -47,6 +47,7 @@ setup(
             'colour',
             'jinja2',
             'markdown',
+            'pandas',
             'plotly',
             'sanic',
             'squarify',
