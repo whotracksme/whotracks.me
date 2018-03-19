@@ -108,7 +108,7 @@ def tracker_map_data(site_id, data):
 
 
 def company_reach(companies, n=10):
-    sorted_companies = sorted(companies.values(), key=lambda c: c['rank'])
+    sorted_companies = companies.sort_values('reach_rank', ascending=True)
     return sorted_companies[:n]
 
 

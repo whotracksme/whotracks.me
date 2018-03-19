@@ -9,8 +9,8 @@
     <!-- OG params for sharable content -->
     <meta property="og:title" content="Tracker | {{ app.name }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://whotracks.me/{{ 'tracker'|url_for(app.overview.id) | absolute_og_urls }}">
-    <meta property="og:description" content="Tracker profile of {{ app.name }}. Reach, domains it operates under, tracking technology, web presence by type of site and more.">
+    <meta property="og:url" content="https://whotracks.me/{{ 'tracker'|url_for(app.tracker) | absolute_og_urls }}">
+    <meta property="og:description" content="Tracker profile of {{ app.tracker | get_app_name }}. Reach, domains it operates under, tracking technology, web presence by type of site and more.">
 {% endblock %}
 
 
@@ -67,12 +67,12 @@ $(document).ready(function() {
                     <div class="row tracker-category">
                         <div class="col-md-11">
                         <h4>TRACKER CATEGORY</h4>
-                        {% if app.cat %}
+                        {% if profile.cat %}
                             <span class="cat-item">
-                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES[app.cat] }}" aria-hidden="true"></i>
-                                {{app.cat|prettify_label}}
+                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES[profile.cat] }}" aria-hidden="true"></i>
+                                {{profile.cat|prettify_label}}
                             </span>
-                            <p class="tracker-desc">{{CATEGORY_DESC[app.cat]}}</p>
+                            <p class="tracker-desc">{{CATEGORY_DESC[profile.cat]}}</p>
                         {% else %}
 
                             <span class="cat-item">

@@ -66,38 +66,18 @@ class DataSource:
             self.app_info = self.load_app_info(connection)
             self.company_info = self.load_company_info(connection)
 
-        # for id, app in _apps.items():
-        #     if id in self.app_info:
-        #         for k, v in self.app_info[id].items():
-        #             app[k] = v
-        #         if not app['name']:
-        #             app['name'] = id
-        #         if not app['company_id']:
-        #             app['company_id'] = app['name']
-        #         # added to simplify `Trackers.sort_by()`
-        #         app['overview']['company_id'] = app['company_id']
-        #     else:
-        #         print(f'missing app info for {id}')
-        #         app['name'] = id
-        #         app['company_id'] = 'fill me in'
-        #         app['overview']['company_id'] = 'fill me in'
-        #     if 'cat' not in app:
-        #         print(f'missing category for {id}')
-        #     elif app['cat'] is None:
-        #         print(f'category is none: {id}')
-        #         # app['cat'] = 'unknown'
+        self.sites_trackers = SitesTrackers(self.data_dir, [max(self.data_months)])
 
-        # TODO: Remove when supported in data generation
-        # for id, site in _sites.items():
-        #     site['overview']['category'] = site.get('category', 'unknown')
+        self.trackers = Trackers(self.data_dir, self.data_months, self.app_info, self.sites_trackers)
 
-        # for id, company in self.companies.items():
-        #     if id in self.company_info:
-        #         for k, v in self.company_info[id].items():
-        #             company[k] = v
+        # companies data frame - add name column
+        self.companies = pd.concat([pd.read_csv(f'{self.data_dir}/{month}/global/companies.csv') for month in self.data_months])
+        self.companies['name'] = pd.Series([
+            self.get_company_name(company)
+            for company in self.companies.company],
+            index=self.companies.index)
 
-        self.trackers = Trackers(self.data_dir, self.data_months, self.app_info)
-        #self.sites = Sites(self.data_dir, self.data_months)
+        self.sites = Sites(self.data_dir, self.data_months)
 
     @staticmethod
     def normalize_url(url_substring):
@@ -162,24 +142,16 @@ class DataSource:
         return company_info
 
 
-class Trackers:
-    def __init__(self, data_dir, data_months, tracker_info, region='global'):
-        self.last_month = max(data_months)
-        self.df = pd.concat([pd.read_csv(f'{data_dir}/{month}/{region}/trackers.csv') for month in data_months])
-        self.info = tracker_info
-        # add company_id column
-        self.df['company_id'] = pd.Series(
-            [tracker_info.get(tracker, {}).get('company_id', tracker)
-            for tracker in self.df.tracker], index=self.df.index)
-        self.df['category'] = pd.Series(
-            [tracker_info.get(tracker, {}).get('category', 'unknown')
-            for tracker in self.df.tracker], index=self.df.index)
+class PandasDataLoader:
 
-    # Summary methods across all trackers
-    # -----------------------------------
+    def __init__(self, data_dir, data_months, name, region='global', id_column=None):
+        self.last_month = max(data_months)
+        self.df = pd.concat([pd.read_csv(f'{data_dir}/{month}/{region}/{name}.csv') for month in data_months])
+        self.id_col = id_column or self.df.columns[2]
+
     def iter(self):
         for row in self.df.itertuples():
-            yield (row.tracker, row)
+            yield (row._asdict()[self.id_col], row)
 
     def sort_by(self, metric="reach", descending=True):
         """
@@ -190,8 +162,41 @@ class Trackers:
         Returns: list of tracker objects, sorted by metric
 
         """
-        return self.df[self.df['month'] == self.last_month]\
-            .sort_values(by=[metric], ascending=not descending)
+        return self.get_snapshot().sort_values(by=[metric], ascending=not descending)
+
+    def get_snapshot(self, month=None):
+        return self.df[self.df.month == (month or self.last_month)]
+
+
+class Trackers(PandasDataLoader):
+    def __init__(self, data_dir, data_months, tracker_info, sites, region='global'):
+        super().__init__(data_dir, data_months, name='trackers', region=region)
+
+        self.info = tracker_info
+        # add company_id column
+        self.df['company_id'] = pd.Series(
+            [tracker_info.get(tracker, {}).get('company_id', tracker)
+            for tracker in self.df.tracker], index=self.df.index)
+        self.df['category'] = pd.Series(
+            [tracker_info.get(tracker, {}).get('category', 'unknown')
+            for tracker in self.df.tracker], index=self.df.index)
+
+        self.sites = sites
+
+        for row in self.get_snapshot().itertuples():
+            if row.tracker in self.info:
+                self.info[row.tracker]['overview'] = row._asdict()
+            else:
+                print('missing tracker info:', row.tracker)
+                self.info[row.tracker] = {
+                    'id': row.tracker,
+                    'name': row.tracker,
+                    'overview': row._asdict()
+                }
+
+
+    # Summary methods across all trackers
+    # -----------------------------------
 
     def summary_stats(self):
         """
@@ -199,7 +204,7 @@ class Trackers:
 
         """
         # snapshot of last month in the data
-        ss = self.df[self.df.month == self.last_month]
+        ss = self.get_snapshot()
         return {
             'count': len(ss),
             'gt01': len(ss[ss.reach > 0.001]),
@@ -218,7 +223,9 @@ class Trackers:
         return self.info.get(id).get('name') if id in self.info else id
 
     def get_rank(self, id):
-        return self.get_tracker(id).get('rank')
+        if id not in self.info:
+            raise RuntimeError(f'No tracker with id: {id}')
+        return self.get_tracker(id).get('overview', {}).get('reach_rank')
 
     def get_rank_label(self, id):
         """
@@ -260,40 +267,18 @@ class Trackers:
         return methods
 
     def get_reach(self, id):
-        reach = defaultdict(list)
-
-        for t in self._trackers.get(id).get('history'):
-            reach['page'].append(t.get('reach'))
-            reach['ts'].append(t.get('ts'))
-            reach['site'].append(t.get('site_reach'))
-
-        reach['ts'] = [datetime.strptime(t, '%Y-%m') for t in reach['ts']]
-        return reach
+        tr_df = self.df[self.df.tracker == id].sort_values('month')
+        return {
+            'page': [reach for reach in tr_df.reach],
+            'ts': [datetime.strptime(t, '%Y-%m') for t in tr_df.month],
+            'site': [reach for reach in tr_df.site_reach],
+        }
 
     def get_presence_by_site_category(self, id, sites):
-        categories = Counter(
-            filter(
-                lambda c: len(c) > 0,
-                [sites.get_site(s['site']).get('category', '')
-                 for s in self._trackers.get(id).get('sites')]
-            )
-        )
+        tracker_sites = self.sites.df[self.sites.df.tracker == id].site
+        category_counts = sites.df[sites.df.site.isin(tracker_sites)].groupby('category').count().site
 
-        if categories.items():
-            normalized_categories = []
-            total = sum(categories.values())
-            for (k, v) in categories.items():
-                if not k == '':
-                    normalized_categories.append(
-                        (k, round(100 * (v / float(total))))
-                    )
-
-            return sorted(
-                normalized_categories,
-                key=lambda x: x[1],
-                reverse=True
-            )
-        return []
+        return list((category_counts * 100 / category_counts.sum()).round().sort_values(ascending=False).iteritems())
 
     def similar_trackers(self, id, n=4):
         """
@@ -305,82 +290,51 @@ class Trackers:
             top_n: list of similar trackers, each having an id
                    and the company_id
         """
-        sorted_trackers = self.sort_by(metric="reach")
-        tracker = self._trackers.get(id)
-        top_n = []
-
-        for t in sorted_trackers:
-            if len(top_n) > n:
-                break
-            similar_tracker = {}
-
-            if t.get('cat') == tracker.get('cat') and \
-                    t.get('overview', {}).get('id') != tracker.get('id'):
-                similar_tracker['id'] = t['overview']['id']
-                similar_tracker['company_id'] = t['company_id']
-                top_n.append(similar_tracker)
-
-        return top_n
+        st = self.sort_by(metric="reach")
+        tracker = self.get_tracker(id)
+        return [{
+            'id': t.tracker,
+            'company_id': t.company_id
+        } for t in st[(st.category == tracker['overview']['category']) & (st.tracker != id)][:n].itertuples()]
 
     def get_domains(self, id):
         return self._trackers.get(id).get('domains', [])
 
     def iter_sites(self, id):
-        for site in self._trackers.get(id).get('sites', []):
+        for site in self.sites.get_tracker(id).itertuples():
             yield site
 
 
-class Sites:
-    def __init__(self, sites):
-        self._sites = sites
+class Sites(PandasDataLoader):
+    def __init__(self, data_dir, data_months, region='global'):
+        super().__init__(data_dir, data_months, name='sites', region=region)
 
     # Summary methods across all sites
     # --------------------------------
-    def iter(self):
-        for (site_id, site) in self._sites.items():
-            yield (site_id, site)
-
-    def sort_by(self, metric='popularity', descending=True):
-        return sorted(
-            self._sites.values(),
-            key=lambda s: s['overview'][metric],
-            reverse=descending
-        )
 
     def summary_stats(self):
         """
         Returns: aggregate tracker statistics across all sites in database
 
         """
-        have_trackers = []
-        average_nr_trackers = []
-        tracker_requests = []
-        data_consumption = []
-        gt10 = 0
-        for (_, site) in self.iter():
-            have_trackers.append(site['overview']['tracked'])
-            average_nr_trackers.append(site['overview']['mean_trackers'])
-            if site['overview']['mean_trackers'] >= 10:
-                gt10 += 1
-            data_consumption.append(site['overview']['content_length'])
-            tracker_requests.append(site["overview"]["requests_tracking"])
+        ss = self.get_snapshot()
         return {
-            'count': len(self._sites),
-            "have_trackers": mean(have_trackers),
-            'gt10': gt10,
-            "average_nr_trackers": mean(average_nr_trackers),
-            "tracker_requests": int(mean(tracker_requests)),
-            'data': mean(data_consumption)
+            'count': len(ss),
+            "have_trackers": ss.tracked.mean(),
+            'gt10': len(ss[ss.trackers >= 10]),
+            "average_nr_trackers": ss.trackers.mean(),
+            "tracker_requests": int(ss.requests.mean()),
+            'data': ss.content_length.mean()
         }
 
     # Methods for one specific site
     # -----------------------------
     def get_site(self, id):
-        return self._sites.get(id, {})
+        return self.df[self.df.site == id]
 
     def get_name(self, id):
         # NOTE: This is weird
-        return id if id in self._sites else None
+        return id if len(self.get_site(id)) > 0 else None
 
     def tracking_methods(self, id):
         """
@@ -438,3 +392,12 @@ class Sites:
         """
         return [(s.get('ts'), s.get('mean_trackers'))
                 for s in self.get_site(id).get('history')]
+
+
+class SitesTrackers(PandasDataLoader):
+
+    def __init__(self, data_dir, data_months, region='global'):
+        super().__init__(data_dir, data_months, name='sites_trackers', region=region)
+
+    def get_tracker(self, tracker):
+        return self.df[self.df.tracker == tracker]
