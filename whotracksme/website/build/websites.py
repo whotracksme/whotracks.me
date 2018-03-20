@@ -35,69 +35,51 @@ def build_website_list(data):
 
 
 def website_page(template, site, rank, data):
-    site_id = site['overview']['site']
+    site_id = site.site
 
     # website url is the most common subdomain
-    website_url = sorted(
-        site.get('subdomains').items(),
-        key=itemgetter(1),
-        reverse=True)[0][0]
+    website_url = f'www.{site_id}'
     profile = {
         "rank": rank,
         "website_url": website_url,
-        "name":  site["overview"]["site"],
-        "overview": site["overview"]
+        "name":  site.site,
     }
 
-    methods = data.sites.tracking_methods(site_id)
+    methods = {
+        'cookies': site.cookies > 0.2,
+        'fingerprinting': site.bad_qs > 0.1,
+    }
 
     # tracker presence data
     sankey_data = tracker_map_data(site_id, data)
-    d_values, d_labels, d_total = website_doughnout(data.trackers, site)
+    d_values, d_labels, d_total = website_doughnout(site_id, data)
     profile_dough = Markup(profile_doughnut(d_values, d_labels, d_total))
 
     rendered_sankey = Markup(sankey_plot(sankey_data))
 
     # apps per site data
-    tracker_table = []
-    for a in site.get("apps"):
-        freq = a.get("frequency")
-        tracker_id = a.get("app")
-        if data.trackers.get_tracker(tracker_id):
-            tracker = data.trackers.get_tracker(tracker_id)
-            tracker["frequency"] = freq
-            tracker_table.append(tracker)
+    tracker_table = data.sites.trackers.get_site(site_id)
 
-    sorted_trackers = sorted(
-        tracker_table,
-        key=lambda a: a['frequency'],
-        reverse=True
-    )
-    sorted_trackers_cat = sorted(
-        tracker_table,
-        key=lambda a: a.get("company_id", "")
-        if a.get("company_id") is not None else ""
-    )
-
-    with open('_site/websites/{}.html'.format(site["name"]), 'w') as output:
+    with open('_site/websites/{}.html'.format(site.site), 'w') as output:
         output.write(render_template(
             path_to_root='..',
             template=template,
-            site=site,
+            site={
+                'overview': site._asdict()
+            },
             profile=profile,
             methods=methods,
             sankey=rendered_sankey,
             doughnut=profile_dough,
             tracker_categories=d_labels,
-            tracker_list=sorted_trackers,
-            trackers_list_cat=sorted_trackers_cat
+            tracker_list=tracker_table,
         ))
 
 
 def build_website_pages(data):
     template = get_template(data, "website-page.html", path_to_root='..')
 
-    for (rank, site) in enumerate(data.sites.sort_by(metric='popularity', descending=True)):
+    for (rank, site) in enumerate(data.sites.sort_by(metric='popularity', descending=True).itertuples()):
         website_page(template, site, rank + 1, data)
 
     print_progress(text="Generate website pages")

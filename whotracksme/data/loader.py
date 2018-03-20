@@ -66,7 +66,7 @@ class DataSource:
             self.app_info = self.load_app_info(connection)
             self.company_info = self.load_company_info(connection)
 
-        self.sites_trackers = SitesTrackers(self.data_dir, [max(self.data_months)])
+        self.sites_trackers = SitesTrackers(self.data_dir, [max(self.data_months)], self.app_info)
 
         self.trackers = Trackers(self.data_dir, self.data_months, self.app_info, self.sites_trackers)
 
@@ -77,7 +77,7 @@ class DataSource:
             for company in self.companies.company],
             index=self.companies.index)
 
-        self.sites = Sites(self.data_dir, self.data_months)
+        self.sites = Sites(self.data_dir, self.data_months, self.sites_trackers)
 
     @staticmethod
     def normalize_url(url_substring):
@@ -178,7 +178,7 @@ class Trackers(PandasDataLoader):
             [tracker_info.get(tracker, {}).get('company_id', tracker)
             for tracker in self.df.tracker], index=self.df.index)
         self.df['category'] = pd.Series(
-            [tracker_info.get(tracker, {}).get('category', 'unknown')
+            [tracker_info.get(tracker, {}).get('cat', 'unknown')
             for tracker in self.df.tracker], index=self.df.index)
 
         self.sites = sites
@@ -306,8 +306,9 @@ class Trackers(PandasDataLoader):
 
 
 class Sites(PandasDataLoader):
-    def __init__(self, data_dir, data_months, region='global'):
+    def __init__(self, data_dir, data_months, trackers, region='global'):
         super().__init__(data_dir, data_months, name='sites', region=region)
+        self.trackers = trackers
 
     # Summary methods across all sites
     # --------------------------------
@@ -323,7 +324,7 @@ class Sites(PandasDataLoader):
             "have_trackers": ss.tracked.mean(),
             'gt10': len(ss[ss.trackers >= 10]),
             "average_nr_trackers": ss.trackers.mean(),
-            "tracker_requests": int(ss.requests.mean()),
+            "tracker_requests": int(ss.requests_tracking.mean()),
             'data': ss.content_length.mean()
         }
 
@@ -335,25 +336,6 @@ class Sites(PandasDataLoader):
     def get_name(self, id):
         # NOTE: This is weird
         return id if len(self.get_site(id)) > 0 else None
-
-    def tracking_methods(self, id):
-        """
-        Args:
-            id: id of site to access, the site's url
-
-        Returns: {'cookies:: bool, 'fingerprinting':: bool}
-                based on chosen threshold by privacy team.
-
-        """
-        methods = {
-            "cookies": False,
-            "fingerprinting": False
-        }
-        if self.get_site(id).get("overview", {}).get("cookies") > 0.2:
-            methods["cookies"] = True
-        if self.get_site(id).get("overview", {}).get("bad_qs") > 0.1:
-            methods["fingerprinting"] = True
-        return methods
 
     def trackers_on_site(self, id, trackers, companies):
         """
@@ -368,19 +350,20 @@ class Sites(PandasDataLoader):
             company_name :: string
         """
 
-        for t in self.get_site(id).get('apps'):
-            tracker_id = t['app']
+        for t in self.trackers.get_site(id).sort_values('site_proportion', ascending=False).itertuples():
+            tracker_id = t.tracker
             try:
                 tracker = trackers.get_tracker(tracker_id)
-                tracker['frequency'] = t['frequency']
+                tracker['frequency'] = t.site_proportion
             except TypeError:
                 continue
             category = tracker.get('cat', 'unknown')
-            if category == 'extensions':
+            if category == 'extensions' or category is None:
                 continue
 
             cid = tracker.get('company_id')
             company_name = companies.get(cid, {}).get('name') or tracker['name']
+
             yield (tracker, category, company_name)
 
     def mean_trackers_timeseries(self, id):
@@ -396,8 +379,15 @@ class Sites(PandasDataLoader):
 
 class SitesTrackers(PandasDataLoader):
 
-    def __init__(self, data_dir, data_months, region='global'):
+    def __init__(self, data_dir, data_months, tracker_info, region='global'):
         super().__init__(data_dir, data_months, name='sites_trackers', region=region)
+
+        self.df['company_id'] = pd.Series(
+            [tracker_info.get(tracker, {}).get('company_id', tracker)
+            for tracker in self.df.tracker], index=self.df.index)
 
     def get_tracker(self, tracker):
         return self.df[self.df.tracker == tracker]
+
+    def get_site(self, site):
+        return self.df[self.df.site == site]
