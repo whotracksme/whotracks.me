@@ -121,7 +121,7 @@ class Builder:
                 futures.append(executor.submit(build_website_pages, data=data_source))
 
                 # Companies
-                #futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
+                futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
 
             # Depends on: 'data/', 'blog/', 'templates/'
             if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
@@ -138,12 +138,12 @@ class Builder:
                 ))
 
             # Depends on: 'data/', 'blog/', 'templates/'
-            # if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
-                # futures.append(executor.submit(
-                #     generate_sitemap,
-                #     data=data_source,
-                #     blog_posts=self.blog_posts
-                # ))
+            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
+                futures.append(executor.submit(
+                    generate_sitemap,
+                    data=data_source,
+                    blog_posts=self.blog_posts
+                ))
 
             # TODO: uncomment when company profiles are ready
             # if args['site'] or args['companies']:

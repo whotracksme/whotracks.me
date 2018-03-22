@@ -67,16 +67,8 @@ class DataSource:
             self.company_info = self.load_company_info(connection)
 
         self.sites_trackers = SitesTrackers(self.data_dir, [max(self.data_months)], self.app_info)
-
         self.trackers = Trackers(self.data_dir, self.data_months, self.app_info, self.sites_trackers)
-
-        # companies data frame - add name column
-        self.companies = pd.concat([pd.read_csv(f'{self.data_dir}/{month}/global/companies.csv') for month in self.data_months])
-        self.companies['name'] = pd.Series([
-            self.get_company_name(company)
-            for company in self.companies.company],
-            index=self.companies.index)
-
+        self.companies = Companies(self.data_dir, self.data_months, self.company_info, self.app_info)
         self.sites = Sites(self.data_dir, self.data_months, self.sites_trackers)
 
     @staticmethod
@@ -150,7 +142,7 @@ class PandasDataLoader:
         self.id_col = id_column or self.df.columns[2]
 
     def iter(self):
-        for row in self.df.itertuples():
+        for row in self.get_snapshot().itertuples():
             yield (row._asdict()[self.id_col], row)
 
     def sort_by(self, metric="reach", descending=True):
@@ -298,7 +290,7 @@ class Trackers(PandasDataLoader):
         } for t in st[(st.category == tracker['overview']['category']) & (st.tracker != id)][:n].itertuples()]
 
     def get_domains(self, id):
-        return self._trackers.get(id).get('domains', [])
+        return self.get_tracker(id).get('domains', [])
 
     def iter_sites(self, id):
         for site in self.sites.get_tracker(id).itertuples():
@@ -391,3 +383,13 @@ class SitesTrackers(PandasDataLoader):
 
     def get_site(self, site):
         return self.df[self.df.site == site]
+
+class Companies(PandasDataLoader):
+
+    def __init__(self, data_dir, data_months, company_info, tracker_info, region='global'):
+        super().__init__(data_dir, data_months, name='companies', region=region)
+
+        self.df['name'] = pd.Series([
+            company_info.get(row.company, tracker_info.get(row.company, {})).get('name', row.company)
+            for row in self.df.itertuples()],
+            index=self.df.index)
