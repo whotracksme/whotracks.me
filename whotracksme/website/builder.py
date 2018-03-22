@@ -114,7 +114,7 @@ class Builder:
 
                 # Trackers
                 futures.append(executor.submit(build_trackers_list, data=data_source))
-                # futures.append(executor.submit(build_tracker_pages, data=data_source))
+                futures.append(executor.submit(build_tracker_pages, data=data_source))
 
                 # Websites
                 futures.append(executor.submit(build_website_list, data=data_source))
