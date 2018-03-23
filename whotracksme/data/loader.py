@@ -166,6 +166,11 @@ class Trackers(PandasDataLoader):
                     'overview': row._asdict()
                 }
 
+        last_month = datetime.strptime(max(data_months), '%Y-%m')
+        for tracker, month in self.df.groupby('tracker').month.min().iteritems():
+            if tracker in self.info:
+                self.info[tracker]['date_range'] = [datetime.strptime(month, '%Y-%m'), last_month]
+
 
     # Summary methods across all trackers
     # -----------------------------------

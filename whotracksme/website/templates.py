@@ -3,6 +3,7 @@ import json
 import os
 import shutil
 import subprocess
+from datetime import date
 
 from jinja2 import Environment, FileSystemLoader, Markup
 import markdown
@@ -171,6 +172,7 @@ def render_template(template, path_to_root='.', **context):
         TRACKER_CATEGORIES=tracker_category_colors,
         SITE_CATEGORIES=site_category_colors,
         CATEGORY_DESC=CATEGORY_DESC,
+        TODAY=date.today().strftime('%d.%m.%Y'),
         **context
     )
 
