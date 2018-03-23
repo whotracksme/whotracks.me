@@ -17,31 +17,11 @@ def load_asset(name):
     ).decode('utf-8')
 
 
-def load_json_file(name):
-    return json.loads(load_asset(name))
-
-
 def load_tracker_db(loc=':memory:'):
     connection = sqlite3.connect(loc)
     with connection:
         connection.executescript(load_asset('trackerdb.sql'))
     return connection
-
-
-def load_apps():
-    return load_json_file('apps.json')
-
-
-def load_overview():
-    return load_json_file('overview.json')
-
-
-def load_companies():
-    return load_json_file('companies.json')
-
-
-def load_sites():
-    return load_json_file('sites.json')
 
 
 def get_data_dir():
