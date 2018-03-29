@@ -59,7 +59,7 @@ setup(
     },
     package_data={
         'whotracksme': [
-            'data/assets/*.json',
+            'data/assets/*/*/*.csv',
             'data/assets/*.sql',
         ],
     },
