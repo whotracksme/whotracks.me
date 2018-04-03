@@ -10,7 +10,7 @@ with open(path.join(HERE, 'README.md')) as readme_file:
 
 setup(
     name='whotracksme',
-    version='2017.11',
+    version='2018.03',
     description='Learn about tracking technologies, market structure and data-sharing on the web',
     long_description=LONG_DESCRIPTION,
     classifiers=[
@@ -25,7 +25,7 @@ setup(
         'Topic :: Internet',
         'Topic :: Scientific/Engineering :: Information Analysis',
     ],
-    keywords='tracking whotracksme whotracks.me',
+    keywords='tracking whotracksme whotracks.me who tracks',
     url='https://whotracks.me',
     author='Cliqz Gmbh',
     author_email='privacy@cliqz.com',
