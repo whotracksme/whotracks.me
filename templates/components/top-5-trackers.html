@@ -1,10 +1,10 @@
 <div class="row top-5-trackers">
     <div class="col-md-6 col-sm-6">
         <ul class="top-5-list">
-            {% for _, tracker in tracker_list[:5].iterrows() %}
+            {% for tracker in tracker_list[:5].itertuples() %}
                 <li>
                     {{loop.index}}.
-                        <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>
+                        <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.id|get_app_name }}</a>
                         {% if tracker.company_id %}
                             <span class="category">
                                 {{ tracker.company_id|get_company_name }}
@@ -16,7 +16,7 @@
                                 {% endwith %}
                         {% endif %}
                         <p>
-                            <span class="highlight">{{tracker.reach|to_percentage}}%</span> of web traffic is tracked by {{ tracker.tracker|get_app_name }}
+                            <span class="highlight">{{tracker.reach|to_percentage}}%</span> of web traffic is tracked by {{ tracker.id|get_app_name }}
                         </p>
                 </li>
             {% endfor %}

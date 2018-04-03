@@ -10,10 +10,10 @@
 
             <ul id="multi-column-list">
 
-                {% for _, tracker in tracker_list[5:].iterrows() %}
+                {% for tracker in tracker_list[5:].itertuples() %}
                     <li>
                         {{ tracker.reach_rank }}.
-                        <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>
+                        <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.id|get_app_name }}</a>
                         {% if tracker.company_id %}
                             <span class="category">
                                 {{ tracker.company_id|get_company_name }}
@@ -29,10 +29,10 @@
                 {% include "components/top-5-trackers.html" %}
             {% endwith %}
             <ul id="multi-column-list">
-                {% for _, tracker in trackers_list_company[5:].iterrows() %}
+                {% for tracker in trackers_list_company[5:].itertuples() %}
                     <li>
                         {{loop.index + 5}}.
-                        <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>
+                        <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.id|get_app_name }}</a>
                         {% if tracker.company_id %}
                             <span class="category">
                                 {{ tracker.company_id|get_company_name }}

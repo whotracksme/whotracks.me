@@ -1,6 +1,6 @@
 
 from urllib.parse import quote_plus
-from datetime import datetime
+from datetime import datetime, date
 import sqlite3
 import pkgutil
 import pandas as pd
@@ -39,10 +39,28 @@ class DataSource:
             self.app_info = self.load_app_info(connection)
             self.company_info = self.load_company_info(connection)
 
-        self.sites_trackers = SitesTrackers(self.data_dir, [max(self.data_months)], self.app_info)
-        self.trackers = Trackers(self.data_dir, self.data_months, self.app_info, self.sites_trackers)
-        self.companies = Companies(self.data_dir, self.data_months, self.company_info, self.app_info)
-        self.sites = Sites(self.data_dir, self.data_months, self.sites_trackers)
+        self.sites_trackers = SitesTrackers(
+            data_dir=self.data_dir,
+            data_months=[max(self.data_months)],
+            tracker_info=self.app_info
+        )
+        self.trackers = Trackers(
+            data_dir=self.data_dir,
+            data_months=self.data_months,
+            tracker_info=self.app_info,
+            sites=self.sites_trackers
+        )
+        self.companies = Companies(
+            data_dir=self.data_dir,
+            data_months=self.data_months,
+            company_info=self.company_info,
+            tracker_info=self.app_info
+        )
+        self.sites = Sites(
+            data_dir=self.data_dir,
+            data_months=self.data_months,
+            trackers=self.sites_trackers
+        )
 
     @staticmethod
     def normalize_url(url_substring):
@@ -111,7 +129,12 @@ class PandasDataLoader:
 
     def __init__(self, data_dir, data_months, name, region='global', id_column=None):
         self.last_month = max(data_months)
-        self.df = pd.concat([pd.read_csv(f'{data_dir}/{month}/{region}/{name}.csv') for month in data_months])
+        self.df = pd.concat([
+            pd.read_csv(
+                f'{data_dir}/{month}/{region}/{name}.csv',
+                parse_dates=['month'])
+            for month in data_months
+        ])
         self.id_col = id_column or self.df.columns[2]
 
     def iter(self):
@@ -138,6 +161,8 @@ class Trackers(PandasDataLoader):
         super().__init__(data_dir, data_months, name='trackers', region=region)
 
         self.info = tracker_info
+        # rename tracker column as id
+        self.df['id'] = self.df['tracker']
         # add company_id column
         self.df['company_id'] = pd.Series(
             [tracker_info.get(tracker, {}).get('company_id', tracker)
@@ -162,7 +187,7 @@ class Trackers(PandasDataLoader):
         last_month = datetime.strptime(max(data_months), '%Y-%m')
         for tracker, month in self.df.groupby('tracker').month.min().iteritems():
             if tracker in self.info:
-                self.info[tracker]['date_range'] = [datetime.strptime(month, '%Y-%m'), last_month]
+                self.info[tracker]['date_range'] = [month, last_month]
 
 
     # Summary methods across all trackers
@@ -174,13 +199,13 @@ class Trackers(PandasDataLoader):
 
         """
         # snapshot of last month in the data
-        ss = self.get_snapshot()
+        stats = self.get_snapshot()
         return {
-            'count': len(ss),
-            'gt01': len(ss[ss.reach > 0.001]),
-            'by_cookies': len(ss[ss.cookies > 0.2]) / len(ss),
-            'by_fingerprinting': len(ss[ss.bad_qs > 0.1]) / len(ss),
-            'data': ss['content_length'].mean()
+            'count': len(stats),
+            'gt01': len(stats[stats.reach > 0.001]),
+            'by_cookies': len(stats[stats.cookies > 0.2]) / len(stats),
+            'by_fingerprinting': len(stats[stats.bad_qs > 0.1]) / len(stats),
+            'data': stats['content_length'].mean()
         }
 
     # Methods for a specific Tracker
@@ -240,7 +265,7 @@ class Trackers(PandasDataLoader):
         tr_df = self.df[self.df.tracker == id].sort_values('month')
         return {
             'page': [reach for reach in tr_df.reach],
-            'ts': [datetime.strptime(t, '%Y-%m') for t in tr_df.month],
+            'ts': [ts for ts in tr_df.month],
             'site': [reach for reach in tr_df.site_reach],
         }
 
@@ -260,12 +285,14 @@ class Trackers(PandasDataLoader):
             top_n: list of similar trackers, each having an id
                    and the company_id
         """
-        st = self.sort_by(metric="reach")
+        snapshot = self.get_snapshot()
         tracker = self.get_tracker(id)
+        st = snapshot[(snapshot.category == tracker.get('cat', 'unknown')) & (snapshot.id != id)]\
+            .sort_values('reach', ascending=False)
         return [{
             'id': t.tracker,
             'company_id': t.company_id
-        } for t in st[(st.category == tracker['overview']['category']) & (st.tracker != id)][:n].itertuples()]
+        } for t in st[:n].itertuples()]
 
     def get_domains(self, id):
         return self.get_tracker(id).get('domains', [])
@@ -279,6 +306,7 @@ class Sites(PandasDataLoader):
     def __init__(self, data_dir, data_months, trackers, region='global'):
         super().__init__(data_dir, data_months, name='sites', region=region)
         self.trackers = trackers
+        self.df['id'] = self.df['site']
 
     # Summary methods across all sites
     # --------------------------------
@@ -288,14 +316,14 @@ class Sites(PandasDataLoader):
         Returns: aggregate tracker statistics across all sites in database
 
         """
-        ss = self.get_snapshot()
+        stats = self.get_snapshot()
         return {
-            'count': len(ss),
-            "have_trackers": ss.tracked.mean(),
-            'gt10': len(ss[ss.trackers >= 10]),
-            "average_nr_trackers": ss.trackers.mean(),
-            "tracker_requests": int(ss.requests_tracking.mean()),
-            'data': ss.content_length.mean()
+            'count': len(stats),
+            "have_trackers": stats.tracked.mean(),
+            'gt10': len(stats[stats.trackers >= 10]),
+            "average_nr_trackers": stats.trackers.mean(),
+            "tracker_requests": int(stats.requests_tracking.mean()),
+            'data': stats.content_length.mean()
         }
 
     # Methods for one specific site
@@ -366,7 +394,7 @@ class Companies(PandasDataLoader):
 
     def __init__(self, data_dir, data_months, company_info, tracker_info, region='global'):
         super().__init__(data_dir, data_months, name='companies', region=region)
-
+        self.df['id'] = self.df['company']
         self.df['name'] = pd.Series([
             company_info.get(row.company, tracker_info.get(row.company, {})).get('name', row.company)
             for row in self.df.itertuples()],
