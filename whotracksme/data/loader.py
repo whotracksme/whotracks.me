@@ -307,6 +307,10 @@ class Sites(PandasDataLoader):
         super().__init__(data_dir, data_months, name='sites', region=region)
         self.trackers = trackers
         self.df['id'] = self.df['site']
+        # site -> category mapping
+        self.site_category = {
+            row.id: row.category for row in self.get_snapshot().itertuples()
+        }
 
     # Summary methods across all sites
     # --------------------------------

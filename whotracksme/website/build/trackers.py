@@ -18,22 +18,15 @@ def recent_tracker_reach(reach):
     }
 
 def tag_cloud_data(tracker_id, data):
-    def get_site_category(site):
-        site_rows = data.sites.get_site(site).sort_values('month', ascending=False)
-        if len(site_rows) > 0:
-            return site_rows.category.values[0].strip()
-        return ''
-
     all_sites = [{
         'site': s.site,
         'frequency': s.tracker_proportion,
-        'url': data.url_for('site', s.site, path_to_root='..')
-        if data.sites.get_name(s.site) is not None else None,
+        'url': data.url_for('site', s.site, path_to_root='..'),
         'site_freq': s.site_proportion,
         'site_cat': site_category_colors.get(
-            get_site_category(s.site), '#000'
+            data.sites.site_category.get(s.site, None), '#000'
         ),
-        'category': get_site_category(s.site)
+        'category': data.sites.site_category.get(s.site, '')
     } for s in data.trackers.iter_sites(tracker_id)]
 
     n_unlinked = len(list(filter(lambda s: s['url'] is None, all_sites)))
