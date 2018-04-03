@@ -1,14 +1,11 @@
 
 from urllib.parse import quote_plus
-from collections import Counter, defaultdict
-from statistics import mean
 from datetime import datetime
-import json
 import sqlite3
 import pkgutil
-import os
 import pandas as pd
 import re
+from pathlib import Path
 
 def load_asset(name):
     return pkgutil.get_data(
@@ -31,13 +28,9 @@ def get_data_dir():
 
 class DataSource:
     def __init__(self):
-        # _apps = load_apps()
-        # _sites = load_sites()
-        # self.companies = load_companies()
-        # self.overview = load_overview()
         self.data_dir = get_data_dir()
         month_matcher = re.compile('[0-9]{4}-[0-9]{2}')
-        self.data_months = [month for month in os.listdir(self.data_dir) if os.path.isdir(f'{self.data_dir}/{month}') and month_matcher.fullmatch(month) is not None]
+        self.data_months = sorted([p.parts[-1] for p in Path(self.data_dir).iterdir() if p.is_dir() and month_matcher.fullmatch(p.parts[-1]) is not None])
         print('data available for months:', self.data_months)
 
         # Add demographics info to trackers and companies
