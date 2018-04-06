@@ -21,7 +21,8 @@ def tag_cloud_data(tracker_id, data):
     all_sites = [{
         'site': s.site,
         'frequency': s.tracker_proportion,
-        'url': data.url_for('site', s.site, path_to_root='..'),
+        'url': data.url_for('site', s.site, path_to_root='..')
+            if s.site in data.sites.site_category else None,
         'site_freq': s.site_proportion,
         'site_cat': site_category_colors.get(
             data.sites.site_category.get(s.site, None), '#000'
