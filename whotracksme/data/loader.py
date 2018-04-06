@@ -22,15 +22,14 @@ def load_tracker_db(loc=':memory:'):
 
 
 def get_data_dir():
-    module_info = list(filter(lambda mod: mod.name == 'whotracksme.data.assets', pkgutil.walk_packages('whotracksme.data')))[0]
-    return f'{module_info.module_finder.path}/assets'
+    return Path(__file__).parent / 'assets'
 
 
 class DataSource:
     def __init__(self):
         self.data_dir = get_data_dir()
         month_matcher = re.compile('[0-9]{4}-[0-9]{2}')
-        self.data_months = sorted([p.parts[-1] for p in Path(self.data_dir).iterdir() if p.is_dir() and month_matcher.fullmatch(p.parts[-1]) is not None])
+        self.data_months = sorted([p.parts[-1] for p in self.data_dir.iterdir() if p.is_dir() and month_matcher.fullmatch(p.parts[-1]) is not None])
         print('data available for months:', self.data_months)
 
         # Add demographics info to trackers and companies
