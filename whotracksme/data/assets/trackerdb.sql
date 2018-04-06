@@ -2336,6 +2336,9 @@ INSERT INTO "tracker_domains" VALUES('os.tc','os.tc');
 INSERT INTO "tracker_domains" VALUES('fileserve','fileserve.xyz');
 INSERT INTO "tracker_domains" VALUES('vk.com','vkuservideo.net');
 INSERT INTO "tracker_domains" VALUES('the_guardian','guim.co.uk');
+INSERT INTO "tracker_domains" VALUES('monero_miner','devappgrant.space');
+INSERT INTO "tracker_domains" VALUES('allegro','allegrostatic.com');
+INSERT INTO "tracker_domains" VALUES('allegro','allegroimg.com');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
