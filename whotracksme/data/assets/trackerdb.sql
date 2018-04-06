@@ -556,7 +556,6 @@ INSERT INTO "companies" VALUES('sape','Sape Sapient Solution',NULL,NULL,'https:/
 INSERT INTO "companies" VALUES('schibsted_asa','Schibsted ASA',NULL,NULL,'http://www.schibsted.com/',NULL);
 INSERT INTO "companies" VALUES('sentifi','Sentifi AG',NULL,'https://sentifi.com/page/privacy/','https://sentifi.com/',NULL);
 INSERT INTO "companies" VALUES('orange_france','Orange France',NULL,'http://c.orange.fr/donnees-personnelles.html','https://www.orange.fr/',NULL);
-INSERT INTO "companies" VALUES('dailymotion','Dailymotion',NULL,'http://www.dailymotion.com/legal/privacy','http://www.dailymotion.com/',NULL);
 INSERT INTO "companies" VALUES('le_monde.fr','Le Monde.fr
 ',NULL,'http://www.lemonde.fr/service/donnees_personnelles.html','http://www.lemonde.fr/',NULL);
 INSERT INTO "companies" VALUES('accengage','Accengage',NULL,'https://www.accengage.com/privacy-policy/','',NULL);
@@ -570,7 +569,6 @@ INSERT INTO "companies" VALUES('the_guardian','The Guardian',NULL,'https://www.t
 INSERT INTO "companies" VALUES('optinmonster','OptinMonster',NULL,'https://optinmonster.com/privacy/','https://optinmonster.com/',NULL);
 INSERT INTO "companies" VALUES('onfocus','OnFocus',NULL,NULL,'http://onfocus.io/','5021');
 INSERT INTO "companies" VALUES('fastpic','FastPic',NULL,NULL,'http://fastpic.ru/',NULL);
-INSERT INTO "companies" VALUES('vk.com','Vk.com',NULL,'https://vk.com/privacy/eu','http://www.vk.com/','1034');
 INSERT INTO "companies" VALUES('monero','Monero',NULL,'https://getmonero.org/legal/#privacy-policy','https://getmonero.org/',NULL);
 INSERT INTO "companies" VALUES('fileserve','FileServe',NULL,NULL,'http://fileserve.com/',NULL);
 CREATE TABLE tracker_domains(
@@ -3373,7 +3371,7 @@ INSERT INTO "trackers" VALUES('magnuum.com','magnuum.com',11,NULL,NULL,NULL,NULL
 INSERT INTO "trackers" VALUES('adswizz','AdsWizz',4,'http://www.adswizz.com/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('venturead.com','venturead.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('adstir','adstir',4,'https://en.ad-stir.com/','united_inc',NULL,NULL);
-INSERT INTO "trackers" VALUES('optinmonster','OptinMonster',6,'https://optinmonster.com/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('optinmonster','OptinMonster',6,'https://optinmonster.com/','optinmonster',NULL,NULL);
 INSERT INTO "trackers" VALUES('storygize','Storygize',4,'http://www.storygize.com/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('spoutable','Spoutable',4,'http://spoutable.com/',NULL,'2472',NULL);
 INSERT INTO "trackers" VALUES('petametrics','LiftIgniter',2,'https://www.liftigniter.com/',NULL,'2103',NULL);
@@ -3537,25 +3535,22 @@ INSERT INTO "trackers" VALUES('schibsted','Schibsted Media Group',8,'http://www.
 INSERT INTO "trackers" VALUES('shopifycdn.com','Shopify CDN',9,'https://www.shopify.com/','shopify','3064',NULL);
 INSERT INTO "trackers" VALUES('shopifycloud.com','Shopify Cloud',2,'https://www.shopify.com/','shopify',NULL,NULL);
 INSERT INTO "trackers" VALUES('orange_france','Orange France',8,'https://www.orange.fr/','orange_france',NULL,NULL);
-INSERT INTO "trackers" VALUES('dmcdn.net','Dailymotion',0,'https://www.dailymotion.com/','dailymotion',NULL,NULL);
 INSERT INTO "trackers" VALUES('le_monde.fr','Le Monde.fr',8,'http://www.lemonde.fr/','le_monde.fr',NULL,NULL);
 INSERT INTO "trackers" VALUES('accengage','Accengage',4,'https://www.accengage.com/','accengage',NULL,NULL);
-INSERT INTO "trackers" VALUES('polar.me','Polar',4,'https://polar.me/','polar','2111',NULL);
+INSERT INTO "trackers" VALUES('polar.me','Polar',4,'https://polar.me/','polar_inc','2111',NULL);
 INSERT INTO "trackers" VALUES('nekudo.com','Nekudo',2,'https://nekudo.com/','nekudo',NULL,NULL);
 INSERT INTO "trackers" VALUES('wikia-services.com','Wikia Services',8,' http://www.wikia.com/fandom','wikia',NULL,NULL);
 INSERT INTO "trackers" VALUES('baidu_static','Baidu Static',8,'https://www.baidu.com/','baidu',NULL,NULL);
-INSERT INTO "trackers" VALUES('allegro','Allegro',8,'allegroimg.com','allegro.pl',NULL,NULL);
-INSERT INTO "trackers" VALUES('allegrostatic.com','Allegro',8,'https://allegro.pl/','allegro.pl',NULL,NULL);
+INSERT INTO "trackers" VALUES('allegro','Allegro',8,'https://allegro.pl','allegro.pl',NULL,NULL);
 INSERT INTO "trackers" VALUES('pushwoosh.com','Pushwoosh',2,'https://www.pushwoosh.com/','pushwoosh',NULL,NULL);
 INSERT INTO "trackers" VALUES('instart_logic','Instart Logic',4,'https://www.instartlogic.com/','instart_logic_inc',NULL,NULL);
 INSERT INTO "trackers" VALUES('the_guardian','The Guardian',8,'https://www.theguardian.com/','the_guardian',NULL,NULL);
 INSERT INTO "trackers" VALUES('onfocus.io','OnFocus',4,'http://onfocus.io/','onfocus','3071',NULL);
 INSERT INTO "trackers" VALUES('fastpic.ru','FastPic',10,'http://fastpic.ru/','fastpic',NULL,NULL);
-INSERT INTO "trackers" VALUES('vk.com','Vk.com',7,'https://vk.com/','vk.com',NULL,NULL);
+INSERT INTO "trackers" VALUES('vk.com','Vk.com',7,'https://vk.com/','mail.ru_group',NULL,NULL);
 INSERT INTO "trackers" VALUES('os.tc','OneSignal',5,'https://os.tc/','onesignal','2498',NULL);
 INSERT INTO "trackers" VALUES('monero_miner','Monero Miner',8,'http://devappgrant.space/','monero',NULL,NULL);
 INSERT INTO "trackers" VALUES('fileserve','FileServe',10,'http://fileserve.com/','fileserve',NULL,NULL);
-INSERT INTO "trackers" VALUES('fogl1onf.com','OnFocus',4,'http://onfocus.io/','onfocus','5021',NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
