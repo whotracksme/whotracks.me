@@ -556,8 +556,7 @@ INSERT INTO "companies" VALUES('sape','Sape Sapient Solution',NULL,NULL,'https:/
 INSERT INTO "companies" VALUES('schibsted_asa','Schibsted ASA',NULL,NULL,'http://www.schibsted.com/',NULL);
 INSERT INTO "companies" VALUES('sentifi','Sentifi AG',NULL,'https://sentifi.com/page/privacy/','https://sentifi.com/',NULL);
 INSERT INTO "companies" VALUES('orange_france','Orange France',NULL,'http://c.orange.fr/donnees-personnelles.html','https://www.orange.fr/',NULL);
-INSERT INTO "companies" VALUES('le_monde.fr','Le Monde.fr
-',NULL,'http://www.lemonde.fr/service/donnees_personnelles.html','http://www.lemonde.fr/',NULL);
+INSERT INTO "companies" VALUES('le_monde.fr','Le Monde.fr',NULL,'http://www.lemonde.fr/service/donnees_personnelles.html','http://www.lemonde.fr/',NULL);
 INSERT INTO "companies" VALUES('accengage','Accengage',NULL,'https://www.accengage.com/privacy-policy/','',NULL);
 INSERT INTO "companies" VALUES('polar_inc','Polar Inc.',NULL,NULL,'https://polar.me/',NULL);
 INSERT INTO "companies" VALUES('nekudo','Nekudo',NULL,NULL,'https://nekudo.com/',NULL);
