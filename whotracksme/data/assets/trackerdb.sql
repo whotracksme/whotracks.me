@@ -2394,6 +2394,15 @@ INSERT INTO "tracker_domains" VALUES('rakuten_display','rmtag.com');
 INSERT INTO "tracker_domains" VALUES('rakuten_display','mediaforge.com');
 INSERT INTO "tracker_domains" VALUES('notify','adleadevent.com');
 INSERT INTO "tracker_domains" VALUES('olx-st.com','onap.io');
+INSERT INTO "tracker_domains" VALUES('loadercdn.com','loadercdn.com');
+INSERT INTO "tracker_domains" VALUES('dyncdn.me','dyncdn.me');
+INSERT INTO "tracker_domains" VALUES('dailymotion','dailymotionbus.com');
+INSERT INTO "tracker_domains" VALUES('amgload.net','amgload.net');
+INSERT INTO "tracker_domains" VALUES('statsy.net','statsy.net');
+INSERT INTO "tracker_domains" VALUES('digital_nomads','adtag.cc');
+INSERT INTO "tracker_domains" VALUES('superfastcdn.com','superfastcdn.com');
+INSERT INTO "tracker_domains" VALUES('i10c.net','i10c.net');
+INSERT INTO "tracker_domains" VALUES('fap.to','fap.to');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -3633,6 +3642,14 @@ INSERT INTO "trackers" VALUES('nbc_news','NBC News',8,'https://www.nbcnews.com/'
 INSERT INTO "trackers" VALUES('4chan','4Chan',8,'https://www.4chan.org/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('rakuten_display','Rakuten Display',4,'https://rakutenmarketing.com/display','rakuten','364',NULL);
 INSERT INTO "trackers" VALUES('notify','Notify',4,'http://notify.ag/en/',NULL,NULL,'Formerly ADLEAD');
+INSERT INTO "trackers" VALUES('loadercdn.com','loadercdn.com',11,NULL,NULL,NULL,'Possibly 4chan related');
+INSERT INTO "trackers" VALUES('dyncdn.me','dyncdn.me',11,NULL,NULL,NULL,'Seems to be mainly used by rarbg.to and related sites');
+INSERT INTO "trackers" VALUES('amgload.net','amgload.net',11,NULL,NULL,NULL,'Posssibly 4chan related');
+INSERT INTO "trackers" VALUES('statsy.net','statsy.net',11,NULL,NULL,NULL,'Similar to dyncdn.me. Primarly used by rarbg.to');
+INSERT INTO "trackers" VALUES('digital_nomads','Digital Nomads',4,'http://dnomads.net/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('superfastcdn.com','superfastcdn.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('i10c.net','i10c.net',11,NULL,NULL,NULL,'Possible malware');
+INSERT INTO "trackers" VALUES('fap.to','Imagefap',8,NULL,NULL,NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
