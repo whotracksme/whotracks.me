@@ -28,7 +28,7 @@ for root, dirs, files in os.walk(DATA_DIR):
 
 setup(
     name=PKGNAME,
-    version='2018.3',
+    version='2018.4',
     description='Learn about tracking technologies, market structure and data-sharing on the web',
     long_description=LONG_DESCRIPTION,
     classifiers=[
