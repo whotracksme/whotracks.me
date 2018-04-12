@@ -2,27 +2,29 @@
 # -*- coding: utf-8 -*-
 
 import os
-import os.path
+import pathlib
 
 from setuptools import setup, find_packages
 
 
 PKGNAME = 'whotracksme'
 
-HERE = os.path.abspath(os.path.dirname(__file__))
 
 LONG_DESCRIPTION = ''
-with open(os.path.join(HERE, 'README.md')) as readme_file:
+with pathlib.Path('README.md').open() as readme_file:
     LONG_DESCRIPTION = readme_file.read()
+
 
 # List all resources under whotracksme/data/
 assets = []
-for root, dirs, files in os.walk('whotracksme/data'):
+DATA_DIR = pathlib.Path('whotracksme/data')
+for root, dirs, files in os.walk(DATA_DIR):
     assets.extend(
-        os.path.join(root, f)[len('whotracksme/data/'):]
+        pathlib.Path(root, f).relative_to(DATA_DIR)
         for f in files
         if f.endswith('.csv') or f.endswith('.sql')
     )
+
 
 setup(
     name=PKGNAME,
