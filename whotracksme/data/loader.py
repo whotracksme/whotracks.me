@@ -1,35 +1,51 @@
 
+from datetime import datetime
 from urllib.parse import quote_plus
-from datetime import datetime, date
+import io
 import sqlite3
-import pkgutil
-import pandas as pd
-import re
-from pathlib import Path
 
-def load_asset(name):
-    return pkgutil.get_data(
-        'whotracksme',
-        f'data/assets/{name}'
-    ).decode('utf-8')
+import pkg_resources
+import pandas as pd
+
+
+def asset_string(name):
+    return pkg_resources.resource_string(
+        'whotracksme.data',
+        f'assets/{name}').decode('utf-8')
+
+
+def asset_stream(name):
+    stream = pkg_resources.resource_stream(
+        'whotracksme.data',
+        f'assets/{name}',
+    )
+    in_memory_stream = io.BytesIO(stream.read())
+    stream.close()
+    return in_memory_stream
 
 
 def load_tracker_db(loc=':memory:'):
     connection = sqlite3.connect(loc)
     with connection:
-        connection.executescript(load_asset('trackerdb.sql'))
+        connection.executescript(asset_string('trackerdb.sql'))
     return connection
 
 
-def get_data_dir():
-    return Path(__file__).parent / 'assets'
+def list_available_months():
+    months = []
+    for asset in pkg_resources.resource_listdir('whotracksme.data', 'assets'):
+        try:
+            datetime.strptime(asset, '%Y-%m')
+        except ValueError:
+            pass
+        else:
+            months.append(asset)
+    return months
 
 
 class DataSource:
     def __init__(self):
-        self.data_dir = get_data_dir()
-        month_matcher = re.compile('[0-9]{4}-[0-9]{2}')
-        self.data_months = sorted([p.parts[-1] for p in self.data_dir.iterdir() if p.is_dir() and month_matcher.fullmatch(p.parts[-1]) is not None])
+        self.data_months = sorted(list_available_months())
         print('data available for months:', self.data_months)
 
         # Add demographics info to trackers and companies
@@ -39,24 +55,20 @@ class DataSource:
             self.company_info = self.load_company_info(connection)
 
         self.sites_trackers = SitesTrackers(
-            data_dir=self.data_dir,
             data_months=[max(self.data_months)],
             tracker_info=self.app_info
         )
         self.trackers = Trackers(
-            data_dir=self.data_dir,
             data_months=self.data_months,
             tracker_info=self.app_info,
             sites=self.sites_trackers
         )
         self.companies = Companies(
-            data_dir=self.data_dir,
             data_months=self.data_months,
             company_info=self.company_info,
             tracker_info=self.app_info
         )
         self.sites = Sites(
-            data_dir=self.data_dir,
             data_months=self.data_months,
             trackers=self.sites_trackers
         )
@@ -126,11 +138,11 @@ class DataSource:
 
 class PandasDataLoader:
 
-    def __init__(self, data_dir, data_months, name, region='global', id_column=None):
+    def __init__(self, data_months, name, region='global', id_column=None):
         self.last_month = max(data_months)
         self.df = pd.concat([
             pd.read_csv(
-                f'{data_dir}/{month}/{region}/{name}.csv',
+                asset_stream(f'{month}/{region}/{name}.csv'),
                 parse_dates=['month'])
             for month in data_months
         ])
@@ -156,8 +168,8 @@ class PandasDataLoader:
 
 
 class Trackers(PandasDataLoader):
-    def __init__(self, data_dir, data_months, tracker_info, sites, region='global'):
-        super().__init__(data_dir, data_months, name='trackers', region=region)
+    def __init__(self, data_months, tracker_info, sites, region='global'):
+        super().__init__(data_months, name='trackers', region=region)
 
         self.info = tracker_info
         # rename tracker column as id
@@ -302,8 +314,8 @@ class Trackers(PandasDataLoader):
 
 
 class Sites(PandasDataLoader):
-    def __init__(self, data_dir, data_months, trackers, region='global'):
-        super().__init__(data_dir, data_months, name='sites', region=region)
+    def __init__(self, data_months, trackers, region='global'):
+        super().__init__(data_months, name='sites', region=region)
         self.trackers = trackers
         self.df['id'] = self.df['site']
         # site -> category mapping
@@ -380,8 +392,8 @@ class Sites(PandasDataLoader):
 
 class SitesTrackers(PandasDataLoader):
 
-    def __init__(self, data_dir, data_months, tracker_info, region='global'):
-        super().__init__(data_dir, data_months, name='sites_trackers', region=region)
+    def __init__(self, data_months, tracker_info, region='global'):
+        super().__init__(data_months, name='sites_trackers', region=region)
 
         self.df['company_id'] = pd.Series(
             [tracker_info.get(tracker, {}).get('company_id', tracker)
@@ -395,8 +407,8 @@ class SitesTrackers(PandasDataLoader):
 
 class Companies(PandasDataLoader):
 
-    def __init__(self, data_dir, data_months, company_info, tracker_info, region='global'):
-        super().__init__(data_dir, data_months, name='companies', region=region)
+    def __init__(self, data_months, company_info, tracker_info, region='global'):
+        super().__init__(data_months, name='companies', region=region)
         self.df['id'] = self.df['company']
         self.df['name'] = pd.Series([
             company_info.get(row.company, tracker_info.get(row.company, {})).get('name', row.company)
