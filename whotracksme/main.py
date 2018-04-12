@@ -17,10 +17,12 @@ Options:
 """
 
 
-import docopt
+from pathlib import Path
 import os
 import sqlite3
-from pathlib import Path
+
+import docopt
+
 from whotracksme.website.builder import Builder
 from whotracksme.website.serve import serve
 from whotracksme.data.loader import load_tracker_db
