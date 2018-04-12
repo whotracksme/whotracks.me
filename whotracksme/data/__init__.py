@@ -1,16 +1,10 @@
 
 from whotracksme.data.loader import (
     load_tracker_db,
-    load_apps,
-    load_overview,
-    load_companies,
-    load_sites
+    DataSource,
 )
 
 __all__ = [
     "load_tracker_db",
-    "load_apps",
-    "load_overview",
-    "load_companies",
-    "load_sites"
+    "DataSource"
 ]

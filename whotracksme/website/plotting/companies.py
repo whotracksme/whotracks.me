@@ -10,9 +10,9 @@ def overview_bars(companies, highlight=2, custom_height=True):
     x = []
     y = []
     colors = [cliqz_colors["purple"]] * highlight + [cliqz_colors["inactive_gray"]] * (len(companies) - highlight)
-    for c in companies:
-        name = c["name"]
-        x.append(round(c["history"][-1]["reach"], 3))
+    for c in companies.itertuples():
+        name = c.name
+        x.append(round(c.reach, 3))
         y.append(name)
     data = [
         go.Bar(

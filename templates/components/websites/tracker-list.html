@@ -6,11 +6,11 @@
     <div class="tab-content">
         <div id="frequency" class="tab-pane fade in active">
             <ul id="multi-column-list">
-                {% for tracker in tracker_list %}
+                {% for tracker in tracker_list.sort_values('site_proportion', ascending=False).itertuples() %}
                     <li>
-                        {{loop.index}}. 
-                        <a href="{{ 'tracker'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
-                        <span class="percentage">{{tracker.frequency|to_percentage}}%</span>
+                        {{loop.index}}.
+                        <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>
+                        <span class="percentage">{{tracker.site_proportion|to_percentage}}%</span>
                         {% if tracker.company_id %}
                         <span>
                             {{ tracker.company_id|get_company_name }}
@@ -18,7 +18,7 @@
                         {% else %}
                             <span>
                                 -
-                            </span>    
+                            </span>
                         {% endif %}
                     </li>
                 {% endfor %}
@@ -27,11 +27,11 @@
 
         <div id="company" class="tab-pane fade">
             <ul id="multi-column-list">
-                {% for tracker in trackers_list_cat %}
+                {% for tracker in tracker_list.sort_values('company_id').itertuples() %}
                     <li>
-                        {{loop.index}}. 
-                        <a  href="{{ 'tracker'|url_for(tracker.overview.id) }}" class="entity-name">{{ tracker.name }}</a>
-                        <span class="percentage">{{tracker.frequency|to_percentage}}%</span>
+                        {{loop.index}}.
+                        <a  href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>
+                        <span class="percentage">{{tracker.site_proportion|to_percentage}}%</span>
                         {% if tracker.company_id %}
                         <span>
                             {{ tracker.company_id|get_company_name }}
@@ -39,7 +39,7 @@
                         {% else %}
                             <span>
                                 -
-                            </span>    
+                            </span>
                         {% endif %}
                     </li>
                 {% endfor %}
