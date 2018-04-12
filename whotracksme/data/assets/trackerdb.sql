@@ -2862,7 +2862,7 @@ INSERT INTO "trackers" VALUES('doubleverify','DoubleVerify',4,'http://www.double
 INSERT INTO "trackers" VALUES('octapi.net','octapi.net',11,NULL,NULL,'octapi.net',NULL);
 INSERT INTO "trackers" VALUES('eloqua','Eloqua',4,'http://www.eloqua.com/','oracle','166',NULL);
 INSERT INTO "trackers" VALUES('adelphic','Adelphic',6,NULL,'adelphic','2533',NULL);
-INSERT INTO "trackers" VALUES('mycdn.me','mycdn.me',11,NULL,NULL,'mycdn.me',NULL);
+INSERT INTO "trackers" VALUES('mycdn.me','Mail.Ru CDN',9,NULL,'mail.ru_group','',NULL);
 INSERT INTO "trackers" VALUES('adworx.at','adworx',4,'http://www.adworx.at/',NULL,'adworx.at',NULL);
 INSERT INTO "trackers" VALUES('adspyglass','AdSpyglass',4,NULL,'adspyglass','2835',NULL);
 INSERT INTO "trackers" VALUES('sexypartners.net','sexypartners.net',3,NULL,NULL,'sexypartners.net','15/11/17: Private whois, landing page redirects to offersupply.com.');
