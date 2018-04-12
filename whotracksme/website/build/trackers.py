@@ -17,29 +17,17 @@ def recent_tracker_reach(reach):
         "sites": round(reach['site'][-1]*100, 1)
     }
 
-
 def tag_cloud_data(tracker_id, data):
-    def get_site_frequency(site_id):
-        site = data.sites.get_site(site_id)
-
-        # checking if site where tracker is seen is among top sites
-        # and assigning a frequency of 0 if not
-        if not site:
-            return 0.
-        for tracker in site['apps']:
-            if tracker['app'] == tracker_id:
-                return tracker['frequency']
-
     all_sites = [{
-        'site': s['site'],
-        'frequency': s['frequency'],
-        'url': data.url_for('site', s['site'], path_to_root='..')
-        if data.sites.get_name(s['site']) is not None else None,
-        'site_freq': get_site_frequency(s['site']),
+        'site': s.site,
+        'frequency': s.tracker_proportion,
+        'url': data.url_for('site', s.site, path_to_root='..')
+            if s.site in data.sites.site_category else None,
+        'site_freq': s.site_proportion,
         'site_cat': site_category_colors.get(
-            data.sites.get_site(s['site']).get('category', '').strip(), '#000'
+            data.sites.site_category.get(s.site, None), '#000'
         ),
-        'category': data.sites.get_site(s['site']).get('category', '').strip()
+        'category': data.sites.site_category.get(s.site, '')
     } for s in data.trackers.iter_sites(tracker_id)]
 
     n_unlinked = len(list(filter(lambda s: s['url'] is None, all_sites)))
@@ -91,7 +79,7 @@ def tracker_page(template, tracker_id, tracker, data):
             path_to_root='..',
             template=template,
             app=tracker,
-            profile=tracker,  # profile-card hack
+            profile=data.trackers.get_tracker(tracker_id),  # profile-card hack
             reach=recent_tracker_reach(reach),
             tracking_methods=data.trackers.get_tracking_methods(tracker_id),
             website_list=all_sites,

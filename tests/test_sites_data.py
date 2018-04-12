@@ -1,12 +1,13 @@
 import unittest
 
-from whotracksme.data import load_sites
+from whotracksme.data import DataSource
 
 class TestSitesData(unittest.TestCase):
 
     def test_all_sites_have_category(self):
-        sites = load_sites()
-        no_category_sites = [site for site, data in sites.items() if data.get('category', '') == '']
+        sites = ds = DataSource().sites.get_snapshot()
+        sites[sites.category == '']
+        no_category_sites = list(sites[sites.category == ''].itertuples())
         self.assertEqual(no_category_sites, [])
 
 

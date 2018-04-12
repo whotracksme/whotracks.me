@@ -3,6 +3,7 @@ import json
 import os
 import shutil
 import subprocess
+from datetime import date
 
 from jinja2 import Environment, FileSystemLoader, Markup
 import markdown
@@ -27,36 +28,36 @@ def site_to_json(data_source, blog_posts):
             "weight": weight
         })
 
-    for (tracker_id, tracker) in data_source.trackers.iter():
+    for tracker in data_source.trackers.get_snapshot().itertuples():
         submit_key(
-            name=data_source.trackers.get_name(tracker_id),
+            name=data_source.trackers.get_name(tracker.tracker),
             type="tracker",
-            url=data_source.url_for("tracker", tracker_id),
-            weight=(1.0 / tracker.get("rank", 1)) * 1000
+            url=data_source.url_for("tracker", tracker.tracker),
+            weight=(1.0 / tracker.reach_rank) * 1000
         )
         # Search a tracker by domain.
-        for d in data_source.trackers.get_domains(tracker_id):
+        for d in data_source.trackers.get_domains(tracker.tracker):
             submit_key(
                 name=d,
                 type="tracker",
-                url=data_source.url_for("tracker", tracker_id),
-                weight=(1.0 / tracker.get("rank", 1)) * 1000
+                url=data_source.url_for("tracker", tracker.tracker),
+                weight=(1.0 / tracker.reach_rank) * 1000
             )
 
-    for (company_id, company) in data_source.companies.items():
+    for company in data_source.companies.get_snapshot().itertuples():
         submit_key(
-            name=data_source.get_company_name(company_id),
+            name=company.name,
             type="company",
-            url=data_source.url_for("company", company_id),
-            weight=len(company.get("overview", {}).get("apps", {})) or 1
+            url=data_source.url_for("company", company.company),
+            weight=len(data_source.trackers.df[data_source.trackers.df.company_id == company.company]) or 1
         )
 
-    for (site_id, site) in data_source.sites.iter():
+    for site in data_source.sites.get_snapshot().itertuples():
         submit_key(
-            name=data_source.sites.get_name(site_id),
+            name=site.site,
             type="site",
-            url=data_source.url_for("site", site_id),
-            weight=site.get("overview", {}).get("popularity", 0.01) * 10000
+            url=data_source.url_for("site", site.site),
+            weight=site.popularity * 10000
         )
 
     for blogpost in blog_posts:
@@ -171,6 +172,7 @@ def render_template(template, path_to_root='.', **context):
         TRACKER_CATEGORIES=tracker_category_colors,
         SITE_CATEGORIES=site_category_colors,
         CATEGORY_DESC=CATEGORY_DESC,
+        TODAY=date.today().strftime('%d.%m.%Y'),
         **context
     )
 
