@@ -11,7 +11,7 @@ PKGNAME = 'whotracksme'
 
 
 LONG_DESCRIPTION = ''
-with pathlib.Path('README.md').open() as readme_file:
+with pathlib.Path('README.rst').open() as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
 
