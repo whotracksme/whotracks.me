@@ -18,7 +18,7 @@ This repository contains:
 
 # Installation
 
-Python 3.x is needed to build the site. We recommend creating a
+Python 3.6 is needed to build the site. We recommend creating a
 [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) (or
 `pipenv`) to install the dependencies.
 
@@ -62,17 +62,12 @@ For examples of scripts, have a look in the [contrib](./contrib) folder!
 
 Building the site requires a few extra dependencies, not installed by default to
 not make the installation heavier than it needs to be. You will need to install
-`whotracksme` this way:
+`whotracksme` from the repository, because not all assets are packaged with
+`whotracksme` released on pypi:
 
 ```sh
-$ pip install 'whotracksme[website]'
+$ pip install -e '.[dev]'
 ```
-
-Or if you do it from source:
-```sh
-$ pip install -e '.[website]'
-```
-
 
 Once this is done, you will have access to a `whotracksme` entry point that can
 be used this way:
@@ -90,13 +85,20 @@ All generated artifacts can be found in the `_site/` folder.
 ## Tests
 
 To run tests, you will need `pytest`, or simply install `whotacksme` with the
-`test` extra:
+`dev` extra:
 
 ```sh
-$ pip install -e '.[test,website]'
+$ pip install -e '.[dev]'
 $ pytest
 ```
 
+# Publishing a new version
+
+```sh
+$ pip install twine
+$ python setup.py sdist bdist_wheel
+$ twine upload --username cliqz-oss dist/*
+```
 
 # Contributing
 

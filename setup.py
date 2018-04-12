@@ -1,16 +1,32 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import os.path
+
 from setuptools import setup, find_packages
-from os import path
 
-HERE = path.abspath(path.dirname(__file__))
 
+PKGNAME = 'whotracksme'
+
+HERE = os.path.abspath(os.path.dirname(__file__))
 
 LONG_DESCRIPTION = ''
-with open(path.join(HERE, 'README.md')) as readme_file:
+with open(os.path.join(HERE, 'README.md')) as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
+# List all resources under whotracksme/data/
+assets = []
+for root, dirs, files in os.walk('whotracksme/data'):
+    assets.extend(
+        os.path.join(root, f)[len('whotracksme/data/'):]
+        for f in files
+        if f.endswith('.csv') or f.endswith('.sql')
+    )
+
 setup(
-    name='whotracksme',
-    version='2018.03',
+    name=PKGNAME,
+    version='2018.3',
     description='Learn about tracking technologies, market structure and data-sharing on the web',
     long_description=LONG_DESCRIPTION,
     classifiers=[
@@ -41,33 +57,28 @@ setup(
     ]),
     install_requires=[
         'docopt',
+        'pandas'
     ],
     extras_require={
-        'website': [
+        'dev': [
+            'aiohttp',
             'colour',
             'jinja2',
             'markdown',
-            'pandas',
             'plotly',
+            'pytest',
             'sanic',
             'squarify',
             'watchdog',
         ],
-        'test': [
-            'pytest',
-        ],
     },
     package_data={
-        'whotracksme': [
-            'data/assets/*/*/*.csv',
-            'data/assets/*.sql',
-        ],
+        f'{PKGNAME}.data': assets,
     },
-    include_package_data=True,
-    zip_safe=False,
+    zip_safe=True,
     entry_points={
         'console_scripts': [
-            'whotracksme=whotracksme.main:main',
+            f'{PKGNAME}={PKGNAME}.main:main',
         ],
     },
 )
