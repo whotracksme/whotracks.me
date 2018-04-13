@@ -12,7 +12,7 @@
 
                 {% for tracker in tracker_list[5:].itertuples() %}
                     <li>
-                        {{ tracker.reach_rank }}.
+                        {{loop.index + 5}}.
                         <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.id|get_app_name }}</a>
                         {% if tracker.company_id %}
                             <span class="category">

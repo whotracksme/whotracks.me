@@ -21,7 +21,7 @@ LABEL vendor="Cliqz GmbH" \
 RUN apt-get update && apt-get install -y ruby-sass build-essential
 
 # Copy application python requirements
-COPY requirements.txt /home/jenkins/
+COPY requirements-dev.txt /home/jenkins/
 
 # Install python dependencies
-RUN pip install -r /home/jenkins/requirements.txt
+RUN pip install -r /home/jenkins/requirements-dev.txt
