@@ -151,7 +151,7 @@ popular sites, and Facebook almost 60%. The data can easily be retrieved
 as shown below:
 
 ```python
-df = data.trackers.get_snapshot().sort_values(by='reach', ascending=False).head(10)
+df = data.trackers.get_snapshot().sort_values(by='site_reach', ascending=False).head(10)
 df['name'] = df.id.apply(func=lambda x: data.app_info[x]['name'])
 ```
 ![Reach of top 10 trackers across popular websites](../static/img/blog/update_apr18/top10_site_reach.svg)
