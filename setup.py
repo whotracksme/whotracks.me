@@ -64,6 +64,7 @@ setup(
     extras_require={
         'dev': [
             'aiohttp',
+            'boto3',
             'colour',
             'jinja2',
             'markdown',
