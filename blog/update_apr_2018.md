@@ -161,4 +161,4 @@ df['name'] = df.id.apply(func=lambda x: data.app_info[x]['name'])
 If you want to delve deeper into our data, it is available on the [WhoTracks.Me Github Repository](https://github.com/cliqz-oss/whotracks.me/tree/master/whotracksme/data), and as a [pip package](https://pypi.python.org/pypi/whotracksme/).
 
 _NB: The code snippets here will not generate the presented plots. Full code snippets
-for the plots in this post are available in this [Jupyter Notebook](https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/wtm_march_update.ipynb)._
+for the plots in this post are available in this [Jupyter Notebook](https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/wtm_april_update.ipynb)._
