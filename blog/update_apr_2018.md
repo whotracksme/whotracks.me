@@ -88,6 +88,7 @@ sns.boxplot(
   y='trackers'
 )
 ```
+
 ![Average trackers per page since January](../static/img/blog/update_apr18/site_trackers_box.svg)
 <p class="img-caption">Figure 3: Average trackers per page since January</p>
 
@@ -97,6 +98,7 @@ sns.boxplot(
   .groupby('month')
   ['has_blocking'].mean() * 100).plot()
 ```
+<!-- <img alt='Blocking Trend since January', src='../static/img/blog/update_apr18/blocking_trend.svg', style='height:200px'> -->
 ![Blocking Trend since January](../static/img/blog/update_apr18/blocking_trend.svg)
 <p class="img-caption">Figure 4: Blocking Trend since January</p>
 
