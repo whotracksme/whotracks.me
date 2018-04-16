@@ -16,8 +16,8 @@ def build_home(data):
             ts=header_graph,
             tracker_list=data.trackers.sort_by(metric="reach")[:20],
             trackers_list_company=data.trackers.sort_by(metric="company_id")[:20],
-            most_tracked_sites=data.sites.sort_by(metric='mean_trackers')[:20],
-            least_tracked_sites=data.sites.sort_by(metric='mean_trackers', descending=False)[:20],
+            most_tracked_sites=data.sites.sort_by(metric='trackers')[:20],
+            least_tracked_sites=data.sites.sort_by(metric='trackers', descending=False)[:20],
             websites=data.sites.summary_stats(),
             tracker_stats=data.trackers.summary_stats(),
             top10=top10

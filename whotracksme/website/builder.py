@@ -68,7 +68,7 @@ class Builder:
 
     def feed_event(self, event):
         futures = []
-        with concurrent.futures.ThreadPoolExecutor() as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=9) as executor:
             ###################################################################
             # This needs to be first, as other tasks will need to write in   #
             # the resulting folders.                                          #
@@ -110,6 +110,7 @@ class Builder:
             # Depends on: 'data/', 'templates/'
             if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
                 # Home
+                # build_home(data=data_source)
                 futures.append(executor.submit(build_home, data=data_source))
 
                 # Trackers

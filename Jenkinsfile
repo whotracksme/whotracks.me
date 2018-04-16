@@ -21,7 +21,7 @@ node('docker') {
         try {
 
             stage('Install') {
-                sh("python -m pip install '.[test,website]'")
+                sh("python -m pip install '.[dev]'")
             }
 
             stage('Test') {

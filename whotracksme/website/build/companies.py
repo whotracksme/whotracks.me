@@ -32,33 +32,16 @@ def get_company_name(company_dict):
     return company_name
 
 
-def website_doughnout(apps, site):
-    trackers = site.get("apps")
+def website_doughnout(site, data):
     d = defaultdict(int)
 
-    for t in trackers:
-        try:
-            apid = t.get("app", None)
-            if apid is not None and apid != "None":
-                app = apps.get_tracker(apid)
-                if app is None:
-                    continue
-                # app = apps[t.get("app")]
+    site_trackers = data.sites.trackers.get_site(site).tracker
+    ss = data.trackers.get_snapshot()
+    category_counts = ss[ss.tracker.isin(site_trackers)]\
+        .groupby('category').count().tracker.sort_values(ascending=False)
+    category_dict = dict(category_counts.iteritems())
 
-                cat = app.get("cat")
-                if cat is None or cat == "None":
-                    cat = "unknown"
-                d[cat] += 1
-        except KeyError:
-            continue
-
-    values = []
-    labels = []
-    total = sum(d.values())
-    for (k, v) in d.items():
-        labels.append(k)
-        values.append(v)
-    return values, labels, total
+    return list(category_dict.values()), list(category_dict.keys()), category_counts.sum()
 
 
 def tracker_map_data(site_id, data):
@@ -68,7 +51,7 @@ def tracker_map_data(site_id, data):
     link_value = []
     link_label = []
 
-    for (tracker, category, company) in data.sites.trackers_on_site(site_id, data.trackers, data.companies):
+    for (tracker, category, company) in data.sites.trackers_on_site(site_id, data.trackers, data.company_info):
 
         # category node index in nodes
         if category in nodes:
@@ -108,7 +91,7 @@ def tracker_map_data(site_id, data):
 
 
 def company_reach(companies, n=10):
-    sorted_companies = sorted(companies.values(), key=lambda c: c['rank'])
+    sorted_companies = companies.get_snapshot().sort_values('reach_rank', ascending=True)
     return sorted_companies[:n]
 
 

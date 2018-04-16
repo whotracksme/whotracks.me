@@ -1,16 +1,34 @@
-from setuptools import setup, find_packages
-from os import path
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-HERE = path.abspath(path.dirname(__file__))
+import os
+import pathlib
+
+from setuptools import setup, find_packages
+
+
+PKGNAME = 'whotracksme'
 
 
 LONG_DESCRIPTION = ''
-with open(path.join(HERE, 'README.md')) as readme_file:
+with pathlib.Path('README.rst').open() as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
+
+# List all resources under whotracksme/data/
+assets = []
+DATA_DIR = pathlib.Path('whotracksme/data')
+for root, dirs, files in os.walk(DATA_DIR):
+    assets.extend(
+        pathlib.Path(root, f).relative_to(DATA_DIR)
+        for f in files
+        if f.endswith('.csv') or f.endswith('.sql')
+    )
+
+
 setup(
-    name='whotracksme',
-    version='2017.11',
+    name=PKGNAME,
+    version='2018.4',
     description='Learn about tracking technologies, market structure and data-sharing on the web',
     long_description=LONG_DESCRIPTION,
     classifiers=[
@@ -25,7 +43,7 @@ setup(
         'Topic :: Internet',
         'Topic :: Scientific/Engineering :: Information Analysis',
     ],
-    keywords='tracking whotracksme whotracks.me',
+    keywords='tracking whotracksme whotracks.me who tracks',
     url='https://whotracks.me',
     author='Cliqz Gmbh',
     author_email='privacy@cliqz.com',
@@ -41,32 +59,29 @@ setup(
     ]),
     install_requires=[
         'docopt',
+        'pandas'
     ],
     extras_require={
-        'website': [
+        'dev': [
+            'aiohttp',
+            'boto3',
             'colour',
             'jinja2',
             'markdown',
             'plotly',
+            'pytest',
             'sanic',
             'squarify',
             'watchdog',
         ],
-        'test': [
-            'pytest',
-        ],
     },
     package_data={
-        'whotracksme': [
-            'data/assets/*.json',
-            'data/assets/*.sql',
-        ],
+        f'{PKGNAME}.data': assets,
     },
-    include_package_data=True,
-    zip_safe=False,
+    zip_safe=True,
     entry_points={
         'console_scripts': [
-            'whotracksme=whotracksme.main:main',
+            f'{PKGNAME}={PKGNAME}.main:main',
         ],
     },
 )

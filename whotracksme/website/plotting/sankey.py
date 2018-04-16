@@ -28,6 +28,7 @@ def sankey_plot(sndata):
         )
     )
     layout = dict(
+        height=max(len(sndata['link']['source'])*13, 400),
         font=dict(
             size=12
         ),
