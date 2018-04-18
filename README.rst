@@ -20,8 +20,6 @@ Installation
 Python 3.6 is needed to build the site. We recommend creating a
 `virtualenv`_ (or ``pipenv``) to install the dependencies.
 
-Furthermore, you will need to `install sass`_.
-
 From Pypi
 ---------
 
@@ -48,10 +46,12 @@ To get started with the data, everything you need can be found in
 
     from whotracksme.data.loader import DataSource
 
+    data = DataSource()
+
     # available entities
-    DataSource().trackers
-    DataSource().companies
-    DataSource().sites
+    data.trackers
+    data.companies
+    data.sites
 
 For examples of scripts, have a look in the `contrib`_ folder!
 
@@ -124,9 +124,7 @@ license`_.
 
 .. _whotracks.me: https://whotracks.me
 .. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
-.. _install sass: http://sass-lang.com/install
 .. _contrib: ./contrib
 .. _Guideline for 3rd parties: https://github.com/cliqz-oss/whotracks.me/blob/master/RIGHT_TO_AMEND.md
 .. _Creative Commons Attribution 4.0 license: https://creativecommons.org/licenses/by/4.0/
 .. _MIT license: https://github.com/cliqz-oss/whotracks.me/blob/master/LICENSE.md
-
