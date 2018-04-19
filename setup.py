@@ -73,6 +73,7 @@ setup(
             'sanic',
             'squarify',
             'watchdog',
+            'libsass'
         ],
     },
     package_data={

@@ -4,10 +4,12 @@ import os
 import shutil
 import subprocess
 from datetime import date
+from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, Markup
 import markdown
-from pathlib import Path
+import sass
+
 
 from whotracksme.website.utils import print_progress
 from whotracksme.website.plotting.colors import (
@@ -177,10 +179,6 @@ def render_template(template, path_to_root='.', **context):
     )
 
 
-def compile_scss_to_css(scss_folder, css_folder):
-    subprocess.run(["sass", "--update", "%s:%s" % (scss_folder, css_folder)])
-
-
 def create_site_structure(static_path):
     """
     Args:
@@ -221,4 +219,4 @@ def create_site_structure(static_path):
     # compile static/scss directly to _site/static/css
     scss_folder = Path(static_path).joinpath("scss")
     css_folder = _site_static.joinpath("css")
-    compile_scss_to_css(scss_folder, css_folder)
+    sass.compile(dirname=(scss_folder, css_folder), output_style='compressed')
