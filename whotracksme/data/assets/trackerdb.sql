@@ -289,7 +289,7 @@ INSERT INTO "companies" VALUES('ab_tasty','AB Tasty',NULL,'https://www.abtasty.c
 INSERT INTO "companies" VALUES('digidip','Digidip',NULL,'Not found','http://www.digidip.net/','4891');
 INSERT INTO "companies" VALUES('uservoice','UserVoice',NULL,'https://www.uservoice.com/privacy/','https://www.uservoice.com','177');
 INSERT INTO "companies" VALUES('bugsnag','Bugsnag',NULL,'http://docs.bugsnag.com/legal/privacy-policy/','https://bugsnag.com/','3347');
-INSERT INTO "companies" VALUES('sumome','SumoMe',NULL,'https://help.sumome.com/customer/en/portal/articles/1963436-privacy-policy','http://sumome.com/','3560');
+INSERT INTO "companies" VALUES('sumome','SumoMe',NULL,'https://help.sumo.com/hc/en-us/articles/218958727-Privacy-Policy','http://sumo.com/','3560');
 INSERT INTO "companies" VALUES('mixpanel','Mixpanel',NULL,'http://mixpanel.com/privacy/','http://mixpanel.com/','227');
 INSERT INTO "companies" VALUES('adnet.de','adNET.de',NULL,'http://www.adnet.de/index-6_datenschutz.html','http://www.adnet.de','2407');
 INSERT INTO "companies" VALUES('conviva','Conviva',NULL,' http://www.conviva.com/home/privacy-policy/','http://www.conviva.com/','819');
@@ -430,7 +430,7 @@ INSERT INTO "companies" VALUES('zencoder','Zencoder',NULL,'https://zencoder.com/
 INSERT INTO "companies" VALUES('simpli.fi','Simpli.fi',NULL,'https://www.simpli.fi/site-privacy-policy2/','http://www.simpli.fi/','550');
 INSERT INTO "companies" VALUES('admans','Admans',NULL,'http://www.admans.de/datenschutz/','http://admans.de/de.html','4347');
 INSERT INTO "companies" VALUES('microsoft','Microsoft',NULL,'https://privacy.microsoft.com/en-us/privacystatement/','https://www.microsoft.com/',NULL);
-INSERT INTO "companies" VALUES('comscore','ComScore',NULL,NULL,NULL,NULL);
+INSERT INTO "companies" VALUES('comscore','ComScore',NULL,'https://www.comscore.com/About-comScore/Privacy-Policy','https://www.comscore.com/',NULL);
 INSERT INTO "companies" VALUES('neustar','Neustar ',NULL,'https://www.neustar.biz/privacy/privacy_policy','http://www.neustar.biz/marketing-solutions#.U-kEJZSwJTM','307');
 INSERT INTO "companies" VALUES('oracle','Oracle',NULL,NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('rtl_group','RTL Group',NULL,NULL,NULL,NULL);
@@ -569,6 +569,19 @@ INSERT INTO "companies" VALUES('fastpic','FastPic',NULL,NULL,'http://fastpic.ru/
 INSERT INTO "companies" VALUES('fileserve','FileServe',NULL,NULL,'http://fileserve.com/',NULL);
 INSERT INTO "companies" VALUES('scout24','Scout 24',NULL,NULL,'http://www.scout24.com/',NULL);
 INSERT INTO "companies" VALUES('startpage','StartPage',NULL,NULL,'https://www.startpage.com/',NULL);
+INSERT INTO "companies" VALUES('the_new_york_times','The New York Times Company',NULL,'https://help.nytimes.com/hc/en-us/articles/115014892108-Privacy-policy','https://www.nytimes.com/','1962');
+INSERT INTO "companies" VALUES('faitid','FAITID',NULL,'http://ru.faitid.org/sites/default/files/privacy_policy_en.pdf','http://ru.faitid.org/',NULL);
+INSERT INTO "companies" VALUES('datadome','DataDome',NULL,'https://datadome.co/fr/mentions-legales/','https://datadome.co/',NULL);
+INSERT INTO "companies" VALUES('adpushup','AdPushUp, Inc.',NULL,'https://www.adpushup.com/privacy.php','https://www.adpushup.com/',NULL);
+INSERT INTO "companies" VALUES('navegg','Navegg',NULL,'https://www.navegg.com/en/privacy-policy/','https://www.navegg.com/en/',NULL);
+INSERT INTO "companies" VALUES('adverticum','Adverticum Zrt.',NULL,NULL,'https://adverticum.net/english/',NULL);
+INSERT INTO "companies" VALUES('auth0','Auth0 Inc.',NULL,'https://auth0.com/privacy','https://auth0.com/',NULL);
+INSERT INTO "companies" VALUES('medallia','Medallia Inc. ',NULL,'https://www.medallia.com/privacy-policy/','https://www.medallia.com/',NULL);
+INSERT INTO "companies" VALUES('hatena_jp','Hatena Co., Ltd.',NULL,'http://www.hatena.ne.jp/rule/privacypolicy','http://www.hatena.ne.jp/','2573');
+INSERT INTO "companies" VALUES('wonderpush','WonderPush',NULL,'https://www.wonderpush.com/policies/privacy','https://www.wonderpush.com/',NULL);
+INSERT INTO "companies" VALUES('yieldbot','Yieldbot',NULL,'https://www.yieldbot.com/platform-privacy-policy/','https://www.yieldbot.com/',NULL);
+INSERT INTO "companies" VALUES('strossle','Strossle',NULL,'https://strossle.com/privacy-policy/','https://strossle.com/',NULL);
+INSERT INTO "companies" VALUES('fimalac_group','Fimalac Group',NULL,NULL,'http://www.fimalac.com/',NULL);
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -2100,6 +2113,7 @@ INSERT INTO "tracker_domains" VALUES('venturead.com','venturead.com');
 INSERT INTO "tracker_domains" VALUES('adstir','ad-stir.com');
 INSERT INTO "tracker_domains" VALUES('docler','fwbntw.com');
 INSERT INTO "tracker_domains" VALUES('optinmonster','mstrlytcs.com');
+INSERT INTO "tracker_domains" VALUES('optinmonster','optnmstr.com');
 INSERT INTO "tracker_domains" VALUES('visualstudio.com','visualstudio.com');
 INSERT INTO "tracker_domains" VALUES('storygize','storygize.net');
 INSERT INTO "tracker_domains" VALUES('spoutable','spoutable.com');
@@ -2403,6 +2417,36 @@ INSERT INTO "tracker_domains" VALUES('digital_nomads','adtag.cc');
 INSERT INTO "tracker_domains" VALUES('superfastcdn.com','superfastcdn.com');
 INSERT INTO "tracker_domains" VALUES('i10c.net','i10c.net');
 INSERT INTO "tracker_domains" VALUES('fap.to','fap.to');
+INSERT INTO "tracker_domains" VALUES('microsoft','microsoftonline-p.com');
+INSERT INTO "tracker_domains" VALUES('nyt.com','nyt.com');
+INSERT INTO "tracker_domains" VALUES('faitid','com.ru');
+INSERT INTO "tracker_domains" VALUES('datadome','datadome.co');
+INSERT INTO "tracker_domains" VALUES('cnzz.com','cnzz.com');
+INSERT INTO "tracker_domains" VALUES('dropbox.com','dropboxstatic.com');
+INSERT INTO "tracker_domains" VALUES('microsoft','msocdn.com');
+INSERT INTO "tracker_domains" VALUES('allegro.pl','allegrostatic.pl');
+INSERT INTO "tracker_domains" VALUES('netflix','nflxso.net');
+INSERT INTO "tracker_domains" VALUES('netflix','nflximg.net');
+INSERT INTO "tracker_domains" VALUES('linkedin','lynda.com');
+INSERT INTO "tracker_domains" VALUES('sumome','sumo.com');
+INSERT INTO "tracker_domains" VALUES('adrecover','adrecover.com');
+INSERT INTO "tracker_domains" VALUES('navegg_dmp','navdmp.com');
+INSERT INTO "tracker_domains" VALUES('adverticum','adverticum.net');
+INSERT INTO "tracker_domains" VALUES('auth0','auth0.com');
+INSERT INTO "tracker_domains" VALUES('kampyle','kampyle.com');
+INSERT INTO "tracker_domains" VALUES('st-hatena','st-hatena.com');
+INSERT INTO "tracker_domains" VALUES('wonderpush','wonderpush.com');
+INSERT INTO "tracker_domains" VALUES('yieldbot','yldbt.com');
+INSERT INTO "tracker_domains" VALUES('strossle','sprinklecontent.com');
+INSERT INTO "tracker_domains" VALUES('comscore','zqtk.net');
+INSERT INTO "tracker_domains" VALUES('datds.net','datds.net');
+INSERT INTO "tracker_domains" VALUES('uuidksinc.net','uuidksinc.net');
+INSERT INTO "tracker_domains" VALUES('camakaroda.com','camakaroda.com');
+INSERT INTO "tracker_domains" VALUES('khzbeucrltin.com','khzbeucrltin.com');
+INSERT INTO "tracker_domains" VALUES('wp.pl','wpimg.pl');
+INSERT INTO "tracker_domains" VALUES('defpush.com','defpush.com');
+INSERT INTO "tracker_domains" VALUES('webedia','mediaathay.org.uk');
+INSERT INTO "tracker_domains" VALUES('webedia','goutee.top');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -2453,7 +2497,7 @@ INSERT INTO "trackers" VALUES('xplosion','xplosion',4,'http://www.xplosion.de/',
 INSERT INTO "trackers" VALUES('meetrics','Meetrics',4,'http://www.meetrics.de/','meetrics','709',NULL);
 INSERT INTO "trackers" VALUES('media_innovation_group','Media Innovation Group',4,'http://www.themig.com/','media_innovation_group','439',NULL);
 INSERT INTO "trackers" VALUES('bluekai','BlueKai',4,'http://www.bluekai.com/','oracle','116',NULL);
-INSERT INTO "trackers" VALUES('exactag','Exactag',4,'http://www.exactag.com','exactag','1680',NULL);
+INSERT INTO "trackers" VALUES('exactag','Exactag',6,'http://www.exactag.com','exactag','1680',NULL);
 INSERT INTO "trackers" VALUES('google_users','Google User Content',9,NULL,'google','2333',NULL);
 INSERT INTO "trackers" VALUES('adomik','Adomik',4,NULL,NULL,'c_m2',NULL);
 INSERT INTO "trackers" VALUES('adobe_dynamic_tag_management','Adobe Dynamic Tag Management',5,NULL,'adobe','2307',NULL);
@@ -2820,7 +2864,7 @@ INSERT INTO "trackers" VALUES('doubleverify','DoubleVerify',4,'http://www.double
 INSERT INTO "trackers" VALUES('octapi.net','octapi.net',11,NULL,NULL,'octapi.net',NULL);
 INSERT INTO "trackers" VALUES('eloqua','Eloqua',4,'http://www.eloqua.com/','oracle','166',NULL);
 INSERT INTO "trackers" VALUES('adelphic','Adelphic',6,NULL,'adelphic','2533',NULL);
-INSERT INTO "trackers" VALUES('mycdn.me','mycdn.me',11,NULL,NULL,'mycdn.me',NULL);
+INSERT INTO "trackers" VALUES('mycdn.me','Mail.Ru CDN',9,NULL,'mail.ru_group','',NULL);
 INSERT INTO "trackers" VALUES('adworx.at','adworx',4,'http://www.adworx.at/',NULL,'adworx.at',NULL);
 INSERT INTO "trackers" VALUES('adspyglass','AdSpyglass',4,NULL,'adspyglass','2835',NULL);
 INSERT INTO "trackers" VALUES('sexypartners.net','sexypartners.net',3,NULL,NULL,'sexypartners.net','15/11/17: Private whois, landing page redirects to offersupply.com.');
@@ -3650,6 +3694,25 @@ INSERT INTO "trackers" VALUES('digital_nomads','Digital Nomads',4,'http://dnomad
 INSERT INTO "trackers" VALUES('superfastcdn.com','superfastcdn.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('i10c.net','i10c.net',11,NULL,NULL,NULL,'Possible malware');
 INSERT INTO "trackers" VALUES('fap.to','Imagefap',8,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('nyt.com','The New York Times',8,'https://www.nytimes.com/','the_new_york_times','1129',NULL);
+INSERT INTO "trackers" VALUES('faitid','FAITID',NULL,'http://ru.faitid.org/','faitid',NULL,NULL);
+INSERT INTO "trackers" VALUES('datadome','DataDome',6,'https://datadome.co/','datadome',NULL,NULL);
+INSERT INTO "trackers" VALUES('adrecover','AdRecover',4,'https://www.adrecover.com/','adpushup',NULL,NULL);
+INSERT INTO "trackers" VALUES('navegg_dmp','Navegg DMP',6,'http://navdmp.com/','navegg',NULL,NULL);
+INSERT INTO "trackers" VALUES('adverticum','Adverticum',4,'https://adverticum.net/english/','adverticum',NULL,NULL);
+INSERT INTO "trackers" VALUES('auth0','Auth0 Inc.',6,'https://auth0.com/','auth0',NULL,NULL);
+INSERT INTO "trackers" VALUES('kampyle','Kampyle',6,'http://www.kampyle.com/','medallia',NULL,NULL);
+INSERT INTO "trackers" VALUES('st-hatena','St-Hatena',7,'http://www.hatena.ne.jp/','hatena_jp','1532',NULL);
+INSERT INTO "trackers" VALUES('wonderpush','WonderPush',2,'https://www.wonderpush.com/','wonderpush',NULL,NULL);
+INSERT INTO "trackers" VALUES('yieldbot','Yieldbot',6,'https://www.yieldbot.com/','yieldbot',NULL,NULL);
+INSERT INTO "trackers" VALUES('strossle','Strossle',4,'https://strossle.com/','strossle',NULL,NULL);
+INSERT INTO "trackers" VALUES('comscore','ComScore, Inc.',6,'https://www.comscore.com/','comscore',NULL,NULL);
+INSERT INTO "trackers" VALUES('datds.net','datds.net',12,NULL,NULL,NULL,'Likely Malware: https://security.stackexchange.com/questions/184055/cross-platform-browser-link-highjacking-redirect-issue-in-chrome/184056');
+INSERT INTO "trackers" VALUES('uuidksinc.net','uuidksinc.net',11,NULL,NULL,NULL,'On https://www.yaplakal.com/ cookie syncs with relap.io');
+INSERT INTO "trackers" VALUES('camakaroda.com','camakaroda.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('khzbeucrltin.com','khzbeucrltin.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('defpush.com','defpush.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('webedia','Webedia',4,'http://fr.webedia-group.com/','fimalac_group',NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
