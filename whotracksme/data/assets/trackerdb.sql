@@ -2495,7 +2495,7 @@ INSERT INTO "trackers" VALUES('xplosion','xplosion',4,'http://www.xplosion.de/',
 INSERT INTO "trackers" VALUES('meetrics','Meetrics',4,'http://www.meetrics.de/','meetrics','709',NULL);
 INSERT INTO "trackers" VALUES('media_innovation_group','Media Innovation Group',4,'http://www.themig.com/','media_innovation_group','439',NULL);
 INSERT INTO "trackers" VALUES('bluekai','BlueKai',4,'http://www.bluekai.com/','oracle','116',NULL);
-INSERT INTO "trackers" VALUES('exactag','Exactag',4,'http://www.exactag.com','exactag','1680',NULL);
+INSERT INTO "trackers" VALUES('exactag','Exactag',6,'http://www.exactag.com','exactag','1680',NULL);
 INSERT INTO "trackers" VALUES('google_users','Google User Content',9,NULL,'google','2333',NULL);
 INSERT INTO "trackers" VALUES('adomik','Adomik',4,NULL,NULL,'c_m2',NULL);
 INSERT INTO "trackers" VALUES('adobe_dynamic_tag_management','Adobe Dynamic Tag Management',5,NULL,'adobe','2307',NULL);
