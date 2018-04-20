@@ -581,6 +581,7 @@ INSERT INTO "companies" VALUES('hatena_jp','Hatena Co., Ltd.',NULL,'http://www.h
 INSERT INTO "companies" VALUES('wonderpush','WonderPush',NULL,'https://www.wonderpush.com/policies/privacy','https://www.wonderpush.com/',NULL);
 INSERT INTO "companies" VALUES('yieldbot','Yieldbot',NULL,'https://www.yieldbot.com/platform-privacy-policy/','https://www.yieldbot.com/',NULL);
 INSERT INTO "companies" VALUES('strossle','Strossle',NULL,'https://strossle.com/privacy-policy/','https://strossle.com/',NULL);
+INSERT INTO "companies" VALUES('fimalac_group','Fimalac Group',NULL,NULL,'http://www.fimalac.com/',NULL);
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -2442,9 +2443,10 @@ INSERT INTO "tracker_domains" VALUES('datds.net','datds.net');
 INSERT INTO "tracker_domains" VALUES('uuidksinc.net','uuidksinc.net');
 INSERT INTO "tracker_domains" VALUES('camakaroda.com','camakaroda.com');
 INSERT INTO "tracker_domains" VALUES('khzbeucrltin.com','khzbeucrltin.com');
-INSERT INTO "tracker_domains" VALUES('wpimg.pl','wpimg.pl');
+INSERT INTO "tracker_domains" VALUES('wp.pl','wpimg.pl');
 INSERT INTO "tracker_domains" VALUES('defpush.com','defpush.com');
-INSERT INTO "tracker_domains" VALUES('mediaathay.org.uk','mediaathay.org.uk');
+INSERT INTO "tracker_domains" VALUES('webedia','mediaathay.org.uk');
+INSERT INTO "tracker_domains" VALUES('webedia','goutee.top');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -3704,14 +3706,13 @@ INSERT INTO "trackers" VALUES('st-hatena','St-Hatena',7,'http://www.hatena.ne.jp
 INSERT INTO "trackers" VALUES('wonderpush','WonderPush',2,'https://www.wonderpush.com/','wonderpush',NULL,NULL);
 INSERT INTO "trackers" VALUES('yieldbot','Yieldbot',6,'https://www.yieldbot.com/','yieldbot',NULL,NULL);
 INSERT INTO "trackers" VALUES('strossle','Strossle',4,'https://strossle.com/','strossle',NULL,NULL);
-INSERT INTO "trackers" VALUES('comscore','ComScore, Inc.',NULL,'https://www.comscore.com/','comscore',NULL,NULL);
-INSERT INTO "trackers" VALUES('datds.net','',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('uuidksinc.net','',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('camakaroda.com','',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('khzbeucrltin.com','',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('wpimg.pl','',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('defpush.com','',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('mediaathay.org.uk','',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('comscore','ComScore, Inc.',6,'https://www.comscore.com/','comscore',NULL,NULL);
+INSERT INTO "trackers" VALUES('datds.net','datds.net',12,NULL,NULL,NULL,'Likely Malware: https://security.stackexchange.com/questions/184055/cross-platform-browser-link-highjacking-redirect-issue-in-chrome/184056');
+INSERT INTO "trackers" VALUES('uuidksinc.net','uuidksinc.net',11,NULL,NULL,NULL,'On https://www.yaplakal.com/ cookie syncs with relap.io');
+INSERT INTO "trackers" VALUES('camakaroda.com','camakaroda.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('khzbeucrltin.com','khzbeucrltin.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('defpush.com','defpush.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('webedia','Webedia',4,'http://fr.webedia-group.com/','fimalac_group',NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
