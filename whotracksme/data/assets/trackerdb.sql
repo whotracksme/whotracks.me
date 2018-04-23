@@ -2958,7 +2958,7 @@ INSERT INTO "trackers" VALUES('adtelligence.de','Adtelligence',4,'https://adtell
 INSERT INTO "trackers" VALUES('tawk','Tawk',2,NULL,'tawk','2417',NULL);
 INSERT INTO "trackers" VALUES('firebaseio.com','Firebase',8,'https://firebase.google.com/','google','firebaseio.com',NULL);
 INSERT INTO "trackers" VALUES('shopauskunft.de','ShopAuskunft.de',2,'https://shopauskunft.de/',NULL,'',NULL);
-INSERT INTO "trackers" VALUES('dcmn.com','dcmn.com',NULL,NULL,NULL,'dcmn.com',NULL);
+INSERT INTO "trackers" VALUES('dcmn.com','DCMN',4,'https://www.dcmn.com/',NULL,'',NULL);
 INSERT INTO "trackers" VALUES('mythings','myThings',4,'http://www.mythings.com/','mythings_','524',NULL);
 INSERT INTO "trackers" VALUES('asambeauty.com','asambeauty.com',8,'https://www.asambeauty.com/',NULL,'asambeauty.com',NULL);
 INSERT INTO "trackers" VALUES('dailymotion','Dailymotion',8,NULL,'vivendi','c_1475',NULL);
