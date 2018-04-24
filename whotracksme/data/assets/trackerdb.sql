@@ -2626,7 +2626,7 @@ INSERT INTO "trackers" VALUES('stripchat.com','stripchat.com',3,NULL,NULL,'strip
 INSERT INTO "trackers" VALUES('exelate','eXelate',4,'http://www.exelate.com/','harris_ia','172',NULL);
 INSERT INTO "trackers" VALUES('semasio','Semasio',4,'http://semasio.com/','semasio','1195',NULL);
 INSERT INTO "trackers" VALUES('mixpanel','Mixpanel',6,'http://mixpanel.com/','mixpanel','240',NULL);
-INSERT INTO "trackers" VALUES('t-mobile','Deustche Telekom',8,NULL,NULL,'c_923',NULL);
+INSERT INTO "trackers" VALUES('t-mobile','Deutsche Telekom',8,NULL,NULL,'c_923',NULL);
 INSERT INTO "trackers" VALUES('scene7.com','Adobe Dynamic Media (Scene7)',4,NULL,'adobe','scene7.com',NULL);
 INSERT INTO "trackers" VALUES('ekomi','eKomi',1,'http://www.ekomi.co.uk','ekomi','1655',NULL);
 INSERT INTO "trackers" VALUES('sovrn','sovrn',4,'http://www.lijit.com/',NULL,'18',NULL);
@@ -2958,7 +2958,7 @@ INSERT INTO "trackers" VALUES('adtelligence.de','Adtelligence',4,'https://adtell
 INSERT INTO "trackers" VALUES('tawk','Tawk',2,NULL,'tawk','2417',NULL);
 INSERT INTO "trackers" VALUES('firebaseio.com','Firebase',8,'https://firebase.google.com/','google','firebaseio.com',NULL);
 INSERT INTO "trackers" VALUES('shopauskunft.de','ShopAuskunft.de',2,'https://shopauskunft.de/',NULL,'',NULL);
-INSERT INTO "trackers" VALUES('dcmn.com','dcmn.com',NULL,NULL,NULL,'dcmn.com',NULL);
+INSERT INTO "trackers" VALUES('dcmn.com','DCMN',4,'https://www.dcmn.com/',NULL,'',NULL);
 INSERT INTO "trackers" VALUES('mythings','myThings',4,'http://www.mythings.com/','mythings_','524',NULL);
 INSERT INTO "trackers" VALUES('asambeauty.com','asambeauty.com',8,'https://www.asambeauty.com/',NULL,'asambeauty.com',NULL);
 INSERT INTO "trackers" VALUES('dailymotion','Dailymotion',8,NULL,'vivendi','c_1475',NULL);
