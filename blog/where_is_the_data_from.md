@@ -57,3 +57,5 @@ This data is primarily used to automatically generate
 the list of tracking domains which Cliqz anti-tracking
 will work on. The side-effect is that this data can
 also be used to generate this census of trackers across the web.
+
+Our methodology is outlined in the [WhoTracksMe paper](https://arxiv.org/abs/1804.08959).
