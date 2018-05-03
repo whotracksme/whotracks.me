@@ -41,7 +41,7 @@ node('docker') {
                 def deployArgs = ''
                 if (env.BRANCH_NAME.contains('PR')) {
                     deployArgs = "${stagingBucket} ${stagingPrefix}/${env.BRANCH_NAME}"
-                } else if (env.BRANCH_NAME == 'production') {
+                } else if (env.TAG_NAME != null) {
                     deployArgs = "${productionBucket} ${productionPrefix} --production"
                 } else {
                     deployArgs = "${stagingBucket} ${stagingPrefix}/latest"
