@@ -24,7 +24,8 @@ insights on the tracker landscape.
 
 
 **The data presented in this site** is collected by the Cliqz browser
-and extension for Firefox. We receive a message for each page
+and extension for Firefox, and from the Ghostery extension for users
+who have enabled 'HumanWeb' data collection. We receive a message for each page
 loaded in the browser (except in private tabs), which describes
 the third-party requests required to load that page. We take the
 following steps to ensure that this data is anonymised:
