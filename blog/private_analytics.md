@@ -5,7 +5,7 @@ type: article
 publish: True
 date: 2018-05-03
 tags: analytics, privacy-by-design
-header_img: blog/analytics/analytics.svg
+header_img: blog/analytics/analytics.png
 +++
 
 Analytics are one of the most common use-cases on the web. You want to know how many people are
