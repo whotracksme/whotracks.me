@@ -5,6 +5,7 @@ import os
 import pathlib
 
 from setuptools import setup, find_packages
+from setuptools.command.sdist import sdist
 
 
 PKGNAME = 'whotracksme'
@@ -25,10 +26,25 @@ for root, dirs, files in os.walk(DATA_DIR):
         if f.endswith('.csv') or f.endswith('.sql')
     )
 
+# This allows us to inject a custom version into setuptools using the
+# environment variable: WTM_VERSION. If it is not specified, a default value is
+# used, but you will not be able to run sdist in this case.
+DEFAULT_VERSION = 'dev'
+VERSION=os.environ.get('WTM_VERSION', DEFAULT_VERSION)
+
+class SDistCheckVersion(sdist):
+    """Custom sdist hook used to make sure we can only package whotracksme if
+    correct version is specified in the environment."""
+    def run(self):
+        if VERSION == DEFAULT_VERSION:
+            raise Exception(f'$WTM_VERSION was not specified in environment. Aborting.')
+
+        # Only run `sdist` if we found a valid version in environment.
+        sdist.run(self)
 
 setup(
     name=PKGNAME,
-    version='2018.4',
+    version=VERSION,
     description='Learn about tracking technologies, market structure and data-sharing on the web',
     long_description=LONG_DESCRIPTION,
     classifiers=[
@@ -72,6 +88,7 @@ setup(
             'pytest',
             'sanic',
             'squarify',
+            'twine',
             'watchdog',
             'libsass'
         ],
@@ -84,5 +101,8 @@ setup(
         'console_scripts': [
             f'{PKGNAME}={PKGNAME}.main:main',
         ],
+    },
+    cmdclass={
+        'sdist': SDistCheckVersion,
     },
 )
