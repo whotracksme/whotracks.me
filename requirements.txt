@@ -1,5 +1,5 @@
 docopt==0.6.2
-numpy==1.14.2
+numpy==1.14.3
 pandas==0.22.0
 python-dateutil==2.7.2
 pytz==2018.4
