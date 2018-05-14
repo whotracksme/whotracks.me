@@ -570,7 +570,6 @@ INSERT INTO "companies" VALUES('fileserve','FileServe',NULL,NULL,'http://fileser
 INSERT INTO "companies" VALUES('scout24','Scout 24',NULL,NULL,'http://www.scout24.com/',NULL);
 INSERT INTO "companies" VALUES('startpage','StartPage',NULL,NULL,'https://www.startpage.com/',NULL);
 INSERT INTO "companies" VALUES('the_new_york_times','The New York Times Company',NULL,'https://help.nytimes.com/hc/en-us/articles/115014892108-Privacy-policy','https://www.nytimes.com/','1962');
-INSERT INTO "companies" VALUES('faitid','FAITID',NULL,'http://ru.faitid.org/sites/default/files/privacy_policy_en.pdf','http://ru.faitid.org/',NULL);
 INSERT INTO "companies" VALUES('datadome','DataDome',NULL,'https://datadome.co/fr/mentions-legales/','https://datadome.co/',NULL);
 INSERT INTO "companies" VALUES('adpushup','AdPushUp, Inc.',NULL,'https://www.adpushup.com/privacy.php','https://www.adpushup.com/',NULL);
 INSERT INTO "companies" VALUES('navegg','Navegg',NULL,'https://www.navegg.com/en/privacy-policy/','https://www.navegg.com/en/',NULL);
@@ -1703,7 +1702,7 @@ INSERT INTO "tracker_domains" VALUES('realytics','dcniko1cv0rz.cloudfront.net');
 INSERT INTO "tracker_domains" VALUES('vi','digitaltarget.ru');
 INSERT INTO "tracker_domains" VALUES('livefyre','fyre.co');
 INSERT INTO "tracker_domains" VALUES('livefyre','livefyre.com');
-INSERT INTO "tracker_domains" VALUES('digiteka.net','digiteka.net');
+INSERT INTO "tracker_domains" VALUES('digiteka','digiteka.net');
 INSERT INTO "tracker_domains" VALUES('research_now','researchnow.com');
 INSERT INTO "tracker_domains" VALUES('rewe-static.de','rewe-static.de');
 INSERT INTO "tracker_domains" VALUES('baidu_ads','baidu.com');
@@ -1849,7 +1848,7 @@ INSERT INTO "tracker_domains" VALUES('fidelity_media','fidelity-media.com');
 INSERT INTO "tracker_domains" VALUES('adsnative','adsnative.com');
 INSERT INTO "tracker_domains" VALUES('bitdefender.de','bitdefender.de');
 INSERT INTO "tracker_domains" VALUES('sophus3','sophus3.com');
-INSERT INTO "tracker_domains" VALUES('rightnowtech.com','rightnowtech.com');
+INSERT INTO "tracker_domains" VALUES('oracle_rightnow','rightnowtech.com');
 INSERT INTO "tracker_domains" VALUES('shareaholic','dtym7iokkjlif.cloudfront.net');
 INSERT INTO "tracker_domains" VALUES('shareaholic','shareaholic.com');
 INSERT INTO "tracker_domains" VALUES('wistia','wistia.com');
@@ -2419,7 +2418,6 @@ INSERT INTO "tracker_domains" VALUES('i10c.net','i10c.net');
 INSERT INTO "tracker_domains" VALUES('fap.to','fap.to');
 INSERT INTO "tracker_domains" VALUES('microsoft','microsoftonline-p.com');
 INSERT INTO "tracker_domains" VALUES('nyt.com','nyt.com');
-INSERT INTO "tracker_domains" VALUES('faitid','com.ru');
 INSERT INTO "tracker_domains" VALUES('datadome','datadome.co');
 INSERT INTO "tracker_domains" VALUES('cnzz.com','cnzz.com');
 INSERT INTO "tracker_domains" VALUES('dropbox.com','dropboxstatic.com');
@@ -2447,6 +2445,8 @@ INSERT INTO "tracker_domains" VALUES('wp.pl','wpimg.pl');
 INSERT INTO "tracker_domains" VALUES('defpush.com','defpush.com');
 INSERT INTO "tracker_domains" VALUES('webedia','mediaathay.org.uk');
 INSERT INTO "tracker_domains" VALUES('webedia','goutee.top');
+INSERT INTO "tracker_domains" VALUES('smarter_travel','travelsmarter.net');
+INSERT INTO "tracker_domains" VALUES('tracc.it','kiwe.io');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -3153,7 +3153,6 @@ INSERT INTO "trackers" VALUES('optimatic','Optimatic',0,NULL,'optimatic','2360',
 INSERT INTO "trackers" VALUES('realytics','Realytics',6,NULL,'realytics','2649',NULL);
 INSERT INTO "trackers" VALUES('vi','Vi',4,'http://www.vi.ru/','vi','2006',NULL);
 INSERT INTO "trackers" VALUES('livefyre','Livefyre',1,'http://www.livefyre.com/','livefyre','1420',NULL);
-INSERT INTO "trackers" VALUES('digiteka.net','digiteka.net',NULL,NULL,NULL,'digiteka.net',NULL);
 INSERT INTO "trackers" VALUES('tremor_video','Tremor Video',0,NULL,NULL,'tremorhub.com',NULL);
 INSERT INTO "trackers" VALUES('research_now','Research Now',4,'http://www.researchnow.com/','research_now','1727',NULL);
 INSERT INTO "trackers" VALUES('rewe-static.de','rewe-static.de',NULL,NULL,NULL,'rewe-static.de',NULL);
@@ -3174,7 +3173,7 @@ INSERT INTO "trackers" VALUES('thevideo.me','thevideo.me',NULL,NULL,NULL,'thevid
 INSERT INTO "trackers" VALUES('layer-ad.org','Layer-ADS.net',4,'http://layer-ads.net/',NULL,'layer-ad.org',NULL);
 INSERT INTO "trackers" VALUES('loop11','Loop11',6,NULL,'360i','2314',NULL);
 INSERT INTO "trackers" VALUES('spot.im','Spot.IM',7,'https://www.spot.im/','spot.im','2194',NULL);
-INSERT INTO "trackers" VALUES('howtank.com','howtank.com',NULL,NULL,NULL,'howtank.com',NULL);
+INSERT INTO "trackers" VALUES('howtank.com','howtank',7,'https://www.howtank.com/',NULL,'',NULL);
 INSERT INTO "trackers" VALUES('sexadnetwork','SexAdNetwork',3,'http://www.sexadnetwork.com/','sexadnetwork','1071',NULL);
 INSERT INTO "trackers" VALUES('pushcrew','Pushcrew',2,NULL,'pushcrew','2572',NULL);
 INSERT INTO "trackers" VALUES('swisscom','Swisscom',8,NULL,NULL,'c_3749',NULL);
@@ -3226,7 +3225,7 @@ INSERT INTO "trackers" VALUES('smartsupp_chat','Smartsupp Chat',2,NULL,'smartsup
 INSERT INTO "trackers" VALUES('redtube.com','redtube.com',9,NULL,NULL,'redtube.com',NULL);
 INSERT INTO "trackers" VALUES('adc_media','ad:C media',4,'http://www.adcmedia.de/en/',NULL,'1367',NULL);
 INSERT INTO "trackers" VALUES('hstrck.com','hstrck.com',NULL,NULL,NULL,'hstrck.com',NULL);
-INSERT INTO "trackers" VALUES('tracc.it','tracc.it',NULL,NULL,NULL,'tracc.it',NULL);
+INSERT INTO "trackers" VALUES('tracc.it','Kiwe.io',6,'https://www.kiwe.io/',NULL,'',NULL);
 INSERT INTO "trackers" VALUES('walkme.com','Walk Me',2,'https://www.walkme.com/',NULL,'3076',NULL);
 INSERT INTO "trackers" VALUES('freshdesk','Freshdesk',2,'http://www.freshdesk.com','freshdesk','1092',NULL);
 INSERT INTO "trackers" VALUES('forensiq','Forensiq',4,'http://www.cpadetective.com/','cpa_detective','1380',NULL);
@@ -3241,7 +3240,7 @@ INSERT INTO "trackers" VALUES('gdm_digital','GDM Digital',4,'http://www.gdmdigit
 INSERT INTO "trackers" VALUES('spots.im','Spot.IM',7,'https://www.spot.im/',NULL,'2194',NULL);
 INSERT INTO "trackers" VALUES('adnetworkperformance.com','adnetworkperformance.com',11,NULL,NULL,'',NULL);
 INSERT INTO "trackers" VALUES('stackadapt','StackAdapt',4,NULL,'stackadapt','2774',NULL);
-INSERT INTO "trackers" VALUES('ria.ru','ria.ru',NULL,NULL,NULL,'ria.ru',NULL);
+INSERT INTO "trackers" VALUES('ria.ru','ria.ru',8,'https://ria.ru/',NULL,'',NULL);
 INSERT INTO "trackers" VALUES('sse-iacapps.com','sse-iacapps.com',NULL,NULL,NULL,'sse-iacapps.com',NULL);
 INSERT INTO "trackers" VALUES('afcdn.com','afcdn.com',NULL,NULL,NULL,'afcdn.com',NULL);
 INSERT INTO "trackers" VALUES('skyscnr.com','skyscnr.com',NULL,NULL,NULL,'skyscnr.com',NULL);
@@ -3251,14 +3250,14 @@ INSERT INTO "trackers" VALUES('lswcdn.net','lswcdn.net',NULL,NULL,NULL,'lswcdn.n
 INSERT INTO "trackers" VALUES('trustarc','TrustArc',5,NULL,'trustarc','c_775',NULL);
 INSERT INTO "trackers" VALUES('adbetclickin.pink','adbetnet',4,'http://adbetnet.com/',NULL,'adbetclickin.pink',NULL);
 INSERT INTO "trackers" VALUES('mytoys.de','mytoys.de',NULL,NULL,NULL,'mytoys.de',NULL);
-INSERT INTO "trackers" VALUES('videoadex.com','videoadex.com',NULL,NULL,NULL,'videoadex.com',NULL);
+INSERT INTO "trackers" VALUES('videoadex.com','VideoAdX',4,'https://www.videoadex.com/','digiteka','',NULL);
 INSERT INTO "trackers" VALUES('monster_advertising','Monster Advertising',4,'http://www.monster.com/','monster_worldwide','1534',NULL);
 INSERT INTO "trackers" VALUES('atlassian.net','Atlassian',2,'https://www.atlassian.com/','atlassian',NULL,NULL);
 INSERT INTO "trackers" VALUES('siteimprove_analytics','SiteImprove Analytics',6,NULL,'siteimprove','2452',NULL);
 INSERT INTO "trackers" VALUES('mirtesen.ru','mirtesen.ru',7,'https://mirtesen.ru/',NULL,'mirtesen.ru',NULL);
 INSERT INTO "trackers" VALUES('conrad.com','conrad.com',NULL,NULL,NULL,'conrad.com',NULL);
 INSERT INTO "trackers" VALUES('upjers.com','upjers.com',NULL,NULL,NULL,'upjers.com',NULL);
-INSERT INTO "trackers" VALUES('lenmit.com','lenmit.com',NULL,NULL,NULL,'lenmit.com',NULL);
+INSERT INTO "trackers" VALUES('lenmit.com','lenmit.com',11,NULL,NULL,'',NULL);
 INSERT INTO "trackers" VALUES('semknox.com','semknox.com',NULL,NULL,NULL,'semknox.com',NULL);
 INSERT INTO "trackers" VALUES('wiredminds','WiredMinds',6,'http://www.wiredminds.de/','wiredminds','510',NULL);
 INSERT INTO "trackers" VALUES('yepshare.com','yepshare.com',NULL,NULL,NULL,'yepshare.com',NULL);
@@ -3272,7 +3271,6 @@ INSERT INTO "trackers" VALUES('fidelity_media','Fidelity Media',4,'http://fideli
 INSERT INTO "trackers" VALUES('adsnative','adsnative',4,'http://www.adsnative.com/','adsnative','2059',NULL);
 INSERT INTO "trackers" VALUES('bitdefender.de','bitdefender.de',NULL,NULL,NULL,'bitdefender.de',NULL);
 INSERT INTO "trackers" VALUES('sophus3','Sophus3',4,'http://www.sophus3.com/ ','sophus3','714',NULL);
-INSERT INTO "trackers" VALUES('rightnowtech.com','rightnowtech.com',NULL,NULL,NULL,'rightnowtech.com',NULL);
 INSERT INTO "trackers" VALUES('shareaholic','Shareaholic',4,'hhttps://www.shareaholic.com/','shareaholic','1421',NULL);
 INSERT INTO "trackers" VALUES('wistia','Wistia',6,NULL,'wistia','2336',NULL);
 INSERT INTO "trackers" VALUES('motherlessmedia.com','motherlessmedia.com',NULL,NULL,NULL,'motherlessmedia.com',NULL);
@@ -3695,7 +3693,6 @@ INSERT INTO "trackers" VALUES('superfastcdn.com','superfastcdn.com',11,NULL,NULL
 INSERT INTO "trackers" VALUES('i10c.net','i10c.net',11,NULL,NULL,NULL,'Possible malware');
 INSERT INTO "trackers" VALUES('fap.to','Imagefap',8,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('nyt.com','The New York Times',8,'https://www.nytimes.com/','the_new_york_times','1129',NULL);
-INSERT INTO "trackers" VALUES('faitid','FAITID',NULL,'http://ru.faitid.org/','faitid',NULL,NULL);
 INSERT INTO "trackers" VALUES('datadome','DataDome',6,'https://datadome.co/','datadome',NULL,NULL);
 INSERT INTO "trackers" VALUES('adrecover','AdRecover',4,'https://www.adrecover.com/','adpushup',NULL,NULL);
 INSERT INTO "trackers" VALUES('navegg_dmp','Navegg DMP',6,'http://navdmp.com/','navegg',NULL,NULL);
