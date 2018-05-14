@@ -32,43 +32,11 @@
 <div class="grey-bg header-articles">
     <div class="container">
         <div class="row">
+            {% for blog_post in posts %}
             <div class="col-sm-4 col-md-4">
-                <div class="thumbnail">
-                    <img src="{{PATHS.static}}/img/blog/blog-data-apr18.png" />
-                    <div class="caption">
-                        <p class="primer">RELEASE</p>
-                        <h3><a href="{{PATHS.blog}}/update_apr_2018.html">April Update - Preparing for Internationalisation</a></h3>
-                        <p>
-                            A new data format to ease access to tracker data.
-                        </p>
-                    </div>
-                </div>
+                {% include "components/blog-card.html" %}
             </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="thumbnail">
-                    <img src="{{PATHS.static}}/img/blog/google_domains/dataflow.png" />
-                    <div class="caption">
-                        <p class="article">ARTICLE</p>
-                        <h3><a href="{{PATHS.blog}}/google_domains.html">The end of google.{your country}?</a></h3>
-                        <p>
-                            Google' move to keep their cookies.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="thumbnail">
-                    <img src="{{PATHS.static}}/img/blog/analytics/analytics.png" />
-                    <div class="caption">
-                        <p class="article">ARTICLE</p>
-
-                        <h3><a href="{{PATHS.blog}}/private_analytics.html">Tracking visits without tracking people</a></h3>
-                        <p>
-                            A privacy-by-design approach.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
