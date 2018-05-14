@@ -419,7 +419,6 @@ INSERT INTO "companies" VALUES('ero_advertising','Ero Advertising',NULL,'Not fou
 INSERT INTO "companies" VALUES('eyeview','Eyeview',NULL,'http://www.eyeviewdigital.com/privacy-policy/','http://www.eyeviewdigital.com/','1288');
 INSERT INTO "companies" VALUES('fullstory','fullstory',NULL,'https://www.fullstory.com/legal/privacy/','http://fullstory.com','4100');
 INSERT INTO "companies" VALUES('appnexus','AppNexus',NULL,'https://www.appnexus.com/en/company/platform-privacy-policy','https://www.appnexus.com/en','17');
-INSERT INTO "companies" VALUES('aloodo','Aloodo',NULL,'http://www.aloodo.org/privacy/','http://www.aloodo.org','3808');
 INSERT INTO "companies" VALUES('traffichaus','TrafficHaus',NULL,'https://www.traffichaus.com/privacy-policy.php','https://www.traffichaus.com','1852');
 INSERT INTO "companies" VALUES('freshdesk','Freshdesk',NULL,'https://freshdesk.com/privacy','https://freshdesk.com/','1866');
 INSERT INTO "companies" VALUES('drawbridge','Drawbridge',NULL,'http://drawbridge.com/privacy',' https://drawbridge.com/','1175');
@@ -492,7 +491,7 @@ INSERT INTO "companies" VALUES('docler_ip','Docler IP',NULL,NULL,'https://www.do
 INSERT INTO "companies" VALUES('acint','Acint',NULL,'http://acint.net/','http://acint.net/',NULL);
 INSERT INTO "companies" VALUES('onesoon','OneSoon Ltd',NULL,'https://www.adalyser.com/privacy','http://www.adalyser.com',NULL);
 INSERT INTO "companies" VALUES('adblade','Adblade',NULL,'https://adblade.com/doc/privacy','https://adblade.com/','452');
-INSERT INTO "companies" VALUES('netsprint','Netsprint',NULL,NULL,'http://netsprint.eu/',NULL);
+INSERT INTO "companies" VALUES('netsprint','Netsprint',NULL,'http://spoldzielnia.nsaudience.pl/opt-out/','http://netsprint.eu/',NULL);
 INSERT INTO "companies" VALUES('admitad','Admitad',NULL,'https://www.admitad.com/en/privacy/#','https://www.admitad.com/en/#','2202');
 INSERT INTO "companies" VALUES('affectv','Affectv',NULL,'https://affectv.com/privacy-policy','https://affectv.com/','1267');
 INSERT INTO "companies" VALUES('airpr','AirPR Inc.',NULL,'https://airpr.com/privacy-policy/','https://airpr.com/',NULL);
@@ -581,6 +580,22 @@ INSERT INTO "companies" VALUES('wonderpush','WonderPush',NULL,'https://www.wonde
 INSERT INTO "companies" VALUES('yieldbot','Yieldbot',NULL,'https://www.yieldbot.com/platform-privacy-policy/','https://www.yieldbot.com/',NULL);
 INSERT INTO "companies" VALUES('strossle','Strossle',NULL,'https://strossle.com/privacy-policy/','https://strossle.com/',NULL);
 INSERT INTO "companies" VALUES('fimalac_group','Fimalac Group',NULL,NULL,'http://www.fimalac.com/',NULL);
+INSERT INTO "companies" VALUES('github','GitHub, Inc.',NULL,'https://help.github.com/articles/github-privacy-statement/','https://github.com/','1618');
+INSERT INTO "companies" VALUES('quantum_metric','Quantum Metric, Inc.',NULL,'https://www.quantummetric.com/legal/privacy/','https://www.quantummetric.com/','4748');
+INSERT INTO "companies" VALUES('the_sun','The Sun',NULL,'https://newsprivacy.co.uk/single/','https://www.thesun.co.uk/',NULL);
+INSERT INTO "companies" VALUES('ancestry','Ancestry',NULL,'http://www.ancestry.com/cs/privacyphilosophy','http://www.ancestry.com/',NULL);
+INSERT INTO "companies" VALUES('disney','The Walt Disney Company',NULL,'https://privacy.thewaltdisneycompany.com/en/','http://www.disney.com/',NULL);
+INSERT INTO "companies" VALUES('etsy','Etsy, Inc.',NULL,'https://www.etsy.com/legal/privacy/?ref=ftr','https://www.etsy.com/',NULL);
+INSERT INTO "companies" VALUES('latimes','Los Angeles Times',NULL,'http://www.tronc.com/privacy-policy/','http://www.latimes.com/',NULL);
+INSERT INTO "companies" VALUES('sovrn','Sovrn Holdings, Inc. ',NULL,'https://www.sovrn.com/privacy-policy-eu/','https://www.sovrn.com/',NULL);
+INSERT INTO "companies" VALUES('themoviedb','The Movie DB',NULL,'https://www.themoviedb.org/privacy-policy','https://www.themoviedb.org/',NULL);
+INSERT INTO "companies" VALUES('braze_inc','Braze, Inc.',NULL,'https://www.braze.com/privacy/','https://www.braze.com/',NULL);
+INSERT INTO "companies" VALUES('experian_inc','Experian Information Solutions, Inc.',NULL,'https://www.experian.com/privacy/index.html','https://www.experian.com/',NULL);
+INSERT INTO "companies" VALUES('fox_news','Fox News Network, LLC',NULL,'http://www.foxnews.com/privacy-policy.html','http://www.foxnews.com/',NULL);
+INSERT INTO "companies" VALUES('creative_commons_corp','Creative Commons Corporation',NULL,'https://creativecommons.org/privacy/','https://creativecommons.org/',NULL);
+INSERT INTO "companies" VALUES('scaleflex_sas','Scaleflex SAS',NULL,'https://privacy.scaleflex.it/go/privacy/en/privacy-by-design/','https://www.scaleflex.it/',NULL);
+INSERT INTO "companies" VALUES('level3_communications','Level 3 Communications, Inc.',NULL,'http://www.level3.com/en/privacy/','http://www.level3.com/en/',NULL);
+INSERT INTO "companies" VALUES('bloomreach','BloomReach',NULL,'https://www.bloomreach.com/en/about/privacy-policy','https://www.bloomreach.com/en','396');
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -1357,7 +1372,6 @@ INSERT INTO "tracker_domains" VALUES('richrelevance','ics0.com');
 INSERT INTO "tracker_domains" VALUES('richrelevance','richrelevance.com');
 INSERT INTO "tracker_domains" VALUES('tubemogul','tubemogul.com');
 INSERT INTO "tracker_domains" VALUES('bugsnag','d2wy8f7a9ursnm.cloudfront.net');
-INSERT INTO "tracker_domains" VALUES('aloodo','github.io');
 INSERT INTO "tracker_domains" VALUES('codeonclick.com','codeonclick.com');
 INSERT INTO "tracker_domains" VALUES('imgix.net','imgix.net');
 INSERT INTO "tracker_domains" VALUES('eanalyzer.de','eanalyzer.de');
@@ -2447,6 +2461,36 @@ INSERT INTO "tracker_domains" VALUES('webedia','mediaathay.org.uk');
 INSERT INTO "tracker_domains" VALUES('webedia','goutee.top');
 INSERT INTO "tracker_domains" VALUES('smarter_travel','travelsmarter.net');
 INSERT INTO "tracker_domains" VALUES('tracc.it','kiwe.io');
+INSERT INTO "tracker_domains" VALUES('github_apps','githubapp.com');
+INSERT INTO "tracker_domains" VALUES('quantum_metric','quantummetric.com');
+INSERT INTO "tracker_domains" VALUES('the_sun','thesun.co.uk');
+INSERT INTO "tracker_domains" VALUES('ancestry_cdn','ancestrycdn.com');
+INSERT INTO "tracker_domains" VALUES('go.com','go.com');
+INSERT INTO "tracker_domains" VALUES('etsystatic','etsystatic.com');
+INSERT INTO "tracker_domains" VALUES('latimes','latimes.com');
+INSERT INTO "tracker_domains" VALUES('sovrn_viewability_solutions','onscroll.com');
+INSERT INTO "tracker_domains" VALUES('espn_cdn','espncdn.com');
+INSERT INTO "tracker_domains" VALUES('themoviedb','tmdb.org');
+INSERT INTO "tracker_domains" VALUES('netsprint_audience','nsaudience.pl');
+INSERT INTO "tracker_domains" VALUES('liveramp','pippio.com');
+INSERT INTO "tracker_domains" VALUES('braze','appboycdn.com');
+INSERT INTO "tracker_domains" VALUES('experian','eccmp.com');
+INSERT INTO "tracker_domains" VALUES('foxnews_static','fncstatic.com');
+INSERT INTO "tracker_domains" VALUES('creative_commons','creativecommons.org');
+INSERT INTO "tracker_domains" VALUES('cloudimage.io','cloudimg.io');
+INSERT INTO "tracker_domains" VALUES('impact_radius','impactradius-event.com');
+INSERT INTO "tracker_domains" VALUES('level3_communications','footprint.net');
+INSERT INTO "tracker_domains" VALUES('boudja.com','boudja.com');
+INSERT INTO "tracker_domains" VALUES('bwbx.io','bwbx.io');
+INSERT INTO "tracker_domains" VALUES('tororango.com','tororango.com');
+INSERT INTO "tracker_domains" VALUES('interedy.info','interedy.info');
+INSERT INTO "tracker_domains" VALUES('lottex_inc','vidcpm.com');
+INSERT INTO "tracker_domains" VALUES('advanced_hosters','pix-cdn.org');
+INSERT INTO "tracker_domains" VALUES('lyuoaxruaqdo.com','lyuoaxruaqdo.com');
+INSERT INTO "tracker_domains" VALUES('github_pages','github.io');
+INSERT INTO "tracker_domains" VALUES('bloomreach','brcdn.com');
+INSERT INTO "tracker_domains" VALUES('bloomreach','brsrvr.com');
+INSERT INTO "tracker_domains" VALUES('bloomreach','brtstats.com');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -2629,7 +2673,7 @@ INSERT INTO "trackers" VALUES('mixpanel','Mixpanel',6,'http://mixpanel.com/','mi
 INSERT INTO "trackers" VALUES('t-mobile','Deutsche Telekom',8,NULL,NULL,'c_923',NULL);
 INSERT INTO "trackers" VALUES('scene7.com','Adobe Dynamic Media (Scene7)',4,NULL,'adobe','scene7.com',NULL);
 INSERT INTO "trackers" VALUES('ekomi','eKomi',1,'http://www.ekomi.co.uk','ekomi','1655',NULL);
-INSERT INTO "trackers" VALUES('sovrn','sovrn',4,'http://www.lijit.com/',NULL,'18',NULL);
+INSERT INTO "trackers" VALUES('sovrn','sovrn',4,'https://www.sovrn.com/',NULL,'18',NULL);
 INSERT INTO "trackers" VALUES('cpx.to','cpx.to',11,NULL,NULL,'cpx.to',NULL);
 INSERT INTO "trackers" VALUES('sharethis','ShareThis',4,'http://sharethis.com/','sharethis','52',NULL);
 INSERT INTO "trackers" VALUES('spoteffect','Spoteffect',6,NULL,'spoteffect','2783',NULL);
@@ -2889,7 +2933,6 @@ INSERT INTO "trackers" VALUES('zog.link','zog.link',11,NULL,NULL,'zog.link','15/
 INSERT INTO "trackers" VALUES('richrelevance','RichRelevance',4,'http://www.richrelevance.com/','richrelevance','224',NULL);
 INSERT INTO "trackers" VALUES('tubemogul','TubeMogul',4,'http://tubemogul.com/','tubemogul','736',NULL);
 INSERT INTO "trackers" VALUES('bugsnag','Bugsnag',6,'https://bugsnag.com','bugsnag','2091',NULL);
-INSERT INTO "trackers" VALUES('aloodo','Aloodo',6,NULL,'aloodo','2254',NULL);
 INSERT INTO "trackers" VALUES('codeonclick.com','codeonclick.com',11,NULL,NULL,'codeonclick.com',NULL);
 INSERT INTO "trackers" VALUES('imgix.net','ImgIX',9,'https://www.imgix.com/',NULL,'imgix.net',NULL);
 INSERT INTO "trackers" VALUES('eanalyzer.de','eanalyzer.de',11,NULL,NULL,'eanalyzer.de','15/11/17: Registered to n@work Internet Informationssysteme GmbH (work.de)');
@@ -3280,7 +3323,7 @@ INSERT INTO "trackers" VALUES('pardot','Pardot',6,'http://www.pardot.com/','pard
 INSERT INTO "trackers" VALUES('qualaroo','Qualaroo',6,NULL,NULL,'c_2450',NULL);
 INSERT INTO "trackers" VALUES('logsss.com','logsss.com',11,NULL,NULL,'logsss.com',NULL);
 INSERT INTO "trackers" VALUES('internetstores.de','internetstores.de',NULL,NULL,NULL,'internetstores.de',NULL);
-INSERT INTO "trackers" VALUES('github','GitHub',2,NULL,NULL,'c_1618',NULL);
+INSERT INTO "trackers" VALUES('github','GitHub',2,NULL,'github','c_1618',NULL);
 INSERT INTO "trackers" VALUES('post_affiliate_pro','Post Affiliate Pro',4,'http://www.qualityunit.com/','qualityunit','1411',NULL);
 INSERT INTO "trackers" VALUES('guj.de','guj.de',NULL,NULL,NULL,'guj.de',NULL);
 INSERT INTO "trackers" VALUES('vtrtl.de','vtrtl.de',NULL,NULL,NULL,'vtrtl.de',NULL);
@@ -3710,6 +3753,31 @@ INSERT INTO "trackers" VALUES('camakaroda.com','camakaroda.com',11,NULL,NULL,NUL
 INSERT INTO "trackers" VALUES('khzbeucrltin.com','khzbeucrltin.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('defpush.com','defpush.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('webedia','Webedia',4,'http://fr.webedia-group.com/','fimalac_group',NULL,NULL);
+INSERT INTO "trackers" VALUES('github_apps','GitHub Apps',2,NULL,'github',NULL,NULL);
+INSERT INTO "trackers" VALUES('quantum_metric','Quantum Metric',6,'https://www.quantummetric.com/','quantum_metric','2807',NULL);
+INSERT INTO "trackers" VALUES('the_sun','The Sun',8,'https://www.thesun.co.uk/','the_sun',NULL,NULL);
+INSERT INTO "trackers" VALUES('ancestry_cdn','Ancestry CDN',9,'https://www.ancestry.com/','ancestry',NULL,NULL);
+INSERT INTO "trackers" VALUES('go.com','go.com',8,'go.com','disney',NULL,NULL);
+INSERT INTO "trackers" VALUES('etsystatic','Etsy CDN',9,'','etsy',NULL,NULL);
+INSERT INTO "trackers" VALUES('latimes','Los Angeles Times',8,'http://www.latimes.com/','latimes',NULL,NULL);
+INSERT INTO "trackers" VALUES('sovrn_viewability_solutions','Sovrn Viewability Solutions',4,'https://www.sovrn.com/meridian/onscroll-viewability/','sovrn','1763',NULL);
+INSERT INTO "trackers" VALUES('espn_cdn','ESPN CDN',9,'http://www.espn.com/','disney',NULL,NULL);
+INSERT INTO "trackers" VALUES('themoviedb','The Movie DB',8,'https://www.themoviedb.org/','themoviedb',NULL,NULL);
+INSERT INTO "trackers" VALUES('netsprint_audience','Netsprint Audience',6,'http://audience.netsprint.eu/','netsprint',NULL,NULL);
+INSERT INTO "trackers" VALUES('braze','Braze',6,'https://www.braze.com/','braze_inc','',NULL);
+INSERT INTO "trackers" VALUES('experian','Experian',8,'https://www.experian.com/','experian_inc',NULL,NULL);
+INSERT INTO "trackers" VALUES('foxnews_static','Fox News CDN',9,'','fox_news',NULL,NULL);
+INSERT INTO "trackers" VALUES('creative_commons','Creative Commons',8,'https://creativecommons.org/','creative_commons_corp',NULL,NULL);
+INSERT INTO "trackers" VALUES('cloudimage.io','Cloudimage.io',9,'https://www.cloudimage.io/en/home','scaleflex_sas',NULL,NULL);
+INSERT INTO "trackers" VALUES('level3_communications','Level 3 Communications, Inc.',8,'http://www.level3.com/en/','level3_communications',NULL,NULL);
+INSERT INTO "trackers" VALUES('boudja.com','boudja.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('bwbx.io','Bloomberg CDN',9,'https://www.bloomberg.com/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('tororango.com','tororango.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('interedy.info','interedy.info',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('lottex_inc','vidcpm.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('lyuoaxruaqdo.com','lyuoaxruaqdo.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('github_pages','Github Pages',10,'https://pages.github.com/','github',NULL,NULL);
+INSERT INTO "trackers" VALUES('bloomreach','BloomReach',4,'https://www.bloomreach.com/en','bloomreach','323',NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
