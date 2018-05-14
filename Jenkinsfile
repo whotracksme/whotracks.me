@@ -19,7 +19,6 @@ node('docker') {
 
     img.inside('-u 0:0') {
         try {
-
             stage('Install') {
                 sh("python -m pip install '.[dev]'")
             }
@@ -37,11 +36,32 @@ node('docker') {
                 sh('whotracksme website')
             }
 
+            stage('Publish artifacts') {
+                def tag = env.TAG_NAME
+                def suffix = '-pypi'
+                // Only publish a version if tag ends with `suffix`.
+                if (tag != null && tag.endsWith(suffix)) {
+                    // Extract part of the tag before suffix.
+                    def version = tag.substring(0, tag.length() - suffix.length())
+
+                    withCredentials([usernamePassword(
+                        credentialsId: '3fc94ee4-8e89-4973-b34e-e37df209a74e',
+                        passwordVariable: 'password',
+                        usernameVariable: 'user'
+                    )]) {
+                        sh('rm -fr dist/ whotracksme.egg-info')
+                        sh("WTM_VERSION=${version} python setup.py install")
+                        sh("WTM_VERSION=${version} python setup.py sdist bdist_wheel")
+                        sh("twine upload --username cliqz-oss --password $password dist/*")
+                    }
+                }
+            }
+
             stage('Publish Site') {
                 def deployArgs = ''
                 if (env.BRANCH_NAME.contains('PR')) {
                     deployArgs = "${stagingBucket} ${stagingPrefix}/${env.BRANCH_NAME}"
-                } else if (env.BRANCH_NAME == 'production') {
+                } else if (env.TAG_NAME != null) {
                     deployArgs = "${productionBucket} ${productionPrefix} --production"
                 } else {
                     deployArgs = "${stagingBucket} ${stagingPrefix}/latest"
