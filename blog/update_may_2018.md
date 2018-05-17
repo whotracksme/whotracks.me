@@ -36,7 +36,7 @@ that despite strong criticism in the press, the same news sites did not stop usi
 tracking tools.
 
 
-![Facebook Trackers' Reach, April 2018](../static/img/blog/update_may18/facebook_reach.svg)
+![Facebook Trackers' Reach, April 2018](../static/img/blog/update_may18/facebook_reach2.svg)
 <p class="img-caption">Figure 1: Facebook Tracker's reach over time, April 2018</p>
 
 
