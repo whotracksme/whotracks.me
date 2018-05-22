@@ -28,3 +28,12 @@ def build_home(data):
         ))
 
     print_progress(text="Generate home page")
+
+
+def build_privacy_policy(data):
+    with open('_site/privacy-policy.html', 'w') as output:
+        output.write(render_template(
+            template=get_template(data, "privacy-policy.html"),
+        ))
+
+    print_progress(text="Generate Privacy Policy")
