@@ -6,7 +6,7 @@ import concurrent.futures
 
 from whotracksme.data.loader import DataSource
 
-from whotracksme.website.build.home import build_home
+from whotracksme.website.build.home import build_home, build_privacy_policy
 from whotracksme.website.build.blog import (
     build_blogpost_list,
     build_blogpost_pages,
@@ -112,6 +112,7 @@ class Builder:
                 # Home
                 # build_home(data=data_source)
                 futures.append(executor.submit(build_home, data=data_source))
+                futures.append(executor.submit(build_privacy_policy, data=data_source))
 
                 # Trackers
                 futures.append(executor.submit(build_trackers_list, data=data_source))
