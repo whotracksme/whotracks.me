@@ -3729,7 +3729,7 @@ INSERT INTO "trackers" VALUES('i10c.net','i10c.net',11,NULL,NULL,NULL,'Possible 
 INSERT INTO "trackers" VALUES('fap.to','Imagefap',8,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('nyt.com','The New York Times',8,'https://www.nytimes.com/','the_new_york_times','1129',NULL);
 INSERT INTO "trackers" VALUES('faitid','FAITID',NULL,'http://ru.faitid.org/','faitid',NULL,NULL);
-INSERT INTO "trackers" VALUES('datadome','DataDome',6,'https://datadome.co/','datadome','Gra',NULL);
+INSERT INTO "trackers" VALUES('datadome','DataDome',6,'https://datadome.co/','datadome',NULL,NULL);
 INSERT INTO "trackers" VALUES('adrecover','AdRecover',4,'https://www.adrecover.com/','adpushup',NULL,NULL);
 INSERT INTO "trackers" VALUES('navegg_dmp','Navegg DMP',6,'http://navdmp.com/','navegg',NULL,NULL);
 INSERT INTO "trackers" VALUES('adverticum','Adverticum',4,'https://adverticum.net/english/','adverticum',NULL,NULL);
