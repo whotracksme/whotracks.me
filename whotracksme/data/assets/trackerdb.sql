@@ -582,6 +582,18 @@ INSERT INTO "companies" VALUES('wonderpush','WonderPush',NULL,'https://www.wonde
 INSERT INTO "companies" VALUES('yieldbot','Yieldbot',NULL,'https://www.yieldbot.com/platform-privacy-policy/','https://www.yieldbot.com/',NULL);
 INSERT INTO "companies" VALUES('strossle','Strossle',NULL,'https://strossle.com/privacy-policy/','https://strossle.com/',NULL);
 INSERT INTO "companies" VALUES('fimalac_group','Fimalac Group',NULL,NULL,'http://www.fimalac.com/',NULL);
+INSERT INTO "companies" VALUES('grapeshot','Grapeshot, Ltd.',NULL,'https://www.grapeshot.com/privacy/','https://www.grapeshot.com/','1100');
+INSERT INTO "companies" VALUES('nbcuniversal','NBCUniversal, LLC',NULL,'https://www.nbcuniversal.com/privacy','https://www.nbcuniversal.com/',NULL);
+INSERT INTO "companies" VALUES('shutterstock_inc','Shutterstock, Inc.',NULL,'https://www.shutterstock.com/privacy','https://www.shutterstock.com/',NULL);
+INSERT INTO "companies" VALUES('xxxlutz','XXXLutz KG',NULL,NULL,'https://www.xxxlutz.de/',NULL);
+INSERT INTO "companies" VALUES('rocket_science_group','The Rocket Science Group',NULL,'https://mailchimp.com/legal/privacy/','http://rocketsciencegroup.com/',NULL);
+INSERT INTO "companies" VALUES('onet.pl','Onet.pl SA',NULL,NULL,'https://www.onet.pl/',NULL);
+INSERT INTO "companies" VALUES('mux_inc','Mux, Inc.',NULL,'https://mux.com/privacy','https://mux.com/','4482');
+INSERT INTO "companies" VALUES('dmgt','Daily Mail and General Trust plc',NULL,'https://www.dmgt.com/site-services/privacy-policy','https://www.dmgt.com/',NULL);
+INSERT INTO "companies" VALUES('expert_system_spa','Expert System, SpA',NULL,'http://www.expertsystem.com/privacy-policy/','http://www.expertsystem.com/',NULL);
+INSERT INTO "companies" VALUES('tail.digital','Tail',NULL,NULL,'https://www.tail.digital/','3269');
+INSERT INTO "companies" VALUES('contentful_gmbh','Contentful GmbH',NULL,'https://www.contentful.com/legal/de/privacy/','https://www.contentful.com/',NULL);
+INSERT INTO "companies" VALUES('snigelweb_inc','SnigelWeb, Inc.',NULL,'http://www.snigelweb.com/privacy-policy/','http://www.snigelweb.com/','5128');
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -2447,6 +2459,27 @@ INSERT INTO "tracker_domains" VALUES('wp.pl','wpimg.pl');
 INSERT INTO "tracker_domains" VALUES('defpush.com','defpush.com');
 INSERT INTO "tracker_domains" VALUES('webedia','mediaathay.org.uk');
 INSERT INTO "tracker_domains" VALUES('webedia','goutee.top');
+INSERT INTO "tracker_domains" VALUES('oath_inc','oath.com');
+INSERT INTO "tracker_domains" VALUES('grapeshot','gscontxt.net');
+INSERT INTO "tracker_domains" VALUES('infonline','iocnt.net');
+INSERT INTO "tracker_domains" VALUES('evidon','evidon.com');
+INSERT INTO "tracker_domains" VALUES('cnbc','cnbc.com');
+INSERT INTO "tracker_domains" VALUES('sailthru_horizon','sail-personalize.com');
+INSERT INTO "tracker_domains" VALUES('statuspage.io','statuspage.io');
+INSERT INTO "tracker_domains" VALUES('adalliance.io','adalliance.io');
+INSERT INTO "tracker_domains" VALUES('borrango.com','borrango.com');
+INSERT INTO "tracker_domains" VALUES('hawifallon.com','hawifallon.com');
+INSERT INTO "tracker_domains" VALUES('shutterstock','shutterstock.com');
+INSERT INTO "tracker_domains" VALUES('xxxlutz','xxxlutz.de');
+INSERT INTO "tracker_domains" VALUES('mailchimp','chimpstatic.com');
+INSERT INTO "tracker_domains" VALUES('dreamlab.pl','dreamlab.pl');
+INSERT INTO "tracker_domains" VALUES('dmg_media','and.co.uk');
+INSERT INTO "tracker_domains" VALUES('mux_inc','litix.io');
+INSERT INTO "tracker_domains" VALUES('admantx.com','admantx.com');
+INSERT INTO "tracker_domains" VALUES('tail_target','tailtarget.com');
+INSERT INTO "tracker_domains" VALUES('contentful_gmbh','ctfassets.net');
+INSERT INTO "tracker_domains" VALUES('snigelweb','h-bid.com');
+INSERT INTO "tracker_domains" VALUES('strossle','strossle.it');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -3678,7 +3711,7 @@ INSERT INTO "trackers" VALUES('hotdogsandads.com','hotdogsandads.com',11,NULL,NU
 INSERT INTO "trackers" VALUES('footprintdns.com','Footprint DNS',11,NULL,'microsoft',NULL,'Microsoft owned but no public information on its purpose');
 INSERT INTO "trackers" VALUES('velocecdn.com','velocecdn.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('unpkg.com','unpkg',9,'https://unpkg.com/#/',NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('mailchimp','MailChimp',4,'https://mailchimp.com/',NULL,'810',NULL);
+INSERT INTO "trackers" VALUES('mailchimp','MailChimp',4,'https://mailchimp.com/','rocket_science_group','810',NULL);
 INSERT INTO "trackers" VALUES('xnxx_cdn','xnxx CDN',9,'https://www.xnxx.com',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('glganltcs.space','glganltcs.space',12,NULL,NULL,NULL,'Evidence of being a malicious browser extension: https://support.mozilla.org/vi/questions/1195393');
 INSERT INTO "trackers" VALUES('roblox','Roblox',8,'https://www.roblox.com/',NULL,NULL,NULL);
@@ -3696,7 +3729,7 @@ INSERT INTO "trackers" VALUES('i10c.net','i10c.net',11,NULL,NULL,NULL,'Possible 
 INSERT INTO "trackers" VALUES('fap.to','Imagefap',8,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('nyt.com','The New York Times',8,'https://www.nytimes.com/','the_new_york_times','1129',NULL);
 INSERT INTO "trackers" VALUES('faitid','FAITID',NULL,'http://ru.faitid.org/','faitid',NULL,NULL);
-INSERT INTO "trackers" VALUES('datadome','DataDome',6,'https://datadome.co/','datadome',NULL,NULL);
+INSERT INTO "trackers" VALUES('datadome','DataDome',6,'https://datadome.co/','datadome','Gra',NULL);
 INSERT INTO "trackers" VALUES('adrecover','AdRecover',4,'https://www.adrecover.com/','adpushup',NULL,NULL);
 INSERT INTO "trackers" VALUES('navegg_dmp','Navegg DMP',6,'http://navdmp.com/','navegg',NULL,NULL);
 INSERT INTO "trackers" VALUES('adverticum','Adverticum',4,'https://adverticum.net/english/','adverticum',NULL,NULL);
@@ -3713,6 +3746,23 @@ INSERT INTO "trackers" VALUES('camakaroda.com','camakaroda.com',11,NULL,NULL,NUL
 INSERT INTO "trackers" VALUES('khzbeucrltin.com','khzbeucrltin.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('defpush.com','defpush.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('webedia','Webedia',4,'http://fr.webedia-group.com/','fimalac_group',NULL,NULL);
+INSERT INTO "trackers" VALUES('oath_inc','Oath, Inc.',8,'https://www.oath.com/','verizon',NULL,NULL);
+INSERT INTO "trackers" VALUES('grapeshot','Grapeshot',4,'https://www.grapeshot.com/','grapeshot','745',NULL);
+INSERT INTO "trackers" VALUES('cnbc','CNBC',8,'https://www.cnbc.com/','nbcuniversal',NULL,NULL);
+INSERT INTO "trackers" VALUES('statuspage.io','Statuspage',2,'https://www.statuspage.io/','atlassian',NULL,NULL);
+INSERT INTO "trackers" VALUES('adalliance.io','',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('pvclouds.com','',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('borrango.com','',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('hawifallon.com','',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('shutterstock','Shutterstock',NULL,'https://www.shutterstock.com/','shutterstock_inc',NULL,NULL);
+INSERT INTO "trackers" VALUES('xxxlutz','XXXLutz',8,'https://www.xxxlutz.de/','xxxlutz',NULL,NULL);
+INSERT INTO "trackers" VALUES('dreamlab.pl','DreamLab.pl',NULL,'https://www.dreamlab.pl/','onet.pl',NULL,NULL);
+INSERT INTO "trackers" VALUES('mux_inc','Mux, Inc.',10,'https://mux.com/',NULL,'2620',NULL);
+INSERT INTO "trackers" VALUES('dmg_media','DMG Media',8,'https://www.dmgmedia.co.uk/','dmgt',NULL,NULL);
+INSERT INTO "trackers" VALUES('admantx.com','ADmantX',4,'http://www.admantx.com/','expert_system_spa',NULL,NULL);
+INSERT INTO "trackers" VALUES('tail_target','Tail',6,'https://www.tail.digital/','tail.digital','2101',NULL);
+INSERT INTO "trackers" VALUES('contentful_gmbh','Contentful GmbH',9,'https://www.contentful.com/','contentful_gmbh',NULL,NULL);
+INSERT INTO "trackers" VALUES('snigelweb','SnigelWeb, Inc.',4,'http://www.snigelweb.com/','snigelweb_inc',NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
