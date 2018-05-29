@@ -135,7 +135,8 @@ def get_template(data_source, name, render_markdown=False, path_to_root='.'):
                 'fenced_code',
                 'extra',
                 'toc',
-                'def_list'
+                'def_list',
+                'footnotes'
             ]
         )
         env.filters["markdown"] = lambda text: Markup(md.convert(text))
