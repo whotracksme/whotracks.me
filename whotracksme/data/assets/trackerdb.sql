@@ -580,7 +580,6 @@ INSERT INTO "companies" VALUES('wonderpush','WonderPush',NULL,'https://www.wonde
 INSERT INTO "companies" VALUES('yieldbot','Yieldbot',NULL,'https://www.yieldbot.com/platform-privacy-policy/','https://www.yieldbot.com/',NULL);
 INSERT INTO "companies" VALUES('strossle','Strossle',NULL,'https://strossle.com/privacy-policy/','https://strossle.com/',NULL);
 INSERT INTO "companies" VALUES('fimalac_group','Fimalac Group',NULL,NULL,'http://www.fimalac.com/',NULL);
-INSERT INTO "companies" VALUES('grapeshot','Grapeshot, Ltd.',NULL,'https://www.grapeshot.com/privacy/','https://www.grapeshot.com/','1100');
 INSERT INTO "companies" VALUES('nbcuniversal','NBCUniversal, LLC',NULL,'https://www.nbcuniversal.com/privacy','https://www.nbcuniversal.com/',NULL);
 INSERT INTO "companies" VALUES('shutterstock_inc','Shutterstock, Inc.',NULL,'https://www.shutterstock.com/privacy','https://www.shutterstock.com/',NULL);
 INSERT INTO "companies" VALUES('xxxlutz','XXXLutz KG',NULL,NULL,'https://www.xxxlutz.de/',NULL);
@@ -733,7 +732,7 @@ INSERT INTO "tracker_domains" VALUES('mediamath','mathads.com');
 INSERT INTO "tracker_domains" VALUES('mediamath','mathtag.com');
 INSERT INTO "tracker_domains" VALUES('xplosion','xplosion.de');
 INSERT INTO "tracker_domains" VALUES('meetrics','meetrics.net');
-INSERT INTO "tracker_domains" VALUES('meetrics','de.com');
+INSERT INTO "tracker_domains" VALUES('meetrics','research.de.com');
 INSERT INTO "tracker_domains" VALUES('meetrics','mxcdn.net');
 INSERT INTO "tracker_domains" VALUES('media_innovation_group','mookie1.com');
 INSERT INTO "tracker_domains" VALUES('bluekai','bkrtx.com');
@@ -2525,6 +2524,16 @@ INSERT INTO "tracker_domains" VALUES('github_pages','github.io');
 INSERT INTO "tracker_domains" VALUES('bloomreach','brcdn.com');
 INSERT INTO "tracker_domains" VALUES('bloomreach','brsrvr.com');
 INSERT INTO "tracker_domains" VALUES('bloomreach','brtstats.com');
+INSERT INTO "tracker_domains" VALUES('iab_consent','consensu.org');
+INSERT INTO "tracker_domains" VALUES('cedexis_radar','cedexis.fastlylb.net');
+INSERT INTO "tracker_domains" VALUES('cookiebot','cookiebot.com');
+INSERT INTO "tracker_domains" VALUES('optanaon','cookielaw.org');
+INSERT INTO "tracker_domains" VALUES('bluecore','triggeredmail.appspot.com');
+INSERT INTO "tracker_domains" VALUES('adlabs','clickiocdn.com');
+INSERT INTO "tracker_domains" VALUES('adlabs','adlabs.ru');
+INSERT INTO "tracker_domains" VALUES('adlabs','luxup.ru');
+INSERT INTO "tracker_domains" VALUES('adlabs','mixmarket.biz');
+INSERT INTO "tracker_domains" VALUES('admo.tv','admo.tv');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -3788,7 +3797,7 @@ INSERT INTO "trackers" VALUES('khzbeucrltin.com','khzbeucrltin.com',11,NULL,NULL
 INSERT INTO "trackers" VALUES('defpush.com','defpush.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('webedia','Webedia',4,'http://fr.webedia-group.com/','fimalac_group',NULL,NULL);
 INSERT INTO "trackers" VALUES('oath_inc','Oath, Inc.',8,'https://www.oath.com/','verizon',NULL,NULL);
-INSERT INTO "trackers" VALUES('grapeshot','Grapeshot',4,'https://www.grapeshot.com/','grapeshot','745',NULL);
+INSERT INTO "trackers" VALUES('grapeshot','Grapeshot',4,'https://www.grapeshot.com/','oracle','745',NULL);
 INSERT INTO "trackers" VALUES('cnbc','CNBC',8,'https://www.cnbc.com/','nbcuniversal',NULL,NULL);
 INSERT INTO "trackers" VALUES('statuspage.io','Statuspage',2,'https://www.statuspage.io/','atlassian',NULL,NULL);
 INSERT INTO "trackers" VALUES('adalliance.io','',NULL,NULL,NULL,NULL,NULL);
@@ -3833,6 +3842,12 @@ INSERT INTO "trackers" VALUES('facebook_cdn','Facebook CDN',9,'https://www.faceb
 INSERT INTO "trackers" VALUES('amazon','Amazon.com',8,'https://www.amazon.com','amazon_associates',NULL,NULL);
 INSERT INTO "trackers" VALUES('amazon_adsystem','Amazon Adsystem',4,'https://advertising.amazon.com/','amazon_associates',NULL,NULL);
 INSERT INTO "trackers" VALUES('amazon_cdn','Amazon CDN',9,'https://www.amazon.com','amazon_associates',NULL,NULL);
+INSERT INTO "trackers" VALUES('iab_consent','IAB Consent',5,'https://iabtechlab.com/standards/gdpr-transparency-and-consent-framework/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('cookiebot','Cookiebot',5,'https://www.cookiebot.com/en/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('optanaon','OneTrust',5,'https://www.cookielaw.org/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('bluecore','Bluecore',4,'https://www.bluecore.com/',NULL,'1952',NULL);
+INSERT INTO "trackers" VALUES('adlabs','AdLabs',4,'https://www.adlabs.ru/',NULL,'1167',NULL);
+INSERT INTO "trackers" VALUES('admo.tv','Admo.TV',3,'https://admo.tv/',NULL,'2734',NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
