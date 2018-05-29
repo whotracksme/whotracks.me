@@ -216,5 +216,5 @@ speed up their browsing experience by avoiding the tracker tax.
 [^2]: [WhoTracks.Me: Monitoring the online tracking landscape at scale](https://arxiv.org/abs/1804.08959)
 [^3]: [Tracking The Trackers](https://pdfs.semanticscholar.org/2bfb/b6b8da453f91f5860ea936588fddef6c80e0.pdf)
 [^4]: [Windows.performance](https://developer.mozilla.org/en-US/docs/Web/API/Window/performance) API
-[^5]: www.alexa.com
+[^5]: [alexa.com](https://alexa.com)
 [^6]: Ghostery Study: [Tracking the Trackers](https://www.ghostery.com/wp-content/themes/ghostery/images/campaigns/tracker-study/Ghostery_Study_-_Tracking_the_Trackers.pdf)
