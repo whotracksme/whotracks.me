@@ -25,7 +25,7 @@ have extensive reach on web traffic [^3].
 Beyond privacy concerns, we are left with one question: Do trackers cost us time?
 More specifically, what is the relationship between the number of trackers and the time
 a page takes to load? We call this tracker impact on the website page load times, also
-referred to as page latency, the TRACKER TAX.
+referred to as page latency, the _Tracker Tax_.
 
 
 ## Data Collection and Cleaning
@@ -123,7 +123,7 @@ linear regression assumptions.
 
 A Box-Cox test showed that log-transforming the response variable would realize
 the best fitting model, and also act as a variance-stabilizing transformation.
-The log-linear model (adj-R2 0.885) on the transformed data indicates a
+The log-linear model (`adj-R2 0.885`) on the transformed data indicates a
 compounding effect: if the tracker count increases by 1, we expect the
 page load time to increase by 2.5%.
 
