@@ -29,7 +29,7 @@ referred to as page latency, the TRACKER TAX.
 
 
 ## Data Collection and Cleaning
-Intuition tells us was that the more trackers present on a page, the longer it would take
+Intuition tells us that the more trackers present on a page, the longer it would take
 that page to load; however, this hypothesis had not been tested on a large scale.
 Web privacy measurement framework, [OpenWPM](https://github.com/citp/OpenWPM) has been
 used by numerous researchers to collect data for privacy studies on a mass, automated
@@ -38,11 +38,11 @@ time. So we built a custom crawler to collect the number of third-party trackers
 website and the time it took that page to load.  The crawler was built with Selenium
 running Chrome, making GET requests from a server based in New York City, and used
 [Ghostery](https://ghostery.com) to collect two metrics per page load: the count of
-third-party trackers and seconds to the load the page.
+third-party trackers and number of seconds to load the page.
 
-Ghostery detects third-party trackers by comparing a HTTP request with an instance in
-their database, which currently contains over 3,000 tracker companies and 4,700 tracker
-patterns. To measure the time it take a page to load, Ghostery uses
+Ghostery detects third-party trackers by matching URLs from HTTP requests against
+their trackers' database, which currently contains over 3,000 tracker companies and 4,700 tracker
+patterns. To measure the time it takes a page to load, Ghostery uses
 Mozilla’s `Window.performance` API [^4] by taking the delta between
 `domContentLoadedEventStart` and `requestStart`. We chose to use Ghostery to measure
 tracker count and page load time so the public could replicate similar, independent
@@ -77,7 +77,7 @@ which observed that 77.4% of page loads contain trackers.
 
 
 There are several differences between our two studies which may explain the increase
-in tracker dominance seen in this study. Firstly, this study’s sample containing the
+in tracker dominance seen in this study. Firstly, this study’s sample contains the
 500 most popular websites in the US, while our previous study analyzed 144 million
 page loads across more than 12 countries. By only considering the most popular websites
 and neglecting the long tail of more obscure ones, it is not surprising that this study
@@ -146,7 +146,7 @@ and blocking trackers saved an average of 84 seconds per page load.
 The term “piggybacking” describes the practice of one tracker that is placed
 directly on a website giving access to other “piggybacking” trackers that are
 not originally on the site.  We observed this phenomenon in our data: page loads
-were not the only metric significant reduced when trackers were blocked, there
+were not the only metric significantly reduced when trackers were blocked, there
 were also fewer trackers detected on the page. We saw significantly more
 trackers per page when trackers were unblocked compared to blocked, in fact,
 among the domains with the highest average volume of trackers, there were on
