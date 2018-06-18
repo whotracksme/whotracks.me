@@ -18,41 +18,35 @@ from whotracksme.website.plotting.colors import (
 
 
 def site_to_json(data_source, blog_posts):
-    site_idx = defaultdict(list)
+    site_idx = []
 
     def submit_key(name, type, url, weight, idx=site_idx):
         _name = name.lower()
-        idx[type].append({
+        site_idx.append({
             "name": name,
             "normalized_name": _name,
             "type": type,
-            "url": url,
+            "url": url.replace("./", "/"),
             "weight": weight
         })
 
     for tracker in data_source.trackers.get_snapshot().itertuples():
-        submit_key(
-            name=data_source.trackers.get_name(tracker.tracker),
-            type="tracker",
-            url=data_source.url_for("tracker", tracker.tracker),
-            weight=(1.0 / tracker.reach_rank) * 1000
-        )
+        name = data_source.trackers.get_name(tracker.tracker)
+        url = data_source.url_for("tracker", tracker.tracker)
+        weight = (1.0 / tracker.reach_rank) * 1000
+        submit_key(name=name, type="tracker", url=url, weight=weight)
         # Search a tracker by domain.
         for d in data_source.trackers.get_domains(tracker.tracker):
-            submit_key(
-                name=d,
-                type="tracker",
-                url=data_source.url_for("tracker", tracker.tracker),
-                weight=(1.0 / tracker.reach_rank) * 1000
-            )
+            if name != d:
+                submit_key(name=d, type="tracker", url=url, weight=weight)
 
-    for company in data_source.companies.get_snapshot().itertuples():
-        submit_key(
-            name=company.name,
-            type="company",
-            url=data_source.url_for("company", company.company),
-            weight=len(data_source.trackers.df[data_source.trackers.df.company_id == company.company]) or 1
-        )
+    # for company in data_source.companies.get_snapshot().itertuples():
+    #     submit_key(
+    #         name=company.name,
+    #         type="company",
+    #         url=data_source.url_for("company", company.company),
+    #         weight=len(data_source.trackers.df[data_source.trackers.df.company_id == company.company]) or 1
+    #     )
 
     for site in data_source.sites.get_snapshot().itertuples():
         submit_key(
@@ -63,14 +57,15 @@ def site_to_json(data_source, blog_posts):
         )
 
     for blogpost in blog_posts:
-        submit_key(
-            name=blogpost.get("title"),
-            type="blog",
-            url=data_source.url_for("blog", blogpost.get("filename")),
-            weight=1
-        )
+        if blogpost["publish"]:
+            submit_key(
+                name=blogpost.get("title"),
+                type="blog",
+                url=data_source.url_for("blog", blogpost.get("filename")),
+                weight=1
+            )
 
-    return site_idx
+    return sorted(site_idx, key=lambda x: x['weight'], reverse=True)
 
 
 # Paths needed for generating urls
