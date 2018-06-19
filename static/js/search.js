@@ -12,7 +12,7 @@ let options = {
 
 let idx = []
 let fuse = new Fuse(idx, options);
-fetch('/sitemap.json')
+fetch(`${pathToRoot}/sitemap.json`)
     .then(function (response) {
         return response.json();
     })
