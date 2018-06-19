@@ -65,7 +65,7 @@ function createList(parent, arr, name) {
             /*create a DIV element for each matching element:*/
             b = document.createElement("DIV");
             b.setAttribute("href", arr[i].url)
-            b.innerHTML = `<a href="${arr[i].url}">${arr[i].name} <i class="fa fa-external-link" aria-hidden="true"></i>`
+            b.innerHTML = `<a href="${pathToRoot + arr[i].url}">${arr[i].name} <i class="fa fa-external-link" aria-hidden="true"></i>`
 
             /*insert a input field that will hold the current array item's value:*/
             b.innerHTML += "<input type='hidden' value='" + arr[i].name + "'>";
