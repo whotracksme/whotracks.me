@@ -37,17 +37,13 @@ function structuredResults(arr) {
     let blog = [];
     for (let i = 0; i < arr.length; i += 1) {
         if (arr[i].item.type === "site") {
-            arr[i].item.icon = 'S: ';
             arr[i].item.score = arr[i].score * arr[i].item.weight;
             websites.push(arr[i].item)
         } else if (arr[i].item.type === "tracker") {
             arr[i].item.score = arr[i].score * arr[i].item.weight;
-            // arr[i].item.score = arr[i].item.weight;
-            arr[i].icon = 'T: ';
             trackers.push(arr[i].item);
         } else {
             arr[i].item.score = arr[i].score * arr[i].item.weight;
-            arr[i].icon = 'B: ';
             blog.push(arr[i].item);
         }
     }
