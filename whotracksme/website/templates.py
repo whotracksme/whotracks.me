@@ -18,11 +18,12 @@ from whotracksme.website.plotting.colors import (
 
 
 def site_to_json(data_source, blog_posts):
-    site_idx = []
+    site_idx = defaultdict(list)
+
 
     def submit_key(name, type, url, weight, idx=site_idx):
         _name = name.lower()
-        site_idx.append({
+        site_idx[type].append({
             "name": name,
             "normalized_name": _name,
             "type": type,
@@ -65,7 +66,12 @@ def site_to_json(data_source, blog_posts):
                 weight=1
             )
 
-    return sorted(site_idx, key=lambda x: x['weight'], reverse=True)
+    site_idx["site"] = sorted(site_idx["site"], key=lambda x: x['weight'], reverse=True)
+    site_idx["tracker"] = sorted(site_idx["tracker"], key=lambda x: x['weight'], reverse=True)
+    site_idx["blog"] = sorted(site_idx["blog"], key=lambda x: x['weight'], reverse=True)
+
+    # return sorted(site_idx, key=lambda x: x['weight'], reverse=True)
+    return site_idx
 
 
 # Paths needed for generating urls
