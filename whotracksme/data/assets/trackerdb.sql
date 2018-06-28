@@ -607,6 +607,8 @@ INSERT INTO "companies" VALUES('creative_commons_corp','Creative Commons Corpora
 INSERT INTO "companies" VALUES('scaleflex_sas','Scaleflex SAS',NULL,'https://privacy.scaleflex.it/go/privacy/en/privacy-by-design/','https://www.scaleflex.it/',NULL);
 INSERT INTO "companies" VALUES('level3_communications','Level 3 Communications, Inc.',NULL,'http://www.level3.com/en/privacy/','http://www.level3.com/en/',NULL);
 INSERT INTO "companies" VALUES('bloomreach','BloomReach',NULL,'https://www.bloomreach.com/en/about/privacy-policy','https://www.bloomreach.com/en','396');
+INSERT INTO "companies" VALUES('intango','Intango',NULL,'https://intango.com/privacy-policy/','https://intango.com/',NULL);
+INSERT INTO "companies" VALUES('gizmodo','Gizmodo Media Group',NULL,'https://legal-supplemental.kinja.com/privacy-policy-90190742','https://gizmodo.com/','5191');
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -2534,6 +2536,28 @@ INSERT INTO "tracker_domains" VALUES('adlabs','adlabs.ru');
 INSERT INTO "tracker_domains" VALUES('adlabs','luxup.ru');
 INSERT INTO "tracker_domains" VALUES('adlabs','mixmarket.biz');
 INSERT INTO "tracker_domains" VALUES('admo.tv','admo.tv');
+INSERT INTO "tracker_domains" VALUES('vntsm.com','vntsm.com');
+INSERT INTO "tracker_domains" VALUES('outbrain','outbrainimg.com');
+INSERT INTO "tracker_domains" VALUES('yandex','d31j93rd8oukbv.cloudfront.net');
+INSERT INTO "tracker_domains" VALUES('modulepush.com','modulepush.com');
+INSERT INTO "tracker_domains" VALUES('express.co.uk','express.co.uk');
+INSERT INTO "tracker_domains" VALUES('trafmag.com','trafmag.com');
+INSERT INTO "tracker_domains" VALUES('admixer.net','admixer.net');
+INSERT INTO "tracker_domains" VALUES('jquery','cdnjquery.com');
+INSERT INTO "tracker_domains" VALUES('coll2onf.com','coll2onf.com');
+INSERT INTO "tracker_domains" VALUES('reuters_media','reutersmedia.net');
+INSERT INTO "tracker_domains" VALUES('ad-delivery.net','ad-delivery.net');
+INSERT INTO "tracker_domains" VALUES('videoplayerhub.com','videoplayerhub.com');
+INSERT INTO "tracker_domains" VALUES('evergage.com','evergage.com');
+INSERT INTO "tracker_domains" VALUES('zdassets.com','zdassets.com');
+INSERT INTO "tracker_domains" VALUES('sovrn_onetag','s-onetag.com');
+INSERT INTO "tracker_domains" VALUES('revenue_hits','clksite.com');
+INSERT INTO "tracker_domains" VALUES('seznam','szn.cz');
+INSERT INTO "tracker_domains" VALUES('amazon_video','aiv-cdn.net');
+INSERT INTO "tracker_domains" VALUES('bugsnag','bugsnag.com');
+INSERT INTO "tracker_domains" VALUES('kinja.com','kinja.com');
+INSERT INTO "tracker_domains" VALUES('kinja_static','kinja-img.com');
+INSERT INTO "tracker_domains" VALUES('kinja_static','kinja-static.com');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -2716,7 +2740,7 @@ INSERT INTO "trackers" VALUES('mixpanel','Mixpanel',6,'http://mixpanel.com/','mi
 INSERT INTO "trackers" VALUES('t-mobile','Deutsche Telekom',8,NULL,NULL,'c_923',NULL);
 INSERT INTO "trackers" VALUES('scene7.com','Adobe Dynamic Media (Scene7)',4,NULL,'adobe','scene7.com',NULL);
 INSERT INTO "trackers" VALUES('ekomi','eKomi',1,'http://www.ekomi.co.uk','ekomi','1655',NULL);
-INSERT INTO "trackers" VALUES('sovrn','sovrn',4,'https://www.sovrn.com/',NULL,'18',NULL);
+INSERT INTO "trackers" VALUES('sovrn','sovrn',4,'https://www.sovrn.com/','sovrn','18',NULL);
 INSERT INTO "trackers" VALUES('cpx.to','cpx.to',11,NULL,NULL,'cpx.to',NULL);
 INSERT INTO "trackers" VALUES('sharethis','ShareThis',4,'http://sharethis.com/','sharethis','52',NULL);
 INSERT INTO "trackers" VALUES('spoteffect','Spoteffect',6,NULL,'spoteffect','2783',NULL);
@@ -3844,10 +3868,26 @@ INSERT INTO "trackers" VALUES('amazon_adsystem','Amazon Adsystem',4,'https://adv
 INSERT INTO "trackers" VALUES('amazon_cdn','Amazon CDN',9,'https://www.amazon.com','amazon_associates',NULL,NULL);
 INSERT INTO "trackers" VALUES('iab_consent','IAB Consent',5,'https://iabtechlab.com/standards/gdpr-transparency-and-consent-framework/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('cookiebot','Cookiebot',5,'https://www.cookiebot.com/en/',NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('optanaon','OneTrust',5,'https://www.cookielaw.org/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('optanaon','Optanaon by OneTrust',5,'https://www.cookielaw.org/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('bluecore','Bluecore',4,'https://www.bluecore.com/',NULL,'1952',NULL);
 INSERT INTO "trackers" VALUES('adlabs','AdLabs',4,'https://www.adlabs.ru/',NULL,'1167',NULL);
 INSERT INTO "trackers" VALUES('admo.tv','Admo.TV',3,'https://admo.tv/',NULL,'2734',NULL);
+INSERT INTO "trackers" VALUES('vntsm.com','Venatus Media',4,'https://www.venatusmedia.com/',NULL,'1853',NULL);
+INSERT INTO "trackers" VALUES('modulepush.com','modulepush.com',4,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('express.co.uk','express.co.uk',8,'https://www.express.co.uk/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('trafmag.com','TrafMag',4,'https://trafmag.com/',NULL,'1858',NULL);
+INSERT INTO "trackers" VALUES('admixer.net','Admixer',4,'https://admixer.net/',NULL,'1852',NULL);
+INSERT INTO "trackers" VALUES('coll2onf.com','coll2onf.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('reuters_media','Reuters media',9,'https://reuters.com',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('ad-delivery.net','ad-delivery.net',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('videoplayerhub.com','videoplayerhub.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('evergage.com','Evergage',2,'https://www.evergage.com',NULL,'1739',NULL);
+INSERT INTO "trackers" VALUES('zdassets.com','Zendesk CDN',8,'http://www.zendesk.com/','zendesk',NULL,NULL);
+INSERT INTO "trackers" VALUES('sovrn_onetag','Sovrn OneTag',4,'https://community.sovrn.com/s/article/OneTag-Implementation-Guide?language=en_US','sovrn',NULL,NULL);
+INSERT INTO "trackers" VALUES('revenue_hits','RevenueHits',4,'https://www.revenuehits.com/','intango','1065',NULL);
+INSERT INTO "trackers" VALUES('amazon_video','Amazon Instant Video',0,'https://www.amazon.com','amazon_associates',NULL,NULL);
+INSERT INTO "trackers" VALUES('kinja.com','Kinja',6,'https://kinja.com/','gizmodo','3221',NULL);
+INSERT INTO "trackers" VALUES('kinja_static','Kinja Static',9,'https://kinja.com/','gizmodo',NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
