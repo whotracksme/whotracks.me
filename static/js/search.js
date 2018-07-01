@@ -1,23 +1,8 @@
-let options = {
-    shouldSort: true,
-    // tokenize: true,
-    includeScore: true,
-    threshold: 0.2,
-    location: 0,
-    distance: 40,
-    maxPatternLength: 32,
-    minMatchCharLength: 2,
-    keys: ["normalized_name"]
-};
-
 // Indices to search
-let sites_idx = []
-let trackers_idx = []
-let blog_idx = []
+let sites_idx = [];
+let trackers_idx = [];
+let blog_idx = [];
 
-let fuse_sites = new Fuse(sites_idx, options);
-let fuse_trackers = new Fuse(trackers_idx, options);
-let fuse_blog = new Fuse(blog_idx, options);
 
 fetch(`${pathToRoot}/sitemap.json`)
     .then(function (response) {
@@ -28,13 +13,7 @@ fetch(`${pathToRoot}/sitemap.json`)
         sites_idx = data.site;
         trackers_idx = data.tracker;
         blog_idx = data.blog;
-
-        // update Fuse instances
-        fuse_sites = new Fuse(sites_idx, options);
-        fuse_trackers = new Fuse(trackers_idx, options);
-        fuse_blog = new Fuse(blog_idx, options);        
-        
-        // TODO: Think how it all comes together
+       
         autocomplete(document.getElementById("search-bar"));
     });
 
@@ -45,11 +24,35 @@ function compare(a, b) {
     return 0;
 }
 
-function fuzzySearch(query, custom_idx) {
-    return custom_idx.search(query);
+function editDistance(s1, s2) {
+    const m = s1.length;
+    const n = s2.length;
+    const dTable = [];
+
+    for (let i = 0; i < m+1; i += 1) {
+        dTable.push(Array(n+i).fill(0))
+    }
+
+    for (let i = 0; i < m+1; i += 1) {
+        for (let j = 0; j < n+1; j += 1) {
+            if ( i == 0) {dTable[i][j] = j}
+            else if (j == 0) {dTable[i][j] = i}
+            else if (s1[i-1] == s2[j-1]) {
+                dTable[i][j] = dTable[i-1][j-1];
+            }
+            else {
+                dTable[i][j] = 1 + Math.min(
+                    dTable[i][j-1],
+                    dTable[i-1][j],
+                    dTable[i-1][j-1]
+                )
+            }
+        }
+    }
+    return dTable[m][n]
 }
 
-function exactMatch(query, idx) {
+function search(query, idx) {
     const matches = [];
     for (let i = 0; i < idx.length; i += 1) {
         // is identical
@@ -62,8 +65,22 @@ function exactMatch(query, idx) {
             idx[i].score = idx[i].weight * 10**5;
             matches.push(idx[i]);
         }
+        // edit distance of 1
+        else {
+            // TODO: tokenize idx[i]
+            // tokens = query.split(" ");
+            if (matches.length < 5) {
+                if (editDistance(query, idx[i].normalized_name) < 3){
+                    idx[i].score = idx[i].weight * 100;
+                    matches.push(idx[i]);
+                } else if (editDistance(query, idx[i].normalized_name) < 4){
+                    idx[i].score = idx[i].weight * 50;
+                    matches.push(idx[i]);
+                }    
+            }
+        }
     }
-    return matches;
+    return matches.sort(compare).reverse().slice(0, 5);
 }
 
 function inArray(obj, arr){
@@ -77,16 +94,6 @@ function inArray(obj, arr){
     return found;
 }
 
-function mergeResults(exact, fuzzy) {
-    const merged = Array.from(exact);
-    for (let i = 0; i < fuzzy.length; i += 1) {
-        if (!inArray(fuzzy[i].item, merged)) {
-            fuzzy[i].item.score = fuzzy[i].score * fuzzy[i].item.weight;
-            merged.push(fuzzy[i].item)
-        }
-    }
-    return merged.sort(compare).reverse().slice(0, 5);
-}
 
 /* 
  * Gets list of results by category and updates the dropdown
@@ -103,7 +110,7 @@ function createList(parent, arr, name) {
                 /*create a DIV element for each matching element:*/
                 b = document.createElement("DIV");
                 b.setAttribute("href", arr[i].url);
-                b.innerHTML = `<a href="${pathToRoot + arr[i].url}">${arr[i].name} <i class="fa fa-external-link" aria-hidden="true"></i>`
+                b.innerHTML = `<a href="${pathToRoot + arr[i].url}">${arr[i].name} <i class="fa fa-sign-out" aria-hidden="true"></i>`
     
                 /*insert a input field that will hold the current array item's value:*/
                 b.innerHTML += "<input type='hidden' value='" + arr[i].name + "'>";
@@ -134,19 +141,13 @@ function autocomplete(inp) {
         /*append the DIV element as a child of the autocomplete container:*/
         this.parentNode.appendChild(a);
 
-        // RESULTS FROM FUSE
+        // RESULTS for query
         query = val.toLowerCase().trim();
 
-        // Merging Results
-        let sites = mergeResults(
-            exactMatch(query, sites_idx), fuzzySearch(query, fuse_sites)
-        );
-        let trackers = mergeResults(
-            exactMatch(query, trackers_idx), fuzzySearch(query, fuse_trackers)
-        );
-        let blogposts = mergeResults(
-            exactMatch(query, blog_idx), fuzzySearch(query, fuse_blog)
-        );
+        // getting results
+        let sites = search(query, sites_idx);
+        let trackers = search(query, trackers_idx);
+        let blogposts = search(query, blog_idx);
 
         // Update UI
         createList(a, sites, "websites");
