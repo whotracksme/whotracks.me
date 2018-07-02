@@ -4,47 +4,38 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ PATHS.path_to_root }}">
-                    <img class="logo" alt="Who Tracks Me" src="{{PATHS.static}}/img/logo-white.svg">
-                </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ PATHS.path_to_root }}">
+                        <img class="logo" alt="Who Tracks Me" src="{{PATHS.static}}/img/logo-white.svg">
+                    </a>
                 </div>
             </div>
 
-            <div class="col-md-offset-1 col-md-9 col-sm-0">
+            <div class="col-md-10 col-sm-0">
                 <!--Collapsed under menu in mobile-->
                 <div class="collapse navbar-collapse" id="myNavbar">
-                <ul id="imaginary_container">
+                    <ul id="imaginary_container">
                         <div class="input-group stylish-input-group">
                             <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
                         </div>
                     </ul>
-                                <!--Site links-->
+
+                    <!--Site links-->
                     <ul class="nav navbar-nav navbar-right">
-                        <li
-                            {%if active_page == 'trackers' %} class="active" {% endif %}
-                        >
+                        <li {%if active_page=='trackers' %} class="active" {% endif %}>
                             <a class="nav-button" href="{{ PATHS.path_to_root }}/trackers.html">TRACKERS</a>
                         </li>
-                        <li
-                            {%if active_page == 'websites' %} class="active" {% endif %}
-                        >
+                        <li {%if active_page=='websites' %} class="active" {% endif %}>
                             <a class="nav-button" href="{{ PATHS.path_to_root }}/websites.html">WEBSITES</a>
                         </li>
-                        <li
-                            {%if active_page == 'blog' %} class="active" {% endif %}
-                        >
+                        <li {%if active_page=='blog' %} class="active" {% endif %}>
                             <a class="nav-button" href="{{ PATHS.path_to_root }}/blog.html">BLOG</a>
                         </li>
                     </ul>
-                    <!--Search bar-->
-
-
-
                 </div>
             </div>
         </div>
