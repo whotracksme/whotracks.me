@@ -12,9 +12,16 @@ from whotracksme.website.plotting.trackers import ts_trend
 
 
 def recent_tracker_reach(reach):
+    def format_reach(r):
+        if r >= 0.1:
+            return round(r, 1)
+        elif 0.01 <= r <= 0.1:
+            return round(r, 2)
+        return  "<0.01"
+
     return {
-        "pages": round(reach['page'][-1]*100, 1),
-        "sites": round(reach['site'][-1]*100, 1)
+        "pages": format_reach(reach['page'][-1] * 100),
+        "sites": format_reach(reach['site'][-1] * 100)
     }
 
 def tag_cloud_data(tracker_id, data):
