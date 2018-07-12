@@ -45,7 +45,7 @@ INSERT INTO "companies" VALUES('nielsen','Nielsen',NULL,'http://www.nielsen.com/
 INSERT INTO "companies" VALUES('qualtrics','Qualtrics',NULL,'http://www.qualtrics.com/privacy-statement/','http://www.qualtrics.com/','2572');
 INSERT INTO "companies" VALUES('mouseflow','Mouseflow',NULL,'http://mouseflow.com/privacy','http://mouseflow.com/','418');
 INSERT INTO "companies" VALUES('ad_river','Ad River',NULL,'http://www.adriver.ru/about/privacy-en/','http://www.adriver.ru/','294');
-INSERT INTO "companies" VALUES('zergnet','ZergNet',NULL,'Not found','http://www.zergnet.com/info','1924');
+INSERT INTO "companies" VALUES('zergnet','ZergNet',NULL,NULL,'http://www.zergnet.com/info','1924');
 INSERT INTO "companies" VALUES('adzerk','Adzerk',NULL,' http://adzerk.com/privacy/ad-server/','http://adzerk.com/','989');
 INSERT INTO "companies" VALUES('realytics','Realytics',NULL,'https://www.realytics.io/platform-privacy-policy/','https://www.realytics.io/','4516');
 INSERT INTO "companies" VALUES('sift_science','Sift Science',NULL,'https://siftscience.com/service-privacy','https://siftscience.com/','2686');
@@ -54,7 +54,7 @@ INSERT INTO "companies" VALUES('infonline','INFOnline',NULL,'https://www.infonli
 INSERT INTO "companies" VALUES('exoclick','ExoClick',NULL,'http://www.exoclick.com/privacy.php','http://exoclick.com/','1068');
 INSERT INTO "companies" VALUES('marin_software','Marin Software',NULL,' http://www.marinsoftware.com/privacy/privacy-central','http://www.marinsoftware.com/','226');
 INSERT INTO "companies" VALUES('advolution','Advolution',NULL,'http://www.advolution.de/datenschutz.php','http://www.advolution.de','3036');
-INSERT INTO "companies" VALUES('just_premium','Just Premium',NULL,'Not found','http://justpremium.com/','2882');
+INSERT INTO "companies" VALUES('just_premium','Just Premium',NULL,NULL,'http://justpremium.com/','2882');
 INSERT INTO "companies" VALUES('bazaarvoice','Bazaarvoice',NULL,'http://www.bazaarvoice.com/privacy-policy/','http://www.bazaarvoice.com/','1272');
 INSERT INTO "companies" VALUES('sharethrough','Sharethrough',NULL,'https://platform-cdn.sharethrough.com/privacy-policy','http://sharethrough.com','718');
 INSERT INTO "companies" VALUES('trafficforce','TrafficForce',NULL,'http://www.trafficforce.com/terms.html','http://www.trafficforce.com/','3330');
@@ -75,9 +75,9 @@ INSERT INTO "companies" VALUES('twyn','Twyn',NULL,'http://www.twyn.com/datenschu
 INSERT INTO "companies" VALUES('connexity','Connexity',NULL,'http://connexity.com/privacy-policy/','http://www.connexity.com','941');
 INSERT INTO "companies" VALUES('segment','Segment',NULL,'https://segment.com/docs/legal/privacy/','https://segment.com/','1440');
 INSERT INTO "companies" VALUES('outbrain','Outbrain',NULL,'http://www.outbrain.com/legal/privacy','http://www.outbrain.com/engage','1043');
-INSERT INTO "companies" VALUES('peerius','Peerius',NULL,'Not found','http://www.peerius.com/','1024');
+INSERT INTO "companies" VALUES('peerius','Peerius',NULL,NULL,'http://www.peerius.com/','1024');
 INSERT INTO "companies" VALUES('media_impact','Media Impact',NULL,'https://mediaimpact.de/artikel/-Hinweise-zum-Datenschutz_768445.html','https://mediaimpact.de/index.html','4847');
-INSERT INTO "companies" VALUES('kameleoon','Kameleoon',NULL,'Not found','http://www.kameleoon.com/','3044');
+INSERT INTO "companies" VALUES('kameleoon','Kameleoon',NULL,NULL,'http://www.kameleoon.com/','3044');
 INSERT INTO "companies" VALUES('media.net','media.net',NULL,'http://www.media.net/en/privacy-policy','http://www.media.net/','1879');
 INSERT INTO "companies" VALUES('spot.im','Spot.IM',NULL,'https://www.spot.im/disclaimer/privacy','https://www.spot.im/','3625');
 INSERT INTO "companies" VALUES('fit_analytics','Fit Analytics',NULL,'http://www.fitanalytics.com/files/Privacy_Policy_DE-EN_FitA.pdf','http://www.fitanalytics.com/','3351');
@@ -85,13 +85,13 @@ INSERT INTO "companies" VALUES('acuity_ads','Acuity Ads',NULL,'https://www.acuit
 INSERT INTO "companies" VALUES('extreme_digital','Extreme Digital',NULL,'http://extremetracking.com/?policy','http://www.extremetracking.com/','65');
 INSERT INTO "companies" VALUES('siteimprove','Siteimprove',NULL,'http://siteimprove.com/privacy-policy/','http://siteimprove.com','1447');
 INSERT INTO "companies" VALUES('tradedoubler','TradeDoubler',NULL,'http://www.tradedoubler.com/uk-en/privacy-policy/','http://www.tradedoubler.com/','668');
-INSERT INTO "companies" VALUES('intelligent_reach','Intelligent Reach',NULL,'Not found','http://www.intelligentreach.com/','2589');
+INSERT INTO "companies" VALUES('intelligent_reach','Intelligent Reach',NULL,NULL,'http://www.intelligentreach.com/','2589');
 INSERT INTO "companies" VALUES('highwinds','Highwinds',NULL,'https://www.highwinds.com/privacy-policy/','https://www.highwinds.com/','4481');
 INSERT INTO "companies" VALUES('index_exchange','Index Exchange',NULL,'http://www.indexexchange.com/privacy/','http://www.indexexchange.com','3794');
 INSERT INTO "companies" VALUES('stumbleupon','StumbleUpon',NULL,'http://www.stumbleupon.com/privacy/','http://www.stumbleupon.com/','1067');
 INSERT INTO "companies" VALUES('shopify','Shopify',NULL,'http://www.shopify.com/legal/privacy','http://www.shopify.com/','2179');
 INSERT INTO "companies" VALUES('crossengage','CrossEngage',NULL,'https://www.crossengage.io/privacy-and-terms/','https://www.crossengage.io/','4497');
-INSERT INTO "companies" VALUES('yieldlab','Yieldlab',NULL,'Not found',' http://www.yieldlab.com/','1194');
+INSERT INTO "companies" VALUES('yieldlab','Yieldlab',NULL,NULL,' http://www.yieldlab.com/','1194');
 INSERT INTO "companies" VALUES('vindico_group','Vindico Group',NULL,'https://www.sizmek.com/privacy-policy/optedin/','https://vindico.com/','739');
 INSERT INTO "companies" VALUES('smart_adserver','Smart AdServer',NULL,'http://smartadserver.com/company/privacy-policy/','http://smartadserver.com/','631');
 INSERT INTO "companies" VALUES('zemanta','Zemanta',NULL,'http://www.zemanta.com/legal/privacy','http://www.zemanta.com/','189');
@@ -144,7 +144,7 @@ INSERT INTO "companies" VALUES('semasio','Semasio',NULL,'http://semasio.com/priv
 INSERT INTO "companies" VALUES('linkedin','LinkedIn',NULL,'https://www.linkedin.com/legal/privacy-policy','https://www.linkedin.com/','831');
 INSERT INTO "companies" VALUES('vi','Vi',NULL,'http://www.vi.ru/confedent.aspx','http://www.vi.ru/','3165');
 INSERT INTO "companies" VALUES('stroer','Stroer',NULL,'http://www.stroeer.de/service/datenschutz.html',' http://www.stroeer.de/','342');
-INSERT INTO "companies" VALUES('flxone','FlxOne',NULL,'Not found','http://www.flxone.com/','2710');
+INSERT INTO "companies" VALUES('flxone','FlxOne',NULL,NULL,'http://www.flxone.com/','2710');
 INSERT INTO "companies" VALUES('spongecell','Spongecell',NULL,'http://www.spongecell.com/privacy-policy','http://www.spongecell.com/','552');
 INSERT INTO "companies" VALUES('yandex','Yandex',NULL,'https://yandex.com/legal/privacy/','https://www.yandex.com/','185');
 INSERT INTO "companies" VALUES('clever_push','Clever Push',NULL,'https://cleverpush.com/privacy','https://cleverpush.com/','4487');
@@ -168,7 +168,7 @@ INSERT INTO "companies" VALUES('rubicon_project','Rubicon Project',NULL,'http://
 INSERT INTO "companies" VALUES('lengow','Lengow',NULL,'https://www.lengow.com/legal-notice/','http://www.lengow.com/','2127');
 INSERT INTO "companies" VALUES('adition_technologies_ag','Adition Technologies AG',NULL,'https://www.adition.com/kontakt/datenschutz/','http://www.adition.com/','459');
 INSERT INTO "companies" VALUES('smartclip','smartclip',NULL,'http://www.smartclip.com/privacy-policy','http://www.smartclip.com/','1371');
-INSERT INTO "companies" VALUES('bunchbox','Bunchbox',NULL,'Not found','https://app.bunchbox.co/login','4095');
+INSERT INTO "companies" VALUES('bunchbox','Bunchbox',NULL,NULL,'https://app.bunchbox.co/login','4095');
 INSERT INTO "companies" VALUES('tag_commander','Tag Commander',NULL,'https://www.commandersact.com/en/privacy/','http://www.tagcommander.com/en/','1789');
 INSERT INTO "companies" VALUES('trustpilot','Trustpilot',NULL,'http://legal.trustpilot.com/end-user-privacy-terms','http://www.trustpilot.com','3861');
 INSERT INTO "companies" VALUES('new_relic','New Relic',NULL,'https://newrelic.com/privacy','https://newrelic.com/','942');
@@ -178,12 +178,12 @@ INSERT INTO "companies" VALUES('intimate_merger','Intimate Merger',NULL,'https:/
 INSERT INTO "companies" VALUES('hi-media_performance','Hi-media Performance',NULL,'http://www.hi-mediaperformance.co.uk/en_GB/index/informations-legales/optout','http://www.hi-mediaperformance.co.uk/en_GB','1079');
 INSERT INTO "companies" VALUES('exponential_interactive','Exponential Interactive',NULL,'http://exponential.com/privacy/','http://www.exponential.com/','64');
 INSERT INTO "companies" VALUES('adverserve','adverServe',NULL,'http://www.adverserve.com/fileadmin/adverserve/dokumente_download/datenschutzerklaerung_adverserve_29.8_RV_englisch.pdf','http://www.adverserve.com/','2726');
-INSERT INTO "companies" VALUES('hola_cdn','Hola CDN',NULL,'Not found','https://holacdn.com/','4896');
+INSERT INTO "companies" VALUES('hola_cdn','Hola CDN',NULL,NULL,'https://holacdn.com/','4896');
 INSERT INTO "companies" VALUES('olark','Olark',NULL,'https://www.olark.com/tos','https://www.olark.com/','1008');
 INSERT INTO "companies" VALUES('bounce_exchange','Bounce Exchange',NULL,'https://www.bouncex.com/privacy/','http://bounceexchange.com','2468');
 INSERT INTO "companies" VALUES('beeswax','Beeswax',NULL,'http://beeswax.com/privacy.html','http://beeswax.com/','4160');
 INSERT INTO "companies" VALUES('iadvize','iAdvize',NULL,'http://www.iadvize.com/en/privacy/','http://www.iadvize.com/','2128');
-INSERT INTO "companies" VALUES('juggcash','JuggCash',NULL,'Not found','http://www.juggcash.com','2021');
+INSERT INTO "companies" VALUES('juggcash','JuggCash',NULL,NULL,'http://www.juggcash.com','2021');
 INSERT INTO "companies" VALUES('360i','360i',NULL,'https://360i.com/about/privacy/','https://360i.com/','309');
 INSERT INTO "companies" VALUES('traffic_stars','Traffic Stars',NULL,'','https://trafficstars.com/#index_page','4753');
 INSERT INTO "companies" VALUES('liveperson','LivePerson',NULL,'http://www.liveperson.com/policies/privacy','http://www.liveperson.com/','100');
@@ -199,8 +199,8 @@ INSERT INTO "companies" VALUES('sailthru','Sailthru',NULL,'http://www.sailthru.c
 INSERT INTO "companies" VALUES('connextra','Connextra',NULL,'http://connextra.net/privacy_policy.htm','http://connextra.net/index.htm','502');
 INSERT INTO "companies" VALUES('lkqd','LKQD',NULL,'http://lkqd.squarespace.com/privacy-policy','http://www.lkqd.com/','4757');
 INSERT INTO "companies" VALUES('pushcrew','Pushcrew',NULL,'https://pushcrew.com/privacy-policy/','https://pushcrew.com/','4418');
-INSERT INTO "companies" VALUES('clickonometrics','Clickonometrics',NULL,'Not found','http://clickonometrics.pl/','2889');
-INSERT INTO "companies" VALUES('adtrue','AdTrue',NULL,'Not found','http://adtrue.com/','4648');
+INSERT INTO "companies" VALUES('clickonometrics','Clickonometrics',NULL,NULL,'http://clickonometrics.pl/','2889');
+INSERT INTO "companies" VALUES('adtrue','AdTrue',NULL,NULL,'http://adtrue.com/','4648');
 INSERT INTO "companies" VALUES('ensighten','Ensighten',NULL,'http://www.ensighten.com/privacy-policy/','http://www.ensighten.com','728');
 INSERT INTO "companies" VALUES('flashtalking','Flashtalking',NULL,'http://www.flashtalking.com/privacypolicy/','http://www.flashtalking.com/','442');
 INSERT INTO "companies" VALUES('adara_analytics','ADARA Analytics',NULL,'http://adara.com/privacy-promise','http://adara.com/','286');
@@ -208,14 +208,14 @@ INSERT INTO "companies" VALUES('whos.amung.us','whos.amung.us',NULL,'http://whos
 INSERT INTO "companies" VALUES('effective_measure','Effective Measure',NULL,'http://www.effectivemeasure.com/privacy-policy/','http://www.effectivemeasure.com/','607');
 INSERT INTO "companies" VALUES('run','RUN',NULL,'http://www.runads.com/privacy-policy','http://www.runads.com/','1806');
 INSERT INTO "companies" VALUES('branch_metrics_inc','Branch Metrics Inc',NULL,'https://branch.io/privacy_policy/','https://branch.io/','4164');
-INSERT INTO "companies" VALUES('seznam','Seznam',NULL,'Not found','https://onas.seznam.cz/cz/','4620');
-INSERT INTO "companies" VALUES('komoona','Komoona',NULL,'Not found','http://www.komoona.com/#home','1865');
+INSERT INTO "companies" VALUES('seznam','Seznam',NULL,NULL,'https://onas.seznam.cz/cz/','4620');
+INSERT INTO "companies" VALUES('komoona','Komoona',NULL,NULL,'http://www.komoona.com/#home','1865');
 INSERT INTO "companies" VALUES('intercom','Intercom',NULL,'https://docs.intercom.com/pricing-privacy-and-terms/intercom-inc-privacy-policy','https://www.intercom.com/','1161');
 INSERT INTO "companies" VALUES('cxense','Cxense',NULL,'http://www.cxense.com/about-us/privacy-policy','http://www.cxense.com/','1160');
 INSERT INTO "companies" VALUES('rythmone','RythmOne',NULL,'https://www.rhythmone.com/privacy-policy','https://www.rhythmone.com/','3994');
-INSERT INTO "companies" VALUES('browser-update','Browser-Update',NULL,'Not found','http://www.browser-update.org/','1146');
+INSERT INTO "companies" VALUES('browser-update','Browser-Update',NULL,NULL,'http://www.browser-update.org/','1146');
 INSERT INTO "companies" VALUES('marketgid_ru','Marketgid RU',NULL,'https://www.mgid.com/privacy-policy','http://www.mgid.com/','4790');
-INSERT INTO "companies" VALUES('elastic_ad','Elastic Ad',NULL,'Not found','http://www.elasticad.com','3803');
+INSERT INTO "companies" VALUES('elastic_ad','Elastic Ad',NULL,NULL,'http://www.elasticad.com','3803');
 INSERT INTO "companies" VALUES('engage:bdr__blink_new_media_','engage:BDR (Blink New Media)',NULL,'http://engagebdr.com/privacy-policy/','http://engagebdr.com/','845');
 INSERT INTO "companies" VALUES('underdog_media','Underdog Media',NULL,'http://www.underdogmedia.com/privacy/','http://www.underdogmedia.com','748');
 INSERT INTO "companies" VALUES('exactag','Exactag',NULL,'http://www.exactag.com/datenschutz/','http://www.exactag.com','2723');
@@ -245,7 +245,7 @@ INSERT INTO "companies" VALUES('at_internet','AT Internet',NULL,'http://www.atin
 INSERT INTO "companies" VALUES('polldaddy','Polldaddy',NULL,'http://polldaddy.com/privacy/','http://polldaddy.com/','935');
 INSERT INTO "companies" VALUES('popcash_network','PopCash Network',NULL,'http://popcash.net/privacy-policy','http://popcash.net/','3047');
 INSERT INTO "companies" VALUES('disqus','Disqus',NULL,'https://help.disqus.com/customer/portal/articles/466259-privacy-policy','https://disqus.com/','311');
-INSERT INTO "companies" VALUES('doublepimp','DoublePimp',NULL,'Not found','http://doublepimp.com/','57');
+INSERT INTO "companies" VALUES('doublepimp','DoublePimp',NULL,NULL,'http://doublepimp.com/','57');
 INSERT INTO "companies" VALUES('pingdom','Pingdom',NULL,'https://www.pingdom.com/legal/privacy-policy/','https://www.pingdom.com/','2566');
 INSERT INTO "companies" VALUES('trafficjunky','TrafficJunky',NULL,'http://www.trafficjunky.com/privacy-policy',' http://www.trafficjunky.com/','1819');
 INSERT INTO "companies" VALUES('springserve','SpringServe',NULL,'http://springserve.com/privacy-policy/','http://springserve.com/','2581');
@@ -254,12 +254,12 @@ INSERT INTO "companies" VALUES('markmonitor','MarkMonitor',NULL,'https://www.mar
 INSERT INTO "companies" VALUES('tns','TNS',NULL,'http://www.tnsglobal.com/what-we-do/privacy-policy','http://www.tnsglobal.com/','411');
 INSERT INTO "companies" VALUES('digiteka','Digiteka',NULL,'http://digiteka.com/policy/','http://digiteka.com/','4705');
 INSERT INTO "companies" VALUES('shareaholic','Shareaholic',NULL,'https://www.shareaholic.com/privacy/','https://www.shareaholic.com/','2278');
-INSERT INTO "companies" VALUES('adspyglass','AdSpyglass',NULL,'Not found','https://www.adspyglass.com/','4778');
+INSERT INTO "companies" VALUES('adspyglass','AdSpyglass',NULL,NULL,'https://www.adspyglass.com/','4778');
 INSERT INTO "companies" VALUES('etracker_gmbh','etracker GmbH',NULL,'https://www.etracker.com/datenschutz/','https://www.etracker.com/en/','62');
 INSERT INTO "companies" VALUES('recreativ','Recreativ',NULL,'https://recreativ.ru/site/policy','https://recreativ.ru/site/index','2212');
 INSERT INTO "companies" VALUES('infolinks','Infolinks',NULL,'http://www.infolinks.com/privacy-policy/','http://www.infolinks.com/','88');
 INSERT INTO "companies" VALUES('tensquare','TenSquare',NULL,'http://www.tensquare.de/cnt/p3p/policy.html?_ga=1.23987706.1560024373.1466454521','http://www.tensquare.com/','1004');
-INSERT INTO "companies" VALUES('sexadnetwork','SexAdNetwork',NULL,'Not found','http://www.sexadnetwork.com/','1820');
+INSERT INTO "companies" VALUES('sexadnetwork','SexAdNetwork',NULL,NULL,'http://www.sexadnetwork.com/','1820');
 INSERT INTO "companies" VALUES('videoplaza','Videoplaza',NULL,'http://www.ooyala.com/websiteprivacy','http://www.videoplaza.com/','2801');
 INSERT INTO "companies" VALUES('gfk_nurago','GfK Group',NULL,'http://www.gfk.com/Pages/Privacy.aspx','http://nurago.com/','1097');
 INSERT INTO "companies" VALUES('iperceptions','iPerceptions',NULL,'https://www.iperceptions.com/en/privacy-policy','http://www.iperceptions.com/','92');
@@ -286,7 +286,7 @@ INSERT INTO "companies" VALUES('zopim','Zopim',NULL,'https://www.zendesk.com/com
 INSERT INTO "companies" VALUES('marketgid_usa','MarketGid USA',NULL,'http://mgid.com/privacy-policy','http://www.mgid.com/','577');
 INSERT INTO "companies" VALUES('errorception','Errorception',NULL,'http://errorception.com/privacy','http://errorception.com/','1549');
 INSERT INTO "companies" VALUES('ab_tasty','AB Tasty',NULL,'https://www.abtasty.com/uk/terms-of-use/','https://www.abtasty.com/us/','3037');
-INSERT INTO "companies" VALUES('digidip','Digidip',NULL,'Not found','http://www.digidip.net/','4891');
+INSERT INTO "companies" VALUES('digidip','Digidip',NULL,NULL,'http://www.digidip.net/','4891');
 INSERT INTO "companies" VALUES('uservoice','UserVoice',NULL,'https://www.uservoice.com/privacy/','https://www.uservoice.com','177');
 INSERT INTO "companies" VALUES('bugsnag','Bugsnag',NULL,'http://docs.bugsnag.com/legal/privacy-policy/','https://bugsnag.com/','3347');
 INSERT INTO "companies" VALUES('sumome','SumoMe',NULL,'https://help.sumo.com/hc/en-us/articles/218958727-Privacy-Policy','http://sumo.com/','3560');
@@ -298,7 +298,7 @@ INSERT INTO "companies" VALUES('net-metrix','NET-Metrix',NULL,'http://www.net-me
 INSERT INTO "companies" VALUES('research_now','Research Now',NULL,'http://www.researchnow.com/en-US/Help/PrivacyPolicy.aspx','http://www.researchnow.com/','2770');
 INSERT INTO "companies" VALUES('unruly','Unruly',NULL,'http://unruly.co/privacy/','http://unruly.co/','1904');
 INSERT INTO "companies" VALUES('mediametrie','Mediametrie',NULL,'http://www.mediametrie.com/pages/privacy-policy.php?page=86','http://www.mediametrie.com/','379');
-INSERT INTO "companies" VALUES('getintent','GetIntent',NULL,'Not found','http://www.getintent.com/','3163');
+INSERT INTO "companies" VALUES('getintent','GetIntent',NULL,NULL,'http://www.getintent.com/','3163');
 INSERT INTO "companies" VALUES('paypal','PayPal',NULL,'https://www.paypal.com/us/webapps/mpp/ua/privacy-full','https://www.paypal.com','2595');
 INSERT INTO "companies" VALUES('adxpansion','AdXpansion',NULL,'http://www.adxpansion.com/en/index/privacy','http://www.adxpansion.com/','755');
 INSERT INTO "companies" VALUES('emetriq','emetriq',NULL,'https://www.emetriq.com/datenschutz/','http://www.emetriq.com','3970');
@@ -310,7 +310,7 @@ INSERT INTO "companies" VALUES('trackjs','TrackJS',NULL,'https://trackjs.com/pri
 INSERT INTO "companies" VALUES('sessioncam','SessionCam',NULL,'http://www.sessioncam.com/privacy-policy-cookies/','http://www.sessioncam.com/','2365');
 INSERT INTO "companies" VALUES('sizmek','Sizmek',NULL,'http://www.sizmek.com/privacy-policy/','http://www.sizmek.com','384');
 INSERT INTO "companies" VALUES('orange_mobile','Orange Mobile',NULL,'http://web.orange.co.uk/documents/ice/privacy/orange_privacy_and_cookie_policy_for_mobile_20101206.pdf','http://www.orange.co.uk/  http://ee.co.uk/our-company/about-us','1203');
-INSERT INTO "companies" VALUES('grand_slam_media','Grand Slam Media',NULL,'Not found','http://www.grandslammedia.com/','2552');
+INSERT INTO "companies" VALUES('grand_slam_media','Grand Slam Media',NULL,NULL,'http://www.grandslammedia.com/','2552');
 INSERT INTO "companies" VALUES('tealium','Tealium',NULL,'http://tealium.com/privacy/','http://tealium.com/','662');
 INSERT INTO "companies" VALUES('delta_projects','Delta Projects',NULL,'http://www.deltaprojects.com/privacy-policy/',' http://www.deltaprojects.com/','1955');
 INSERT INTO "companies" VALUES('tawk','Tawk',NULL,'https://www.tawk.to/privacy-policy/','https://www.tawk.to/','4210');
@@ -373,7 +373,7 @@ INSERT INTO "companies" VALUES('spoteffect','Spoteffect',NULL,'http://www.spotef
 INSERT INTO "companies" VALUES('histats','Histats',NULL,'http://www.histats.com/?act=5','http://www.histats.com','238');
 INSERT INTO "companies" VALUES('apester','Apester',NULL,'http://apester.com/privacy','http://apester.com/','4900');
 INSERT INTO "companies" VALUES('nativo','Nativo',NULL,'http://www.nativo.net/#privacy-policy','http://www.nativo.net/','2568');
-INSERT INTO "companies" VALUES('adwebster','adwebster',NULL,'Not found','http://adwebster.com','3301');
+INSERT INTO "companies" VALUES('adwebster','adwebster',NULL,NULL,'http://adwebster.com','3301');
 INSERT INTO "companies" VALUES('mediamath','MediaMath',NULL,'http://www.mediamath.com/privacy-policy/','http://www.mediamath.com/','290');
 INSERT INTO "companies" VALUES('lifestreet_media','LifeStreet Media',NULL,'http://www.lifestreet.com/privacy/','http://lifestreetmedia.com/','1310');
 INSERT INTO "companies" VALUES('smartsuppp','Smartsuppp',NULL,'https://www.smartsupp.com/privacy','https://www.smartsupp.com/','4250');
@@ -386,7 +386,7 @@ INSERT INTO "companies" VALUES('perfect_audience','Perfect Audience',NULL,'https
 INSERT INTO "companies" VALUES('wistia','Wistia',NULL,'http://wistia.com/privacy','http://wistia.com/','1307');
 INSERT INTO "companies" VALUES('adtiger','AdTiger',NULL,'http://www.adtiger.de/diverse-seiten/datenschutz9/','http://www.adtiger.de','341');
 INSERT INTO "companies" VALUES('heap','Heap',NULL,'https://heapanalytics.com/privacy','https://heapanalytics.com/','2695');
-INSERT INTO "companies" VALUES('mail.ru_group','Mail.Ru Group',NULL,'Not found','http://mail.ru/','1316');
+INSERT INTO "companies" VALUES('mail.ru_group','Mail.Ru Group',NULL,NULL,'http://mail.ru/','1316');
 INSERT INTO "companies" VALUES('magnetic','Magnetic',NULL,'http://www.magnetic.com/about/privacy/','http://www.magnetic.com/','532');
 INSERT INTO "companies" VALUES('sekindo','SekiNdo',NULL,'http://www.sekindo.com/help/privacy.php','http://www.sekindo.com/','2061');
 INSERT INTO "companies" VALUES('teads','Teads',NULL,'https://teads.tv/privacy-policy/','http://teads.tv/','2521');
@@ -415,14 +415,14 @@ INSERT INTO "companies" VALUES('hubspot','HubSpot',NULL,'https://legal.hubspot.c
 INSERT INTO "companies" VALUES('clicktripz','ClickTripz',NULL,'https://www.clicktripz.com/privacy_policy.php','https://www.clicktripz.com','3110');
 INSERT INTO "companies" VALUES('the_trade_desk','The Trade Desk',NULL,'http://www.thetradedesk.com/privacy-policy/ ','https://www.thetradedesk.com/','560');
 INSERT INTO "companies" VALUES('wingify','Wingify',NULL,'https://vwo.com/privacy-policy/','https://vwo.com/','276');
-INSERT INTO "companies" VALUES('ero_advertising','Ero Advertising',NULL,'Not found','http://www.ero-advertising.com/','747');
+INSERT INTO "companies" VALUES('ero_advertising','Ero Advertising',NULL,NULL,'http://www.ero-advertising.com/','747');
 INSERT INTO "companies" VALUES('eyeview','Eyeview',NULL,'http://www.eyeviewdigital.com/privacy-policy/','http://www.eyeviewdigital.com/','1288');
 INSERT INTO "companies" VALUES('fullstory','fullstory',NULL,'https://www.fullstory.com/legal/privacy/','http://fullstory.com','4100');
 INSERT INTO "companies" VALUES('appnexus','AppNexus',NULL,'https://www.appnexus.com/en/company/platform-privacy-policy','https://www.appnexus.com/en','17');
 INSERT INTO "companies" VALUES('traffichaus','TrafficHaus',NULL,'https://www.traffichaus.com/privacy-policy.php','https://www.traffichaus.com','1852');
 INSERT INTO "companies" VALUES('freshdesk','Freshdesk',NULL,'https://freshdesk.com/privacy','https://freshdesk.com/','1866');
 INSERT INTO "companies" VALUES('drawbridge','Drawbridge',NULL,'http://drawbridge.com/privacy',' https://drawbridge.com/','1175');
-INSERT INTO "companies" VALUES('adskeeper','Adskeeper',NULL,'Not found','http://adskeeper.co.uk/','2650');
+INSERT INTO "companies" VALUES('adskeeper','Adskeeper',NULL,NULL,'http://adskeeper.co.uk/','2650');
 INSERT INTO "companies" VALUES('apple','Apple',NULL,'http://www.apple.com/privacy/privacy-policy/','http://www.apple.com/','390');
 INSERT INTO "companies" VALUES('sharethis','ShareThis',NULL,'http://www.sharethis.com/pri.html','http://sharethis.com/','149');
 INSERT INTO "companies" VALUES('zencoder','Zencoder',NULL,'https://zencoder.com/en/privacy','https://zencoder.com/en/','4475');
@@ -2558,6 +2558,15 @@ INSERT INTO "tracker_domains" VALUES('bugsnag','bugsnag.com');
 INSERT INTO "tracker_domains" VALUES('kinja.com','kinja.com');
 INSERT INTO "tracker_domains" VALUES('kinja_static','kinja-img.com');
 INSERT INTO "tracker_domains" VALUES('kinja_static','kinja-static.com');
+INSERT INTO "tracker_domains" VALUES('webtrekk','d1r27qvpjiaqj3.cloudfront.net');
+INSERT INTO "tracker_domains" VALUES('coinhive','coinhive.com');
+INSERT INTO "tracker_domains" VALUES('coinhive','authedmine.com');
+INSERT INTO "tracker_domains" VALUES('deviantart.net','dapxl.com');
+INSERT INTO "tracker_domains" VALUES('snapchat','sc-static.net');
+INSERT INTO "tracker_domains" VALUES('early_birds','early-birds.fr');
+INSERT INTO "tracker_domains" VALUES('pushno.com','pushno.com');
+INSERT INTO "tracker_domains" VALUES('beampulse.com','beampulse.com');
+INSERT INTO "tracker_domains" VALUES('discord','discordapp.com');
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -3138,7 +3147,7 @@ INSERT INTO "trackers" VALUES('mediarithmics.com','Mediarithmics',4,'http://www.
 INSERT INTO "trackers" VALUES('clicktripz','ClickTripz',4,'https://www.clicktripz.com','clicktripz','1977',NULL);
 INSERT INTO "trackers" VALUES('apicit.net','apicit.net',4,NULL,NULL,'',NULL);
 INSERT INTO "trackers" VALUES('ampproject.org','ampproject.org',NULL,NULL,NULL,'ampproject.org',NULL);
-INSERT INTO "trackers" VALUES('deviantart.net','deviantart.net',NULL,NULL,NULL,'deviantart.net',NULL);
+INSERT INTO "trackers" VALUES('deviantart.net','deviantart.net',8,NULL,NULL,'',NULL);
 INSERT INTO "trackers" VALUES('txxx.com','txxx.com',8,'https://txxx.com',NULL,'txxx.com',NULL);
 INSERT INTO "trackers" VALUES('uppr.de','uppr.de',NULL,NULL,NULL,'uppr.de',NULL);
 INSERT INTO "trackers" VALUES('2app.lk','2app.lk',NULL,NULL,NULL,'2app.lk',NULL);
@@ -3888,6 +3897,12 @@ INSERT INTO "trackers" VALUES('revenue_hits','RevenueHits',4,'https://www.revenu
 INSERT INTO "trackers" VALUES('amazon_video','Amazon Instant Video',0,'https://www.amazon.com','amazon_associates',NULL,NULL);
 INSERT INTO "trackers" VALUES('kinja.com','Kinja',6,'https://kinja.com/','gizmodo','3221',NULL);
 INSERT INTO "trackers" VALUES('kinja_static','Kinja Static',9,'https://kinja.com/','gizmodo',NULL,NULL);
+INSERT INTO "trackers" VALUES('coinhive','Coinhive',8,'https://coinhive.com/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('snapchat','Snapchat For Business',4,'https://www.snapchat.com/',NULL,'3132',NULL);
+INSERT INTO "trackers" VALUES('early_birds','Early Birds',4,'http://www.early-birds.fr/',NULL,'2543',NULL);
+INSERT INTO "trackers" VALUES('pushno.com','pushno.com',11,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('beampulse.com','BeamPulse',4,'https://en.beampulse.com/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('discord','Discord',2,'https://discordapp.com/',NULL,NULL,NULL);
 CREATE TABLE urls(
     url TEXT PRIMARY KEY,
     robots_allowed TEXT NULL,
