@@ -2,17 +2,11 @@
 from datetime import datetime
 from urllib.parse import quote_plus
 import io
-import sqlite3
-
 import pkg_resources
 import pandas as pd
 
 
-def asset_string(name):
-    return pkg_resources.resource_string(
-        'whotracksme.data',
-        f'assets/{name}').decode('utf-8')
-
+from whotracksme.data.db import load_tracker_db, create_tracker_map
 
 def asset_stream(name):
     stream = pkg_resources.resource_stream(
@@ -22,13 +16,6 @@ def asset_stream(name):
     in_memory_stream = io.BytesIO(stream.read())
     stream.close()
     return in_memory_stream
-
-
-def load_tracker_db(loc=':memory:'):
-    connection = sqlite3.connect(loc)
-    with connection:
-        connection.executescript(asset_string('trackerdb.sql'))
-    return connection
 
 
 def list_available_months():
@@ -50,9 +37,9 @@ class DataSource:
 
         # Add demographics info to trackers and companies
         connection = load_tracker_db()
-        with connection:
-            self.app_info = self.load_app_info(connection)
-            self.company_info = self.load_company_info(connection)
+        tracker_map = create_tracker_map(connection)
+        self.app_info = tracker_map['trackers']
+        self.company_info = tracker_map['companies']
 
         self.sites_trackers = SitesTrackers(
             data_months=[max(self.data_months)],
