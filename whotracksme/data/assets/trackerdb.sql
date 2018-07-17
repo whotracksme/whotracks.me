@@ -811,8 +811,6 @@ INSERT INTO "iab_vendors" VALUES(442,'r_advertising',NULL);
 INSERT INTO "iab_vendors" VALUES(443,'tradedoubler','tradedoubler');
 INSERT INTO "iab_vendors" VALUES(444,'playbuzz.com','playbuzz');
 INSERT INTO "iab_vendors" VALUES(459,'uppr.de',NULL);
-DELETE FROM "sqlite_sequence";
-INSERT INTO "sqlite_sequence" VALUES('truste_companies',3870);
 CREATE TABLE tracker_domains(
     tracker TEXT NOT NULL,
     domain TEXT UNIQUE NOT NULL,
@@ -4006,7 +4004,7 @@ INSERT INTO "trackers" VALUES('beampulse.com','BeamPulse',4,'https://en.beampuls
 INSERT INTO "trackers" VALUES('discord','Discord',2,'https://discordapp.com/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('medialead','Medialead',4,'https://www.medialead.de/','the_reach_group',NULL,NULL);
 INSERT INTO "trackers" VALUES('r_advertising','R-Advertising',4,'http://www.r-advertising.com/',NULL,'1805',NULL);
-CREATE TABLE truste_companies (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR NOT NULL, type VARCHAR, description VARCHAR, privacy_url VARCHAR, tracker TEXT REFERENCES trackers (id), company TEXT REFERENCES companies (id));
+CREATE TABLE truste_companies (id INTEGER PRIMARY KEY, name VARCHAR NOT NULL, type VARCHAR, description VARCHAR, privacy_url VARCHAR, tracker TEXT REFERENCES trackers (id), company TEXT REFERENCES companies (id));
 INSERT INTO "truste_companies" VALUES(1,'01Net','Publisher Related','News on IT products and more.','http://www.01net.com/info/mentions-legales/',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(2,'1&1','Publisher Related','1&1 Internet Inc. provides Web hosting solutions for private users, as well as high-end products for small-and medium-sized businesses.','https://www.1and1.com/terms-gtc/fileadmin/Terms/PDF_US/2018_01_US_Privacy_Policy_DWE.pdf','1und1',NULL);
 INSERT INTO "truste_companies" VALUES(3,'140 Proof','Attribution / Analytics','140 Proof, an advertising solutions provider, uses Blended Interest Graphs to target consumers with messages that are relevant to them. ','https://www.140proof.com/privacy-policy/',NULL,NULL);
