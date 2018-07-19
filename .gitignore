@@ -3,7 +3,6 @@
 .sass-cache/
 __pycache__/
 _site/
-build/
 dist/
 whotrackme.egg-info/
 .DS_Store

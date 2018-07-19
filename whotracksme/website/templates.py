@@ -218,6 +218,12 @@ def create_site_structure(static_path):
     elif not _site_static.exists():
         shutil.copytree(static_path, _site_static.as_posix())
 
+    # Copy data inside _site
+    _site_data = _site.joinpath('data')
+    if not _site_data.exists():
+        data_dir = Path('whotracksme/data/assets').absolute().as_posix()
+        shutil.copytree(data_dir, _site_data.as_posix())
+
     # compile static/scss directly to _site/static/css
     scss_folder = Path(static_path).joinpath("scss")
     css_folder = _site_static.joinpath("css")
