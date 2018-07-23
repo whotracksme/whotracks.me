@@ -11,12 +11,6 @@ def asset_exists(name):
     return pkg_resources.resource_exists('whotracksme.data', f'assets/{name}')
 
 
-def asset_string(name):
-    return pkg_resources.resource_string(
-        'whotracksme.data',
-        f'assets/{name}').decode('utf-8')
-
-
 def asset_stream(name):
     stream = pkg_resources.resource_stream(
         'whotracksme.data',
