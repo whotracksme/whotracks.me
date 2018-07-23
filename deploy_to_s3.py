@@ -34,6 +34,12 @@ def get_max_age(path, filename):
             return 604800
         # one week cache
         return 604800
+    elif path.startswith('data/'):
+        # trackerdb: 1day cache
+        if 'trackerdb.' in path:
+            return 86400
+        # rest of data directory: 1 week cache
+        return 604800
     # default 1day cache for html pages
     return 86400
 
