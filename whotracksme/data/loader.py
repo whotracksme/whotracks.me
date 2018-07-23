@@ -78,51 +78,6 @@ class DataSource:
         return self.company_info.get(id).get('name') \
             if id in self.company_info else id
 
-    def load_app_info(self, connection):
-        col_names = [
-            'id', 'name', 'cat', 'website_url',
-            'company_id'
-        ]
-        cur = connection.execute(
-            '''SELECT trackers.id, trackers.name,
-            categories.name, website_url, company_id
-            FROM trackers
-            LEFT JOIN categories ON categories.id = category_id'''
-        )
-        app_info = {}
-        for row in cur:
-            app_info[row[0]] = {col: row[i] for i, col in enumerate(col_names)}
-            app_info[row[0]]['domains'] = []
-
-        cur = connection.execute('SELECT tracker, domain FROM tracker_domains')
-        for app, domain in cur:
-            app_info[app]['domains'].append(domain)
-
-        return app_info
-
-    def load_company_info(self, connection):
-        columns = [
-            'id', 'name', 'description', 'privacy_url', 'website_url',
-        ]
-        cur = connection.execute(
-            '''SELECT {} FROM companies'''.format(','.join(columns))
-        )
-        company_info = {}
-        for row in cur:
-            company_info[row[0]] = {col: row[i] for i, col in enumerate(columns)}
-            company_info[row[0]]['apps'] = {}
-
-        cur = connection.execute(
-            '''SELECT company_id, id, name
-            FROM trackers
-            WHERE company_id IS NOT NULL'''
-        )
-        for cid, app_id, app_name in cur:
-            company_info[cid]['apps'][app_id] = app_name
-
-        return company_info
-
-
 class PandasDataLoader:
 
     def __init__(self, data_months, name, region='global', id_column=None):
@@ -166,7 +121,7 @@ class Trackers(PandasDataLoader):
             [tracker_info.get(tracker, {}).get('company_id', tracker)
             for tracker in self.df.tracker], index=self.df.index)
         self.df['category'] = pd.Series(
-            [tracker_info.get(tracker, {}).get('cat', 'unknown')
+            [tracker_info.get(tracker, {}).get('category', 'unknown')
             for tracker in self.df.tracker], index=self.df.index)
 
         self.sites = sites
@@ -285,7 +240,7 @@ class Trackers(PandasDataLoader):
         """
         snapshot = self.get_snapshot()
         tracker = self.get_tracker(id)
-        st = snapshot[(snapshot.category == tracker.get('cat', 'unknown')) & (snapshot.id != id)]\
+        st = snapshot[(snapshot.category == tracker.get('category', 'unknown')) & (snapshot.id != id)]\
             .sort_values('reach', ascending=False)
         return [{
             'id': t.tracker,
@@ -357,7 +312,7 @@ class Sites(PandasDataLoader):
                 tracker['frequency'] = t.site_proportion
             except TypeError:
                 continue
-            category = tracker.get('cat', 'unknown')
+            category = tracker.get('category', 'unknown')
             if category == 'extensions' or category is None:
                 continue
 
