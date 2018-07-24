@@ -4,9 +4,12 @@ from urllib.parse import quote_plus
 import io
 import pkg_resources
 import pandas as pd
-
-
 from whotracksme.data.db import load_tracker_db, create_tracker_map
+
+
+def asset_exists(name):
+    return pkg_resources.resource_exists('whotracksme.data', f'assets/{name}')
+
 
 def asset_stream(name):
     stream = pkg_resources.resource_stream(
@@ -18,22 +21,24 @@ def asset_stream(name):
     return in_memory_stream
 
 
-def list_available_months():
+def list_available_months(region="global"):
     months = []
     for asset in pkg_resources.resource_listdir('whotracksme.data', 'assets'):
         try:
-            datetime.strptime(asset, '%Y-%m')
+            month = datetime.strptime(asset, '%Y-%m')
         except ValueError:
             pass
         else:
-            months.append(asset)
+            # Making sure the region is availabe in a given month
+            if pkg_resources.resource_isdir('whotracksme.data', f'assets/{asset}/{region}'):
+                months.append(asset)
     return months
 
 
 class DataSource:
-    def __init__(self):
-        self.data_months = sorted(list_available_months())
-        print('data available for months:', self.data_months)
+    def __init__(self, region="global"):
+        self.data_months = sorted(list_available_months(region=region))
+        print('data available for months:\n├──', "\n├── ".join(self.data_months))
 
         # Add demographics info to trackers and companies
         connection = load_tracker_db()
@@ -43,21 +48,25 @@ class DataSource:
 
         self.sites_trackers = SitesTrackers(
             data_months=[max(self.data_months)],
-            tracker_info=self.app_info
+            tracker_info=self.app_info,
+            region=region
         )
         self.trackers = Trackers(
             data_months=self.data_months,
             tracker_info=self.app_info,
-            sites=self.sites_trackers
+            sites=self.sites_trackers,
+            region=region
         )
         self.companies = Companies(
             data_months=self.data_months,
             company_info=self.company_info,
-            tracker_info=self.app_info
+            tracker_info=self.app_info,
+            region=region
         )
         self.sites = Sites(
             data_months=self.data_months,
-            trackers=self.sites_trackers
+            trackers=self.sites_trackers,
+            region=region
         )
 
     @staticmethod
@@ -85,8 +94,10 @@ class PandasDataLoader:
         self.df = pd.concat([
             pd.read_csv(
                 asset_stream(f'{month}/{region}/{name}.csv'),
-                parse_dates=['month'])
+                parse_dates=['month']
+            )
             for month in data_months
+            if asset_exists(f'{month}/{region}/{name}.csv')
         ])
         self.id_col = id_column or self.df.columns[2]
 
@@ -190,7 +201,7 @@ class Trackers(PandasDataLoader):
             return 'Extremely prevalent'
         if 11 <= r < 50:
             return 'Very prevalent'
-        if 51 <= r < 100:
+        if 51 <= r <= 100:
             return 'Commonly prevalent'
         if 101 <= r:
             return 'Relatively prevalent'
@@ -346,6 +357,7 @@ class SitesTrackers(PandasDataLoader):
 
     def get_site(self, site):
         return self.df[self.df.site == site]
+
 
 class Companies(PandasDataLoader):
 
