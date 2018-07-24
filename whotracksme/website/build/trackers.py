@@ -24,6 +24,8 @@ def recent_tracker_reach(reach):
         "sites": format_reach(reach['site'][-1] * 100)
     }
 
+
+
 def tag_cloud_data(tracker_id, data):
     all_sites = [{
         'site': s.site,
@@ -105,3 +107,4 @@ def build_tracker_pages(data):
         tracker_page(template, tracker_id, tracker, data)
 
     print_progress(text="Generate tracker pages")
+
