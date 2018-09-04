@@ -1,0 +1,1596 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="marks"
+   width="914"
+   height="475"
+   viewBox="0 0 914 475"
+   version="1.1"
+   id="svg652"
+   sodipodi:docname="f1-eu-us-comparison.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata658">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs656" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2556"
+     inkscape:window-height="1370"
+     id="namedview654"
+     showgrid="false"
+     inkscape:zoom="1.750547"
+     inkscape:cx="510.15869"
+     inkscape:cy="213.80262"
+     inkscape:window-x="0"
+     inkscape:window-y="68"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g644" />
+  <g
+     transform="translate(55,31)"
+     id="g650">
+    <g
+       class="mark-group role-frame root"
+       id="g648">
+      <g
+         transform="translate(0,0)"
+         id="g646">
+        <path
+           class="background"
+           d="M0,0h0v400h0Z"
+           style="fill: none;"
+           id="path2" />
+        <g
+           id="g644">
+          <g
+             class="mark-group role-scope concat_0_group"
+             id="g260">
+            <g
+               transform="translate(0,0)"
+               id="g258">
+              <path
+                 class="background"
+                 d="M0.5,0.5h300v400h-300Z"
+                 style="fill: none; stroke: #ddd;"
+                 id="path4" />
+              <g
+                 id="g256">
+                <g
+                   class="mark-group role-axis"
+                   id="g44">
+                  <g
+                     transform="translate(0.5,0.5)"
+                     id="g42">
+                    <path
+                       class="background"
+                       d="M0,0h0v0h0Z"
+                       style="pointer-events: none; fill: none;"
+                       id="path6" />
+                    <g
+                       id="g40">
+                      <g
+                         class="mark-rule role-axis-grid"
+                         style="pointer-events: none;"
+                         id="g38">
+                        <line
+                           transform="translate(0,400)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line8" />
+                        <line
+                           transform="translate(0,371)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line10" />
+                        <line
+                           transform="translate(0,343)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line12" />
+                        <line
+                           transform="translate(0,314)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line14" />
+                        <line
+                           transform="translate(0,286)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line16" />
+                        <line
+                           transform="translate(0,257)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line18" />
+                        <line
+                           transform="translate(0,229)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line20" />
+                        <line
+                           transform="translate(0,200)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line22" />
+                        <line
+                           transform="translate(0,171)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line24" />
+                        <line
+                           transform="translate(0,143)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line26" />
+                        <line
+                           transform="translate(0,114)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line28" />
+                        <line
+                           transform="translate(0,86)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line30" />
+                        <line
+                           transform="translate(0,57)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line32" />
+                        <line
+                           transform="translate(0,29)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line34" />
+                        <line
+                           transform="translate(0,0)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line36" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g
+                   class="mark-area role-mark concat_0_layer_0_marks"
+                   id="g48">
+                  <path
+                     d="M300,153.08334608910386L225,151.43742005476724L150,145.71541772530466L75,144.381921550715L0,145.5706311426783L0,400L75,400L150,400L225,400L300,400Z"
+                     style="fill: #4c78a8; opacity: 0.3;"
+                     id="path46" />
+                </g>
+                <g
+                   class="mark-group role-scope concat_0_layer_1_pathgroup"
+                   id="g130">
+                  <g
+                     transform="translate(0,0)"
+                     id="g58">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path50" />
+                    <g
+                       id="g56">
+                      <g
+                         class="mark-line role-mark concat_0_layer_1_marks"
+                         id="g54">
+                        <path
+                           d="M300,197.42210415584574L225,193.11620758256845L150,188.07328802627916L75,186.47589504291014L0,189.10348901293133"
+                           style="fill: none; stroke: #ff9da6; stroke-width: 3;"
+                           id="path52" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g68">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path60" />
+                    <g
+                       id="g66">
+                      <g
+                         class="mark-line role-mark concat_0_layer_1_marks"
+                         id="g64">
+                        <path
+                           d="M300,176.8437354433827L225,176.56338354833855L150,173.60441716195902L75,172.72436975835873L0,173.94448472456315"
+                           style="fill: none; stroke: #54a24b; stroke-width: 3;"
+                           id="path62" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g78">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path70" />
+                    <g
+                       id="g76">
+                      <g
+                         class="mark-line role-mark concat_0_layer_1_marks"
+                         id="g74">
+                        <path
+                           d="M300,128.5226497872046L225,124.63458292572511L150,110.41253275859805L75,108.27352139169875L0,108.98781090105456"
+                           style="fill: none; stroke: #72b7b2; stroke-width: 3;"
+                           id="path72" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g88">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path80" />
+                    <g
+                       id="g86">
+                      <g
+                         class="mark-line role-mark concat_0_layer_1_marks"
+                         id="g84">
+                        <path
+                           d="M300,257.52700364468797L225,259.93332140333894L150,257.488098982357L75,256.84018435112677L0,258.5984496749035"
+                           style="fill: none; stroke: #4c78a8; stroke-width: 3;"
+                           id="path82" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g98">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path90" />
+                    <g
+                       id="g96">
+                      <g
+                         class="mark-line role-mark concat_0_layer_1_marks"
+                         id="g94">
+                        <path
+                           d="M300,45.867294649936184L225,36.24412916405163L150,20.36846795061524L75,17.14452486214236L0,18.378393133622353"
+                           style="fill: none; stroke: #eeca3b; stroke-width: 3;"
+                           id="path92" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g108">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path100" />
+                    <g
+                       id="g106">
+                      <g
+                         class="mark-line role-mark concat_0_layer_1_marks"
+                         id="g104">
+                        <path
+                           d="M300,191.8602397034285L225,196.0895558583398L150,189.6545697294186L75,188.64213975125875L0,186.70556915796342"
+                           style="fill: none; stroke: #e45756; stroke-width: 3;"
+                           id="path102" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g118">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path110" />
+                    <g
+                       id="g116">
+                      <g
+                         class="mark-line role-mark concat_0_layer_1_marks"
+                         id="g114">
+                        <path
+                           d="M300,95.04876832091128L225,98.38933925903234L150,80.05691439409082L75,73.15593177167983L0,71.02648119097267"
+                           style="fill: none; stroke: #b279a2; stroke-width: 3;"
+                           id="path112" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g128">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path120" />
+                    <g
+                       id="g126">
+                      <g
+                         class="mark-line role-mark concat_0_layer_1_marks"
+                         id="g124">
+                        <path
+                           d="M300,326.86911372583603L225,332.34527291738874L150,333.7778107076098L75,331.92235901298704L0,329.3507761579686"
+                           style="fill: none; stroke: #f58518; stroke-width: 3;"
+                           id="path122" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g
+                   class="mark-text role-title"
+                   style="pointer-events: none;"
+                   id="g134">
+                  <text
+                     text-anchor="middle"
+                     transform="translate(139,-14)"
+                     style="font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #000; opacity: 1;"
+                     id="text132">EU</text>
+                </g>
+                <g
+                   class="mark-group role-axis"
+                   id="g174">
+                  <g
+                     transform="translate(0.5,400.5)"
+                     id="g172">
+                    <path
+                       class="background"
+                       d="M0,0h0v0h0Z"
+                       style="pointer-events: none; fill: none;"
+                       id="path136" />
+                    <g
+                       id="g170">
+                      <g
+                         class="mark-rule role-axis-tick"
+                         style="pointer-events: none;"
+                         id="g148">
+                        <line
+                           transform="translate(0,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line138" />
+                        <line
+                           transform="translate(75,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line140" />
+                        <line
+                           transform="translate(150,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line142" />
+                        <line
+                           transform="translate(225,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line144" />
+                        <line
+                           transform="translate(300,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line146" />
+                      </g>
+                      <g
+                         class="mark-text role-axis-label"
+                         style="pointer-events: none;"
+                         id="g160">
+                        <text
+                           text-anchor="middle"
+                           transform="translate(0,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text150">2018-03</text>
+                        <text
+                           text-anchor="middle"
+                           transform="translate(75,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text152">2018-04</text>
+                        <text
+                           text-anchor="middle"
+                           transform="translate(150,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text154">2018-05</text>
+                        <text
+                           text-anchor="middle"
+                           transform="translate(225,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text156">2018-06</text>
+                        <text
+                           text-anchor="middle"
+                           transform="translate(300,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text158">2018-07</text>
+                      </g>
+                      <g
+                         class="mark-rule role-axis-domain"
+                         style="pointer-events: none;"
+                         id="g164">
+                        <line
+                           transform="translate(0,0)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line162" />
+                      </g>
+                      <g
+                         class="mark-text role-axis-title"
+                         style="pointer-events: none;"
+                         id="g168">
+                        <text
+                           text-anchor="middle"
+                           transform="translate(150,33)"
+                           style="font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #000; opacity: 1;"
+                           id="text166">Month</text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g
+                   class="mark-group role-axis"
+                   id="g254">
+                  <g
+                     transform="translate(0.5,0.5)"
+                     id="g252">
+                    <path
+                       class="background"
+                       d="M0,0h0v0h0Z"
+                       style="pointer-events: none; fill: none;"
+                       id="path176" />
+                    <g
+                       id="g250">
+                      <g
+                         class="mark-rule role-axis-tick"
+                         style="pointer-events: none;"
+                         id="g208">
+                        <line
+                           transform="translate(0,400)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line178" />
+                        <line
+                           transform="translate(0,371)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line180" />
+                        <line
+                           transform="translate(0,343)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line182" />
+                        <line
+                           transform="translate(0,314)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line184" />
+                        <line
+                           transform="translate(0,286)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line186" />
+                        <line
+                           transform="translate(0,257)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line188" />
+                        <line
+                           transform="translate(0,229)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line190" />
+                        <line
+                           transform="translate(0,200)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line192" />
+                        <line
+                           transform="translate(0,171)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line194" />
+                        <line
+                           transform="translate(0,143)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line196" />
+                        <line
+                           transform="translate(0,114)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line198" />
+                        <line
+                           transform="translate(0,86)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line200" />
+                        <line
+                           transform="translate(0,57)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line202" />
+                        <line
+                           transform="translate(0,29)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line204" />
+                        <line
+                           transform="translate(0,0)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line206" />
+                      </g>
+                      <g
+                         class="mark-text role-axis-label"
+                         style="pointer-events: none;"
+                         id="g240">
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,404)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text210">0</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,375.42857142857144)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text212">1</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,346.8571428571429)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text214">2</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,318.2857142857143)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text216">3</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,289.7142857142857)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text218">4</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,261.1428571428571)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text220">5</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,232.57142857142858)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text222">6</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,204)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text224">7</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,175.42857142857144)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text226">8</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,146.85714285714283)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text228">9</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,118.28571428571428)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text230">10</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,89.71428571428572)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text232">11</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,61.14285714285717)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text234">12</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,32.571428571428555)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text236">13</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,4)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text238">14</text>
+                      </g>
+                      <g
+                         class="mark-rule role-axis-domain"
+                         style="pointer-events: none;"
+                         id="g244">
+                        <line
+                           transform="translate(0,400)"
+                           x2="0"
+                           y2="-400"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line242" />
+                      </g>
+                      <g
+                         class="mark-text role-axis-title"
+                         style="pointer-events: none;"
+                         id="g248">
+                        <text
+                           text-anchor="middle"
+                           transform="translate(-34,200) rotate(-90) translate(0,-3)"
+                           style="font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #000; opacity: 1;"
+                           id="text246">Mean number of trackers</text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g
+             class="mark-group role-scope concat_1_group"
+             id="g508">
+            <g
+               transform="translate(388,0)"
+               id="g506">
+              <path
+                 class="background"
+                 d="M0.5,0.5h300v400h-300Z"
+                 style="fill: none; stroke: #ddd;"
+                 id="path262" />
+              <g
+                 id="g504">
+                <g
+                   class="mark-group role-axis"
+                   id="g300">
+                  <g
+                     transform="translate(0.5,0.5)"
+                     id="g298">
+                    <path
+                       class="background"
+                       d="M0,0h0v0h0Z"
+                       style="pointer-events: none; fill: none;"
+                       id="path264" />
+                    <g
+                       id="g296">
+                      <g
+                         class="mark-rule role-axis-grid"
+                         style="pointer-events: none;"
+                         id="g294">
+                        <line
+                           transform="translate(0,400)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line266" />
+                        <line
+                           transform="translate(0,369)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line268" />
+                        <line
+                           transform="translate(0,338)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line270" />
+                        <line
+                           transform="translate(0,308)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line272" />
+                        <line
+                           transform="translate(0,277)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line274" />
+                        <line
+                           transform="translate(0,246)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line276" />
+                        <line
+                           transform="translate(0,215)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line278" />
+                        <line
+                           transform="translate(0,185)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line280" />
+                        <line
+                           transform="translate(0,154)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line282" />
+                        <line
+                           transform="translate(0,123)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line284" />
+                        <line
+                           transform="translate(0,92)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line286" />
+                        <line
+                           transform="translate(0,62)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line288" />
+                        <line
+                           transform="translate(0,31)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line290" />
+                        <line
+                           transform="translate(0,0)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"
+                           id="line292" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g
+                   class="mark-area role-mark concat_1_layer_0_marks"
+                   id="g304">
+                  <path
+                     d="M300,153.32083987739983L200,160.21910298523468L100,163.49075869029613L0,172.209519762603L0,400L100,400L200,400L300,400Z"
+                     style="fill: #4c78a8; opacity: 0.3;"
+                     id="path302" />
+                </g>
+                <g
+                   class="mark-group role-scope concat_1_layer_1_pathgroup"
+                   id="g386">
+                  <g
+                     transform="translate(0,0)"
+                     id="g314">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path306" />
+                    <g
+                       id="g312">
+                      <g
+                         class="mark-line role-mark concat_1_layer_1_marks"
+                         id="g310">
+                        <path
+                           d="M300,250.55480593621158L200,250.53884443292057L100,249.065510178237L0,276.07384758629945"
+                           style="fill: none; stroke: #ff9da6; stroke-width: 3;"
+                           id="path308" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g324">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path316" />
+                    <g
+                       id="g322">
+                      <g
+                         class="mark-line role-mark concat_1_layer_1_marks"
+                         id="g320">
+                        <path
+                           d="M300,162.35608399233067L200,164.22187048874991L100,168.4630584575472L0,181.93763880606863"
+                           style="fill: none; stroke: #54a24b; stroke-width: 3;"
+                           id="path318" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g334">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path326" />
+                    <g
+                       id="g332">
+                      <g
+                         class="mark-line role-mark concat_1_layer_1_marks"
+                         id="g330">
+                        <path
+                           d="M300,123.47439124466433L200,137.30117171990588L100,158.56323277425122L0,172.94819070770333"
+                           style="fill: none; stroke: #72b7b2; stroke-width: 3;"
+                           id="path328" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g344">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path336" />
+                    <g
+                       id="g342">
+                      <g
+                         class="mark-line role-mark concat_1_layer_1_marks"
+                         id="g340">
+                        <path
+                           d="M300,16.31022866602291L200,24.824398126198275L100,23.082240225682654L0,29.5711853967328"
+                           style="fill: none; stroke: #eeca3b; stroke-width: 3;"
+                           id="path338" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g354">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path346" />
+                    <g
+                       id="g352">
+                      <g
+                         class="mark-line role-mark concat_1_layer_1_marks"
+                         id="g350">
+                        <path
+                           d="M300,247.8185816297224L200,252.977998989524L100,253.20148925536634L0,246.8528780798233"
+                           style="fill: none; stroke: #4c78a8; stroke-width: 3;"
+                           id="path348" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g364">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path356" />
+                    <g
+                       id="g362">
+                      <g
+                         class="mark-line role-mark concat_1_layer_1_marks"
+                         id="g360">
+                        <path
+                           d="M300,169.65059813334017L200,181.56462197008477L100,181.61678262341576L0,185.90474745717168"
+                           style="fill: none; stroke: #e45756; stroke-width: 3;"
+                           id="path358" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g374">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path366" />
+                    <g
+                       id="g372">
+                      <g
+                         class="mark-line role-mark concat_1_layer_1_marks"
+                         id="g370">
+                        <path
+                           d="M300,269.7458241196754L200,265.2680205175907L100,273.89912410436887L0,263.05573259314065"
+                           style="fill: none; stroke: #f58518; stroke-width: 3;"
+                           id="path368" />
+                      </g>
+                    </g>
+                  </g>
+                  <g
+                     transform="translate(0,0)"
+                     id="g384">
+                    <path
+                       class="background"
+                       d="M0,0h300v400h-300Z"
+                       style="fill: none;"
+                       id="path376" />
+                    <g
+                       id="g382">
+                      <g
+                         class="mark-line role-mark concat_1_layer_1_marks"
+                         id="g380">
+                        <path
+                           d="M300,81.77394828194878L200,120.38068066133019L100,116.87541742803137L0,152.29193655104757"
+                           style="fill: none; stroke: #b279a2; stroke-width: 3;"
+                           id="path378" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g
+                   class="mark-text role-title"
+                   style="pointer-events: none;"
+                   id="g390">
+                  <text
+                     text-anchor="middle"
+                     transform="translate(139,-14)"
+                     style="font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #000; opacity: 1;"
+                     id="text388">US</text>
+                </g>
+                <g
+                   class="mark-group role-axis"
+                   id="g426">
+                  <g
+                     transform="translate(0.5,400.5)"
+                     id="g424">
+                    <path
+                       class="background"
+                       d="M0,0h0v0h0Z"
+                       style="pointer-events: none; fill: none;"
+                       id="path392" />
+                    <g
+                       id="g422">
+                      <g
+                         class="mark-rule role-axis-tick"
+                         style="pointer-events: none;"
+                         id="g402">
+                        <line
+                           transform="translate(0,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line394" />
+                        <line
+                           transform="translate(100,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line396" />
+                        <line
+                           transform="translate(200,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line398" />
+                        <line
+                           transform="translate(300,0)"
+                           x2="0"
+                           y2="5"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line400" />
+                      </g>
+                      <g
+                         class="mark-text role-axis-label"
+                         style="pointer-events: none;"
+                         id="g412">
+                        <text
+                           text-anchor="middle"
+                           transform="translate(0,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text404">2018-04</text>
+                        <text
+                           text-anchor="middle"
+                           transform="translate(100,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text406">2018-05</text>
+                        <text
+                           text-anchor="middle"
+                           transform="translate(200,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text408">2018-06</text>
+                        <text
+                           text-anchor="middle"
+                           transform="translate(300,16)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text410">2018-07</text>
+                      </g>
+                      <g
+                         class="mark-rule role-axis-domain"
+                         style="pointer-events: none;"
+                         id="g416">
+                        <line
+                           transform="translate(0,0)"
+                           x2="300"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line414" />
+                      </g>
+                      <g
+                         class="mark-text role-axis-title"
+                         style="pointer-events: none;"
+                         id="g420">
+                        <text
+                           text-anchor="middle"
+                           transform="translate(150,33)"
+                           style="font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #000; opacity: 1;"
+                           id="text418">Month</text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g
+                   class="mark-group role-axis"
+                   id="g502">
+                  <g
+                     transform="translate(0.5,0.5)"
+                     id="g500">
+                    <path
+                       class="background"
+                       d="M0,0h0v0h0Z"
+                       style="pointer-events: none; fill: none;"
+                       id="path428" />
+                    <g
+                       id="g498">
+                      <g
+                         class="mark-rule role-axis-tick"
+                         style="pointer-events: none;"
+                         id="g458">
+                        <line
+                           transform="translate(0,400)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line430" />
+                        <line
+                           transform="translate(0,369)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line432" />
+                        <line
+                           transform="translate(0,338)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line434" />
+                        <line
+                           transform="translate(0,308)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line436" />
+                        <line
+                           transform="translate(0,277)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line438" />
+                        <line
+                           transform="translate(0,246)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line440" />
+                        <line
+                           transform="translate(0,215)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line442" />
+                        <line
+                           transform="translate(0,185)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line444" />
+                        <line
+                           transform="translate(0,154)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line446" />
+                        <line
+                           transform="translate(0,123)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line448" />
+                        <line
+                           transform="translate(0,92)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line450" />
+                        <line
+                           transform="translate(0,62)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line452" />
+                        <line
+                           transform="translate(0,31)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line454" />
+                        <line
+                           transform="translate(0,0)"
+                           x2="-5"
+                           y2="0"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line456" />
+                      </g>
+                      <g
+                         class="mark-text role-axis-label"
+                         style="pointer-events: none;"
+                         id="g488">
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,404)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text460">0</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,373.2307692307692)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text462">1</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,342.46153846153845)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text464">2</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,311.6923076923077)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text466">3</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,280.9230769230769)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text468">4</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,250.15384615384613)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text470">5</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,219.3846153846154)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text472">6</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,188.6153846153846)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text474">7</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,157.84615384615384)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text476">8</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,127.0769230769231)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text478">9</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,96.30769230769226)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text480">10</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,65.53846153846155)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text482">11</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,34.769230769230774)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text484">12</text>
+                        <text
+                           text-anchor="end"
+                           transform="translate(-7,4)"
+                           style="font-family: sans-serif; font-size: 12px; fill: #000; opacity: 1;"
+                           id="text486">13</text>
+                      </g>
+                      <g
+                         class="mark-rule role-axis-domain"
+                         style="pointer-events: none;"
+                         id="g492">
+                        <line
+                           transform="translate(0,400)"
+                           x2="0"
+                           y2="-400"
+                           style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"
+                           id="line490" />
+                      </g>
+                      <g
+                         class="mark-text role-axis-title"
+                         style="pointer-events: none;"
+                         id="g496">
+                        <text
+                           text-anchor="middle"
+                           transform="translate(-34,200) rotate(-90) translate(0,-3)"
+                           style="font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #000; opacity: 1;"
+                           id="text494">Mean number of trackers</text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g
+             class="mark-group role-legend"
+             id="g642"
+             transform="translate(-23.9925,3.9525)">
+            <g
+               transform="translate(734)"
+               id="g640">
+              <path
+                 class="background"
+                 d="M 0,0 H 120 V 143 H 0 Z"
+                 style="fill:none"
+                 id="path510"
+                 inkscape:connector-curvature="0" />
+              <g
+                 id="g638">
+                <g
+                   class="mark-group role-legend-entry"
+                   id="g632">
+                  <g
+                     transform="translate(0,18)"
+                     id="g630">
+                    <path
+                       class="background"
+                       d="M 0,0 Z"
+                       style="fill:none"
+                       id="path512"
+                       inkscape:connector-curvature="0" />
+                    <g
+                       id="g628">
+                      <g
+                         class="mark-group role-scope"
+                         id="g626">
+                        <g
+                           id="g526"
+                           transform="translate(0,82.81625)">
+                          <path
+                             class="background"
+                             d="M 0,0 H 120 V 13 H 0 Z"
+                             style="opacity:1;fill:none"
+                             id="path514"
+                             inkscape:connector-curvature="0" />
+                          <g
+                             id="g524">
+                            <g
+                               class="mark-symbol role-legend-symbol"
+                               id="g518"
+                               style="fill:#4c78a8;fill-opacity:1">
+                              <path
+                                 transform="translate(6,6)"
+                                 d="M 5,0 A 5,5 0 1 1 -5,0 5,5 0 1 1 5,0"
+                                 style="opacity:1;fill:#4c78a8;fill-opacity:1;stroke:#4c78a8;stroke-width:1.5"
+                                 id="path516"
+                                 inkscape:connector-curvature="0" />
+                            </g>
+                            <g
+                               class="mark-text role-legend-label"
+                               id="g522">
+                              <text
+                                 transform="translate(16,10)"
+                                 style="font-size:12px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                                 id="text520">Adult</text>
+                            </g>
+                          </g>
+                        </g>
+                        <g
+                           transform="translate(0,116)"
+                           id="g540">
+                          <path
+                             class="background"
+                             d="M 0,0 H 120 V 13 H 0 Z"
+                             style="opacity:1;fill:none"
+                             id="path528"
+                             inkscape:connector-curvature="0" />
+                          <g
+                             id="g538">
+                            <g
+                               class="mark-symbol role-legend-symbol"
+                               id="g532"
+                               style="fill:#f58518;fill-opacity:1">
+                              <path
+                                 transform="translate(6,6)"
+                                 d="M 5,0 A 5,5 0 1 1 -5,0 5,5 0 1 1 5,0"
+                                 style="opacity:1;fill:#f58518;fill-opacity:1;stroke:#f58518;stroke-width:1.5"
+                                 id="path530"
+                                 inkscape:connector-curvature="0" />
+                            </g>
+                            <g
+                               class="mark-text role-legend-label"
+                               id="g536">
+                              <text
+                                 transform="translate(16,10)"
+                                 style="font-size:12px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                                 id="text534">Banking</text>
+                            </g>
+                          </g>
+                        </g>
+                        <g
+                           transform="translate(0,70)"
+                           id="g554">
+                          <path
+                             class="background"
+                             d="M 0,0 H 120 V 13 H 0 Z"
+                             style="opacity:1;fill:none"
+                             id="path542"
+                             inkscape:connector-curvature="0" />
+                          <g
+                             id="g552"
+                             transform="translate(0,-4)">
+                            <g
+                               class="mark-symbol role-legend-symbol"
+                               id="g546"
+                               style="fill:#e45756;fill-opacity:1">
+                              <path
+                                 transform="translate(6,6)"
+                                 d="M 5,0 A 5,5 0 1 1 -5,0 5,5 0 1 1 5,0"
+                                 style="opacity:1;fill:#e45756;fill-opacity:1;stroke:#e45756;stroke-width:1.5"
+                                 id="path544"
+                                 inkscape:connector-curvature="0" />
+                            </g>
+                            <g
+                               class="mark-text role-legend-label"
+                               id="g550">
+                              <text
+                                 transform="translate(16,10)"
+                                 style="font-size:12px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                                 id="text548">Business</text>
+                            </g>
+                          </g>
+                        </g>
+                        <g
+                           transform="translate(0,32)"
+                           id="g568">
+                          <path
+                             class="background"
+                             d="M 0,0 H 120 V 13 H 0 Z"
+                             style="opacity:1;fill:none"
+                             id="path556"
+                             inkscape:connector-curvature="0" />
+                          <g
+                             id="g566">
+                            <g
+                               class="mark-symbol role-legend-symbol"
+                               id="g560"
+                               style="fill:#72b7b2;fill-opacity:1">
+                              <path
+                                 transform="translate(6,6)"
+                                 d="M 5,0 A 5,5 0 1 1 -5,0 5,5 0 1 1 5,0"
+                                 style="opacity:1;fill:#72b7b2;fill-opacity:1;stroke:#72b7b2;stroke-width:1.5"
+                                 id="path558"
+                                 inkscape:connector-curvature="0" />
+                            </g>
+                            <g
+                               class="mark-text role-legend-label"
+                               id="g564">
+                              <text
+                                 transform="translate(16,10)"
+                                 style="font-size:12px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                                 id="text562">E-Commerce</text>
+                            </g>
+                          </g>
+                        </g>
+                        <g
+                           transform="translate(0,48)"
+                           id="g582">
+                          <path
+                             class="background"
+                             d="M 0,0 H 120 V 13 H 0 Z"
+                             style="opacity:1;fill:none"
+                             id="path570"
+                             inkscape:connector-curvature="0" />
+                          <g
+                             id="g580">
+                            <g
+                               class="mark-symbol role-legend-symbol"
+                               id="g574"
+                               style="fill:#54a24b;fill-opacity:1">
+                              <path
+                                 transform="translate(6,6)"
+                                 d="M 5,0 A 5,5 0 1 1 -5,0 5,5 0 1 1 5,0"
+                                 style="opacity:1;fill:#54a24b;fill-opacity:1;stroke:#54a24b;stroke-width:1.5"
+                                 id="path572"
+                                 inkscape:connector-curvature="0" />
+                            </g>
+                            <g
+                               class="mark-text role-legend-label"
+                               id="g578">
+                              <text
+                                 transform="translate(16,10)"
+                                 style="font-size:12px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                                 id="text576">Entertainment</text>
+                            </g>
+                          </g>
+                        </g>
+                        <g
+                           id="g596">
+                          <path
+                             class="background"
+                             d="M 0,0 H 120 V 13 H 0 Z"
+                             style="opacity:1;fill:none"
+                             id="path584"
+                             inkscape:connector-curvature="0" />
+                          <g
+                             id="g594">
+                            <g
+                               class="mark-symbol role-legend-symbol"
+                               id="g588"
+                               style="fill:#eeca3b;fill-opacity:1">
+                              <path
+                                 transform="translate(6,6)"
+                                 d="M 5,0 A 5,5 0 1 1 -5,0 5,5 0 1 1 5,0"
+                                 style="opacity:1;fill:#eeca3b;fill-opacity:1;stroke:#eeca3b;stroke-width:1.5"
+                                 id="path586"
+                                 inkscape:connector-curvature="0" />
+                            </g>
+                            <g
+                               class="mark-text role-legend-label"
+                               id="g592">
+                              <text
+                                 transform="translate(16,10)"
+                                 style="font-size:12px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                                 id="text590">News and Portals</text>
+                            </g>
+                          </g>
+                        </g>
+                        <g
+                           transform="translate(0,16)"
+                           id="g610">
+                          <path
+                             class="background"
+                             d="M 0,0 H 120 V 13 H 0 Z"
+                             style="opacity:1;fill:none"
+                             id="path598"
+                             inkscape:connector-curvature="0" />
+                          <g
+                             id="g608">
+                            <g
+                               class="mark-symbol role-legend-symbol"
+                               id="g602"
+                               style="fill:#b279a2;fill-opacity:1">
+                              <path
+                                 transform="translate(6,6)"
+                                 d="M 5,0 A 5,5 0 1 1 -5,0 5,5 0 1 1 5,0"
+                                 style="opacity:1;fill:#b279a2;fill-opacity:1;stroke:#b279a2;stroke-width:1.5"
+                                 id="path600"
+                                 inkscape:connector-curvature="0" />
+                            </g>
+                            <g
+                               class="mark-text role-legend-label"
+                               id="g606">
+                              <text
+                                 transform="translate(16,10)"
+                                 style="font-size:12px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                                 id="text604">Recreation</text>
+                            </g>
+                          </g>
+                        </g>
+                        <g
+                           transform="translate(0,100)"
+                           id="g624">
+                          <path
+                             class="background"
+                             d="M 0,0 H 120 V 13 H 0 Z"
+                             style="opacity:1;fill:none"
+                             id="path612"
+                             inkscape:connector-curvature="0" />
+                          <g
+                             id="g622">
+                            <g
+                               class="mark-symbol role-legend-symbol"
+                               id="g616"
+                               style="fill:#ff9da6;fill-opacity:1">
+                              <path
+                                 transform="translate(6,6)"
+                                 d="M 5,0 A 5,5 0 1 1 -5,0 5,5 0 1 1 5,0"
+                                 style="opacity:1;fill:#ff9da6;fill-opacity:1;stroke:#ff9da6;stroke-width:1.5"
+                                 id="path614"
+                                 inkscape:connector-curvature="0" />
+                            </g>
+                            <g
+                               class="mark-text role-legend-label"
+                               id="g620">
+                              <text
+                                 transform="translate(16,10)"
+                                 style="font-size:12px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                                 id="text618">Reference</text>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g
+                   class="mark-text role-legend-title"
+                   id="g636">
+                  <text
+                     transform="translate(0,10)"
+                     style="font-weight:bold;font-size:13px;font-family:sans-serif;text-anchor:start;opacity:1;fill:#000000"
+                     id="text634">Category</text>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g
+             transform="translate(-27.542499,-33.65875)"
+             class="mark-group role-legend"
+             id="g642-3" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
