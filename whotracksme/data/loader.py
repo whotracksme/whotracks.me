@@ -122,7 +122,7 @@ class PandasDataLoader:
 
 class Trackers(PandasDataLoader):
     def __init__(self, data_months, tracker_info, sites, region='global'):
-        super().__init__(data_months, name='trackers', region=region)
+        super().__init__(data_months, name='trackers', region=region, id_column='tracker')
 
         self.info = tracker_info
         # rename tracker column as id
@@ -267,7 +267,7 @@ class Trackers(PandasDataLoader):
 
 
 class Sites(PandasDataLoader):
-    def __init__(self, data_months, trackers, region='global'):
+    def __init__(self, data_months, trackers, region='global', id_column='site'):
         super().__init__(data_months, name='sites', region=region)
         self.trackers = trackers
         self.df['id'] = self.df['site']
@@ -362,7 +362,7 @@ class SitesTrackers(PandasDataLoader):
 class Companies(PandasDataLoader):
 
     def __init__(self, data_months, company_info, tracker_info, region='global'):
-        super().__init__(data_months, name='companies', region=region)
+        super().__init__(data_months, name='companies', region=region, id_column='company')
         self.df['id'] = self.df['company']
         self.df['name'] = pd.Series([
             company_info.get(row.company, tracker_info.get(row.company, {})).get('name', row.company)
