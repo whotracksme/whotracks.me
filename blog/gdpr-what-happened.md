@@ -9,10 +9,9 @@ header_img: blog/gdpr/gdpr-header.png
 +++
 
 
-_In this article we look at the effect GDPR has had on the tracking
-landscape, the effects it has on the distribution of the market share
-in online advertising in Europe, and conclude with a recommendations
-to make the legislation suitable for the web of today._
+_In this article we look at the effect GDPR has had on the tracking landscape,  
+online advertising in Europe, and provide a set of recommendations for machine 
+readable legislation._
 
 
 ## GDPR: A primer
