@@ -127,7 +127,7 @@ The issues with Office continue when trying to purchase an Office365 trial from 
 
 It is common practice for E-Commerce sites to embed payment systems from third-party vendors, such as Paypal, on their checkout pages. Such widgets should not require third-party cookies - usually the user can be redirected to pay at the payment provider's site. This method is preferable, as it reduces the chances of phishing: loading the payment page as a first party will make the url and certificate status visible, and only prompting users to enter payment information on the first party site is also good practice.
 
-Despite this, we see examples of payment being blocked when third-party cookies are disabled. One such example is on the German E-Commerce site [Thoman.de](../websites/thomann.de.html). When attempting to checkout with Amazon pay, we get an error mentioning that third-party cookies are being blocked:
+Despite this, we see examples of payment being blocked when third-party cookies are disabled. One such example is on the German E-Commerce site [Thomann.de](../websites/thomann.de.html). When attempting to checkout with Amazon pay, we get an error mentioning that third-party cookies are being blocked:
 
 <img class="img-responsive" src="../static/img/blog/cookie_block/amazon_pay_thomann.png" alt="Amazon Pay error on Thomann.de" />
 <p class="img-caption">"There was an error processing the Amazon payment. A possible cause is third-party cookie blocking."</p>
