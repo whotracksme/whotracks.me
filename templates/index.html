@@ -25,6 +25,20 @@
 
 {% include "components/home/header.html" %}
 
+<!-- Latest Articles -->
+
+<div class="grey-bg header-articles">
+        <div class="container">
+            <div class="row">
+                {% for blog_post in posts %}
+                <div class="col-sm-4 col-md-4">
+                    {% include "components/blog-card.html" %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
 <section class="grey-bg top-buffer">
     <div class="container">
         <div class="row home-plot">

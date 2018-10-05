@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>WhoTracks.me - Bringing Transparency to Online Tracking</title>
+    <meta name="description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
+{% endblock %}
+
+{% block og_params %}
+    <!-- OG params for sharable content -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whotracks.me">
+    <meta property="og:title" content="WhoTracks.me - Privacy Policy">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://whotracks.me/{{PATHS.static|absolute_og_urls}}/img/tracking-matrix-bluebg.png">
+{% endblock %}
+
+{% set active_page='home' %}
+
+
+{% block extra_styling %}
+        <link rel="stylesheet" href="{{PATHS.static}}/css/blog/post.css">
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <div class="container container-post">
+
+    <h1>Privacy Policy</h1>
+    <br />
+    <br />
+    WhoTracks.Me is a Cliqz GmbH project.
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="panel panel-body">
+        <div class="col-md-5 col-sm-6 col-xs-12 menu">
+            <p>Cliqz GmbH</p>
+
+            <p>Arabellastrasse 23</p>
+            <p>81925 Munich, Germany</p>
+            <p>phone: +49 89 9250 1055</p>
+            <p>email: info[at]cliqz[dot]com</p>
+            <p>internet: www.cliqz.com</p>
+        </div>
+        <div class="col-md-7 col-sm-6 col-xs-12 menu">
+            <p>Register court: Amtsgericht Munich </p]>
+            <p>Trade register number: HRB 173779 </p>
+            <p>Managing directors: Dr. Marc Al-Hames, Jean-Paul Schmetz</p>
+            <p>Value-added tax identification number, in accordance with § 27 of the Umsatzsteuergesetz: DE 260117842</p>
+            <p>Responsible in terms of content, in accordance with § 55 Abs. 2 RStV: Jean-Paul Schmetz (address as stated)</p>
+            <p>Liability note: Despite careful content control we assume no liability for the content of external links. </p>
+            <p>For the corresponding content of linked pages, their administrators are responsible.</p>
+        </div>
+        </div>
+    </div>
+
+
+    <h2>Scope of validity</h2>
+
+    This data privacy statement informs users of the nature, scope and purpose of the
+    collection and use of personal data on this website by Cliqz GmbH
+    (hereinafter: the “Provider”), Arabellastr. 23, 81925 Munich, Germany;
+    email: info[at]cliqz[dot]com, phone +49 89 9250 1055.
+
+    The provisions of the German Federal Data Protection Act (BDSG) and the German
+    Telemedia Act (TMG) form the legal basis for data privacy. Our Data Protection Officer
+    is:
+    <br />
+    <br />
+
+    Mr Andreas Schmidt, LL.M. <br />
+    tekit Consult Bonn GmbH <br />
+    TÜV Saarland Gruppe<br />
+    Alexanderstraße 10<br />
+    53111 Bonn<br />
+
+
+    <h2>Information gathered by the WhoTracks.Me website</h2>
+
+    We log requests to our website via
+    <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html">
+    CloudFront's logging mechanism</a>. These logs, which contain visitors' IP
+    addresses, are anonymised daily with a process which encrypts this IP with a
+    key that is subsequently destroyed. After this step, the original IP addresses
+    can not longer be recovered. The original CloudFront logs are deleted
+    after 24 hours.
+
+    In summary, access logs containing IP addresses are kept for 24 hours.
+    Anonymised logs which are held longer have no identifiers, and cannot be
+    linked to the requestor IP address.
+
+    <h2>User Rights</h2>
+    WhoTracks.Me stands for a safer, more transparent web where privacy is a human right.
+    As such, we do not use cookies and do not include any third party services except the
+    content delivery network <a href="https://aws.amazon.com/cloudfront/">Amazon Cloudfront</a>
+    that serves the site, which is already configured to maximum privacy settings,
+    bound by a legal contract.
+
+    </div>
+</div>
+
+{% endblock %}

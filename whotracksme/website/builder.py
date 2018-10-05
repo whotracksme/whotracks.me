@@ -6,7 +6,7 @@ import concurrent.futures
 
 from whotracksme.data.loader import DataSource
 
-from whotracksme.website.build.home import build_home
+from whotracksme.website.build.home import build_home, build_privacy_policy
 from whotracksme.website.build.blog import (
     build_blogpost_list,
     build_blogpost_pages,
@@ -27,6 +27,7 @@ from whotracksme.website.templates import (
 )
 # from whotracksme.website.build.companies import build_company_pages
 from whotracksme.website.build.companies import build_company_reach_chart_page
+from whotracksme.website.build.data import build_tracker_db
 
 from whotracksme.website.utils import print_progress
 
@@ -112,6 +113,7 @@ class Builder:
                 # Home
                 # build_home(data=data_source)
                 futures.append(executor.submit(build_home, data=data_source))
+                futures.append(executor.submit(build_privacy_policy, data=data_source))
 
                 # Trackers
                 futures.append(executor.submit(build_trackers_list, data=data_source))
@@ -144,6 +146,11 @@ class Builder:
                     generate_sitemap,
                     data=data_source,
                     blog_posts=self.blog_posts
+                ))
+
+            if event & DATA_FOLDER:
+                futures.append(executor.submit(
+                    build_tracker_db
                 ))
 
             # TODO: uncomment when company profiles are ready

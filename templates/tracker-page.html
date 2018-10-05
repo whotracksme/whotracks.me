@@ -67,12 +67,12 @@ $(document).ready(function() {
                     <div class="row tracker-category">
                         <div class="col-md-11">
                         <h4>TRACKER CATEGORY</h4>
-                        {% if profile.cat %}
+                        {% if profile.category %}
                             <span class="cat-item">
-                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES[profile.cat] }}" aria-hidden="true"></i>
-                                {{profile.cat|prettify_label}}
+                                <i class="fa fa-circle" style="color: {{ TRACKER_CATEGORIES[profile.category] }}" aria-hidden="true"></i>
+                                {{profile.category|prettify_label}}
                             </span>
-                            <p class="tracker-desc">{{CATEGORY_DESC[profile.cat]}}</p>
+                            <p class="tracker-desc">{{CATEGORY_DESC[profile.category]}}</p>
                         {% else %}
 
                             <span class="cat-item">

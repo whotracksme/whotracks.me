@@ -8,7 +8,7 @@ Whotracks.me website development tool.
 Usage:
     whotracksme website [serve]
     whotracksme data [list]
-    whotracksme db (create|dump|check_urls)
+    whotracksme db (create|dump|check_urls|json)
     whotracksme -h | --help
 
 Options:
@@ -20,12 +20,13 @@ Options:
 from pathlib import Path
 import os
 import sqlite3
+import json
 
 import docopt
 
 from whotracksme.website.builder import Builder
 from whotracksme.website.serve import serve
-from whotracksme.data.loader import load_tracker_db
+from whotracksme.data.db import load_tracker_db, create_tracker_map
 from whotracksme.qa.todo import upgrade_to_https, create_task_files
 
 
@@ -74,6 +75,9 @@ def main():
                 needqa.mkdir()
             https_upgrade = upgrade_to_https(tracker_db='tracker.db')
             create_task_files(needqa_folder=needqa, **https_upgrade)
+        elif args.json:
+            db_map = create_tracker_map(load_tracker_db(), with_iab_vendors=True)
+            print(json.dumps(db_map, indent=2, sort_keys=True))
 
 
 if __name__ == '__main__':

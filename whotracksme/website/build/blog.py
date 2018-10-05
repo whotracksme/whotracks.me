@@ -46,14 +46,15 @@ def build_blogpost_list(data, blog_posts):
 
 
 def build_blogpost_pages(data, blog_posts):
-    template = get_template(
-        data,
-        "blog-page.html",
-        render_markdown=True,
-        path_to_root='..'
-    )
-
     for blog_post in blog_posts:
+        #TODO: Move template out after footnotes markdown extension does
+        # not save global state
+        template = get_template(
+            data,
+            "blog-page.html",
+            render_markdown=True,
+            path_to_root='..'
+        )
         with open(f'_site/blog/{blog_post.get("filename")}.html', 'w') as output:
             output.write(
                 render_template(

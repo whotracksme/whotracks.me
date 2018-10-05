@@ -2,16 +2,13 @@
 from datetime import datetime
 from urllib.parse import quote_plus
 import io
-import sqlite3
-
 import pkg_resources
 import pandas as pd
+from whotracksme.data.db import load_tracker_db, create_tracker_map
 
 
-def asset_string(name):
-    return pkg_resources.resource_string(
-        'whotracksme.data',
-        f'assets/{name}').decode('utf-8')
+def asset_exists(name):
+    return pkg_resources.resource_exists('whotracksme.data', f'assets/{name}')
 
 
 def asset_stream(name):
@@ -24,53 +21,52 @@ def asset_stream(name):
     return in_memory_stream
 
 
-def load_tracker_db(loc=':memory:'):
-    connection = sqlite3.connect(loc)
-    with connection:
-        connection.executescript(asset_string('trackerdb.sql'))
-    return connection
-
-
-def list_available_months():
+def list_available_months(region="global"):
     months = []
     for asset in pkg_resources.resource_listdir('whotracksme.data', 'assets'):
         try:
-            datetime.strptime(asset, '%Y-%m')
+            month = datetime.strptime(asset, '%Y-%m')
         except ValueError:
             pass
         else:
-            months.append(asset)
+            # Making sure the region is availabe in a given month
+            if pkg_resources.resource_isdir('whotracksme.data', f'assets/{asset}/{region}'):
+                months.append(asset)
     return months
 
 
 class DataSource:
-    def __init__(self):
-        self.data_months = sorted(list_available_months())
-        print('data available for months:', self.data_months)
+    def __init__(self, region="global"):
+        self.data_months = sorted(list_available_months(region=region))
+        print('data available for months:\n├──', "\n├── ".join(self.data_months))
 
         # Add demographics info to trackers and companies
         connection = load_tracker_db()
-        with connection:
-            self.app_info = self.load_app_info(connection)
-            self.company_info = self.load_company_info(connection)
+        tracker_map = create_tracker_map(connection)
+        self.app_info = tracker_map['trackers']
+        self.company_info = tracker_map['companies']
 
         self.sites_trackers = SitesTrackers(
             data_months=[max(self.data_months)],
-            tracker_info=self.app_info
+            tracker_info=self.app_info,
+            region=region
         )
         self.trackers = Trackers(
             data_months=self.data_months,
             tracker_info=self.app_info,
-            sites=self.sites_trackers
+            sites=self.sites_trackers,
+            region=region
         )
         self.companies = Companies(
             data_months=self.data_months,
             company_info=self.company_info,
-            tracker_info=self.app_info
+            tracker_info=self.app_info,
+            region=region
         )
         self.sites = Sites(
             data_months=self.data_months,
-            trackers=self.sites_trackers
+            trackers=self.sites_trackers,
+            region=region
         )
 
     @staticmethod
@@ -91,51 +87,6 @@ class DataSource:
         return self.company_info.get(id).get('name') \
             if id in self.company_info else id
 
-    def load_app_info(self, connection):
-        col_names = [
-            'id', 'name', 'cat', 'website_url',
-            'company_id'
-        ]
-        cur = connection.execute(
-            '''SELECT trackers.id, trackers.name,
-            categories.name, website_url, company_id
-            FROM trackers
-            LEFT JOIN categories ON categories.id = category_id'''
-        )
-        app_info = {}
-        for row in cur:
-            app_info[row[0]] = {col: row[i] for i, col in enumerate(col_names)}
-            app_info[row[0]]['domains'] = []
-
-        cur = connection.execute('SELECT tracker, domain FROM tracker_domains')
-        for app, domain in cur:
-            app_info[app]['domains'].append(domain)
-
-        return app_info
-
-    def load_company_info(self, connection):
-        columns = [
-            'id', 'name', 'description', 'privacy_url', 'website_url',
-        ]
-        cur = connection.execute(
-            '''SELECT {} FROM companies'''.format(','.join(columns))
-        )
-        company_info = {}
-        for row in cur:
-            company_info[row[0]] = {col: row[i] for i, col in enumerate(columns)}
-            company_info[row[0]]['apps'] = {}
-
-        cur = connection.execute(
-            '''SELECT company_id, id, name
-            FROM trackers
-            WHERE company_id IS NOT NULL'''
-        )
-        for cid, app_id, app_name in cur:
-            company_info[cid]['apps'][app_id] = app_name
-
-        return company_info
-
-
 class PandasDataLoader:
 
     def __init__(self, data_months, name, region='global', id_column=None):
@@ -143,8 +94,10 @@ class PandasDataLoader:
         self.df = pd.concat([
             pd.read_csv(
                 asset_stream(f'{month}/{region}/{name}.csv'),
-                parse_dates=['month'])
+                parse_dates=['month']
+            )
             for month in data_months
+            if asset_exists(f'{month}/{region}/{name}.csv')
         ])
         self.id_col = id_column or self.df.columns[2]
 
@@ -169,7 +122,7 @@ class PandasDataLoader:
 
 class Trackers(PandasDataLoader):
     def __init__(self, data_months, tracker_info, sites, region='global'):
-        super().__init__(data_months, name='trackers', region=region)
+        super().__init__(data_months, name='trackers', region=region, id_column='tracker')
 
         self.info = tracker_info
         # rename tracker column as id
@@ -179,7 +132,7 @@ class Trackers(PandasDataLoader):
             [tracker_info.get(tracker, {}).get('company_id', tracker)
             for tracker in self.df.tracker], index=self.df.index)
         self.df['category'] = pd.Series(
-            [tracker_info.get(tracker, {}).get('cat', 'unknown')
+            [tracker_info.get(tracker, {}).get('category', 'unknown')
             for tracker in self.df.tracker], index=self.df.index)
 
         self.sites = sites
@@ -248,7 +201,7 @@ class Trackers(PandasDataLoader):
             return 'Extremely prevalent'
         if 11 <= r < 50:
             return 'Very prevalent'
-        if 51 <= r < 100:
+        if 51 <= r <= 100:
             return 'Commonly prevalent'
         if 101 <= r:
             return 'Relatively prevalent'
@@ -298,7 +251,7 @@ class Trackers(PandasDataLoader):
         """
         snapshot = self.get_snapshot()
         tracker = self.get_tracker(id)
-        st = snapshot[(snapshot.category == tracker.get('cat', 'unknown')) & (snapshot.id != id)]\
+        st = snapshot[(snapshot.category == tracker.get('category', 'unknown')) & (snapshot.id != id)]\
             .sort_values('reach', ascending=False)
         return [{
             'id': t.tracker,
@@ -314,7 +267,7 @@ class Trackers(PandasDataLoader):
 
 
 class Sites(PandasDataLoader):
-    def __init__(self, data_months, trackers, region='global'):
+    def __init__(self, data_months, trackers, region='global', id_column='site'):
         super().__init__(data_months, name='sites', region=region)
         self.trackers = trackers
         self.df['id'] = self.df['site']
@@ -370,7 +323,7 @@ class Sites(PandasDataLoader):
                 tracker['frequency'] = t.site_proportion
             except TypeError:
                 continue
-            category = tracker.get('cat', 'unknown')
+            category = tracker.get('category', 'unknown')
             if category == 'extensions' or category is None:
                 continue
 
@@ -405,10 +358,11 @@ class SitesTrackers(PandasDataLoader):
     def get_site(self, site):
         return self.df[self.df.site == site]
 
+
 class Companies(PandasDataLoader):
 
     def __init__(self, data_months, company_info, tracker_info, region='global'):
-        super().__init__(data_months, name='companies', region=region)
+        super().__init__(data_months, name='companies', region=region, id_column='company')
         self.df['id'] = self.df['company']
         self.df['name'] = pd.Series([
             company_info.get(row.company, tracker_info.get(row.company, {})).get('name', row.company)
