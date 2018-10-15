@@ -259,7 +259,13 @@ class Trackers(PandasDataLoader):
         } for t in st[:n].itertuples()]
 
     def get_domains(self, id):
-        return self.get_tracker(id).get('domains', [])
+        try:
+            if self.get_tracker(id) is not None:
+                return self.get_tracker(id).get('domains', [])
+            else:
+                return []
+        except Exception as e:
+            print(e)
 
     def iter_sites(self, id):
         for site in self.sites.get_tracker(id).itertuples():
