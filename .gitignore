@@ -4,5 +4,5 @@
 __pycache__/
 _site/
 dist/
-whotrackme.egg-info/
+whotracksme.egg-info/
 .DS_Store
