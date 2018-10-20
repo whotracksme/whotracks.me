@@ -120,7 +120,7 @@ def build_company_pages(data):
 
 def build_company_reach_chart_page(data):
     top100 = company_reach(data.companies, n=100)
-    chart = Markup(overview_bars(top100, highlight=10, custom_height=3000))
+    chart = Markup(overview_bars(top100, highlight=10, height=3000))
     template = get_template(data, name='reach-chart-page.html', path_to_root='..')
 
     with open('_site/companies/reach-chart.html', 'w') as output:

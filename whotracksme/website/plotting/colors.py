@@ -8,7 +8,7 @@ cliqz_colors = {
     "white": "#FFFFFF",
     "bright_gray": "#BFCBD6",
     "inactive_gray": "#BCC4CE",
-    "transparent": "#00000000",
+    "transparent": "rgba(0,0, 0, 0)",
     "green": "#50B1A2",
     "red": "#C3043E",
     "yellow": "#FFC802",

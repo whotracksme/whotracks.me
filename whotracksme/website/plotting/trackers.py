@@ -133,7 +133,6 @@ def ts_trend(ts, t):
                 showgrid=False,
                 zeroline=False,
                 showline=False,
-                autotick=True,
                 hoverformat="%b %y",
                 ticks='',
                 showticklabels=False
@@ -143,7 +142,6 @@ def ts_trend(ts, t):
                 showgrid=False,
                 zeroline=False,
                 showline=False,
-                autotick=True,
                 ticks='',
                 showticklabels=False
             )
