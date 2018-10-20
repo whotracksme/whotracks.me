@@ -10,13 +10,11 @@ from setuptools.command.sdist import sdist
 
 PKGNAME = 'whotracksme'
 
-REQUIREMENTS = []
-with open('requirements.txt') as f:
-    REQUIREMENTS = f.read().splitlines()
 
 LONG_DESCRIPTION = ''
 with pathlib.Path('README.rst').open() as readme_file:
     LONG_DESCRIPTION = readme_file.read()
+
 
 # List all resources under whotracksme/data/
 assets = []
@@ -75,7 +73,11 @@ setup(
         'templates',
         'tests',
     ]),
-    install_requires=REQUIREMENTS,
+    install_requires=[
+        'docopt',
+        'pandas',
+        'requests',
+    ],
     extras_require={
         'dev': [
             'aiohttp',
