@@ -32,6 +32,7 @@ From source
 
 .. code:: sh
 
+    $ pip install -r requirements.txt
     $ pip install -e .
 
 That’s all you need to get started!
@@ -65,6 +66,7 @@ all assets are packaged with ``whotracksme`` released on pypi:
 
 .. code:: sh
 
+    $ pip install -r requirements-dev.txt
     $ pip install -e '.[dev]'
 
 Once this is done, you will have access to a ``whotracksme`` entry point
