@@ -1,30 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Compact given CSV to binary format.
-
-Usage:
-    pack.py <csv>
-
-Options:
-    -h --help   Show help message
-"""
-
-from struct import Struct, unpack_from, pack, calcsize, unpack
-import bz2
+from struct import Struct, unpack_from, pack, calcsize
 import collections
-import csv
-import math
-import os
-import os.path
 import re
 
-import docopt
-import tqdm
+from pandas import Timestamp
 
 
 IS_INT = re.compile(r"[0-9]+")
 IS_FLOAT = re.compile(r"[0-9e.-]+")
+ENDIANNESS = ">"
 
 PRECISION = {
     # Integers
@@ -64,60 +50,33 @@ def get_minimal_int_type(value):
 
 
 def get_minimal_float_type(value):
-    # Check 16 bits
-    try:
-        f = ">e"
-        if math.isclose(value, unpack(f, pack(f, value))[0], abs_tol=1e-9):
-            return "e"
-    except OverflowError:
-        pass
-
-    # Check 32 bits
-    f = ">f"
-    if math.isclose(value, unpack(f, pack(f, value))[0], abs_tol=1e-9):
-        return "f"
-
-    # Fallback to 64 bits
-    return "d"
+    return "f"
 
 
 def guess_type(value):
-    if IS_INT.fullmatch(value) is not None:
+    if isinstance(value, int) or (
+        isinstance(value, str) and IS_INT.fullmatch(value) is not None
+    ):
         try:
             int_value = int(value)
             return get_minimal_int_type(int_value), int_value
         except ValueError:
             pass
-    elif IS_FLOAT.fullmatch(value) is not None:
+    elif isinstance(value, float) or (
+        isinstance(value, str) and IS_FLOAT.fullmatch(value) is not None
+    ):
         try:
             float_value = float(value)
             return get_minimal_float_type(float_value), float_value
         except ValueError:
             pass
+    elif isinstance(value, Timestamp):
+        value = value.strftime("%Y-%m-%d")
+    elif not isinstance(value, str):
+        value = str(value)
 
+    # Fallback to string type
     return "s", value
-
-
-def iter_rows(csvpath):
-    headers = None
-    for root, _, files in os.walk("."):
-        for f in files:
-            if f == csvpath:
-                full_path = os.path.join(root, f)
-                print("> Reading", full_path)
-                with open(full_path) as csvfile:
-                    csvreader = iter(csv.reader(csvfile, delimiter=","))
-                    new_headers = next(csvreader)
-                    if headers is not None and headers != new_headers:
-                        print(
-                            f"Inconsistent headers {headers} vs. {new_headers}: ignoring {full_path}"
-                        )
-                    if headers is None:
-                        yield new_headers
-
-                    headers = new_headers
-
-                    yield from csvreader
 
 
 class ByteView:
@@ -129,7 +88,7 @@ class ByteView:
         return self.get(f"{length}s")[0]
 
     def get(self, f):
-        format_string = f">{f}"
+        format_string = f"{ENDIANNESS}{f}"
         value = unpack_from(format_string, self.buffer, offset=self.offset)
         self.offset += calcsize(format_string)
         return value
@@ -140,12 +99,15 @@ class ByteView:
         )
 
     def set(self, f, *values):
-        format_string = f">{f}"
+        format_string = f"{ENDIANNESS}{f}"
         self.buffer += Struct(format_string).pack(*values)
 
 
 def unpack_rows(buffer):
     view = ByteView(buffer)
+
+    # Metadata size
+    _ = view.get("I")[0]
 
     # Unpack fields
     number_of_fields = view.get("I")[0]
@@ -179,14 +141,26 @@ def unpack_rows(buffer):
         yield tuple(map(str, row))
 
 
-def pack_rows(headers, rows):
+def pack_rows(rows, fields):
+    if not isinstance(rows, list):
+        rows = list(rows)
+
+    if not rows:
+        return b""
+
+    headers = sorted(
+        [field for field in rows[0]._fields if field in fields], key=lambda f: fields[f]
+    )
+
     # Find best type for each field, try to find the smallest type possible for each.
     symbols = collections.defaultdict(dict)
     types = [None] * len(headers)
     converted_rows = []
+
     for row in rows:
         converted_row = []
-        for i, value in enumerate(row):
+        for i, field in enumerate(headers):
+            value = getattr(row, field)
             field_type, value = guess_type(value)
 
             if field_type == "s":
@@ -214,12 +188,7 @@ def pack_rows(headers, rows):
         types[field_index] = get_minimal_int_type(len(table))
 
     # Create struct format
-    pack_format = f'>{"".join(types)}'
-
-    # Serialize rows given the global type found by analyzing all rows
-    struct = Struct(pack_format)
-    for row in converted_rows:
-        yield struct.pack(*row)
+    pack_format = f'{ENDIANNESS}{"".join(types)}'
 
     # Create metadata for this CSV file
     view = ByteView()
@@ -231,8 +200,8 @@ def pack_rows(headers, rows):
         view.set_string(header)
 
     # Encode struct format
-    view.set("I", len(struct.format))
-    view.set_string(struct.format)
+    view.set("I", len(pack_format))
+    view.set_string(pack_format)
 
     # Encode symbols
     number_of_tables = len(symbols)
@@ -246,31 +215,10 @@ def pack_rows(headers, rows):
 
     view.set("I", len(rows))
 
+    yield pack(f"{ENDIANNESS}I", len(view.buffer))
     yield view.buffer
 
-
-def main():
-    args = docopt.docopt(__doc__)
-    rows_iterator = iter_rows(args["<csv>"])
-
-    print("ENCODE")
-    chunks = list(
-        tqdm.tqdm(pack_rows(headers=next(rows_iterator), rows=list(rows_iterator)))
-    )
-    compacted = chunks[-1] + b"".join(chunks[:-1])
-
-    print("DECODE")
-    with open(f'{args["<csv>"]}.unpacked.csv', "w") as output:
-        csvwriter = csv.writer(output, delimiter=",", quoting=csv.QUOTE_MINIMAL)
-        for row in tqdm.tqdm(unpack_rows(compacted)):
-            csvwriter.writerow(row)
-
-    output_path = f'{args["<csv>"]}.pack.bz2'
-    with bz2.open(output_path, "wb") as output:
-        output.write(compacted)
-
-    print(f"Compacted length is {len(compacted)} bytes (output: {output_path})")
-
-
-if __name__ == "__main__":
-    main()
+    # Serialize rows given the global type found by analyzing all rows
+    struct = Struct(pack_format)
+    for row in converted_rows:
+        yield struct.pack(*row)

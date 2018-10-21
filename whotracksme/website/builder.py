@@ -28,6 +28,7 @@ from whotracksme.website.templates import (
 # from whotracksme.website.build.companies import build_company_pages
 from whotracksme.website.build.companies import build_company_reach_chart_page
 from whotracksme.website.build.data import build_tracker_db, build_api
+from whotracksme.website.build.explorer import build_explorer
 
 from whotracksme.website.utils import print_progress
 
@@ -35,15 +36,17 @@ DATA_DIRECTORY = "data"
 STATIC_PATH = "static"
 
 
-DATA_FOLDER = 0x00000001
-STATIC_FOLDER = 0x00000002
-TEMPLATES_FOLDER = 0x00000004
-BLOG_FOLDER = 0x00000008
+DATA_FOLDER = 1 << 0
+STATIC_FOLDER = 1 << 1
+TEMPLATES_FOLDER = 1 << 2
+BLOG_FOLDER = 1 << 3
+EXPLORER_FOLDER = 1 << 4
 ALL = (
     DATA_FOLDER |
     STATIC_FOLDER |
     TEMPLATES_FOLDER |
-    BLOG_FOLDER
+    BLOG_FOLDER |
+    EXPLORER_FOLDER
 )
 
 
@@ -54,6 +57,9 @@ class Builder:
 
     def build(self):
         self.feed_event(ALL)
+
+    def on_explorer_folder_change(self):
+        self.feed_event(EXPLORER_FOLDER)
 
     def on_data_folder_change(self):
         self.feed_event(DATA_FOLDER)
@@ -154,6 +160,13 @@ class Builder:
                 ))
                 futures.append(executor.submit(
                     build_api,
+                    data=data_source,
+                ))
+
+            # Explorer: depends on 'data/'
+            if event & DATA_FOLDER or event & EXPLORER_FOLDER or event & STATIC_FOLDER:
+                futures.append(executor.submit(
+                    build_explorer,
                     data=data_source,
                 ))
 

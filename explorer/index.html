@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Whotracks.Me</title>
+        <link rel="shortcut icon" href="./static/img/favicon-2.ico"/>
+
+        <link rel="stylesheet" type="text/css" href="./static/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="./static/css/datatables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="./static/css/datatables.colReorder.min.css"/>
+
+        <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./static/js/datatables.min.js"></script>
+        <script type="text/javascript" src="./static/js/datatables.colReorder.min.js"></script>
+
+        <script type="text/javascript" src="./explorer.js"></script>
+
+        <style type="text/css">
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 15px;
+            }
+
+            .tab-content {
+                margin: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="ui-block" id="wtm">
+            <ul class="nav nav-tabs" role="tablist">
+                <li id="li-trackers" class="nav-item">
+                    <a href="#tab-trackers" class="nav-link" role="tab" data-toggle="tab">Trackers</a>
+                </li>
+                <li id="li-sites" class="nav-item">
+                    <a href="#tab-sites" class="nav-link" role="tab" data-toggle="tab">Sites</a>
+                </li>
+                <li id="li-companies" class="nav-item">
+                    <a href="#tab-companies" class="nav-link" role="tab" data-toggle="tab">Companies</a>
+                </li>
+                <li id="li-sites_trackers" class="nav-item">
+                    <a href="#tab-sites_trackers" class="nav-link" role="tab" data-toggle="tab">Sites Trackers</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab-trackers">
+                    <table id="trackers" class="table table-striped table-bordered" cellspacing="0" width="95%">
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="tab-sites">
+                    <table id="sites" class="table table-striped table-bordered" cellspacing="0" width="95%">
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="tab-companies">
+                    <table id="companies" class="table table-striped table-bordered" cellspacing="0" width="95%">
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="tab-sites_trackers">
+                    <table id="sites_trackers" class="table table-striped table-bordered" cellspacing="0" width="95%">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
