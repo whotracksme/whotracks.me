@@ -1,8 +1,6 @@
-
-
 from collections import namedtuple
-import plotly
-import plotly.graph_objs as go
+from plotly.offline import plot
+from plotly.graph_objs.layout import Margin
 
 from whotracksme.website.plotting.colors import (
     tracker_category_colors, cliqz_colors
@@ -24,7 +22,7 @@ def set_category_colors(tracker_labels):
 
 
 def set_margins(l=60, r=60, b=40, t=0, pad=5):
-    return go.Margin(
+    return Margin(
         l=l,
         r=r,
         b=b,
@@ -106,7 +104,7 @@ def overview_label(text, x, y, text_size=12, shift_x=-1, color=cliqz_colors["bla
 
 
 def div_output(fig, display_mode_bar=False):
-    return plotly.offline.plot(
+    return plot(
         figure_or_data=fig,
         output_type='div',
         show_link=False,
