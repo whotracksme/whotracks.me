@@ -75,7 +75,8 @@ setup(
     ]),
     install_requires=[
         'docopt',
-        'pandas'
+        'pandas',
+        'requests',
     ],
     extras_require={
         'dev': [
