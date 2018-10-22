@@ -6,7 +6,7 @@ from whotracksme.website.plotting.plots import scatter
 from whotracksme.website.plotting.colors import random_color, biggest_tracker_colors, cliqz_colors
 
 
-def overview_bars(companies, highlight=2, custom_height=True):
+def overview_bars(companies, highlight=2, height=None):
     x = []
     y = []
     colors = [cliqz_colors["purple"]] * highlight + [cliqz_colors["inactive_gray"]] * (len(companies) - highlight)
@@ -29,7 +29,7 @@ def overview_bars(companies, highlight=2, custom_height=True):
             margin=set_margins(t=30, l=150),
             showlegend=False,
             autosize=True,
-            height=custom_height if custom_height else None,
+            height=height,
             xaxis=dict(
                 color=cliqz_colors["gray_blue"],
                 tickformat="%",
