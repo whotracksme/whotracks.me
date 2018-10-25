@@ -27,7 +27,7 @@ from whotracksme.website.templates import (
 )
 # from whotracksme.website.build.companies import build_company_pages
 from whotracksme.website.build.companies import build_company_reach_chart_page
-from whotracksme.website.build.data import build_tracker_db
+from whotracksme.website.build.data import build_tracker_db, build_api
 
 from whotracksme.website.utils import print_progress
 
@@ -151,6 +151,10 @@ class Builder:
             if event & DATA_FOLDER:
                 futures.append(executor.submit(
                     build_tracker_db
+                ))
+                futures.append(executor.submit(
+                    build_api,
+                    data=data_source,
                 ))
 
             # TODO: uncomment when company profiles are ready
