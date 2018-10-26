@@ -40,13 +40,11 @@ DATA_FOLDER = 1 << 0
 STATIC_FOLDER = 1 << 1
 TEMPLATES_FOLDER = 1 << 2
 BLOG_FOLDER = 1 << 3
-EXPLORER_FOLDER = 1 << 4
 ALL = (
     DATA_FOLDER |
     STATIC_FOLDER |
     TEMPLATES_FOLDER |
-    BLOG_FOLDER |
-    EXPLORER_FOLDER
+    BLOG_FOLDER
 )
 
 
@@ -121,16 +119,16 @@ class Builder:
                 futures.append(executor.submit(build_home, data=data_source))
                 futures.append(executor.submit(build_privacy_policy, data=data_source))
 
-                # Trackers
-                futures.append(executor.submit(build_trackers_list, data=data_source))
-                futures.append(executor.submit(build_tracker_pages, data=data_source))
+                # # Trackers
+                # futures.append(executor.submit(build_trackers_list, data=data_source))
+                # futures.append(executor.submit(build_tracker_pages, data=data_source))
 
-                # Websites
-                futures.append(executor.submit(build_website_list, data=data_source))
-                futures.append(executor.submit(build_website_pages, data=data_source))
+                # # Websites
+                # futures.append(executor.submit(build_website_list, data=data_source))
+                # futures.append(executor.submit(build_website_pages, data=data_source))
 
-                # Companies
-                futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
+                # # Companies
+                # futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
 
             # Depends on: 'data/', 'blog/', 'templates/'
             if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
@@ -164,7 +162,7 @@ class Builder:
                 ))
 
             # Explorer: depends on 'data/'
-            if event & DATA_FOLDER or event & EXPLORER_FOLDER or event & STATIC_FOLDER:
+            if event & DATA_FOLDER or event & STATIC_FOLDER:
                 futures.append(executor.submit(
                     build_explorer,
                     data=data_source,
