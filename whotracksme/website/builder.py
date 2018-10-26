@@ -119,16 +119,16 @@ class Builder:
                 futures.append(executor.submit(build_home, data=data_source))
                 futures.append(executor.submit(build_privacy_policy, data=data_source))
 
-                # # Trackers
-                # futures.append(executor.submit(build_trackers_list, data=data_source))
-                # futures.append(executor.submit(build_tracker_pages, data=data_source))
+                # Trackers
+                futures.append(executor.submit(build_trackers_list, data=data_source))
+                futures.append(executor.submit(build_tracker_pages, data=data_source))
 
-                # # Websites
-                # futures.append(executor.submit(build_website_list, data=data_source))
-                # futures.append(executor.submit(build_website_pages, data=data_source))
+                # Websites
+                futures.append(executor.submit(build_website_list, data=data_source))
+                futures.append(executor.submit(build_website_pages, data=data_source))
 
-                # # Companies
-                # futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
+                # Companies
+                futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
 
             # Depends on: 'data/', 'blog/', 'templates/'
             if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
