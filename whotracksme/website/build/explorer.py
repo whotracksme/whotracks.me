@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from pathlib import Path
 import json
 import shutil
+from pathlib import Path
+from datetime import datetime
 
 from whotracksme.data.db import load_tracker_db, create_tracker_map
 from whotracksme.data.pack import pack_rows
 from whotracksme.website.utils import print_progress
+from whotracksme.website.templates import get_template, render_template
+
 
 # List all fields + define in which order they should be displayed
 FIELDS = {
@@ -70,7 +73,10 @@ def build_packed_data(data):
         with open(f"_site/data/packed/{data_source}.pack", "wb") as output:
             output.write(
                 b"".join(
-                    pack_rows(fields=FIELDS, rows=getattr(data, data_source).get_snapshot().itertuples())
+                    pack_rows(
+                        fields=FIELDS,
+                        rows=getattr(data, data_source).get_snapshot().itertuples(),
+                    )
                 )
             )
 
@@ -79,5 +85,27 @@ def build_packed_data(data):
 
 def build_explorer(data):
     build_packed_data(data)
-    shutil.copyfile("explorer/index.html", "_site/explorer.html")
-    shutil.copyfile("explorer/logic.js", "_site/explorer.js")
+
+    temp_folder = Path("temp")
+    if not temp_folder.exists():
+        temp_folder.mkdir()
+
+    data.trackers.df.to_csv("temp/trackers.csv")
+    data.sites.df.to_csv("temp/sites.csv")
+    data.companies.df.to_csv("temp/companies.csv")
+    data.sites_trackers.df.to_csv("temp/sites_trackers.csv")
+
+    month = datetime.strftime(max(data.trackers.df.month), '%Y-%m')
+    shutil.make_archive(
+        f"_site/data/wtm-data-{month}", "zip", "temp"
+    )
+    shutil.rmtree(temp_folder.as_posix(), ignore_errors=True)
+
+    with open(f"_site/explorer.html", "w") as output:
+        output.write(render_template(
+            template=get_template(data, name="explorer.html"),
+            download_link=f"data/wtm-data-{month}.zip"
+        ))
+
+    print_progress(text="Generated Exporable Dataset")
+

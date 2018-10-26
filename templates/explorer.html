@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>WhoTracks.me | Websites</title>
+<meta name="description" content="Tracking landscape in the most popular sites. Updated monthly.">
+{% endblock %}
+
+
+{% block og_params %}
+<!-- OG params for sharable content -->
+<meta property="og:title" content="WhoTracks.me | Websites">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whotracks.me/websites.html">
+<meta property="og:description" content="Tracking landscape in the most popular sites. Updated monthly.">
+{% endblock %}
+
+
+{% set active_page='explorer' %}
+
+{% block extra_styling %}
+<link rel="stylesheet" type="text/css" href="./static/css/datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="./static/css/datatables.colReorder.min.css" />
+<link rel="stylesheet" type="text/css" href="./static/css/explorer/table.css" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="ui-block" id="wtm">
+        <ul class="nav nav-tabs" role="tablist">
+            <li id="li-trackers" class="nav-item">
+                <a href="#tab-trackers" class="nav-link" role="tab" data-toggle="tab">Trackers</a>
+            </li>
+            <li id="li-sites" class="nav-item">
+                <a href="#tab-sites" class="nav-link" role="tab" data-toggle="tab">Sites</a>
+            </li>
+            <li id="li-companies" class="nav-item">
+                <a href="#tab-companies" class="nav-link" role="tab" data-toggle="tab">Companies</a>
+            </li>
+            <li id="li-sites_trackers" class="nav-item">
+                <a href="#tab-sites_trackers" class="nav-link" role="tab" data-toggle="tab">Sites Trackers</a>
+            </li>
+            <a id="export-data" target="_blank" href="/{{ download_link }}" class="btn nav-link">Export</a>
+        </ul>
+
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab-trackers">
+                <table id="trackers" class="table table-striped table-bordered" cellspacing="0" width="95%">
+                </table>
+            </div>
+
+            <div class="tab-pane" id="tab-sites">
+                <table id="sites" class="table table-striped table-bordered" cellspacing="0" width="95%">
+                </table>
+            </div>
+
+            <div class="tab-pane" id="tab-companies">
+                <table id="companies" class="table table-striped table-bordered" cellspacing="0" width="95%">
+                </table>
+            </div>
+
+            <div class="tab-pane" id="tab-sites_trackers">
+                <table id="sites_trackers" class="table table-striped table-bordered" cellspacing="0" width="95%">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/datatables.min.js"></script>
+<script type="text/javascript" src="/static/js/datatables.colReorder.min.js"></script>
+
+<script type="text/javascript" src="/static/js/explorer.js"></script>
+{% endblock %}

@@ -40,13 +40,11 @@ DATA_FOLDER = 1 << 0
 STATIC_FOLDER = 1 << 1
 TEMPLATES_FOLDER = 1 << 2
 BLOG_FOLDER = 1 << 3
-EXPLORER_FOLDER = 1 << 4
 ALL = (
     DATA_FOLDER |
     STATIC_FOLDER |
     TEMPLATES_FOLDER |
-    BLOG_FOLDER |
-    EXPLORER_FOLDER
+    BLOG_FOLDER
 )
 
 
@@ -164,7 +162,7 @@ class Builder:
                 ))
 
             # Explorer: depends on 'data/'
-            if event & DATA_FOLDER or event & EXPLORER_FOLDER or event & STATIC_FOLDER:
+            if event & DATA_FOLDER or event & STATIC_FOLDER:
                 futures.append(executor.submit(
                     build_explorer,
                     data=data_source,
