@@ -103,7 +103,7 @@ class PandasDataLoader:
 
     def iter(self):
         for row in self.get_snapshot().itertuples():
-            yield (row._asdict()[self.id_col], row)
+            yield (getattr(row, self.id_col), row)
 
     def sort_by(self, metric="reach", descending=True):
         """

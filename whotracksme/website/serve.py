@@ -21,7 +21,8 @@ def watch(builder):
         'blog': builder.on_blog_folder_change,
         'data': builder.on_data_folder_change,
         'static': builder.on_static_folder_change,
-        'templates': builder.on_templates_folder_change
+        'templates': builder.on_templates_folder_change,
+        'explorer': builder.on_explorer_folder_change,
     }
 
     def handle_event(event):

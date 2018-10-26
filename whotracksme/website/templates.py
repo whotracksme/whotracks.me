@@ -212,11 +212,8 @@ def create_site_structure(static_path):
 
     # Copy static folder inside _site/ (if not there already)
     _site_static = _site.joinpath('static')
-    if _site_static.exists():
-        shutil.rmtree(_site_static.as_posix())
-        shutil.copytree(static_path, _site_static.as_posix())
-    elif not _site_static.exists():
-        shutil.copytree(static_path, _site_static.as_posix())
+    shutil.rmtree(_site_static.as_posix(), ignore_errors=True)
+    shutil.copytree(static_path, _site_static.as_posix())
 
     # Copy data inside _site
     _site_data = _site.joinpath('data')
