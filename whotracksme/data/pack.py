@@ -71,7 +71,7 @@ def guess_type(value):
         except ValueError:
             pass
     elif isinstance(value, Timestamp):
-        value = value.strftime("%Y-%m-%d")
+        value = value.strftime("%Y-%m")
     elif not isinstance(value, str):
         value = str(value)
 
