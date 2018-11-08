@@ -349,8 +349,8 @@ class LazyCSVReader {
     });
 
     if (response.ok) {
-      this.offset += parseInt(response.headers.get("content-length"), 10);
       let responseBuffer = new Uint8Array(await response.arrayBuffer());
+      this.offset += responseBuffer.byteLength;
       const bytes = new Uint8Array(
         this.partial.byteLength + responseBuffer.byteLength
       );
