@@ -67,7 +67,9 @@ def get_content_type(local_path):
         elif local_path.endswith('.woff2'):
             return 'application/font-woff2'
         elif local_path.endswith('.zip'):
-            return 'application/zip';
+            return 'application/zip'
+        elif local_path.endswith('.packed'):
+            return 'application/octet-stream'
         return 'text/html'
     return guessed_type
 
