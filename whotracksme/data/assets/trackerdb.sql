@@ -24,7 +24,6 @@ INSERT INTO "companies" VALUES('alexa','Alexa',NULL,'http://www.alexa.com/help/p
 INSERT INTO "companies" VALUES('loggly','Loggly',NULL,'https://www.loggly.com/about/privacy-policy/','https://www.loggly.com/','2283',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('ad4mat','ad4mat',NULL,' http://www.ad4mat.com/en/privacy/',' http://www.ad4mat.com/en/','2191',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('buysellads.com','BuySellAds.com',NULL,'http://buysellads.com/about/privacy','http://buysellads.com/','278',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('tumblr','Tumblr',NULL,'https://www.tumblr.com/policy/en/privacy','http://www.tumblr.com/','172',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('brightcove','Brightcove',NULL,'http://www.brightcove.com/en/privacy','http://www.brightcove.com/en/','683',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('sonobi','Sonobi, Inc',NULL,'http://sonobi.com/privacy-policy/','http://sonobi.com/','1412',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('raygun','Raygun',NULL,'https://raygun.com/privacy','https://raygun.com/','4101',NULL,NULL,NULL);
@@ -1013,7 +1012,7 @@ INSERT INTO "tracker_domains" VALUES('omniture__adobe_analytics_','imageg.net','
 INSERT INTO "tracker_domains" VALUES('freedom_mortgage','freedom.com','20181016 - it belongs to Freedom Mortgage');
 INSERT INTO "tracker_domains" VALUES('omniture__adobe_analytics_','du8783wkf05yr.cloudfront.net','20181016 - cannot verify, cross-check needed');
 INSERT INTO "tracker_domains" VALUES('omniture__adobe_analytics_','hitbox.com','20181016 - verified');
-INSERT INTO "tracker_domains" VALUES('omniture__adobe_analytics_','reedbusiness.net','20181016 - it belongs to Reed Business Information');
+INSERT INTO "tracker_domains" VALUES('reed_business_information','reedbusiness.net','20181016 - it belongs to Reed Business Information');
 INSERT INTO "tracker_domains" VALUES('omniture__adobe_analytics_','omtrdc.net','20181016 - verified');
 INSERT INTO "tracker_domains" VALUES('omniture__adobe_analytics_','2o7.net','20181016 - verified');
 INSERT INTO "tracker_domains" VALUES('yandex','yandex.ru','20181011 - verified');
@@ -3137,7 +3136,6 @@ INSERT INTO "trackers" VALUES('are_you_a_human','Are You a Human',6,'https://are
 INSERT INTO "trackers" VALUES('userreport','UserReport',2,'http://www.userreport.com/','userreport','950',NULL);
 INSERT INTO "trackers" VALUES('adara_analytics','ADARA Analytics',4,'http://www.adaramedia.com/','adara_analytics','469',NULL);
 INSERT INTO "trackers" VALUES('kontextr','Kontextr',4,NULL,'kontext','2803',NULL);
-INSERT INTO "trackers" VALUES('content_spread','Content Spread',4,NULL,NULL,'c_2785',NULL);
 INSERT INTO "trackers" VALUES('visual_iq','Visual IQ',6,NULL,'visualiq','2903',NULL);
 INSERT INTO "trackers" VALUES('ciuvo.com','ciuvo.com',12,'https://www.ciuvo.com/',NULL,'ciuvo.com',NULL);
 INSERT INTO "trackers" VALUES('adtriba.com','AdTriba',6,'https://www.adtriba.com/',NULL,'adtriba.com',NULL);
@@ -5362,7 +5360,7 @@ INSERT INTO "truste_companies" VALUES(1136,'TrustX','Ad Network','TrustX is a co
 INSERT INTO "truste_companies" VALUES(1137,'tTarget','Ad Network','tTarget - traffic aggregator that allows you to collect from the Internet space are interested in choosing a certain product consumers, transfer them to the customer site with the product and convincing form a decision to purchase. ','http://ttarget.ru/poly.html',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(1138,'TubeMogul, Inc.','Ad Network','TubeMogul is the only video marketing company built for branding. By integrating real-time media buying, ad serving, targeting optimization and brand measurement into its PlayTime platform, TubeMogul simplifies the delivery of video ads and maximizes the impact of every dollar spent by brand marketers. Founded in 2006, TubeMogul is based in Emeryville, CA with offices in New York, London, Sydney, Chicago, Detroit, Austin and Los Angeles.','https://www.adobe.com/privacy/marketing-cloud.html',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(1139,'Tudou.com','Social / Sharing Tools','China''s largest video sharing website. ','http://www.tudou.com/about/cn/agreement.html#s9',NULL,NULL);
-INSERT INTO "truste_companies" VALUES(1140,'Tumblr','Social / Sharing Tools','Tumblr lets you effortlessly share anything. Post text, photos, quotes, links, music, and videos from your browser, phone, desktop, email or wherever you happen to be. You can customize everything, from colors to your theme''s HTML.','https://www.tumblr.com/privacy/en','tumblr','tumblr');
+INSERT INTO "truste_companies" VALUES(1140,'Tumblr','Social / Sharing Tools','Tumblr lets you effortlessly share anything. Post text, photos, quotes, links, music, and videos from your browser, phone, desktop, email or wherever you happen to be. You can customize everything, from colors to your theme''s HTML.','https://www.tumblr.com/privacy/en','tumblr',NULL);
 INSERT INTO "truste_companies" VALUES(1141,'Turbo','Demand Side Platform (DSP)','Turbo is an independent trading desk in Italy that offers Advertisers and Agencies the best service and performance in the realm of programmatic and RTB. ','http://www.turboadv.com/white-rabbit-privacy-policy/',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(1142,'TV Squared','Attribution / Analytics','TVSquared is the most accurate same-day TV attribution platform in the industry; delivering improved campaign performance for advertisers.','https://tvsquared.com/privacy-policy/',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(1143,'TV Time (formerly Whipclip)','Social / Sharing Tools','The Whipclip platform allows you to create clips of your favorite TV moments and music videos to share with your friends.','https://www.tvtime.com/privacy',NULL,NULL);
