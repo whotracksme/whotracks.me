@@ -1,11 +1,11 @@
 title: The Trackers who steal
-subtitle:
+subtitle: How WhoTracks.Me caught the trail of the MageCart hackers
 author: privacy team
-type: blog
+type: article
 publish: True
 date: 2018-11-23
 tags: tracking, hacking
-header_img:
+header_img: blog/blog-cc-stealing.png
 +++
 
 We're all aware of the trackers siphoning off information about you as you browse the web. These trackers are mostly doing this for some business intelligence related reason - websites use these services to try to 'better understand' their customers, or to target them in order to attract their attention in a way which will benefit that website owner - be-it increasing the value of products customers put into their shopping cart, or increasing the likelihood that they click an ad.
@@ -138,11 +138,11 @@ attacks have ongoing access to these sites, allowing them to update their attack
     </tr>
     <tr>
       <td>magento.name</td>
-      <td>18</td>
+      <td>19</td>
     </tr>
     <tr>
       <td>google-analytics.is</td>
-      <td>12</td>
+      <td>15</td>
     </tr>
     <tr>
       <td>trafficanalyzer.biz</td>
@@ -153,16 +153,18 @@ attacks have ongoing access to these sites, allowing them to update their attack
       <td>5</td>
     </tr>
     <tr>
-      <td>nearart.com</td>
-      <td>4</td>
+      <td>bandagesplus.com</td>
+      <td>5</td>
     </tr>
     <tr>
-      <td>bandagesplus.com</td>
+      <td>nearart.com</td>
       <td>4</td>
     </tr>
   </tbody>
 </table>
 <p class="img-caption">Table 2: Collection servers still active in November 2018</p>
+
+A full list of sites affected during November is available [here](../static/data/magecart_affected.txt).
 
 ## Breach detection
 
