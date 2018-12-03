@@ -2859,6 +2859,8 @@ INSERT INTO "tracker_domains" VALUES('icuazeczpeoohx.com','icuazeczpeoohx.com',N
 INSERT INTO "tracker_domains" VALUES('revenue_hits','imageshack.host','2018/10/31: Landing page points to RevenueHits');
 INSERT INTO "tracker_domains" VALUES('oghub.io','oghub.io',NULL);
 INSERT INTO "tracker_domains" VALUES('buysellads','servedby-buysellads.com',NULL);
+INSERT INTO "tracker_domains" VALUES('aaxads.com','aaxads.com',NULL);
+INSERT INTO "tracker_domains" VALUES('bodelen.com','bodelen.com',NULL);
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -4217,6 +4219,8 @@ INSERT INTO "trackers" VALUES('newsupdatewe.info','newsupdatewe.info',12,NULL,NU
 INSERT INTO "trackers" VALUES('ihvmcqojoj.com','ihvmcqojoj.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('icuazeczpeoohx.com','icuazeczpeoohx.com',11,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('oghub.io','OG Hub',11,NULL,NULL,NULL,'No public website yet');
+INSERT INTO "trackers" VALUES('aaxads.com','Acceptable Ads Exchange',4,'https://aax.media/',NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('bodelen.com','bodelen.com',11,NULL,NULL,NULL,NULL);
 CREATE TABLE truste_companies (id INTEGER PRIMARY KEY, name VARCHAR NOT NULL, type VARCHAR, description VARCHAR, privacy_url VARCHAR, tracker TEXT REFERENCES trackers (id), company TEXT REFERENCES companies (id));
 INSERT INTO "truste_companies" VALUES(1,'01Net','Publisher Related','News on IT products and more.','http://www.01net.com/info/mentions-legales/',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(2,'1&1','Publisher Related','1&1 Internet Inc. provides Web hosting solutions for private users, as well as high-end products for small-and medium-sized businesses.','https://www.1and1.com/terms-gtc/fileadmin/Terms/PDF_US/2018_01_US_Privacy_Policy_DWE.pdf','1und1',NULL);
