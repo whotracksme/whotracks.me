@@ -27,7 +27,6 @@ INSERT INTO "companies" VALUES('brightcove','Brightcove',NULL,'http://www.bright
 INSERT INTO "companies" VALUES('sonobi','Sonobi, Inc',NULL,'http://sonobi.com/privacy-policy/','http://sonobi.com/','1412',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('raygun','Raygun',NULL,'https://raygun.com/privacy','https://raygun.com/','4101',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('millenial_media__jumptap_','Millenial Media (Jumptap)',NULL,'http://www.millennialmedia.com/privacy-policy','http://www.millennialmedia.com','528',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('datalogix','Datalogix',NULL,'https://www.datalogix.com/privacy/','http://www.datalogix.com/','124',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('inspectlet','Inspectlet',NULL,'https://www.inspectlet.com/legal#privacy','https://www.inspectlet.com/','1254',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('myfonts','MyFonts',NULL,'https://www.myfonts.com/info/legal/#Privacy','http://www.myfonts.com/','2683',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('the_austrian_web_analysis__owa_','The Austrian Web Analysis (OWA)',NULL,'http://www.oewa.at/impressum','http://oewa.at/','404',NULL,NULL,NULL);
@@ -60,7 +59,7 @@ INSERT INTO "companies" VALUES('adgoal','adgoal',NULL,' https://www.adgoal.de/en
 INSERT INTO "companies" VALUES('vivalu','Vivalu',NULL,'http://www.vivalu.com/privatsphaere-und-datenschutz','http://www.vivalu.com/','3935',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('salesforce','Salesforce',' Salesforce is the world’s #1 Customer Relationship Management (CRM) platform. Our cloud-based applications for sales, service, marketing, and more don’t require IT experts to set up or manage — simply log in and start connecting to customers in a whole new way.','https://www.salesforce.com/eu/company/privacy/','https://www.salesforce.com/','143','us','https://www.salesforce.com/eu/form/contact/contact-privacy.jsp','20181017 - company data updated');
 INSERT INTO "companies" VALUES('ixi_services','IXI Services',NULL,'https://datadrivenmarketing.equifax.com/website-privacy-policy/','http://www.ixicorp.com/','827',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('nugg.ad','Nugg.ad','nugg.ad offers a cutting edge multichannel audience targeting and smart data management platform solution.','https://www.nugg.ad/en/privacy/general-information.html','http://www.nugg.ad/en/index','450','','christian.pfeiffer@nugg.ad','20181031 - verified - privacy contact added');
+INSERT INTO "companies" VALUES('nugg.ad','Nugg.ad','nugg.ad offers a cutting edge multichannel audience targeting and smart data management platform solution.','https://www.nugg.ad/en/privacy/general-information.html','http://www.nugg.ad/en/index','450','de','christian.pfeiffer@nugg.ad','20181031 - verified - privacy contact added');
 INSERT INTO "companies" VALUES('toro_advertising','TORO Advertising',NULL,'http://toroadvertising.com/privacy.php','http://toroadvertising.com/','3135',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('twyn','Twyn',NULL,'http://www.twyn.com/datenschutz.html','http://www.twyn.com','1354',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('connexity','Connexity',NULL,'http://connexity.com/privacy-policy/','http://www.connexity.com','941',NULL,NULL,NULL);
@@ -82,7 +81,6 @@ INSERT INTO "companies" VALUES('index_exchange','Index Exchange, Inc. ','We’re
 INSERT INTO "companies" VALUES('stumbleupon','StumbleUpon',NULL,'http://www.stumbleupon.com/privacy/','http://www.stumbleupon.com/','1067',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('shopify','Shopify',NULL,'http://www.shopify.com/legal/privacy','http://www.shopify.com/','2179',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('crossengage','CrossEngage',NULL,'https://www.crossengage.io/privacy-and-terms/','https://www.crossengage.io/','4497',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('yieldlab','Yieldlab AG',NULL,NULL,' http://www.yieldlab.com/','1194',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('vindico_group','Vindico Group',NULL,'https://www.sizmek.com/privacy-policy/optedin/','https://vindico.com/','739',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('smart_adserver','Smart Adserver',NULL,'http://smartadserver.com/company/privacy-policy/','http://smartadserver.com/','631',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('zemanta','Zemanta, Inc.',NULL,'http://www.zemanta.com/legal/privacy','http://www.zemanta.com/','189',NULL,NULL,NULL);
@@ -158,7 +156,6 @@ INSERT INTO "companies" VALUES('rubicon_project','The Rubicon Project, Limited',
 
 The Company''s mission is to automate the buying and selling of advertising by offering innovative products to connect buyers and sellers globally.','http://rubiconproject.com/rubicon-project-yield-optimization-privacy-policy/','http://rubiconproject.com','168','US','privacy@rubiconproject.com','20181018 -  desc (from Crunchbase), country and privacy contact added');
 INSERT INTO "companies" VALUES('lengow','Lengow',NULL,'https://www.lengow.com/legal-notice/','http://www.lengow.com/','2127',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('adition_technologies_ag','ADITION technologies AG','ADITION technologies is the leading European provider of high-quality technology solutions for automated, data-based digital marketing across all channels from a central enterprise platform. The modularly expandable platform provides all market participants – advertisers, agencies and publishers/marketers – with individual, tailor-made solutions to achieve maximum marketing efficiency and to make the respective key assets in online marketing future-proof.','https://www.adition.com/kontakt/datenschutz/','http://www.adition.com/','459','DE','https://kanzlei-raimer.com/en/imprint/',NULL);
 INSERT INTO "companies" VALUES('smartclip','smartclip Holding AG',NULL,'http://privacy-portal.smartclip.net/','http://www.smartclip.com/','1371',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('bunchbox','Bunchbox',NULL,NULL,'https://app.bunchbox.co/login','4095',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('tag_commander','Tag Commander',NULL,'https://www.commandersact.com/en/privacy/','http://www.tagcommander.com/en/','1789',NULL,NULL,NULL);
@@ -330,7 +327,6 @@ INSERT INTO "companies" VALUES('digicert','Digicert',NULL,'https://www.digicert.
 INSERT INTO "companies" VALUES('friendfinder_networks','FriendFinder Networks',NULL,'http://www.ffn.com/privacypolicy','http://www.ffn.com/','904',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('gemius_sa','Gemius SA',NULL,'https://www.gemius.com/cookie-policy.html',' https://www.gemius.com/homepage.html','381','PL','privacy@gemius.com','20181017 - verified');
 INSERT INTO "companies" VALUES('adclear','AdClear GmbH',NULL,'https://www.adclear.de/datenschutzerklaerung/','http://www.adclear.de/en/home.html','1787',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('the_adex','The ADEX GmbH',NULL,'https://www.theadex.com/privacy-opt-out/','http://www.theadex.com/','3458',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('flag_counter','Flag Counter',NULL,'http://flagcounter.com/privacy.html','http://flagcounter.com/','1680',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('monster_worldwide','Monster Worldwide',NULL,'http://inside.monster.com/ad-policy/inside2.aspx','http://www.monster.com/','723',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('netbiscuits','Netbiscuits',NULL,'http://www.netbiscuits.com/full-privacy-policy/','http://www.netbiscuits.net/','3606',NULL,NULL,NULL);
@@ -463,7 +459,7 @@ INSERT INTO "companies" VALUES('engine_group','Engine',NULL,NULL,'http://www.eng
 INSERT INTO "companies" VALUES('highco','HighCo',NULL,NULL,'https://www.highco.com/',NULL,NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('united_inc','United Inc.',NULL,NULL,'http://united.jp/en/',NULL,NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('ironsource','ironSource',NULL,NULL,'www.ironsrc.com',NULL,NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('prosieben_sat1','ProSiebenSat.1 Media',NULL,NULL,'http://www.prosiebensat1.com/',NULL,NULL,NULL,NULL);
+INSERT INTO "companies" VALUES('prosieben_sat1','ProSiebenSat.1 Media',NULL,NULL,'http://www.prosiebensat1.com/',NULL,'de',NULL,NULL);
 INSERT INTO "companies" VALUES('verizon','Verizon','Verizon (short for Verizon Communications Inc.), is an American multinational telecommunications conglomerate and a corporate component of the Dow Jones Industrial Average. In 2015, Verizon expanded its business into content ownership by acquiring AOL,[9][10] and two years later it acquired Yahoo!. AOL and Yahoo were amalgamated into a new division named Oath Inc.','https://www.verizon.com/about/privacy/privacy-policy-summary','https://www.verizon.com/',NULL,'US','Karen Zacharia
 (Chief Privacy Officer as on 10th Oct 2018) Email: privacyoffice@verizon.com; Verizon Privacy Office
 1300 I Street, NW
@@ -670,6 +666,10 @@ INSERT INTO "companies" VALUES('wikimedia_foundation','Wikimedia Foundation','Wi
 INSERT INTO "companies" VALUES('pornhub','Pornhub','Pornhub team is always updating and adding more porn videos every day.','https://www.pornhub.com/information#privacy','https://www.pornhub.com/',NULL,'bz','support@pornhub.com','20181026 - company created');
 INSERT INTO "companies" VALUES('ebay','eBay','eBay is an online marketplace that connects a global network of buyers and sellers.','https://www.ebay.com/help/policies/member-behaviour-policies/user-privacy-notice-privacy-policy?id=4260','https://www.ebay.com/',NULL,'us','https://www.ebay.com/help/policies/member-behaviour-policies/user-privacy-notice-privacy-policy?id=4260#section14','20181026 - entry created');
 INSERT INTO "companies" VALUES('imgur','Imgur','is an online image sharing community and image host.','https://imgur.com/privacy','https://imgur.com/',NULL,'us','https://feedback-form.truste.com/watchdog/request','20181031 - entry created');
+INSERT INTO "companies" VALUES('singtel','Singtel','The Singtel Group is Asia''s leading communications group. 
+We provide a diverse range of services including fixed, mobile, data, internet, TV, infocomms technology (ICT)  and digital solutions.','https://www.singtel.com/data-protection','https://www.singtel.com/',NULL,'sg','privacy@singtel.com.',NULL);
+INSERT INTO "companies" VALUES('zalando','Zalando',NULL,'https://en.zalando.de/zalando-privacy-policy/','https://zalando.de/',NULL,'de','privacy_policy@zalando.de',NULL);
+INSERT INTO "companies" VALUES('arvato','Arvato Bertelsmann',NULL,'https://www.arvato.com/de/ueber-arvato/datenschutz.html','https://www.arvato.com/',NULL,'de',NULL,NULL);
 CREATE TABLE iab_vendors (id INTEGER PRIMARY KEY, tracker INTEGER REFERENCES trackers (id), company INTEGER REFERENCES companies (id));
 INSERT INTO "iab_vendors" VALUES(1,NULL,'exponential_interactive');
 INSERT INTO "iab_vendors" VALUES(3,'affilinet',NULL);
@@ -694,10 +694,10 @@ INSERT INTO "iab_vendors" VALUES(33,'sharethis','sharethis');
 INSERT INTO "iab_vendors" VALUES(34,'neory_','neory');
 INSERT INTO "iab_vendors" VALUES(35,'purch','purch');
 INSERT INTO "iab_vendors" VALUES(36,'rhythmone_beacon','rythmone');
-INSERT INTO "iab_vendors" VALUES(39,'adition','adition_technologies_ag');
+INSERT INTO "iab_vendors" VALUES(39,'adition',NULL);
 INSERT INTO "iab_vendors" VALUES(40,'active_agent','active_agent');
 INSERT INTO "iab_vendors" VALUES(42,'taboola','taboola');
-INSERT INTO "iab_vendors" VALUES(44,'the_adex','the_adex');
+INSERT INTO "iab_vendors" VALUES(44,'the_adex',NULL);
 INSERT INTO "iab_vendors" VALUES(45,'smart_adserver','smart_adserver');
 INSERT INTO "iab_vendors" VALUES(49,'tradelab','tradelab');
 INSERT INTO "iab_vendors" VALUES(50,'adform','adform');
@@ -713,7 +713,7 @@ INSERT INTO "iab_vendors" VALUES(64,'digitrust',NULL);
 INSERT INTO "iab_vendors" VALUES(67,'lifestreet_media','lifestreet_media');
 INSERT INTO "iab_vendors" VALUES(68,'sizmek','sizmek');
 INSERT INTO "iab_vendors" VALUES(69,'openx','openx');
-INSERT INTO "iab_vendors" VALUES(70,'yieldlab','yieldlab');
+INSERT INTO "iab_vendors" VALUES(70,'yieldlab',NULL);
 INSERT INTO "iab_vendors" VALUES(71,'dataxu','dataxu');
 INSERT INTO "iab_vendors" VALUES(72,'nano_interactive','nano_interactive');
 INSERT INTO "iab_vendors" VALUES(73,'simpli.fi','simpli.fi');
@@ -2858,6 +2858,7 @@ INSERT INTO "tracker_domains" VALUES('vk.com','cdn-vk.com',NULL);
 INSERT INTO "tracker_domains" VALUES('icuazeczpeoohx.com','icuazeczpeoohx.com',NULL);
 INSERT INTO "tracker_domains" VALUES('revenue_hits','imageshack.host','2018/10/31: Landing page points to RevenueHits');
 INSERT INTO "tracker_domains" VALUES('oghub.io','oghub.io',NULL);
+INSERT INTO "tracker_domains" VALUES('buysellads','servedby-buysellads.com',NULL);
 CREATE TABLE "trackers" (
 	`id`	TEXT NOT NULL UNIQUE,
 	`name`	TEXT NOT NULL,
@@ -2884,7 +2885,7 @@ redirects to google.com');
 INSERT INTO "trackers" VALUES('amazon_web_services','Amazon Web Services',10,'https://aws.amazon.com/','amazon_associates','c_480','20181008 - website added');
 INSERT INTO "trackers" VALUES('criteo','Criteo',4,'http://www.criteo.com/','criteo','64','20181005 - verified');
 INSERT INTO "trackers" VALUES('appnexus','AppNexus',4,'http://www.appnexus.com/','appnexus','170','20181009 - verified');
-INSERT INTO "trackers" VALUES('adition','Adition',4,'http://en.adition.com/','adition_technologies_ag','612','20181026 - verified');
+INSERT INTO "trackers" VALUES('adition','Adition',4,'http://en.adition.com/','prosieben_sat1','612','20181026 - verified');
 INSERT INTO "trackers" VALUES('amazon_associates','Amazon Associates',4,'http://aws.amazon.com/associates/','amazon_associates','33',NULL);
 INSERT INTO "trackers" VALUES('adform','Adform',4,'http://www.adform.com','adform','609','20181018 - verified');
 INSERT INTO "trackers" VALUES('scorecard_research_beacon','ScoreCard Research',4,'https://www.scorecardresearch.com/','comscore','187','20181002 - the website was http://www.voicefive.com/ but ScoreCard Reasearch has it is own website so I have replace it. I''ve also updated the name. ');
@@ -2894,8 +2895,8 @@ INSERT INTO "trackers" VALUES('kaspersky-labs.com','Kaspersky Labs',12,'https://
 INSERT INTO "trackers" VALUES('bing_ads','Bing Ads',4,'https://bingads.microsoft.com/','microsoft','67','20181008 - website_urls edited');
 INSERT INTO "trackers" VALUES('openx','OpenX',4,'http://www.openx.com','openx','32','20181024 - website url updated');
 INSERT INTO "trackers" VALUES('youtube','YouTube',0,'https://www.youtube.com/','google','2303','20181002 - I added the website_url');
-INSERT INTO "trackers" VALUES('the_adex','The ADEX',4,'http://www.theadex.com/','the_adex','2141',NULL);
-INSERT INTO "trackers" VALUES('yieldlab','Yieldlab',4,'http://www.yieldlab.de/','yieldlab','819',NULL);
+INSERT INTO "trackers" VALUES('the_adex','The ADEX',4,'http://www.theadex.com/','prosieben_sat1','2141',NULL);
+INSERT INTO "trackers" VALUES('yieldlab','Yieldlab',4,'http://www.yieldlab.de/','prosieben_sat1','819',NULL);
 INSERT INTO "trackers" VALUES('rubicon','Rubicon',4,'http://rubiconproject.com/','rubicon_project','60','20181018 - verified');
 INSERT INTO "trackers" VALUES('nugg.ad','Nugg.Ad',4,'http://www.nugg.ad/','nugg.ad','30','20181031 - verified');
 INSERT INTO "trackers" VALUES('tradedesk','TradeDesk',4,'http://www.thetradedesk.com/','the_trade_desk','579','20181026 - verified');
@@ -2928,7 +2929,7 @@ INSERT INTO "trackers" VALUES('trusted_shops','Trusted Shops',6,NULL,'trusted_sh
 INSERT INTO "trackers" VALUES('taboola','Taboola',4,'http://www.taboola.com','taboola','951','20181016 - verified');
 INSERT INTO "trackers" VALUES('smart_adserver','SMART AdServer',4,'','smart_adserver','502','20181031 deleted old url http://www.smartadserver.co.uk/');
 INSERT INTO "trackers" VALUES('quantcast','Quantcast',4,'http://www.quantcast.com/','quantcast','16','20181009 - verified');
-INSERT INTO "trackers" VALUES('adality_gmbh','adality GmbH',4,NULL,NULL,'c_m6',NULL);
+INSERT INTO "trackers" VALUES('adality_gmbh','adality GmbH',4,NULL,'arvato','c_m6',NULL);
 INSERT INTO "trackers" VALUES('omniture__adobe_analytics_','Omniture (Adobe Analytics)',6,'http://www.omniture.com/en/','adobe','19',NULL);
 INSERT INTO "trackers" VALUES('yandex','Yandex',4,NULL,'yandex','2686','20181005 - verified, website_url left blank');
 INSERT INTO "trackers" VALUES('contact_impact','Contact Impact',4,'https://www.contactimpact.de/','axel_springer','2976',NULL);
@@ -2941,7 +2942,7 @@ INSERT INTO "trackers" VALUES('sizmek','Sizmek',4,'http://www.mediamind.com/','s
 INSERT INTO "trackers" VALUES('ligatus','Ligatus',4,'http://www.ligatus.com/','gruner_jahr_ag','994',NULL);
 INSERT INTO "trackers" VALUES('webtrekk','Webtrekk',6,'http://www.webtrekk.com/','webtrekk','269',NULL);
 INSERT INTO "trackers" VALUES('chartbeat','ChartBeat',6,'http://chartbeat.com/','chartbeat','58','20181011 - verified');
-INSERT INTO "trackers" VALUES('turn_inc.','Turn Inc.',4,'http://www.turn.com/corp/','turn_inc.','177',NULL);
+INSERT INTO "trackers" VALUES('turn_inc.','Turn Inc.',4,'https://www.amobee.com/company/','singtel','177','Acquired by Amobee (subsidiary of Singtel) in 2017');
 INSERT INTO "trackers" VALUES('tapad','Tapad',4,'http://www.tapad.com/ ','telenor','1176',NULL);
 INSERT INTO "trackers" VALUES('exoclick','ExoClick',3,'http://exoclick.com/','exoclick','702','20181024 - verified');
 INSERT INTO "trackers" VALUES('liveramp','LiveRamp',4,'https://liveramp.com/','acxiom','242','20181026 - verified - edited website_url');
@@ -3068,7 +3069,7 @@ INSERT INTO "trackers" VALUES('trustpilot','Trustpilot',2,NULL,'trustpilot','228
 INSERT INTO "trackers" VALUES('net-metrix','NET-Metrix',6,'http://www.net-metrix.ch/','net-metrix','1592',NULL);
 INSERT INTO "trackers" VALUES('bunchbox','Bunchbox',6,NULL,'bunchbox','2366',NULL);
 INSERT INTO "trackers" VALUES('neustar_adadvisor','Neustar AdAdvisor',4,'http://www.targusinfo.com/','neustar','443',NULL);
-INSERT INTO "trackers" VALUES('datalogix','Datalogix',4,'http://www.nextaction.net/','datalogix','175',NULL);
+INSERT INTO "trackers" VALUES('datalogix','Datalogix',4,'https://www.oracle.com/corporate/acquisitions/datalogix/','oracle','175','3/12/18: Updated ownership to Oracle.');
 INSERT INTO "trackers" VALUES('refined_labs','Refined Labs',4,'http://www.refinedlabs.com','refined_labs','1175',NULL);
 INSERT INTO "trackers" VALUES('evidon','Evidon',5,NULL,NULL,'c_242',NULL);
 INSERT INTO "trackers" VALUES('nexeps.com','neXeps',4,'http://nexeps.com/',NULL,'nexeps.com',NULL);
@@ -3689,7 +3690,7 @@ INSERT INTO "trackers" VALUES('bootstrap','Bootstrap CDN',9,'http://getbootstrap
 INSERT INTO "trackers" VALUES('jquery','jQuery',9,'https://jquery.org/','js_foundation',NULL,'20181016 - verified');
 INSERT INTO "trackers" VALUES('createjs','CreateJS',9,'https://createjs.com/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('jsdelivr','jsDelivr',9,'https://www.jsdelivr.com/',NULL,NULL,'20181024 - not sure about company, cross-check needed');
-INSERT INTO "trackers" VALUES('batch_media','Batch Media',4,'http://batch.ba/','the_adex',NULL,NULL);
+INSERT INTO "trackers" VALUES('batch_media','Batch Media',4,'http://batch.ba/','prosieben_sat1',NULL,'3/12/18: redirects to the ADEX');
 INSERT INTO "trackers" VALUES('monotype_gmbh','Monotype GmbH',9,'http://www.monotype.com/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('monotype_imaging','Monotype Imaging Inc.',9,'https://www.fonts.com/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('ablida','ablida',4,'https://www.ablida.de/',NULL,NULL,NULL);
@@ -3710,7 +3711,7 @@ INSERT INTO "trackers" VALUES('shopping_com','Shopping.com',4,NULL,'ebay_partner
 INSERT INTO "trackers" VALUES('wayfair_com','Wayfair',8,'https://www.wayfair.com/',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('instagram_com','Instagram',8,NULL,'facebook',NULL,'20181031 - verified');
 INSERT INTO "trackers" VALUES('immobilienscout24_de','immobilienscout24.de',8,NULL,'scout24',NULL,NULL);
-INSERT INTO "trackers" VALUES('zalando_de','zalando.de',8,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('zalando_de','zalando.de',8,NULL,'zalando',NULL,NULL);
 INSERT INTO "trackers" VALUES('gmx_net','gmx.net',8,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('xvideos_com','xvideos.com',8,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('blogspot_com','blogspot.com',8,NULL,'google',NULL,NULL);
@@ -4284,7 +4285,7 @@ INSERT INTO "truste_companies" VALUES(64,'AdFox','Ad Platform','ADFOX specialize
 INSERT INTO "truste_companies" VALUES(65,'AdGear Technologies, Inc.','Ad Platform','AdGear is an advertising technology company empowering digital media innovators with state of the art advertising delivery, targeting, measurement, and optimization tools.','https://adgear.com/fr/privacy/',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(66,'Adikteev','Ad Platform','Adikteev is a moment targeting & engagement advertising technology that provides media buyers and advertisers with disruptive ad units and targeting technologies. ','https://www.adikteev.com/eu/privacy/',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(67,'AdinALL','Ad Platform','AdinALL is a programmatic trading platform that includes the supply-side platform SSP (Supply-Side Platform) for media resources, the demand-side platform (DSP) platform for advertisers. ','http://adinall.com/',NULL,NULL);
-INSERT INTO "truste_companies" VALUES(68,'ADITION technologies AG','Ad Server','ADITION technologies is Europe’s  service provider of high-quality technology solutions for automated, data-driven digital marketing across all channels from one central enterprise platform. ','https://preferences-mgr.truste.com/adition.com/datenschutz','adition_technologies_ag','adition_technologies_ag');
+INSERT INTO "truste_companies" VALUES(68,'ADITION technologies AG','Ad Server','ADITION technologies is Europe’s  service provider of high-quality technology solutions for automated, data-driven digital marketing across all channels from one central enterprise platform. ','https://preferences-mgr.truste.com/adition.com/datenschutz','adition_technologies_ag',NULL);
 INSERT INTO "truste_companies" VALUES(69,'AdJug','Ad Exchange','AdJug is an online advertising exchange. It connects buyers and sellers of online advertising and provides them with transparency, control and choice.','http://www.adjug.com/info/privacy.asp',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(70,'Adkernel LLC','Ad Platform','adKernel is a white-label advertising serving platform that offers fast, efficient and feature-rich online advertising solutions to publishers, advertisers, and networks. ','http://adkernel.com/privacy-policy/',NULL,NULL);
 INSERT INTO "truste_companies" VALUES(71,'AdKnowledge','Ad Network','Adknowledge is a digital advertising technology company, specializing in video, social, apps/mobile, email and content recommendation.Founders: ','https://www.adknowledge.com/',NULL,NULL);
