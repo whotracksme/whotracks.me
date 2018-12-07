@@ -21,5 +21,5 @@ data.
    evidence/justification w.r.t. why the current information is not correct.
 
 
-We don't like inaccurate information just as much as you do, and 
+We dislike inaccurate information just as much as you do, and 
 will do our best to resolve the issue as soon as we can. 
