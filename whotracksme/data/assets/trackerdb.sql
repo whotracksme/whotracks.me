@@ -124,7 +124,6 @@ INSERT INTO "companies" VALUES('bidtheatre','BidTheatre AB',NULL,'https://www.bi
 INSERT INTO "companies" VALUES('tradelab','Tradelab, SAS',NULL,'http://tradelab.com/en/privacy/','http://www.tradelab.fr/','2690',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('powerlinks','PowerLinks',NULL,'http://www.powerlinks.com/privacy-policy/','http://www.powerlinks.com/','2197',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('ve_interactive__formely_gdm_digital_','VE Interactive (Formely GDM Digital)',NULL,' https://www.veinteractive.com/us/about-us/contact-us/','http://www.veinteractive.com/','1810',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('turn_inc.','Turn Inc.',NULL,' http://www.turn.com/trust/privacy-guidelines','http://www.turn.com','173',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('imonomy','imonomy',NULL,'http://imonomy.com/privacy-policy/','http://imonomy.com','3908',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('parse.ly','Parse.ly',NULL,'http://www.parsely.com/privacy-policy/','http://www.parsely.com/','1009',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('switch_concepts','Switch Concepts Limited',NULL,'https://www.switchconcepts.com/privacy-policy','http://www.switchconcepts.com','846',NULL,NULL,NULL);
