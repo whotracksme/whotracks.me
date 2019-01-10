@@ -91,7 +91,8 @@ setup(
             'squarify',
             'twine',
             'watchdog',
-            'libsass'
+            'libsass',
+            'pyyaml>=4.2b1',
         ],
     },
     package_data={
