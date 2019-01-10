@@ -98,7 +98,7 @@ class PandasDataLoader:
             )
             for month in data_months
             if asset_exists(f'{month}/{region}/{name}.csv')
-        ])
+        ], sort=True)
         self.id_col = id_column or self.df.columns[2]
 
     def iter(self):
