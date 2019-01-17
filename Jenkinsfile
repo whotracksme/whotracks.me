@@ -7,9 +7,12 @@ def productionPrefix = ''
 
 node('docker') {
     stage ('Checkout') {
-        retry(5) {
-            checkout scm
-        }
+        checkout([
+            $class: 'GitSCM',
+            branches: [[name: 'refs/heads/'+env.BRANCH_NAME]],
+            extensions: [[$class: 'GitLFSPull']],
+            userRemoteConfigs: [[url: 'https://github.com/cliqz-oss/whotracks.me.git']]
+        ])
     }
     def img
 
