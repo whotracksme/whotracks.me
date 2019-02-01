@@ -5,7 +5,7 @@ def stagingPrefix = '/docs/whotracksme'
 def productionBucket = 'cliqz-tracking-monitor'
 def productionPrefix = ''
 
-node('docker') {
+node('docker && !gpu') {
     stage ('Checkout') {
         checkout([
             $class: 'GitSCM',
