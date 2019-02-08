@@ -212,7 +212,6 @@ INSERT INTO "companies" VALUES('triplelift','TripleLift, Inc.',NULL,'https://tri
 INSERT INTO "companies" VALUES('akanoo','Akanoo',NULL,'http://www.akanoo.com/legal','http://www.akanoo.com/','3500',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('propeller_ads','Propeller Ads',NULL,'http://www.propellerads.com/privacy','http://www.propellerads.com/','2744',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('baidu','Baidu',NULL,'http://ir.baidu.com/phoenix.zhtml?c=188488&p=privacy','http://www.baidu.com/','2500',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('adfox','AdFox',NULL,'https://www.adfox.ru/en/about/privacy/','http://adfox.ru','669',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('netseer','NetSeer',NULL,'http://www.netseer.com/privacy-policy/','http://www.netseer.com/','938',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('quisma','Quisma',NULL,'http://privacy.quisma.com/uk/privacy-policy/quisma-technologies/','http://www.quisma.com/en_GB','626',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('metrigo','Metrigo',NULL,'http://metrigo.com/en/privacy-policy/','http://metrigo.com/','2100',NULL,NULL,NULL);
@@ -2942,7 +2941,7 @@ INSERT INTO "tracker_domains" VALUES('yandex_direct','awaps.yandex.ru','');
 INSERT INTO "tracker_domains" VALUES('smi2.ru','stat.media','');
 INSERT INTO "tracker_domains" VALUES('dsp_rambler','dsp-rambler.ru','');
 INSERT INTO "tracker_domains" VALUES('blis','blismedia.com','');
-INSERT INTO "tracker_domains" VALUES('blis','bidr.io','');
+INSERT INTO "tracker_domains" VALUES('beeswax','bidr.io','');
 INSERT INTO "tracker_domains" VALUES('yabbi','adx.com.ru','');
 INSERT INTO "tracker_domains" VALUES('yabbi','yabbi.me','');
 INSERT INTO "tracker_domains" VALUES('omniscienta','omnidsp.com','');
@@ -4418,7 +4417,7 @@ INSERT INTO "trackers" VALUES('boxever','Boxever',4,'https://www.boxever.com/','
 INSERT INTO "trackers" VALUES('zmags','Zmags',7,'https://zmags.com/','gores_group',NULL,NULL);
 INSERT INTO "trackers" VALUES('engagio','Engagio',6,'https://www.engagio.com/','engagio',NULL,NULL);
 INSERT INTO "trackers" VALUES('vendemore','Vendemore',1,'https://vendemore.com/','ratos',NULL,NULL);
-INSERT INTO "trackers" VALUES('clever_tap','CleverTap',6,NULL,NULL,NULL,NULL);
+INSERT INTO "trackers" VALUES('clever_tap','CleverTap',6,NULL,'clever_tap',NULL,NULL);
 INSERT INTO "trackers" VALUES('digital_remedy','Digital Remedy',4,'https://www.digitalremedy.com/','digital_remedy',NULL,'Formerly AdReady/CPXi');
 INSERT INTO "trackers" VALUES('amobee','Amobee',4,'https://www.amobee.com/','singtel',NULL,'formerly Adconion Media Group ');
 INSERT INTO "trackers" VALUES('shopzilla','Shopzilla',4,'http://www.shopzilla.com/','symphony_technology_group',NULL,NULL);
