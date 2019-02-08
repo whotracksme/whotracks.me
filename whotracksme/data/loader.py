@@ -230,7 +230,7 @@ class Trackers(PandasDataLoader):
         return {
             'page': [reach for reach in tr_df.reach],
             'ts': [ts for ts in tr_df.month],
-            'site': [reach for reach in tr_df.site_reach],
+            'site': [int(reach) for reach in tr_df.site_reach_top10k if reach > 0],
         }
 
     def get_presence_by_site_category(self, id, sites):
