@@ -21,7 +21,7 @@ def recent_tracker_reach(reach):
 
     return {
         "pages": format_reach(reach['page'][-1] * 100),
-        "sites": format_reach(reach['site'][-1] * 100)
+        "sites": reach['site'][-1]
     }
 
 
@@ -74,8 +74,8 @@ def tracker_page(template, tracker_id, tracker, data):
     # page_reach trend line
     page_trend = Markup(ts_trend(ts=reach.get('page'), t=reach.get('ts')))
 
-    # domain_reach trend line
-    site_trend = Markup(ts_trend(ts=reach.get('site'), t=reach.get('ts')))
+    # domain_reach trend line - may not reach all the way back in time
+    site_trend = Markup(ts_trend(ts=reach.get('site'), t=reach.get('ts')[-len(reach.get('site')):], percent=False))
 
     # tag cloud data
     all_sites, sites_by_cat = tag_cloud_data(tracker_id, data)

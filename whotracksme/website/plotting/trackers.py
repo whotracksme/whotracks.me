@@ -92,7 +92,7 @@ def tracker_reach_ts(ts1, ts2, t):
     return div_output(fig)
 
 
-def ts_trend(ts, t):
+def ts_trend(ts, t, percent=True):
     """
     Sparkline for plotting line
     Args:
@@ -101,7 +101,10 @@ def ts_trend(ts, t):
 
     Returns: hmtl output of an interactive timeseries plot
     """
-    y = list(map(lambda x: x * 100, ts))
+    if percent:
+        y = list(map(lambda x: x * 100, ts))
+    else:
+        y = list(ts)
     trace0 = line(
         x=t,
         y=y,
