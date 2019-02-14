@@ -20,7 +20,7 @@ def build_api(data):
         stats = data.trackers.get_tracker(id)
         stats['overview'] = dict(stats['overview'])
         # drop some columns
-        for col in ['Index', 'companies', 'month', 'trackers', 'tracker', 'id', 'company_id', 'category', 'country']:
+        for col in ['Index', 'companies', 'month', 'trackers', 'tracker', 'id', 'company_id', 'category', 'country', 'site_reach']:
             del stats['overview'][col]
         stats['date_range'] = [date.strftime('%Y-%m') for date in stats['date_range']]
         # print(stats)
