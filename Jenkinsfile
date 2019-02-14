@@ -5,13 +5,16 @@ def stagingPrefix = '/docs/whotracksme'
 def productionBucket = 'cliqz-tracking-monitor'
 def productionPrefix = ''
 
-node('docker && !gpu') {
+node('docker && !gpu && eu-central-1') {
     stage ('Checkout') {
         checkout([
             $class: 'GitSCM',
             branches: [[name: 'refs/heads/'+env.BRANCH_NAME]],
             extensions: [[$class: 'GitLFSPull']],
-            userRemoteConfigs: [[url: 'https://github.com/cliqz-oss/whotracks.me.git']]
+            userRemoteConfigs: [
+                [refspec: '+refs/heads/*:refs/remotes/origin/* +refs/pull/*/head:refs/remotes/origin/PR-*',
+                url: 'https://github.com/cliqz-oss/whotracks.me.git']
+            ]
         ])
     }
     def img
