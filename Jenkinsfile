@@ -12,7 +12,7 @@ node('docker && !gpu && eu-central-1') {
             branches: [[name: 'refs/heads/'+env.BRANCH_NAME]],
             extensions: [[$class: 'GitLFSPull']],
             userRemoteConfigs: [
-                [refspec: '+refs/heads/*:refs/remotes/origin/* +refs/pull/*/head:refs/remotes/origin/PR-*',
+                [refspec: '+refs/heads/*:refs/remotes/origin/* +refs/pull/*/head:refs/remotes/origin/PR-* +refs/tags/*:refs/remotes/origin/*',
                 url: 'https://github.com/cliqz-oss/whotracks.me.git']
             ]
         ])
