@@ -137,7 +137,8 @@ def get_template(data_source, name, render_markdown=False, path_to_root='.'):
                 'extra',
                 'toc',
                 'def_list',
-                'footnotes'
+                'footnotes',
+                'tables',
             ]
         )
         env.filters["markdown"] = lambda text: Markup(md.convert(text))
@@ -225,3 +226,4 @@ def create_site_structure(static_path):
     scss_folder = Path(static_path).joinpath("scss")
     css_folder = _site_static.joinpath("css")
     sass.compile(dirname=(scss_folder, css_folder), output_style='compressed')
+
