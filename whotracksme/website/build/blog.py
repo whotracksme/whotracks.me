@@ -1,5 +1,6 @@
 
 import os
+import calendar
 from datetime import datetime
 from whotracksme.website.utils import print_progress
 from whotracksme.website.templates import render_template, get_template
@@ -14,10 +15,11 @@ def parse_blogpost(filepath):
         "filename": filepath.split("/")[-1].replace(".md", ""),
         "title": title.split(":")[1].strip(),
         "subtitle": subtitle.split(":")[1].strip(),
-        "author": author.split(":")[1].strip(),
+        "author": author.split(":")[1].strip().capitalize(),
         "type": post_type.split(":")[1].strip(),
         "publish": bool(publish.split(":")[1].strip() == "True"),
         "date": date.split(":")[1].strip(),
+        "repr_date": get_human_date(date.split(":")[1].strip()),
         "tags": tags.split(":")[-1].split(","),
         "header_img": header.split(":")[1].strip(),
         "body": body
@@ -65,3 +67,14 @@ def build_blogpost_pages(data, blog_posts):
             )
 
     print_progress(text="Generate blog posts")
+
+
+def get_human_date(date):
+    d = datetime.strptime(date, '%Y-%m-%d')
+
+    if 4 <= d.day <= 20 or 24 <= d.day <= 30:
+        suffix = "th"
+    else:
+        suffix = ["st", "nd", "rd"][d.day % 10 - 1]
+    month = calendar.month_abbr[d.month]
+    return f"{month} {d.day}{suffix}, {d.year}"

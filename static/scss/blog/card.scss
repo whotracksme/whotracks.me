@@ -25,6 +25,16 @@
       border: 0;
     }
 
+    .card-media {
+      padding: 0;
+      height: 198px !important;
+      width: 100% !important;
+      display: flex;
+      .img-fit-cover {
+        object-fit: cover;
+      }
+    }
+
     .caption {
       padding: 30px;
       min-height: 200px;
