@@ -18,8 +18,8 @@ from whotracksme.website.build.websites import (
 )
 from whotracksme.website.build.trackers import (
     build_trackers_list,
-    build_tracker_pages,
-    build_tracker_page_batch,
+    tracker_page_data,
+    tracker_page,
 )
 from whotracksme.website.templates import (
     create_site_structure,
@@ -74,7 +74,7 @@ class Builder:
 
     def feed_event(self, event):
         futures = []
-        with concurrent.futures.ProcessPoolExecutor(max_workers=9) as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
             ###################################################################
             # This needs to be first, as other tasks will need to write in   #
             # the resulting folders.                                          #
@@ -122,12 +122,17 @@ class Builder:
 
                 # Trackers
                 # build_trackers_list(data=data_source)
+                for tracker_id, tracker in data_source.trackers.iter():
+                    page_data = tracker_page_data(tracker_id, tracker, data_source)
+                    futures.append(executor.submit(tracker_page, data=page_data))
+                print('Tracker pages queue empty')
+
                 # build_tracker_pages(data=data_source)
                 # futures.append(executor.submit(build_trackers_list, data=data_source))
-                trackers = [id for id, _ in data_source.trackers.iter()]
-                n = 100
-                for batch in [trackers[i:i + n] for i in range(0, len(trackers), n)]:
-                    futures.append(executor.submit(build_tracker_page_batch, batch=batch))
+                # trackers = [id for id, _ in data_source.trackers.iter()]
+                # n = 100
+                # for batch in [trackers[i:i + n] for i in range(0, len(trackers), n)]:
+                #     futures.append(executor.submit(build_tracker_page_batch, batch=batch))
                     # print(batch)
                 # futures.append(executor.submit(build_tracker_pages, data=data_source))
 
