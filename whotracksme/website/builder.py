@@ -116,57 +116,59 @@ class Builder:
             if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
                 # Home
                 # build_home(data=data_source)
-                futures.append(executor.submit(build_home, data=data_source))
-                futures.append(executor.submit(build_privacy_policy, data=data_source))
+                # futures.append(executor.submit(build_home, data=data_source))
+                # futures.append(executor.submit(build_privacy_policy, data=data_source))
 
                 # Trackers
-                futures.append(executor.submit(build_trackers_list, data=data_source))
-                futures.append(executor.submit(build_tracker_pages, data=data_source))
+                build_trackers_list(data=data_source)
+                build_tracker_pages(data=data_source)
+                # futures.append(executor.submit(build_trackers_list, data=data_source))
+                # futures.append(executor.submit(build_tracker_pages, data=data_source))
 
                 # Websites
-                futures.append(executor.submit(build_website_list, data=data_source))
-                futures.append(executor.submit(build_website_pages, data=data_source))
+                # futures.append(executor.submit(build_website_list, data=data_source))
+                # futures.append(executor.submit(build_website_pages, data=data_source))
 
                 # Companies
-                futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
+                # futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
 
             # Depends on: 'data/', 'blog/', 'templates/'
-            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
-                futures.append(executor.submit(
-                    build_blogpost_list,
-                    data=data_source,
-                    blog_posts=self.blog_posts
-                ))
+            # if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
+            #     futures.append(executor.submit(
+            #         build_blogpost_list,
+            #         data=data_source,
+            #         blog_posts=self.blog_posts
+            #     ))
 
-                futures.append(executor.submit(
-                    build_blogpost_pages,
-                    data=data_source,
-                    blog_posts=self.blog_posts
-                ))
+            #     futures.append(executor.submit(
+            #         build_blogpost_pages,
+            #         data=data_source,
+            #         blog_posts=self.blog_posts
+            #     ))
 
             # Depends on: 'data/', 'blog/', 'templates/'
-            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
-                futures.append(executor.submit(
-                    generate_sitemap,
-                    data=data_source,
-                    blog_posts=self.blog_posts
-                ))
+            # if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
+            #     futures.append(executor.submit(
+            #         generate_sitemap,
+            #         data=data_source,
+            #         blog_posts=self.blog_posts
+            #     ))
 
-            if event & DATA_FOLDER:
-                futures.append(executor.submit(
-                    build_tracker_db
-                ))
-                futures.append(executor.submit(
-                    build_api,
-                    data=data_source,
-                ))
+            # if event & DATA_FOLDER:
+            #     futures.append(executor.submit(
+            #         build_tracker_db
+            #     ))
+            #     futures.append(executor.submit(
+            #         build_api,
+            #         data=data_source,
+            #     ))
 
-            # Explorer: depends on 'data/'
-            if event & DATA_FOLDER or event & STATIC_FOLDER:
-                futures.append(executor.submit(
-                    build_explorer,
-                    data=data_source,
-                ))
+            # # Explorer: depends on 'data/'
+            # if event & DATA_FOLDER or event & STATIC_FOLDER:
+            #     futures.append(executor.submit(
+            #         build_explorer,
+            #         data=data_source,
+            #     ))
 
             # TODO: uncomment when company profiles are ready
             # if args['site'] or args['companies']:
