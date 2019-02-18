@@ -138,6 +138,7 @@ class Trackers():
             for month in data_months:
                 self.db.load_data('trackers', self.region, month)
             self.db.load_data('sites_trackers', self.region, self.last_month)
+            self.db.load_data('sites', self.region, self.last_month)
 
         cursor = self.db.connection.cursor()
         cursor.execute('''

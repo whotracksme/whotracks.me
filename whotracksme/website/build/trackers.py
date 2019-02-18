@@ -86,15 +86,9 @@ def build_trackers_list(data):
     print_progress(text="Generate tracker list")
 
 
-def tracker_page(template, tracker_id, tracker, data):
+def tracker_page_data(tracker_id, tracker, data):
     # Tracker Reach ts
     reach = data.trackers.get_reach(tracker_id)
-
-    # page_reach trend line
-    page_trend = Markup(ts_trend(ts=reach.get('page'), t=reach.get('ts')))
-
-    # domain_reach trend line - may not reach all the way back in time
-    site_trend = Markup(ts_trend(ts=reach.get('site'), t=reach.get('ts')[-len(reach.get('site')):], percent=False))
 
     # tag cloud data
     all_sites, sites_by_cat = tag_cloud_data(tracker_id, data)
@@ -102,20 +96,36 @@ def tracker_page(template, tracker_id, tracker, data):
     # for horizontal bar chart in profile
     website_types = data.trackers.get_presence_by_site_category(tracker_id)
 
-    with open(f'_site/{data.url_for("tracker", tracker_id)}', 'w') as output:
+    return {
+        "url": data.url_for("tracker", tracker_id),
+        "app": tracker,
+        "profile": data.trackers.get_tracker(tracker_id),  # profile-card hack
+        "reach_ts": reach,
+        "tracking_methods": data.trackers.get_tracking_methods(tracker_id),
+        "website_list": all_sites,
+        "sites_by_cat": sites_by_cat,
+        "website_types": website_types[:5],  # top 5
+        "similar_trackers": data.trackers.similar_trackers(tracker_id),
+        "trackers": data.trackers.summary_stats()['count'],
+    }
+
+
+def tracker_page(data):
+    reach = data['reach_ts']
+
+    # page_reach trend line
+    page_trend = Markup(ts_trend(ts=reach.get('page'), t=reach.get('ts')))
+
+    # domain_reach trend line - may not reach all the way back in time
+    site_trend = Markup(ts_trend(ts=reach.get('site'), t=reach.get('ts')[-len(reach.get('site')):], percent=False))
+
+    with open(f'_site/{data["url"]}', 'w') as output:
         output.write(render_template(
             path_to_root='..',
             template=template,
-            app=tracker,
-            profile=data.trackers.get_tracker(tracker_id),  # profile-card hack
             reach=recent_tracker_reach(reach),
-            tracking_methods=data.trackers.get_tracking_methods(tracker_id),
-            website_list=all_sites,
-            sites_by_cat=sites_by_cat,
-            website_types=website_types[:5],  # top 5
-            similar_trackers=data.trackers.similar_trackers(tracker_id),
             trends={'page': page_trend, 'site': site_trend},
-            trackers=data.trackers.summary_stats()['count']
+            **data,
         ))
 
 
