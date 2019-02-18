@@ -27,17 +27,35 @@ def recent_tracker_reach(reach):
 
 
 def tag_cloud_data(tracker_id, data):
-    all_sites = [{
-        'site': s.site,
-        'frequency': s.tracker_proportion,
-        'url': data.url_for('site', s.site, path_to_root='..')
-            if s.site in data.sites.site_category else None,
-        'site_freq': s.site_proportion,
-        'site_cat': site_category_colors.get(
-            data.sites.site_category.get(s.site, None), '#000'
-        ),
-        'category': data.sites.site_category.get(s.site, '')
-    } for s in data.trackers.iter_sites(tracker_id)]
+    cursor = data.db.connection.cursor()
+    cursor.execute('''
+    SELECT
+        sites_trackers_data.site,
+        tracker_proportion AS frequency,
+        site_proportion AS site_freq,
+        sites_data.category AS category
+    FROM sites_trackers_data
+    LEFT JOIN sites_data ON sites_trackers_data.site = sites_data.site AND
+        sites_trackers_data.month = sites_data.month AND
+        sites_trackers_data.country = sites_data.country
+    WHERE sites_trackers_data.month = ?
+        AND sites_trackers_data.country = ?
+        AND sites_trackers_data.tracker = ?
+    ORDER BY tracker_proportion DESC
+    ''', (data.trackers.last_month, data.trackers.region, tracker_id))
+
+    def site_summary(row):
+        site, frequency, site_freq, category = row
+        return {
+            'site': site,
+            'frequency': frequency,
+            'site_freq': site_freq,
+            'category': category or '',
+            'url': data.url_for('site', site, path_to_root='..') if category is not None else None,
+            'site_cat': site_category_colors.get(category, '#000'),
+        }
+
+    all_sites = list(map(site_summary, cursor.fetchall()))
 
     n_unlinked = len(list(filter(lambda s: s['url'] is None, all_sites)))
 
@@ -81,7 +99,7 @@ def tracker_page(template, tracker_id, tracker, data):
     all_sites, sites_by_cat = tag_cloud_data(tracker_id, data)
 
     # for horizontal bar chart in profile
-    website_types = data.trackers.get_presence_by_site_category(tracker_id, data.sites)
+    website_types = data.trackers.get_presence_by_site_category(tracker_id)
 
     with open(f'_site/{data.url_for("tracker", tracker_id)}', 'w') as output:
         output.write(render_template(
