@@ -20,6 +20,7 @@ from whotracksme.website.build.trackers import (
     build_trackers_list,
     tracker_page_data,
     tracker_page,
+    build_tracker_page_batch
 )
 from whotracksme.website.templates import (
     create_site_structure,
@@ -122,17 +123,17 @@ class Builder:
 
                 # Trackers
                 # build_trackers_list(data=data_source)
-                for tracker_id, tracker in data_source.trackers.iter():
-                    page_data = tracker_page_data(tracker_id, tracker, data_source)
-                    futures.append(executor.submit(tracker_page, data=page_data))
-                print('Tracker pages queue empty')
+                # for tracker_id, tracker in data_source.trackers.iter():
+                #     page_data = tracker_page_data(tracker_id, tracker, data_source)
+                #     futures.append(executor.submit(tracker_page, data=page_data))
+                # print('Tracker pages queue empty')
 
                 # build_tracker_pages(data=data_source)
                 # futures.append(executor.submit(build_trackers_list, data=data_source))
-                # trackers = [id for id, _ in data_source.trackers.iter()]
-                # n = 100
-                # for batch in [trackers[i:i + n] for i in range(0, len(trackers), n)]:
-                #     futures.append(executor.submit(build_tracker_page_batch, batch=batch))
+                trackers = [id for id, _ in data_source.trackers.iter()]
+                n = 20
+                for batch in [trackers[i:i + n] for i in range(0, len(trackers), n)]:
+                    futures.append(executor.submit(build_tracker_page_batch, batch=batch))
                     # print(batch)
                 # futures.append(executor.submit(build_tracker_pages, data=data_source))
 
