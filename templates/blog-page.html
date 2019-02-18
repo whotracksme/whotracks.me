@@ -37,14 +37,18 @@
 
 
 {% block content %}
+    <div class="post-header">
+        <p class="author">{{ blog_post.author }}</p>
+        <p class="date">{{ blog_post.repr_date }}</p>
+    </div>
+
     <div class="img-container">
         <img class="img-responsive" src="{{PATHS.static}}/img/{{blog_post.header_img}}" />
     </div>
     <div class="container container-post">
-            <h3 id="post-title">{{ blog_post.title }}</h3>
-            <p id="post-subtitle">{{ blog_post.subtitle }}</p>
-
-            {{ blog_post.body | markdown }}
+        <h3 id="post-title">{{ blog_post.title }}</h3>
+        <p id="post-subtitle">{{ blog_post.subtitle }}</p>
+        {{ blog_post.body | markdown }}
     </div>
 
 {% endblock %}
