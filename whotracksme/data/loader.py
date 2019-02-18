@@ -47,10 +47,6 @@ class DataSource:
         # Add demographics info to trackers and companies
         self.db = WhoTracksMeDB()
 
-        tracker_map = create_tracker_map(self.db.connection)
-        self.app_info = tracker_map['trackers']
-        self.company_info = tracker_map['companies']
-
         # self.sites_trackers = SitesTrackers(
         #     data_months=[max(self.data_months)],
         #     tracker_info=self.app_info,
@@ -59,7 +55,6 @@ class DataSource:
         # )
         self.trackers = Trackers(
             data_months=self.data_months,
-            tracker_info=self.app_info,
             region=region,
             db=self.db,
             populate=populate,
@@ -93,8 +88,10 @@ class DataSource:
             return f'{path_to_root}/blog/{self.normalize_url(id)}.html'
 
     def get_company_name(self, id):
-        return self.company_info.get(id).get('name') \
-            if id in self.company_info else id
+        result = self.db.connection.execute('SELECT name FROM companies WHERE id = ?', (id,)).fetchone()
+        if result is not None:
+            return result[0]
+        return id
 
 class PandasDataLoader:
 
@@ -129,10 +126,26 @@ def parse_date(date_string):
 TrackerDataPoint = namedtuple('TrackerDataPoint', 'id, month, country, tracker, company_id, category_id, category,' + ','.join(DATA_COLUMNS['trackers']))
 
 class Trackers():
-    def __init__(self, data_months, tracker_info, db, region='global', populate=True):
+
+    TRACKERS_DATA_QUERY = f'''
+        SELECT
+                tracker AS id,
+                month,
+                country,
+                tracker,
+                trackers.company_id,
+                trackers.category_id,
+                categories.name AS category,
+                {','.join(DATA_COLUMNS['trackers'])}
+            FROM trackers_data
+            LEFT JOIN trackers ON trackers.id = trackers_data.tracker
+            LEFT JOIN categories ON trackers.category_id = categories.id
+        '''
+
+    def __init__(self, data_months, db, region='global', populate=True):
         self.db = db
         self.region = region
-        self.info = tracker_info
+        self.info = {}
         self.last_month = max(data_months)
         if populate:
             for month in data_months:
@@ -159,18 +172,7 @@ class Trackers():
         cursor = self.db.connection.cursor()
         columns = ','.join(DATA_COLUMNS['trackers'])
         cursor.execute(f'''
-            SELECT
-                tracker AS id,
-                month,
-                country,
-                tracker,
-                trackers.company_id,
-                trackers.category_id,
-                categories.name AS category,
-                {columns}
-            FROM trackers_data
-            LEFT JOIN trackers ON trackers.id = trackers_data.tracker
-            LEFT JOIN categories ON trackers.category_id = categories.id
+            {self.TRACKERS_DATA_QUERY}
             WHERE country=? AND month = ?
             ORDER BY "{metric}" {'DESC' if descending else 'ASC'}
         ''', (self.region, self.last_month))
@@ -178,20 +180,8 @@ class Trackers():
 
     def get_snapshot(self, month=None):
         cursor = self.db.connection.cursor()
-        columns = ','.join(DATA_COLUMNS['trackers'])
         cursor.execute(f'''
-            SELECT
-                tracker AS id,
-                month,
-                country,
-                tracker,
-                trackers.company_id,
-                trackers.category_id,
-                categories.name AS category,
-                {columns}
-            FROM trackers_data
-            LEFT JOIN trackers ON trackers.id = trackers_data.tracker
-            LEFT JOIN categories ON trackers.category_id = categories.id
+            {self.TRACKERS_DATA_QUERY}
             WHERE country=? AND month = ?
         ''', (self.region, month or self.last_month))
         return list(map(TrackerDataPoint._make, cursor.fetchall()))
@@ -233,15 +223,61 @@ class Trackers():
     # Methods for a specific Tracker
     # ------------------------------
     def get_tracker(self, id):
-        return self.info.get(id)
+        if id in self.info:
+            return self.info[id]
+
+        cursor = self.db.connection.cursor()
+        cursor.execute('''
+            SELECT
+                t.id,
+                t.name,
+                c.name AS category,
+                t.website_url,
+                t.ghostery_id,
+                t.company_id,
+                iab.id AS iab_vendor,
+                truste.type AS truste_type,
+                truste.description,
+                truste.privacy_url,
+                com.privacy_url
+            FROM trackers AS t
+            JOIN categories AS c ON c.id = t.category_id
+            LEFT JOIN companies as com ON com.id = t.company_id
+            LEFT JOIN iab_vendors as iab ON iab.tracker = t.id
+            LEFT JOIN truste_companies as truste ON truste.tracker = t.id
+            WHERE t.id = ?
+            ''', (id,))
+        cols = ['id', 'name', 'category', 'website_url', 'ghostery_id', 'company_id', 'iab_vendor',
+            'truste_type', 'description', 'truste_privacy_url',
+            'privacy_url']
+        row = cursor.fetchone()
+        tracker_info = {c: row[i] for i, c in enumerate(cols)}
+
+        cursor.execute('''
+            SELECT tracker, MIN(month), MAX(month)
+            FROM trackers_data
+            WHERE country = ? AND tracker = ?
+            GROUP BY tracker
+        ''', (self.region, id))
+        date_range = cursor.fetchone()
+        if date_range is not None:
+            tracker_info['date_range'] = [parse_date(date_range[1]), parse_date(date_range[2])]
+
+        cursor.execute(f'''
+            {self.TRACKERS_DATA_QUERY}
+            WHERE country= ? AND month = ? AND tracker = ?
+        ''', (self.region, self.last_month, id))
+        overview = cursor.fetchone()
+        if overview is not None:
+            tracker_info['overview'] = TrackerDataPoint._make(overview)._asdict()
+
+        self.info[id] = tracker_info
+        return tracker_info
 
     def get_name(self, id):
-        # TODO: This is odd, are there id-s of trackers that are not in apps?
-        return self.info.get(id).get('name') if id in self.info else id
+        return self.get_tracker(id).get('name')
 
     def get_rank(self, id):
-        if id not in self.info:
-            raise RuntimeError(f'No tracker with id: {id}')
         return self.get_tracker(id).get('overview', {}).get('reach_rank')
 
     def get_rank_label(self, id):

@@ -237,7 +237,7 @@ class WhoTracksMeDB:
     }
 
     def __init__(self):
-        self.connection = sqlite3.connect(':memory')
+        self.connection = sqlite3.connect('./whotracksme.db')
         existing_tables = self._get_existing_tables()
         cursor = self.connection.cursor()
         # create tables

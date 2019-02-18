@@ -1,5 +1,5 @@
 from collections import defaultdict
-
+from time import time
 from jinja2 import Markup
 
 from whotracksme.data.loader import DataSource, TrackerDataPoint
@@ -87,6 +87,7 @@ def build_trackers_list(data):
 
 
 def tracker_page_data(tracker_id, tracker, data):
+    t1 = time()
     # Tracker Reach ts
     reach = data.trackers.get_reach(tracker_id)
 
@@ -110,7 +111,7 @@ def tracker_page_data(tracker_id, tracker, data):
     }
 
 
-def tracker_page(data):
+def tracker_page(template, data):
     reach = data['reach_ts']
 
     # page_reach trend line
@@ -128,7 +129,6 @@ def tracker_page(data):
             **data,
         ))
 
-
 def build_tracker_pages(data):
     template = get_template(data, name='tracker-page.html', path_to_root='..')
 
@@ -142,7 +142,7 @@ def build_tracker_page_batch(batch):
     template = get_template(data, name='tracker-page.html', path_to_root='..')
 
     for tracker_id in batch:
-        tracker_page(template,
-                     tracker_id,
-                     TrackerDataPoint(**data.trackers.get_tracker(tracker_id)['overview']),
-                     data)
+        page_data = tracker_page_data(tracker_id,
+                                      TrackerDataPoint(**data.trackers.get_tracker(tracker_id)['overview']),
+                                      data)
+        tracker_page(template, page_data)
