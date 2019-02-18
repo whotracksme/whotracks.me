@@ -19,6 +19,7 @@ from whotracksme.website.build.websites import (
 from whotracksme.website.build.trackers import (
     build_trackers_list,
     build_tracker_pages,
+    build_tracker_page_batch,
 )
 from whotracksme.website.templates import (
     create_site_structure,
@@ -120,9 +121,14 @@ class Builder:
                 # futures.append(executor.submit(build_privacy_policy, data=data_source))
 
                 # Trackers
-                build_trackers_list(data=data_source)
-                build_tracker_pages(data=data_source)
+                # build_trackers_list(data=data_source)
+                # build_tracker_pages(data=data_source)
                 # futures.append(executor.submit(build_trackers_list, data=data_source))
+                trackers = [id for id, _ in data_source.trackers.iter()]
+                n = 100
+                for batch in [trackers[i:i + n] for i in range(0, len(trackers), n)]:
+                    futures.append(executor.submit(build_tracker_page_batch, batch=batch))
+                    # print(batch)
                 # futures.append(executor.submit(build_tracker_pages, data=data_source))
 
                 # Websites

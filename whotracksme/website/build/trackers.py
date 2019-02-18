@@ -2,6 +2,7 @@ from collections import defaultdict
 
 from jinja2 import Markup
 
+from whotracksme.data.loader import DataSource, TrackerDataPoint
 from whotracksme.website.utils import print_progress
 from whotracksme.website.templates import (
     get_template,
@@ -126,3 +127,12 @@ def build_tracker_pages(data):
 
     print_progress(text="Generate tracker pages")
 
+def build_tracker_page_batch(batch):
+    data = DataSource(populate=False)
+    template = get_template(data, name='tracker-page.html', path_to_root='..')
+
+    for tracker_id in batch:
+        tracker_page(template,
+                     tracker_id,
+                     TrackerDataPoint(**data.trackers.get_tracker(tracker_id)['overview']),
+                     data)

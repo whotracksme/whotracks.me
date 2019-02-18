@@ -39,9 +39,10 @@ def list_available_months(region="global"):
 
 
 class DataSource:
-    def __init__(self, region="global"):
+    def __init__(self, region="global", populate=True):
         self.data_months = sorted(list_available_months(region=region))
-        print('data available for months:\n├──', "\n├── ".join(self.data_months))
+        if populate:
+            print('data available for months:\n├──', "\n├── ".join(self.data_months))
 
         # Add demographics info to trackers and companies
         self.db = WhoTracksMeDB()
@@ -60,7 +61,8 @@ class DataSource:
             data_months=self.data_months,
             tracker_info=self.app_info,
             region=region,
-            db=self.db
+            db=self.db,
+            populate=populate,
         )
         # self.companies = Companies(
         #     data_months=self.data_months,
@@ -127,14 +129,15 @@ def parse_date(date_string):
 TrackerDataPoint = namedtuple('TrackerDataPoint', 'id, month, country, tracker, company_id, category_id, category,' + ','.join(DATA_COLUMNS['trackers']))
 
 class Trackers():
-    def __init__(self, data_months, tracker_info, db, region='global'):
+    def __init__(self, data_months, tracker_info, db, region='global', populate=True):
         self.db = db
         self.region = region
         self.info = tracker_info
         self.last_month = max(data_months)
-        for month in data_months:
-            self.db.load_data('trackers', self.region, month)
-        self.db.load_data('sites_trackers', self.region, self.last_month)
+        if populate:
+            for month in data_months:
+                self.db.load_data('trackers', self.region, month)
+            self.db.load_data('sites_trackers', self.region, self.last_month)
 
         cursor = self.db.connection.cursor()
         cursor.execute('''
