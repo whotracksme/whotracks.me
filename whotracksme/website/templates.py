@@ -10,7 +10,7 @@ from jinja2 import Environment, FileSystemLoader, Markup
 import markdown
 import sass
 
-
+from whotracksme.data.loader import DataSource
 from whotracksme.website.utils import print_progress
 from whotracksme.website.plotting.colors import (
     tracker_category_colors, site_category_colors
@@ -31,7 +31,7 @@ def site_to_json(data_source, blog_posts):
             "weight": weight
         })
 
-    for tracker in data_source.trackers.get_snapshot().itertuples():
+    for tracker in data_source.trackers.get_snapshot():
         name = data_source.trackers.get_name(tracker.tracker)
         url = data_source.url_for("tracker", tracker.tracker)
         weight = (1.0 / tracker.reach_rank) * 1000
@@ -49,7 +49,7 @@ def site_to_json(data_source, blog_posts):
     #         weight=len(data_source.trackers.df[data_source.trackers.df.company_id == company.company]) or 1
     #     )
 
-    for site in data_source.sites.get_snapshot().itertuples():
+    for site in data_source.sites.get_snapshot():
         submit_key(
             name=site.site,
             type="site",
@@ -114,7 +114,8 @@ def copy_custom_error_pages(data):
             output.write(render_template(template=template, path_to_root=''))
 
 
-def generate_sitemap(data, blog_posts):
+def generate_sitemap(blog_posts):
+    data = DataSource(populate=False)
     # write sitemap to _site (to be used as index for static site search)
     with open("_site/sitemap.json", "w") as output:
         json.dump(

@@ -47,12 +47,12 @@ class DataSource:
         # Add demographics info to trackers and companies
         self.db = WhoTracksMeDB()
 
-        # self.sites_trackers = SitesTrackers(
-        #     data_months=[max(self.data_months)],
-        #     tracker_info=self.app_info,
-        #     region=region,
-        #     db=self.db
-        # )
+        self.sites_trackers = SitesTrackers(
+            data_months=[max(self.data_months)],
+            region=region,
+            db=self.db,
+            populate=False,
+        )
         self.trackers = Trackers(
             data_months=self.data_months,
             region=region,
@@ -156,6 +156,14 @@ class SQLDataLoader:
         if result is not None:
             return self.rowType._make(result)
         return None
+
+    def dump(self):
+        cursor = self.db.connection.cursor()
+        cursor.execute(f'''
+            {self.get_data_query()}
+            WHERE {self.table_name}.country = ?
+        ''', (self.region,))
+        return list(map(self.rowType._make, cursor.fetchall()))
 
 class Trackers(SQLDataLoader):
 
@@ -500,20 +508,12 @@ class Sites(SQLDataLoader):
         '''
         return self.db.connection.execute(query, (month or self.last_month, self.region, site))
 
+
 class SitesTrackers(SQLDataLoader):
 
-    def __init__(self, data_months, tracker_info, region='global'):
-        super().__init__(data_months, name='sites_trackers', region=region)
-
-        self.df['company_id'] = pd.Series(
-            [tracker_info.get(tracker, {}).get('company_id', tracker)
-            for tracker in self.df.tracker], index=self.df.index)
-
-    def get_tracker(self, tracker):
-        return self.df[self.df.tracker == tracker]
-
-    def get_site(self, site):
-        return self.df[self.df.site == site]
+    def __init__(self, data_months, db, region='global', populate=True):
+        super().__init__(data_months, name='sites_trackers', db=db, region=region,
+                         id_column='site || tracker', extra_columns=[])
 
 
 class Companies(SQLDataLoader):
