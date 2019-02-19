@@ -4,6 +4,7 @@
 
 import concurrent.futures
 
+from pathlib import Path
 from whotracksme.data.loader import DataSource
 
 from whotracksme.website.build.home import build_home, build_privacy_policy
@@ -173,6 +174,9 @@ class Builder:
                     build_tracker_db
                 ))
                 trackers = [id for id, _ in data_source.trackers.iter()]
+                data_dir = Path('_site/data/trackers/global')
+                if not data_dir.exists():
+                    data_dir.mkdir(parents=True)
                 batched_job(trackers, build_api_batch, 150, "Generate API pages")
 
             # TODO: uncomment when company profiles are ready

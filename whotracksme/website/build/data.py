@@ -36,9 +36,5 @@ def build_api(data):
 def build_api_batch(batch):
     data = DataSource(populate=False)
 
-    data_dir = Path('_site/data/trackers/global')
-    if not data_dir.exists():
-        data_dir.mkdir(parents=True)
-
     for tracker_id in batch:
         build_tracker_json(tracker_id, data)
