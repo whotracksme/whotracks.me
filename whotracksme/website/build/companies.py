@@ -91,7 +91,7 @@ def tracker_map_data(site_id, data):
 
 
 def company_reach(companies, n=10):
-    sorted_companies = companies.get_snapshot().sort_values('reach_rank', ascending=True)
+    sorted_companies = companies.sort_by('reach_rank', descending=False)
     return sorted_companies[:n]
 
 

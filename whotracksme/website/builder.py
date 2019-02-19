@@ -117,7 +117,7 @@ class Builder:
             # Depends on: 'data/', 'templates/'
             if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
                 # Home
-                # build_home(data=data_source)
+                build_home(data=data_source)
                 # futures.append(executor.submit(build_home, data=data_source))
                 # futures.append(executor.submit(build_privacy_policy, data=data_source))
 

@@ -59,17 +59,18 @@ class DataSource:
             db=self.db,
             populate=populate,
         )
-        # self.companies = Companies(
-        #     data_months=self.data_months,
-        #     region=region,
-        #     db=self.db
-        # )
-        # self.sites = Sites(
-        #     data_months=self.data_months,
-        #     trackers=self.sites_trackers,
-        #     region=region,
-        #     db=self.db
-        # )
+        self.companies = Companies(
+            data_months=[max(self.data_months)],
+            region=region,
+            db=self.db,
+            populate=populate,
+        )
+        self.sites = Sites(
+            data_months=[max(self.data_months)],
+            region=region,
+            db=self.db,
+            populate=populate,
+        )
 
     @staticmethod
     def normalize_url(url_substring):
@@ -107,18 +108,21 @@ class SQLDataLoader:
         self.db = db
         self.id_column = id_column
         self.region = region
+        self.extra_column_select = []
+        self.extra_joins = ''
+        self.table_name = f'{self.name}_data'
         # infer table structure
-        self.columns = [row[1] for row in self.db.connection.execute(f'PRAGMA table_info("{self.name}_data")')]
+        self.columns = [row[1] for row in self.db.connection.execute(f'PRAGMA table_info("{self.table_name}")')]
         self.rowType = namedtuple(f'{self.name}DataPoint', ','.join(['id'] + self.columns + extra_columns))
 
     def get_data_query(self):
         return f'''
             SELECT
                 {self.id_column} AS id,
-                {','.join(self.columns)}
+                {','.join([f'{self.table_name}.{c}' for c in self.columns])}
                 {',' if len(self.extra_column_select) > 0 else ''}
                 {','.join(self.extra_column_select)}
-            FROM {self.name}_data
+            FROM {self.table_name}
             {self.extra_joins}
         '''
 
@@ -127,7 +131,7 @@ class SQLDataLoader:
         columns = ','.join(DATA_COLUMNS['trackers'])
         cursor.execute(f'''
             {self.get_data_query()}
-            WHERE country=? AND month = ?
+            WHERE {self.table_name}.country=? AND month = ?
             ORDER BY "{metric}" {'DESC' if descending else 'ASC'}
         ''', (self.region, self.last_month))
         return list(map(self.rowType._make, cursor.fetchall()))
@@ -136,7 +140,7 @@ class SQLDataLoader:
         cursor = self.db.connection.cursor()
         cursor.execute(f'''
             {self.get_data_query()}
-            WHERE country = ? AND month = ?
+            WHERE {self.table_name}.country = ? AND month = ?
         ''', (self.region, month or self.last_month))
         return list(map(self.rowType._make, cursor.fetchall()))
 
@@ -147,7 +151,7 @@ class SQLDataLoader:
     def get_datapoint(self, id, month=None):
         result = self.db.connection.execute(f'''
             {self.get_data_query()}
-            WHERE country= ? AND month = ? AND tracker = ?
+            WHERE {self.table_name}.country= ? AND month = ? AND {self.id_column} = ?
         ''', (self.region, month or self.last_month, id)).fetchone()
         if result is not None:
             return self.rowType._make(result)
@@ -184,7 +188,6 @@ class Trackers(SQLDataLoader):
 
         """
         # snapshot of last month in the data
-        stats = self.get_snapshot()
         cursor = self.db.connection.cursor()
         cursor.execute('''
             SELECT
@@ -384,14 +387,13 @@ class Trackers(SQLDataLoader):
 
 
 class Sites(SQLDataLoader):
-    def __init__(self, data_months, trackers, region='global', id_column='site'):
-        super().__init__(data_months, name='sites', region=region)
-        self.trackers = trackers
-        self.df['id'] = self.df['site']
-        # site -> category mapping
-        self.site_category = {
-            row.id: row.category for row in self.get_snapshot().itertuples()
-        }
+    def __init__(self, data_months, db, region='global', populate=True):
+        super().__init__(data_months, name='sites', db=db, region=region, id_column='site',
+                         extra_columns=[])
+
+        if populate:
+            for month in data_months:
+                self.db.load_data('sites', self.region, month)
 
     # Summary methods across all sites
     # --------------------------------
@@ -401,14 +403,25 @@ class Sites(SQLDataLoader):
         Returns: aggregate tracker statistics across all sites in database
 
         """
-        stats = self.get_snapshot()
+        cursor = self.db.connection.execute('''
+            SELECT
+            COUNT(site) as count,
+            AVG(tracked) as have_trackers,
+            COUNT(CASE WHEN trackers >= 10 THEN 1 ELSE NULL END) as gt10,
+            AVG(trackers) as average_nr_trackers,
+            AVG(requests_tracking) as requests_tracking,
+            AVG(content_length) as data
+            FROM sites_data
+            WHERE country=? AND month = ?
+        ''', (self.region, self.last_month))
+        result = cursor.fetchone()
         return {
-            'count': len(stats),
-            "have_trackers": stats.tracked.mean(),
-            'gt10': len(stats[stats.trackers >= 10]),
-            "average_nr_trackers": stats.trackers.mean(),
-            "tracker_requests": int(stats.requests_tracking.mean()),
-            'data': stats.content_length.mean()
+            'count': result[0],
+            'have_trackers': result[1],
+            'gt10': result[2],
+            'average_nr_trackers': result[3],
+            'tracker_requests': int(result[4]),
+            'data': result[5]
         }
 
     # Methods for one specific site
@@ -478,10 +491,16 @@ class SitesTrackers(SQLDataLoader):
 
 class Companies(SQLDataLoader):
 
-    def __init__(self, data_months, company_info, tracker_info, region='global'):
-        super().__init__(data_months, name='companies', region=region, id_column='company')
-        self.df['id'] = self.df['company']
-        self.df['name'] = pd.Series([
-            company_info.get(row.company, tracker_info.get(row.company, {})).get('name', row.company)
-            for row in self.df.itertuples()],
-            index=self.df.index)
+    def __init__(self, data_months, db, region='global', populate=True):
+        super().__init__(data_months, name='companies', db=db, region=region, id_column='company',
+                         extra_columns=['name'])
+        self.extra_column_select = [
+            'companies.name',
+        ]
+        self.extra_joins = '''
+            LEFT JOIN companies ON companies.id = companies_data.company
+        '''
+
+        if populate:
+            for month in data_months:
+                self.db.load_data('companies', self.region, month)
