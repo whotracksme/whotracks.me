@@ -61,8 +61,6 @@ class DataSource:
         )
         # self.companies = Companies(
         #     data_months=self.data_months,
-        #     company_info=self.company_info,
-        #     tracker_info=self.app_info,
         #     region=region,
         #     db=self.db
         # )
@@ -93,102 +91,89 @@ class DataSource:
             return result[0]
         return id
 
-class PandasDataLoader:
-
-    def __init__(self, data_months, name, db, region='global', id_column=None):
-        self.last_month = max(data_months)
-        self.db = db
-        for month in data_months:
-            self.db.load_data(name, region, month)
-
-    def iter(self):
-        for row in self.get_snapshot().itertuples():
-            yield (getattr(row, self.id_col), row)
-
-    def sort_by(self, metric="reach", descending=True):
-        """
-        Args:
-            metric:: string - Shared attribute of trackers to sort by
-            descending:: bool
-
-        Returns: list of tracker objects, sorted by metric
-
-        """
-        return self.get_snapshot().sort_values(by=[metric], ascending=not descending)
-
-    def get_snapshot(self, month=None):
-        return self.df[self.df.month == (month or self.last_month)]
-
-
 def parse_date(date_string):
     return datetime.strptime(date_string, '%Y-%m')
 
-TrackerDataPoint = namedtuple('TrackerDataPoint', 'id, month, country, tracker, company_id, category_id, category,' + ','.join(DATA_COLUMNS['trackers']))
 
-class Trackers():
+DataRowTypes = {
+    "trackers": namedtuple('TrackerDataPoint', 'id, month, country, tracker, company_id, category_id, category,' + ','.join(DATA_COLUMNS['trackers'])),
+}
 
-    TRACKERS_DATA_QUERY = f'''
-        SELECT
-                tracker AS id,
-                month,
-                country,
-                tracker,
-                trackers.company_id,
-                trackers.category_id,
-                categories.name AS category,
-                {','.join(DATA_COLUMNS['trackers'])}
-            FROM trackers_data
-            LEFT JOIN trackers ON trackers.id = trackers_data.tracker
-            LEFT JOIN categories ON trackers.category_id = categories.id
-        '''
+class SQLDataLoader:
 
-    def __init__(self, data_months, db, region='global', populate=True):
-        self.db = db
-        self.region = region
-        self.info = {}
+    def __init__(self, data_months, name, db, region='global', id_column=None, extra_columns=[]):
+        self.name = name
         self.last_month = max(data_months)
-        if populate:
-            for month in data_months:
-                self.db.load_data('trackers', self.region, month)
-            self.db.load_data('sites_trackers', self.region, self.last_month)
-            self.db.load_data('sites', self.region, self.last_month)
+        self.db = db
+        self.id_column = id_column
+        self.region = region
+        # infer table structure
+        self.columns = [row[1] for row in self.db.connection.execute(f'PRAGMA table_info("{self.name}_data")')]
+        self.rowType = namedtuple(f'{self.name}DataPoint', ','.join(['id'] + self.columns + extra_columns))
 
-        cursor = self.db.connection.cursor()
-        cursor.execute('''
-            SELECT tracker, MIN(month), MAX(month)
-            FROM trackers_data
-            WHERE country = ?
-            GROUP BY tracker
-        ''', (region,))
-        for tracker, month_min, month_max in cursor.fetchall():
-            if tracker in self.info:
-                self.info[tracker]['date_range'] = [parse_date(month_min), parse_date(month_max)]
-
-        for row in self.get_snapshot():
-            if row.id in self.info:
-                self.info[row.id]['overview'] = row._asdict()
+    def get_data_query(self):
+        return f'''
+            SELECT
+                {self.id_column} AS id,
+                {','.join(self.columns)}
+                {',' if len(self.extra_column_select) > 0 else ''}
+                {','.join(self.extra_column_select)}
+            FROM {self.name}_data
+            {self.extra_joins}
+        '''
 
     def sort_by(self, metric="reach", descending=True):
         cursor = self.db.connection.cursor()
         columns = ','.join(DATA_COLUMNS['trackers'])
         cursor.execute(f'''
-            {self.TRACKERS_DATA_QUERY}
+            {self.get_data_query()}
             WHERE country=? AND month = ?
             ORDER BY "{metric}" {'DESC' if descending else 'ASC'}
         ''', (self.region, self.last_month))
-        return list(map(TrackerDataPoint._make, cursor.fetchall()))
+        return list(map(self.rowType._make, cursor.fetchall()))
 
     def get_snapshot(self, month=None):
         cursor = self.db.connection.cursor()
         cursor.execute(f'''
-            {self.TRACKERS_DATA_QUERY}
-            WHERE country=? AND month = ?
+            {self.get_data_query()}
+            WHERE country = ? AND month = ?
         ''', (self.region, month or self.last_month))
-        return list(map(TrackerDataPoint._make, cursor.fetchall()))
+        return list(map(self.rowType._make, cursor.fetchall()))
 
     def iter(self):
         for row in self.get_snapshot():
             yield row.id, row
+
+    def get_datapoint(self, id, month=None):
+        result = self.db.connection.execute(f'''
+            {self.get_data_query()}
+            WHERE country= ? AND month = ? AND tracker = ?
+        ''', (self.region, month or self.last_month, id)).fetchone()
+        if result is not None:
+            return self.rowType._make(result)
+        return None
+
+class Trackers(SQLDataLoader):
+
+    def __init__(self, data_months, db, region='global', populate=True):
+        super().__init__(data_months, name='trackers', db=db, region=region, id_column='tracker',
+                         extra_columns=['company_id', 'category_id', 'category'])
+        self.extra_column_select = [
+            'trackers.company_id',
+            'trackers.category_id',
+            'categories.name AS category',
+        ]
+        self.extra_joins = '''
+            LEFT JOIN trackers ON trackers.id = trackers_data.tracker
+            LEFT JOIN categories ON trackers.category_id = categories.id
+        '''
+        self.info = {}
+
+        if populate:
+            for month in data_months:
+                self.db.load_data('trackers', self.region, month)
+            self.db.load_data('sites_trackers', self.region, self.last_month)
+            self.db.load_data('sites', self.region, self.last_month)
 
     # Summary methods across all trackers
     # -----------------------------------
@@ -263,13 +248,9 @@ class Trackers():
         if date_range is not None:
             tracker_info['date_range'] = [parse_date(date_range[1]), parse_date(date_range[2])]
 
-        cursor.execute(f'''
-            {self.TRACKERS_DATA_QUERY}
-            WHERE country= ? AND month = ? AND tracker = ?
-        ''', (self.region, self.last_month, id))
-        overview = cursor.fetchone()
+        overview = self.get_datapoint(id)
         if overview is not None:
-            tracker_info['overview'] = TrackerDataPoint._make(overview)._asdict()
+            tracker_info['overview'] = overview._asdict()
 
         self.info[id] = tracker_info
         return tracker_info
@@ -402,7 +383,7 @@ class Trackers():
             yield site
 
 
-class Sites(PandasDataLoader):
+class Sites(SQLDataLoader):
     def __init__(self, data_months, trackers, region='global', id_column='site'):
         super().__init__(data_months, name='sites', region=region)
         self.trackers = trackers
@@ -479,7 +460,7 @@ class Sites(PandasDataLoader):
                 for s in self.get_site(id).get('history')]
 
 
-class SitesTrackers(PandasDataLoader):
+class SitesTrackers(SQLDataLoader):
 
     def __init__(self, data_months, tracker_info, region='global'):
         super().__init__(data_months, name='sites_trackers', region=region)
@@ -495,7 +476,7 @@ class SitesTrackers(PandasDataLoader):
         return self.df[self.df.site == site]
 
 
-class Companies(PandasDataLoader):
+class Companies(SQLDataLoader):
 
     def __init__(self, data_months, company_info, tracker_info, region='global'):
         super().__init__(data_months, name='companies', region=region, id_column='company')

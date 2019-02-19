@@ -240,26 +240,27 @@ class WhoTracksMeDB:
         self.connection = sqlite3.connect('./whotracksme.db')
         existing_tables = self._get_existing_tables()
         # create tables
-        for table, create_statement in WhoTracksMeDB.TABLES.items():
-            if table not in existing_tables:
-                for stmt in create_statement:
-                    self.connection.execute(stmt)
+        with self.connection:
+            for table, create_statement in WhoTracksMeDB.TABLES.items():
+                if table not in existing_tables:
+                    for stmt in create_statement:
+                        self.connection.execute(stmt)
 
-        # import trackerdb
-        trackerdb_file = 'trackerdb.sql'
-        trackerdb_sql = asset_string('trackerdb.sql')
-        trackerdb_sql_hash = md5(trackerdb_sql.encode('utf-8')).hexdigest()
-        if 'trackers' not in existing_tables:
-            print('load trackers')
-            self.connection.executescript(trackerdb_sql)
-        elif trackerdb_sql_hash != self.get_file_checksum('trackerdb.sql'):
-            print('reload trackers')
-            for table in WhoTracksMeDB.TRACKER_TABLES:
-                self.connection.execute('DROP table ?;', (table,))
-            self.connection.executescript(trackerdb_sql)
-        self.update_file_checksum(trackerdb_file, trackerdb_sql_hash)
+            # import trackerdb
+            trackerdb_file = 'trackerdb.sql'
+            trackerdb_sql = asset_string('trackerdb.sql')
+            trackerdb_sql_hash = md5(trackerdb_sql.encode('utf-8')).hexdigest()
+            if 'trackers' not in existing_tables:
+                print('load trackers')
+                self.connection.executescript(trackerdb_sql)
+            elif trackerdb_sql_hash != self.get_file_checksum('trackerdb.sql'):
+                print('reload trackers')
+                for table in WhoTracksMeDB.TRACKER_TABLES:
+                    self.connection.execute('DROP table ?;', (table,))
+                self.connection.executescript(trackerdb_sql)
+            self.update_file_checksum(trackerdb_file, trackerdb_sql_hash)
 
-        self.connection.commit()
+            self.connection.commit()
 
     def _get_existing_tables(self):
         return [row[0] for row in self.connection.execute("SELECT name FROM sqlite_master WHERE type='table'")]
@@ -285,31 +286,32 @@ class WhoTracksMeDB:
         file_bytes = stream.read()
         file_hash = md5(file_bytes).hexdigest()
         if self.get_file_checksum(path) != file_hash:
-            print('update/create data for', path)
-            # delete old data
-            self.connection.execute(f'DELETE FROM {name}_data WHERE month=? AND country=?', (month, region))
-            # read in csv file and insert
-            reader = csv.DictReader(io.StringIO(file_bytes.decode('utf8')))
-            rows = []
-            name_columns = self.NAME_COLUMN_MAP[name]
+            with self.connection:
+                print('update/create data for', path)
+                # delete old data
+                self.connection.execute(f'DELETE FROM {name}_data WHERE month=? AND country=?', (month, region))
+                # read in csv file and insert
+                reader = csv.DictReader(io.StringIO(file_bytes.decode('utf8')))
+                rows = []
+                name_columns = self.NAME_COLUMN_MAP[name]
 
-            def parse_col_value(name, value):
-                try:
-                    if name in INT_COLUMNS:
-                        return int(value)
-                    return float(value)
-                except:
-                    return None
+                def parse_col_value(name, value):
+                    try:
+                        if name in INT_COLUMNS:
+                            return int(value)
+                        return float(value)
+                    except:
+                        return None
 
-            for row in reader:
-                rowtuple = [row['month'], row['country']] + \
-                    [row[col] for col in name_columns] + \
-                    [parse_col_value(col, row.get(col, '')) for col in DATA_COLUMNS[name]]
-                rows.append(tuple(rowtuple))
+                for row in reader:
+                    rowtuple = [row['month'], row['country']] + \
+                        [row[col] for col in name_columns] + \
+                        [parse_col_value(col, row.get(col, '')) for col in DATA_COLUMNS[name]]
+                    rows.append(tuple(rowtuple))
 
-            columns = ','.join(['?'] * (len(DATA_COLUMNS[name]) + len(name_columns) + 2))
-            self.connection.executemany(f'INSERT INTO {name}_data VALUES ({columns})', tuple(rows))
+                columns = ','.join(['?'] * (len(DATA_COLUMNS[name]) + len(name_columns) + 2))
+                self.connection.executemany(f'INSERT INTO {name}_data VALUES ({columns})', tuple(rows))
 
-            # update checksum
-            self.update_file_checksum(path, file_hash)
-            self.connection.commit()
+                # update checksum
+                self.update_file_checksum(path, file_hash)
+                self.connection.commit()
