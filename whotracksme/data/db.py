@@ -225,7 +225,8 @@ class WhoTracksMeDB:
             );'''.format(','.join([f'{col} {get_column_type(col)}' for col in DATA_COLUMNS['sites_trackers']])),
             'CREATE UNIQUE INDEX sites_trackers_data_pkey ON sites_trackers_data (month, country, site, tracker);',
             'CREATE INDEX sites_trackers_sites ON sites_trackers_data (month, country, site)',
-            'CREATE INDEX sites_trackers_trackers ON sites_trackers_data (month, country, tracker)'],
+            'CREATE INDEX sites_trackers_trackers ON sites_trackers_data (month, country, tracker)',
+            'CREATE INDEX sites_trackers_tracker_proportion ON sites_trackers_data (tracker_proportion)'],
     }
     TRACKER_TABLES = ['categories', 'companies', 'iab_vendors', 'tracker_domains', 'trackers', 'truste_companies']
     NAME_COLUMN_MAP = {
@@ -241,6 +242,11 @@ class WhoTracksMeDB:
         existing_tables = self._get_existing_tables()
         # create tables
         with self.connection:
+            # increase cache size
+            self.connection.execute('PRAGMA cache_size = -10000;')
+            # temp storage in memory
+            self.connection.execute('PRAGMA temp_store = 2;')
+
             for table, create_statement in WhoTracksMeDB.TABLES.items():
                 if table not in existing_tables:
                     for stmt in create_statement:
@@ -260,7 +266,8 @@ class WhoTracksMeDB:
                 self.connection.executescript(trackerdb_sql)
             self.update_file_checksum(trackerdb_file, trackerdb_sql_hash)
 
-            self.connection.commit()
+            # turn off journalling
+            self.connection.execute('PRAGMA journal_mode = OFF')
 
     def _get_existing_tables(self):
         return [row[0] for row in self.connection.execute("SELECT name FROM sqlite_master WHERE type='table'")]

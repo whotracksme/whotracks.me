@@ -133,11 +133,11 @@ class Builder:
 
                 # Trackers
                 trackers = [id for id, _ in data_source.trackers.iter()]
-                batched_job(trackers, build_tracker_page_batch, 50, "Generate tracker pages")
+                batched_job(trackers, build_tracker_page_batch, 200, "Generate tracker pages")
 
                 # Websites
                 websites = list(enumerate([id for id, _ in data_source.sites.iter()]))
-                batched_job(websites, build_website_pages_batch, 100, "Generate website pages")
+                batched_job(websites, build_website_pages_batch, 400, "Generate website pages")
                 build_website_list(data=data_source)
 
                 # Companies
@@ -173,7 +173,7 @@ class Builder:
                     build_tracker_db
                 ))
                 trackers = [id for id, _ in data_source.trackers.iter()]
-                batched_job(trackers, build_api_batch, 50, "Generate API pages")
+                batched_job(trackers, build_api_batch, 200, "Generate API pages")
 
             # TODO: uncomment when company profiles are ready
             # if args['site'] or args['companies']:
