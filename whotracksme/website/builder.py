@@ -125,6 +125,19 @@ class Builder:
                     print_progress(text=f"{message} {min((i+1) * batch_size, input_size)}/{input_size}")
                 return batches
 
+            # Explorer: depends on 'data/'
+            if event & DATA_FOLDER or event & STATIC_FOLDER:
+                futures.append(executor.submit(
+                    build_explorer,
+                ))
+
+            # Depends on: 'data/', 'blog/', 'templates/'
+            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
+                futures.append(executor.submit(
+                    generate_sitemap,
+                    blog_posts=self.blog_posts
+                ))
+
             # Depends on: 'data/', 'templates/'
             if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
                 # Home
@@ -133,7 +146,7 @@ class Builder:
 
                 # Trackers
                 trackers = [id for id, _ in data_source.trackers.iter()]
-                batched_job(trackers, build_tracker_page_batch, 200, "Generate tracker pages")
+                batched_job(trackers, build_tracker_page_batch, 150, "Generate tracker pages")
 
                 # Websites
                 websites = list(enumerate([id for id, _ in data_source.sites.iter()]))
@@ -155,25 +168,12 @@ class Builder:
                     blog_posts=self.blog_posts
                 )
 
-            # Depends on: 'data/', 'blog/', 'templates/'
-            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
-                futures.append(executor.submit(
-                    generate_sitemap,
-                    blog_posts=self.blog_posts
-                ))
-
-            # Explorer: depends on 'data/'
-            if event & DATA_FOLDER or event & STATIC_FOLDER:
-                futures.append(executor.submit(
-                    build_explorer,
-                ))
-
             if event & DATA_FOLDER:
                 futures.append(executor.submit(
                     build_tracker_db
                 ))
                 trackers = [id for id, _ in data_source.trackers.iter()]
-                batched_job(trackers, build_api_batch, 200, "Generate API pages")
+                batched_job(trackers, build_api_batch, 150, "Generate API pages")
 
             # TODO: uncomment when company profiles are ready
             # if args['site'] or args['companies']:
