@@ -129,13 +129,11 @@ class Builder:
                 # print('Tracker pages queue empty')
 
                 # build_tracker_pages(data=data_source)
-                # futures.append(executor.submit(build_trackers_list, data=data_source))
                 trackers = [id for id, _ in data_source.trackers.iter()]
-                n = 20
+                n = 20 # batch size
                 for batch in [trackers[i:i + n] for i in range(0, len(trackers), n)]:
                     futures.append(executor.submit(build_tracker_page_batch, batch=batch))
-                    # print(batch)
-                # futures.append(executor.submit(build_tracker_pages, data=data_source))
+                build_trackers_list(data=data_source)
 
                 # Websites
                 # futures.append(executor.submit(build_website_list, data=data_source))
