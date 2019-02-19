@@ -268,6 +268,7 @@ class WhoTracksMeDB:
 
             # turn off journalling
             self.connection.execute('PRAGMA journal_mode = OFF')
+        self.connection.execute('PRAGMA synchronous = OFF')
 
     def _get_existing_tables(self):
         return [row[0] for row in self.connection.execute("SELECT name FROM sqlite_master WHERE type='table'")]
