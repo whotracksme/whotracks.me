@@ -1,5 +1,4 @@
 from collections import defaultdict
-from time import time
 from jinja2 import Markup
 
 from whotracksme.data.loader import DataSource
@@ -87,7 +86,6 @@ def build_trackers_list(data):
 
 
 def tracker_page_data(tracker_id, tracker, data):
-    t1 = time()
     # Tracker Reach ts
     reach = data.trackers.get_reach(tracker_id)
 
