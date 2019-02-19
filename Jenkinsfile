@@ -26,7 +26,7 @@ node('docker && !gpu && eu-central-1') {
     img.inside() {
         try {
             stage('Install') {
-                sh("python -m pip install '.[dev]'")
+                sh("python -m pip install --user '.[dev]'")
             }
 
             stage('Test') {
@@ -39,7 +39,7 @@ node('docker && !gpu && eu-central-1') {
             }
 
             stage('Build site') {
-                sh('whotracksme website')
+                sh('/home/jenkins/.local/bin/whotracksme website')
             }
 
             stage('Publish artifacts') {
