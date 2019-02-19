@@ -6,7 +6,7 @@
     <div class="tab-content">
         <div id="frequency" class="tab-pane fade in active">
             <ul id="multi-column-list">
-                {% for tracker in tracker_list.sort_values('site_proportion', ascending=False).itertuples() %}
+                {% for tracker in tracker_list|sort(attribute='site_proportion', reverse=True) %}
                     <li>
                         {{loop.index}}.
                         <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>
@@ -27,7 +27,7 @@
 
         <div id="company" class="tab-pane fade">
             <ul id="multi-column-list">
-                {% for tracker in tracker_list.sort_values('company_id').itertuples() %}
+                {% for tracker in tracker_list|sort(attribute='company_id') %}
                     <li>
                         {{loop.index}}.
                         <a  href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>

@@ -386,6 +386,8 @@ class Trackers(SQLDataLoader):
             yield site
 
 
+SiteTrackerEntry = namedtuple('SiteTrackerEntry', 'site, tracker, name, category, company_id, company, site_proportion')
+
 class Sites(SQLDataLoader):
     def __init__(self, data_months, db, region='global', populate=True):
         super().__init__(data_months, name='sites', db=db, region=region, id_column='site',
@@ -394,6 +396,7 @@ class Sites(SQLDataLoader):
         if populate:
             for month in data_months:
                 self.db.load_data('sites', self.region, month)
+            self.db.load_data('sites_trackers', self.region, max(data_months))
 
     # Summary methods across all sites
     # --------------------------------
@@ -426,14 +429,31 @@ class Sites(SQLDataLoader):
 
     # Methods for one specific site
     # -----------------------------
-    def get_site(self, id):
-        return self.df[self.df.site == id]
-
     def get_name(self, id):
         # NOTE: This is weird
         return id if len(self.get_site(id)) > 0 else None
 
-    def trackers_on_site(self, id, trackers, companies):
+    def get_tracker_list(self, site, month=None):
+        query = '''
+            SELECT
+                site,
+                tracker,
+                trackers.name,
+                categories.name AS category,
+                CASE WHEN trackers.company_id IS NULL THEN '' ELSE trackers.company_id END AS company_id,
+                CASE WHEN companies.name IS NULL THEN '' ELSE companies.name END AS company,
+                site_proportion
+            FROM sites_trackers_data
+            JOIN trackers ON trackers.id = sites_trackers_data.tracker
+            JOIN categories ON trackers.category_id = categories.id
+            LEFT JOIN companies ON companies.id = trackers.company_id
+            WHERE month = ? AND sites_trackers_data.country = ?
+                AND site = ? AND category != "extensions"
+            ORDER BY site_proportion DESC
+        '''
+        return map(SiteTrackerEntry._make, self.db.connection.execute(query, (month or self.last_month, self.region, site)))
+
+    def trackers_on_site(self, site, month=None):
         """
         Args:
             id: a site dict from self._sites
@@ -445,22 +465,15 @@ class Sites(SQLDataLoader):
             category :: string,
             company_name :: string
         """
-
-        for t in self.trackers.get_site(id).sort_values('site_proportion', ascending=False).itertuples():
-            tracker_id = t.tracker
-            try:
-                tracker = trackers.get_tracker(tracker_id)
-                tracker['frequency'] = t.site_proportion
-            except TypeError:
+        for row in self.get_tracker_list(site, month):
+            if row.company == '':
                 continue
-            category = tracker.get('category', 'unknown')
-            if category == 'extensions' or category is None:
-                continue
-
-            cid = tracker.get('company_id')
-            company_name = companies.get(cid, {}).get('name') or tracker['name']
-
-            yield (tracker, category, company_name)
+            tracker = {
+                'id': row.tracker,
+                'name': row.name,
+                'frequency': row.site_proportion,
+            }
+            yield (tracker, row.category, row.company)
 
     def mean_trackers_timeseries(self, id):
         """
@@ -472,6 +485,20 @@ class Sites(SQLDataLoader):
         return [(s.get('ts'), s.get('mean_trackers'))
                 for s in self.get_site(id).get('history')]
 
+    def get_site_tracker_categories(self, site, month=None):
+        query = '''
+            SELECT
+                categories.name AS category,
+                COUNT(tracker) AS frequency
+            FROM sites_trackers_data
+            JOIN trackers ON trackers.id = sites_trackers_data.tracker
+            JOIN categories ON trackers.category_id = categories.id
+            WHERE month = ? AND sites_trackers_data.country = ?
+                AND site = ?
+            GROUP BY category
+            ORDER BY frequency DESC
+        '''
+        return self.db.connection.execute(query, (month or self.last_month, self.region, site))
 
 class SitesTrackers(SQLDataLoader):
 

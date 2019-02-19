@@ -33,15 +33,11 @@ def get_company_name(company_dict):
 
 
 def website_doughnout(site, data):
-    d = defaultdict(int)
+    category_dict = dict()
+    for category, frequency in data.sites.get_site_tracker_categories(site):
+        category_dict[category] = frequency
 
-    site_trackers = data.sites.trackers.get_site(site).tracker
-    ss = data.trackers.get_snapshot()
-    category_counts = ss[ss.tracker.isin(site_trackers)]\
-        .groupby('category').count().tracker.sort_values(ascending=False)
-    category_dict = dict(category_counts.iteritems())
-
-    return list(category_dict.values()), list(category_dict.keys()), category_counts.sum()
+    return list(category_dict.values()), list(category_dict.keys()), sum(category_dict.values())
 
 
 def tracker_map_data(site_id, data):
@@ -51,7 +47,7 @@ def tracker_map_data(site_id, data):
     link_value = []
     link_label = []
 
-    for (tracker, category, company) in data.sites.trackers_on_site(site_id, data.trackers, data.company_info):
+    for (tracker, category, company) in data.sites.trackers_on_site(site_id):
 
         # category node index in nodes
         if category in nodes:

@@ -5,6 +5,7 @@ from operator import itemgetter
 
 from jinja2 import Markup
 
+from whotracksme.data.loader import DataSource
 from whotracksme.website.utils import print_progress
 from whotracksme.website.build.companies import (
     tracker_map_data,
@@ -58,7 +59,7 @@ def website_page(template, site, rank, data):
     rendered_sankey = Markup(sankey_plot(sankey_data))
 
     # apps per site data
-    tracker_table = data.sites.trackers.get_site(site_id)
+    tracker_table = list(data.sites.get_tracker_list(site_id))
 
     with open('_site/websites/{}.html'.format(site.site), 'w') as output:
         output.write(render_template(
@@ -79,7 +80,18 @@ def website_page(template, site, rank, data):
 def build_website_pages(data):
     template = get_template(data, "website-page.html", path_to_root='..')
 
-    for (rank, site) in enumerate(data.sites.sort_by(metric='popularity', descending=True).itertuples()):
+    for (rank, site) in enumerate(data.sites.sort_by(metric='popularity', descending=True)):
         website_page(template, site, rank + 1, data)
 
     print_progress(text="Generate website pages")
+
+
+def build_website_pages_batch(batch):
+    data = DataSource(populate=False)
+    template = get_template(data, "website-page.html", path_to_root='..')
+
+    for rank, site in batch:
+        website_page(template,
+                     data.sites.get_datapoint(site),
+                     rank + 1,
+                     data)
