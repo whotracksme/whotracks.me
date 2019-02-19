@@ -13,7 +13,7 @@ class TestDataIntegrity(unittest.TestCase):
     def test_all_trackers_have_db_entry(self):
         trackers = self.ds.trackers
         cur = self.conn.cursor()
-        app_ids = trackers.get_snapshot().id
+        app_ids = [row.id for row in trackers.get_snapshot()]
         db_trackers = cur.execute('select id, category_id from trackers where id IN ({}) order by id'.format(
             ','.join(["'{}'".format(id) for id in app_ids])
         )).fetchall()
@@ -25,7 +25,7 @@ class TestDataIntegrity(unittest.TestCase):
     def test_all_companies_have_db_entry(self):
         companies = self.ds.companies
         cur = self.conn.cursor()
-        company_ids = sorted(companies.get_snapshot().id)
+        company_ids = sorted([row.id for row in companies.get_snapshot()])
 
         # company_id can be a company id or tracker id
         db_companies = cur.execute('select id from companies where id IN ({}) order by id'.format(
