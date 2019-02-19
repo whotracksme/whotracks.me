@@ -23,7 +23,7 @@ node('docker && !gpu && eu-central-1') {
         img = docker.build('whotracksme', '.')
     }
 
-    img.inside('-u 0:0') {
+    img.inside() {
         try {
             stage('Install') {
                 sh("python -m pip install '.[dev]'")
