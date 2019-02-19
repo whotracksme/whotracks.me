@@ -145,12 +145,12 @@ class Builder:
 
             # Depends on: 'data/', 'blog/', 'templates/'
             if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
-                build_blogpost_list(
-                    data=data_source,
+                futures.append(executor.submit(
+                    build_blogpost_pages,
                     blog_posts=self.blog_posts
-                )
+                ))
 
-                build_blogpost_pages(
+                build_blogpost_list(
                     data=data_source,
                     blog_posts=self.blog_posts
                 )
