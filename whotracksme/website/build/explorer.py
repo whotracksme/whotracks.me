@@ -3,9 +3,11 @@
 
 import json
 import shutil
+import csv
 from pathlib import Path
 from datetime import datetime
 
+from whotracksme.data.loader import DataSource
 from whotracksme.data.db import load_tracker_db, create_tracker_map
 from whotracksme.data.pack import pack_rows
 from whotracksme.website.utils import print_progress
@@ -75,7 +77,7 @@ def build_packed_data(data):
                 b"".join(
                     pack_rows(
                         fields=FIELDS,
-                        rows=getattr(data, data_source).get_snapshot().itertuples(),
+                        rows=getattr(data, data_source).get_snapshot(),
                     )
                 )
             )
@@ -83,19 +85,30 @@ def build_packed_data(data):
     print_progress(text="Generate packed data")
 
 
-def build_explorer(data):
+def table_to_csv(table, file):
+    columns = table.rowType._fields
+    with open(file, 'w') as fp:
+        writer = csv.writer(fp)
+        writer.writerow(columns)
+        for row in table.dump():
+            writer.writerow(row)
+
+
+def build_explorer():
+    data = DataSource(populate=False)
+
     build_packed_data(data)
 
     temp_folder = Path("temp")
     if not temp_folder.exists():
         temp_folder.mkdir()
 
-    data.trackers.df.to_csv("temp/trackers.csv")
-    data.sites.df.to_csv("temp/sites.csv")
-    data.companies.df.to_csv("temp/companies.csv")
-    data.sites_trackers.df.to_csv("temp/sites_trackers.csv")
+    table_to_csv(data.trackers, "temp/trackers.csv")
+    table_to_csv(data.sites, "temp/sites.csv")
+    table_to_csv(data.companies, "temp/companies.csv")
+    table_to_csv(data.sites_trackers, "temp/sites_trackers.csv")
 
-    month = datetime.strftime(max(data.trackers.df.month), '%Y-%m')
+    month = data.trackers.last_month
     shutil.make_archive(
         f"_site/data/wtm-data-{month}", "zip", "temp"
     )

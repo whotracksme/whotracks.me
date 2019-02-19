@@ -29,7 +29,7 @@ from whotracksme.website.templates import (
 )
 # from whotracksme.website.build.companies import build_company_pages
 from whotracksme.website.build.companies import build_company_reach_chart_page
-from whotracksme.website.build.data import build_tracker_db, build_api
+from whotracksme.website.build.data import build_tracker_db, build_api_batch
 from whotracksme.website.build.explorer import build_explorer
 
 from whotracksme.website.utils import print_progress
@@ -157,27 +157,23 @@ class Builder:
 
             # Depends on: 'data/', 'blog/', 'templates/'
             if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
-                generate_sitemap(
+                futures.append(executor.submit(
                     generate_sitemap,
-                    data=data_source,
                     blog_posts=self.blog_posts
-                )
+                ))
 
-            # if event & DATA_FOLDER:
-            #     futures.append(executor.submit(
-            #         build_tracker_db
-            #     ))
-            #     futures.append(executor.submit(
-            #         build_api,
-            #         data=data_source,
-            #     ))
+            # Explorer: depends on 'data/'
+            if event & DATA_FOLDER or event & STATIC_FOLDER:
+                futures.append(executor.submit(
+                    build_explorer,
+                ))
 
-            # # Explorer: depends on 'data/'
-            # if event & DATA_FOLDER or event & STATIC_FOLDER:
-            #     futures.append(executor.submit(
-            #         build_explorer,
-            #         data=data_source,
-            #     ))
+            if event & DATA_FOLDER:
+                futures.append(executor.submit(
+                    build_tracker_db
+                ))
+                trackers = [id for id, _ in data_source.trackers.iter()]
+                batched_job(trackers, build_api_batch, 50, "Generate API pages")
 
             # TODO: uncomment when company profiles are ready
             # if args['site'] or args['companies']:
