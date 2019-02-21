@@ -243,9 +243,7 @@ class WhoTracksMeDB:
         # create tables
         with self.connection:
             # increase cache size
-            self.connection.execute('PRAGMA cache_size = -10000;')
-            # temp storage in memory
-            self.connection.execute('PRAGMA temp_store = 2;')
+            self.connection.execute('PRAGMA cache_size = -20000;')
 
             for table, create_statement in WhoTracksMeDB.TABLES.items():
                 if table not in existing_tables:
@@ -267,8 +265,6 @@ class WhoTracksMeDB:
             self.update_file_checksum(trackerdb_file, trackerdb_sql_hash)
 
             # turn off journalling
-            self.connection.execute('PRAGMA journal_mode = OFF')
-        self.connection.execute('PRAGMA synchronous = OFF')
 
     def _get_existing_tables(self):
         return [row[0] for row in self.connection.execute("SELECT name FROM sqlite_master WHERE type='table'")]
@@ -322,4 +318,3 @@ class WhoTracksMeDB:
 
                 # update checksum
                 self.update_file_checksum(path, file_hash)
-                self.connection.commit()
