@@ -26,7 +26,7 @@ node('docker && !gpu && eu-central-1') {
     img.inside() {
         try {
             stage('Install') {
-                sh("python -m pip install --user '.[dev]'")
+                sh("python -m pip install --user -e '.[dev]'")
             }
 
             stage('Test') {
