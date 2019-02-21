@@ -228,7 +228,7 @@ class WhoTracksMeDB:
             'CREATE INDEX sites_trackers_trackers ON sites_trackers_data (month, country, tracker)',
             'CREATE INDEX sites_trackers_tracker_proportion ON sites_trackers_data (tracker_proportion)'],
     }
-    TRACKER_TABLES = ['categories', 'companies', 'iab_vendors', 'tracker_domains', 'trackers', 'truste_companies']
+    TRACKER_TABLES = ['categories', 'companies', 'iab_vendors', 'tracker_domains', 'trackers', 'truste_companies', 'urls']
     NAME_COLUMN_MAP = {
         'trackers': ['tracker'],
         'companies': ['company'],
@@ -260,7 +260,7 @@ class WhoTracksMeDB:
             elif trackerdb_sql_hash != self.get_file_checksum('trackerdb.sql'):
                 print('reload trackers')
                 for table in WhoTracksMeDB.TRACKER_TABLES:
-                    self.connection.execute('DROP table ?;', (table,))
+                    self.connection.execute(f'DROP table {table}')
                 self.connection.executescript(trackerdb_sql)
             self.update_file_checksum(trackerdb_file, trackerdb_sql_hash)
 
