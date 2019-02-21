@@ -9,7 +9,7 @@ before_install:
 
 install:
   - pip install -r requirements-dev.txt
-  - pip install '.[dev]'
+  - pip install -e '.[dev]'
   - whotracksme --help
 
 script:
