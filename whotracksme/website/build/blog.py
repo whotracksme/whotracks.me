@@ -109,4 +109,4 @@ def build_rss_feeds(blog_posts):
     feed.language("en")
     feed.logo(f"{base}/static/img/who-tracksme-logo.png")
 
-    feed.rss_file("_site/blog/rss-feed.xml")
+    feed.rss_file("_site/blog/feed.xml")
