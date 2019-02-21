@@ -1,7 +1,10 @@
 @import '../colors';
 
+$font-serif:  Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+
+
 h1, h2, h3, h4, h5 {
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: $font-serif;
     margin-top: 42px;
 }
 .img-container{
@@ -11,48 +14,37 @@ h1, h2, h3, h4, h5 {
     margin-left: auto;
     margin-right: auto;
 }
-.post-header {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 3rem;
-    .author {
-        margin-bottom: 7px;
-        font-weight: bold;
-    }
-    .date {
-        color: $grey-txt-color;
-        font-family: mono;
-        font-size: 13px;
-    }
-}
 .container-post{
+    font-family: $font-serif;
+    color: black;
+    font-size: 19px;
     max-width: 700px;
     padding-bottom: 126px;
 
     #post-title{
-        font-family: sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: 30px;
         color: #1A1925;
     }
-
+    .post-meta {
+        margin-bottom: 35px;
+        margin-top: -15px;
+    }
     #post-subtitle{
-        font-family: "Open Sans", sans-serif;
-        font-size: 16px;
-        line-height: 26px;
-        margin-bottom: 30px;
+        margin-top: 0 !important;
         color: $grey-txt-color;
+        line-height: 1.3;
     }
     h1{
-        font-size: 23px;
-
+        font-size: 29px;
+        font-weight: bold;
     }
     h2 {
-        font-size: 16px;
-        text-transform: uppercase;
+        font-size: 25px;
+        font-weight: bold;
     }
     h3 {
-        font-size: 16px;
+        font-size: 21px;
         font-weight: bold;
     }
     a{
@@ -69,26 +61,28 @@ h1, h2, h3, h4, h5 {
         border-bottom: solid 2px #CF635B;
     }
     p{
-        font-family: "Open Sans", sans-serif;
-        font-size: 16px;
-        color: #484848;
-        line-height: 26px;
+        line-height: 1.7;
+        font-size: 19px;
+        margin-top: 19px;
     }
     li{
-        font-family: "Open Sans", sans-serif;
+        line-height: inherit;
+    }
+    table {
         font-size: 16px;
-        color: #484848;
-        margin-bottom: 10px;
     }
     dt {
         font-weight: 700;
         margin-top: 25px;
-        font-size: 16px;
     }
-
     dd{
         line-height: 1.7;
         margin-left: 50px;
+    }
+    .footnote {
+        li {
+            margin-bottom: -10px;
+        }
     }
     img{
         width: 100%;
@@ -101,7 +95,7 @@ h1, h2, h3, h4, h5 {
     }
     .img-caption{
         font-style: italic;
-        font-size:13px !important;
+        font-size: 16px !important;
         color: #666;
         margin-top: -20px;
         margin-bottom: 30px;
@@ -109,11 +103,9 @@ h1, h2, h3, h4, h5 {
     blockquote {
         padding: 10px 20px;
         margin: 0 0 20px;
-        border-left: 5px solid #00aef0;
+        border-left: 5px solid black;
         p {
-            font-size: 19px !important;
-            color: #00aef0 !important;
-            font-style: italic !important;
+            margin-top: 0px;
         }
     }
 }

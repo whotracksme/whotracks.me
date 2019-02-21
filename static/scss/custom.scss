@@ -39,7 +39,7 @@ body{
 
 .breadcrumb-bar{
   border-top: solid 1px $light-blue-gray;
-  border-bottom: solid 1px $light-blue-gray; 
+  border-bottom: solid 1px $light-blue-gray;
   margin-top: -1px;
   height: 39px;
   background-color: transparent;
@@ -53,14 +53,14 @@ body{
     overflow: hidden;
     white-space: nowrap;
     margin: 0;
-    
+
     li + li:before {
       font-family: "FontAwesome";
       color: $grey-txt-color;
       content: "\f105 ";
-      padding: 0 15px;      
+      padding: 0 15px;
     }
-   
+
     a{
       font-family: "Open Sans";
       color: inherit;
@@ -76,8 +76,8 @@ p {
   font-size: 16px;
 }
 
-.top-buffer { 
-  padding-top:40px; 
+.top-buffer {
+  padding-top:40px;
 }
 
 .bottom-buffer {
@@ -185,7 +185,7 @@ p {
   background-color: white;
 }
 
-/* AUTOCOMPLETE STYLING */ 
+/* AUTOCOMPLETE STYLING */
 * {
   box-sizing: border-box;
 }
@@ -201,7 +201,7 @@ p {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
-} 
+}
 .autocomplete-items {
   background: white;
   position: absolute;
@@ -238,7 +238,7 @@ p {
     }
     a:focus{
       color: white;
-    }    
+    }
   }
   .autocomplete-active{
     /*when navigating through the items using the arrow keys:*/
@@ -292,10 +292,9 @@ p {
 }
 
 footer {
-  background-color: $light-blue-bg;
+  background: white;
   color: #fff;
   padding: 30px 0 70px 0;
-  font-size: 13px;
   color: $grey-txt-color;
   border-top: solid 1px $light-blue-gray;
   margin-top: -1px;
@@ -307,28 +306,35 @@ footer {
   }
 
   .menu {
-    a {
-      margin-right: 7px;
+    margin-bottom: 30px;
+    .margin-left {
+      margin-left: 32px;
     }
-
-    .divisor {
-      margin-right: 7px;
-    }
-
-    .copyright {
-      margin-top: 5px;
+    ul {
+      padding-left: 0px !important;
+      li {
+        list-style: none;
+        margin-bottom: 15px;
+        font-size: 16px;
+        i {
+          min-width: 25px;
+        }
+        a {
+          color: $grey-txt-color;
+        }
+      }
     }
   }
-
   .logos {
-    text-align: right;
-
     a {
       text-decoration: none;
     }
 
     span {
       display: inline-block;
+    }
+    .copyright {
+      margin-top: 15px;
     }
 
     .cliqz-logo {
@@ -422,7 +428,7 @@ footer {
             background: #4f5f64;
           }
         }
-    
+
 
         &.active > a,
         &.active > a:focus {
@@ -751,12 +757,5 @@ footer {
     float: none;
     text-align: center;
     width: 100%;
-  } 
-
-  footer  {
-    .logos {
-      text-align: left;
-      margin-top: 30px;
-    }
   }
 }
