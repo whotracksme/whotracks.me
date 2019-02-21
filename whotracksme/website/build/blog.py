@@ -1,6 +1,7 @@
 import os
 import calendar
 from datetime import datetime
+from whotracksme.data.loader import DataSource
 from whotracksme.website.utils import print_progress
 from whotracksme.website.templates import render_template, get_template
 from feedgen.feed import FeedGenerator
@@ -48,7 +49,9 @@ def build_blogpost_list(data, blog_posts):
     print_progress(text="Generate blog list")
 
 
-def build_blogpost_pages(data, blog_posts):
+def build_blogpost_pages(blog_posts):
+    data = DataSource(populate=False)
+
     for blog_post in blog_posts:
         # TODO: Move template out after footnotes markdown extension does
         # not save global state
