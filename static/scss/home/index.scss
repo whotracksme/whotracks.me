@@ -118,14 +118,15 @@ $font-serif:  Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", 
   }
 }
 
-
 .svg-container {
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  box-shadow: 8px 14px 38px rgba(39,44,49,0.06), 1px 3px 8px rgba(39,44,49,0.03);
 }
 .plot-caption{
   font-size: 14px;
   color: $grey-txt-color;
   margin-top: 10px;
+  font-family: 'FiraMono-Regular', monospace;
 }
 
 .home-plot {

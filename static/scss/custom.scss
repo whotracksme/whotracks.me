@@ -38,8 +38,6 @@ body{
 }
 
 .breadcrumb-bar{
-  border-top: solid 1px $light-blue-gray;
-  border-bottom: solid 1px $light-blue-gray;
   margin-top: -1px;
   height: 39px;
   background-color: transparent;
@@ -291,6 +289,15 @@ p {
   }
 }
 
+.privacy-policy {
+  margin-top: 100px;
+  margin-bottom: 150px;
+  max-width: 800px;
+  li {
+    list-style: none;
+  }
+}
+
 footer {
   background: white;
   color: #fff;
@@ -530,7 +537,8 @@ footer {
 .overview-header-box {
   background: #fff;
   margin-bottom: 40px;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+  box-shadow: 8px 14px 38px rgba(39,44,49,.06),1px 3px 8px rgba(39,44,49,.03);;
+  border-radius: 4px;
   padding: 20px 0 30px 25px;
 
   h3 {
