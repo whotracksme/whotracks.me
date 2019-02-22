@@ -1,5 +1,5 @@
 title: Updating our tracking prevalence metrics
-subtitle: Making metrics that make more sense.
+subtitle: Metrics that make more sense.
 author: privacy team
 type: article
 publish: True
@@ -11,10 +11,10 @@ header_img: blog/updating-prevalence-metrics/header.jpg
 This month we updated the site with data from over 800 million page loads during January. In this
 data release we have also made a change to one of the main figures that we publish - `site reach`.
 Metrics are as good as their ability to capture a simplified version of reality. The
-main motivation for redefining `site reach` attempts to achieve exactly that - simplify the
+main motivation for redefining `site reach` attempts is exactly that - simplify the
 understanding of prevalence.
 
-The site reach stat was conceived as a measure of how many different sites a tracker has some
+The site reach stat was conceived as a measure of the number of different sites a tracker has some
 presence. In contrast to `reach` - the proportion of pages loading a tracker - it shows how spread
 around the web a tracker is.
 
@@ -30,8 +30,8 @@ The relationship between reach and site reach paints an interesting picture of p
 - High reach and high site reach - Ubiquitous presence across both popular and less popular sites;
 A common example of that would be [Google Analytics](../trackers/google_analytics.html).
 - High reach and low site reach - Present primarily on few popular, high-traffic sites;
-One such example would be [Wikimedia](../trackers/wikimedia.org.html), which is due to
-Wikipedia's popularity is loaded very often (hence high reach), but present on few sites
+One such example would be [Wikimedia](../trackers/wikimedia.org.html), which, due to
+Wikipedia's popularity, is loaded very often (hence high reach), but present on few sites
 resulting in a low(er) site reach. Another example, for similar reasons, would be
 [Ebay Stats](../trackers/ebay.html),
 - Low reach and high site reach - Only appearing rarely on many sites, e.g. only on a small number
@@ -70,8 +70,8 @@ low(er)-volume subpages of a given website (e.g. payment pages).
     traffic - and secondly, the low data volume increases the noise involved in measuring presence.
 
 Due to these difficulties and the complexities arising when explaining site reach, we
-deceded to redefine this metric - making it simpler and more intuitive to the reader, while
-still capturing the prevaluence of the tracker.
+decided to redefine this metric - making it simpler and more intuitive to the reader, while
+still capturing the prevalence of the tracker.
 
 Given that the top 10,000 sites account for 75% of page loads in our data, we decided to measure
 the presence across this fixed set of sites. By fixing the denominator of our formula the output
@@ -89,7 +89,7 @@ As of now the data is updated to use this new metric, under the `site_reach_top1
 
 - [Google Analytics](../trackers/google_analytics.html) went from being present on 70% of all websites to 8,871 of the top 10k, and there are only 539 sites in the top 10k which _don't_ use [Google Fonts](../trackers/google_fonts.html) on any page.
 - Of the top 1,000 trackers on WhoTracks.Me, only 47 are on over 1,000 sites, and 331 over 100
-sites. This shows just how dominated the tracking landscape by a few trackers monopolising user data.
+sites. This shows just how dominated the tracking landscape is by a few trackers monopolising user data.
 - The mean site reach for the top 1,000 trackers has been increasing over the last 5 months, from
 210 sites last September, to 255 in January.
 
