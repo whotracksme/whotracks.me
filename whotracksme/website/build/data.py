@@ -15,9 +15,12 @@ def build_tracker_json(tracker_id, data):
     stats = data.trackers.get_tracker(tracker_id)
     stats['overview'] = dict(stats['overview'])
     # drop some columns
-    for col in ['companies', 'month', 'trackers', 'tracker', 'id', 'company_id', 'category', 'country', 'site_reach']:
+    for col in ['companies', 'month', 'trackers', 'tracker', 'id', 'company_id', 'category', 'country', 'site_reach', 'category_id']:
         del stats['overview'][col]
     stats['date_range'] = [date.strftime('%Y-%m') for date in stats['date_range']]
+    stats['reach_time_series'] = data.trackers.get_reach(tracker_id)
+    stats['reach_time_series']['ts'] = [month.strftime('%Y-%m') for month in stats['reach_time_series']['ts']]
+    stats['presence_by_category'] = data.trackers.get_presence_by_site_category(tracker_id)
     # print(stats)
     with open(f'_site/data/trackers/global/{tracker_id}.json', 'w') as output:
         json.dump(stats, output)

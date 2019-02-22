@@ -231,6 +231,7 @@ class Trackers(SQLDataLoader):
                 t.website_url,
                 t.ghostery_id,
                 t.company_id,
+                com.name AS company_name,
                 iab.id AS iab_vendor,
                 truste.type AS truste_type,
                 truste.description,
@@ -243,8 +244,8 @@ class Trackers(SQLDataLoader):
             LEFT JOIN truste_companies as truste ON truste.tracker = t.id
             WHERE t.id = ?
             ''', (id,))
-        cols = ['id', 'name', 'category', 'website_url', 'ghostery_id', 'company_id', 'iab_vendor',
-            'truste_type', 'description', 'truste_privacy_url',
+        cols = ['id', 'name', 'category', 'website_url', 'ghostery_id', 'company_id',
+            'company_name', 'iab_vendor', 'truste_type', 'description', 'truste_privacy_url',
             'privacy_url']
         row = cursor.fetchone()
         tracker_info = {c: row[i] for i, c in enumerate(cols)}
