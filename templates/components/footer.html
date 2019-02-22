@@ -1,52 +1,83 @@
 <!-- FOOTER -->
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12 menu">
-                <a href="/privacy-policy.html">
-                    Privacy Policy
-                </a>
-                <span class="divisor">&#x2027;</span>
-                <a target="_blank" href="https://cliqz.com/en/about">
-                    About
-                </a>
-                <span class="divisor">&#x2027;</span>
-                <a target="_blank" href="https://cliqz.com/en/about/careers">
-                    Careers
-                </a>
-                <span class="divisor">&#x2027;</span>
-                <a target="_blank" href="https://cliqz.com/en/download">
-                    Cliqz browser
-                </a>
-                <span class="divisor">&#x2027;</span>
-                <a target="_blank" href="https://www.ghostery.com/en/products/">
-                    Ghostery add-on
-                </a>
-                <span class="divisor">&#x2027;</span>
-                <i class="fa fa fa-github"></i>
-                <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
-                    Get the data
-                </a>
-                <div class="copyright">
-                    &copy; Cliqz - All rights reserved. Last updated on {{ TODAY }}
-                </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="{{PATH_TO_ROOT}}/blog/feed.xml">
+              RSS
+            </a>
+          </li>
 
-            </div>
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
 
-            <div class="col-md-6 col-sm-6 col-xs-12 logos">
-                <a href="https://cliqz.com/en/" target="_blank">
-                    <span class="cliqz-logo"></span>
-                </a>
-                <a href="https://www.ghostery.com/" target="_blank">
-                    <span class="ghostery-logo"></span>
-                </a>
-            </div>
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz - All rights reserved.
         </div>
-    </div>
+        <div>Last updated on {{ TODAY }}</div>
+      </div>
 
-    <!-- Local javascript modules -->
-    <script src="{{PATHS.static}}/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{{ PATHS.static }}/js/search.js"></script>
+
+
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="{{PATHS.static}}/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ PATHS.static }}/js/search.js"></script>
 
 
 </footer>

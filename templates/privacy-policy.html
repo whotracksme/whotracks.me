@@ -1,30 +1,25 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>WhoTracks.me - Bringing Transparency to Online Tracking</title>
-    <meta name="description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
+<title>WhoTracks.me - Bringing Transparency to Online Tracking</title>
+<meta name="description"
+  content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
 {% endblock %}
 
 {% block og_params %}
-    <!-- OG params for sharable content -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://whotracks.me">
-    <meta property="og:title" content="WhoTracks.me - Privacy Policy">
-    <meta property="og:description" content="">
-    <meta property="og:image" content="https://whotracks.me/{{PATHS.static|absolute_og_urls}}/img/tracking-matrix-bluebg.png">
-{% endblock %}
-
-{% set active_page='home' %}
-
-
-{% block extra_styling %}
-        <link rel="stylesheet" href="{{PATHS.static}}/css/blog/post.css">
+<!-- OG params for sharable content -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whotracks.me">
+<meta property="og:title" content="WhoTracks.me - Privacy Policy">
+<meta property="og:description" content="">
+<meta property="og:image"
+  content="https://whotracks.me/{{PATHS.static|absolute_og_urls}}/img/tracking-matrix-bluebg.png">
 {% endblock %}
 
 
 {% block content %}
 <div>
-    <div class="container container-post">
+  <div class="container privacy-policy">
 
     <h1>Privacy Policy</h1>
     <br />
@@ -34,26 +29,31 @@
     <br />
 
     <div class="row">
-        <div class="panel panel-body">
-        <div class="col-md-5 col-sm-6 col-xs-12 menu">
-            <p>Cliqz GmbH</p>
+      <div class="col-md-5 col-sm-6 col-xs-12">
+        <ul>
+          <li>Cliqz GmbH</li>
+          <li>Arabellastrasse 23</li>
+          <li>81925 Munich, Germany</li>
+          <li>phone: +49 89 9250 1055</li>
+          <li>email: info[at]cliqz[dot]com</li>
+          <li>internet: www.cliqz.com</li>
+        </ul>
+      </div>
+      <div class="col-md-7 col-sm-6 col-xs-12">
+        <ul>
+          <li>Register court: Amtsgericht Munich </li>
+          <li>Trade register number: HRB 173779 </li>
+          <li>Managing directors: Dr. Marc Al-Hames, Jean-Paul Schmetz</li>
+          <li>Value-added tax identification number, in accordance with § 27 of the Umsatzsteuergesetz: DE
+            260117842</li>
+          <li>Responsible in terms of content, in accordance with § 55 Abs. 2 RStV: Jean-Paul Schmetz (address
+            as stated)</li>
+          <li>Liability note: Despite careful content control we assume no liability for the content of
+            external links. </li>
+          <li>For the corresponding content of linked pages, their administrators are responsible.</li>
 
-            <p>Arabellastrasse 23</p>
-            <p>81925 Munich, Germany</p>
-            <p>phone: +49 89 9250 1055</p>
-            <p>email: info[at]cliqz[dot]com</p>
-            <p>internet: www.cliqz.com</p>
-        </div>
-        <div class="col-md-7 col-sm-6 col-xs-12 menu">
-            <p>Register court: Amtsgericht Munich </p]>
-            <p>Trade register number: HRB 173779 </p>
-            <p>Managing directors: Dr. Marc Al-Hames, Jean-Paul Schmetz</p>
-            <p>Value-added tax identification number, in accordance with § 27 of the Umsatzsteuergesetz: DE 260117842</p>
-            <p>Responsible in terms of content, in accordance with § 55 Abs. 2 RStV: Jean-Paul Schmetz (address as stated)</p>
-            <p>Liability note: Despite careful content control we assume no liability for the content of external links. </p>
-            <p>For the corresponding content of linked pages, their administrators are responsible.</p>
-        </div>
-        </div>
+        </ul>
+      </div>
     </div>
 
 
@@ -61,8 +61,7 @@
 
     This data privacy statement informs users of the nature, scope and purpose of the
     collection and use of personal data on this website by Cliqz GmbH
-    (hereinafter: the “Provider”), Arabellastr. 23, 81925 Munich, Germany;
-    email: info[at]cliqz[dot]com, phone +49 89 9250 1055.
+    (hereinafter: the “Provider”).
 
     The provisions of the German Federal Data Protection Act (BDSG) and the German
     Telemedia Act (TMG) form the legal basis for data privacy. Our Data Protection Officer
@@ -79,7 +78,7 @@
 
     We log requests to our website via
     <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html">
-    CloudFront's logging mechanism</a>. These logs, which contain visitors' IP
+      CloudFront's logging mechanism</a>. These logs, which contain visitors' IP
     addresses, are anonymised daily with a process which encrypts this IP with a
     key that is subsequently destroyed. After this step, the original IP addresses
     can not longer be recovered. The original CloudFront logs are deleted
@@ -96,7 +95,7 @@
     that serves the site, which is already configured to maximum privacy settings,
     bound by a legal contract.
 
-    </div>
+  </div>
 </div>
 
 {% endblock %}

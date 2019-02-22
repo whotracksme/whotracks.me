@@ -11,6 +11,7 @@ from whotracksme.website.build.home import build_home, build_privacy_policy
 from whotracksme.website.build.blog import (
     build_blogpost_list,
     build_blogpost_pages,
+    build_rss_feeds,
     load_blog_posts
 )
 from whotracksme.website.build.websites import (
@@ -139,6 +140,7 @@ class Builder:
                     blog_posts=self.blog_posts
                 ))
 
+
             # Depends on: 'data/', 'templates/'
             if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
                 # Home
@@ -161,6 +163,11 @@ class Builder:
             if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
                 futures.append(executor.submit(
                     build_blogpost_pages,
+                    blog_posts=self.blog_posts
+                ))
+
+                futures.append(executor.submit(
+                    build_rss_feeds,
                     blog_posts=self.blog_posts
                 ))
 
