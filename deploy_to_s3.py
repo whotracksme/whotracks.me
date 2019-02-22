@@ -12,7 +12,7 @@ import os
 import boto3
 from docopt import docopt
 from mimetypes import MimeTypes
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
 
 def iterate_bucket(s3_client, bucket_name, bucket_prefix):
     pageinator = s3_client.get_paginator('list_objects_v2')
@@ -128,16 +128,19 @@ if __name__ == '__main__':
             # upload, no redirect
             return True, False
 
-    with ThreadPoolExecutor(max_workers=5) as executor:
+    with ProcessPoolExecutor(max_workers=8) as executor:
+        uploads = []
         for (dirpath, dirnames, filenames) in os.walk(site_dir):
             print('Enter', dirpath)
             files_to_upload = [f for f in filenames if not f[0] == '.']
-            uploads = executor.map(upload_file_to_s3, [dirpath] * len(files_to_upload), files_to_upload)
+            for filename in files_to_upload:
+                uploads.append(executor.submit(upload_file_to_s3, dirpath, filename))
 
-            for (did_upload, did_rediect) in uploads:
-                if did_upload:
-                    uploaded += 1
-                if did_rediect:
-                    redirected += 1
+        for future in uploads:
+            did_upload, did_redirect = future.result()
+            if did_upload:
+                uploaded += 1
+            if did_redirect:
+                redirected += 1
 
     print(f'Complete: uploaded {uploaded}, redirected {redirected}')

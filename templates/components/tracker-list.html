@@ -10,7 +10,7 @@
 
             <ul id="multi-column-list">
 
-                {% for tracker in tracker_list[5:].itertuples() %}
+                {% for tracker in tracker_list[5:] %}
                     <li>
                         {{loop.index + 5}}.
                         <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.id|get_app_name }}</a>
@@ -29,7 +29,7 @@
                 {% include "components/top-5-trackers.html" %}
             {% endwith %}
             <ul id="multi-column-list">
-                {% for tracker in trackers_list_company[5:].itertuples() %}
+                {% for tracker in trackers_list_company[5:] %}
                     <li>
                         {{loop.index + 5}}.
                         <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.id|get_app_name }}</a>
