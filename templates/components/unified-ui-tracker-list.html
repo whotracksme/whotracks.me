@@ -6,7 +6,7 @@
     <div class="tab-content">
         <div id="popularity" class="tab-pane fade in active">
             <ul id="multi-column-list">
-                {% for tracker in tracker_list.itertuples() %}
+                {% for tracker in tracker_list %}
                     <li>
                         {{loop.index}}.
                         <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>
@@ -35,7 +35,7 @@
 
         <div id="category" class="tab-pane fade">
             <ul id="multi-column-list">
-                {% for tracker in trackers_list_company.itertuples() %}
+                {% for tracker in trackers_list_company %}
                     <li>
                         {{loop.index}}.
                         <a  href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.tracker|get_app_name }}</a>

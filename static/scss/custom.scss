@@ -38,8 +38,6 @@ body{
 }
 
 .breadcrumb-bar{
-  border-top: solid 1px $light-blue-gray;
-  border-bottom: solid 1px $light-blue-gray; 
   margin-top: -1px;
   height: 39px;
   background-color: transparent;
@@ -53,14 +51,14 @@ body{
     overflow: hidden;
     white-space: nowrap;
     margin: 0;
-    
+
     li + li:before {
       font-family: "FontAwesome";
       color: $grey-txt-color;
       content: "\f105 ";
-      padding: 0 15px;      
+      padding: 0 15px;
     }
-   
+
     a{
       font-family: "Open Sans";
       color: inherit;
@@ -76,8 +74,8 @@ p {
   font-size: 16px;
 }
 
-.top-buffer { 
-  padding-top:40px; 
+.top-buffer {
+  padding-top:40px;
 }
 
 .bottom-buffer {
@@ -185,7 +183,7 @@ p {
   background-color: white;
 }
 
-/* AUTOCOMPLETE STYLING */ 
+/* AUTOCOMPLETE STYLING */
 * {
   box-sizing: border-box;
 }
@@ -201,7 +199,7 @@ p {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
-} 
+}
 .autocomplete-items {
   background: white;
   position: absolute;
@@ -238,7 +236,7 @@ p {
     }
     a:focus{
       color: white;
-    }    
+    }
   }
   .autocomplete-active{
     /*when navigating through the items using the arrow keys:*/
@@ -291,44 +289,55 @@ p {
   }
 }
 
+.privacy-policy {
+  margin-top: 100px;
+  margin-bottom: 150px;
+  max-width: 800px;
+  li {
+    list-style: none;
+  }
+}
+
 footer {
-  background-color: $light-blue-bg;
-  color: #fff;
-  padding: 30px 0 70px 0;
-  font-size: 13px;
+  background: $light-blue-bg;
+  padding-top: 42px;
+  padding-bottom: 42px;
   color: $grey-txt-color;
-  border-top: solid 1px $light-blue-gray;
-  margin-top: -1px;
   z-index: 3;
   position: relative;
-
   a {
     color: $link-color;
   }
 
   .menu {
-    a {
-      margin-right: 7px;
+    .margin-left {
+      margin-left: 32px;
     }
-
-    .divisor {
-      margin-right: 7px;
-    }
-
-    .copyright {
-      margin-top: 5px;
+    ul {
+      padding-left: 0px !important;
+      li {
+        list-style: none;
+        margin-bottom: 15px;
+        font-size: 14px;
+        i {
+          min-width: 25px;
+        }
+        a {
+          color: $grey-txt-color;
+        }
+      }
     }
   }
-
   .logos {
-    text-align: right;
-
     a {
       text-decoration: none;
     }
 
     span {
       display: inline-block;
+    }
+    .copyright {
+      margin-top: 15px;
     }
 
     .cliqz-logo {
@@ -422,7 +431,7 @@ footer {
             background: #4f5f64;
           }
         }
-    
+
 
         &.active > a,
         &.active > a:focus {
@@ -524,7 +533,8 @@ footer {
 .overview-header-box {
   background: #fff;
   margin-bottom: 40px;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+  box-shadow: 8px 14px 38px rgba(39,44,49,.06),1px 3px 8px rgba(39,44,49,.03);;
+  border-radius: 4px;
   padding: 20px 0 30px 25px;
 
   h3 {
@@ -751,12 +761,5 @@ footer {
     float: none;
     text-align: center;
     width: 100%;
-  } 
-
-  footer  {
-    .logos {
-      text-align: left;
-      margin-top: 30px;
-    }
   }
 }

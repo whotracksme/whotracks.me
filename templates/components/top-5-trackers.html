@@ -1,7 +1,7 @@
 <div class="row top-5-trackers">
     <div class="col-md-6 col-sm-6">
         <ul class="top-5-list">
-            {% for tracker in tracker_list[:5].itertuples() %}
+            {% for tracker in tracker_list[:5] %}
                 <li>
                     {{loop.index}}.
                         <a href="{{ 'tracker'|url_for(tracker.tracker) }}" class="entity-name">{{ tracker.id|get_app_name }}</a>

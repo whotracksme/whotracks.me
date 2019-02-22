@@ -4,21 +4,25 @@
 
 import concurrent.futures
 
+from pathlib import Path
 from whotracksme.data.loader import DataSource
 
 from whotracksme.website.build.home import build_home, build_privacy_policy
 from whotracksme.website.build.blog import (
     build_blogpost_list,
     build_blogpost_pages,
+    build_rss_feeds,
     load_blog_posts
 )
 from whotracksme.website.build.websites import (
     build_website_list,
-    build_website_pages
+    build_website_pages_batch,
 )
 from whotracksme.website.build.trackers import (
     build_trackers_list,
-    build_tracker_pages,
+    tracker_page_data,
+    tracker_page,
+    build_tracker_page_batch
 )
 from whotracksme.website.templates import (
     create_site_structure,
@@ -27,7 +31,7 @@ from whotracksme.website.templates import (
 )
 # from whotracksme.website.build.companies import build_company_pages
 from whotracksme.website.build.companies import build_company_reach_chart_page
-from whotracksme.website.build.data import build_tracker_db, build_api
+from whotracksme.website.build.data import build_tracker_db, build_api_batch
 from whotracksme.website.build.explorer import build_explorer
 
 from whotracksme.website.utils import print_progress
@@ -73,7 +77,7 @@ class Builder:
 
     def feed_event(self, event):
         futures = []
-        with concurrent.futures.ProcessPoolExecutor(max_workers=9) as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
             ###################################################################
             # This needs to be first, as other tasks will need to write in   #
             # the resulting folders.                                          #
@@ -112,61 +116,76 @@ class Builder:
                 print_progress(text='Generate error pages')
                 copy_custom_error_pages(data=data_source)
 
-            # Depends on: 'data/', 'templates/'
-            if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
-                # Home
-                # build_home(data=data_source)
-                futures.append(executor.submit(build_home, data=data_source))
-                futures.append(executor.submit(build_privacy_policy, data=data_source))
+            def batched_job(inp, batch_fn, batch_size, message):
+                batches = []
+                input_size = len(inp)
+                for batch in [inp[i:i + batch_size] for i in range(0, input_size, batch_size)]:
+                    submission = executor.submit(batch_fn, batch=batch)
+                    batches.append(submission)
+                    futures.append(submission)
+                for i, f in enumerate(concurrent.futures.as_completed(batches)):
+                    print_progress(text=f"{message} {min((i+1) * batch_size, input_size)}/{input_size}")
+                return batches
 
-                # Trackers
-                futures.append(executor.submit(build_trackers_list, data=data_source))
-                futures.append(executor.submit(build_tracker_pages, data=data_source))
-
-                # Websites
-                futures.append(executor.submit(build_website_list, data=data_source))
-                futures.append(executor.submit(build_website_pages, data=data_source))
-
-                # Companies
-                futures.append(executor.submit(build_company_reach_chart_page, data=data_source))
-
-            # Depends on: 'data/', 'blog/', 'templates/'
-            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
+            # Explorer: depends on 'data/'
+            if event & DATA_FOLDER or event & STATIC_FOLDER:
                 futures.append(executor.submit(
-                    build_blogpost_list,
-                    data=data_source,
-                    blog_posts=self.blog_posts
-                ))
-
-                futures.append(executor.submit(
-                    build_blogpost_pages,
-                    data=data_source,
-                    blog_posts=self.blog_posts
+                    build_explorer,
                 ))
 
             # Depends on: 'data/', 'blog/', 'templates/'
             if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
                 futures.append(executor.submit(
                     generate_sitemap,
-                    data=data_source,
                     blog_posts=self.blog_posts
                 ))
+
+
+            # Depends on: 'data/', 'templates/'
+            if event & DATA_FOLDER or event & TEMPLATES_FOLDER:
+                # Home
+                build_home(data=data_source)
+                build_privacy_policy(data=data_source)
+
+                # Trackers
+                trackers = [id for id, _ in data_source.trackers.iter()]
+                batched_job(trackers, build_tracker_page_batch, 150, "Generate tracker pages")
+                build_trackers_list(data=data_source)
+
+                # Websites
+                websites = list(enumerate([id for id, _ in data_source.sites.iter()]))
+                batched_job(websites, build_website_pages_batch, 400, "Generate website pages")
+                build_website_list(data=data_source)
+
+                # Companies
+                build_company_reach_chart_page(data=data_source)
+
+            # Depends on: 'data/', 'blog/', 'templates/'
+            if event & DATA_FOLDER or event & BLOG_FOLDER or event & TEMPLATES_FOLDER:
+                futures.append(executor.submit(
+                    build_blogpost_pages,
+                    blog_posts=self.blog_posts
+                ))
+
+                futures.append(executor.submit(
+                    build_rss_feeds,
+                    blog_posts=self.blog_posts
+                ))
+
+                build_blogpost_list(
+                    data=data_source,
+                    blog_posts=self.blog_posts
+                )
 
             if event & DATA_FOLDER:
                 futures.append(executor.submit(
                     build_tracker_db
                 ))
-                futures.append(executor.submit(
-                    build_api,
-                    data=data_source,
-                ))
-
-            # Explorer: depends on 'data/'
-            if event & DATA_FOLDER or event & STATIC_FOLDER:
-                futures.append(executor.submit(
-                    build_explorer,
-                    data=data_source,
-                ))
+                trackers = [id for id, _ in data_source.trackers.iter()]
+                data_dir = Path('_site/data/trackers/global')
+                if not data_dir.exists():
+                    data_dir.mkdir(parents=True)
+                batched_job(trackers, build_api_batch, 150, "Generate API pages")
 
             # TODO: uncomment when company profiles are ready
             # if args['site'] or args['companies']:

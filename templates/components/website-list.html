@@ -7,7 +7,7 @@
     <div class="tab-content">
     <div id="popularity" class="tab-pane fade in active">
         <ul id="multi-column-list">
-            {% for website in website_list.itertuples() %}
+            {% for website in website_list %}
                 <li>
                     <img class="icon" src="{{PATHS.static}}/img/website_globe.svg" width="15" height="15">
                     <a
@@ -25,7 +25,7 @@
     </div>
     <div id="category" class="tab-pane fade">
         <ul id="multi-column-list">
-        {% for website in website_list_cat.itertuples() %}
+        {% for website in website_list_cat %}
                 <li>
                     <img class="icon" src="{{PATHS.static}}/img/website_globe.svg" width="15" height="15">
                     <a

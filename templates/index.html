@@ -19,6 +19,7 @@
 
 {% block extra_styling %}
     <link rel="stylesheet" href="{{PATHS.static}}/css/home/index.css">
+    <link rel="stylesheet" href="{{PATHS.static}}/css/blog/card.css">
 {% endblock %}
 
 {% block content %}
@@ -74,7 +75,7 @@
             <div class="col-md-4 col-sm-4">
                 <div class="panel panel-body">
                     <div class="card-top-1 card-purple">
-                        <h3 class="card-title">Google trackers are present on {{ top10.reach[0] |to_percentage|round(0)|int }}% of the web traffic</h3>
+                        <h3 class="card-title">Google trackers are present on {{ top10[0].reach |to_percentage|round(0)|int }}% of the web traffic</h3>
                         <p class="card-subtitle">That is more than the next 4 biggest trackers combined.</p>
                     </div>
 
@@ -91,7 +92,7 @@
             <div class="col-md-4 col-sm-4">
                 <div class="panel panel-body">
                     <div class="card-top-2 card-purple">
-                        <h3 class="card-title">{{ top10.reach[1] |to_percentage|round(0)|int }}% of the web has a hidden Facebook tracking pixel</h3>
+                        <h3 class="card-title">{{ top10[1].reach |to_percentage|round(0)|int }}% of the web has a hidden Facebook tracking pixel</h3>
                         <p class="card-subtitle">Facebook knows more than what you just do on Facebook</p>
                     </div>
 
@@ -140,7 +141,7 @@
                 <div class="tab-content">
                     <div id="traffic" class="tab-pane fade in active">
                         <ul id="multi-column-list">
-                                {% for site in most_tracked_sites.itertuples() %}
+                                {% for site in most_tracked_sites %}
                                     <li>
                                         <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
                                         <a href="{{ 'site'|url_for(site.site) }}">{{ site.site | normalize_domain_name }}</a>
@@ -159,7 +160,7 @@
 
                     <div id="trackersNum" class="tab-pane fade">
                         <ul id="multi-column-list">
-                                {% for site in least_tracked_sites.itertuples() %}
+                                {% for site in least_tracked_sites %}
                                     <li>
                                         <img class="icon" src="{{PATHS.static}}/img/website_globe.svg">
                                         <a href="{{ 'site'|url_for(site.site) }}">{{ site.site | normalize_domain_name }}</a>

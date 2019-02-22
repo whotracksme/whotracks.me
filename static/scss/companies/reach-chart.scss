@@ -1,7 +1,7 @@
 @import '../colors';
 
 .home-plot {
-    color: $grey-txt-color; 
+    color: $grey-txt-color;
 
     h4 {
         font-size: 11px;
@@ -21,12 +21,12 @@
         font-size: 23px;
         font-weight: bold;
         text-transform: uppercase;
-        color: $black-color; 
+        color: $black-color;
     }
 
     .checkout {
         i {
-        vertical-align: top; 
+        vertical-align: top;
         margin-right: 5px;
         padding-top: 4px;
         }
@@ -38,7 +38,8 @@
     }
 }
 .svg-container {
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+    border-radius: 4px;
+    box-shadow: 8px 14px 38px rgba(39,44,49,0.06), 1px 3px 8px rgba(39,44,49,0.03);
 }
 .plot-caption{
     font-size: 14px;
