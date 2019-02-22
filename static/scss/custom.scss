@@ -299,21 +299,17 @@ p {
 }
 
 footer {
-  background: white;
-  color: #fff;
-  padding: 30px 0 70px 0;
+  background: $light-blue-bg;
+  padding-top: 42px;
+  padding-bottom: 42px;
   color: $grey-txt-color;
-  border-top: solid 1px $light-blue-gray;
-  margin-top: -1px;
   z-index: 3;
   position: relative;
-
   a {
     color: $link-color;
   }
 
   .menu {
-    margin-bottom: 30px;
     .margin-left {
       margin-left: 32px;
     }
@@ -322,7 +318,7 @@ footer {
       li {
         list-style: none;
         margin-bottom: 15px;
-        font-size: 16px;
+        font-size: 14px;
         i {
           min-width: 25px;
         }
