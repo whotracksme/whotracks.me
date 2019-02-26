@@ -25,11 +25,22 @@ def build_tracker_json(tracker_id, data):
     with open(f'_site/data/trackers/global/{tracker_id}.json', 'w') as output:
         json.dump(stats, output)
 
+    gh_id = stats['ghostery_id']
+    
+    if isinstance(gh_id, str):
+        if gh_id.isdigit():
+            with open(f'_site/data/trackers/ghostery/{gh_id}.json', 'w') as output:
+                json.dump(stats, output)
+
 def build_api(data):
     # tracker overviews
     data_dir = Path('_site/data/trackers/global')
+    gh_data_dir = Path('_site/data/trackers/ghostery')
+    
     if not data_dir.exists():
         data_dir.mkdir(parents=True)
+    if not gh_data_dir.exists():
+        gh_data_dir.mkdir(parents=True)
 
     for id, stats in data.trackers.iter():
         build_tracker_json(id, data)
@@ -38,6 +49,10 @@ def build_api(data):
 
 def build_api_batch(batch):
     data = DataSource(populate=False)
+    gh_data_dir = Path('_site/data/trackers/ghostery')
+
+    if not gh_data_dir.exists():
+        gh_data_dir.mkdir(parents=True)
 
     for tracker_id in batch:
         build_tracker_json(tracker_id, data)
