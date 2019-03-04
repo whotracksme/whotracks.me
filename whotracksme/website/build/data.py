@@ -29,6 +29,7 @@ def build_tracker_json(tracker_id, data):
     
     if isinstance(gh_id, str):
         if gh_id.isdigit():
+            stats['tracking_method'] = data.trackers.get_tracking_methods(tracker_id)
             with open(f'_site/data/trackers/ghostery/{gh_id}.json', 'w') as output:
                 json.dump(stats, output)
 
