@@ -46,11 +46,11 @@ task performed by content-blockers (in particular, this does not account
 for cosmetics engines or subscription management). Here are the home
 pages for all content-blockers compared:
 
-* Ghostery and Cliqz's adblocker [v0.6.9](https://github.com/cliqz-oss/adblocker/commit/58d89689af95d09e02a52e57aceb75151153d4ab).
-* Brave's adblocker version [4.1.3](https://github.com/brave/ad-block/commit/cfb714387fef649bd4ec7c1242ae442d58e4d41f).
-* DuckDuckGo's adblocker version [0.2.0](https://github.com/duckduckgo/abp-filter-parser/commit/01a864e84f472e31b9f5c47bbc05a7d75ee1ca62).
+* Ghostery and Cliqz's [adblocker v0.6.9](https://github.com/cliqz-oss/adblocker/commit/58d89689af95d09e02a52e57aceb75151153d4ab).
+* Brave's [ad-block 4.1.3](https://github.com/brave/ad-block/commit/cfb714387fef649bd4ec7c1242ae442d58e4d41f).
+* DuckDuckGo's [abp-filter-parser 0.2.0](https://github.com/duckduckgo/abp-filter-parser/commit/01a864e84f472e31b9f5c47bbc05a7d75ee1ca62).
 * uBlock Origin commit [29b10d2](https://github.com/gorhill/uBlock/commit/29b10d215184aef1a9a12b715b47de9656ecdc3c).
-* Adblock Plus commit [34c49bb](https://github.com/adblockplus/adblockpluscore/commit/34c49bbf029e586226220c067c50cec6e8bf8842).
+* AdblockPlus' [adblockpluscore 34c49bb](https://github.com/adblockplus/adblockpluscore/commit/34c49bbf029e586226220c067c50cec6e8bf8842).
 
 We did not include native blockers from Chromium and Safari projects
 as this would require some significant effort to package them in a way
@@ -78,19 +78,19 @@ our findings in a nutshell:
 - **Time to Process a Request in Ghostery** (median): **0.007 ms**
     - 2.7x faster than *uBlock Origin*
     - 2.9x faster than *Adblock Plus*
-    - 6.3x faster than *Brave*'s Adblocker
-    - 1258.4x faster than *DuckDuckGo*'s adblocker
+    - 6.3x faster than *Brave*
+    - 1258.4x faster than *DuckDuckGo*
 
 - **Loading Ghostery's Blocking Engine** (from cache): **0.03 ms**
-    - 368x faster than *Brave*'s Adblocker
+    - 368x faster than *Brave*
     - 588x faster than *uBlock Origin*
     - 3575x faster than *Adblock Plus*
-    - *DuckDuckGo*'s adblocker does not offer serialization, so the loading cost is always the one from parsing the lists.
+    - *DuckDuckGo*'s engine does not offer serialization, so the loading cost is always the one from parsing the lists.
 
 - **Memory Consumption of Ghostery's Blocking Engine** (at startup, in Chrome): **1.8 MB**
     - 1.6x less memory than *uBlock Origin*
     - 8.4x less memory than *Adblock Plus*
-    - 8.8x less memory than *DuckDuckGo*'s adblocker
+    - 8.8x less memory than *DuckDuckGo*
     - The memory usage of *Brave* could not be evaluated using the devtools
       and thus is not included in this section.
 
@@ -435,4 +435,6 @@ developers to measure their own progress against other popular libraries;
 benefiting all users, no matter which extension they use, as the efficiency of
 content-blockers improves.
 
-*Edit of 20-02-2019*: The study has been updated with the specific version of each content-blocker measured.
+[*Edit of 20-02-2019*](https://github.com/cliqz-oss/whotracks.me/pull/154): The study has been updated with the specific version of each content-blocker measured.
+
+[*Edit of 15-03-2019*](https://github.com/cliqz-oss/whotracks.me/pull/161): DuckDuckGo's description has been amended to more accurately describe the way their content-blocker is used in practice: focusing on blocking third-party trackers, but not ads.
