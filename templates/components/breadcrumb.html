@@ -1,11 +1,7 @@
 {% if active_page %}
     {% if not active_page=="home" %}
 
-    {% if active_page == "trackers" %}
-    <div class="breadcrumb-bar" style="border-bottom: solid 1px #333;">
-    {% else %}
     <div class="breadcrumb-bar">
-    {% endif %}
         <div class="container">
                 <ul class="breadcrumb">
                     <li><a href="/">Home</a></li>
@@ -16,5 +12,6 @@
                 </ul>
         </div>
     </div>
+
     {% endif %}
 {% endif %}
