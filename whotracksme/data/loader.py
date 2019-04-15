@@ -239,9 +239,9 @@ class Trackers(SQLDataLoader):
                 com.privacy_url
             FROM trackers AS t
             JOIN categories AS c ON c.id = t.category_id
-            LEFT JOIN companies as com ON com.id = t.company_id
-            LEFT JOIN iab_vendors as iab ON iab.tracker = t.id
-            LEFT JOIN truste_companies as truste ON truste.tracker = t.id
+            LEFT JOIN companies AS com ON com.id = t.company_id
+            LEFT JOIN iab_vendors AS iab ON iab.tracker = t.id
+            LEFT JOIN truste_companies AS truste ON truste.tracker = t.id
             WHERE t.id = ?
             ''', (id,))
         cols = ['id', 'name', 'category', 'website_url', 'ghostery_id', 'company_id',
@@ -259,6 +259,16 @@ class Trackers(SQLDataLoader):
         date_range = cursor.fetchone()
         if date_range is not None:
             tracker_info['date_range'] = [parse_date(date_range[1]), parse_date(date_range[2])]
+
+        cursor.execute('''
+            SELECT
+                t.id,
+                dom.domain as domains
+            FROM trackers AS t
+            LEFT JOIN tracker_domains AS dom ON dom.tracker = t.id
+            WHERE t.id = ?
+        ''', (id, ))
+        tracker_info['domains'] = [x[1] for x in cursor.fetchall()]
 
         overview = self.get_datapoint(id)
         if overview is not None:

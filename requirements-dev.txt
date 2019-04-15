@@ -17,7 +17,7 @@ httptools==0.0.11
 idna==2.8
 idna-ssl==1.1.0
 ipython-genutils==0.2.0
-Jinja2==2.10
+Jinja2==2.10.1
 jmespath==0.9.3
 jsonschema==2.6.0
 jupyter-core==4.4.0
