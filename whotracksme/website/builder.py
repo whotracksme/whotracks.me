@@ -31,7 +31,11 @@ from whotracksme.website.templates import (
 )
 # from whotracksme.website.build.companies import build_company_pages
 from whotracksme.website.build.companies import build_company_reach_chart_page
-from whotracksme.website.build.data import build_tracker_db, build_api_batch
+from whotracksme.website.build.data import (
+    build_tracker_db, 
+    build_tracker_api_batch, 
+    build_website_api_batch
+)
 from whotracksme.website.build.explorer import build_explorer
 
 from whotracksme.website.utils import print_progress
@@ -185,7 +189,14 @@ class Builder:
                 data_dir = Path('_site/data/trackers/global')
                 if not data_dir.exists():
                     data_dir.mkdir(parents=True)
-                batched_job(trackers, build_api_batch, 150, "Generate API pages")
+                batched_job(trackers, build_tracker_api_batch, 150, "Generate Tracker API pages")
+
+                site_data_dir = Path('_site/data/sites/global')
+                if not site_data_dir.exists():
+                    site_data_dir.mkdir(parents=True)
+
+                sites = [id for id, _ in data_source.sites.iter()]
+                batched_job(sites, build_website_api_batch, 400, "Generate Website API pages")
 
             # TODO: uncomment when company profiles are ready
             # if args['site'] or args['companies']:
