@@ -1,0 +1,440 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | Making sense of the trackers on Reddit</title>
+    <meta name="description" content="Using whotracks.me data and sankey diagrams to dissect trackers">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Making sense of the trackers on Reddit" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/trackers_in_your_favorite_site.html" />
+    <meta property="og:description" content="Using whotracks.me data and sankey diagrams to dissect trackers" />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/trackers_on_site/blog-sankey-1.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="Making sense of the trackers on Reddit">
+    <meta name="twitter:description" content="Using whotracks.me data and sankey diagrams to dissect trackers">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/trackers_on_site/blog-sankey-1.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Making sense of the trackers on Reddit</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Jan 8th, 2018</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/trackers_on_site/blog-sankey-1.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">Making sense of the trackers on Reddit</h3>
+        <p id="post-subtitle">Using whotracks.me data and sankey diagrams to dissect trackers</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Jan 8th, 2018</p>
+
+        <p>In this post we'll try to do two things: </p>
+<ol>
+<li>teach you how to easily build sankey diagrams.</li>
+<li>show you how to use whotracks.me data and API to investigate trackers on reddit, 
+or any of your favourite sites, using sankey diagrams</li>
+</ol>
+<h2 id="sankey-diagrams">Sankey Diagrams</h2>
+<p>When building the tracker maps that you see on popular site profiles on whotracks.me, 
+sankey diagrams seemed like a good fit to map categories of tracking to companies that
+own the trackers. Each link would be a tracker, going from a category to a company.</p>
+<p><img alt="Trackers on Tumblr" class="img-responsive img-with-padding" src="../static/img/blog/trackers_on_site/tumblr.png">
+<p class="img-caption">Figure 1: Sankey diagram used to represent a <a href="../websites/tumblr.com.html">tracker map</a></p></p>
+<p>Sankey diagrams are great at visualizing flow volume metrics. Sometimes
+they are found under the name alluvial diagrams, although they originally are 
+different types of flow diagrams [1].</p>
+<p>We wanted to use the sankey diagram supported in plotly [2], the visualisation 
+library of choice used in whotracks.me. The function itself is pretty simple, 
+as you will see in a bit when we define <code>sankey_diagram()</code>. The challenge to creating 
+sankey diagrams with Plotly is understanding the required structure of the input data 
+required by the plotting function. Hopefully the following example will 
+make it easier for those reading this post, should they ever decide to try 
+sankey diagrams.</p>
+<p>The goal here is to show a very small dataset, structured in a way that the 
+plotly diagram (and other plotting solutions e.g.: d3.js) understand. 
+We will be mapping cities to the countries they are part of. The value of each link, 
+will be the city population (in millions).</p>
+<pre><code class="python">city_data = dict(
+        nodes = dict(
+            label=[&quot;Germany&quot;, &quot;Berlin&quot;, &quot;Munich&quot;, &quot;Cologne&quot;, &quot;France&quot;,  &quot;Paris&quot;, &quot;Lyon&quot;,  &quot;Bordeaux&quot;],
+            color=[&quot;beige&quot;,   &quot;black&quot;,  &quot;red&quot;,    &quot;yellow&quot;,   &quot;beige&quot;,  &quot;blue&quot;,  &quot;white&quot;, &quot;red&quot;]
+        ),
+        links = dict(
+            source=[0, 0, 0, 4, 4, 4],
+            target=[1, 2, 3, 5, 6, 7],
+            value= [3.5, 1.5, 1, 2.2, 0.5, 0.2],
+            label=[&quot;capital&quot;, &quot;city&quot;, &quot;city&quot;,   &quot;capital&quot;, &quot;city&quot;,  &quot;city&quot;],
+            color=[&quot;black&quot;,   &quot;red&quot;,  &quot;yellow&quot;, &quot;blue&quot;,    &quot;whitesmoke&quot;, &quot;red&quot;]
+        )
+    )
+</code></pre>
+
+<p>Note how there are two keys in the dictionary, <code>nodes</code> and <code>links</code>, and each has some 
+attributes. Let's go over them. Each node has a label (e.g. Germany) and a corresponding 
+<code>color</code> (in this case <code>beige</code>). Note that labels and colors are stored in lists of 
+equal length, and the pairing is done based on equality of that index.</p>
+<p>Links contain information about how to link nodes. Each has a <code>source</code>, <code>target</code>, <code>value</code>, 
+<code>label</code> and <code>color</code>. Source contains the index in the list of the source node, 
+whereas target the index in the list of the target node. 
+Value determines how thick the link should be (in our case it will be 
+the population of each link, hence each city), Label and color, as the 
+name suggests, specify the label and color of the link. Links too, are 
+paired based on index.</p>
+<h2 id="plotting-a-sankey-diagram">Plotting a sankey diagram</h2>
+<p>Now let's write a simple function to plot this data nicely. Most of the work has 
+already been done, given we're feeding the data in a format that's easy to parse.</p>
+<pre><code class="python">from plotly.offline import iplot
+
+def sankey_diagram(sndata, title):
+    # First part of a plotly plot is the `trace`
+    data_trace = dict(
+        type='sankey',
+        node=dict(
+            pad=10,
+            thickness=30,
+            # label could easily be equal to sndatap['node]['label']. The following is just cosmetics
+            label=list(map(lambda x: x.replace(&quot;_&quot;, &quot; &quot;).capitalize(), sndata['nodes']['label'])),
+            color=sndata['nodes']['color']
+        ),
+        link=sndata[&quot;links&quot;],
+
+        # configuration options for the diagram
+        domain=dict(
+            x=[0, 1],
+            y=[0, 1]
+        ),
+        hoverinfo=&quot;none&quot;,
+        orientation=&quot;h&quot;
+    )
+    # Second part of a plotly plot is the `layout`
+    layout = dict(
+        title=title,
+        font=dict(
+            size=12
+        )
+    )
+    fig = dict(data=[data_trace], layout=layout)
+    return iplot(fig)
+</code></pre>
+
+<h2 id="sankey-diagram-for-a-few-german-and-french-cities">Sankey diagram for a few German and French cities</h2>
+<p>All that is left now, is feeding the <code>city_data</code> to the <code>sankey_diagram</code> function 
+and we're done.</p>
+<p><img alt="Simple sankey diagram" class="img-responsive img-with-padding" src="../static/img/blog/trackers_on_site/cities.png">
+<p class="img-caption">Figure 1: Simple example of a sankey digram for cities</p></p>
+<p>Trying to create the flags of these countries did not end up being
+such an aesthetically good idea.</p>
+<h1 id="from-cities-to-trackers">From Cities to Trackers</h1>
+<p>Doing Sankey diagrams for cities may have been fun. The result of doing the same for 
+trackers on your favourite sites might not be as fun -it may in fact be terrifying. 
+We'll be using public data from whotracks.me to map tracker categories to companies 
+present on a particular site. Each link will be a tracker the company owns. 
+This gives immediate visual insights on who's watching you and why.</p>
+<h2 id="terse-intro-to-the-api">Terse intro to the API</h2>
+<p>The data and API for whotracksme us available on Pypi and you can easily install it 
+running <code>pip install whotracksme</code>. </p>
+<pre><code class="python">from whotracksme.data.loader import DataSource
+from whotracksme.website.plotting.colors import tracker_categoryColors, cliqz_colors
+</code></pre>
+
+<p>DataSource is a class that provides access to trackers, companies that own them, and 
+popular websites. The functionality of DataSource is something we'll be constantly 
+trying to improve and expand. Online tracking is messy enough to analyze, 
+so at least the tooling should be as simple as possible.</p>
+<p>We will be looking at Reddit. If you are not familiar with <a href="https://reddit.com">Reddit</a>, 
+check it out - there are some great communities there. Now we'll look at the tracking 
+landscape in reddit. To do that, we only need to know the reddit <code>site_id</code>, 
+which is <code>reddit.com</code>. Each site has a <code>site_id</code>, most often its url. </p>
+<h2 id="preparing-reddit-tracker-data-for-sankey-diagram">Preparing reddit tracker data for sankey diagram</h2>
+<p>Here we will be mapping companies and the trackers they operate to the category 
+of the tracker. The thickness of the link is a function of the frequency of 
+appearance of the tracker per page load in the given domain. </p>
+<pre><code class="python">def sankey_data(site_id, data_source):
+
+    nodes = []
+    link_source = []
+    link_target = []
+    link_value = []
+    link_label = []
+
+    for (tracker, category, company) in data_source.sites.trackers_on_site(site_id, data_source.trackers, data_source.companies):
+
+        # index of this category in nodes
+        if category in nodes:
+            cat_idx = nodes.index(category)
+        else:
+            nodes.append(category)
+            cat_idx = len(nodes) - 1 
+
+        # index of this company in nodes
+        if company in nodes:
+            com_idx = nodes.index(company)
+        else:
+            nodes.append(company)
+            com_idx = len(nodes) - 1 
+
+        link_source.append(cat_idx)
+        link_target.append(com_idx)
+        link_label.append(tracker[&quot;name&quot;])
+        link_value.append(100.0 * tracker[&quot;frequency&quot;])
+
+    label_colors = [tracker_categoryColors[l] if l in tracker_category_colors else cliqz_colors[&quot;purple&quot;] for l in nodes]
+
+    return dict(
+        nodes = dict(
+            label=nodes,
+            color=label_colors
+        ),
+        links = dict(
+            source=link_source,
+            target=link_target,
+            value=link_value,
+            label=link_label,
+            color=[&quot;#dedede&quot;] * len(link_label)
+        )
+    )
+</code></pre>
+
+<p>Now that we have a function to generate the data in the format we need it, let's 
+run it for reddit and plot the sankey diagram to investigate the tracking landscape:</p>
+<pre><code class="python">input_data = sankey_data('reddit.com', data_source=DataSource())
+sankey_diagram(input_data, 'Tracker Map on reddit.com')
+</code></pre>
+
+<p><img alt="Reddit Tracking Landscape" class="img-responsive img-with-padding" src="../static/img/blog/trackers_on_site/reddit.png">
+<p class="img-caption">Figure 1: Tracking landscape on reddit.com</p></p>
+<p>We see that most tracking happens for advertising reasons. Although it does not seem like it, 
+Reddit is keeping the set of advertisers they expose their users somwhat limited compared to 
+other portals and news sites. In terms of number of trackers, Google has the most eyes on 
+reddit users. For more details on the tracking landscape on reddit, head over to 
+reddit's <a href="https://whotracks.me/websites/reddit.com.html">profile page</a> on whotracks.me. </p>
+<h2 id="references">References</h2>
+<p><a href="https://en.wikipedia.org/wiki/Sankey_diagram">[1] Sankey Diagrams</a> - Wikipedia<br>
+<a href="https://plot.ly/python/">[2] Plotly - Python Graphing Library</a><br>
+<a href="https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/tracker_map_notebook.ipynb">[3] Jupyter Notebook on this post</a></p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Making sense of the trackers on Reddit</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

@@ -1,0 +1,635 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | Adblockers Performance Study</title>
+    <meta name="description" content="Blocking all ads faster than the blink of an eye.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Adblockers Performance Study" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/adblockers_performance_study.html" />
+    <meta property="og:description" content="Blocking all ads faster than the blink of an eye." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/adblocker-perf-study.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="Adblockers Performance Study">
+    <meta name="twitter:description" content="Blocking all ads faster than the blink of an eye.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/adblocker-perf-study.jpg">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Adblockers Performance Study</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Feb 15th, 2019</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/adblocker-perf-study.jpg" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">Adblockers Performance Study</h3>
+        <p id="post-subtitle">Blocking all ads faster than the blink of an eye.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Feb 15th, 2019</p>
+
+        <p>Summary: <em>In this study we show</em></p>
+<ul>
+<li><em>That all popular content-blockers are very efficient, having sub-millisecond
+   median decision time per request</em></li>
+<li><em>That the manifest v3 performance claim does not hold based on our
+   measurements</em></li>
+<li><em>That the adblocker used by Cliqz and Ghostery consistently performs as well
+   or better than other popular content-blockers.</em></li>
+</ul>
+<hr />
+<p>Here we present a detailed analysis of the performance of some of the
+most popular content-blocker engines: <em>uBlock Origin</em>, <em>Adblock Plus</em>,
+<em>Brave</em>, <em>DuckDuckGo</em> and <em>Cliqz/Ghostery's</em> advanced adblocker (shipped
+since Ghostery 8), which we will refer to as <em>Ghostery</em> for the rest of
+the article.</p>
+<p>This study was motivated by the recent <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=896897">Manifest V3
+controversy</a>.
+One of the proposed changes involves crippling the WebRequest APIs to
+limit their blocking abilities. Two justifications were put forth:
+one related to <em>performance</em> and another related to privacy. The
+privacy argument deserves its own separate analysis and will not be
+covered here. In this study, we show that the <em>performance</em> argument
+does not hold. Our comparison demonstrates that the most popular
+content-blockers are already very efficient (having a sub-millisecond
+median decision time per request) and should not result in any
+over-head noticeable by users. We showed in another study <a href="https://www.ghostery.com/lp/trackertax/">The Tracker
+Tax</a> that blocking ads and
+trackers actually reduces the loading time of websites by <strong>up to
+a factor of 2</strong>. Besides, efficiency is continuously improved and
+technologies such as WebAssembly will allow to go even further.</p>
+<p>This comparison does not involve full extensions, but instead <strong>focuses
+on network request blocking engines</strong>, which is the most CPU intensive
+task performed by content-blockers (in particular, this does not account
+for cosmetics engines or subscription management). Here are the home
+pages for all content-blockers compared:</p>
+<ul>
+<li>Ghostery and Cliqz's <a href="https://github.com/cliqz-oss/adblocker/commit/58d89689af95d09e02a52e57aceb75151153d4ab">adblocker v0.6.9</a>.</li>
+<li>Brave's <a href="https://github.com/brave/ad-block/commit/cfb714387fef649bd4ec7c1242ae442d58e4d41f">ad-block 4.1.3</a>.</li>
+<li>DuckDuckGo's <a href="https://github.com/duckduckgo/abp-filter-parser/commit/01a864e84f472e31b9f5c47bbc05a7d75ee1ca62">abp-filter-parser 0.2.0</a>.</li>
+<li>uBlock Origin commit <a href="https://github.com/gorhill/uBlock/commit/29b10d215184aef1a9a12b715b47de9656ecdc3c">29b10d2</a>.</li>
+<li>AdblockPlus' <a href="https://github.com/adblockplus/adblockpluscore/commit/34c49bbf029e586226220c067c50cec6e8bf8842">adblockpluscore 34c49bb</a>.</li>
+</ul>
+<p>We did not include native blockers from Chromium and Safari projects
+as this would require some significant effort to package them in a way
+that allows benchmarking against the other libraries. We leave this for
+future work.</p>
+<p>All blockers except <em>uBlock Origin</em> are available as JavaScript libraries which
+can be loaded in Node.js. To allow comparing <em>uBlock Origin</em> as well, we had to
+extract the static network filtering engine <a href="https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/ublock.js">out of the
+extension</a>.
+The version of <em>uBlock Origin</em> running in this benchmark <em>does not make
+use of the Webassembly</em> version of domain matching.</p>
+<p>All benchmarks were ran on an X1 Carbon 2016 (i7 U6600 + 16 GB) in
+Node.js 11.9.0. Memory measurements were performed in Google Chrome version
+72.0.3626.96 using the memory snapshot tool.</p>
+<h2 id="results">Results</h2>
+<p>Before presenting the detailed analysis of the results, let us highlight
+our findings in a nutshell:</p>
+<ul>
+<li>All content-blockers except <em>DuckDuckGo</em> have <strong>sub-millisecond median decision
+  time</strong> per request.</li>
+<li>
+<p><strong>Time to Process a Request in Ghostery</strong> (median): <strong>0.007 ms</strong></p>
+<ul>
+<li>2.7x faster than <em>uBlock Origin</em></li>
+<li>2.9x faster than <em>Adblock Plus</em></li>
+<li>6.3x faster than <em>Brave</em></li>
+<li>1258.4x faster than <em>DuckDuckGo</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Loading Ghostery's Blocking Engine</strong> (from cache): <strong>0.03 ms</strong></p>
+<ul>
+<li>368x faster than <em>Brave</em></li>
+<li>588x faster than <em>uBlock Origin</em></li>
+<li>3575x faster than <em>Adblock Plus</em></li>
+<li><em>DuckDuckGo</em>'s engine does not offer serialization, so the loading cost is always the one from parsing the lists.</li>
+</ul>
+</li>
+<li>
+<p><strong>Memory Consumption of Ghostery's Blocking Engine</strong> (at startup, in Chrome): <strong>1.8 MB</strong></p>
+<ul>
+<li>1.6x less memory than <em>uBlock Origin</em></li>
+<li>8.4x less memory than <em>Adblock Plus</em></li>
+<li>8.8x less memory than <em>DuckDuckGo</em></li>
+<li>The memory usage of <em>Brave</em> could not be evaluated using the devtools
+  and thus is not included in this section.</li>
+</ul>
+</li>
+</ul>
+<h3 id="0-about-the-dataset">0. About the Dataset</h3>
+<p>To measure the performance of each content-blocker, we replayed requests
+from popular domains <em>once</em> and kept track of the time it took to decide
+if they should be blocked or not. We then analyzed the results in three
+different ways: all requests, blocked only and not blocked (taken from
+the same run).</p>
+<p>This requests dataset was created using a pool of Chrome
+headless browsers (driven by the <a href="https://github.com/GoogleChrome/puppeteer"><code>puppeteer</code> library</a>)
+to visit home pages of the <em>top 500 domains</em> (as reported by Cliqz
+Search), as well as up to 3 pages of each domain (picked randomly from
+the home page) and collecting all the network requests seen (URL, frame
+URL and type). The dataset was shuffled in such a way that the different
+pages were visited in a random order, but requests seen on each page
+were replayed as they were recorded initially.</p>
+<p>The dataset is composed of 242944 requests. We released the data publicly at
+this URL: <a href="https://cdn.cliqz.com/adblocking/requests_top500.json.gz">requests_top500.json.gz</a>.
+The script to create the dataset is also available:
+<a href="https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/create_dataset.js">create_dataset.js</a> and
+<a href="https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/shuffle_dataset.js">shuffle_dataset.js</a> was used to shuffle the
+requests to produce the final data.</p>
+<h3 id="1-composition-of-requests">1. Composition of Requests</h3>
+<p>For the purpose of this comparison, we consider that each network
+request can be either blocked or allowed by the content-blocker; we call
+the process of deciding whether a request should be blocked or not:
+<em>matching</em>. We observed that from our dataset, only ~19.2% are blocked
+(average across all content-blockers).</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/requests-composition.svg" alt="Composition of requests" /></p>
+<p>It results from this observation that content-blockers will perform better on
+average if they can efficiently decide which requests to <em>not block</em>.</p>
+<p>The filters used to determine whether or not a request is to be blocked
+are the ones from <a href="https://easylist-downloads.adblockplus.org/easylist.txt">Easylist</a>,
+where we removed all the cosmetic rules before running the benchmarks.
+The final list contains <em>38978 network filters</em> and is available here:
+<a href="https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/easylist.txt">easylist.txt</a>.</p>
+<p>It should be noted at this point that a larger proportion of requests
+would be blocked by enabling extra filters lists such as <em>EasyPrivacy</em>.</p>
+<h3 id="2-time-to-match-all-requests">2. Time To Match All Requests</h3>
+<p>We first look at all of the requests (whether they will eventually
+be blocked or not). We use a log-scale for the x-axis (time in
+milliseconds) to facilitate the comparison of the cumulative
+distribution of the time it takes for content-blockers to decide whether
+or not a request should be blocked.</p>
+<p>Here is a break-down of the 99th percentile and median times for each
+content-blocker:</p>
+<table class="table table-hover">
+<thead>
+<tr>
+<th></th>
+<th>99% OF REQUESTS</th>
+<th>MEDIAN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ghostery</strong></td>
+<td><strong>0.050ms</strong></td>
+<td><strong>0.007ms</strong></td>
+</tr>
+<tr>
+<td>uBlock Origin</td>
+<td>0.124ms (<strong>2.5x slower</strong>)</td>
+<td>0.017ms (<strong>2.7x slower</strong>)</td>
+</tr>
+<tr>
+<td>Adblock Plus</td>
+<td>0.103ms (<strong>2.1x slower</strong>)</td>
+<td>0.019ms (<strong>2.9x slower</strong>)</td>
+</tr>
+<tr>
+<td>Brave</td>
+<td>1.288ms (<strong>25.9x slower</strong>)</td>
+<td>0.041ms (<strong>6.3x slower</strong>)</td>
+</tr>
+<tr>
+<td>DuckDuckGo</td>
+<td>12.085ms (<strong>242.5x slower</strong>)</td>
+<td>8.270ms (<strong>1258.4x slower</strong>)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Below you can find the cumulative distribution plots of these timings:</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/ghostery-ublock-origin-brave-duckduckgo-adblock-plus-all.svg" alt="Time To Match All Requests" /></p>
+<h3 id="3-time-to-match-requests-which-are-not-blocked">3. Time To Match Requests Which Are Not Blocked</h3>
+<p>The following table details 99th percentile and median timings for requests not
+blocked:</p>
+<table class="table table-hover">
+<thead>
+<tr>
+<th></th>
+<th>99% OF REQUESTS</th>
+<th>MEDIAN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ghostery</strong></td>
+<td><strong>0.049ms</strong></td>
+<td><strong>0.006ms</strong></td>
+</tr>
+<tr>
+<td>uBlock Origin</td>
+<td>0.112ms (<strong>2.3x slower</strong>)</td>
+<td>0.018ms (<strong>2.8x slower</strong>)</td>
+</tr>
+<tr>
+<td>Adblock Plus</td>
+<td>0.105ms (<strong>2.2x slower</strong>)</td>
+<td>0.020ms (<strong>3.1x slower</strong>)</td>
+</tr>
+<tr>
+<td>Brave</td>
+<td>1.270ms (<strong>26.2x slower</strong>)</td>
+<td>0.038ms (<strong>5.9x slower</strong>)</td>
+</tr>
+<tr>
+<td>DuckDuckGo</td>
+<td>11.190ms (<strong>230.5x slower</strong>)</td>
+<td>6.781ms (<strong>1060.5x slower</strong>)</td>
+</tr>
+</tbody>
+</table>
+
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/ghostery-ublock-origin-brave-duckduckgo-adblock-plus-not-blocked.svg" alt="Time to match requests which are not blocked" /></p>
+<h3 id="4-time-to-match-requests-which-are-blocked">4. Time To Match Requests Which Are Blocked</h3>
+<p>The following table details 99th percentile and median timings for requests blocked:</p>
+<table class="table table-hover">
+<thead>
+<tr>
+<th></th>
+<th>99% OF REQUESTS</th>
+<th>MEDIAN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ghostery</strong></td>
+<td><strong>0.052ms</strong></td>
+<td><strong>0.007ms</strong></td>
+</tr>
+<tr>
+<td>uBlock Origin</td>
+<td>0.165ms (<strong>3.1x slower</strong>)</td>
+<td>0.016ms (<strong>2.2x slower</strong>)</td>
+</tr>
+<tr>
+<td>Adblock Plus</td>
+<td>0.099ms (<strong>1.9x slower</strong>)</td>
+<td>0.014ms (<strong>1.9x slower</strong>)</td>
+</tr>
+<tr>
+<td>Brave</td>
+<td>1.468ms (<strong>28.0x slower</strong>)</td>
+<td>0.062ms (<strong>8.5x slower</strong>)</td>
+</tr>
+<tr>
+<td>DuckDuckGo</td>
+<td>13.025ms (<strong>248.5x slower</strong>)</td>
+<td>8.31ms (<strong>1130.6x slower</strong>)</td>
+</tr>
+</tbody>
+</table>
+
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/ghostery-ublock-origin-brave-duckduckgo-adblock-plus-blocked.svg" alt="Time to match requests which are blocked" /></p>
+<p>On these graphs we observe a plateau for <em>Adblock Plus</em>, <em>Brave</em> and
+<em>Duckduckgo</em>. This can be explained by the fact that these engines
+implement some form of caching internally, thus having a very fast
+response time for some requests which were already seen (redundancy in
+requests comes from both common third-parties seen on multiple websites
+as well as the fact that we load several pages for each domain). This
+caching can be implemented on top of any content-blocker and does not
+tell much about the efficiency of each; we can see this as a means to
+trade <em>memory</em> against <em>CPU usage</em>.</p>
+<p>From the previous measurements we see that Ghostery out-performs other
+libraries in terms of matching speed. Without going into too many
+details, here are some of the optimizations which can explain these
+results:</p>
+<ul>
+<li>Ghostery makes use of a reverse index associating tokens to filters. Contrary
+  to other libraries, we make sure that we pick <em>the best</em> token for each filter
+  at construction time (best being defined as the <em>least seen token</em>). This incurs
+  a one-time extra cost but results in maximized dispatching capabilities.</li>
+<li>Filters are stored in a very compact form, in typed arrays, and only loaded in
+  memory lazily, when there is a chance they will be blocked (if we encounter
+  identical tokens in URLs).</li>
+<li>Filters loaded in memory are optimized on-the-fly and multiple filters can be
+  combined for increased efficiency. The optimizations were carefully crafted
+  based on common cases observed in Easylist.</li>
+</ul>
+<h3 id="5-serialization-and-deserialization">5. Serialization And Deserialization</h3>
+<p>In this section we have a look at the performance of content-blockers
+when it comes to serializing their internal representation for faster
+subsequent loading. Only <em>DuckDuckGo</em>'s engine does not provide this
+feature. <em>uBlock Origin</em>, <em>Ghostery</em>, <em>Adblock Plus</em> and <em>Brave</em> all allow to
+serialize or cache (<em>uBlock Origin</em>'s terminology is: <em>selfies</em>) the
+entire blocking engine to either a string or a buffer, which can then be
+used to speed-up subsequent loads.</p>
+<p>Because this is a one-time operation, having a higher loading-time does not
+impact significantly desktop users. On the other hand, the ability to quickly
+initialize the content-blocker is critical on mobile.</p>
+<p>Another use-case allowed by such capability is to perform the parsing
+of the lists on the backend and ship the serialized form of the
+content-blocker to clients directly, which removes the cost of
+initialization completely.</p>
+<p>We performed 100 serializations for each content-blocker and display the
+results below:</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/ghostery-ublock-origin-brave-adblock-plus-serializationtimings.svg" alt="Serialization timings" /></p>
+<p>This bar plot contains the median time taken to serialize the engine for each
+content-blocker:</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/serializationtimings.svg" alt="Serialization timings" /></p>
+<p>Similarly, we measure the time it takes to restore the content-blocker from its
+serialized form:</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/ghostery-ublock-origin-brave-adblock-plus-deserializationtimings.svg" alt="Deserialization timings" /></p>
+<p>And here is the median time:</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/deserializationtimings.svg" alt="Deserialization timings" /></p>
+<p>Last but not least, we measured the size of the serialized buffer for each
+content-blocker:</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/cache-size.svg" alt="Cache size" /></p>
+<p>From these measurements we see that <em>Ghostery</em> offers both significantly
+faster serialization and deserialization times as well as a smaller
+cache size.</p>
+<p>The reason is the following: the internal representation is already
+mostly stored in a compact form (using typed arrays); this means that
+serialization only consists in adding a small amount of metadata
+along-side the already available arrays and deserialization is
+<em>essentially instantaneous</em> since it's enough to create some typed array
+views on top of the serialized buffer (think of <code>mmap</code> but using typed
+arrays). This also explains the very low memory consumption: after
+initialization, the memory usage is only slightly higher than the size
+of the serialized form.</p>
+<h3 id="6-memory-consumption-at-start-up">6. Memory Consumption at Start-up</h3>
+<p>Here we consider the memory usage of each content-blocker, initialized
+from lists (not from cache) after one full garbage collection. The
+measurements were performed using Chrome's devtools memory snapshot. We
+did not measure Brave here since the memory used from C++ side does not
+seem to be taken into account in the snapshot. Also keep in mind that
+this memory usage can vary at run-time as content-blockers might cache
+frequently used resources, etc.</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/memory-usage-at-startup.svg" alt="Memory usage at start-up" /></p>
+<p>As mentioned in the previous section on serialization, the very low
+memory usage of <em>Ghostery</em> can be explained by the fact that the
+internal representation mostly consists of very compact typed arrays
+with some small over-head for extra meta-data. Again, we need to stress
+here that this measures the network filtering engine of Ghostery only,
+not the full extension, as described in the introduction.</p>
+<h3 id="7-parsing-lists">7. Parsing Lists</h3>
+<p>In this graph, we present the time it takes for each content-blocker to
+be initialized from the lists (without any prior caching, which means
+initializing all internal resources by parsing the raw list). We see
+that only Brave seems to be significantly slower and that <em>uBlock Origin</em>,
+<em>Ghostery</em>, <em>Adblock Plus</em> and <em>DuckDuckGo</em> all perform well.</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/time-to-parse-easylist-all.svg" alt="Time to parse Easylist" /></p>
+<p>It seems that the long parsing time for Brave is a <a href="https://github.com/brave/ad-block/issues/158">known
+issue</a> tracked on their
+GitHub repository.</p>
+<p>Now if we remove Brave, we see that there are still differences between
+<em>uBlock Origin</em>, <em>Ghostery</em>, <em>Adblock Plus</em> and <em>DuckDuckGo</em>. One reason
+<em>Ghostery</em> is slower than <em>uBlock Origin</em> and <em>AdblockPlus</em> here is that to
+achieve maximum performance while matching as well as minimize memory
+usage, there is a bit more work to do up-front. In practice this does
+not matter so much since it is a one-time operation and that subsequent
+loads are performed from cache, and this is really fast (in fact, we
+can even perform the parsing backend-side and just ship the serialized
+version of the blocker, which removes this step completely).</p>
+<p><img class="img-responsive" src="../static/img/blog/adblockers_performance/time-to-parse-easylist-without-brave.svg" alt="Time to parse Easylist without Brave" /></p>
+<h3 id="8-conclusion">8. Conclusion</h3>
+<p>In this study we looked closely at the performance of some of the most
+popular content-blockers in use today. In particular, we focused on the
+efficiency of their network filtering engines, which is the most CPU
+intensive task they perform.</p>
+<p>This work was motivated by one of the claims formulated in the <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=896897">Manifest V3
+proposal</a>
+of the Chromium project: <em>"the extension then performs arbitrary (and
+potentially very slow) JavaScript"</em>, talking about content-blockers'
+ability to process all network requests. From the measurements, we do
+not think this claim holds, as all popular content-blockers are already
+very efficient and should not incur any noticeable slow-down for users.
+Moreover, the efficiency of content-blockers is <em>continuously improving</em>,
+either thanks to more innovative approaches or using technologies like
+WebAssembly to reach native performance.</p>
+<p>While most content-blockers are indeed efficient, they are not
+equivalent and we observed that <em>Ghostery</em> performs consistently as well
+or better across all dimensions, often surpassing other libraries.</p>
+<p>We hope that these benchmarks will give an opportunity for content-blockers
+developers to measure their own progress against other popular libraries;
+benefiting all users, no matter which extension they use, as the efficiency of
+content-blockers improves.</p>
+<p><a href="https://github.com/cliqz-oss/whotracks.me/pull/154"><em>Edit of 20-02-2019</em></a>: The study has been updated with the specific version of each content-blocker measured.</p>
+<p><a href="https://github.com/cliqz-oss/whotracks.me/pull/161"><em>Edit of 15-03-2019</em></a>: DuckDuckGo's description has been amended to more accurately describe the way their content-blocker is used in practice: focusing on blocking third-party trackers, but not ads.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Adblockers Performance Study</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

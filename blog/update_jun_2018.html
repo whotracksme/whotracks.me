@@ -1,0 +1,397 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | June Update - Do you consent?</title>
+    <meta name="description" content="The rushed, rough and rogue UX of services getting you to opt-in.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="June Update - Do you consent?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/update_jun_2018.html" />
+    <meta property="og:description" content="The rushed, rough and rogue UX of services getting you to opt-in." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/update_jun18/june_update18.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="June Update - Do you consent?">
+    <meta name="twitter:description" content="The rushed, rough and rogue UX of services getting you to opt-in.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/update_jun18/june_update18.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>June Update - Do you consent?</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Jun 7th, 2018</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/update_jun18/june_update18.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">June Update - Do you consent?</h3>
+        <p id="post-subtitle">The rushed, rough and rogue UX of services getting you to opt-in.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Jun 7th, 2018</p>
+
+        <p><em>This post is one of our regular monthly blogs accompanying an update to the data
+displayed on WhoTracks.Me. In these posts we introduce what data has been added as well
+as point out interesting trends and case-studies we found in the last month. Previous
+month's posts can be found here: <a href="./update_may_2018.html">May 2018</a>, <a href="./update_apr_2018.html">April 2018</a>.</em></p>
+<p>This month the site has been updated with tracker data from 370 million page loads during May
+2018. We've expanded the number of trackers shown further to over 1,000, and we now show information
+for the top 1,750 websites. We also have published regional versions of the data for the US, France
+and Germany, allowing regional disparities to be investigated. This regional data is not yet visible
+on the site - regional stats are planned for an upcoming design update.</p>
+<p>As we mentioned <a href="./update_may_2018.html">last month</a>, the <a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">GDPR</a>
+has now come into force, which is expected to have an effect on how the data collected via online
+tracking is handled. So far, the main observation is that sites have deployed complex consent
+dialogs, trying to get users to consent to being tracked on their sites. We can already observe
+the rise of third parties offering the services behind these consent dialogs.</p>
+<p>Despite the changes in regulation, we see no evidence of a reduction in the number of third parties
+loaded on websites this month (also when doing a week-by-week analysis). The average number of
+third-parties loaded on popular websites remained at 8.5, which is the same as in April.</p>
+<h2 id="consent-as-a-service">Consent as a service</h2>
+<p>One observable result of the GDPR is a rise in the user of Consent Management Platforms (CMPs) by
+websites. These services manage the cookie consent notices shown. Now that GDPR is in
+place, European users should be informed of all services collecting data on the site, and be able to
+opt-out of certain practices and data collection. This means that these CMPs have become much more
+prominent, providing deeper controls, and propagating user consent to the third-party services.</p>
+<p>The WhoTracks.Me data has tracked the rise of several CMPs appearing this month, as well as
+existing providers increasing their presence. With our data we can detect where they are present
+and then compare their approaches to asking for user consent, and we present a short survey of
+these here:</p>
+<h3 id="trustarc">TrustArc</h3>
+<p><a href="https://www.trustarc.com/">TrustArc</a> (formally TRUSTe) have been providing cookie consent dialogs
+since the original ePrivacy regulation introduce the concept. <a href="../trackers/truste_consent.html">Our data shows</a>
+that their reach has doubled in recent months as they have obviously gained customers using their
+services for GDPR compliance.</p>
+<p>Their familiar consent popup now has improved opt-out capabilities. These are however hidden behind
+a <em>More Information</em> link. This popup has not changed from the pre-GDPR options, so users may not
+realise that improved opt-out options are hidden behind this button. The styling of the button as
+a link also does not suggest that consent can be configured.</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/trustarc_1.png" alt="TrustArc Consent popup" />
+<p class="img-caption">TrustArc: Consent popup.</p></p>
+<p>The <em>More Information</em> button leads to a screen where consent can be specified for different cookie
+types. On the tested site (<a href="../websites/myfitnesspal.com.html">MyFitnessPal.com</a>) this view had
+all types enabled by default.</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/trustarc_2.png" alt="TrustArc Consent settings" />
+<p class="img-caption">TrustArc: Choosing consent settings.</p></p>
+<p>After submitting, we hit a processing dialog. In our testing this processing takes minutes to complete,
+and blocks access to the underlying page until it completes. This poor user-experience is may
+reduce the amount of users who will actually take the time to express consent settings. After
+waiting minutes once, they may subsequently simply agree to all, or just abandon sites who present
+this dialog.</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/trustarc_3.png" alt="TrustArc Consent submission" />
+<p class="img-caption">TrustArc: Processing......</p></p>
+<p>Another manifestation of the TrustArc CMP, found on <a href="../websites/wunderground.com.html">Weather Underground</a>
+provides a more detailed popup, including details of the third-parties in each category. This
+version, however, also suffers from a long processing time once consent has been expressed.</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/trustarc_4.png" alt="TrustArc detailed consent settings" />
+<p class="img-caption">TrustArc: Detailed view</p></p>
+<h3 id="iab-consent-framework">IAB Consent Framework</h3>
+<p>In response to the GDPR, the <a href="https://iabtechlab.com/">IAB</a> proposed a framework for propagating
+user consent through ad-networks. The <a href="https://iabtechlab.com/standards/gdpr-transparency-and-consent-framework/">GDPR Transparency and Consent Framework</a>
+aims to create a standardised expression of consent which can be passed around ad networks.</p>
+<p>In this framework, CMPs are <a href="http://advertisingconsent.eu/iab-europe-transparency-consent-framework-list-of-registered-cmps/">registered</a>
+and a first party cookie specifies which CMP obtained the consent on this site, and which
+purposes and vendors are permitted. The CMP code and vendor list are served from a single domain,
+<code>consensu.org</code>, which means we can measure that it is already in use on <a href="../trackers/iab_consent.html">0.5% of sites</a>.</p>
+<p>An example of this framework can be seen on <a href="../websites/sourceforge.net.html">SourceForge</a>. In
+this case, <a href="../trackers/quantcast.html">Quantserve</a> acts as the CMP to set the IAB consent cookie.
+Note this framework allows first-party and third-party consents to be specified separately for a
+standardised set of purposes.</p>
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <img class="img-responsive" src="../static/img/blog/update_jun18/iab_prompt.png" alt="Sourceforge Consent popup" />
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <img class="img-responsive" src="../static/img/blog/update_jun18/iab_settings.png" alt="Sourceforge Consent settings" />
+  </div>
+</div>
+
+<p class="img-caption">Quantserve consent dialog, using the IAB framework</p>
+
+<p>Unlike the TrustArc consent, opting out in this dialog is instant. Furthermore, in testing, all
+options were disabled by default, and a blanket opt out is also made easy.</p>
+<h3 id="cookiebot">Cookiebot</h3>
+<p>A new service which appeared in our data this month is <a href="https://www.cookiebot.com/en/">Cookiebot</a>,
+which is already present on <a href="../trackers/cookiebot.html">0.3% of websites</a>.
+They provide a very simple clean dialog to allow quick specification of consent.</p>
+<p>One site using this service is <a href="../websites/gitlab.com.html">Gitlab</a>. We note here that all options
+are selected by default, and consent is assumed even if the user does not click 'OK'.</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/cookiebot_1.png" alt="Cookiebot dialog basic view" />
+<p class="img-caption">Cookiebot dialog on gitlab.com.</p></p>
+<p>The 'Show details' button provides more detailed information about which providers and cookies
+fall under each category.</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/cookiebot_2.png" alt="Cookiebot dialog detailed view" />
+<p class="img-caption">Cookiebot detailed view.</p></p>
+<p>In this case the opt-out is also instant.</p>
+<h3 id="onetrust">OneTrust</h3>
+<p>Lastly, <a href="https://www.onetrust.com/">OneTrust</a>. This service does not appear among the top trackers
+this month, however we can still see its presence on some sites.</p>
+<p>One feature of this CMP seems to be its configurability. We find multiple different levels of
+options available on different sites. Firstly, the cookie banner, shown on the bottom of the
+page, may provide configurability via a 'More Information' button. For example on
+<a href="../websites/cnn.com.html">CNN</a>:</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/onetrust_banner.png" alt="OneTrust banner on cnn.com" />
+<p class="img-caption">OneTrust banner on CNN</p></p>
+<p>However, we also found examples where one can only accept, for example on <a href="../websites/express.de.html">express.de</a>:</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/onetrust_banner_noopt.png" alt="OneTrust banner on express.de" />
+<p class="img-caption">OneTrust banner on express.de</p></p>
+<p>Secondly, the information dialog may or may not allow the user to opt-out. We can compare the
+dialogs on <a href="../websites/cnn.com.html">cnn.com</a> and <a href="../websites/mailchimp.com.html">mailchimp.com</a>.
+On MailChimp, all non-essential cookie categories offer an opt-out, while on CNN the interface
+only provides information about the category, with no options for the user except accept.</p>
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <img class="img-responsive" src="../static/img/blog/update_jun18/onetrust_cnn.png" alt="OneTrust Privacy Preference Center on cnn.com"/>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <img class="img-responsive" src="../static/img/blog/update_jun18/onetrust_mailchimp.png" alt="OneTrust Privacy Preference Center on MailChimp.com"/>
+  </div>
+</div>
+
+<p class="img-caption">OneTrust Preference Center on cnn.com and mailchimp.com</p>
+
+<p>Again, opt-out (when available) is instant.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Since GDPR came into force we have seen a marked increase in cookie consent, many of which block
+access to the page until consent is obtained. These CMPs aim to standardise the process, making it
+easier for users to quickly express their preferences. However, as we have seen in this article,
+the current main CMPs differ in their approach to the problem.</p>
+<p>As many publishers main aim from deploying a CMP will be to achieve maximum opt-in, while remaining compliant
+with the law, there is a strong incentive for platforms to deceive users into consenting. Examples
+such as TrustArc show some dark patterns which nudge users to accepting all. Platforms which
+provide clear opt-outs, and leave options unticked by default may suffer for providing a better
+user experience.</p>
+<p>The importance of consent for publishers who rely on advertising revenue, and their willingness to
+test users' goodwill in order to obtain consent can be seen from this dialog, seen when visiting <a href="https://www.ghacks.net/">GHacks</a>
+having opted out of data collection.</p>
+<p><img class="img-responsive" src="../static/img/blog/update_jun18/ghacks_opted_out.png" alt="Dialog asking for user to reconsider consent settings"/>
+<p class="img-caption">Dialog on seen ghacks.net.</p></p>
+<p>Despite <a href="https://martechtoday.com/pagefair-iab-consent-framework-violates-gdpr-212428">criticism</a>
+of its method of communicating user consent, the openness of the IAB Framework is welcome, as it
+opens up the possibility for standardised browser interfaces for consent. This would take control
+of the consent UX out of the hands of site owners, who will be incentivised to 'cheat', and make
+it neutral and consistent.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>June Update - Do you consent?</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

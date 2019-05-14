@@ -1,0 +1,441 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | Tracker Tax</title>
+    <meta name="description" content="The impact of third-party trackers on website speed in the United States.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Tracker Tax" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/tracker-tax.html" />
+    <meta property="og:description" content="The impact of third-party trackers on website speed in the United States." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/tracker_tax/tracker-tax.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="Tracker Tax">
+    <meta name="twitter:description" content="The impact of third-party trackers on website speed in the United States.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/tracker_tax/tracker-tax.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Tracker Tax</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">May 29th, 2018</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/tracker_tax/tracker-tax.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">Tracker Tax</h3>
+        <p id="post-subtitle">The impact of third-party trackers on website speed in the United States.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - May 29th, 2018</p>
+
+        <p><em>This post is a summary of the paper <strong>"The Tracker Tax: the impact of third-party
+trackers on website speed in the United States"</strong>. Full paper can be found <a href="https://www.ghostery.com/wp-content/themes/ghostery/images/campaigns/tracker-tax/Ghostery_Study_-_The_Tracker_Tax.pdf">here</a></em>.
+<br /><br /></p>
+<p>Earlier this month, we published a study titled, <em>“The Tracker Tax: the impact
+of third-party trackers on website speed in the United States”</em>. The goal of
+this study was to shed light on the impact of trackers from a performance
+perspective, rather than the more frequently studied privacy standpoint.
+Previous research on the topic has looked at the ubiquitous nature of online tracking
+and their various business models<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>, pervasiveness of tracking, especially among
+news websites<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> and the privacy implication of tracking in the wild where a few companies
+have extensive reach on web traffic <sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>.</p>
+<p>Beyond privacy concerns, we are left with one question: Do trackers cost us time?
+More specifically, what is the relationship between the number of trackers and the time
+a page takes to load? We call this tracker impact on the website page load times, also
+referred to as page latency, the <em>Tracker Tax</em>.</p>
+<h2 id="data-collection-and-cleaning">Data Collection and Cleaning</h2>
+<p>Intuition tells us that the more trackers present on a page, the longer it would take
+that page to load; however, this hypothesis had not been tested on a large scale.
+Web privacy measurement framework, <a href="https://github.com/citp/OpenWPM">OpenWPM</a> has been
+used by numerous researchers to collect data for privacy studies on a mass, automated
+scale, but this tool was not built to measure website performance metrics like page load
+time. So we built a custom crawler to collect the number of third-party trackers on a
+website and the time it took that page to load.  The crawler was built with Selenium
+running Chrome, making GET requests from a server based in New York City, and used
+<a href="https://ghostery.com">Ghostery</a> to collect two metrics per page load: the count of
+third-party trackers and number of seconds to load the page.</p>
+<p>Ghostery detects third-party trackers by matching URLs from HTTP requests against
+their trackers' database, which currently contains over 3,000 tracker companies and 4,700 tracker
+patterns. To measure the time it takes a page to load, Ghostery uses
+Mozilla’s <code>Window.performance</code> API <sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup> by taking the delta between
+<code>domContentLoadedEventStart</code> and <code>requestStart</code>. We chose to use Ghostery to measure
+tracker count and page load time so the public could replicate similar, independent
+analyses by simply installing the browser extension on their own and loading a
+website to easily see these two metrics.</p>
+<p>We ran the custom web crawler five times on each of the top 500 websites in the
+United States, as determined by Alexa <sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup>. Data cleaning included removing domains
+with fewer than five successful measurements, and excluding four Chinese websites
+from the sample.  We excluded these websites because we suspect there are China-based
+trackers that are not yet accounted for in the Ghostery database. Further, to account
+for variation in the data, we filtered out the fastest and slowest page loads per
+site (and their associated tracker counts), so that the data would be less sensitive
+to outliers and data collection errors. The crawler was run under two configurations:
+1) with no trackers blocked, and 2) with the Ghostery browser extension
+blocking all trackers. Both configurations underwent the same data cleaning process.</p>
+<h2 id="results">Results</h2>
+<h3 id="tracker-ecosystem">Tracker Ecosystem</h3>
+<p>Using the data collected under the configuration without tracker blocking enabled,
+we saw that nearly 90% of page loads contained at least one tracker, 65% had at
+least 10 trackers, and 20% had 50 or more trackers.  Only 10% of page loads were
+tracker free. These metrics once again confirm the prevalence of online tracking,
+and broadly align with our
+<a href="https://www.ghostery.com/wp-content/themes/ghostery/images/campaigns/tracker-study/Ghostery_Study_-_Tracking_the_Trackers.pdf">previous study</a><sup id="fnref:6"><a class="footnote-ref" href="#fn:6" rel="footnote">6</a></sup>
+which observed that 77.4% of page loads contain trackers.</p>
+<p><img alt="Tracker per page load" src="../static/img/blog/tracker_tax/percent-pageloads-num-trackers.svg" />
+<p class="img-caption">Figure 1: Distribution of the number of trackers</p></p>
+<p>There are several differences between our two studies which may explain the increase
+in tracker dominance seen in this study. Firstly, this study’s sample contains the
+500 most popular websites in the US, while our previous study analyzed 144 million
+page loads across more than 12 countries. By only considering the most popular websites
+and neglecting the long tail of more obscure ones, it is not surprising that this study
+saw a larger proportion of sites with a tracker. Additionally, the data for this study
+was synthetically generated using a custom crawler, whereas our previous study used data
+gathered from users of the Ghostery browser extension who had opted-in to the collection
+of information about trackers on pages they visit. While the methodologies differ,
+both studies verify tracker pervasiveness throughout the web.</p>
+<h3 id="trackers-and-page-latency">Trackers and Page Latency</h3>
+<p>Without blocking trackers, only 17% of all the pages in the study loaded within
+5 seconds. All other pages loaded much more slowly: it took more than 10 seconds
+to load nearly 60% of the pages, more than 30 seconds for 18% of the pages, and
+nearly 5% of the pages took over a minute to load. This long tail cannot be ignored
+and suggests Internet users waste a lot of time every day simply waiting
+or websites to load.</p>
+<p><img alt="Time to load page" src="../static/img/blog/tracker_tax/avg-pageload-num-trackers.svg" />
+<p class="img-caption">Figure 2: Average time to load trackers</p></p>
+<p>While we found that websites are generally slow to load, can any of this page
+latency be explained by the number of third-party trackers on that site?
+To answer this question, we calculated the average page load time for
+each tracker count. We excluded both tracker volumes with fewer than
+five observations and page latency outliers within each tracker
+count (identified using the interquartile range rule).</p>
+<p>To quantify the relationship between the number of trackers on a website and
+the average time it took that page to load, we ran a simple linear regression
+(<code>adj-R2 0.802</code>) which suggested that each additional tracker adds, on average,
+0.5 seconds to the overall page load. The next model we fitted, which included
+a quadratic term (<code>adj-R2 0.836</code>), suggests that trackers have an increasing
+impact on page load times. However, these linear models both exhibit
+heteroscedasticity – uneven variance of the error terms – and thus violate
+linear regression assumptions.</p>
+<p><img alt="Log Latency Trackers" src="../static/img/blog/tracker_tax/trackers-loglatency.svg" />
+<p class="img-caption">Figure 3: Log Latency as a function of the number of trackers </p></p>
+<p>A Box-Cox test showed that log-transforming the response variable would realize
+the best fitting model, and also act as a variance-stabilizing transformation.
+The log-linear model (<code>adj-R2 0.885</code>) on the transformed data indicates a
+compounding effect: if the tracker count increases by 1, we expect the
+page load time to increase by 2.5%.</p>
+<h3 id="protection-from-trackers">Protection from Trackers</h3>
+<p>We also assessed the difference in page latency when trackers are blocked rather
+than allowed. The data showed that the average page load time was twice as long
+when trackers are not blocked: the mean page latency with no trackers blocked and
+with all trackers blocked was 19.3 seconds and 8.6 seconds, respectively. These
+time savings from blocking trackers are even more drastic when only considering the
+10 slowest domains in the sample. We saw that average load times were 10x faster,
+and blocking trackers saved an average of 84 seconds per page load.</p>
+<p><img alt="Average Latency for Certain Domains" src="../static/img/blog/tracker_tax/avg-latency-domain.svg" />
+<p class="img-caption">Figure 4: Latencies for certain domains </p></p>
+<p>The term “piggybacking” describes the practice of one tracker that is placed
+directly on a website giving access to other “piggybacking” trackers that are
+not originally on the site.  We observed this phenomenon in our data: page loads
+were not the only metric significantly reduced when trackers were blocked, there
+were also fewer trackers detected on the page. We saw significantly more
+trackers per page when trackers were unblocked compared to blocked, in fact,
+among the domains with the highest average volume of trackers, there were on
+average 93 fewer trackers present per page load when tracker blocking was enabled.</p>
+<p>Piggybacking can create a snowball effect, where trackers bring in more trackers
+that can then bring in even more trackers; and as suggested above, each additional
+tracker slows down a website more than previous ones. This not only has notable
+performance implications, but also profound privacy concerns since these trackers
+are not directly on the site, so site owners may not be aware such intrusion
+is occurring.</p>
+<h2 id="future-implications">Future Implications</h2>
+<p>The data in our study clearly showed the pervasiveness of online tracking,
+as nearly 90% of the most popular sites in the US had at least one third-party
+tracker present. Our study also confirmed the strong, positive link between the
+number of trackers on a page and the time it takes that page to load.  Generally,
+the more tracks on a site, the longer the user will have to wait for that site to load.
+Quantifying this relationship depends on the model used, however the optimal model
+we found shows a compounding effect: for every extra tracker on the page,
+the time it takes for the page to load increases by 2.5%.</p>
+<p>While our current study focuses on only the most popular domains in the
+United Sates, it would be valuable to apply this framework to other regions
+to see if similar trends persist elsewhere. Additionally, future work may
+include measuring additional performance implications of trackers including data
+transferred.  This data transferred, which occurs when trackers make requests to
+other servers, bears real monetary costs to the user, particularly on a mobile
+device where data plans are typically based on data used. Expanding this study
+to assess data transfer on mobile could be translated to the out of pocket
+expense suffered by the user, in addition to the more subjective dollar value
+of the user’s wasted time waiting for pages to load.</p>
+<p>Other future work may also include looking at the relationship between
+bounce rates and page load speeds, to calculate a hypothetical tracker
+value measure.  Given the additional time trackers add to page loads, and
+research suggest that slower pages lead to a loss in site traffic, one tracker
+should provide the same value as this lost site traffic. As bounce rates
+are likely influenced by other factors besides page load speed, like
+funnel page and domain category, this potential future research involves
+several additional considerations.</p>
+<p>Moreover, the tracker tax may even have more pronounced implications
+in the United States following the recent repeal of net neutrality.
+In a time without such net neutrality regulations, users and their browsing
+speeds may be squeezed from both sides – by the ISP and the online tracking
+ecosystem. We may then start to see more of a two prong tacker tax: the
+direct monetary impact imposed by the ISP and the more subjective dollar
+value to the user for longer load times, and therefore more unproductive
+time imposed by trackers.</p>
+<p>In the wake of the net neutrality repeal, now more than ever users must
+consider the performance implications of browsing online without
+protection from trackers. The added waiting times incurred by not
+blocking trackers are not trivial, especially as the population is
+spending increasingly more time online. Luckily, various tracker blocking
+tools are available so user can not only protect their privacy, but also
+speed up their browsing experience by avoiding the tracker tax.</p>
+<h2 id="references">References</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.telematica.polito.it/users/mellia/papers/metwalleyComsi.pdf">Using Passive Measurements to Demystify Online Trackers</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://arxiv.org/abs/1804.08959">WhoTracks.Me: Monitoring the online tracking landscape at scale</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://pdfs.semanticscholar.org/2bfb/b6b8da453f91f5860ea936588fddef6c80e0.pdf">Tracking The Trackers</a>&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/performance">Windows.performance</a> API&#160;<a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://alexa.com">alexa.com</a>&#160;<a class="footnote-backref" href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Ghostery Study: <a href="https://www.ghostery.com/wp-content/themes/ghostery/images/campaigns/tracker-study/Ghostery_Study_-_Tracking_the_Trackers.pdf">Tracking the Trackers</a>&#160;<a class="footnote-backref" href="#fnref:6" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Tracker Tax</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

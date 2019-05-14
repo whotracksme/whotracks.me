@@ -1,0 +1,291 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | The end of google.{your country}?</title>
+    <meta name="description" content="Google's move to keep their cookies.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="The end of google.{your country}?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/google_domains.html" />
+    <meta property="og:description" content="Google's move to keep their cookies." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/google_domains/dataflow.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="The end of google.{your country}?">
+    <meta name="twitter:description" content="Google's move to keep their cookies.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/google_domains/dataflow.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>The end of google.{your country}?</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Apr 23rd, 2018</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/google_domains/dataflow.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">The end of google.{your country}?</h3>
+        <p id="post-subtitle">Google's move to keep their cookies.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Apr 23rd, 2018</p>
+
+        <p>There have been <a href="https://twitter.com/vtoubiana/status/987365270187634688">recent reports</a> that
+Google has started redirecting users from regional variants of Google search (served on
+google.{de, fr, co.uk, etc}) to google.com for search results. This has implications for the
+<a href="../trackers/google.html">4th most prevalent</a> tracker on the web, so we decided to check
+the data to see what is going on.</p>
+<p>By looking at WhoTracks.Me data from April, we see that around April 16th there is a shift in
+traffic from Google's European search results pages (<code>www.google.{de,fr,at,co.uk,etc}</code>) towards
+<code>www.google.com</code>. The figure below shows that the former domains all saw a 50% drop in number
+of page loads over the last week, while <code>www.google.com</code> is up 100-150%, suggesting Google
+are doing a gradual rollout of this change. These changes lie well outside the bounds of
+the weekly traffic fluctuations we usually see.</p>
+<p><img alt="The rise of Google.COM" src="../static/img/blog/google_domains/global_trends.svg" />
+<p class="img-caption">Percentage change in traffic to google search result pages, April 2018</p></p>
+<p>We can further see the magnitude of this change by focusing on data for Germany. If we look at the
+relative proportion of pages loaded on <code>www.google.de</code> and <code>www.google.com</code> in Germany over the last
+month, we see a marked increase, with the share of traffic to <code>www.google.com</code> going up from around
+5% to over 40%.</p>
+<p><img alt="Relative proportion of traffic in Germany" src="../static/img/blog/google_domains/germany_prop.svg" />
+<p class="img-caption">Search results pages used in Germany, April 2018</p></p>
+<p>Why is Google doing this? We don't know - we're not aware of any official announcement. However,
+one reason for this could be a reaction to increased usage of restrictive cookie settings, such
+as allowing cookies only from visited sites, or Apple's <a href="https://webkit.org/blog/7675/intelligent-tracking-prevention/">Intelligent Tracking Prevention</a>.
+If a user is rarely visiting the google.com domain, these technologies can expire this cookie earlier,
+or prevent its use in third-party contexts.
+As <code>google.com</code> is the domain used to authenticate with Google services, if the browser sends
+<code>google.com</code> cookies in third-party context, these visits can be directly attributed to one's
+Google profile. Therefore, this change increases the likelihood that the user will have recently
+visited <code>www.google.com</code>, and therefore Google's tracking can continue uninterrupted.</p>
+<p>Tracking from <code>google.*</code> domains <a href="https://whotracks.me/trackers/google.html">reaches 30% of web traffic</a>,
+and the majority of this reach is contributed by the <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/2018-03/global/domains.csv#L5"><code>google.com</code> domain</a>.
+As, with this change, it is very difficult to avoid visiting <code>google.com</code> domain as a first party,
+preventing this tracking in a vanilla browser would require disabling all third-party cookies.
+Alternatively, <a href="https://cliqz.com/">Cliqz</a> and <a href="https://www.ghostery.com/">Ghostery's</a> AI anti-tracking
+technologies block all third-party tracking cookies (Disclosure: the author works on this product).
+<a href="https://www.eff.org/privacybadger">Privacy Badger</a> is also able to block third-party tracking cookies.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>The end of google.{your country}?</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

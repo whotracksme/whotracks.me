@@ -1,0 +1,1188 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>WhoTracks.me - Bringing Transparency to Online Tracking</title>
+    <meta name="description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whotracks.me">
+    <meta property="og:title" content="WhoTracks.me - Bringing Transparency to Online Tracking">
+    <meta property="og:description" content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
+    <meta property="og:image" content="https://whotracks.me/static/img/tracking-matrix-bluebg.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="./static/img/favicon-2.ico">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+    <link rel="stylesheet" href="./static/css/home/index.css">
+    <link rel="stylesheet" href="./static/css/blog/card.css">
+
+
+    <!-- jQuery -->
+    <script src="./static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="./static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = "."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href=".">
+                        <img class="logo" alt="Who Tracks Me" src="./static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="./trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="./websites.html">WEBSITES</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="./blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="./explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+
+
+
+
+<div class="home-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <h1>Learn about tracking technologies, market structure and data-sharing on the web</h1>
+                <a href="https://arxiv.org/abs/1804.08959"
+                   class="btn btn-purple"
+                   target="_blank"
+                   type="button">
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                    WhoTracksMe Paper 2018</a>
+                <p>
+                    <span>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <a href="./blog/what_is_a_tracker.html"> What is a tracker?</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <a href="./blog/where_is_the_data_from.html"> Where does this data come from?</a>
+                    </span>
+                </p>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <div class="trackers-img">
+                    <img src="./static/img/m1.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Latest Articles -->
+
+<div class="grey-bg header-articles">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-sm-4 col-md-4">
+                    <div class="card">
+    <div class="thumbnail">
+        <div class="card-media">
+            <img class="img-fit-cover" src="./static/img/blog/dexie_transaction_bug/release.png" />
+        </div>
+        <div class="caption">
+            <p class="article">article</p>
+
+            <h3><a href="./blog/dexie_transaction_bug.html">A quantum bug in Firefox Quantum</a></h3>
+            <p>DevTools - how we tracked down an observant-dependent bug.</p>
+          </div>
+    </div>
+</div>
+                </div>
+                
+                <div class="col-sm-4 col-md-4">
+                    <div class="card">
+    <div class="thumbnail">
+        <div class="card-media">
+            <img class="img-fit-cover" src="./static/img/blog/updating-prevalence-metrics/header.jpg" />
+        </div>
+        <div class="caption">
+            <p class="article">article</p>
+
+            <h3><a href="./blog/updating_our_tracking_prevalence_metrics.html">Updating our tracking prevalence metrics</a></h3>
+            <p>Metrics that make more sense.</p>
+          </div>
+    </div>
+</div>
+                </div>
+                
+                <div class="col-sm-4 col-md-4">
+                    <div class="card">
+    <div class="thumbnail">
+        <div class="card-media">
+            <img class="img-fit-cover" src="./static/img/blog/adblocker-perf-study.jpg" />
+        </div>
+        <div class="caption">
+            <p class="article">article</p>
+
+            <h3><a href="./blog/adblockers_performance_study.html">Adblockers Performance Study</a></h3>
+            <p>Blocking all ads faster than the blink of an eye.</p>
+          </div>
+    </div>
+</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+<section class="grey-bg top-buffer">
+    <div class="container">
+        <div class="row home-plot">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-9 col-sm-9">
+                        <h2 class="plot-title">Tracker Market Share</h2>
+                        <p class="plot-subtitle">
+                            Proportion of the web traffic tracked by these companies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 checkout">
+                <h4>READ OUR PAPER:</h4>
+
+                    <i class="fa fa-file-text-o"></i>
+                    <span style="font-size: 13px">
+                        <a
+                            target="_blank"
+                            href="https://arxiv.org/abs/1804.08959">
+                            WhoTracksMe 2018
+                        </a>
+                    </span>
+
+            </div>
+        </div>
+        <div id="4aceb9e7-8d48-496a-8019-d2bdddf85e8c" style="height: 100%; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("4aceb9e7-8d48-496a-8019-d2bdddf85e8c", [{"marker": {"color": ["#BCC4CE", "#BCC4CE", "#BCC4CE", "#BCC4CE", "#BCC4CE", "#BCC4CE", "#BCC4CE", "#BCC4CE", "#A069AB", "#A069AB"]}, "orientation": "h", "x": [0.057, 0.062, 0.068, 0.076, 0.087, 0.095, 0.096, 0.182, 0.278, 0.811], "y": ["Oracle", "Criteo S.A.", "Adobe", "Cloudflare", "Microsoft", "comScore, Inc.", "Twitter", "Amazon", "Facebook", "Google"], "type": "bar", "uid": "85fdf5c0-7650-11e9-a436-42010a1402a7"}], {"autosize": true, "margin": {"b": 40, "l": 150, "pad": 5, "r": 60, "t": 30}, "showlegend": false, "xaxis": {"anchor": "free", "color": "#5F7C86", "position": 0, "tickformat": "%"}}, {"showLink": false, "linkText": "Export to plot.ly", "displayModeBar": false})</script>
+        <p class="plot-caption">See <a href="/companies/reach-chart.html">Full Chart</a></p>
+        <div class="row home-panel">
+
+            <!-- Tracker Stats -->
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-body">
+                    <div class="card-top-1 card-purple">
+                        <h3 class="card-title">Google trackers are present on 81% of the web traffic</h3>
+                        <p class="card-subtitle">That is more than the next 4 biggest trackers combined.</p>
+                    </div>
+
+                    <p class="card-button">
+                        <span class="label label-default">#trackerTopia</span>
+                        <span class="label label-default">#growth</span>
+                        <span class="label label-default">#topSites</span>
+                    </p>
+                </div>
+            </div>
+            <!-- End of Tracker Stats -->
+
+            <!-- Website Stats -->
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-body">
+                    <div class="card-top-2 card-purple">
+                        <h3 class="card-title">28% of the web has a hidden Facebook tracking pixel</h3>
+                        <p class="card-subtitle">Facebook knows more than what you just do on Facebook</p>
+                    </div>
+
+                    <p class="card-button">
+                        <span class="label label-default">#facebook</span>
+                        <span class="label label-default">#trackingPixel</span>
+                        <span class="label label-default">#reach</span>
+                    </p>
+                </div>
+            </div>
+            <!-- End of Website Stats -->
+
+            <!-- Privacy Reports -->
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-body">
+                    <div class="card-top-3 card-gray">
+                        <h3 class="card-title">541 companies track more than 0.1% of the web traffic each.</h3>
+                        <p class="card-subtitle">Which of these have you heard of?</p>
+                    </div>
+
+                    <p class="card-button">
+                        <span class="label label-default">#unknown</span>
+                        <span class="label label-default">#pervasive</span>
+                        <span class="label label-default">#mydata</span>
+                    </p>
+                </div>
+            </div>
+            <!-- END of Privacy Reports -->
+        </div>
+    </div>
+</section>
+
+
+<div class="top-buffer most-websites">
+
+    <div class="container">
+        <div class="most-tracked-websites">
+            <h2>Websites with the most (and least) tracking
+                <span class="subtitle"></span>
+            </h2>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#traffic">Most Tracked</a></li>
+                <li><a data-toggle="tab" href="#trackersNum">Least Tracked</a></li>
+            </ul>
+            <div class="list-container">
+                <div class="tab-content">
+                    <div id="traffic" class="tab-pane fade in active">
+                        <ul id="multi-column-list">
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/variety.com.html">variety.com</a>
+                                        <span class="count">43</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/rollingstone.com.html">rollingstone.com</a>
+                                        <span class="count">37</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/usatoday.com.html">usatoday.com</a>
+                                        <span class="count">36</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/express.de.html">express.de</a>
+                                        <span class="count">36</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/spielesite.com.html">spielesite.com</a>
+                                        <span class="count">36</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/mopo.de.html">mopo.de</a>
+                                        <span class="count">35</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/washingtontimes.com.html">washingtontimes.com</a>
+                                        <span class="count">34</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/ksta.de.html">ksta.de</a>
+                                        <span class="count">34</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/freep.com.html">freep.com</a>
+                                        <span class="count">34</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/pagesix.com.html">pagesix.com</a>
+                                        <span class="count">34</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/express.co.uk.html">express.co.uk</a>
+                                        <span class="count">33</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/sears.com.html">sears.com</a>
+                                        <span class="count">32</span>
+                                        <span class="subtitle">Business</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/dailystar.co.uk.html">dailystar.co.uk</a>
+                                        <span class="count">32</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/berliner-kurier.de.html">berliner-kurier.de</a>
+                                        <span class="count">32</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/berliner-zeitung.de.html">berliner-zeitung.de</a>
+                                        <span class="count">32</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/detroitnews.com.html">detroitnews.com</a>
+                                        <span class="count">32</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/deadline.com.html">deadline.com</a>
+                                        <span class="count">31</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/nypost.com.html">nypost.com</a>
+                                        <span class="count">31</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/thetimes.co.uk.html">thetimes.co.uk</a>
+                                        <span class="count">31</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/sport.de.html">sport.de</a>
+                                        <span class="count">31</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                 <li>
+                                    <a href="./websites.html" class="all-websites">
+                                        All websites
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+
+                    <div id="trackersNum" class="tab-pane fade">
+                        <ul id="multi-column-list">
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/melissadata.com.html">melissadata.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Business</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/thevideo.me.html">thevideo.me</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/equinepassion.de.html">equinepassion.de</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/newintranet.netclin.gva.html">newintranet.netclin.gva</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Business</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/interspace.com.html">interspace.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Business</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/stellastream.com.html">stellastream.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/ph0dv.nl.html">ph0dv.nl</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/onebusaway.org.html">onebusaway.org</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Business</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/it.ua.html">it.ua</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Business</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/dslyecxi.com.html">dslyecxi.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/storiesonline.net.html">storiesonline.net</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Adult</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/oglaf.com.html">oglaf.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Adult</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/ula.cc.html">ula.cc</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/bundeskampf.com.html">bundeskampf.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/kindgirls.com.html">kindgirls.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Adult</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/inkbunny.net.html">inkbunny.net</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/scryfall.com.html">scryfall.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/empornium.me.html">empornium.me</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Adult</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/intellicast.com.html">intellicast.com</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">News and Portals</span>
+                                    </li>
+                                
+                                    <li>
+                                        <img class="icon" src="./static/img/website_globe.svg">
+                                        <a href="./websites/my-project-free.tv.html">my-project-free.tv</a>
+                                        <span class="count">1</span>
+                                        <span class="subtitle">Entertainment</span>
+                                    </li>
+                                
+                                <li>
+                                    <a href="./websites.html" class="all-websites">
+                                        All websites
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row websites-info-box">
+                <h4> TRACKER PRESENCE</h4>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <p class="percentage">1743</p>
+                            <p>out of 4745 top websites have more than 10 trackers per page.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <p class="percentage">28<span class="mb">MB</span></p>
+                            <p>of data per page load on average required by trackers
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <img  src="./static/img/fingerprinting.svg">
+<p class="tracking-method">
+  <span class="highlight">FINGERPRINTING</span> is a unique digital signature derived from the properties of your device.
+  <div>
+    <a class="learn-more" href="./blog/fingerprinting.html">
+      Learn more
+      <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <img src="./static/img/cookies.svg">
+<p class="tracking-method">
+  <span class="highlight">COOKIES</span> are files placed by the website, stored in the browser
+  that is used to identify you to the website. <div>
+    <a class="learn-more" href="./blog/cookies.html">
+      Learn more
+      <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="top-buffer most-trackers">
+    <div class="container">
+        <h2>The most common trackers</h2>
+        <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#popularity">Popularity</a></li>
+      <li><a data-toggle="tab" href="#category">Company</a></li>
+</ul>
+<div class="list-container">
+    <div class="tab-content">
+        <div id="popularity" class="tab-pane fade in active">
+            <ul id="multi-column-list">
+                
+                    <li>
+                        1.
+                        <a href="./trackers/google_analytics.html" class="entity-name">Google Analytics</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        2.
+                        <a href="./trackers/gstatic.html" class="entity-name">Google Static</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        3.
+                        <a href="./trackers/google_tag_manager.html" class="entity-name">Google Tag Manager</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        4.
+                        <a href="./trackers/google_fonts.html" class="entity-name">Google Fonts</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        5.
+                        <a href="./trackers/google.html" class="entity-name">Google</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        6.
+                        <a href="./trackers/facebook.html" class="entity-name">Facebook</a>
+                        
+                            <span>
+                                Facebook
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        7.
+                        <a href="./trackers/doubleclick.html" class="entity-name">DoubleClick</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        8.
+                        <a href="./trackers/googleapis.com.html" class="entity-name">Google APIs</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        9.
+                        <a href="./trackers/google_adservices.html" class="entity-name">Google AdServices</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        10.
+                        <a href="./trackers/youtube.html" class="entity-name">YouTube</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        11.
+                        <a href="./trackers/twitter.html" class="entity-name">Twitter</a>
+                        
+                            <span>
+                                Twitter
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        12.
+                        <a href="./trackers/scorecard_research_beacon.html" class="entity-name">ScoreCard Research</a>
+                        
+                            <span>
+                                comScore, Inc.
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        13.
+                        <a href="./trackers/amazon_adsystem.html" class="entity-name">Amazon Adsystem</a>
+                        
+                            <span>
+                                Amazon
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        14.
+                        <a href="./trackers/cloudflare.html" class="entity-name">CloudFlare</a>
+                        
+                            <span>
+                                Cloudflare
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        15.
+                        <a href="./trackers/google_syndication.html" class="entity-name">Google Syndication</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        16.
+                        <a href="./trackers/google_users.html" class="entity-name">Google User Content</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        17.
+                        <a href="./trackers/amazon_cloudfront.html" class="entity-name">Amazon CloudFront</a>
+                        
+                            <span>
+                                Amazon
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        18.
+                        <a href="./trackers/google_photos.html" class="entity-name">Google Photos</a>
+                        
+                            <span>
+                                Google
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        19.
+                        <a href="./trackers/criteo.html" class="entity-name">Criteo</a>
+                        
+                            <span>
+                                Criteo S.A.
+                            </span>
+                        
+                    </li>
+                
+                    <li>
+                        20.
+                        <a href="./trackers/new_relic.html" class="entity-name">New Relic</a>
+                        
+                            <span>
+                                New Relic
+                            </span>
+                        
+                    </li>
+                
+                <li>
+                    <a
+                        class="top-trackers"
+                        href="/trackers.html"
+                    >
+                        See All 1141 Trackers
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="category" class="tab-pane fade">
+            <ul id="multi-column-list">
+                
+                    <li>
+                        1.
+                        <a  href="./trackers/zopim.html" class="entity-name">Zopim</a>
+                        
+                        <span>
+                            Zopim
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        2.
+                        <a  href="./trackers/site24x7.html" class="entity-name">Site24x7</a>
+                        
+                        <span>
+                            Zoho Corporation
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        3.
+                        <a  href="./trackers/ziff_davis.html" class="entity-name">Ziff Davis</a>
+                        
+                        <span>
+                            Ziff Davis LLC
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        4.
+                        <a  href="./trackers/zergnet.html" class="entity-name">ZergNet</a>
+                        
+                        <span>
+                            ZergNet
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        5.
+                        <a  href="./trackers/zdassets.com.html" class="entity-name">Zendesk CDN</a>
+                        
+                        <span>
+                            Zendesk
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        6.
+                        <a  href="./trackers/zendesk.html" class="entity-name">Zendesk</a>
+                        
+                        <span>
+                            Zendesk
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        7.
+                        <a  href="./trackers/zencoder.html" class="entity-name">Zencoder</a>
+                        
+                        <span>
+                            Zencoder
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        8.
+                        <a  href="./trackers/zemanta.html" class="entity-name">Zemanta</a>
+                        
+                        <span>
+                            Zemanta, Inc.
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        9.
+                        <a  href="./trackers/zedo.html" class="entity-name">Zedo</a>
+                        
+                        <span>
+                            Zedo
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        10.
+                        <a  href="./trackers/zebestof.com.html" class="entity-name">Zebestof</a>
+                        
+                        <span>
+                            Zebestof
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        11.
+                        <a  href="./trackers/zalando_de.html" class="entity-name">zalando.de</a>
+                        
+                        <span>
+                            Zalando
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        12.
+                        <a  href="./trackers/yieldmo.html" class="entity-name">Yieldmo</a>
+                        
+                        <span>
+                            Yieldmo, Inc.
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        13.
+                        <a  href="./trackers/yieldlove.html" class="entity-name">Yieldlove</a>
+                        
+                        <span>
+                            Yieldlove GmbH
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        14.
+                        <a  href="./trackers/yieldify.html" class="entity-name">Yieldify</a>
+                        
+                        <span>
+                            Yieldify
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        15.
+                        <a  href="./trackers/yieldbot.html" class="entity-name">Yieldbot</a>
+                        
+                        <span>
+                            Yieldbot
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        16.
+                        <a  href="./trackers/adfox.html" class="entity-name">AdFox</a>
+                        
+                        <span>
+                            Yandex
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        17.
+                        <a  href="./trackers/yandex.html" class="entity-name">Yandex</a>
+                        
+                        <span>
+                            Yandex
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        18.
+                        <a  href="./trackers/yandex.api.html" class="entity-name">Yandex.API</a>
+                        
+                        <span>
+                            Yandex
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        19.
+                        <a  href="./trackers/yandex_advisor.html" class="entity-name">Yandex.Advisor</a>
+                        
+                        <span>
+                            Yandex
+                        </span>
+                        
+                    </li>
+                
+                    <li>
+                        20.
+                        <a  href="./trackers/yandex_direct.html" class="entity-name">Yandex.Direct</a>
+                        
+                        <span>
+                            Yandex
+                        </span>
+                        
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    </div>
+
+</div>
+</div>
+
+
+
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="./static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

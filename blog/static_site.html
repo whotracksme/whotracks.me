@@ -1,0 +1,321 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | Building whotracks.me</title>
+    <meta name="description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Building whotracks.me" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/static_site.html" />
+    <meta property="og:description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-site.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="Building whotracks.me">
+    <meta name="twitter:description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-site.jpg">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Building whotracks.me</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Nov 3rd, 2017</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-site.jpg" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">Building whotracks.me</h3>
+        <p id="post-subtitle">Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Nov 3rd, 2017</p>
+
+        <p>At Cliqz and Ghostery, we <a href="/blog/where_is_the_data_from.html">collect anonymous data about trackers</a> 
+to power our <a href="blog/how_cliqz_antitracking_protects_users.html">anti-tracking</a> technology.
+We see our anti-tracking as a community effort and as such we want to share a structured
+representation of this data to cast some light on the tracker landscape.</p>
+<p>Out of the three main entities involved in a page load: <strong>users</strong>, <strong>websites</strong> and <strong>trackers</strong>,
+we have data only on the last two. We'll start with:</p>
+<ul>
+<li>Profiles of the <a href="/trackers.html">top 500 trackers</a> </li>
+<li>Tracker data on the <a href="/websites.html">top 500 domains</a>.</li>
+</ul>
+<p>With these out of the way, a blog space would be needed. This for two
+of reasons. We realised there was a need for a learning space where we 
+explain concepts referred to in the site. We call these <strong>primers</strong>. 
+These define what we call a <a href="/blog/what_is_a_tracker.html">tracker</a>,
+what <a href="/blog/cookies.html">cookies</a> and <a href="/blog/fingerprinting.html">fingerprinting</a>
+are or <a href="/blog/where_is_the_data_from.html">where this data comes from</a>. 
+Hopefully over time it will become a space for curious readers 
+to be introduced to tracking technologies. The second reason is to have 
+a space where we'll be writing about particular trackers, technologies, papers,
+engineering, and other interesting topics.</p>
+<h2 id="going-static">Going static</h2>
+<p>Through whotracks.me, we want to cast some light on the tracking 
+landscape, but also make a point about trackers and <strong>privacy by design</strong>, 
+hence the choice of this being a static site was pretty obvious. This 
+meant that we could build the whole site offline, put it in a folder 
+and serve it through CDN.</p>
+<p>Given this will be updated a few times a month, build performance was not really 
+a big issue for us. But stumbling upon <a href="https://news.ycombinator.com/item?id=15507538">a discussion</a> 
+about site generators' performance, some comments read: </p>
+<ul>
+<li><em>"with Hugo + Pygments was taking ~20s for ~20 pages at the time"</em></li>
+<li><em>"92 pages in 1s (full rebuild, No CSS magic tooling though)"</em></li>
+<li><em>"Rust: ~10k pages in ~60s"</em></li>
+</ul>
+<p>The assumption would be that most of this time is spent parsing the 
+markdown files. To build this site however, with the exception of the
+blog, the rest of the pages are mainly about instantiating a template,
+plugging some content, and writing to disk. So most likely a comparison between 
+site generators and this would be unfair. At the time of writing, 
+whotracks.me has roughly 1020 pages. On 1000 of these pages there are 
+offline generated plots, quite some data and a fair amount of tooling 
+with respect to styling.  On a <code>Thinkpad x230</code> with an Intel <code>i3 processor</code>: </p>
+<pre><code class="bash">(venv) ➜  whotracks.me git:(master) ✗ time python build.py site
+Home page ............................... done
+Tracker list ............................ done
+Website list ............................ done
+Blog List ............................... done
+Blog Posts .............................. done
+Website pages ........................... done
+Tracker Pages ........................... done
+python build.py site  13.86s user 1.08s system 158% cpu 9.400 total
+</code></pre>
+
+<p>This will be a 5 part series dedicated to:</p>
+<ol>
+<li><a href="/blog/static_site_generation.html">Generating a static site (part 1)</a></li>
+<li><a href="/blog/static_site_visualization.html">Visualization (part 2)</a></li>
+<li><a href="/blog/static_site_blog.html">Building a blog (part 3)</a></li>
+<li>Search, for some definition of search.</li>
+<li>No third party trackers and Fast</li>
+</ol>
+<p>The code and data to generate this site is open-sourced at
+<a href="https://github.com/cliqz-oss/whotracks.me"><code>https://github.com/cliqz-oss/whotracks.me</code></a>.</p>
+<p><br><br></p>
+<p>So let's start with <a href="/blog/static_site_templating.html">Generating a Static Site (part 1) ... </a></p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Building whotracks.me</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

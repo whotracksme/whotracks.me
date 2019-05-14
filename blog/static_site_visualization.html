@@ -1,0 +1,547 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | Building whotracks.me - Visualization (part 2)</title>
+    <meta name="description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Building whotracks.me - Visualization (part 2)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/static_site_visualization.html" />
+    <meta property="og:description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-site-p2.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="Building whotracks.me - Visualization (part 2)">
+    <meta name="twitter:description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-site-p2.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Building whotracks.me - Visualization (part 2)</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Oct 30th, 2017</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-site-p2.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">Building whotracks.me - Visualization (part 2)</h3>
+        <p id="post-subtitle">Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Oct 30th, 2017</p>
+
+        <p>A picture says a 1000 words - or so they say. Interestingly,
+some recent research suggests that even when we read, our brain 
+actually recognizes words as pictures [1]. With that said, as if one needs to 
+justify this, having plots accompany text and numbers, is typically a good idea, 
+and we did add some plots.</p>
+<h1 id="offline-plots-with-plotly">Offline plots with Plotly</h1>
+<p>Choosing <a href="https://plot.ly/python">Plotly</a>, allowed us to keep as much 
+of the codebase as possible in python, and have interactive plots as opposed to
+images.</p>
+<h2 id="plot-components">Plot Components</h2>
+<p>The main components needed to plot something in plotly are five: <code>traces</code>, 
+<code>data</code>, <code>layout</code>, <code>figure</code> and the <code>plot</code>object, where they're put together.</p>
+<ul>
+<li><strong>Traces</strong> are <a href="https://plot.ly/python/reference/"><code>graph objects</code></a> 
+populated with the input data needed. </li>
+<li><strong>Data</strong> is a list of all traces</li>
+<li><strong>Layout</strong> is a dictionary of configuration options that determines the 
+layout of the plot.</li>
+<li><strong>Figure</strong> is a dictionary with only two keys: <code>data</code> and <code>layout</code>, and the 
+respective values defined earlier.</li>
+<li><strong>Plot Object</strong>: this is the plot method used (plotting online and offline)</li>
+</ul>
+<p>A typical function that plots something, has this rough structure: </p>
+<pre><code class="python">def some_plot(param_0, param_1 ..., param_n):
+
+     # list of traces
+    data = [trace_0, trace_1, ..., trace_n]
+
+    # Dictionary to configure the layout of the plot
+    layout = {
+        config_option_0: value (type:: str | int | dict)
+        config_option_1: ____
+        config_option_n: ____
+    }
+
+    # creating the fig object
+    fig = {
+        data = data,
+        layout = layout
+    }
+
+    # creating the plot object (see next section for details)
+    return plotly.offline.plot(fig, other_configurable_params)
+</code></pre>
+
+<p>We'll discuss details and provide examples on each using real examples of 
+plots we have on this site.</p>
+<h2 id="plotting-offline">Plotting Offline</h2>
+<p>This is where the plot object (referred to earlier) gets created. There are 
+a few options.</p>
+<pre><code class="python">from plotly.plotly import plot, iplot  # create url to be viewed on plotly's 
+                                       # website (api key needed). With iplot
+                                       # you can also open the with jupyter
+                                       # notebooks
+
+from plotly.offline import plot, iplot # the first one creates a file of the 
+                                       # in an array of file formats, the second
+                                       # creates an interactive plot without 
+                                       # connecting to the plotly server, but 
+                                       # viewable in a notebook.
+</code></pre>
+
+<p>We will be using <a href="https://plot.ly/python/offline/"><code>plottly.offline.plot</code></a> and
+choose <code>div</code> as the output type, which is very handy given it is html 
+that will go into the template where it will be rendered. This enables us to
+generate the plots completely offline and just link the minified 
+<a href="https://github.com/cliqz-oss/whotracks.me/blob/master/static/js/plotly-v1.29.3.min.js"><code>plotly.js</code></a> 
+in the head of <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html"><code>base.html</code></a>. 
+One downside to consider, is the 2.8MB size of plotly.js though. For us however, 
+given the site will be served via CDN, this should be cached after the 
+first time it loads.</p>
+<p>Let's write a function with all options we need, that  will be used for all
+types of plots shown later in this post. This function is defined in 
+<a href="https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/utils.py"><code>plotting/utils.py</code></a>:</p>
+<pre><code class="python">def div_output(fig, display_mode_bar=False):
+    return plotly.offline.plot(
+        figure_or_data=fig,
+        output_type='div',
+        show_link=False,
+        include_plotlyjs=False,
+        config={&quot;displayModeBar&quot;: display_mode_bar}
+    )
+</code></pre>
+
+<p>Note that <code>display_mode_bar</code> is the set of options that shows up on the top 
+right corner of the plot when rendered by <code>plotly.js</code>, and it looks like this: 
+<img class="img-responsive img-with-padding" src="../static/img/blog/plotting/display_mode_bar.png">
+<p class="img-caption">Figure 2: Mode bar on top right corner of plotly plots.</p></p>
+<p><code>include_plotlyjs</code> is set to <code>False</code> to avoid <code>plotly.js</code> being loaded inline 
+with the <code>div</code> output for every plot. This is not necessary as it is already 
+linked in <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html"><code>base.html</code></a>.</p>
+<h2 id="bar-chart">Bar Chart</h2>
+<p>On main page of this site, you will see this:</p>
+<p><img class="img-responsive img-with-padding" src="../static/img/blog/plotting/bar-chart.png"> 
+<p class="img-caption">Figure 3: Horizontal bar chart on tracking reach of top 10 companies</p></p>
+<p>The code to generate this can be found in <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/companies.py"><code>plotting/companies</code></a>. 
+Let's write a simpler function for a horizontal bar plot to get the idea: </p>
+<pre><code class="python">def horizontal_bar_plot(x, y):
+    '''
+    x: values
+    y: names
+    '''
+    c_purple = &quot;#A069AB&quot;
+    c_gray = &quot;#BCC4CE&quot;
+    trace = go.Bar(
+        x=x,
+        y=y,
+        orientation='h'
+        marker=dict(
+            color=[c_purple]*2 + [c_gray]*8
+        ),
+    )
+    data = [trace]
+    layout = go.Layout(
+        dict(
+            showlegend=False,
+            xaxis=dict(
+                color=CliqzColors[&quot;gray_blue&quot;]
+            )
+        )
+    )
+    fig = dict(data=data, layout=layout)
+    return div_output(fig)
+</code></pre>
+
+<h2 id="tracker-reach-trend-line">Tracker Reach - trend Line</h2>
+<p>This chart, as many others, was inspired by Edward Tufte's sparkline [2],
+drawn without axes or coordinates.</p>
+<p><img class="img-responsive img-with-padding" src="../static/img/blog/plotting/sparkline.png">
+<p class="img-caption">Figure 4: Trend line of tracker reach.</p></p>
+<pre><code class="python">def sparkline(ts, t):
+    &quot;&quot;&quot;
+    Sparkline for plotting line
+    Args:
+        ts: timeseries data
+        t: x-axis (time)
+
+    Returns: hmtl output of an interactive timeseries plot
+
+    &quot;&quot;&quot;
+    y = list(map(lambda x: x * 100, ts)) # scaling percentages
+    trace0 = line(
+        x=t,
+        y=y,
+        color=&quot;#A069AB&quot; #purple
+    )
+    trace1 = line(
+        x=[t[-1]],
+        y=[y[-1]],
+        color=&quot;#A069AB&quot;,
+        mode='markers'
+    )
+    layout = go.Layout(
+        dict(
+            showlegend=False,
+            height=100,
+            width=153,
+            hoverlabel=dict(
+                bgcolor=&quot;#1A1A25&quot;,
+                bordercolor=&quot;#00000000&quot;, # transparent
+                font=dict(
+                    family=CliqzFonts.mono,
+                    size=13,
+                    color=&quot;#BFCBD6&quot;
+                )
+            ),
+            xaxis=dict(
+                autorange=True,
+                showgrid=False,
+                zeroline=False,
+                showline=False,
+                autotick=True,
+                hoverformat=&quot;%b %y&quot;,
+                ticks='',
+                showticklabels=False
+            ),
+            yaxis=dict(
+                # providing some padding for the sparkline
+                range=[min(y)*0.90, max(y)*1.05 if max(y) != y[-1] else max(y)*1.15],
+                showgrid=False,
+                zeroline=False,
+                showline=False,
+                autotick=True,
+                ticks='',
+                showticklabels=False
+            )
+        )
+    )
+    data = [trace0, trace1]
+    fig = dict(data=data, layout=layout)
+    return div_output(fig)
+</code></pre>
+
+<p>The code used to plot the sparkline seen in tracker profiles is defined 
+in <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/plotting/trackers.py"><code>plotting/trackers.py</code></a>.</p>
+<h2 id="sankey-diagrams">Sankey Diagrams</h2>
+<p>Sankey diagrams are at visualizing flow volume metrics. Sometimes
+they are found under the name alluvial diagrams, although they originally are 
+different types of flow diagrams.</p>
+<p><img class="img-responsive img-with-padding" src="../static/img/blog/plotting/tracker-map.png"/>
+<p class="img-caption">Figure 1: Sankey diagram used to represent a <a href="../websites/upornia.com.html">tracker map</a></p></p>
+<p>In this site we use sankey diagrams in website profile 
+pages like <a href="/websites/www.bahn.de.html">bahn.de</a> to map companies
+and the trackers they operate to the category of the tracker. The thickness
+of the link is a function of the frequency of of appearance of the tracker
+per page load in the given domain. So looking at the diagram above,
+we know that the dominant tracker category is advertising and Google operates
+the most trackers and has the highest frequency of appearance.</p>
+<p>Our Sankey Diagram function in Python looks like this:</p>
+<pre><code class="python">from plotting.utils import div_output
+
+def sankey_plot(input_data):
+    data_trace = dict(
+        type='sankey',
+        domain=dict(
+            x=[0, 1],
+            y=[0, 1]
+        ),
+        hoverinfo=&quot;none&quot;,
+        orientation=&quot;h&quot;,
+        node=dict(
+            pad=10,
+            thickness=30,
+            label=list(map(lambda x: x.replace(&quot;_&quot;, &quot; &quot;).capitalize(), input_data['node']['label'])),
+            color=input_data['node']['color']
+        ),
+        link=dict(
+            source=input_data['link']['source'],
+            target=input_data['link']['target'],
+            value=input_data['link']['value'],
+            label=input_data['link']['label'],
+            color=[&quot;#dedede&quot; for _ in range(len(input_data['link']['source']))]
+        )
+    )
+    layout = dict(
+        autosize=True,
+        font=dict(
+            size=12
+        )
+    )
+    fig = dict(data=[data_trace], layout=layout)
+    return div_output(fig)
+</code></pre>
+
+<p>Having looked at a lot of examples of sankey plots, we noticed a recurrent
+pattern: they do a great job at explaining the plot aesthetics, but 
+take the structure of input data as given. This is a bit of a problem, because
+in most examples the input data is a huge json file, and figuring out the
+structure of such json file can become tedious.</p>
+<p>Here is how <code>input_data</code> is structured:</p>
+<pre><code class="json">input_data = {
+    &quot;node&quot;:{
+        &quot;label&quot;: [],
+        &quot;color&quot;: []
+    },
+    &quot;link&quot;: {
+        &quot;source&quot;: [],
+        &quot;target&quot;: [],
+        &quot;value&quot;:  [],
+        &quot;label&quot;:  [],
+        &quot;color&quot;:  []
+    }
+}
+</code></pre>
+
+<p>As you notice, input_data has two main parts: node and link:</p>
+<p><strong>NODE</strong>: <code>input_data["node"]</code> is responsible for building nodes. In our example these nodes are either
+categories of trackers or companies that operate them. The atributes of each node are two: 
+<code>label</code> and <code>color</code>. These are both lists of strings. These lists have to have equal length because
+the mapping of each label to a color is done based on the item's index in the list. </p>
+<p><strong>LINK</strong>: <code>input_data["link"]</code> is responsible for linking two nodes together. Each link has 
+the following attributes: <code>source</code>, <code>target</code>, <code>value</code>, <code>label</code> and <code>color</code>. So here is where the index of 
+<code>input_data["node"]["label"]</code> becomes very important given the way sankey plots have been implemented in 
+plotly. The <code>source</code> and <code>target</code> are lists of equal length, where the index is used to link. </p>
+<p><img class="img-responsive img-with-padding" src="../static/img/blog/plotting/node_label.png"/>
+<p class="img-caption">Figure 5: Node label ilustration</p></p>
+<p>The elements in <code>source</code> and <code>target</code> are in fact the indexes of the source node and target 
+nodes in the <code>input_data["node"]["label"]</code>. So if we were to refer to the illustration in the 
+figure above, to render our sankey diagram we would have: </p>
+<pre><code class="python">source = [1, 1, 1, ... ]
+target = [0, 2, len-2, ... ]
+</code></pre>
+
+<p>With that out of the way, the remaining are intuitive: <code>value</code> represents how thick the link should be, 
+<code>label</code> what name it has and <code>color</code> its color. All the <code>link</code> attributes are lists of equal length, and 
+the matching is done based on index.</p>
+<p>For details, have a look at the actual implementation of the <code>input_data</code> generation
+in <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/utils/companies.py"><code>utils/companies.py</code></a>. </p>
+<h2 id="references">References</h2>
+<p>[1] <a href="http://www.jneurosci.org/content/35/12/4965.short">Adding Words to the Brain's Visual Dictionary</a> <br>
+[2] <a href="https://en.wikipedia.org/wiki/Sparkline">Sparkline - Wikipedia</a> <br></p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Building whotracks.me - Visualization (part 2)</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

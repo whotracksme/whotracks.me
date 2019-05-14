@@ -1,0 +1,485 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | GDPR - What happened?</title>
+    <meta name="description" content="The tracking landscape post GDPR, adverse effects on competition and a market for compliance technologies">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="GDPR - What happened?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/gdpr-what-happened.html" />
+    <meta property="og:description" content="The tracking landscape post GDPR, adverse effects on competition and a market for compliance technologies" />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/gdpr/gdpr-header.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="GDPR - What happened?">
+    <meta name="twitter:description" content="The tracking landscape post GDPR, adverse effects on competition and a market for compliance technologies">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/gdpr/gdpr-header.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>GDPR - What happened?</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Sep 3rd, 2018</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/gdpr/gdpr-header.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">GDPR - What happened?</h3>
+        <p id="post-subtitle">The tracking landscape post GDPR, adverse effects on competition and a market for compliance technologies</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Sep 3rd, 2018</p>
+
+        <p><em>In this article we look at the effect GDPR has had on the tracking landscape,<br />
+online advertising in Europe, and provide a set of recommendations for machine 
+readable legislation.</em></p>
+<h2 id="gdpr-a-primer">GDPR: A primer</h2>
+<p>Having been a hot topic of discussion for at least the last 2 months,
+it is unlikely that GDPR needs an introduction. So in brief:
+the regulation applies to the processing of personal data of European
+citizens. Companies engaged in such processing activities
+are subject to compliance, regardless of whether or not they operate in the
+EU<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>.  An important aspect of the regulation is the pressure
+put on companies to obtain consent from their European users for the
+processing of their personal data. This is why prior to May 25th,
+2018 there was a surge in emails in your inbox, and it's also the
+reason for the numerous popups you see when visiting websites.</p>
+<p>GDPR was announced two years before it came into force, and
+it was not the overhaul of privacy legislation one could believe it was from
+reading the press. In fact, GDPR came as a major update of the previous
+EU Data Protection Directive<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> which has been around since 1995. Designed 
+to harmonize the data protection legislation in the EU, 
+and catch up with technological progress in the last 23 years, GDPR
+comes heavily loaded with legal language that many have found hard
+to navigate. Daphne Keller of the Standford Center for Internet and Society said
+"<em>The final GDPR text is riddled with ambiguous passages</em>", suggesting
+that the ones who will benefit the most from GDPR are data protection
+lawyers<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>.</p>
+<p><strong>So, what happened?</strong> This is the question we are all left with.
+We will be using whotracks.me data to make sense of the effect of
+GDPR on the tracking landscape in the web and on online advertising,
+the behemoth of third party services on the web.</p>
+<h2 id="tracking-landscape-on-websites">Tracking Landscape on Websites</h2>
+<p>We take 2000 <a href="../websites.html">websites</a> profiled on <strong>whotracks.me</strong>
+and compare the tracking landscape in these sites as a function of the
+origin of the users visiting. We want to compare the EU, subject of GDPR,
+with the US.</p>
+<p><img alt="mean_third_parties" src="../static/img/blog/gdpr/f1-eu-us-comparison.svg" /></p>
+<p>Merely looking at the average number of trackers per page for each
+category of site being visited reveals a general downward trend
+in Europe. The opposite is true in the US. The blue area indicates
+the average number of trackers across categories.</p>
+<p>In fact, if we look closely, since April 2018 the average number of
+trackers per page in the EU has dropped by almost 4% while in
+the US it has increased by 8%.</p>
+<p><img alt="average number of trackers EU-US" src="../static/img/blog/gdpr/mean_eu_us.svg" /></p>
+<p>If we take the top 2000 domains visited by European residents, and
+ check how the average number of trackers per page by the category
+ of the website, we notice that there as been a reduction in the
+ number of third parties almost across the board.</p>
+<p><img alt="category change eu" src="../static/img/blog/gdpr/category_change_eu.svg" /></p>
+<p>The reduction seems more prevalent among categories of sites with a
+lot of trackers. We see a 7.5% reduction in the average number of
+third parties per page from April to July in News websites. This is in
+the same direction as what was identified by a study published last
+month by the University of Oxford. They looked at news websites,
+and found that the number of cookies set on page decreased
+on average by 22%<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup>.</p>
+<p>Some websites, like <a href="../websites/latimes.com.html">The Los Angeles Times</a>, interrupted
+their operations in Europe, others decided to offer text only versions
+of their websites if the user does not consent to sharing data with third
+parties, like <a href="../websites/npr.org.html">npr.org</a>. What we are certainly
+observing is a rise in the usage of consent management tools, for which
+we <a href="./update_jun_2018.html">wrote about in more detail</a> back in June.</p>
+<h2 id="third-party-services-the-winner-takes-it-all">Third party services: the winner takes it all</h2>
+<p>Both the most lucrative, and the most pervasive of all services performed
+by third parties is online advertising - the 'fuel' that keeps a large part
+of the web running.</p>
+<p>Online advertising in 2018 is estimated to be a $270 billion<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup>
+market, and expected to grow by more than 20% in the next two years.
+This is the market that third parties are competing for, and when
+the prize is so high, worries over GDPR having regressive effects
+on competition are understandable. As in most markets, the presence
+of monopolies is something regulators try hard to avoid<sup id="fnref:6"><a class="footnote-ref" href="#fn:6" rel="footnote">6</a></sup>. The question
+is then: <strong><em>Has GDPR, designed to enhance user privacy in the web,
+had any adverse effects on competition?</em></strong></p>
+<p>At present, whotracks.me has profiles for more than 1000 trackers, out of which
+about <strong>200</strong> are classified as advertising services. For each of these
+trackers we have data on what percentage of the measured web traffic we
+have observed the tracker to be loaded - <code>reach</code><sup id="fnref:12"><a class="footnote-ref" href="#fn:12" rel="footnote">12</a></sup>, as well as what
+percentage of websites the tracker is present on - <code>site_reach</code><sup id="fnref:13"><a class="footnote-ref" href="#fn:13" rel="footnote">13</a></sup>.
+Monitoring <code>reach</code> and <code>site_reach</code> gives us interesting insights into the 
+structure of the market these trackers operate in, as well as their relative market share. 
+Using whotracks.me data, we can do that at scale. Each month we have on average
+about 300 million page loads and more than half a million websites.</p>
+<p>If we rank each tracker by its reach, and measure changes in reach since April,
+we notice that in Europe, most advertisers appear less. </p>
+<p><img alt="advertising market share" src="../static/img/blog/gdpr/advertisers_market_share_reach.svg" /></p>
+<p>The same trend persists when we look at <code>site_reach</code>.</p>
+<p><img alt="advertising market share" src="../static/img/blog/gdpr/advertisers_market_share_site_reach.svg" /></p>
+<p>Google's advertising services have maintained their market share, while
+other advertisers across the board have lost reach. There could be several
+reasons to explain Google's favorable state post GDPR:</p>
+<ol>
+<li>
+<p><strong>Resources thrown at compliance</strong>: Google and other big companies have had
+significant resources dedicated to compliance<sup id="fnref:7"><a class="footnote-ref" href="#fn:7" rel="footnote">7</a></sup>.</p>
+</li>
+<li>
+<p>Google acts in the capacity of a gatekeeper, hence it is
+conceivable to assume it may have used that position in punitive ways. Reports
+indicate that Google could have encouraged publishers to reduce the number of AdTech
+vendors<sup id="fnref:8"><a class="footnote-ref" href="#fn:8" rel="footnote">8</a></sup>.</p>
+</li>
+<li>
+<p>Websites owners trying to minimize their exposure opt for 'safer choices',
+dropping smaller advertisers that may have a harder time proving compliance.</p>
+</li>
+</ol>
+<p>Using a tracker's reach as a proxy for market share, we measure that GDPR
+may have had regressive effects on competition in the online advertising
+space in Europe.</p>
+<h2 id="recommendations-for-gdpr-20">Recommendations for GDPR 2.0</h2>
+<p>GDPR has had a measurable impact on advancing the rights of European
+citizens on the web. We believe one of the most important contributions
+of GDPR is the increased transparency on how personal data is moved around,
+as well as the management of consent from the user, and think GDPR 2.0
+should strive to be <strong>machine-readable</strong> as opposed to <strong>human-readable</strong>.</p>
+<p>GDPR came as an update to the EU Data Protection Directive, primarily because the
+evolution of the web in the last 20 years rendered the old regulation obsolete.
+<strong>Human Readable</strong> is not the way to design a law that aims in large part to regulate
+interaction in the web. The design of the tools meant to empower
+users are left to the service providers, whose incentives don't exactly align
+with that of the users. This can give rise to deceptive interfaces and UX patters,
+designed to exploit human cognitive biases.</p>
+<p>What we need, is a GDPR 2.0 that pushes for <em>machine readable</em> standards,
+giving rise to user-focused solutions, simple, non-deceiving interfaces, thus
+creating an industry of privacy and compliance, where technologists
+keep other technologists in check.</p>
+<p>Here are our recommendations:</p>
+<ol>
+<li>
+<p><strong><code>/privacy-policy.txt</code></strong> - require websites to host the privacy policy
+in a standard location of the sitemap. At present, identifying the location
+of the privacy policy of a website is not as straightforward as one
+may hope. Last year as part of the Mozilla Global Sprint we built
+<a href="https://github.com/cliqz-oss/privacy-bot">Privacy Bot</a>, which aimed to
+gather, persist and analyze privacy policies. One of the challenging
+problems we had to solve, was identifying where the privacy policy was hosted.</p>
+</li>
+<li>
+<p><strong><code>/third-parties.json</code></strong> - provide a structured list of third parties
+present on the site, the service being performed by them, list of data points
+they have access to (e.g. IP, user agent, pages visited on site ... ), and
+default state of consent. This would enable browsers to assume the role they should
+have had baked in: a unified control center for the user to
+manage consent. This is especially important given the rise of deceiving UX patterns
+we are increasingly used to seeing in websites these days<sup id="fnref:9"><a class="footnote-ref" href="#fn:9" rel="footnote">9</a></sup>.There are 
+standards that can be built upon, like the Content Security Policy, and the
+Do Not Track Standards, which are widely adopted by browser vendors.
+A similar effort is <code>/ads.txt</code>, initiated by the iab techlab, aiming towards
+a mechanism to define authorized sellers for web content from the perspective
+of the domain owner<sup id="fnref:10"><a class="footnote-ref" href="#fn:10" rel="footnote">10</a></sup>.</p>
+</li>
+<li>
+<p><strong><code>/dpo.json</code></strong> - increase oversight of the Data Protection Officer,
+detaching the role further away from the organization. Provide machine
+parsable details of the DPO, for users to be able to reach out more easily,
+as well as providing incentives for the establishment of a new market
+around privacy management.</p>
+</li>
+<li>
+<p><strong><code>/incidents-and-cases.json</code></strong> - Data Incidents reported have increased
+as a consequence of GDPR<sup id="fnref:11"><a class="footnote-ref" href="#fn:11" rel="footnote">11</a></sup>. This information should also be made available
+to the public. The web is currently built and operated largely on trust. As such,
+transparency over the amount of incidents a given website or service has had
+to report is very important. Furthermore, provide a list of the open
+court cases involving the mismanagement of personal data the company
+is involved in.</p>
+</li>
+</ol>
+<h2 id="conclusions">Conclusions</h2>
+<p>In Europe, GDPR has thus far had a measurable impact in reducing the average
+number of trackers websites put in their pages, while in the US the opposite is
+true. The increase in transparency benefits users as they enjoy an increased
+control over their data, but the UX of the services managing that consent
+does not always have users' best interest in mind.</p>
+<p>On the other hand, in Europe GDPR has led the online advertising market to become more
+concentrated, as the majority of advertisers lose market share. If this trend persists,
+it is possible that GDPR is having adverse effects on competition. For users this
+means that while the number of third parties asking for access to their
+data is decreasing, a tiny few are getting more of their data.</p>
+<p>To Regulators, and especially the supervising authorities responsible
+for the enactment of GDPR, we think you should strive for creating incentives
+for industry players to keep each other in check, thereby creating a market for
+privacy. The only way this can be achieved is by pushing for a machine readable
+legislation that enforces standards.</p>
+<h4 id="footnotes">Footnotes</h4>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>GDPR Article 3 on <a href="https://gdpr-info.eu/art-3-gdpr/">Territorial Scope</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>EU Data Protection Directive <a href="https://en.wikipedia.org/wiki/Data_Protection_Directive">[source]</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>GDPR is vague <a href="http://cyberlaw.stanford.edu/blog/2015/12/final-draft-europes-right-be-forgotten-law">Standford Center for Internet and Society</a>&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>News Websites post GDPR <a href="https://reutersinstitute.politics.ox.ac.uk/our-research/changes-third-party-content-european-news-websites-after-gdpr">[Factsheet]</a>&#160;<a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Digital Advertising Market <a href="https://www.statista.com/statistics/237974/online-advertising-spending-worldwide/">[Statista]</a>&#160;<a class="footnote-backref" href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Google's Anti-trust cases in Europe <a href="https://www.reuters.com/article/us-eu-google-antitrust-timeline/googles-antitrust-cases-in-europe-idUSKBN1K81CC">[source]</a>&#160;<a class="footnote-backref" href="#fnref:6" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>Preparation for GDPR <a href="https://www.theguardian.com/technology/2018/may/25/facebook-google-gdpr-complaints-eu-consumer-rights">[source]</a>&#160;<a class="footnote-backref" href="#fnref:7" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>Google's Funding Choices <a href="https://adexchanger.com/online-advertising/googles-gdpr-consent-tool-will-limit-publishers-to-12-ad-tech-vendors/">[source]</a>&#160;<a class="footnote-backref" href="#fnref:8" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:9">
+<p>Dark Patterns: How UX design tricks you into giving away your privacy <a href="https://cliqz.com/en/magazine/dark-patterns-how-ux-design-tricks-you-into-giving-away-your-privacy">[source]</a>&#160;<a class="footnote-backref" href="#fnref:9" rev="footnote" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:10">
+<p>IAB Techlab <code>ads.txt</code> <a href="https://iabtechlab.com/wp-content/uploads/2017/09/IABOpenRTB_Ads.txt_Public_Spec_V1-0-1.pdf">[source]</a>&#160;<a class="footnote-backref" href="#fnref:10" rev="footnote" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p>Reported Data Incidents increase with GDPR <a href="https://www.itgovernance.co.uk/blog/ico-statistics-show-increase-in-reported-incidents-ahead-of-gdpr/">[source]</a>&#160;<a class="footnote-backref" href="#fnref:11" rev="footnote" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:12">
+<p><code>reach</code>: Proportional presence across all page loads (i.e. if a tracker is present on 50 out of 1000 page loads, the reach would be 0.05). Value is a float between 0 and 1.&#160;<a class="footnote-backref" href="#fnref:12" rev="footnote" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+<li id="fn:13">
+<p><code>site_reach</code>: Presence across unique first party sites. e.g. if a tracker is present on 10 sites, and we have 100 different sites in the database, the site reach is 0.1. Value is a float between 0 and 1.&#160;<a class="footnote-backref" href="#fnref:13" rev="footnote" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>GDPR - What happened?</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

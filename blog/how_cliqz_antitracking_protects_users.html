@@ -1,0 +1,321 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | How Cliqz anti-tracking protects users</title>
+    <meta name="description" content="Using an algorithmic, data-driven approach to remove unique identifiers that track users.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="How Cliqz anti-tracking protects users" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/how_cliqz_antitracking_protects_users.html" />
+    <meta property="og:description" content="Using an algorithmic, data-driven approach to remove unique identifiers that track users." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-anti-tracking.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="How Cliqz anti-tracking protects users">
+    <meta name="twitter:description" content="Using an algorithmic, data-driven approach to remove unique identifiers that track users.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-anti-tracking.jpg">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>How Cliqz anti-tracking protects users</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Jul 22nd, 2017</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-anti-tracking.jpg" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">How Cliqz anti-tracking protects users</h3>
+        <p id="post-subtitle">Using an algorithmic, data-driven approach to remove unique identifiers that track users.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Jul 22nd, 2017</p>
+
+        <p>There are already many tools available which aim to prevent the kinds of tracking we have described. In general these act as browser extensions which monitor network traffic and intervene when tracking is detected, i.e. blocking UIDs in transmission. These can be categorised into two groups:</p>
+<ol>
+<li>Blocklist-based: These tools use curated blocklists in order to block third parties seen to be tracking. This predominately targets advertising trackers as an extension or side-effect to Adblocking features. Examples include Ghostery, Disconnect, Firefox tracking protection, and uBlock Origin.</li>
+<li>Heuristic/algorithm-based: These tools use heuristic and/or algorithmic analysis to determine when to block or modify requests. Examples include Privacy Badger and Cliqz’s own anti-tracking system.</li>
+</ol>
+<p>Blocklist-based methods have several shortcomings. Firstly, blocking requests is very coarse grained and can easily break site functionality. Overly broad blocking rules may block many requests which are of no privacy risk. On the other side, exceptions made to prevent site breakage may then allow some privacy leaks, for example the Facebook like button is still allowed when using the <a href="https://easylist-downloads.adblockplus.org/easyprivacy.txt">EasyPrivacy</a> blocking list, and there are <a href="https://easylist-downloads.adblockplus.org/exceptionrules.txt">many other</a> such exceptions.</p>
+<p><img class="img-responsive" src="../static/img/blog/antitracking_intro/antitracking-comparison-v2.png"/></p>
+<p>Secondly, as these lists are manually maintained, they will always be playing catchup against trackers. Tracking companies can constantly change their URLs, domains and methods to prevent blocking, and those generating the lists must respond in each case.</p>
+<p>Finally, blocking lists bestow significant power to their curators. With blocking browser extensions being used ever more (<a href="https://downloads.pagefair.com/wp-content/uploads/2016/05/Adblocking-Goes-Mainstream.pdf">over 40% of users</a> for some market segments), those who write the block list would have the power to cut off a significant proportion of a company’s traffic — deservedly or not.</p>
+<p>Heuristic approaches like Privacy Badger are limited by just having local knowledge. In many cases we will not know if data sent is unique to us until we have tested it in another browser and seen a different value, like in the fingerprinting example in the previous post. Thus some kind of collaboration is required between users to determine what data is safe, and what is not – and this is the method Cliqz’s anti-tracking uses.</p>
+<h1 id="cliqz-anti-tracking">Cliqz Anti-tracking</h1>
+<p>As we outlined in the previous section, blocklists have several drawbacks, and we did not want such an aggressive system. Likewise, relying purely local evaluation of whether data is a UID or not has significant limitations. Therefore, we designed a system which combines local with global evaluation of tracking data. It is also designed to be conservative — we only remove data which we determine to be UIDs, and leave the rest alone. Our system modifies request URLs instead of blocking. This aims to reduce site breakage, and enable services to collect data, provided it does not compromise the user’s privacy.</p>
+<p>Like existing tools we focus on removing UIDs in transmission, rather than trying to prevent UID generation. Therefore we have three transmission vectors: HTTP Headers, URL Path and Post data. The latter we currently do not handle as our data shows that the reach of this method is very low, however our system allows us to continually monitor the situation, should this change.</p>
+<p>The Cliqz anti-tracking system is split into two subsystems. One that handles only Cookies, and the other which handles all other data sent in headers and the URL path.</p>
+<h2 id="cookie-protection">Cookie Protection</h2>
+<p>Protecting from tracking cookies is relatively simple. This is because the vast majority of third-party cookies have no function beyond tracking. Therefore we can very simply strip these from the request without breaking the page.</p>
+<p>However, blanket third-party cookie blocking is not an ideal solution, because some third-party widgets do require cookies, to, for instance, authenticate with their service. In order to enable this use case, our system allows cookies in cases when user interaction with the widget is detected. When this happens, the third party is temporarily whitelisted to allow cookies.</p>
+<p>This implementation effectively prevents all cookie tracking, and rarely breaks the user-experience on web pages. This is despite the fact that over 96% of third-party cookies are removed.</p>
+<h2 id="unsafe-data-removal">Unsafe Data Removal</h2>
+<p>The second anti-tracking subsystem deals with the non-trivial problem of identifying whether the data sent in a request is ‘safe’ or not. By this we mean, that the data point could be used as a UID, i.e. it is unique to the user. Once we identify what data is unsafe we remove it from the request before it is sent by the browser. This means that if a tracker tries to aggregate their data using this UID, then all Cliqz users will appear as one, and thus will gain crowd anonymity. The algorithm therefore runs as follows:</p>
+<p>When a page is loaded, for each third-party request:</p>
+<ol>
+<li>Analyse the URL, headers and postdata of the request.</li>
+<li>Tokenise this data into key-value pairs.</li>
+<li>Evaluate the safeness of each key-value pair.</li>
+<li>If there are unsafe values, remove the data from the request.</li>
+</ol>
+<p>How can we determine what data is safe or not? A UID is characterised as a value which is unique to a single user, and which is repeatedly seen by this user. Such values can be detected by aggregating the data seen by multiple users over a period of browsing time. However, by the time this aggregation would tell us what the UIDs were, it would be too late — the trackers would already have the data. Therefore, our algorithm does the inverse: Detecting the values which cannot be UIDs, and removing all other data.</p>
+<p>The advantage of this method is that the protection for new users is available straight away. New UIDs will not be known by the system, and therefore be removed by default. Furthermore, the set of safe values is significantly smaller than the set of unsafe. Safe values will be categorical in nature, and therefore be only ever be <code>O(1)</code> in size, while the set of UIDs will be <code>O(n)</code>, where n is the number of users.</p>
+<p>We can also classify many values as safe locally, without having to consult the global safe value set. Our system uses the following rules for local classification:</p>
+<ul>
+<li>If a value has not been seen previously for the <code>(third party, key)</code> pair, it is safe.</li>
+<li>If a value is too short, i.e. has too little entropy to be a UID, it is <em>safe</em>.</li>
+<li>If more than 3 different values have been seen for a <code>(third party, key)</code> pair over a two day period, then the value is not persistant, and therefore safe.</li>
+</ul>
+<p>If none of these rules are able to classify the value as safe, we use the global safe set, which tells us which values have achieved a quorum of users who all saw the same value.</p>
+<h3 id="example">Example</h3>
+<p>Consider a hypothetical visit to the site <code>example.com</code>, which has tracker.de as a third party. After processing a request we generate a set of <code>T = [(s, d, k, v)]</code> tuples as follows:</p>
+<pre><code class="javascript">T = [
+    (s= example.com, d= tracker.de, k= z,  v= 1459866821),
+    (s= example.com, d= tracker.de, k= fl, v= 21.0),
+    (s= example.com, d= tracker.de, k= u,  v= CCAAAABI),
+    (s= example.com, d= tracker.de, k= vr, v= 1440x1024),
+    (s= example.com, d= tracker.de, k= c7, v= e9d4a7e4d2185cec),
+]
+</code></pre>
+
+<p>We can then evaluate these values:</p>
+<ul>
+<li><code>(s= example.com, d= tracker.de, k= z, v= 1459866821)</code>: This was the first time we saw the value <code>1459866821</code> for the given <code>(d, k)</code>, so this data is <em>safe</em>.</li>
+<li><code>(s= example.com, d= tracker.de, k= fl, v= 21.0)</code>: The value <code>21.0</code> is too short to be a UID, so it is <em>safe</em>.</li>
+<li><code>(s= example.com, d= tracker.de, k= u, v= CCAAAABI)</code>: More than 3 different values seen in the last two days for the same <code>(d, k)</code>, so <em>safe</em>.</li>
+<li><code>(s= example.com, d= tracker.de, k= vr, v= 1440x1024)</code>: Always the same value seen for this <code>(d, k)</code> pair, however the value is in the global safe set (as it represents a common screen resolution), therefore <em>safe</em>.</li>
+<li><code>(s= example.com, d= tracker.de, k= c7, v= e9d4a7e4d2185cec)</code>: Always the same value seen, and not in the globally safe set, so this value is <em>unsafe</em> and will be removed.</li>
+</ul>
+<h3 id="building-the-global-safe-set">Building the Global Safe Set</h3>
+<p>We build the global safe set daily using the data sent from users’ clients. Clients collect the tuples of data from each request while browsing and send this back to us every hour, adding a timestamp parameter. The values in the tuple are hashed to prevent user-identifiable information being sent to us. The client guarantees that a maximum of one message is sent per user per hour, so this can be used instead of a user id to count the number of users for each (third party, value) tuple. If the number of users exceeds the quorum threshold for a given hour, it is added to the safe set.</p>
+<p>This model allows users to create this collaborative safe value set without compromising their privacy. Any privacy sensitive information in the data is obfuscated by the hash function, and, as no UID is required for our aggregation, we cannot derive any browsing history beyond the single hour granularity (there is no way to link messages from different hours), and the most information that could be gained is the first-party domain names visited. This protection is further strengthened by the use of our <a href="https://events.linuxfoundation.org/sites/events/files/slides/collecting-user-data-socially-responsibly.pdf">Human Web</a> technology which further obfuscates the source of each message we receive.</p>
+<h1 id="cliqz-vs-other-anti-tracking-systems">Cliqz vs Other Anti-tracking Systems</h1>
+<p>The algorithmic, data-driven system for removing UIDs from third-party requests which we have described has several advantages over other anti-tracking solutions. As an online system we can respond much quicker, and without human oversight, to changes in trackers and their techniques. If a tracking company switched domains to try and avoid blocklists, we would have the data to block this tracking within a day. Human-curated blocklists would take comparatively longer to update.</p>
+<p>In our <a href="https://static.cliqz.com/wp-content/uploads/2016/07/Cliqz-Studie-Tracking-the-Trackers.pdf">paper</a> we did several tests to measure the difference between our system and other blocklist systems. Our tests indicated a reduction in breakage on web pages caused by our system, compared to adblockers. We also saw that blocklist-based systems blocked more often, but a large proportion of these blocks were false positives: requests which did not contain any UIDs.</p>
+<p>The downside of our method is that, unlike other blockers, we see a net performance loss when loading complex web sites. This is because, other blocking systems simply block the javascript which will then attempt to calculate and send a fingerprint, while we will block just the outgoing request with UID. Thus blockers get a performance benefit of avoiding running this resource-heavy tracking javascript code.</p>
+<p>However, we believe that in the long term, this property is a net benefit. Unlike other anti-tracking systems, Cliqz can forgive. If a tracker updates its code, and switches to a method which no <a href="http://www.slideshare.net/jmpujol/data-collection-without-privacy-sideeffects-at-big2016-www-2016">longer sends UIDs</a>, then our system will immediately stop blocking their data. With blocklists, there is no such mechanism — trackers are then incentivised to circumvent the block (for example using a new domain name), rather than improving their data collection methods.</p>
+<h1 id="summary">Summary</h1>
+<p>Our anti-tracking system has now been running successfully for over a year, blocking around 300 million cookies and removing around 10 million UIDs per day to keep our users free from tracking. The same system, as described here, is now also available on <a href="https://cliqz.com/en/mobile">our mobile browsers</a> to provide the same protection across even more devices, and give users control over what data third-parties can collect about them.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>How Cliqz anti-tracking protects users</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

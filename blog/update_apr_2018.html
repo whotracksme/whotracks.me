@@ -1,0 +1,385 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | April Update - Preparing for Internationalisation</title>
+    <meta name="description" content="A new data format to ease access to tracker data.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="April Update - Preparing for Internationalisation" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/update_apr_2018.html" />
+    <meta property="og:description" content="A new data format to ease access to tracker data." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-data-apr18.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="April Update - Preparing for Internationalisation">
+    <meta name="twitter:description" content="A new data format to ease access to tracker data.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-data-apr18.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>April Update - Preparing for Internationalisation</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Apr 12th, 2018</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-data-apr18.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">April Update - Preparing for Internationalisation</h3>
+        <p id="post-subtitle">A new data format to ease access to tracker data.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Apr 12th, 2018</p>
+
+        <p><em>This post is one of our regular monthly blogs accompanying an update to the data
+displayed on WhoTracks.Me. In these posts we introduce what data has been added as well
+as point out interesting trends and case-studies we found in the last month. Previous
+month's posts can be found here: <a href="./update_feb_2018.html">February 2018</a>,
+<a href="./update_jan_2018.html">January 2018</a>, <a href="./update_dec_2017.html">December 2017</a>.</em></p>
+<p>This month we have a big update to the site. We have restructured the data we publish to
+make it easier to use, increased the number of entries we publish, and we have laid the
+groundwork for internationalised versions of WhoTracks.Me - that means you can see how
+tracking differs between different countries.</p>
+<p>Thanks to integration with Ghostery 8 we collected significantly more tracker data this
+month, covering 360 million page loads. This is spread over countries across the world,
+with Germany and the USA the most represented.</p>
+<p><img alt="Page loads per country, March 2018" src="../static/img/blog/update_apr18/page_loads_per_country.svg" />
+<p class="img-caption">Figure 1: Page loads per country, March 2018</p></p>
+<p>This volume of data will also enable us to publish WhoTracks.Me content for individual
+countries, something we plan to add later this month.</p>
+<h2 id="data-restructuring">Data restructuring</h2>
+<p>We have updated the structure of data which we publish in our <a href="https://github.com/cliqz-oss/whotracks.me/">repository</a> to make it both easier to use and more
+scalable as we add more data. We now publish CSV files each month for each of the
+following:</p>
+<ul>
+<li><code>domains.csv</code>: Top third-party domains seen tracking.</li>
+<li><code>trackers.csv</code>: Top trackers - this combines domains known be operated by the same tracker.</li>
+<li><code>companies.csv</code>: Top companies - aggregates the stats for trackers owned by the same company.</li>
+<li><code>sites.csv</code>: Stats for number of trackers seen on popular websites.</li>
+<li><code>site_trackers.csv</code>: Stats for each tracker on each site.</li>
+</ul>
+<p>These files can then be loaded with popular data-analysis tools such as
+<a href="https://pandas.pydata.org/">Pandas</a>. We have also rewritten the code to render the site
+to take advantage of Pandas. We expose the dataframes via the <code>DataSource</code> class which
+loads data from all CSV files:</p>
+<pre><code class="python">from whotracksme.data.loader import DataSource
+data = DataSource()
+len(data.trackers.df)
+&gt;&gt; 7928
+</code></pre>
+
+<p>We have also updated the criteria by which we include trackers and sites on the main site.
+We now 'rollover' entries, so once they have been included once, we will keep publishing
+data (until they completely disappear from the data). This has the effect of naturally
+growing the number of trackers and sites we publish. We currently have data on
+868 trackers and 748 websites published:</p>
+<pre><code class="python">pd.DataFrame({
+    'trackers': data.trackers.df.groupby('month').count()['tracker'],
+    'sites': data.sites.df.groupby('month').count()['site']
+}).plot()
+</code></pre>
+
+<p><img alt="Growth of trackers and sites" src="../static/img/blog/update_apr18/data_growth.svg" />
+<p class="img-caption">Figure 2: Growth of trackers and sites</p></p>
+<p>The per-site trend for average number of trackers continues a slightly downward trend,
+although the average is still high at 9 trackers per page. There are several possible
+reasons for this, it is not necessarily that sites are using fewer trackers! The
+proportion of data from Ghostery users continues to increase, and these users will
+disproportionately block many trackers. This has an effect on the average number of
+trackers, because it prevents the blocked trackers from loading others. The data shows
+also that the average incidence of blocking for trackers increased to 25% in March, up
+from 20% in February.</p>
+<pre><code class="python">sns.boxplot(
+  data=data.sites.df[data.sites.df.month &gt;= '2018-01'],
+  x='month',
+  y='trackers'
+)
+</code></pre>
+
+<p><img alt="Average trackers per page since January" src="../static/img/blog/update_apr18/site_trackers_box.svg" />
+<p class="img-caption">Figure 3: Average trackers per page since January</p></p>
+<pre><code class="python">(data.trackers.df[data.trackers.df.month &gt;= '2018-01']
+  .groupby('month')
+  ['has_blocking'].mean() * 100).plot()
+</code></pre>
+
+<p><img alt="Blocking Trend since January" src="../static/img/blog/update_apr18/blocking_trend.svg" />
+<p class="img-caption">Figure 4: Blocking Trend since January</p></p>
+<p>As in previous months, we look at sites' changing their trackers. <a href="../websites/fewo-direkt.de.html">fewo-direct.de</a>, <a href="../websites/brigitte.de.html">brigitte.de</a> and <a href="../websites/gutefrage.net.html">gutefrage.net</a> all had 5 fewer trackers on average per page this month. However, each of these still has over 50 trackers with some kind of presence, showing that this is more likely a side-effect of increased blocking than an active effort to reduce tracking on their sites. <a href="../websites/klingel.de.html">klingel.de</a> and <a href="../websites/informationvine.com.html">informationvine.com</a> see the largest increase in tracking of the sites we currently monitor.</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Site</th>
+      <th>Trackers</th>
+      <th>Change since February</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>informationvine.com</td>
+      <td>18.3</td>
+      <td><i class="fa fa-caret-up" style="color: red; margin-right: 10px"></i> +6.4</td>
+    </tr>
+    <tr>
+      <td>klingel.de</td>
+      <td>26.7</td>
+      <td><i class="fa fa-caret-up" style="color: red; margin-right: 10px"></i> +5.3</td>
+    </tr>
+    <tr>
+      <td>gutefrage.net</td>
+      <td>13.0</td>
+      <td><i class="fa fa-caret-down" style="color: green; margin-right: 10px"></i> -5.6</td>
+    </tr>
+    <tr>
+      <td>brigitte.de</td>
+      <td>19.5</td>
+      <td><i class="fa fa-caret-down" style="color: green; margin-right: 10px"></i> -5.8</td>
+    </tr>
+    <tr>
+      <td>fewo-direkt.de</td>
+      <td>16.0</td>
+      <td><i class="fa fa-caret-down" style="color: green; margin-right: 10px"></i> -6.6</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="img-caption">Table 1: Websites Tracking Trends</p>
+
+<p>A side-effect of the filtering we added in this new data pipeline is that the site reach
+for top trackers has increased. In the previous analysis a long-tail of very rarely
+visited sites reduced effective site reach. With this factor reduced, we get a real
+sense of the coverage of the largest trackers, with Google Analytics reaching 85% of
+popular sites, and Facebook almost 60%. The data can easily be retrieved
+as shown below:</p>
+<pre><code class="python">df = data.trackers.get_snapshot().sort_values(by='site_reach', ascending=False).head(10)
+df['name'] = df.id.apply(func=lambda x: data.app_info[x]['name'])
+</code></pre>
+
+<p><img alt="Reach of top 10 trackers across popular websites" src="../static/img/blog/update_apr18/top10_site_reach.svg" />
+<p class="img-caption">Figure 5: Reach of top 10 trackers across popular websites</p></p>
+<p>If you want to delve deeper into our data, it is available on the <a href="https://github.com/cliqz-oss/whotracks.me/tree/master/whotracksme/data">WhoTracks.Me Github Repository</a>, and as a <a href="https://pypi.python.org/pypi/whotracksme/">pip package</a>.</p>
+<p><em>NB: The code snippets here will not generate the presented plots. Full code snippets
+for the plots in this post are available in this <a href="https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/wtm_april_update.ipynb">Jupyter Notebook</a>.</em></p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>April Update - Preparing for Internationalisation</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

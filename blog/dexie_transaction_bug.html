@@ -1,0 +1,303 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | A quantum bug in Firefox Quantum</title>
+    <meta name="description" content="DevTools - how we tracked down an observant-dependent bug.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="A quantum bug in Firefox Quantum" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/dexie_transaction_bug.html" />
+    <meta property="og:description" content="DevTools - how we tracked down an observant-dependent bug." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/dexie_transaction_bug/release.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="A quantum bug in Firefox Quantum">
+    <meta name="twitter:description" content="DevTools - how we tracked down an observant-dependent bug.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/dexie_transaction_bug/release.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>A quantum bug in Firefox Quantum</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Apr 30th, 2019</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/dexie_transaction_bug/release.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">A quantum bug in Firefox Quantum</h3>
+        <p id="post-subtitle">DevTools - how we tracked down an observant-dependent bug.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Apr 30th, 2019</p>
+
+        <p>Summary: <em>When observing your own program can change its behavior, and an unexpected but real use-case to detect if DevTools are open.</em></p>
+<hr />
+<p>Occasionally one comes along weird bugs, some might even call them mystic or heisenbugs. We recently stumbled upon one such bug while working on the <a href="https://cliqz.com/en/">Cliqz Extension</a>.</p>
+<p>It started with a rather innocent warning in our browser console. While testing an upcoming release, we noticed some warnings emitted from the <a href="https://dexie.org/">Dexie.js</a> library, which is a popular wrapper for IndexedDB, a browser database API:</p>
+<pre><code>Unhandled rejection: r@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/vendor/dexie.min.js:1:25586
+_promise/i&lt;@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/vendor/dexie.min.js:2:1746
+U@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/vendor/dexie.min.js:1:6115
+q@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/vendor/dexie.min.js:1:5934
+_promise@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/vendor/dexie.min.js:2:1720
+_trans@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/vendor/dexie.min.js:1:25312
+_idbstore@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/vendor/dexie.min.js:1:25632
+get@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/vendor/dexie.min.js:1:25747
+getTag/&lt;@moz-extension://a4671cfd-e7e2-4264-9f96-b21f9b289cd9/modules/webextension-specific/app.bundle.js:15679:35
+…
+</code></pre>
+<p>At first, it did not look too serious, but after digging in a bit more, it turned out that core functionalities of both the Cliqz and <a href="https://www.ghostery.com/">Ghostery extensions</a> were negatively impacted. Each time the extension attempted to aggregate some statistics for display on our FreshTab page, the operation would mysteriously fail. And this is how the investigation started...</p>
+<p>We quickly noticed that the bug could neither be reproduced on the <a href="https://cliqz.com/en/">Cliqz Browser</a> nor on Firefox 66 (which is at this time the stable release). Only Firefox 67 (developer edition) and Firefox 68 (Nightly) were affected. Further testing confirmed that the issue could be reproduced with previous versions of the Cliqz and Ghostery extensions (which share part of the code base). At this point we suspected a bug in Dexie or IndexedDB and started looking deeper.</p>
+<p>We realized that whenever a Dexie operation was attempted as part of a transaction, the operation would fail, a warning would be displayed, and the transaction would abort. With that insight, we were able to create a first workaround by avoiding the use of transactions. Still, it was not clear why the code would fail on Firefox 67 and simply avoiding transactions without understanding the root cause was not satisfactory. For this reason, we tried to narrow it down further. A first attempt to reproduce the problem with a minimal extension and the same type of transactions was not successful. All database operations succeeded normally; the issue seemed to happen only as part of the Cliqz extension.</p>
+<p>Then we started trimming down our bundle by removing code from the Cliqz extension, step by step. We had the feeling that it had to be a kind of timing issue, but it was not clear which conditions were necessary or sufficient to trigger the bug. It took us time to realize, but finally we had the Eureka moment! It only seemed that the transactions would fail when DevTools were opened! This was literally a heisenbug, only triggering when observed in the console. Not opening the console would be enough to make the code work as expected. In other words, if the code ran fast enough that we did not have time to open the debugger, everything would work perfectly.</p>
+<p>It was a race condition indeed, but not in the traditional sense of the term, rather it was a race between the developer and the code...</p>
+<p>With that understanding, we were able to create a minimal example and could file proper bug reports for both Firefox and Dexie.js:</p>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1545400">Bug 1545400 - Webextension console dev-tools opened makes IndexedDB/Dexie transaction fail</a></li>
+<li><a href="https://github.com/dfahlander/Dexie.js/issues/831">Dexie #831 - Transaction fails if console dev-tools opened (Firefox 67)</a></li>
+</ul>
+<h1 id="detecting-whether-devtools-are-open">Detecting whether DevTools are open</h1>
+<p>Let us take a closer look at how this bug can be used to run code only when DevTools are opened. Ideally, a browser should not allow that, although it is difficult to prevent it in practice. Some discussion on that topic can be found in <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=672625">this Chromium issue</a>. This has been exploited in the past by some websites to hide malicious behavior from the eyes of developers or users; whenever DevTools would be opened, the site would conceal some of the logic immediately, preventing inspection.</p>
+<p>Most existing techniques to detect DevTools are leveraging browser bugs, which eventually got patched (examples can be found <a href="https://stackoverflow.com/q/7798748/783510">here</a> and <a href="https://github.com/sindresorhus/devtools-detect/issues/15">here</a>). Typically, they use quirks in various Browser APIs, but there are also solutions based on timing attacks.</p>
+<p>Another approach is to look at the window size, which is currently used in the <a href="https://github.com/sindresorhus/devtools-detect">devtools-detect library</a>. The drawback is that it can be easily bypassed if the DevTools are opened in a separate window.</p>
+<p>Using the transaction bug, we can build a DevTools detector for Firefox 67 and above that will also work for undocked windows. Here is a sketch of the idea:</p>
+<pre><code>function onDevToolsOpen() {…}
+function onDevToolsClosed() {…}
+
+const db = new Dexie('test_db');
+db.version(1).stores({ test_table: 'test_key' });
+
+setInterval(() =&gt; {
+  // uses the bug that the Dexie transaction will fail
+  // with open DevTools in Firefox 67 and above
+  db.transaction('rw', db.test_table, async () =&gt; {
+    await db.test_table.toArray()
+  }).then(onDevToolsOpen, onDevToolsClosed);
+}, 1000);
+</code></pre>
+<p>If you want to try yourself, a working example is available <a href="https://cdn.cliqz.com/browser-f/fun-demo/firefox_devtools.html">here</a>.</p>
+<p>Until a patch for the bug gets released, the technique will work in pages and as well as in web extensions. In the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1545400">bug ticket</a>, we also included a working example that detects DevTools from within a WebExtension.</p>
+<p>This issue joins an array of techniques which enable malicious actors to detect special states of the browser, such as private browsing mode, and when users are <a href="https://github.com/gorhill/uBO-Extra#purpose">auditing the activities of sites with DevTools</a>. The former has been used to <a href="https://arstechnica.com/information-technology/2017/05/boston-globe-website-no-longer-lets-you-read-articles-in-private-mode/">deny access to sites in private browsing mode</a>, attempting to force users to reduce their protection against tracking, while the latter is used by <a href="https://www.theregister.co.uk/2017/08/11/ad_blocker_bypass_code/">systems which circumvent adblocker to cover their tracks</a>.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>A quantum bug in Firefox Quantum</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

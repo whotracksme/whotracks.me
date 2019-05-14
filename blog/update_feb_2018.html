@@ -1,0 +1,286 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | February Update - The Tracking Shell Game</title>
+    <meta name="description" content="How mergers and acquisitions are hiding who actually is tracking us.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="February Update - The Tracking Shell Game" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/update_feb_2018.html" />
+    <meta property="og:description" content="How mergers and acquisitions are hiding who actually is tracking us." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-data-feb18-2.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="February Update - The Tracking Shell Game">
+    <meta name="twitter:description" content="How mergers and acquisitions are hiding who actually is tracking us.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-data-feb18-2.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>February Update - The Tracking Shell Game</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Feb 6th, 2018</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-data-feb18-2.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">February Update - The Tracking Shell Game</h3>
+        <p id="post-subtitle">How mergers and acquisitions are hiding who actually is tracking us.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Feb 6th, 2018</p>
+
+        <p><em>This post is one of our regular monthly blogs accompanying an update to the data displayed on WhoTracks.Me. In these posts we introduce what data has been added as well as point out interesting trends and case-studies we found in the last month. Previous month's posts can be found here: <a href="./update_jan_2018.html">January 2018</a>, <a href="./update_dec_2017.html">December 2017</a>.</em></p>
+<p>We've updated the site today with data collected during January 2018. Due to increased distribution, we have over 115 million page loads this month, an increase of 15% over previous months (see <a href="./where_is_the_data_from.html">Where does the data come from?</a> for more background on our data collection). The regions from which we are getting data is also diversifying. While 70% of the data still comes from German users, we now have more significant US and international data. We plan to have sufficient data in the coming months in order to provide region-specific tracking breakdowns.</p>
+<h2 id="the-tracking-shell-game">The tracking shell game</h2>
+<p>Picking out some of the biggest movers in the rankings this month, we first find <a href="../trackers/nexage.html">Nexage</a> down 262 places this month, and to one tenth of its reach in May last year. This is probably simply a winding down of the operation which was acquired by Millennial Media in 2014, who were acquired by AOL in 2015, who were acquired by Verizon also in 2015. Their landing page now redirects to <a href="https://www.onebyaol.com/">One by AOL</a>.</p>
+<p>One of the challenges for us on whotracks.me is to make the link between tracker domain names, tracking products, and tracking companies. Nexage is an example of how many trackers lead you down a 'rabbit hole' of mergers and acquisitions until you find the company above it all. If we expand out the web of companies underneath Verizon who are also present on whotracks.me, we find 10 different trackers which can be linked: <a href="../trackers/adap.tv.html">Adap.tv</a>, <a href="../trackers/adtech.html">ADTECH</a>, <a href="../trackers/advertising.com.html">Advertising.com</a>, <a href="../trackers/alephd.com.html">alephD</a>, <a href="../trackers/convertro.html">Convertro</a>, <a href="../trackers/nexage.html">Nexage</a> and <a href="../trackers/vidible.html">Vidible</a> under AOL, and <a href="../trackers/brightroll.html">Brightroll</a> and <a href="../trackers/flickr_badge.html">Flickr</a> under <a href="../trackers/yahoo.html">Yahoo</a>. Furthermore, Yahoo and AOL both have popular web portals (<a href="../websites/yahoo.com.html">yahoo.com</a>, <a href="../websites/aol.com.html">aol.com</a> and <a href="../websites/aol.de.html">aol.de</a>) to drive more traffic which they can track. This leads Verizon to be able to track at least 6% of web traffic, the 11th highest reach of any company in our dataset. You can now check the full list of companies sorted by their trackers' combined reach <a href="../companies/reach-chart.html">here</a>.</p>
+<p><img alt="Verizon's trackers" class="img-responsive img-with-padding" src="../static/img/blog/update_feb18/verizon.png">
+<p class="img-caption">Verizon's trackers - &copy; WhoTracks.Me 2018</p></p>
+<p>A new entry at 546, <a href="../trackers/smarter_travel.html">Smarter Travel Media</a> is another example of a smaller company with giants hiding behind it. The tracker is primarly present on tripadvisor and other travel sites, and infact they are a <a href="../trackers/tripadvisor.html">Tripadvisor</a> company. Tripadvisor in turn is owned by <a href="../trackers/expedia.html">Expedia</a>. Above all of this stands <a href="http://iac.com/">InterActiveCorp (IAC)</a> who own several other web brands, including <a href="../trackers/vimeo.html">Vimeo</a> and <a href="../trackers/mindspark.html">Mindspark</a>.</p>
+<p><img alt="Verizon's trackers" class="img-responsive img-with-padding" src="../static/img/blog/update_feb18/iac.png">
+<p class="img-caption">IAC - &copy; WhoTracks.Me 2018</p></p>
+<p>The final movers we would like to highlight this month are <a href="../trackers/davebestdeals.com.html">davebestdeals.com</a> and <a href="../trackers/eshopcomp.com.html">eshopcomp.com</a>, up 201 and 194 places respectively. Unfortunately we cannot yet trace the owners of these trackers---they are both registered with PrivacyGuard in <a href="https://who.is/whois/eshopcomp.com">Panama</a> and have no visible landing page. In fact they are likely operated by the same entity as their domains point to the same CloudFront endpoints, for example on the <code>istatic</code> subdomain for both domains.</p>
+<p>The reason for the lack of transparency in this case is that they are malware. Looking at their profile pages we can see that they have a small presence across many sites, including sites which we know for certain would not have trackers like this in the page (e.g. Google sites, which will only ever contain Google's own trackers). These are likely browser extensions which include code to inject their tracking code in all of the pages the user visits, and send this information back to their servers. The user browsing history which they collect can then by sold on. The Web Of Trust extension was <a href="https://www.forbes.com/sites/leemathews/2016/11/07/web-of-trust-browser-add-on-blasted-for-breaking-user-trust/#5029a0a53ef5">caught doing this</a> in 2015, and our data shows that it is still a common practice (look for the 'Extensions' tracker category on this site).</p>
+<p>This style of user history harvesting also has the advantage that it is not blocked by the majority of Ad-blocking and privacy tools. These domains are not on these blocklists, because the list maintainers will not encounter them - unless they happen to install the malware themselves. Therefore, currently only Cliqz and Ghostery 8's AI anti-tracking are detecting these trackers and preventing them from gathering user sessions - because they are using the same data to find trackers that whotracks.me uses.</p>
+<h2 id="new-data-points">New data points</h2>
+<p>This month we add data about the content-types loaded by trackers. This is based on values reported by the <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/webRequest/ResourceType">webRequest 'type' property</a>. By reporting these values we can further characterise tracker behaviours, and quantify risks, such as which trackers are being permitted to load scripts on certain pages.</p>
+<p>We add the following new columns for trackers, reported as the proportion of pages where the specific tracker or company loaded particular resource type(s) into the page:</p>
+<ul>
+<li><code>script</code>: Javascript code (via a <code>&lt;script&gt;</code> tag or web worker).</li>
+<li><code>iframe</code>: A subdocument (via <code>&lt;frame&gt;</code> or <code>&lt;iframe&gt;</code> elements).</li>
+<li><code>beacon</code>: Requests sent through the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API">Beacon API</a>.</li>
+<li><code>image</code>: Image and imageset resources.</li>
+<li><code>stylesheet</code>: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> files.</li>
+<li><code>font</code>: Custom fonts.</li>
+<li><code>xhr</code>: Requests made from scripts via the <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a> APIs.</li>
+<li><code>plugin</code>: Requests of <code>object</code> or <code>object_subrequest</code> types, which are typically associated with browser plugins such as Flash.</li>
+<li><code>media</code>: Requests loaded via <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code> HTML elements.</li>
+</ul>
+<p>With this data we can see that, for example, <a href="../trackers/google_analytics.html">Google Analytics</a> loads their script on each page load (98% of the time), then registers the visit via a pixel on 59% of page loads. We also see that on 6% of pages a request is also made via the Beacon API.</p>
+<p>Similarly, if we look at the <a href="../trackers/webtrekk.html">Webtrekk</a> tracker, which is present on many popular German websites, we can see that on sensitive websites such as banking (<a href="../websites/dkb.de.html">dkb.de</a>) and health insurance (<a href="../websites/tk.de.html">tk.de</a>), the tracker is loaded without scripts. This is at least an indication that in certain contexts website owners are taking care to minimise the potential risk of a third-party being compromised and gathering sensitive information from the page, or even <a href="https://mixpanel.com/blog/2018/02/05/update-autotrack-data-collection/">collecting sensitive information by mistake</a>.</p>
+<p>As with <a href="./update_dec_2017.html">previous additions</a> to the dataset, we don't yet have these fields visualised on the site, but will be working this in the coming months. In the meantime, the <a href="https://github.com/cliqz-oss/whotracks.me/tree/master/whotracksme/data">raw data</a> is available for you to explore yourself.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>February Update - The Tracking Shell Game</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

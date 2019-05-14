@@ -1,0 +1,48 @@
+@import '../colors';
+
+.home-plot {
+    color: $grey-txt-color;
+
+    h4 {
+        font-size: 11px;
+        color: $grey-txt-color;
+        margin-top: 25px;
+    }
+
+    a {
+        color: $grey-txt-color;
+    }
+
+    .plot-subtitle {
+        margin-bottom: 30px;
+    }
+
+    .plot-title {
+        font-size: 23px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $black-color;
+    }
+
+    .checkout {
+        i {
+        vertical-align: top;
+        margin-right: 5px;
+        padding-top: 4px;
+        }
+
+        span {
+        display: inline-block;
+        max-width: 170px;
+        }
+    }
+}
+.svg-container {
+    border-radius: 4px;
+    box-shadow: 8px 14px 38px rgba(39,44,49,0.06), 1px 3px 8px rgba(39,44,49,0.03);
+}
+.plot-caption{
+    font-size: 14px;
+    color: $grey-txt-color;
+    margin-top: 10px;
+}

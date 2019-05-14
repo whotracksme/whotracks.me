@@ -1,0 +1,337 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | Updating our tracking prevalence metrics</title>
+    <meta name="description" content="Metrics that make more sense.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Updating our tracking prevalence metrics" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/updating_our_tracking_prevalence_metrics.html" />
+    <meta property="og:description" content="Metrics that make more sense." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/updating-prevalence-metrics/header.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="Updating our tracking prevalence metrics">
+    <meta name="twitter:description" content="Metrics that make more sense.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/updating-prevalence-metrics/header.jpg">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Updating our tracking prevalence metrics</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Feb 22nd, 2019</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/updating-prevalence-metrics/header.jpg" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">Updating our tracking prevalence metrics</h3>
+        <p id="post-subtitle">Metrics that make more sense.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Feb 22nd, 2019</p>
+
+        <p>This month we updated the site with data from over 800 million page loads during January. In this
+data release we have also made a change to one of the main figures that we publish - <code>site reach</code>.
+Metrics are as good as their ability to capture a simplified version of reality. The
+main motivation for redefining <code>site reach</code> attempts is exactly that - simplify the
+understanding of prevalence.</p>
+<p>The site reach stat was conceived as a measure of the number of different sites a tracker has some
+presence. In contrast to <code>reach</code> - the proportion of pages loading a tracker - it shows how spread
+around the web a tracker is.</p>
+<p>We define a new site reach metric as:</p>
+<blockquote>
+<p>The number of sites in the top 10,000 which have this tracker on more than 1% of page loads.</p>
+</blockquote>
+<p>The relationship between reach and site reach paints an interesting picture of prevalence:</p>
+<p><img alt="Reach vs Site Reach, Jan 2019" src="../static/img/blog/updating-prevalence-metrics/reach-vs-sitereach.svg" />
+<p class="img-caption">Figure 1: Reach vs Site Reach, Jan 2019 (source: whotracks.me)</p></p>
+<ul>
+<li>High reach and high site reach - Ubiquitous presence across both popular and less popular sites;
+A common example of that would be <a href="../trackers/google_analytics.html">Google Analytics</a>.</li>
+<li>High reach and low site reach - Present primarily on few popular, high-traffic sites;
+One such example would be <a href="../trackers/wikimedia.org.html">Wikimedia</a>, which, due to
+Wikipedia's popularity, is loaded very often (hence high reach), but present on few sites
+resulting in a low(er) site reach. Another example, for similar reasons, would be
+<a href="../trackers/ebay.html">Ebay Stats</a>,</li>
+<li>Low reach and high site reach - Only appearing rarely on many sites, e.g. only on a small number
+of pages for each site; In this category appear extensions that operate as "man in the
+middle", such as <a href="../trackers/kaspersky-labs.com.html">Kaspersky Labs</a>.</li>
+<li>Low reach and low site reach - Present on few lower-traffic sites. This includes smaller
+trackers.</li>
+</ul>
+<p>Up until this point, we have defined site reach as the proportion of sites for which a given
+tracker was observed a fixed number of times. Using this formula we have run into two fundemental
+issues in practice:</p>
+<ol>
+<li>How often should a tracker appear in a site, for it to be counted?</li>
+</ol>
+<p>The simplest solution would be to say that one observation is sufficient. So if a
+tracker has been seen to be present at least once in a given site, we count it. However,
+there is some noise to be expected, which could be introduced by particular
+browser configurations, installed extensions or ISP redirects. This could result in
+falsely counting extra trackers in a given site.</p>
+<p>Thus, having a low threshold makes the metric vulnerable to fluctuations from
+changes in data-volume. The end result is that if this threshold is too low then the
+metric is unstable, fluctuating when no real-world change has occurred. If this
+threshold is too high, then it fails to capture the presence of trackers in particular
+low(er)-volume subpages of a given website (e.g. payment pages).</p>
+<ol>
+<li>
+<p>The long-tail of low traffic sites skews the results.</p>
+<p>During January our dataset counted 1.3 million distinct sites. However the traffic distribution is very skewed to the top few thousand
+sites. Looking at the <code>popularity</code> metric for sites, which measures the relative amount of traffic
+compared to the most popular site (Google.com), already the 10th most popular site (Pornhub) has
+just 6% of Google's traffic. By the 100th place, this ratio is 0.6%, and 1000th place this is 0.08%.
+By the time we are at the 100,000th entry there are only 430 page loads over a month, and at place
+1,000,000 just 16. This long tail means that, firstly, the impact of tracker presence on these
+sites is low - the bottom 50% of the 1.3 million sites we see only corresponds to 1% of total
+traffic - and secondly, the low data volume increases the noise involved in measuring presence.</p>
+</li>
+</ol>
+<p>Due to these difficulties and the complexities arising when explaining site reach, we
+decided to redefine this metric - making it simpler and more intuitive to the reader, while
+still capturing the prevalence of the tracker.</p>
+<p>Given that the top 10,000 sites account for 75% of page loads in our data, we decided to measure
+the presence across this fixed set of sites. By fixing the denominator of our formula the output
+is no longer influenced by the number of sites observed, which can vary with data volume. This
+metric is also simpler - a ratio over 10,000 is easier for most people to understand, than over
+1.3 million. For example, we now show a site reach of <a href="../trackers/realperson.de.html">13 sites</a>
+instead of 0.006% previously.</p>
+<p>As of now the data is updated to use this new metric, under the <code>site_reach_top10k</code> key. A further
+ value, <code>site_avg_frequency</code> gives the mean presence across these sites.</p>
+<p><strong>How does this metric compare to the previous one?</strong> We back-calculated the new metric for the last
+5 months, and found this makes the site reach for some of the top trackers even more concerning:</p>
+<ul>
+<li><a href="../trackers/google_analytics.html">Google Analytics</a> went from being present on 70% of all websites to 8,871 of the top 10k, and there are only 539 sites in the top 10k which <em>don't</em> use <a href="../trackers/google_fonts.html">Google Fonts</a> on any page.</li>
+<li>Of the top 1,000 trackers on WhoTracks.Me, only 47 are on over 1,000 sites, and 331 over 100
+sites. This shows just how dominated the tracking landscape is by a few trackers monopolising user data.</li>
+<li>The mean site reach for the top 1,000 trackers has been increasing over the last 5 months, from
+210 sites last September, to 255 in January.</li>
+</ul>
+<p>The new site reach is now present on the WhoTracks.Me website in place of the old metric, and published
+in our <a href="https://github.com/cliqz-oss/whotracks.me/tree/master/whotracksme/data">data</a>. As usual we
+ will continue publishing monthly updates to track the development of this metric over time.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Updating our tracking prevalence metrics</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

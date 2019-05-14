@@ -1,0 +1,277 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | What is a tracker?</title>
+    <meta name="description" content="Explaining what makes a particular domain a  tracker">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="What is a tracker?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/what_is_a_tracker.html" />
+    <meta property="og:description" content="Explaining what makes a particular domain a  tracker" />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-trackers.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="What is a tracker?">
+    <meta name="twitter:description" content="Explaining what makes a particular domain a  tracker">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-trackers.jpg">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>What is a tracker?</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Jul 22nd, 2017</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-trackers.jpg" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">What is a tracker?</h3>
+        <p id="post-subtitle">Explaining what makes a particular domain a  tracker</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Jul 22nd, 2017</p>
+
+        <p>A tracker is a company which collects information about you as you browse the web. Their scripts and <a href="/blog/tracking_pixel.html">tracking pixels</a> are inserted into the websites you visit by publishers or advertising networks, usually in exchange for some service that the tracking company provides. Trackers usually use some kind of user identifier in order to link information about you from different sites, in order to build up a profile, based on your browsing history.</p>
+<p>We define a tracker as a third-party domain which is:</p>
+<ul>
+<li>present on multiple (<code>&gt; 10</code>) different websites with a significant combined traffic</li>
+<li>uses <a href="/blog/cookies.html">cookies</a> or <a href="/blog/fingerprinting.html">fingerprinting</a> methods in order to transmit user identifiers</li>
+</ul>
+<h1 id="why-do-trackers-exist">Why do trackers exist?</h1>
+<p>The majority of the companies behind trackers offer services to website publishers. The publishers will put scripts or <a href="/blog/tracking_pixel.html">tracking pixels</a> for these services onto their sites. There are many different use-cases for these services, such as:</p>
+<ul>
+<li>Analytics: used to measure how many people are visiting the site, where from etc. e.g. Google Analytics.</li>
+<li>Advertising: provide advertising on site in order to monetise visits. e.g. DoubleClick, Outbrain.</li>
+<li>Advertising (conversion tracking): advertising trackers can also appear on site without ads. This is usually to measure conversions, or to improve the targeting of the publishers ads elsewhere on the web.</li>
+<li>Social Media: Integration with social networks. e.g. Facebook like button.</li>
+<li>Content Delivery Networks (CDN): Networks which provide high bandwidth content like videos and images. e.g. Youtube, Cloudflare.</li>
+<li>Comments: Embedded comment systems allow users to comment on articles. e.g. Disqus</li>
+<li>Customer interaction: Live chat and support widgets. e.g. LivePerson.</li>
+</ul>
+<p>Many of these use-cases do not require tracking, but may do so by accident because the implementation is easier, or on purpose because the data generated can be used to increase revenue.</p>
+<h1 id="whats-the-problem-with-tracking">What's the problem with tracking?</h1>
+<p>As trackers use user identifiers to group data received from each unique user, and browsers send the url of the first-party page to third-party resources in the page <a href="https://en.wikipedia.org/wiki/HTTP_referer">as standard</a>, trackers are effectively able to collect a subset of users' browsing history. Even if this history is linked to an 'anonymous' identifier, any browsing history of reasonable length can be <a href="http://randomwalker.info/publications/browsing-history-deanonymization.pdf">deanonymised</a> to <a href="https://www.slideshare.net/jmpujol/data-collection-without-privacy-sideeffects-at-big2016-www-2016#20">find the user</a> behind it.</p>
+<p>Furthermore, in the majority of cases, trackers are invisible on the pages they appear. There is little or no transparency about who is logging activity on a site, hence the need for tools such as <a href="https://www.ghostery.com/">Ghostery</a> to call them out.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>What is a tracker?</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

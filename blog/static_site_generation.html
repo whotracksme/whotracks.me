@@ -1,0 +1,420 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | Building whotracks.me - Generating a static site (part 1)</title>
+    <meta name="description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Building whotracks.me - Generating a static site (part 1)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/static_site_generation.html" />
+    <meta property="og:description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-site-p1.png" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="Building whotracks.me - Generating a static site (part 1)">
+    <meta name="twitter:description" content="Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-site-p1.png">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Building whotracks.me - Generating a static site (part 1)</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">No one</p>
+        <p class="date">Nov 2nd, 2017</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-site-p1.png" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">Building whotracks.me - Generating a static site (part 1)</h3>
+        <p id="post-subtitle">Adding search, data, plots and blog to 1000+ pages of tracker profiles and top domains.</p>
+        <hr>
+        <p class="post-meta"><b>No one</b> - Nov 2nd, 2017</p>
+
+        <h2 id="1-generating-a-static-site">1. Generating a static site</h2>
+<p>We figured that, for this problem, speed of development and richness of the
+ecosystem are very important, so we decided to go with Python. 
+Since it's a new project, and we had no dependencies, 
+we decided for <a href="https://docs.python.org/3.6/">Python 3.6</a>.</p>
+<p>Generating a static site boils down to two important components:</p>
+<ul>
+<li>Path management</li>
+<li>Templates</li>
+</ul>
+<p>This is in no way implying that all there is to a static site generator
+are these two, but for our needs, that was the case.
+Both of these are defined in <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/templating.py"><code>templating.py</code></a>.</p>
+<h3 id="11-path-management">1.1 Path management</h3>
+<p>There are two parts here. First, generating urls for shared 
+resources (i.e. <code>static</code>, <code>shared data</code> etc), 
+and second generating urls dynamically in the templates
+for all different entities (e.g.: <code>trackers</code>, <code>websites</code>, 
+<code>primers</code> for learning etc).</p>
+<p>The first part is easy, we just store the paths of the 
+shared resources in a dictionary, which we will later pass
+to the template rendering function as persistent context:</p>
+<pre><code class="python">import os
+
+
+PATHS = {
+    &quot;_site&quot;: os.path.abspath('_site'),
+    &quot;static&quot;: '/static',
+    ...
+}
+
+</code></pre>
+
+<p>For the second part, we need the <code>entity</code> we are generating 
+a url for, and the <code>id</code> of that entity. </p>
+<pre><code class="python">from urllib.parse import quote_plus
+
+
+class DataSource:
+    #... complete class definition on github repo where
+    # details on the structure of the data is also present
+
+    @staticmethod
+    def normalize_url(url_substring):
+        return quote_plus(url_substring.replace(&quot;/&quot;, &quot; &quot;)).lower()
+
+    def url_for(self, entity, id):
+        if entity == &quot;tracker&quot;:
+            return &quot;/trackers/{}.html&quot;.format(self.normalize_url(id))
+        elif entity == &quot;website&quot;:
+            return &quot;/websites/{}.html&quot;.format(self.get_site_name(id)).lower()
+        elif entity == &quot;report&quot;:
+            return &quot;/reports/{}.html&quot;.format(id)
+</code></pre>
+
+<p>We use <a href="https://docs.python.org/3.6/library/urllib.parse.html#url-quoting">quote_plus</a> 
+here to make sure we get properly formatted urls. This 
+is very useful to avoid errors in generating urls for entities whose id
+would cause issues such as <code>[24]7</code>, which is a 
+<a href="https://whotracks.me/trackers/24_7.html">tracker</a>.</p>
+<h3 id="12-templating">1.2. Templating</h3>
+<p>The templating engine we choose was <a href="http://jinja.pocoo.org/docs/2.9/">Jinja2</a>.
+Jinja features template inheritance which is very 
+useful for having reusable components. Although in 
+the docs they say <code>python &gt;= 3.3</code> support is 
+experimental, we found it very stable.</p>
+<p>We'll be using the <code>Environment</code> object from jinja 
+to load templates and <code>FileSystemLoader</code> as the 
+loader <a href="http://jinja.pocoo.org/docs/2.9/api/">docs</a>
+of choice to load templates from the file system.</p>
+<pre><code class="python">from jinja2 import Environment, FileSystemLoader
+</code></pre>
+
+<p>Now we need a function to render the templates, and 
+pass default jinja variables that will be shared 
+amongst all templates:</p>
+<pre><code class="python">import os
+
+
+def get_template(data, template_name):
+    # data is an instance of DataSource
+
+    env = Environment(
+        loader=FileSystemLoader('./templates'),
+        autoescape=select_autoescape(['html', 'xml'])
+    )
+
+    # adding url_for as a custom flter to the environment object
+    env.filters[&quot;url_for&quot;] = lambda entity, id: data.url_for(entity, id)
+
+    return env.get_template(template_name)
+
+
+def render_template(template, **context):
+    return template.render(
+        PATHS=PATHS,
+        **context # template specific object(s)
+    )
+</code></pre>
+
+<p>The documentation on <a href="http://jinja.pocoo.org/docs/2.9/api/#writing-filters">filters in jinja</a> 
+can be found here. Note how we registered a filter 
+in the environment. This is very useful and we use 
+this extensively in <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/templating.py#L137"><code>templating.py#L137</code></a>.</p>
+<h3 id="13-building-a-static-page">1.3. Building a static page</h3>
+<p>In this section, we'll use the functions defined 
+above to build a simple tracker page.</p>
+<pre><code class="python">from templating.py import DataSource, get_template, render_template
+
+
+def build_tracker_page(data, tracker):
+    # data is an instance of DataSource
+    # tracker is a dictionary that holds
+    # .. information on a given tracker
+
+    template = get_template(data, &quot;tracker-page.html&quot;)
+
+    content = render_template(
+        template=template,
+        tracker=tracker      
+    )
+
+    with open('{}'.format(data.url_for('tracker', tracker[&quot;id&quot;])), 'w') as fp:
+        fp.write(content)
+        return
+</code></pre>
+
+<p>All the templates are defined in <a href="https://github.com/cliqz-oss/whotracks.me/tree/master/templates"><code>./templates</code></a>.
+So in that folder, we must have a <code>tracker-page.html</code> 
+template that could look like this: </p>
+<pre><code class="html">{% extends &quot;base.html&quot; %}
+
+{% block content %}
+&lt;div&gt;
+    &lt;a href=&quot;{{ 'tracker'|url_for(tracker.id) }}&quot;&gt;{ tracker.name }}&lt;/a&gt;
+&lt;/div&gt;
+{% endblock %}
+
+</code></pre>
+
+<p>We have a <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html"><code>base.html</code></a> 
+where we define the shared html structure with all stylesheets 
+and scripts. Inside the <code>body</code> in this base we declare a content block, 
+which we will be populating in other templates 
+(see <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/templates/base.html#L51"><code>base.html#L51</code></a>).</p>
+<p>So now in our <code>tracker-page.html</code> template we simply extend 
+base and start populating the content block, which in our 
+case has the tracker name with a link to its profile. 
+Note that this is to simply show how we can access the 
+<code>tracker</code> dictionary passed to <code>render_template()</code> and the 
+custom filter <code>url_for</code> registered earlier in <code>get_template()</code>.
+The actual function for building tracker-pages is defined in 
+<a href="https://github.com/cliqz-oss/whotracks.me/blob/master/buildsite.py#L120"><code>buildsite.py#L120</code></a>
+while the template for tracker pages like <a href="/trackers/criteo.html">this one</a> 
+is defined here <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/templates/tracker-page.html"><code>tracker-page.html</code></a>.</p>
+<h2 id="relevant-files">Relevant files</h2>
+<p>Do not forget to check the our <a href="https://github.com/cliqz-oss/whotracks.me">repository on github</a> 
+for the actual implementation and more details. 
+Relevant files are:</p>
+<ul>
+<li><a href="https://github.com/cliqz-oss/whotracks.me/tree/master/buildsite.py"><code>buildsite.py</code></a>: entry point for building pages</li>
+<li><a href="https://github.com/cliqz-oss/whotracks.me/tree/master/templating.py"><code>templating.py</code></a>: handles the templating and path management (discussed here)</li>
+<li><a href="https://github.com/cliqz-oss/whotracks.me/tree/master/templates"><code>templates/</code></a> : Where all html templates and components are defined</li>
+</ul>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Building whotracks.me - Generating a static site (part 1)</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

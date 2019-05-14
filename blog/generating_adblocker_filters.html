@@ -1,0 +1,531 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | Generating Ad-Blocker filters from whotracks.me data</title>
+    <meta name="description" content="Let's never miss a new tracker again.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="Generating Ad-Blocker filters from whotracks.me data" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/generating_adblocker_filters.html" />
+    <meta property="og:description" content="Let's never miss a new tracker again." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-generate-adb-filters.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="Generating Ad-Blocker filters from whotracks.me data">
+    <meta name="twitter:description" content="Let's never miss a new tracker again.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-generate-adb-filters.jpg">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Generating Ad-Blocker filters from whotracks.me data</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Remusao</p>
+        <p class="date">Nov 20th, 2017</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-generate-adb-filters.jpg" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">Generating Ad-Blocker filters from whotracks.me data</h3>
+        <p id="post-subtitle">Let's never miss a new tracker again.</p>
+        <hr>
+        <p class="post-meta"><b>Remusao</b> - Nov 20th, 2017</p>
+
+        <p><em>TL;DR</em>  In this post we see how to:</p>
+<ol>
+<li>Load the data from <a href="https://github.com/cliqz-oss/whotracks.me">whotracks.me</a> to get access to trackers' information</li>
+<li>Create a mapping from tracking categories to list of domains</li>
+<li>Filter each domain based on the amount of tracking of each <em>app</em></li>
+<li>Generate a filter list for each category</li>
+</ol>
+<p>The full source code used in this article can be found on the <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/contrib/generating_adblocker_filters.py">Github repository</a>.</p>
+<p>Most popular content blockers are using filter lists to decide what requests
+leaving the browser should be blocked. In this regard, filter lists act as a
+privacy <em>ground truth</em>: deciding what is safe, and what is not safe for users.
+It means that your privacy protection is only as good as the filters your are
+using. The community is doing an amazing job, but still there can be gaps in
+your protection; one such situation is when a new tracker appears.</p>
+<p>With the right data, updated regularly, we believe it is possible to
+build powerful tools to help increase users' privacy. Knowing more about
+trackers, in real time, allows to provide better anti-tracking but can also
+<em>help</em> the tedious process of curating the filter lists.</p>
+<p>In this post we'd like to demonstrate how we can make use of the
+open-sourced <a href="https://whotracks.me">whotracks.me</a> data to automatically
+generate <em>up-to-date</em>, <em>per-category</em>, filter lists supported by the
+most popular ad-blockers out there. Leveraging this data can improve
+user experience and make maintaining the lists easier.</p>
+<p>In the future, we can imagine generating per-country lists as well,
+in the spirit of the different <a href="https://easylist.to/">easylists</a> already
+in existence:</p>
+<ul>
+<li><code>DEU: Pornvertising blocking Germany</code></li>
+<li><code>DEU: Site_Analytics blocking Germany</code></li>
+<li>...</li>
+<li><code>FR: Site_Analytics blocking France</code></li>
+</ul>
+<p>They could also be dispatched in the already existing lists such as
+<code>advertising</code>, <code>privacy</code>, etc. Another option could be to use this as a
+tool to assist maintainers to keep an eye on the ecosystem; allowing to
+learn about new trackers in real time.</p>
+<p>Let's get started!</p>
+<h2 id="loading-the-data">Loading the data</h2>
+<p>The first step is to install the <code>whotracksme</code> package, available on <a href="https://pypi.python.org/pypi/whotracksme">PyPI</a>
+and <a href="https://github.com/cliqz-oss/whotracks.me">Github</a>. You can get started by
+installing <code>whotracksme</code> with <code>pip</code>:</p>
+<pre><code class="sh">$ pip install whotracksme
+</code></pre>
+
+<p>We start by loading the tracker-related data from <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/trackerdb.sql">trackerdb.sql</a>, using the
+helper function found in the <code>whotracksme.data</code> module:</p>
+<pre><code class="python">from collections import defaultdict
+from whotracksme.data import load_tracker_db
+
+# Categories to tracker domains
+tracker_domains_per_category = defaultdict(list)
+
+# Keep track of normalized &quot;app&quot; name for each tracker domain. A given &quot;app&quot;
+# such as &quot;doubleclick&quot; can use several domains: 2mdn.net, doubleclick.net, etc.
+tracker_domains_to_app = {}
+
+# Load trackers and group them by category
+sql_query = &quot;&quot;&quot;
+  SELECT categories.name, tracker, domain FROM tracker_domains
+  INNER JOIN trackers ON trackers.id = tracker_domains.tracker
+  INNER JOIN categories ON categories.id = trackers.category_id;
+&quot;&quot;&quot;
+with load_tracker_db() as connection:
+    for (category, tracker, domain) in connection.execute(sql_query):
+        tracker_domains_per_category[category].append(domain)
+        tracker_domains_to_app[domain] = tracker
+</code></pre>
+
+<p>Here is a sample of what we get in <code>tracker_domains_per_category</code>. Note that if
+you run the same script, you might get slightly different results as the
+data is being constantly updated:</p>
+<pre><code class="python">defaultdict(list, {
+  'advertising': [
+    'doubleclick.net',
+    ...
+  ],
+  'audio_video_player': [
+    'soundcloud.com'
+    ...
+  ],
+  'cdn': [
+    'googleapis.com',
+    ...
+  ],
+  'comments': [
+    'disqus.com',
+    ...
+  ],
+  'customer_interaction': [
+    'zendesk.com',
+    ...
+  ],
+  'essential': [
+    'googletagmanager.com',
+    ...
+  ],
+  'extensions': [
+    'kaspersky-labs.com',
+    ...
+  ],
+  'hosting': [
+    'amazonaws.com',
+    ...
+  ],
+  'misc': [
+    'linkedin.com',
+    ...
+  ],
+  'pornvertising': [
+    'pornhub.com',
+    ...
+  ],
+  'site_analytics': [
+    'google-analytics.com',
+    ...
+  ],
+  'social_media': [
+    'twitter.com',
+    ...
+  ]
+]})
+</code></pre>
+
+<h2 id="filtering-based-on-tracking-behavior">Filtering based on tracking behavior</h2>
+<p>It is tempting to generate filters for each domain loaded so far, but it
+would be very aggressive. Indeed, some domains identified as potential
+trackers might in fact not send <a href="https://whotracks.me/blog/what_is_a_tracker.html">unsafe identifiers</a> (or not a lot). For example
+<a href="https://whotracks.me/trackers/createjs.html">createjs</a> is not using any
+<em>fingerprinting</em> and does not seem to be doing tracking via <em>cookies</em>,
+hence, it should not be blocked systematically.</p>
+<p>Fortunately, we can make use of the data from <a href="https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/apps.json">apps.json</a> to learn
+more about each tracker. An <em>app</em> is an entity which can contain several
+domains (e.g.: <em>doubleclick</em> is an <em>app</em> for which we identified three
+domains: <code>2mdn.net</code>, <code>invitemedia.com</code> and <code>doubleclick.net</code>). We also
+provide information about companies to which each app belongs, but we
+will leave the exploration of this data for another article.</p>
+<pre><code class="python">import json
+from whotracksme.data import load_apps
+
+apps = load_apps()
+</code></pre>
+
+<p><code>apps</code> is a dictionary with keys being <em>app ids</em> (e.g.: <code>google_analytics</code>)
+and values containing all we know about each <em>app</em>. Let's take an example:</p>
+<pre><code class="json">apps[&quot;google_analytics&quot;]
+
+{
+    &quot;overview&quot;: {
+        &quot;bad_qs&quot;: 0.4377430033329568,
+        &quot;content_length&quot;: 14771.492718357234,
+        &quot;cookies&quot;: 0.0015869678941083753,
+        &quot;https&quot;: 0.7507222054912428,
+        &quot;id&quot;: &quot;google_analytics&quot;,
+        &quot;reach&quot;: 0.44292899275150094,
+        &quot;requests&quot;: 3.834100333790446,
+        &quot;requests_tracking&quot;: 1.202157901660253,
+        &quot;site_reach&quot;: 0.616005569531587,
+        &quot;tracked&quot;: 0.4383474801843971
+    },
+    &quot;history&quot;: ...,
+    &quot;rank&quot;: ...,
+    &quot;sites&quot;: ...
+}
+</code></pre>
+
+<p>That's a lot of data, and we plan to release a more complete
+documentation about what all this is about soon. For now let's just say
+that everything is already made accessible on the website, in form of
+nice graphs and aggregations!</p>
+<p>For our use-case, we will only consider the field: <code>tracked</code>. It
+represents the proportion of page loads including <em>app</em>, identified as
+performing some form of tracking (using either identifying <em>cookies</em>
+or <em>fingerprinting</em>). In the case of <code>google_analytics</code>, it means that
+out of 100 page loads where <code>google_analytics</code> was present, tracking
+occurred 44 times.</p>
+<p>Before generating the filter list, let's keep only <em>apps</em> tracking
+users more than <code>10%</code> of the time. Please note that finding the right
+threshold would require some finer analysis, and could depend on the
+application.</p>
+<pre><code class="python">def filter_domains(domains):
+    for domain in domains:
+        app_name = tracker_domains_to_app[domain]
+        if app_name in apps:
+            app = apps[tracker_domains_to_app[domain]]
+            tracked = app['overview']['tracked']
+            if tracked &gt;= 0.1:
+                yield domain
+</code></pre>
+
+<p>We need to check if the <em>app</em> exists first because we currently only have the
+top 500 hosted on Github. We will host more in the future.</p>
+<h2 id="generating-the-lists">Generating the lists</h2>
+<p>We now proceed to generate the filter lists from these domains. They can take
+two forms:</p>
+<ul>
+<li>ADB compatible syntax: <code>||{domain}$third-party</code></li>
+<li>Hostname syntax: <code>127.0.0.1 {domain}</code></li>
+</ul>
+<p>Note that the second option will probably be too aggressive in a lot of
+cases, as it will also block the domain even if they are first-party (e.g.,
+<code>google.com</code> might get blocked by these rules).</p>
+<pre><code class="python">def generate_adb_filters(domains):
+    &quot;&quot;&quot;Given a list of domains, generate filters using the
+    ADB syntax to be used in an adblocker&quot;&quot;&quot;
+    for domain in domains:
+        yield f&quot;||{domain}$third-party&quot;
+
+def generate_hostname_filters(domains):
+    &quot;&quot;&quot;Given a list of domains, generate filters using
+    the hostname syntax&quot;&quot;&quot;
+    for domain in domains:
+        yield f&quot;127.0.0.1 {domain}&quot;
+
+# Generate filters with *ADB* syntax
+adb_filters = {
+    category: '\n'.join(generate_adb_filters(filter_domains(domains)))
+    for (category, domains) in tracker_domains_per_category.items()
+}
+
+# Generate filters with *hostname* syntax
+hostname_filters = {
+    category: '\n'.join(generate_hostname_filters(filter_domains(domains)))
+    for (category, domains) in tracker_domains_per_category.items()
+}
+</code></pre>
+
+<p>Each dictionary now contains a valid adblocking list for each category:</p>
+<pre><code class="python">hostname_filters.keys()
+</code></pre>
+
+<pre><code class="python">dict_keys([
+  'advertising',
+  'audio_video_player',
+  'cdn',
+  'comments',
+  'customer_interaction',
+  'essential',
+  'extensions',
+  'hosting',
+  'misc',
+  'pornvertising',
+  'site_analytics',
+  'social_media',
+  'unknown'
+])
+</code></pre>
+
+<p>And here is what we get for example in the <code>advertising</code> category:</p>
+<pre><code class="python">print(adb_filters['advertising'])
+</code></pre>
+
+<pre><code>||doubleclick.com$third-party
+||criteo.com$third-party
+...
+</code></pre>
+
+<p>And the same domains but as <code>hostname</code> filters:</p>
+<pre><code class="python">print(hostname_filters['advertising'])
+</code></pre>
+
+<pre><code>127.0.0.1 doubleclick.com
+127.0.0.1 criteo.com
+...
+</code></pre>
+
+<p>To put it in a nutshell, here is what we just did:</p>
+<ol>
+<li>Load the data from <a href="https://github.com/cliqz-oss/whotracks.me">whotracks.me</a> to get access to trackers' information</li>
+<li>Create a mapping from tracking categories to list of domains</li>
+<li>Filter each domain based on the amount of tracking of each <em>app</em></li>
+<li>Generate a filter list for each category</li>
+</ol>
+<p>There is so much more we can do with this database. At the moment the
+API to load the data is pretty-low level, but it will be improved over
+time.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>Generating Ad-Blocker filters from whotracks.me data</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->

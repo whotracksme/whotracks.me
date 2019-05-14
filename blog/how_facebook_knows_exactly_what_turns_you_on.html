@@ -1,0 +1,323 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog | How facebook knows exactly what turns you on</title>
+    <meta name="description" content="A technical analysis of the methods used to track users as a third party. Deep dive into a couple of case studies.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="same-origin">
+
+    
+    <!-- OG params for sharable content -->
+    <meta property="og:title" content="How facebook knows exactly what turns you on" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whotracks.me/blog/how_facebook_knows_exactly_what_turns_you_on.html" />
+    <meta property="og:description" content="A technical analysis of the methods used to track users as a third party. Deep dive into a couple of case studies." />
+    <meta property="og:image" content="https://whotracks.me/static/img/blog/blog-facebook.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WhoTracks_me">
+    <meta name="twitter:creator" content="@WhoTracks_me">
+    <meta name="twitter:title" content="How facebook knows exactly what turns you on">
+    <meta name="twitter:description" content="A technical analysis of the methods used to track users as a third party. Deep dive into a couple of case studies.">
+    <meta name="twitter:image" content="https://whotracks.me/static/img/blog/blog-facebook.jpg">
+
+
+    <!-- Stylesheets -->
+    <link rel="icon" href="../static/img/favicon-2.ico">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="WhoTracks.Me Blog" href="https://whotracks.me/blog/feed.xml" />
+
+    <!--add this block to templates that need extra styling-->
+    
+        <link rel="stylesheet" href="../static/css/blog/post.css">
+
+        <!--to style code snippets properly-->
+        <link rel="stylesheet" href="../static/css/blog/github.css">
+        <script src="../static/js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="../static/js/plotly-v1.29.3.min.js"></script>
+    <!-- For relative path resolution -->
+    <script>
+        var pathToRoot = ".."
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-blue" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">
+                        <img class="logo" alt="Who Tracks Me" src="../static/img/logo-white.svg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-0">
+                <!--Collapsed under menu in mobile-->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input id="search-bar" class="form-control" type="text" placeholder="Search website or tracker">
+                        </div>
+                    </ul>
+
+                    <!--Site links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a class="nav-button" href="../trackers.html">TRACKERS</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../websites.html">WEBSITES</a>
+                        </li>
+                        <li  class="active" >
+                            <a class="nav-button" href="../blog.html">BLOG</a>
+                        </li>
+                        <li >
+                            <a class="nav-button" href="../explorer.html">EXPLORER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>How facebook knows exactly what turns you on</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <!-- <div class="post-header">
+        <p class="author">Privacy team</p>
+        <p class="date">Jul 22nd, 2017</p>
+    </div> -->
+
+    <div class="img-container">
+        <img class="img-responsive" src="../static/img/blog/blog-facebook.jpg" />
+    </div>
+    <div class="container container-post">
+        <h3 id="post-title">How facebook knows exactly what turns you on</h3>
+        <p id="post-subtitle">A technical analysis of the methods used to track users as a third party. Deep dive into a couple of case studies.</p>
+        <hr>
+        <p class="post-meta"><b>Privacy team</b> - Jul 22nd, 2017</p>
+
+        <p>The modern web is built around advertising. A multi-billion dollar industry (<a href="http://www.iab.net/about_the_iab/recent_press_releases/press_release_archive/press_release/pr-041014">$42bn in 2013 in the US</a> and about <a href="https://de.statista.com/statistik/daten/studie/456157/umfrage/umsaetze-im-markt-fuer-digitale-werbung-in-deutschland/">6bn in 2015</a> in Germany) primarily concerned with one question: How to make the most money by serving exactly the right ad, at the right time, to the right user.</p>
+<p>Web pages are extremely complicated constructions, often meshing together multiple software tools and services from different providers, from analytics and social sharing widgets, to dynamic advertising and content recommendation engines. Consider an average news site with social media sharing buttons. More often than not, these are created by linking to scripts from Facebook, Google, Twitter, etc., which then inject the required content into the page. These third parties may then in turn load other required services into the page.</p>
+<p>In isolation, this seems mainly harmless. Services are being provided to the website owners to better integrate third-party services such as social networks, add extra widgets such as comment sections and related content, and improve the website’s monetisation through targeted advertising.</p>
+<p>However, the implementation of these services often cause a privacy side-effect: they allow third-parties to track your web-browsing across the web, and in some cases even link this history to you personally. When a user visits a new site the third parties included in the page can then look up the browsing history they have collected for this user, and then generate a personalised response based on this information. This is akin to being given a personalised newspaper where the adverts have been selected based on which articles you have read previously, in both this and other newspapers, any magazine articles you might have read, where you shop and what items you were looking for, <a href="http://cliqz.com/magazine/pressemitteilung-cliqz-tracking-beim-online-banking">where you bank</a> and more. Our data shows that largest of these tracking third party services can be seen on <a href="http://josepmpujol.net/public/papers/pujolTrackingTheTrackers.pdf">almost half of all pages you might visit</a>, and many others share and <a href="https://big.exchange/">trade user data</a> amongst each other in order to build a comprehensive user browsing history.</p>
+<p>Luckily, as the web is an open system, we can see what these companies are up to, and equip the browser with the capability of foiling their attempts to send tracking data.</p>
+<p>This post is the first part of a two-part series. In the second part we will describe how our Anti-tracking system works. This part acts as a background to that, describing the how and why behind online tracking. The methodology and data we present here is based on our <a href="http://josepmpujol.net/public/papers/pujolTrackingTheTrackers.pdf">published work</a> on Anti-tracking, which we <a href="http://www.slideshare.net/jmpujol/tracking-the-trackers-www-2016">presented</a> at WWW2016.</p>
+<h2 id="how-online-tracking-works">How online tracking works</h2>
+<p>The mechanism behind online user tracking is simple enough. First, one must be a third party to many page loads across the web. Our data shows that almost 30% of web sites require 10 or more different service providers to fully load their content, and dynamic advertising alone can bring this many different companies into the page. Secondly, the request a third party receives when loaded into a page should contain some kind of user identifier (uid) for the client visiting the page, as well as the address of the first party page visited (usually provided by the Referer [sic] header). Collecting together the first-party pages seen for each uid will then yield the browsing histories of all the users seen.</p>
+<p>A simple list of visited web pages may not seem like a significant privacy violation to some, however further analysis can yield much more information than one might expect. Trackers can collect users’ browser and operating system, which can be used for <a href="http://news.northeastern.edu/2014/10/ecommerce-study/">price discrimination</a>, and rough geographical location can be checked using <a href="https://en.wikipedia.org/wiki/Geolocation">IP geolocation</a>. One can also find private urls in the history to determine membership of certain services, such as some <a href="https://static.cliqz.com/wp-content/uploads/2016/07/Cliqz-study-tracking-in-online-banking.pdf">online banking portals</a> which contain trackers. Another example is the twitter analytics dashboard (e.g. analytics.twitter.com/user/sammacbeth/home). This url is only accessible when logged in as a specific user, and when accessed the browser will transmit this user name in the url to the trackers in this page (in testing, these included Google, Microsoft and tellapart.com), thus enabling these services to add a user’s twitter handle to the previously collecting browsing history. Private urls, such as this, are particularly dangerous, because they often contain Personal Identifiable Information (PII) which puts a real identify on the other urls that are being collected in that session (See <a href="http://www.slideshare.net/jmpujol/data-collection-without-privacy-sideeffects-at-big2016-www-2016">http://www.slideshare.net/jmpujol/data-collection-without-privacy-sideeffects-at-big2016-www-2016</a> for an example.).</p>
+<h3 id="uid-generation-techniques">UID Generation Techniques</h3>
+<p>The uid that trackers need in order to attribute page loads to specific users can be generated in several different ways:</p>
+<ol>
+<li>
+<p>Cookies – This is the simplest and most common method for generating uids. Cookies are a web standard for sharing state between a client and server over the stateless HTTP protocol. It is an important part of the web, which enables sites to keep track of your login and/or preferences between visits. Cookies work as follows: When a client makes a request to a server, in the response the server can set a header Set-Cookie with a value of its choosing. The client will, from then on, send this value in headers for any subsequent requests for this domain, and thus the server will know which user it was who sent the request.</p>
+</li>
+<li>
+<p>Network fingerprint – This method uses the properties of the network from which the request comes from as an identifier, usually the IP address. This varies in effectiveness based on whether users have unique IPs or not.</p>
+</li>
+<li>
+<p>Client fingerprint – Here, code is run in the client browser to try and build a unique identifier from data accessed in Javascript, Flash and other APIs, for example installed fonts, browser plugin versions, screen resolution, browser version and more. Techniques such as canvas fingerprinting are further able to fingerprint the specific hardware configuration of the user’s computer. Together this can generate a unique fingerprint which is stateless, and endures even when private data is cleared, and private tabs are used.</p>
+</li>
+</ol>
+<p>Once generated, these uids must be transmitted to the tracker with information about the page the user is visiting. Again there are three primary methods:</p>
+<ol>
+<li>
+<p>HTTP Headers – This is metadata send along with a request with information for the server. This is where Cookies are transmitted, but also other data can be sent here. Our data shows that 45% of requests to third parties on web pages seen by our users contain a cookie header.</p>
+</li>
+<li>
+<p>URL Path – Arbitrary data can be sent in the URL path requested from the server. This is commonly in the form of a query or parameter string — key/value pairs separated by &amp; or ; characters at the end of the query. 52% of third party requests have some kind of query string, and 1.5% a parameter string.</p>
+</li>
+<li>
+<p>Post data – This is data sent from the client as part of the main body of the request. We see this kind of request in 0.05% of cases.</p>
+</li>
+</ol>
+<h3 id="case-study-1-facebook-cookie-tracking">Case Study 1: Facebook cookie tracking</h3>
+<p>Facebook use cookies to link your web-browsing behaviour to your Facebook account. Facebook widgets are embedded in various sites around the web, and will send the address of the page you are viewing along with your Facebook cookie, enabling Facebook to build a list of sites you have visited. Our data shows that Facebook’s widget reaches 25% of pages loaded by our users – this means that Facebook could collect 25% of an average user’s browsing history.</p>
+<p>We can see this tracking in action by inspecting requests in the web browser. First, if we visit the Facebook home page, we can see a cookie called datr being set:</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/facebook-casestudy.png"/></p>
+<p>Now, upon visiting a site which has a Facebook widget, in this case bild.de, we can see a request to facebook.com. As third-party cookies are enabled in the browser (the default setting in all major browsers), we will send the cookie we got on the previous page along with the request. The Referer header of this request will also contain the site I am visiting: www.bild.de.</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/bild-tracker.png"/></p>
+<p>As I continue to browse the web, this process will repeat, and Facebook will collect a series of requests with this datr cookie and the pages I was viewing.</p>
+<p>Finally, if I now log into my Facebook account, we see that the datr cookie remains, and now alongside a cookie with my Facebook user ID. This means that Facebook can now attribute all the pages I have viewed with my personal Facebook account.</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/facebook-tracker.png"/></p>
+<p>This mechanism allows Facebook to collect your browsing habits across the web, in order to tailor adverts and recommendations within their site. <a href="http://josepmpujol.net/public/papers/pujolTrackingTheTrackers.pdf">Our measurements</a> show that this tracking covers around 25% of pages visited by our users.</p>
+<p>Facebook were banned last year from using this tracking on European users who had not logged into their site, however this was recently <a href="http://www.theverge.com/2016/6/30/12069626/facebook-belgian-privacy-commission-cookie-user-tracking-case-overturned">overturned</a>, so this practice continues.</p>
+<h3 id="case-study-2-moatads-fingerprinting">Case Study 2: Moatads fingerprinting</h3>
+<p><a href="https://moat.com/">Moat</a> is an analytics and advertising provider. They are present on many popular news sites, where their JavaScript is loaded into the page, and then a tracking pixel is sent back to their servers. We can observe this behaviour by opening two different sites in our web browser and inspecting the requests to moatads.com:</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/moat-mac-uai-1440x774.png"/></p>
+<p>Here we can see many parameters are sent in the request, and many values match across both requests. However, we cannot know for sure if these represent uids, or just other values used legitimately for the service. However, the qn value is suspicious, as a long cryptic value which remains the same when visiting different sites.</p>
+<p>We now try opening the same sites in a different browser:</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/moat_linux.png"/></p>
+<p>Again, pixels are generated with various parameters set in the request URL. Some are the same as we saw in the first test, for example the qq parameter. However, looking at the qn value we see that it is again the same on both web pages, but different to the value we saw on Mac. We can hypothesise that this is a fingerprint of this browser which functions as a uid, however we would need more examples from more unique browsers to properly test this.</p>
+<p>Finally, we test the qn in a private tab in the first browser. As shown below, we see that the same fingerprint is generated. Therefore, Moat are able to also tag page views in private tabs with the same uid as in a normal window, suggesting that they can bypass this protection for their tracking purposes.</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/bild-tracker2.png"/></p>
+<h1 id="where-are-the-trackers">Where are the trackers</h1>
+<p>These two case studies have shown the technical means with which companies can collect the pages you visit, and group them by a particular user, be that against a specific facebook profile or just a hash value which uniquely identifies one’s computer. Having established that third parties may snoop on some pages you visit on the web (with the first party’s permission), the question is how far does this tracking reach, and how much of our browsing habits can these third parties collect?</p>
+<p>We presented our data on the <a href="http://josepmpujol.net/public/papers/pujolTrackingTheTrackers.pdf">online tracking</a> seen by 200,000 users over a two week period at the <a href="http://www2016.ca/">WWW2016</a> conference in April, which analysed over 13 million page loads by our users. A large study of 1 million sites has also been done by researchers at Princeton with similar findings to ours, although the study is not based on real user traffic but rather on data collected by instrumented browsers that download and scan for trackers top sites on the Web. We present some updated results from our on-going browser telemetry, during August 2016, and containing over 140 million page loads over 1.8 million unique domains. Multiple visits to the same site and/or page are counted multiple times, thus the data set weighs more popular pages more strongly, and represents the tracking observed by an average user of our browser.</p>
+<p>The first result we observe from our data, is that a small collection of third parties are are installed in a huge number of visited pages. From a list of 2000 domains, representing the top tracking domains, we see that 96% of page loads include a request to a third party in this list. Over 80% of these page loads (and 78% of the total) contain some kind of tracking attempt. Thus, a user browsing the web with no tracking protection could be tracked on 78% of the pages they visit.</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/tracking-per-page-load.png"/></p>
+<p>We can further look at how much of an average user’s browsing history each third-party company might be able to tracking. We analyse the ‘reach’ – the proportion of total page loads in the data set seen – by domains associated with particular companies or products. The figure below shows the top companies in terms of total reach, and for each we indicate the types of behaviour seen on each page. ‘Safe’ means that no tracking behaviour was seen, just that a request was made to the domain; ‘cookie’ and ‘qs’ mean that there was an attempt to transmit a uid with one of these methods, and ‘both’ means that both methods were used.</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/tracking-reach-uai-1032x678.png"/></p>
+<p>The figures show that the big players – and particularly Google, with their products taking the top three places – have significant reach across the web. Some specific company behaviours can also be observed, for example Google Analytics does not use cookies, using a weaker kind of fingerprint. Also, Amazon, offer CDN services on their cloudfront.net and amazonaws.com domains, thus a high proportion of their reach is safe.</p>
+<p>The other feature of the tracking landscape is the long tail of tracking companies. There are 27 companies/services with over 5% reach, 110 with over 1%, then 450 over 0.1%. This 0.1% still corresponds to over 140,000 pages seen on this data set.</p>
+<p>Finally, we can look at how many trackers are seen on each page load. The figure below shows how many distinct tracking domains were contacted for page loads in the dataset. We see that over 10% of pages have over 20 different trackers in them, and the vast majority of page loads have multiple trackers. Therefore, not only are users tracked across most of the web, after there are many companies who are able to generate comprehensive user profiles.</p>
+<p><img class="img-responsive" src="../static/img/blog/how_facebook_post/domains.png"/></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>In this post we’ve given a general description of how online tracking works, and looked at the extent of tracker companies’ reach across the web. In the next post we will look at how we can stop this tracking, and give an in depth description of how our Cliqz Anti-tracking technology works to prevent tracking without an adverse effect on user experience.</p>
+    </div>
+
+
+
+
+    
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                        <li>How facebook knows exactly what turns you on</li>
+                    
+                </ul>
+        </div>
+    </div>
+
+    
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul>
+          <li>
+            <i class="fa fa fa-github"></i>
+            <a target="_blank" rel="noreferrer" href="https://github.com/cliqz-oss/whotracks.me">
+              Get the data
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-twitter"></i>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/WhoTracks_me">
+              @WhoTracks_me
+            </a>
+          </li>
+          <li>
+            <i class="fa fa fa-rss"></i>
+            <a target="_blank" type="application/rss+xml" href="/blog/feed.xml">
+              RSS
+            </a>
+          </li>
+
+          <li>
+            <i class="fa fa fa-balance-scale"></i>
+            <a href="/privacy-policy.html">
+              Privacy Policy
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-sm-3 col-xs-12 menu">
+        <ul class="margin-left">
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://cliqz.com/en/download">
+              Cliqz browser
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.ghostery.com/en/products/">
+              Ghostery add-on
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 logos">
+        <a href="https://cliqz.com/en/" target="_blank">
+          <span class="cliqz-logo"></span>
+        </a>
+        <a href="https://www.ghostery.com/" target="_blank">
+          <span class="ghostery-logo"></span>
+        </a>
+
+        <div class="copyright">
+          &copy; Cliqz GmbH - All rights reserved.
+        </div>
+        <div>Last updated on 14.05.2019</div>
+
+        <div class="copyright">
+          Contact us at <a target="_blank" href="mailto:info@whotracks.me">
+            info@whotracks.me
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Local javascript modules -->
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/search.js"></script>
+
+
+</footer>
+<!-- END OF FOOTER -->
