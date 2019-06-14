@@ -182,9 +182,7 @@ class Builder:
                 )
 
             if event & DATA_FOLDER:
-                futures.append(executor.submit(
-                    build_tracker_db
-                ))
+                build_tracker_db()
                 trackers = [id for id, _ in data_source.trackers.iter()]
                 data_dir = Path('_site/data/trackers/global')
                 if not data_dir.exists():
