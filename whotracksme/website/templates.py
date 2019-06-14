@@ -98,7 +98,7 @@ CATEGORY_DESC = {
     "misc": "This tracker does not fit in other categories or has not yet been labelled.",
     "pornvertising": "Delivers advertisements that generally appear on adult content sites.",
     "hosting": "This is a service used by the content provider or site owner.",
-    "extensions": "These are browser addons that collect user data"
+    "extensions": "Software on user-devices that can intercept and analyse browser traffic (man in the middle)."
 }
 
 
