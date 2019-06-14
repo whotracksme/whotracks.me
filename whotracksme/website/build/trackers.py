@@ -136,11 +136,11 @@ def build_tracker_pages(data):
     print_progress(text="Generate tracker pages")
 
 def build_tracker_page_batch(batch):
-    data = DataSource(populate=False)
-    template = get_template(data, name='tracker-page.html', path_to_root='..')
+    with DataSource(populate=False) as data:
+        template = get_template(data, name='tracker-page.html', path_to_root='..')
 
-    for tracker_id in batch:
-        page_data = tracker_page_data(tracker_id,
-                                      data.trackers.get_datapoint(tracker_id),
-                                      data)
-        tracker_page(template, page_data)
+        for tracker_id in batch:
+            page_data = tracker_page_data(tracker_id,
+                                        data.trackers.get_datapoint(tracker_id),
+                                        data)
+            tracker_page(template, page_data)

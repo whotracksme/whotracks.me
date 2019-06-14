@@ -72,6 +72,12 @@ class DataSource:
             populate=populate,
         )
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self.db.connection.close()
+
     @staticmethod
     def normalize_url(url_substring):
         return quote_plus(url_substring.replace('/', ' ')).lower()
@@ -127,9 +133,8 @@ class SQLDataLoader:
         '''
 
     def sort_by(self, metric="reach", descending=True):
-        cursor = self.db.connection.cursor()
         columns = ','.join(DATA_COLUMNS['trackers'])
-        cursor.execute(f'''
+        cursor = self.db.connection.execute(f'''
             {self.get_data_query()}
             WHERE {self.table_name}.country=? AND month = ?
             ORDER BY "{metric}" {'DESC' if descending else 'ASC'}
@@ -137,8 +142,7 @@ class SQLDataLoader:
         return list(map(self.rowType._make, cursor.fetchall()))
 
     def get_snapshot(self, month=None):
-        cursor = self.db.connection.cursor()
-        cursor.execute(f'''
+        cursor = self.db.connection.execute(f'''
             {self.get_data_query()}
             WHERE {self.table_name}.country = ? AND month = ?
         ''', (self.region, month or self.last_month))
@@ -158,8 +162,7 @@ class SQLDataLoader:
         return None
 
     def dump(self):
-        cursor = self.db.connection.cursor()
-        cursor.execute(f'''
+        cursor = self.db.connection.execute(f'''
             {self.get_data_query()}
             WHERE {self.table_name}.country = ?
         ''', (self.region,))
@@ -196,8 +199,7 @@ class Trackers(SQLDataLoader):
 
         """
         # snapshot of last month in the data
-        cursor = self.db.connection.cursor()
-        cursor.execute('''
+        cursor = self.db.connection.execute('''
             SELECT
             COUNT(tracker) as count,
             COUNT(CASE WHEN reach > 0.001 THEN 1 ELSE NULL END) as gt01,
@@ -222,8 +224,7 @@ class Trackers(SQLDataLoader):
         if id in self.info:
             return self.info[id]
 
-        cursor = self.db.connection.cursor()
-        cursor.execute('''
+        cursor = self.db.connection.execute('''
             SELECT
                 t.id,
                 t.name,
@@ -250,7 +251,7 @@ class Trackers(SQLDataLoader):
         row = cursor.fetchone()
         tracker_info = {c: row[i] for i, c in enumerate(cols)}
 
-        cursor.execute('''
+        cursor = self.db.connection.execute('''
             SELECT tracker, MIN(month), MAX(month)
             FROM trackers_data
             WHERE country = ? AND tracker = ?
@@ -260,7 +261,7 @@ class Trackers(SQLDataLoader):
         if date_range is not None:
             tracker_info['date_range'] = [parse_date(date_range[1]), parse_date(date_range[2])]
 
-        cursor.execute('''
+        cursor = self.db.connection.execute('''
             SELECT
                 t.id,
                 dom.domain as domains
