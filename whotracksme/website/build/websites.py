@@ -87,11 +87,11 @@ def build_website_pages(data):
 
 
 def build_website_pages_batch(batch):
-    data = DataSource(populate=False)
-    template = get_template(data, "website-page.html", path_to_root='..')
+    with DataSource(populate=False) as data:
+        template = get_template(data, "website-page.html", path_to_root='..')
 
-    for rank, site in batch:
-        website_page(template,
-                     data.sites.get_datapoint(site),
-                     rank + 1,
-                     data)
+        for rank, site in batch:
+            website_page(template,
+                        data.sites.get_datapoint(site),
+                        rank + 1,
+                        data)

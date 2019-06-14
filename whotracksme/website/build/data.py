@@ -49,19 +49,18 @@ def build_api(data):
     print_progress(text='Generate API data')
 
 def build_tracker_api_batch(batch):
-    data = DataSource(populate=False)
-    gh_data_dir = Path('_site/data/trackers/ghostery')
+    with DataSource(populate=False) as data:
+        gh_data_dir = Path('_site/data/trackers/ghostery')
 
-    if not gh_data_dir.exists():
-        gh_data_dir.mkdir(parents=True)
+        if not gh_data_dir.exists():
+            gh_data_dir.mkdir(parents=True)
 
-    for tracker_id in batch:
-        build_tracker_json(tracker_id, data)
+        for tracker_id in batch:
+            build_tracker_json(tracker_id, data)
 
 def build_website_api_batch(batch):
-    data = DataSource(populate=False)
-
-    for website in batch:
-        stats = data.sites.get_datapoint(website)
-        with open(f'_site/data/sites/global/{website}.json', 'w') as output:
-            json.dump(stats._asdict(), output)
+    with DataSource(populate=False) as data:
+        for website in batch:
+            stats = data.sites.get_datapoint(website)
+            with open(f'_site/data/sites/global/{website}.json', 'w') as output:
+                json.dump(stats._asdict(), output)
