@@ -1,4 +1,4 @@
-title: Manifest v3: Improving Privacy?
+title: Chrome's Manifest V3 - Improving Privacy?
 subtitle: How Chrome's changes will reduce user privacy
 author: privacy team
 type: article
@@ -44,7 +44,7 @@ In the blog post they also mention one potential malicious use of webRequest:
 
 > Because all of the request data is exposed to the extension, it makes it very easy for a malicious developer to abuse that access to a user’s credentials, accounts, or personal information.
 
-If this is the single privacy loophole the `webRequest` changes are targetting, then it seems strange that the solution is to remove the blocking capabilities of `webRequest` and leave the observational ones. Post Manifest V3, the exact same malicous extension will be possible. We can imagine that the Chrome team's strategy may be, that by providing a simple alternative API for blocking use-cases, the extension review process can be tougher for extensions asking for `webRequest` permissions. This, however, would also be possible by just introducing the new API, leaving `webRequest` as it is, and providing developer incentives to switch unless they really need `webRequest` for their use-case.
+If this is the single privacy loophole the `webRequest` changes are targeting, then it seems strange that the solution is to remove the blocking capabilities of `webRequest` and leave the observational ones. Post Manifest V3, the exact same malicious extension will be possible. We can imagine that the Chrome team's strategy may be, that by providing a simple alternative API for blocking use-cases, the extension review process can be tougher for extensions asking for `webRequest` permissions. This, however, would also be possible by just introducing the new API, leaving `webRequest` as it is, and providing developer incentives to switch unless they really need `webRequest` for their use-case.
 
 It is strange that this privacy issue was not stated in the original design document, and the proposed change to `webRequest` is seemingly just collateral damage that does not address the stated goals. More transparency is needed on what the strategy is here, and why keeping `webRequest` observation with blocking removed should be the solution.
 
@@ -64,7 +64,7 @@ This analysis is based on the `declarativeNetRequest` [API documentation](https:
 
 1. A matching grammar for specifying rules that will trigger blocking, header modification or redirects.
 2. Up to 30,000 static rules per extension
-3. The ability to add _dynamic_ rules at runtime, up to a maxium of 5,000 rules.
+3. The ability to add _dynamic_ rules at runtime, up to a maximum of 5,000 rules.
 4. Rules can have a white- or black-list of first-party sites, to control triggering.
 5. Individual sites can be dynamically whitelisted, up to a maximum of 100 per extension.
 
@@ -100,15 +100,15 @@ As the `declarativeNetRequest` API does not support dynamic redirects, this comp
 
 ### 4. Adblocker
 
-Ghostery includes an additional adblocker component which is able to further block ads based on standard blocklist. As this feature should also be togglable on-and-off at runtime, we would need to use _dynamic_ rules for these filters. With only 1,000 rules available after adding the Ghostery tracker matching, the coverage of this feature would be drastically reduced.
+Ghostery includes an additional adblocker component which is able to further block ads based on standard blocklist. As this feature should also be toggleable on-and-off at runtime, we would need to use _dynamic_ rules for these filters. With only 1,000 rules available after adding the Ghostery tracker matching, the coverage of this feature would be drastically reduced.
 
 ### 5. WhoTracks.Me Data
 
-Ghostery is the primary source of data for this website, using our [anonymised telemetry system](https://arxiv.org/abs/1804.08959) to report on global tracker trends. This largely relies on the webRequest API in order to observe which trackers are on which page. Changes caused by the introduction of `declarativeNetRequest` will reduce the quality of this data. Namely, cookies blocked by the declarative API will not be visible to webRequest listeners. This means that we will not be able to distingiush between trackers setting cookies, which are then blocked, and those who do not set cookies.
+Ghostery is the primary source of data for this website, using our [anonymised telemetry system](https://arxiv.org/abs/1804.08959) to report on global tracker trends. This largely relies on the webRequest API in order to observe which trackers are on which page. Changes caused by the introduction of `declarativeNetRequest` will reduce the quality of this data. Namely, cookies blocked by the declarative API will not be visible to webRequest listeners. This means that we will not be able to distinguish between trackers setting cookies, which are then blocked, and those who do not set cookies.
 
 ### Summary
 
-To summarise, the Manifest V3 changes to the webRequest API will require a significant re-write of the Ghostery extension to be able to fit the existing features into the contraints of the `declarativeNetRequest` API. The result will be:
+To summarise, the Manifest V3 changes to the webRequest API will require a significant re-write of the Ghostery extension to be able to fit the existing features into the constraints of the `declarativeNetRequest` API. The result will be:
 
 - Slower: URL matching will have to be done twice in order to show tracker counts in the UI.
 - Less configurable: Configuration may have to be limited to fit within the  very low dynamic rule limit.
@@ -117,7 +117,7 @@ To summarise, the Manifest V3 changes to the webRequest API will require a signi
 
 ## Conclusion
 
-In this post we have shown that the current proposed changes to the webRequest API by Chrome do not improve privacy, and in fact reduce it, by severly hindering the operation of privacy extensions like Ghostery. The limitations on dynamic rules in the new `declarativeNetRequest` API are particularly taxing for extensions which aim to the give user control over what is blocked and what is not.
+In this post we have shown that the current proposed changes to the webRequest API by Chrome do not improve privacy, and in fact reduce it, by severely hindering the operation of privacy extensions like Ghostery. The limitations on dynamic rules in the new `declarativeNetRequest` API are particularly taxing for extensions which aim to the give user control over what is blocked and what is not.
 This forces extensions into a 'dumb blocker' model, where block lists are fixed, and the only controls are an on/off toggle. At the same time,
 the changes increase the difficulty and practicality of implementing dynamic heuristic mechanisms for detecting and blocking tracking.
 
