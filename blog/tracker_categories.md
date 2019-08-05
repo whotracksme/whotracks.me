@@ -28,7 +28,7 @@ Essential
 :   Includes tag managers, privacy notices, and technologies 
     that are critical to the functionality of a website
 
-Adult Advertising
+Pornvertising
 :   Delivers advertisements that generally appear on sites with adult content
 
 Site Analytics
