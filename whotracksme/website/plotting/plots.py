@@ -30,12 +30,15 @@ def profile_doughnut(values, labels, name, color_palette=False):
         )
     )
     data = [trace]
+    hiddenaxis = dict(showgrid=False, showline=False, zeroline=False)
     layout = dict(
         showlegend=False,
         paper_bgcolor=cliqz_colors["transparent"],
         plot_bgcolor=cliqz_colors["transparent"],
         autosize=True,
         margin=set_margins(l=0, r=0, b=0, t=0, pad=10),
+        xaxis=hiddenaxis,
+        yaxis=hiddenaxis,
 
         # Center Text
         annotations=[
@@ -50,9 +53,18 @@ def profile_doughnut(values, labels, name, color_palette=False):
             )
         ]
     )
-    fig = dict(data=data, layout=layout)
+    fig = go.Figure(data=data, layout=layout)
+    image_bytes = fig.to_image(format='svg', height=200, width=161)
 
-    return div_output(fig)
+    return f'''
+    <div class="plotly-graph-div js-plotly-plot" style="height: 100%; width: 100%;">
+        <div class="plot-container plotly">
+        <div class="svg-container" style="position: relative; width: 161; height: 200px">
+            {image_bytes.decode('utf-8')}
+        </div>
+        </div>
+    </div>
+    '''
 
 
 def doughnut_chart(values, labels, name, color_palette=False):

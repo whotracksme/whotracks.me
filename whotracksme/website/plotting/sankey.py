@@ -1,3 +1,4 @@
+import plotly.graph_objs as go
 from whotracksme.website.plotting.utils import div_output, set_margins
 from whotracksme.website.plotting.colors import cliqz_colors
 
@@ -36,5 +37,17 @@ def sankey_plot(sndata):
         margin=set_margins(t=20, l=2, r=2),
 
     )
-    fig = dict(data=[data_trace], layout=layout)
-    return div_output(fig)
+    
+    # TODO: Restore interactivity
+    fig = go.Figure(data=[data_trace], layout=layout)
+    image_bytes = fig.to_image(format='svg', height=400, width=1140)
+
+    return f'''
+    <div class="plotly-graph-div js-plotly-plot" style="height: 400px; width: 100%;">
+        <div class="plot-container plotly">
+        <div class="svg-container" style="position: relative; width: 1140px; height: 400px">
+            {image_bytes.decode('utf-8')}
+        </div>
+        </div>
+    </div>
+    '''

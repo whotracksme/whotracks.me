@@ -151,9 +151,17 @@ def ts_trend(ts, t, percent=True):
         )
     )
     data = [trace0, trace1]
-    fig = dict(data=data, layout=layout)
-    return div_output(fig)
-
+    fig = go.Figure(data=data, layout=layout)
+    image_bytes = fig.to_image(format='svg', height=100, width=153)
+    return f'''
+    <div class="plotly-graph-div js-plotly-plot" style="width: 153px; height: 100px;">
+        <div class="plot-container plotly">
+        <div class="svg-container" style="position: relative; width: 153px; height: 100px;">
+            {image_bytes.decode('utf-8')}
+        </div>
+        </div>
+    </div>
+    '''
 
 # NOTE: Experimental representation of tracker prevalence
 def site_tree_map(sites):

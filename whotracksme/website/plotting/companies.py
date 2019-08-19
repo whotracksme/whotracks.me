@@ -38,8 +38,19 @@ def overview_bars(companies, highlight=2, height=None):
             )
         )
     )
-    fig = dict(data=data, layout=layout)
-    return div_output(fig)
+    # TODO: different screen sizes
+    fig = go.Figure(data=data, layout=layout)
+    fig.write_image('_site/static/images/company_bars.svg', height=450, width=1140)
+    with open('_site/static/images/company_bars.svg') as fp:
+        return f'''
+        <div class="plotly-graph-div js-plotly-plot" style="height: 100%; width: 100%;">
+            <div class="plot-container plotly">
+                <div class="svg-container" style="position: relative; width: 1140px; height: 450px;">
+                    {fp.read()}
+                </div>
+            </div>
+        </div>
+        '''
 
 
 def overview_reach(companies):
