@@ -59,7 +59,7 @@ def profile_doughnut(values, labels, name, color_palette=False):
     return f'''
     <div class="plotly-graph-div js-plotly-plot" style="height: 100%; width: 100%;">
         <div class="plot-container plotly">
-        <div class="svg-container" style="position: relative; width: 161; height: 200px">
+        <div class="svg-container" style="position: relative; width: 161px; height: 200px">
             {image_bytes.decode('utf-8')}
         </div>
         </div>

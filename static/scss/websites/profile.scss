@@ -51,3 +51,9 @@
     color: $red-txt-color;
   }
 }
+
+@media (max-width: 760px) {
+  .tracker-map {
+    display: none;
+  }
+}

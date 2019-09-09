@@ -316,3 +316,9 @@ $font-serif:  Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", 
     }
   }
 }
+
+@media (max-width: 760px) {
+  .reach-chart {
+    display: none;
+  }
+}

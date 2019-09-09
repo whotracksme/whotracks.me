@@ -35,17 +35,16 @@ def sankey_plot(sndata):
         ),
         autosize=True,
         margin=set_margins(t=20, l=2, r=2),
-
     )
     
     # TODO: Restore interactivity
     fig = go.Figure(data=[data_trace], layout=layout)
-    image_bytes = fig.to_image(format='svg', height=400, width=1140)
+    image_bytes = fig.to_image(format='svg', height=400, width=730)
 
     return f'''
     <div class="plotly-graph-div js-plotly-plot" style="height: 400px; width: 100%;">
         <div class="plot-container plotly">
-        <div class="svg-container" style="position: relative; width: 1140px; height: 400px">
+        <div class="svg-container" style="position: relative; width: 730px; height: 400px; margin: auto;">
             {image_bytes.decode('utf-8')}
         </div>
         </div>
