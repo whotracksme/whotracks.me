@@ -10,7 +10,7 @@ class TestDbIntegrity(unittest.TestCase):
 
     def test_all_trackers_have_domains(self):
         domainless_trackers = self.conn.execute('''select id from
-            (select id, tracker_domains.tracker from trackers left join tracker_domains ON trackers.id = tracker_domains.tracker)
+            (select id, tracker_domains.tracker from trackers left join tracker_domains ON trackers.id = tracker_domains.tracker WHERE alias IS NULL)
         where tracker is NULL''').fetchall()
         self.assertEqual(domainless_trackers, [])
 

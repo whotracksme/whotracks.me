@@ -23,7 +23,6 @@ INSERT INTO "companies" VALUES('24metrics','24metrics',NULL,NULL,'https://24metr
 INSERT INTO "companies" VALUES('33across','33Across',NULL,'http://www.33across.com/privacy-policy','http://33across.com/','375',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('360i','360i',NULL,'https://360i.com/about/privacy/','https://360i.com/','309',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('6minutes','6 Minutes Media GmbH',NULL,NULL,'http://www.6min.de/en/',NULL,NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('a&nn_investments','A&NN Investments ','A&NN Investments is an investment holding with focus on Russian market.',NULL,'http://ann.ru/',NULL,'ru','info@ann.ru',NULL);
 INSERT INTO "companies" VALUES('ab_tasty','AB Tasty',NULL,'https://www.abtasty.com/uk/terms-of-use/','https://www.abtasty.com/us/','3037',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('accengage','Accengage',NULL,'https://www.accengage.com/privacy-policy/','',NULL,NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('acint','Acint',NULL,'http://acint.net/','http://acint.net/',NULL,NULL,NULL,NULL);
@@ -455,7 +454,6 @@ INSERT INTO "companies" VALUES('orange_mobile','Orange Mobile',NULL,'http://web.
 INSERT INTO "companies" VALUES('outbrain','Outbrain','Outbrain is a content discovery platform providing publishers a service for recommended links to increase traffic and generate revenue.','https://www.outbrain.com/legal/','http://www.outbrain.com/','1043','us',NULL,'20181016 - company data updated');
 INSERT INTO "companies" VALUES('owneriq','OwnerIQ',NULL,'http://www.owneriq.com/privacy-policy','http://www.owneriq.com/','321',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('owox_inc','OWOX Inc.',NULL,'https://www.owox.com/policies/privacy/','https://www.owox.com/',NULL,NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('pagefair','PageFair',NULL,'https://pagefair.com/privacy/','http://pagefair.com/','2675',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('pardot','Pardot',NULL,'http://www.pardot.com/company/legal/privacy-policy.html','http://www.pardot.com/','228',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('parse.ly','Parse.ly',NULL,'http://www.parsely.com/privacy-policy/','http://www.parsely.com/','1009',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('parship','Parship',NULL,NULL,'https://www.parship.de/',NULL,NULL,NULL,NULL);
@@ -3070,7 +3068,6 @@ INSERT INTO "trackers" VALUES('adobe_audience_manager','Adobe Audience Manager',
 INSERT INTO "trackers" VALUES('adobe_dynamic_tag_management','Adobe Dynamic Tag Management',5,'https://dtm.adobe.com/sign_in','adobe','2307','20181016 - website added',NULL);
 INSERT INTO "trackers" VALUES('adobe_login','Adobe Login',2,'https://www.adobe.com/','adobe',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('adobe_tagmanager','Adobe TagManager',4,'https://www.adobe.com/','adobe','1377',NULL,NULL);
-INSERT INTO "trackers" VALUES('adobe_test_and_target','Adobe Test & Target',4,NULL,'adobe','113',NULL,'omniture__adobe_analytics_');
 INSERT INTO "trackers" VALUES('adocean','AdOcean',4,'http://adocean.cz/en','adocean','621',NULL,NULL);
 INSERT INTO "trackers" VALUES('adomik','Adomik',4,NULL,NULL,'c_m2',NULL,NULL);
 INSERT INTO "trackers" VALUES('adotmob.com','Adotmob',4,'https://adotmob.com/','adotmob','',NULL,NULL);
@@ -3514,7 +3511,7 @@ INSERT INTO "trackers" VALUES('f11-ads.com','Factor Eleven',4,NULL,NULL,'f11-ads
 INSERT INTO "trackers" VALUES('facebook','Facebook',4,'https://www.facebook.com','facebook','2491','20181002 - verified',NULL);
 INSERT INTO "trackers" VALUES('facebook_beacon','Facebook Beacon',7,NULL,'facebook','204',NULL,'facebook');
 INSERT INTO "trackers" VALUES('facebook_cdn','Facebook CDN',9,'https://www.facebook.com','facebook',NULL,'20181008 - verified',NULL);
-INSERT INTO "trackers" VALUES('facebook_connect','Facebook Connect',6,'https://developers.facebook.com/connect.php','facebook','93',NULL,NULL);
+INSERT INTO "trackers" VALUES('facebook_connect','Facebook Connect',6,'https://developers.facebook.com/connect.php','facebook','93',NULL,'facebook');
 INSERT INTO "trackers" VALUES('facebook_conversion_tracking','Facebook Conversion Tracking',4,NULL,'facebook','910',NULL,'facebook');
 INSERT INTO "trackers" VALUES('facebook_custom_audience','Facebook Custom Audience',4,'https://www.facebook.com','facebook','2148',NULL,'facebook');
 INSERT INTO "trackers" VALUES('facebook_graph','Facebook Social Graph',7,'https://developers.facebook.com/docs/reference/api/','facebook','922',NULL,NULL);
@@ -3522,7 +3519,6 @@ INSERT INTO "trackers" VALUES('facebook_impressions','Facebook Impressions',4,NU
 INSERT INTO "trackers" VALUES('facebook_social_plugins','Facebook Social Plugins',7,'https://developers.facebook.com/plugins','facebook','464',NULL,'facebook');
 INSERT INTO "trackers" VALUES('facetz.dca','Facetz.DCA',4,'http://facetz.net','dca',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('faktor.io','faktor.io',6,'https://faktor.io/','faktor.io',NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('falk_technologies','Falk Technologies',8,NULL,NULL,'c_3194',NULL,NULL);
 INSERT INTO "trackers" VALUES('fanplayr','Fanplayr',4,'http://www.fanplayr.com/',NULL,'2172',NULL,NULL);
 INSERT INTO "trackers" VALUES('fap.to','Imagefap',8,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('fastlylb.net','Fastly',9,'https://www.fastly.com/','fastly',NULL,NULL,NULL);
@@ -3610,7 +3606,7 @@ INSERT INTO "trackers" VALUES('google_adwords_conversion','Google AdWords Conver
 INSERT INTO "trackers" VALUES('google_adwords_user_lists','Google Adwords User Lists',4,NULL,'google','3055',NULL,'google');
 INSERT INTO "trackers" VALUES('google_analytics','Google Analytics',6,'http://www.google.com/analytics/','google','13','20180928 - website_url ''http://www.google.com/analytics/'' redirects to https://marketingplatform.google.com/about/analytics/',NULL);
 INSERT INTO "trackers" VALUES('google_appspot','Google Appspot',10,NULL,'google',NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('google_custom_search','Google Custom Search Ads',4,'https://developers.google.com/custom-search-ads/','google',NULL,NULL,'google');
+INSERT INTO "trackers" VALUES('google_custom_search','Google Custom Search Ads',4,'https://developers.google.com/custom-search-ads/','google',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('google_custom_search_engine','Google Custom Search Engine',5,'https://www.google.com/coop/cse/','google','70',NULL,'google');
 INSERT INTO "trackers" VALUES('google_fonts','Google Fonts',9,'https://fonts.google.com/','google',NULL,'20181002 - all ok, I changed nothing',NULL);
 INSERT INTO "trackers" VALUES('google_ima','Google IMA',4,NULL,'google','2995',NULL,'googleapis.com');
@@ -4293,7 +4289,6 @@ INSERT INTO "trackers" VALUES('stackpathdns.com','StackPath',9,'https://www.stac
 INSERT INTO "trackers" VALUES('stailamedia_com','stailamedia.com',4,'http://stailamedia.com/',NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('stalluva.pro','stalluva.pro',11,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('startapp','StartApp',4,'https://www.startapp.com/',NULL,NULL,NULL,NULL);
-INSERT INTO "trackers" VALUES('stat.media','Media2 Stat.Media',6,NULL,NULL,'3249',NULL,NULL);
 INSERT INTO "trackers" VALUES('statcounter','Statcounter',6,'http://www.statcounter.com/','statcounter','22',NULL,NULL);
 INSERT INTO "trackers" VALUES('stathat','StatHat',6,'http://www.stathat.com/',NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('statsy.net','statsy.net',11,NULL,NULL,NULL,'Similar to dyncdn.me. Primarly used by rarbg.to',NULL);
