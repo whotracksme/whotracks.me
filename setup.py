@@ -21,7 +21,7 @@ assets = []
 DATA_DIR = pathlib.Path("whotracksme/data")
 for root, dirs, files in os.walk(DATA_DIR):
     assets.extend(
-        pathlib.Path(root, f).relative_to(DATA_DIR)
+        pathlib.Path(root, f).relative_to(DATA_DIR).as_posix()
         for f in files
         if f.endswith(".csv") or f.endswith(".sql")
     )
