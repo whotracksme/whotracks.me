@@ -34,7 +34,7 @@ class ValidateTrackerDatabase(unittest.TestCase):
         cur = self.conn.cursor()
         cur.execute('SELECT COUNT(DISTINCT tracker) FROM tracker_domains')
         domain_tracker_count = cur.fetchone()[0]
-        cur.execute('SELECT COUNT(*) FROM trackers')
+        cur.execute('SELECT COUNT(DISTINCT id) FROM trackers WHERE alias is NULL')
         tracker_count = cur.fetchone()[0]
         self.assertEqual(domain_tracker_count, tracker_count)
 
