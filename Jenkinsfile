@@ -39,6 +39,7 @@ node('docker && !gpu && eu-central-1') {
             }
 
             stage('Build site') {
+                sh('Xvfb $DISPLAY -screen 0 1024x768x24 -ac &')
                 sh('/home/jenkins/.local/bin/whotracksme website')
             }
 

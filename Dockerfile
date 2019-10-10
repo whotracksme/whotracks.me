@@ -31,4 +31,6 @@ RUN cd /home/jenkins && \
   wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz && \
   tar xvf node-v10.16.3-linux-x64.tar.xz
 ENV PATH="/home/jenkins/node-v10.16.3-linux-x64/bin/:${PATH}"
+ENV DISPLAY=:0
 RUN npm install -g electron@1.8.4 orca
+RUN /home/jenkins/node-v10.16.3-linux-x64/bin/orca --help
