@@ -317,7 +317,7 @@ class Trackers(SQLDataLoader):
             'cookies': False,
             'fingerprinting': False
         }
-        if self.get_tracker(id).get('overview', {}).get('cookies') > 0.2:
+        if self.get_tracker(id).get('overview', {}).get('cookies') > 0.1:
             methods['cookies'] = True
         if self.get_tracker(id).get('overview', {}).get('bad_qs') > 0.1:
             methods['fingerprinting'] = True
