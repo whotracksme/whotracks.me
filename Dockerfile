@@ -18,10 +18,17 @@ LABEL vendor="Cliqz GmbH" \
       version=${VERSION}
 
 # install sass
-RUN apt-get update && apt-get install -y ruby-sass build-essential
+RUN apt-get update && apt-get install -y ruby-sass build-essential wget
 
 # Copy application python requirements
 COPY requirements-dev.txt /home/jenkins/
 
 # Install python dependencies
 RUN pip install -r /home/jenkins/requirements-dev.txt
+
+USER ${USER}
+RUN cd /home/jenkins && \
+  wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz && \
+  tar xvf node-v10.16.3-linux-x64.tar.xz
+ENV PATH="/home/jenkins/node-v10.16.3-linux-x64/bin/:${PATH}"
+RUN npm install -g electron@1.8.4 orca
