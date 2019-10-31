@@ -5,7 +5,7 @@ type: blog
 publish: True
 date: 2019-11-01
 tags: blog, gdpr, consent
-header_img: blog/blog-third-party-cookies.jpg
+header_img: blog/autoconsent/cookie-blocker-prompt.png
 +++
 
 Since the GDPR came into force in May last year, the Cookie-Consent Popup has become a fixture of browsing the web. These popups are ostensibly there to allow you to choose whether you agree or disagree to your data being used for certain purposes on the site, but confusing UI design and tricks mean that many users are not able to select their desired consent settings. A recent [study](https://arxiv.org/pdf/1909.02638.pdf) showed that user fatigue with consent popups, and simple UI tricks are able to artificially inflate the opt-in rate. The study also showed that, when opt-out is the default, only 0.1% of users would consent to all data processing. This is in stark contrast to the over 90% opt-in rate that the [industry claims](https://www.thedrum.com/news/2018/07/31/over-90-users-consent-gdpr-requests-says-quantcast-after-enabling-1bn-them), and uses to justify that users are OK with tracking.
