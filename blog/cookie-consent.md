@@ -3,7 +3,7 @@ subtitle: Cliqz' new feature to make consent fairer
 author: privacy team
 type: blog
 publish: True
-date: 2019-11-01
+date: 2019-11-28
 tags: blog, gdpr, consent
 header_img: blog/autoconsent/cookie-blocker-prompt.png
 +++
