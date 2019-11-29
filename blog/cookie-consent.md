@@ -1,7 +1,7 @@
 title: Improving Cookie Consent
 subtitle: Cliqz' new feature to make consent fairer
 author: privacy team
-type: blog
+type: article
 publish: True
 date: 2019-11-28
 tags: blog, gdpr, consent
