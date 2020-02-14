@@ -9,7 +9,7 @@ resource "aws_lambda_function" "clean-whotracks-me-logs" {
   runtime          = "python3.7"
   source_code_hash = filebase64sha256("function.zip")
   description      = "An Amazon S3 trigger that retrieves metadata for the object that has been updated."
-  role             = "${resource.aws_iam_role.clean-who-tracks-me-logs.arn}"
+  role             = "${aws_iam_role.clean_who_tracks_me_logs.arn}"
   timeout          = 303
   memory_size      = 384
   publish          = true
@@ -20,7 +20,7 @@ resource "aws_lambda_function" "clean-whotracks-me-logs" {
   }
 }
 
-resource "aws_iam_role" "clean-who-tracks-me-logs" {
+resource "aws_iam_role" "clean_who_tracks_me_logs" {
   name               = "${var.function_Name}"
   assume_role_policy = <<EOF
 {
@@ -45,7 +45,7 @@ resource "aws_iam_role" "clean-who-tracks-me-logs" {
 }
 EOF
   tags = {
-    Name    = "${resource.aws_iam_role.whotracks-me-logs-clean-up.name}"
+    Name    = "${var.function_Name}"
     Owner   = "${var.tag_Owner}"
     Project = "${var.tag_Project}"
   }
