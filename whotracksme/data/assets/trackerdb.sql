@@ -706,7 +706,7 @@ INSERT INTO "companies" VALUES('digital_remedy','Digital Remedy','AdReady hosts 
 INSERT INTO "companies" VALUES('digital_river','Digital River','Digital River is a provider of global e-commerce solutions for building and managing online businesses. The company''s platform offers site development and hosting, order management, fraud management, export controls, tax management, physical and digital product fulfillment, multi-lingual customer service, reporting and strategic marketing services. Digital River also acts as an internal interactive agency.','http://www.digitalriver.com/company/corporate-policies/','http://corporate.digitalriver.com','1035',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('digiteka','Digiteka','\"Since our creation, we defend the principle of balance between right holders and publishers. Indeed, rather than increasing the number of procedures and notices against the sites that broadcast their content, we were the first to defend and promote to the Rightsholders a new approach, a new state of mind: \" Broaden the distribution permissions of your videos and develop your inventory: it is the best way (and the only one) for Producers and Right Holders to succeed in the digital revolution! \".','http://digiteka.com/policy/','http://digiteka.com/','4705',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('dihitt','diHITT','\"The diHITT is a complete platform for you to disseminate and share interesting things. Within the diHITT you find several tools to communicate with other site users, make friends and exchange ideas.\"','Not found','http://www.dihitt.com.br/','1631',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('direct/advert','Direct/ADVERT',NULL,'https://www.directadvert.ru/text/about#privacy_policy','http://www.directadvert.ru/','1112',NULL,NULL,NULL);
+INSERT INTO "companies" VALUES('directadvert','Direct/ADVERT',NULL,'https://www.directadvert.ru/text/about#privacy_policy','http://www.directadvert.ru/','1112',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('directrev','DirectREV',NULL,'http://www.directrev.com/privacy','http://www.directrev.com/','1405',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('direct_keyword_link','Direct Keyword Link',NULL,'http://','http://www.keywordsconnect.com/','2019',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('disney','The Walt Disney Company',NULL,'https://privacy.thewaltdisneycompany.com/en/','http://www.disney.com/',NULL,NULL,NULL,NULL);
@@ -3605,7 +3605,7 @@ INSERT INTO "tracker_domains" VALUES('digiteka','ultimedia.com',NULL);
 INSERT INTO "tracker_domains" VALUES('digitrust','digitru.st',NULL);
 INSERT INTO "tracker_domains" VALUES('dihitt_badge','widget.dihitt.com.br',NULL);
 INSERT INTO "tracker_domains" VALUES('dimml','dimml.io',NULL);
-INSERT INTO "tracker_domains" VALUES('direct/advert','directadvert.ru',NULL);
+INSERT INTO "tracker_domains" VALUES('directadvert','directadvert.ru',NULL);
 INSERT INTO "tracker_domains" VALUES('directrev','directrev.com',NULL);
 INSERT INTO "tracker_domains" VALUES('direct_keyword_link','keywordsconnect.com',NULL);
 INSERT INTO "tracker_domains" VALUES('discord','discordapp.com',NULL);
@@ -7549,7 +7549,7 @@ INSERT INTO "trackers" VALUES('digiteka','Digiteka',4,NULL,'digiteka','2773',NUL
 INSERT INTO "trackers" VALUES('digitrust','DigiTrust',4,'http://www.digitru.st/','iab',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('dihitt_badge','diHITT Badge',7,'http://www.dihitt.com.br/','dihitt','1038',NULL,NULL);
 INSERT INTO "trackers" VALUES('dimml','DimML',8,NULL,NULL,'c_3410',NULL,NULL);
-INSERT INTO "trackers" VALUES('direct/advert','Direct/ADVERT',4,'http://www.directadvert.ru/','direct/advert','1112',NULL,NULL);
+INSERT INTO "trackers" VALUES('directadvert','Direct/ADVERT',4,'http://www.directadvert.ru/','directadvert','1112',NULL,NULL);
 INSERT INTO "trackers" VALUES('directrev','DirectREV',4,'http://www.directrev.com/','directrev','1405',NULL,NULL);
 INSERT INTO "trackers" VALUES('direct_keyword_link','Direct Keyword Link',4,'http://www.keywordsconnect.com/','direct_keyword_link','2019',NULL,NULL);
 INSERT INTO "trackers" VALUES('discord','Discord',2,'https://discordapp.com/',NULL,NULL,NULL,NULL);
