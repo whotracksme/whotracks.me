@@ -106,7 +106,15 @@
 <div class="tab-content">
     <div id="tag_cloud_container" class="tab-pane fade in active">
         <svg id="tag_cloud" height=400></svg>
-        <script>drawTagCloud('all', '{{ website_list|tojson|safe }}')</script>
+        <script>$(document).ready(() => {
+            const draw = () => drawTagCloud('all', '{{ website_list|tojson|safe }}')
+            if (window.requestIdleCallback) {
+                window.requestIdleCallback(draw);
+            } else {
+                // Safari does not support requestIdleCallback
+                window.setTimeout(draw, 200);
+            }
+        });</script>
     </div>
 
 </div>
