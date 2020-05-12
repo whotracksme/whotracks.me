@@ -6598,7 +6598,6 @@ INSERT INTO "tracker_domains" VALUES('zwaar','zwaar.net',NULL);
 INSERT INTO "tracker_domains" VALUES('zwaar','zwaar.org',NULL);
 INSERT INTO "tracker_domains" VALUES('zypmedia','extend.tv',NULL);
 CREATE TABLE trackers (id TEXT NOT NULL UNIQUE, name TEXT NOT NULL, category_id INTEGER, website_url TEXT, company_id TEXT, ghostery_id TEXT, notes TEXT, alias TEXT REFERENCES trackers (id), FOREIGN KEY (category_id) REFERENCES categories (id), FOREIGN KEY (company_id) REFERENCES companies (id));
-INSERT INTO "trackers" VALUES('','',NULL,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('1000mercis','1000mercis',6,NULL,'1000mercis','2662',NULL,NULL);
 INSERT INTO "trackers" VALUES('161media','Platform161',4,'https://platform161.com/','platform161','730',NULL,NULL);
 INSERT INTO "trackers" VALUES('163','163',4,NULL,'163','2383',NULL,NULL);
