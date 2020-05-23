@@ -76,6 +76,20 @@ data.companies
 data.sites
 ```
 
+A whitepaper for whotracks.me is available at https://arxiv.org/abs/1804.08959, and here's a BibTeX entry that you can use to cite it in a publication:
+
+```
+@misc{whotracksme,
+    title={WhoTracks.Me: Shedding light on the opaque world of online tracking},
+    author={Arjaldo Karaj and Sam Macbeth and Rémi Berson and Josep M. Pujol},
+    year={2018},
+    eprint={1804.08959},
+    archivePrefix={arXiv},
+    primaryClass={cs.CY}
+}
+```
+
+
 # Building the site
 
 Building the site requires a few extra dependencies, not installed by
