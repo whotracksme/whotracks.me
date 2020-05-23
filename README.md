@@ -1,6 +1,36 @@
-[![whotracks.me](https://raw.githubusercontent.com/cliqz-oss/whotracks.me/master/static/img/who-tracksme-logo.png)](https://whotracks.me)
+&nbsp;
+<p align="center">
+  <img src="https://raw.githubusercontent.com/cliqz-oss/whotracks.me/master/static/img/who-tracksme-logo.png" width="300px" alt="WhoTracks.Me" />
+</p>
+<h3 align="center">Bringing Transparency to Online Tracking</h3>
 
-Bringing Transparency to online tracking - built by Cliqz and Ghostery.
+<p align="center">
+  <em>
+    Transparency
+    · Privacy
+    · Tracking landscape
+    · Built by Cliqz & Ghostery
+  </em>
+  <br />
+  <em>
+    <a href="https://whotracks.me/trackers.html" target="_blank" rel="noopener noreferrer">Trackers</a>
+    · <a href="https://whotracks.me/websites.html" target="_blank" rel="noopener noreferrer">Websites</a>
+    · <a href="https://whotracks.me/blog.html" target="_blank" rel="noopener noreferrer">Blog</a>
+    · <a href="https://whotracks.me/explorer.html" target="_blank" rel="noopener noreferrer">Explorer</a>
+  </em>
+</p>
+
+
+<p align="center">
+  <a href="https://cliqz.com" target="_blank" rel="noopener noreferrer">
+    <img alt="powered by Cliqz" src="https://img.shields.io/badge/cliqz-powered-blue?logo=cliqz&style=flat-square">
+  </a>
+  <a href="https://twitter.com/WhoTracks_me">
+    <img alt="Follow WhoTracks.Me on Twitter" src="https://img.shields.io/twitter/follow/WhoTracks_me.svg?logo=twitter&label=WhoTracks.Me&style=flat-square"></a>
+  <a href="https://github.com/cliqz-oss/adblocker/blob/master/LICENSE">
+    <img alt="License Badge" src="https://img.shields.io/github/license/cliqz-oss/whotracks.me?style=flat-square"></a>
+</p>
+
 
 -----
 
