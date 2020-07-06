@@ -1631,7 +1631,6 @@ INSERT INTO "companies" VALUES('purlive','PurLive','','','http://www.purlive.com
 INSERT INTO "companies" VALUES('push.world','Push.world',NULL,'https://push.world/en/privacy','https://push.world/en',NULL,NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('push_engage','Push Engage','\"Personalized Browser Push Notifications\r\nTarget Desktop and Mobile users on Chrome and Firefox through Push Notifications. Implement in 5 mins.\"\r\n','https://www.pushengage.com/privacy','https://www.pushengage.com/','4277',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('pushbullet','Pushbullet',NULL,'https://www.pushbullet.com/privacy','https://www.pushbullet.com/','3682',NULL,NULL,NULL);
-INSERT INTO "companies" VALUES('pushcrew','Pushcrew',NULL,'https://pushcrew.com/privacy-policy/','https://pushcrew.com/','4418',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('pushnews','PushNews','Web Push Notifications are a new engagement tool for you to engage with your audience. Now you can reach your anonymous visitors even after they leave your website!','https://app.pushnews.eu/terms-and-conditions?lang=br','https://www.pushnews.eu/','5206',NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('pushwoosh','Pushwoosh',NULL,'https://www.pushwoosh.com/privacy-policy/','https://www.pushwoosh.com/',NULL,NULL,NULL,NULL);
 INSERT INTO "companies" VALUES('q1media','Q1Media',NULL,'http://www.q1media.com/privacy-policy/','http://q1media.com/','2875',NULL,NULL,NULL);
@@ -8845,7 +8844,7 @@ INSERT INTO "trackers" VALUES('push.world','Push.world',2,'https://push.world/en
 INSERT INTO "trackers" VALUES('push_engage','Push Engage',2,NULL,'push_engage','2466',NULL,NULL);
 INSERT INTO "trackers" VALUES('pushame.com','pushame.com',11,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('pushbullet','Pushbullet',2,NULL,'pushbullet','2225',NULL,NULL);
-INSERT INTO "trackers" VALUES('pushcrew','Pushcrew',2,NULL,'pushcrew','2572',NULL,NULL);
+INSERT INTO "trackers" VALUES('pushcrew','VWO Engage',2,'https://vwo.com/engage/','wingify','2572',NULL,NULL);
 INSERT INTO "trackers" VALUES('pusher.com','Pusher',6,'https://pusher.com/',NULL,'pusher.com',NULL,NULL);
 INSERT INTO "trackers" VALUES('pushnative.com','pushnative.com',11,NULL,NULL,'pushnative.com','Possibly related to mobtrks.com',NULL);
 INSERT INTO "trackers" VALUES('pushnews','Pushnews',4,NULL,'pushnews','3237',NULL,NULL);
@@ -9586,7 +9585,7 @@ INSERT INTO "trackers" VALUES('visitorville','VisitorVille',6,'http://www.visito
 INSERT INTO "trackers" VALUES('visscore','VisScore',4,NULL,'cubed_attribution','2892',NULL,NULL);
 INSERT INTO "trackers" VALUES('visual_iq','Visual IQ',6,NULL,'visualiq','2903',NULL,NULL);
 INSERT INTO "trackers" VALUES('visual_revenue','Visual Revenue',6,'http://visualrevenue.com/','outbrain','689',NULL,NULL);
-INSERT INTO "trackers" VALUES('visual_website_optimizer','Visual Website Optimizer',6,'http://visualwebsiteoptimizer.com/','wingify','257',NULL,NULL);
+INSERT INTO "trackers" VALUES('visual_website_optimizer','VWO',6,'https://vwo.com/','wingify','257',NULL,NULL);
 INSERT INTO "trackers" VALUES('visualdna','VisualDNA',4,'http://www.visualdna.com/','nielsen','293',NULL,NULL);
 INSERT INTO "trackers" VALUES('visualstudio.com','Visualstudio.com',8,'https://www.visualstudio.com/','microsoft',NULL,NULL,NULL);
 INSERT INTO "trackers" VALUES('visualvisitor','VisualVisitor',6,'http://www.visualvisitor.com/','visualvisitor','2060',NULL,NULL);
