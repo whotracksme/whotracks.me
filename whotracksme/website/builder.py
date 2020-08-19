@@ -81,7 +81,7 @@ class Builder:
 
     def feed_event(self, event):
         futures = []
-        with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=2) as executor:
             ###################################################################
             # This needs to be first, as other tasks will need to write in   #
             # the resulting folders.                                          #
