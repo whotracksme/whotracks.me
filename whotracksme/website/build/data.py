@@ -6,7 +6,7 @@ from whotracksme.website.utils import print_progress
 
 def build_tracker_db():
     with open('_site/data/trackerdb.json', 'w') as output:
-        db_map = create_tracker_map(load_tracker_db(), with_iab_vendors=True)
+        db_map = create_tracker_map(load_tracker_db(), with_iab_vendors=False)
         db_map['about'] = 'WhoTracks.Me tracker database: whotracks.me'
         json.dump(db_map, output, indent=2, sort_keys=True)
     print_progress(text='Generate tracker DB')
@@ -26,7 +26,7 @@ def build_tracker_json(tracker_id, data):
         json.dump(stats, output)
 
     gh_id = stats['ghostery_id']
-    
+
     if isinstance(gh_id, str):
         if gh_id.isdigit():
             stats['tracking_method'] = data.trackers.get_tracking_methods(tracker_id)
@@ -37,7 +37,7 @@ def build_api(data):
     # tracker overviews
     data_dir = Path('_site/data/trackers/global')
     gh_data_dir = Path('_site/data/trackers/ghostery')
-    
+
     if not data_dir.exists():
         data_dir.mkdir(parents=True)
     if not gh_data_dir.exists():
