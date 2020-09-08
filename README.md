@@ -45,13 +45,15 @@ This repository contains:
 Python 3.6 is needed to build the site. We recommend creating a
 [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) (or `pipenv`) to install the dependencies.
 
-## From Pypi
+## With Pip
 
 ``` sh
-$ pip install whotracksme
+$ pip install git+https://github.com/cliqz-oss/whotracks.me.git
 ```
 
 ## From source
+
+After cloning the repository (requires `git-lfs`):
 
 ``` sh
 $ pip install -r requirements.txt
@@ -122,14 +124,6 @@ with the `dev` extra:
 ``` sh
 $ pip install -e '.[dev]'
 $ pytest
-```
-
-# Publishing a new version
-
-``` sh
-$ pip install twine
-$ python setup.py sdist bdist_wheel
-$ twine upload --username cliqz-oss dist/*
 ```
 
 # Contributing
