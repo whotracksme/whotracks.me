@@ -262,7 +262,7 @@ class WhoTracksMeDB:
                 for table in WhoTracksMeDB.TRACKER_TABLES:
                     self.connection.execute(f'DROP table {table}')
                 self.connection.executescript(trackerdb_sql)
-            self.update_file_checksum(trackerdb_file, trackerdb_sql_hash)
+                self.update_file_checksum(trackerdb_file, trackerdb_sql_hash)
 
             # turn off journalling
 
