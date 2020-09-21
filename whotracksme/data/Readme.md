@@ -49,7 +49,7 @@ The data is created by aggregating data about page loads at several different le
  
  * `country` - main region where the traffic is coming from: e.g. global, US, EU, DE, FR. String.
  
- * `category` - site's category (in `sites.csv`). String.
+ * `category` - site's category (in `sites.csv`). Descriptions of website categories (first-parties) are provided [here](https://arxiv.org/pdf/1804.08959v1.pdf#page=14) in Appendix A. String.
  
  * `tracker_category` - tracker's category (in `sites_trackers.csv`). Descriptions of tracker categories are provided [here](https://whotracks.me/blog/tracker_categories.html). String.
  
