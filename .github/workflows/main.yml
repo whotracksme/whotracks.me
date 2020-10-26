@@ -38,7 +38,6 @@ jobs:
           whotracksme website
       - name: Deploy pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
-        if: github.ref == 'refs/heads/gh-actions'
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
