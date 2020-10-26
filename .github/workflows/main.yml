@@ -36,6 +36,7 @@ jobs:
       - name: Build Site
         run: |
           whotracksme website
+          rm -rf whotracksme/ # cleanup disk space for deploy in next step
       - name: Deploy pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
