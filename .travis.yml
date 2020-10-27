@@ -1,0 +1,26 @@
+language: python
+
+python:
+  - 3.6
+
+before_install:
+  - gem update --system
+  - gem install sass --version "=3.5.3"
+
+install:
+  - pip install -r requirements-dev.txt
+  - pip install -e '.[dev]'
+  - whotracksme --help
+
+script:
+  - pytest
+  - whotracksme website
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: _site
+    target_branch: gh-pages
+    on:
+      branch: master
