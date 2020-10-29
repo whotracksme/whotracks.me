@@ -5,7 +5,7 @@ def stagingPrefix = '/docs/whotracksme'
 def productionBucket = 'cliqz-tracking-monitor'
 def productionPrefix = ''
 
-node('docker && !gpu') {
+node('magrathea') {
     stage ('Checkout') {
         checkout([
             $class: 'GitSCM',
@@ -20,7 +20,7 @@ node('docker && !gpu') {
     def img
 
     stage('Build Docker Image') {
-        img = docker.build('whotracksme', '.')
+        img = docker.build('whotracksme', '. --build-arg user=`whoami` --build-arg UID=`id -u` --build-arg GID=`id -g`')
     }
 
     img.inside() {
