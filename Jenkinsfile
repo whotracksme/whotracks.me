@@ -42,19 +42,15 @@ node('magrathea') {
                 sh('/home/jenkins/.local/bin/whotracksme website')
             }
 
-            withCredentials([[
-            $class: 'AmazonWebServicesCredentialsBinding',
-            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-            credentialsId: '	04e892d6-1f78-400e-9908-1e9466e238a9',
-            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-            ]]) {
-                stage('Publish Site') {
-                    def deployArgs = ''
-                    if (env.BRANCH_NAME.contains('PR')) {
+            if (env.BRANCH_NAME === 'master') {
+                withCredentials([[
+                $class: 'AmazonWebServicesCredentialsBinding',
+                accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                credentialsId: '04e892d6-1f78-400e-9908-1e9466e238a9',
+                secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    stage('Publish Site') {
                         sh("python deploy_to_s3.py ${productionBucket} ${productionPrefix} --production")
-                    } else if (env.TAG_NAME != null) {
-                        // deployArgs = "${productionBucket} ${productionPrefix} --production"
-                    } else {
                     }
                 }
             }
