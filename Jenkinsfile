@@ -2,10 +2,10 @@
 def testReport = 'test-report.xml'
 def stagingBucket = 'internal.clyqz.com'
 def stagingPrefix = '/docs/whotracksme'
-def productionBucket = 'cliqz-tracking-monitor'
+def productionBucket = 'whotracksme'
 def productionPrefix = ''
 
-node('docker && !gpu') {
+node('magrathea') {
     stage ('Checkout') {
         checkout([
             $class: 'GitSCM',
@@ -20,7 +20,7 @@ node('docker && !gpu') {
     def img
 
     stage('Build Docker Image') {
-        img = docker.build('whotracksme', '.')
+        img = docker.build('whotracksme', '. --build-arg user=`whoami` --build-arg UID=`id -u` --build-arg GID=`id -g`')
     }
 
     img.inside() {
@@ -42,37 +42,17 @@ node('docker && !gpu') {
                 sh('/home/jenkins/.local/bin/whotracksme website')
             }
 
-            stage('Publish artifacts') {
-                def tag = env.TAG_NAME
-                def suffix = '-pypi'
-                // Only publish a version if tag ends with `suffix`.
-                if (tag != null && tag.endsWith(suffix)) {
-                    // Extract part of the tag before suffix.
-                    def version = tag.substring(0, tag.length() - suffix.length())
-
-                    withCredentials([usernamePassword(
-                        credentialsId: '3fc94ee4-8e89-4973-b34e-e37df209a74e',
-                        passwordVariable: 'password',
-                        usernameVariable: 'user'
-                    )]) {
-                        sh('rm -fr dist/ whotracksme.egg-info')
-                        sh("WTM_VERSION=${version} python setup.py install")
-                        sh("WTM_VERSION=${version} python setup.py sdist bdist_wheel")
-                        sh("twine upload --username cliqz-oss --password $password dist/*")
+            if (env.BRANCH_NAME === 'master') {
+                withCredentials([[
+                $class: 'AmazonWebServicesCredentialsBinding',
+                accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                credentialsId: '04e892d6-1f78-400e-9908-1e9466e238a9',
+                secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    stage('Publish Site') {
+                        sh("python deploy_to_s3.py ${productionBucket} ${productionPrefix} --production")
                     }
                 }
-            }
-
-            stage('Publish Site') {
-                def deployArgs = ''
-                if (env.BRANCH_NAME.contains('PR')) {
-                    deployArgs = "${stagingBucket} ${stagingPrefix}/${env.BRANCH_NAME}"
-                } else if (env.TAG_NAME != null) {
-                    deployArgs = "${productionBucket} ${productionPrefix} --production"
-                } else {
-                    deployArgs = "${stagingBucket} ${stagingPrefix}/latest"
-                }
-                sh("python deploy_to_s3.py ${deployArgs}")
             }
         } finally {
             // cleanup
