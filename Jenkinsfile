@@ -42,7 +42,7 @@ node('magrathea') {
                 sh('/home/jenkins/.local/bin/whotracksme website')
             }
 
-            if (env.BRANCH_NAME === 'master') {
+            if (env.BRANCH_NAME == 'master') {
                 withCredentials([[
                 $class: 'AmazonWebServicesCredentialsBinding',
                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
