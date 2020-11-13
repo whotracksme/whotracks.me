@@ -114,14 +114,16 @@ if __name__ == '__main__':
         with open(local_path, 'rb') as fp:
             s3_client.put_object(Bucket=bucket_name, Key=s3_path, Body=fp,
                                  CacheControl=cache_control,
-                                 ContentType=content_type)
+                                 ContentType=content_type,
+                                 ACL='public-read')
 
         # setup redirects
         html_path = f'{s3_path}.html'
         if html_path in existing_keys:
             print(f'redirect {html_path} to /{s3_path}')
             s3_client.put_object(Bucket=bucket_name, Key=html_path,
-                                 WebsiteRedirectLocation=f'/{s3_path}')
+                                 WebsiteRedirectLocation=f'/{s3_path}',
+                                 ACL='public-read')
             # upload + redirect
             return True, True
         else:
