@@ -34,26 +34,16 @@ def create_tracker_map(db, with_iab_vendors=False):
             t.website_url,
             t.ghostery_id,
             t.company_id,
-            iab.id AS iab_vendor,
-            truste.type AS truste_type,
-            truste.description,
-            truste.privacy_url,
+            com.description,
             com.privacy_url
         FROM trackers AS t
         JOIN categories AS c ON c.id = t.category_id
         LEFT JOIN companies as com ON com.id = t.company_id
-        LEFT JOIN iab_vendors as iab ON iab.tracker = t.id
-        LEFT JOIN truste_companies as truste ON truste.tracker = t.id
     ''')
     trackers = {}
-    cols = ['id', 'name', 'category', 'website_url', 'ghostery_id', 'company_id', 'iab_vendor',
-            'truste_type', 'description', 'truste_privacy_url',
-            'privacy_url']
+    cols = ['id', 'name', 'category', 'website_url', 'ghostery_id', 'company_id', 'description', 'privacy_url']
     for row in cur.fetchall():
         entry = {c: row[i] for i, c in enumerate(cols)}
-        if entry['privacy_url'] is None or len(entry['privacy_url']) == 0:
-            entry['privacy_url'] = entry['truste_privacy_url']
-        del entry['truste_privacy_url']
         trackers[entry['id']] = entry
 
     # load company info
@@ -64,26 +54,18 @@ def create_tracker_map(db, with_iab_vendors=False):
             com.description,
             com.website_url,
             com.ghostery_id,
-            iab.id AS iab_vendor,
-            truste.type AS truste_type,
-            truste.description,
-            truste.privacy_url,
             com.privacy_url
         FROM companies AS com
-        LEFT JOIN iab_vendors as iab ON iab.company = com.id
-        LEFT JOIN truste_companies as truste ON truste.company = com.id;
     ''')
     companies = {}
     for row in cur.fetchall():
         c = dict([
             ('id', row[0]),
             ('name', row[1]),
-            ('description', row[2] if row[2] is not None and len(row[2]) > 0 else row[7]),
+            ('description', row[2]),
             ('website_url', row[3]),
             ('ghostery_id', row[4]),
-            ('iab_vendor', row[5]),
-            ('truste_type', row[6]),
-            ('privacy_url', row[9] if row[9] is not None and len(row[9]) > 0 else row[8])
+            ('privacy_url', row[5])
         ])
         companies[c['id']] = c
 
