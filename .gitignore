@@ -6,3 +6,4 @@ _site/
 dist/
 whotracksme.egg-info/
 .DS_Store
+venv/
