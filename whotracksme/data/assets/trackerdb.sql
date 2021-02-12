@@ -3841,9 +3841,7 @@ INSERT INTO "tracker_domains" VALUES('facebook','facebook.com','2018 - verified'
 INSERT INTO "tracker_domains" VALUES('facebook','facebook.net','2018 - verified');
 INSERT INTO "tracker_domains" VALUES('facebook_cdn','fbcdn.net','20181005 - verified');
 INSERT INTO "tracker_domains" VALUES('facebook_cdn','fbsbx.com','20181011 - verified');
-INSERT INTO "tracker_domains" VALUES('facebook_connect','connect.facebook.net',NULL);
 INSERT INTO "tracker_domains" VALUES('facebook_graph','graph.facebook.com',NULL);
-INSERT INTO "tracker_domains" VALUES('facebook_social_plugins','developers.facebook.com',NULL);
 INSERT INTO "tracker_domains" VALUES('facetz.dca','facetz.net','');
 INSERT INTO "tracker_domains" VALUES('facilitate_digital','adsfac.eu',NULL);
 INSERT INTO "tracker_domains" VALUES('facilitate_digital','adsfac.net',NULL);
@@ -4087,8 +4085,6 @@ INSERT INTO "tracker_domains" VALUES('google_appspot','appspot.com','');
 INSERT INTO "tracker_domains" VALUES('google_custom_search','adsensecustomsearchads.com',NULL);
 INSERT INTO "tracker_domains" VALUES('google_fonts','fonts.googleapis.com','20181002 - verified');
 INSERT INTO "tracker_domains" VALUES('google_photos','ggpht.com','20181005 - verified');
-INSERT INTO "tracker_domains" VALUES('google_plus','chrome.google.com',NULL);
-INSERT INTO "tracker_domains" VALUES('google_plus','plus.google.com',NULL);
 INSERT INTO "tracker_domains" VALUES('google_servers','1e100cdn.net',NULL);
 INSERT INTO "tracker_domains" VALUES('google_syndication','googlesyndication.com','20181004 - verified');
 INSERT INTO "tracker_domains" VALUES('google_tag_manager','googletagmanager.com','20181001 - verified');
@@ -6143,7 +6139,6 @@ INSERT INTO "tracker_domains" VALUES('twitter','twimg.com','20181004 - verified 
 INSERT INTO "tracker_domains" VALUES('twitter','twitter.com','20181004 - verified whois');
 INSERT INTO "tracker_domains" VALUES('twitter_ads','ads-twitter.com','0181004 - verified whois');
 INSERT INTO "tracker_domains" VALUES('twitter_analytics','analytics.twitter.com',NULL);
-INSERT INTO "tracker_domains" VALUES('twitter_button','platform.twitter.com',NULL);
 INSERT INTO "tracker_domains" VALUES('twitter_for_business','tellapart.com',NULL);
 INSERT INTO "tracker_domains" VALUES('twitter_syndication','syndication.twitter.com',NULL);
 INSERT INTO "tracker_domains" VALUES('twittercounter','twittercounter.com',NULL);
@@ -8365,7 +8360,7 @@ INSERT INTO "trackers" VALUES('magnuum.com','magnuum.com',11,NULL,NULL,'3670',NU
 INSERT INTO "trackers" VALUES('mail.ru_banner','Mail.Ru Banner Network',4,'http://mail.ru/','megafon','1504',NULL,NULL);
 INSERT INTO "trackers" VALUES('mail.ru_counter','Mail.Ru Counter',2,NULL,'megafon','2619',NULL,'mail.ru_group');
 INSERT INTO "trackers" VALUES('mail.ru_group','Mail.Ru Group',7,'http://mail.ru/','megafon','869','20181012 - verified',NULL);
-INSERT INTO "trackers" VALUES('mailchimp_tracking','MailChimp Tracking',4,'http://mailchimp.com/','mailchimp','810',NULL,'mailchimp');
+INSERT INTO "trackers" VALUES('mailchimp_tracking','MailChimp Tracking',4,'http://mailchimp.com/','mailchimp','810',NULL,NULL);
 INSERT INTO "trackers" VALUES('mailerlite.com','Mailerlite',10,'https://www.mailerlite.com/','mailerlite','3671','email provider',NULL);
 INSERT INTO "trackers" VALUES('mailtrack.io','MailTrack.io',4,'https://mailtrack.io','mailtrack','2093',NULL,NULL);
 INSERT INTO "trackers" VALUES('mainadv','mainADV',4,'http://www.mainadv.com/','mainadv','2146',NULL,NULL);
