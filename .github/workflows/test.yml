@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-        with:
-          lfs: true
 
       - name: Install sass
         run: |
           sudo apt-get update
           sudo apt-get install --yes ruby-sass build-essential
+
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
         with:
@@ -29,9 +28,21 @@ jobs:
           pip install -r requirements-dev.txt
           pip install -e '.[dev]'
           whotracksme --help
+
+      - name: Fetch test data assets
+        run: |
+          aws --no-sign-request s3 cp --recursive s3://data.whotracks.me/2017-05 2017-05
+          aws --no-sign-request s3 cp --recursive s3://data.whotracks.me/2021-04 2021-04
+          aws --no-sign-request s3 cp s3://data.whotracks.me/site_categories.csv .
+          aws --no-sign-request s3 cp s3://data.whotracks.me/trackerdb.sql .
+        working-directory: whotracksme/data/assets
+        env:
+          AWS_DEFAULT_REGION: us-east-1
+
       - name: Run tests
         run: |
           pytest
+
       - name: Check build
         run: |
           whotracksme website
