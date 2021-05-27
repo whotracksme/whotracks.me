@@ -7,3 +7,5 @@ dist/
 whotracksme.egg-info/
 .DS_Store
 venv/
+whotracksme/data/assets/**/*.csv
+whotracksme/data/assets/**/trackerdb.sql
