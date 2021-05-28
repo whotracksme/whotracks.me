@@ -19,6 +19,12 @@ node('magrathea') {
     }
     def img
 
+    stage('Download Datasets') {
+        dir('whotracksme/data/assets') {
+            sh('aws s3 sync --no-sign-request --no-progress s3://data.whotracks.me/ .')
+        }
+    }
+
     stage('Build Docker Image') {
         img = docker.build('whotracksme', '. --build-arg user=`whoami` --build-arg UID=`id -u` --build-arg GID=`id -g`')
     }
