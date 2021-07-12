@@ -32,8 +32,8 @@ jobs:
 
       - name: Fetch test data assets
         run: |
-          aws --no-sign-request s3 cp --recursive s3://data.whotracks.me/2017-05 2017-05
-          aws --no-sign-request s3 cp --recursive s3://data.whotracks.me/2021-05 2021-05
+          aws --no-sign-request s3 cp --recursive s3://data.whotracks.me/2017-06 2017-06
+          aws --no-sign-request s3 cp --recursive s3://data.whotracks.me/2021-06 2021-06
           aws --no-sign-request s3 cp s3://data.whotracks.me/site_categories.csv .
           aws --no-sign-request s3 cp s3://data.whotracks.me/trackerdb.sql .
         working-directory: whotracksme/data/assets
