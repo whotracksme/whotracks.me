@@ -6,6 +6,6 @@ numpy==1.19.1
 pandas==1.1.2
 python-dateutil==2.8.1
 pytz==2020.1
-requests==2.24.0
+requests==2.25.1
 six==1.15.0
 urllib3==1.26.5
