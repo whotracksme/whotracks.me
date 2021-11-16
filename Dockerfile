@@ -13,8 +13,8 @@ RUN groupadd -g ${GID} ${GROUP} && \
     useradd -u ${UID} -g ${GID} -m -s /bin/bash ${USER}
 
 # Set labels to identify image
-LABEL vendor="Cliqz GmbH" \
-      maintainer="sam@cliqz.com" \
+LABEL vendor="Ghostery GmbH" \
+      maintainer="chrmod@ghostery.com" \
       version=${VERSION}
 
 # install sass

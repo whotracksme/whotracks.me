@@ -43,7 +43,7 @@ Google profile. Therefore, this change increases the likelihood that the user wi
 visited `www.google.com`, and therefore Google's tracking can continue uninterrupted.
 
 Tracking from `google.*` domains [reaches 30% of web traffic](https://whotracks.me/trackers/google.html),
-and the majority of this reach is contributed by the [`google.com` domain](https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/2018-03/global/domains.csv#L5).
+and the majority of this reach is contributed by the [`google.com` domain](https://github.com/ghostery/whotracks.me/blob/master/whotracksme/data/assets/2018-03/global/domains.csv#L5).
 As, with this change, it is very difficult to avoid visiting `google.com` domain as a first party,
 preventing this tracking in a vanilla browser would require disabling all third-party cookies.
 Alternatively, [Cliqz](https://cliqz.com/) and [Ghostery's](https://www.ghostery.com/) AI anti-tracking

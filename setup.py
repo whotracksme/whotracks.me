@@ -64,8 +64,8 @@ setup(
     ],
     keywords="tracking whotracksme whotracks.me who tracks",
     url="https://whotracks.me",
-    author="Cliqz Gmbh",
-    author_email="privacy@cliqz.com",
+    author="Ghostery Gmbh",
+    author_email="privacy@ghostery.com",
     license="MIT",
     packages=find_packages(
         exclude=["_site", "blog", "contrib", "data", "static", "templates", "tests"]

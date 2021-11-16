@@ -10,12 +10,12 @@ header_img: blog/blog-generate-adb-filters.jpg
 
 *TL;DR*  In this post we see how to:
 
-1. Load the data from [whotracks.me](https://github.com/cliqz-oss/whotracks.me) to get access to trackers' information
+1. Load the data from [whotracks.me](https://github.com/ghostery/whotracks.me) to get access to trackers' information
 2. Create a mapping from tracking categories to list of domains
 3. Filter each domain based on the amount of tracking of each *app*
 3. Generate a filter list for each category
 
-The full source code used in this article can be found on the [Github repository](https://github.com/cliqz-oss/whotracks.me/blob/master/contrib/generating_adblocker_filters.py).
+The full source code used in this article can be found on the [Github repository](https://github.com/ghostery/whotracks.me/blob/master/contrib/generating_adblocker_filters.py).
 
 
 Most popular content blockers are using filter lists to decide what requests
@@ -55,14 +55,14 @@ Let's get started!
 ## Loading the data
 
 The first step is to install the `whotracksme` package, available on [PyPI](https://pypi.python.org/pypi/whotracksme)
-and [Github](https://github.com/cliqz-oss/whotracks.me). You can get started by
+and [Github](https://github.com/ghostery/whotracks.me). You can get started by
 installing `whotracksme` with `pip`:
 
 ```sh
 $ pip install whotracksme
 ```
 
-We start by loading the tracker-related data from [trackerdb.sql](https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/trackerdb.sql), using the
+We start by loading the tracker-related data from [trackerdb.sql](https://github.com/ghostery/whotracks.me/blob/master/whotracksme/data/assets/trackerdb.sql), using the
 helper function found in the `whotracksme.data` module:
 
 ```python
@@ -154,7 +154,7 @@ trackers might in fact not send [unsafe identifiers](https://whotracks.me/blog/w
 *fingerprinting* and does not seem to be doing tracking via *cookies*,
 hence, it should not be blocked systematically.
 
-Fortunately, we can make use of the data from [apps.json](https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/apps.json) to learn
+Fortunately, we can make use of the data from [apps.json](https://github.com/ghostery/whotracks.me/blob/master/whotracksme/data/assets/apps.json) to learn
 more about each tracker. An *app* is an entity which can contain several
 domains (e.g.: *doubleclick* is an *app* for which we identified three
 domains: `2mdn.net`, `invitemedia.com` and `doubleclick.net`). We also
@@ -315,7 +315,7 @@ print(hostname_filters['advertising'])
 
 To put it in a nutshell, here is what we just did:
 
-1. Load the data from [whotracks.me](https://github.com/cliqz-oss/whotracks.me) to get access to trackers' information
+1. Load the data from [whotracks.me](https://github.com/ghostery/whotracks.me) to get access to trackers' information
 2. Create a mapping from tracking categories to list of domains
 3. Filter each domain based on the amount of tracking of each *app*
 3. Generate a filter list for each category

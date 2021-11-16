@@ -94,5 +94,5 @@ sites. This shows just how dominated the tracking landscape is by a few trackers
 210 sites last September, to 255 in January.
 
 The new site reach is now present on the WhoTracks.Me website in place of the old metric, and published
-in our [data](https://github.com/cliqz-oss/whotracks.me/tree/master/whotracksme/data). As usual we
+in our [data](https://github.com/ghostery/whotracks.me/tree/master/whotracksme/data). As usual we
  will continue publishing monthly updates to track the development of this metric over time.

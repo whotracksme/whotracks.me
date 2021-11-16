@@ -32,7 +32,7 @@ countries, something we plan to add later this month.
 
 ## Data restructuring
 
-We have updated the structure of data which we publish in our [repository](https://github.com/cliqz-oss/whotracks.me/) to make it both easier to use and more
+We have updated the structure of data which we publish in our [repository](https://github.com/ghostery/whotracks.me/) to make it both easier to use and more
 scalable as we add more data. We now publish CSV files each month for each of the
 following:
 
@@ -158,7 +158,7 @@ df['name'] = df.id.apply(func=lambda x: data.app_info[x]['name'])
 <p class="img-caption">Figure 5: Reach of top 10 trackers across popular websites</p>
 
 
-If you want to delve deeper into our data, it is available on the [WhoTracks.Me Github Repository](https://github.com/cliqz-oss/whotracks.me/tree/master/whotracksme/data), and as a [pip package](https://pypi.python.org/pypi/whotracksme/).
+If you want to delve deeper into our data, it is available on the [WhoTracks.Me Github Repository](https://github.com/ghostery/whotracks.me/tree/master/whotracksme/data), and as a [pip package](https://pypi.python.org/pypi/whotracksme/).
 
 _NB: The code snippets here will not generate the presented plots. Full code snippets
-for the plots in this post are available in this [Jupyter Notebook](https://nbviewer.jupyter.org/github/cliqz-oss/whotracks.me/blob/master/contrib/wtm_april_update.ipynb)._
+for the plots in this post are available in this [Jupyter Notebook](https://nbviewer.jupyter.org/github/ghostery/whotracks.me/blob/master/contrib/wtm_april_update.ipynb)._
