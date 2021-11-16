@@ -435,6 +435,6 @@ developers to measure their own progress against other popular libraries;
 benefiting all users, no matter which extension they use, as the efficiency of
 content-blockers improves.
 
-[*Edit of 20-02-2019*](https://github.com/cliqz-oss/whotracks.me/pull/154): The study has been updated with the specific version of each content-blocker measured.
+[*Edit of 20-02-2019*](https://github.com/ghostery/whotracks.me/pull/154): The study has been updated with the specific version of each content-blocker measured.
 
-[*Edit of 15-03-2019*](https://github.com/cliqz-oss/whotracks.me/pull/161): DuckDuckGo's description has been amended to more accurately describe the way their content-blocker is used in practice: focusing on blocking third-party trackers, but not ads.
+[*Edit of 15-03-2019*](https://github.com/ghostery/whotracks.me/pull/161): DuckDuckGo's description has been amended to more accurately describe the way their content-blocker is used in practice: focusing on blocking third-party trackers, but not ads.

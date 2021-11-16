@@ -105,7 +105,7 @@ smaller sites to Google.
 
 While increasing use of adblockers is a more fundamental threat to Google's Ad business, a side
 effect may be a loss of trust in Google Analytics, as we measure
-[29%](https://github.com/cliqz-oss/whotracks.me/blob/master/whotracksme/data/assets/2018-03/global/trackers.csv#L2)
+[29%](https://github.com/ghostery/whotracks.me/blob/master/whotracksme/data/assets/2018-03/global/trackers.csv#L2)
 of pages with Google Analytics being affected by blocking. We already see companies which rely on
 analytics for core business activities (for example advertisers using affiliate schemes) deploying
 multiple analytics scripts and averaging the results. If the trust in analytics breaks down, then
