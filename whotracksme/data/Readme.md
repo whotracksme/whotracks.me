@@ -19,7 +19,7 @@ WhoTracks.me datasets are provided monthly in the `assets//{month}/{country}/{fi
 
 ### Data collection
 
-Data was collected from May 2017 from users that used Cliqz browser extension. In Feb 2018, 70% of the data came from German users according to [this](https://whotracks.me/blog/update_feb_2018.html) blog post. Then in March 2018, users of Ghostry FireFox extension - and Ghostry extension available for other browsers (Safari, Chrome, Opera and Edge) from users that opted-in to *HumanWeb* data collection - were added to the dataset. This caused a slight decrease in the avg. no. of trackers in April 2018, since Ghostry users were blocking more trackers. This is explained in [this](https://whotracks.me/blog/where_is_the_data_from.html) and [this](https://whotracks.me/blog/update_apr_2018.html) blog posts.
+Data was collected from May 2017 from users that used Cliqz browser extension. In Feb 2018, 70% of the data came from German users according to [this](https://whotracks.me/blog/update_feb_2018.html) blog post. Then in March 2018, users of Ghostery FireFox extension - and Ghostery extension available for other browsers (Safari, Chrome, Opera and Edge) from users that opted-in to *HumanWeb* data collection - were added to the dataset. This caused a slight decrease in the avg. no. of trackers in April 2018, since Ghostery users were blocking more trackers. This is explained in [this](https://whotracks.me/blog/where_is_the_data_from.html) and [this](https://whotracks.me/blog/update_apr_2018.html) blog posts.
 
 [This](https://whotracks.me/blog/update_apr_2018.html) blog post illustrates where the traffic came from in April 2018: Germany and USA being most representative.
 

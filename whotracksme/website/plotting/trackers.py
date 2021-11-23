@@ -2,8 +2,8 @@ from statistics import mean
 import plotly.graph_objs as go
 import squarify
 
-from whotracksme.website.plotting.utils import set_margins, div_output, CliqzFonts, annotation
-from whotracksme.website.plotting.colors import cliqz_colors
+from whotracksme.website.plotting.utils import set_margins, div_output, WTMFonts, annotation
+from whotracksme.website.plotting.colors import wtm_colors
 from whotracksme.website.plotting.plots import scatter, hbar, line
 
 
@@ -28,7 +28,7 @@ def tracker_cfh(https, fingerprinting, cookies):
     )
     trace2 = hbar(
         label="No",
-        color=cliqz_colors["bright_gray"],
+        color=wtm_colors["bright_gray"],
         https=1 - https,
         fingerprinting=1 - fingerprinting,
         cookies=1 - cookies
@@ -36,8 +36,8 @@ def tracker_cfh(https, fingerprinting, cookies):
 
     data = [trace1, trace2]
     layout = go.Layout(
-        paper_bgcolor=cliqz_colors["transparent"],
-        plot_bgcolor=cliqz_colors["transparent"],
+        paper_bgcolor=wtm_colors["transparent"],
+        plot_bgcolor=wtm_colors["transparent"],
         autosize=True,
         barmode="stack",
         margin=set_margins(l=120, r=100, t=20),
@@ -45,9 +45,9 @@ def tracker_cfh(https, fingerprinting, cookies):
         yaxis=dict(
             showticklabels=True,
             tickfont=dict(
-                family=CliqzFonts.regular,
+                family=WTMFonts.regular,
                 size=13,
-                color=cliqz_colors["black"]
+                color=wtm_colors["black"]
             ),
         ))
     fig = go.Figure(data=data, layout=layout)
@@ -69,13 +69,13 @@ def tracker_reach_ts(ts1, ts2, t):
         x=t,
         y=ts1,
         name="Domain Reach",
-        color=cliqz_colors["purple"]
+        color=wtm_colors["purple"]
     )
     trace1 = scatter(
         x=t,
         y=ts2,
         name="Page Reach",
-        color=cliqz_colors["blue"]
+        color=wtm_colors["blue"]
     )
     layout = go.Layout(
         margin=set_margins(t=30),
@@ -108,12 +108,12 @@ def ts_trend(ts, t, percent=True):
     trace0 = line(
         x=t,
         y=y,
-        color=cliqz_colors["purple"]
+        color=wtm_colors["purple"]
     )
     trace1 = line(
         x=[t[-1]],
         y=[y[-1]],
-        color=cliqz_colors["purple"],
+        color=wtm_colors["purple"],
         mode='markers'
     )
     layout = go.Layout(
@@ -123,12 +123,12 @@ def ts_trend(ts, t, percent=True):
             height=100,
             width=153,
             hoverlabel=dict(
-                bgcolor=cliqz_colors["black"],
-                bordercolor=cliqz_colors["transparent"],
+                bgcolor=wtm_colors["black"],
+                bordercolor=wtm_colors["transparent"],
                 font=dict(
-                    family=CliqzFonts.mono,
+                    family=WTMFonts.mono,
                     size=13,
-                    color=cliqz_colors["bright_gray"]
+                    color=wtm_colors["bright_gray"]
                 )
             ),
             xaxis=dict(
@@ -174,7 +174,7 @@ def site_tree_map(sites):
 def tracker_map(app, site_values, rectangles):
     print(app["overview"]["id"])
     site_where_app = [s.get("site") for s in app.get("sites")]
-    color_brewer = [cliqz_colors["red"] if t[0] in site_where_app else cliqz_colors["bright_gray"] for t in site_values]
+    color_brewer = [wtm_colors["red"] if t[0] in site_where_app else wtm_colors["bright_gray"] for t in site_values]
 
     shapes = []
     counter = 0
@@ -188,7 +188,7 @@ def tracker_map(app, site_values, rectangles):
                 x1=r['x'] + r['dx'],
                 y1=r['y'] + r['dy'],
                 line=dict(
-                    color=cliqz_colors["white"],
+                    color=wtm_colors["white"],
                     width=0.5
                 ),
                 fillcolor=color_brewer[counter]

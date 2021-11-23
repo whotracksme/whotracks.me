@@ -196,7 +196,7 @@ def sparkline(ts, t):
                 bgcolor="#1A1A25",
                 bordercolor="#00000000", # transparent
                 font=dict(
-                    family=CliqzFonts.mono,
+                    family=WTMFonts.mono,
                     size=13,
                     color="#BFCBD6"
                 )

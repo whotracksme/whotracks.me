@@ -9,7 +9,7 @@ from whotracksme.website.templates import (
 )
 from whotracksme.website.plotting.companies import overview_bars
 from whotracksme.website.plotting.colors import (
-    tracker_category_colors, cliqz_colors
+    tracker_category_colors, wtm_colors
 )
 
 
@@ -69,7 +69,7 @@ def tracker_map_data(site_id, data):
         link_value.append(100.0 * tracker["frequency"])
 
     label_colors = [tracker_category_colors[l] if l in tracker_category_colors
-                    else cliqz_colors["purple"] for l in nodes]
+                    else wtm_colors["purple"] for l in nodes]
 
     return dict(
         node=dict(
