@@ -3,12 +3,12 @@ from plotly.offline import plot
 from plotly.graph_objs.layout import Margin
 
 from whotracksme.website.plotting.colors import (
-    tracker_category_colors, cliqz_colors
+    tracker_category_colors, wtm_colors
 )
 
 
 FontSet = namedtuple("FontSet", 'mono regular')
-CliqzFonts = FontSet(
+WTMFonts = FontSet(
     mono="monospace",
     regular="sans-serif"
 )
@@ -62,7 +62,7 @@ def annotation(text, x, y, background_color, shift_x=-1, text_size=12, color="wh
         yref='y',
         text=text,
         font=dict(
-            family=CliqzFonts.regular,
+            family=WTMFonts.regular,
             size=text_size,
             color=color
         ),
@@ -78,7 +78,7 @@ def annotation(text, x, y, background_color, shift_x=-1, text_size=12, color="wh
     )
 
 
-def overview_label(text, x, y, text_size=12, shift_x=-1, color=cliqz_colors["black"]):
+def overview_label(text, x, y, text_size=12, shift_x=-1, color=wtm_colors["black"]):
     if shift_x == -1:
         shift_x = 4 * len(text) + 10
 
@@ -89,7 +89,7 @@ def overview_label(text, x, y, text_size=12, shift_x=-1, color=cliqz_colors["bla
         yref='y',
         text=text,
         font=dict(
-            family=CliqzFonts.regular,
+            family=WTMFonts.regular,
             size=text_size,
             color=color
         ),

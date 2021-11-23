@@ -2,14 +2,14 @@ import plotly.graph_objs as go
 import squarify
 
 from whotracksme.website.plotting.utils import (
-    CliqzFonts,
+    WTMFonts,
     div_output,
     set_margins,
     annotation,
     set_line_style,
     set_category_colors
 )
-from whotracksme.website.plotting.colors import cliqz_colors, palette
+from whotracksme.website.plotting.colors import wtm_colors, palette
 
 
 def profile_doughnut(values, labels, name, color_palette=False):
@@ -24,7 +24,7 @@ def profile_doughnut(values, labels, name, color_palette=False):
         marker=dict(
             colors=set_category_colors(labels),
             line=dict(
-                color=cliqz_colors["white"],
+                color=wtm_colors["white"],
                 width=0
             )
         )
@@ -32,8 +32,8 @@ def profile_doughnut(values, labels, name, color_palette=False):
     data = [trace]
     layout = dict(
         showlegend=False,
-        paper_bgcolor=cliqz_colors["transparent"],
-        plot_bgcolor=cliqz_colors["transparent"],
+        paper_bgcolor=wtm_colors["transparent"],
+        plot_bgcolor=wtm_colors["transparent"],
         autosize=True,
         margin=set_margins(l=0, r=0, b=0, t=0, pad=10),
 
@@ -43,7 +43,7 @@ def profile_doughnut(values, labels, name, color_palette=False):
                 text=center_text.upper(),
                 x=0.5,
                 y=0.5,
-                background_color=cliqz_colors["transparent"],
+                background_color=wtm_colors["transparent"],
                 shift_x=0,
                 text_size=30,
                 color="#333"
@@ -77,14 +77,14 @@ def doughnut_chart(values, labels, name, color_palette=False):
         sort=not (color_palette),
         textinfo="label",
         textfont=dict(
-            family=CliqzFonts.regular,
-            color=cliqz_colors["white"]
+            family=WTMFonts.regular,
+            color=wtm_colors["white"]
         ),
         marker=dict(
-            colors=palette(cliqz_colors["blue"], cliqz_colors["purple"], len(labels)) if color_palette else [
-                cliqz_colors["blue"], cliqz_colors["purple"]],
+            colors=palette(wtm_colors["blue"], wtm_colors["purple"], len(labels)) if color_palette else [
+                wtm_colors["blue"], wtm_colors["purple"]],
             line=dict(
-                color=cliqz_colors["white"],
+                color=wtm_colors["white"],
                 width=2
             )
         )
@@ -92,8 +92,8 @@ def doughnut_chart(values, labels, name, color_palette=False):
     data = [trace]
     layout = dict(
         showlegend=False,
-        paper_bgcolor=cliqz_colors["transparent"],
-        plot_bgcolor=cliqz_colors["transparent"],
+        paper_bgcolor=wtm_colors["transparent"],
+        plot_bgcolor=wtm_colors["transparent"],
         autosize=True,
         margin=set_margins(),
         annotations=[
@@ -101,7 +101,7 @@ def doughnut_chart(values, labels, name, color_palette=False):
                 text=str(name).upper(),
                 x=0.5,
                 y=0.5,
-                background_color=cliqz_colors["transparent"],
+                background_color=wtm_colors["transparent"],
                 shift_x=0,
                 text_size=14
             )
@@ -112,7 +112,7 @@ def doughnut_chart(values, labels, name, color_palette=False):
     return div_output(fig)
 
 
-def hbar(label, color=cliqz_colors["blue"], **kwargs):
+def hbar(label, color=wtm_colors["blue"], **kwargs):
     x, y = [], []
     for k, v in kwargs.items():
         x.append(k)
@@ -146,7 +146,7 @@ def scatter(x, y, name, color, fill=True, line_style="solid"):
         opacity=0.2 if fill else 1,
         fill='tozeroy' if fill else False,
         textfont=dict(
-            family=CliqzFonts.regular
+            family=WTMFonts.regular
         ),
         mode='lines'
     )

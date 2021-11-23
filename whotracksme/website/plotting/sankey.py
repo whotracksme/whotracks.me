@@ -1,5 +1,4 @@
 from whotracksme.website.plotting.utils import div_output, set_margins
-from whotracksme.website.plotting.colors import cliqz_colors
 
 
 def sankey_plot(sndata):

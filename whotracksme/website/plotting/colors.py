@@ -1,7 +1,7 @@
 from random import randint
 import colour
 
-cliqz_colors = {
+wtm_colors = {
     "purple": "#A069AB",
     "blue": "#00AEF0",
     "black": "#1A1A25",

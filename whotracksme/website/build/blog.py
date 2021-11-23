@@ -102,7 +102,7 @@ def build_rss_feeds(blog_posts):
             )
 
     feed.title("WhoTracksMe blog")
-    feed.description("By the tech teams at Cliqz and Ghostery")
+    feed.description("By the Ghostery tech team")
     feed.link(link={"href": f"{base}/blog.html"})
 
     feed.id("wtm")

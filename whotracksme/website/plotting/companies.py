@@ -3,13 +3,13 @@ import plotly.graph_objs as go
 
 from whotracksme.website.plotting.utils import set_margins, annotation, div_output, overview_label
 from whotracksme.website.plotting.plots import scatter
-from whotracksme.website.plotting.colors import random_color, biggest_tracker_colors, cliqz_colors
+from whotracksme.website.plotting.colors import random_color, biggest_tracker_colors, wtm_colors
 
 
 def overview_bars(companies, highlight=2, height=None):
     x = []
     y = []
-    colors = [cliqz_colors["purple"]] * highlight + [cliqz_colors["inactive_gray"]] * (len(companies) - highlight)
+    colors = [wtm_colors["purple"]] * highlight + [wtm_colors["inactive_gray"]] * (len(companies) - highlight)
     for c in companies:
         name = c.name
         x.append(round(c.reach, 3))
@@ -31,7 +31,7 @@ def overview_bars(companies, highlight=2, height=None):
             autosize=True,
             height=height,
             xaxis=dict(
-                color=cliqz_colors["gray_blue"],
+                color=wtm_colors["gray_blue"],
                 tickformat="%",
                 anchor="free",
                 position=0
