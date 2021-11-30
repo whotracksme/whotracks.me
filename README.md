@@ -1,4 +1,5 @@
 &nbsp;
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/ghostery/whotracks.me/master/static/img/who-tracksme-logo.png" width="300px" alt="WhoTracks.Me" />
 </p>
@@ -20,7 +21,6 @@
   </em>
 </p>
 
-
 <p align="center">
   <a href="https://www.ghostery.com" target="_blank" rel="noopener noreferrer">
     <img alt="powered by Ghostery" src="https://img.shields.io/badge/ghostery-powered-blue?logo=ghostery&style=flat-square">
@@ -31,23 +31,22 @@
     <img alt="License Badge" src="https://img.shields.io/github/license/ghostery/whotracks.me?style=flat-square"></a>
 </p>
 
-
------
+---
 
 This repository contains:
 
-  - data on trackers and websites as shown on [whotracks.me](https://whotracks.me/) (WTM)
-  - database mapping tracker domains to companies
-  - code to render the [whotracks.me](https://whotracks.me/) site
+- data on trackers and websites as shown on [whotracks.me](https://whotracks.me/) (WTM)
+- database mapping tracker domains to companies
+- code to render the [whotracks.me](https://whotracks.me/) site
 
 # Installation
 
-Python 3.6 is needed to build the site. We recommend creating a
+Python 3.7 is needed to build the site. We recommend creating a
 [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) (or `pipenv`) to install the dependencies.
 
 ## With Pip
 
-``` sh
+```sh
 $ pip install git+https://github.com/ghostery/whotracks.me.git
 ```
 
@@ -55,7 +54,7 @@ $ pip install git+https://github.com/ghostery/whotracks.me.git
 
 After cloning the repository (requires `git-lfs`):
 
-``` sh
+```sh
 $ pip install -r requirements.txt
 $ pip install -e .
 ```
@@ -67,7 +66,7 @@ That’s all you need to get started\!
 To get started with the data, everything you need can be found in
 `whotracksme.data`:
 
-``` python
+```python
 from whotracksme.data.loader import DataSource
 
 data = DataSource()
@@ -91,7 +90,6 @@ A whitepaper for whotracks.me is available at https://arxiv.org/abs/1804.08959, 
 }
 ```
 
-
 # Building the site
 
 Building the site requires a few extra dependencies, not installed by
@@ -99,7 +97,7 @@ default to not make the installation heavier than it needs to be. You
 will need to install `whotracksme` from the repository, because not all
 assets are packaged with `whotracksme` released on pypi:
 
-``` sh
+```sh
 $ pip install -r requirements-dev.txt
 $ pip install -e '.[dev]'
 ```
@@ -107,7 +105,7 @@ $ pip install -e '.[dev]'
 Once this is done, you will have access to a `whotracksme` entry point
 that can be used this way:
 
-``` sh
+```sh
 $ whotracksme website [serve]
 ```
 
@@ -121,7 +119,7 @@ All generated artifacts can be found in the `_site/` folder.
 To run tests, you will need `pytest`, or simply install `whotacksme`
 with the `dev` extra:
 
-``` sh
+```sh
 $ pip install -e '.[dev]'
 $ pytest
 ```
@@ -130,9 +128,9 @@ $ pytest
 
 We are happy to take contributions on:
 
-  - Guest articles for our blog in the topics of tracking, privacy and security. Feel free to use the data in this repository if you need inspiration.
-  - Feature requests that are doable using the WTM database.
-  - Curating our database of tracker profiles. Open an issue if you spot anything odd.
+- Guest articles for our blog in the topics of tracking, privacy and security. Feel free to use the data in this repository if you need inspiration.
+- Feature requests that are doable using the WTM database.
+- Curating our database of tracker profiles. Open an issue if you spot anything odd.
 
 # Right to Amend
 
