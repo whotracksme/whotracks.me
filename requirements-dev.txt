@@ -32,7 +32,7 @@ jsonschema==3.2.0
 jupyter-core==4.6.3
 keyring==21.4.0
 libsass==0.20.1
-lxml==4.6.3
+lxml==4.6.5
 Markdown==3.2.2
 MarkupSafe==1.1.1
 more-itertools==8.5.0
