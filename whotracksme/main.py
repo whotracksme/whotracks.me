@@ -7,7 +7,6 @@ Whotracks.me website development tool.
 
 Usage:
     whotracksme website [serve]
-    whotracksme data [list]
     whotracksme db (create|dump|check_urls|json)
     whotracksme -h | --help
 
@@ -56,9 +55,6 @@ def main():
     args = objectview(docopt.docopt(__doc__))
     if args.website:
         website(args)
-    elif args.data:
-        # TODO - allow basic exploration of the data
-        pass
     elif args.db:
         if args.create:
             load_tracker_db(loc='tracker.db')
