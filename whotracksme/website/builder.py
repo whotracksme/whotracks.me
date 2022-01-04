@@ -3,6 +3,7 @@
 
 
 import concurrent.futures
+import os
 
 from pathlib import Path
 from whotracksme.data.loader import DataSource
@@ -55,6 +56,22 @@ ALL = (
     BLOG_FOLDER
 )
 
+class BlockingSingleThreadExecutor(concurrent.futures._base.Executor):
+    """
+    Helper class to help with debugging.
+
+    It prevents starting multiple processes, but it is only intended for local development (where DEBUG=1).
+    All submitted tasks will be immediately executed, and there are no asynchronous operations.
+    """
+
+    def submit(self, fn, *args, **kwargs):
+        result = fn(*args, **kwargs)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            return executor.submit(lambda: result)
+
+    def shutdown(self, wait=True, *, cancel_futures=False):
+        # nothing to do; all tasks can been already executed
+        pass
 
 class Builder:
     def __init__(self):
@@ -79,9 +96,16 @@ class Builder:
     def on_blog_folder_change(self):
         self.feed_event(BLOG_FOLDER)
 
+    def _create_executor(self):
+        if os.environ.get('DEBUG') == '1':
+            print('WARNING: running in debug-mode (no spawning of worker processes)')
+            return BlockingSingleThreadExecutor()
+
+        return concurrent.futures.ProcessPoolExecutor(max_workers=8)
+
     def feed_event(self, event):
         futures = []
-        with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
+        with self._create_executor() as executor:
             ###################################################################
             # This needs to be first, as other tasks will need to write in   #
             # the resulting folders.                                          #
