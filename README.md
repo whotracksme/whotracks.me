@@ -42,24 +42,43 @@ This repository contains:
 # Installation
 
 Python 3.10 is needed to build the site. We recommend creating a
-[virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) (or `pipenv`) to install the dependencies.
+[virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
+to install the dependencies, or use `pipenv` or )
+
+to 
+
+```sh
+python -m venv venv
+. venv/bin/activate
+```
+
+After the initial setup, you can proceed with installing whotracks.me.
 
 ## With Pip
 
 ```sh
-$ pip install git+https://github.com/ghostery/whotracks.me.git
+$ python -m pip install git+https://github.com/ghostery/whotracks.me.git
 ```
 
 ## From source
 
-After cloning the repository (requires `git-lfs`):
+After cloning the repository:
 
 ```sh
-$ pip install -r requirements.txt
-$ pip install -e .
+$ python -m pip install -r requirements.txt
+$ python -m pip install -e .
 ```
 
 That’s all you need to get started\!
+
+# Downloading the data
+
+Each month, we release a new version of the web site. The raw data, from which the
+graphs have been computed, are also available as an open data set (updated every month).
+
+The data from month can be also directly [accessed through the website](https://whotracks.me/explorer.html).
+
+More information on the raw data can be found in `whotracksme/data/Readme.md`.
 
 # Using the data
 
@@ -98,8 +117,8 @@ will need to install `whotracksme` from the repository, because not all
 assets are packaged with `whotracksme` released on pypi:
 
 ```sh
-$ pip install -r requirements-dev.txt
-$ pip install -e '.[dev]'
+$ python -m pip install -r requirements-dev.txt
+$ python -m pip install -e '.[dev]'
 ```
 
 Once this is done, you will have access to a `whotracksme` entry point
@@ -114,13 +133,16 @@ website.
 
 All generated artifacts can be found in the `_site/` folder.
 
+> If you debug the website generator, the parallel execution can be
+> disabled by setting the environment variable DEBUG=1.
+
 ## Tests
 
 To run tests, you will need `pytest`, or simply install `whotracksme`
 with the `dev` extra:
 
 ```sh
-$ pip install -e '.[dev]'
+$ python -m pip install -e '.[dev]'
 $ pytest
 ```
 

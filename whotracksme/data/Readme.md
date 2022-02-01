@@ -2,6 +2,45 @@
 
 The data for the whotracks.me site is provided here as JSON files, with a SQL database containing tracker information. This document describes the format of the data provided in the `assets` directory.
 
+## How to get the data
+
+You have two options to work with the raw data:
+1. Explore the raw data from last month through the web site
+1. Download the data locally (including historic data)
+
+### Use the Explorer on the whotracks.me website
+
+The last month can be directly accessed from website:
+https://whotracks.me/explorer.html
+
+> Note: The meaning of the column in the explorer in explained in this document (see below).
+
+### Download raw data
+
+You can also download the datasets from the publicly available Amazon S3 bucket.
+
+First, you need to install the AWS CLI client:
+
+- [Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
+- [MacOS](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html)
+- [Windows](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html)
+
+> Note: When building the website, the data is expected to be in `<repo-root>/whotracksme/data/assets` folder.
+
+To download one month of data (e.g. October 2022):
+
+```sh
+cd <repo-root>/data/assets
+aws s3 sync --no-sign-request s3://data.whotracks.me/2022-10 .
+```
+
+You can also download historic data (back to `2017-05`)):
+
+```sh
+cd <repo-root>/data/assets
+aws s3 sync --no-sign-request s3://data.whotracks.me/ .
+```
+
 ## Tracker database
 
 The tracker database is provided in the `assets/trackerdb.sql` file. This is a dump of a SQLite3 database containing the following tables:
