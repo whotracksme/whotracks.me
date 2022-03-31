@@ -116,7 +116,7 @@ All generated artifacts can be found in the `_site/` folder.
 
 ## Tests
 
-To run tests, you will need `pytest`, or simply install `whotacksme`
+To run tests, you will need `pytest`, or simply install `whotracksme`
 with the `dev` extra:
 
 ```sh
