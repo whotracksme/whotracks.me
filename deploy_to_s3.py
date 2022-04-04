@@ -2,12 +2,18 @@
 Module to deploy WhoTracksMe site to an s3 bucket.
 
 Usage:
-    deploy_to_s3 <bucket_name> [<prefix>] [--production]
+    deploy_to_s3 <bucket_name> [<prefix>] [--production] [--no-overrides] [--list-outdated] [--verbose] [--dry-run] [--debug]
 
 Options:
     -h, --help                  Show help message.
-    --production                Production deployment (set cache-control metadata)
+    --production                Production deployment (set cache-control metadata) [Default: true]
+    --no-overrides              Skip files that already exist on S3 [Default: false]
+    --list-outdated             List all files which are present on S3, yet came from an older release [Default: false]
+    --verbose                   Enable debug logs [Default: false]
+    --dry-run                   Do not perform modifications [Default: false]
+    --debug                     Disable parallel workers to use a debugger [Default: false]
 """
+
 import os
 import boto3
 from docopt import docopt
@@ -78,6 +84,11 @@ if __name__ == '__main__':
     bucket_name = args['<bucket_name>']
     bucket_prefix = args['<prefix>'] or '/'
     production = args['--production']
+    no_overrides = args['--no-overrides'] or False
+    list_outdated = args['--list-outdated'] or False
+    verbose = args['--verbose'] or False
+    dry_run = args['--dry-run'] or False
+    debug_mode = args['--debug'] or False
     site_dir = './_site'
 
     if bucket_prefix[0] != '/':
@@ -94,7 +105,9 @@ if __name__ == '__main__':
 
     # list existing bucket contents
     existing_keys = set(iterate_bucket(s3_client, bucket_name, bucket_prefix[1:]))
+    obsolete_files = set(existing_keys)
     print('Bucket contains', len(existing_keys), 'pages')
+
     uploaded = 0
     redirected = 0
 
@@ -110,39 +123,67 @@ if __name__ == '__main__':
         cache_control = get_cache_control(s3_suffix, filename, production=production)
         content_type = get_content_type(local_path)
 
-        print('put', local_path, s3_path)
-        with open(local_path, 'rb') as fp:
-            s3_client.put_object(Bucket=bucket_name, Key=s3_path, Body=fp,
-                                 CacheControl=cache_control,
-                                 ContentType=content_type,
-                                 ACL='public-read')
+        if s3_path in existing_keys and no_overrides:
+            if verbose:
+                print(f'Skipping file {s3_path} (already present)...')
+        else:
+            print('put', local_path, s3_path)
+            with open(local_path, 'rb') as fp:
+                if not dry_run:
+                    s3_client.put_object(Bucket=bucket_name, Key=s3_path, Body=fp,
+                                         CacheControl=cache_control,
+                                         ContentType=content_type,
+                                         ACL='public-read')
+        obsolete_files.discard(s3_path)
 
         # setup redirects
         html_path = f'{s3_path}.html'
         if html_path in existing_keys:
             print(f'redirect {html_path} to /{s3_path}')
-            s3_client.put_object(Bucket=bucket_name, Key=html_path,
-                                 WebsiteRedirectLocation=f'/{s3_path}',
-                                 ACL='public-read')
+            if not dry_run:
+                s3_client.put_object(Bucket=bucket_name, Key=html_path,
+                                     WebsiteRedirectLocation=f'/{s3_path}',
+                                     ACL='public-read')
             # upload + redirect
             return True, True
         else:
             # upload, no redirect
             return True, False
 
-    with ProcessPoolExecutor(max_workers=8) as executor:
-        uploads = []
+    if debug_mode:
         for (dirpath, dirnames, filenames) in os.walk(site_dir):
-            print('Enter', dirpath)
+            if verbose:
+                print('Enter', dirpath)
             files_to_upload = [f for f in filenames if not f[0] == '.']
             for filename in files_to_upload:
-                uploads.append(executor.submit(upload_file_to_s3, dirpath, filename))
+                upload_file_to_s3(dirpath, filename)
+    else:
+        with ProcessPoolExecutor(max_workers=8) as executor:
+            uploads = []
+            for (dirpath, dirnames, filenames) in os.walk(site_dir):
+                if verbose:
+                    print('Enter', dirpath)
+                files_to_upload = [f for f in filenames if not f[0] == '.']
+                for filename in files_to_upload:
+                    uploads.append(executor.submit(upload_file_to_s3, dirpath, filename))
 
-        for future in uploads:
-            did_upload, did_redirect = future.result()
-            if did_upload:
-                uploaded += 1
-            if did_redirect:
-                redirected += 1
+            for future in uploads:
+                did_upload, did_redirect = future.result()
+                if did_upload:
+                    uploaded += 1
+                if did_redirect:
+                    redirected += 1
+
 
     print(f'Complete: uploaded {uploaded}, redirected {redirected}')
+    if list_outdated:
+        if len(obsolete_files) == 0:
+            print('No obsolete files found.')
+        else:
+            print(f'{len(obsolete_files)} obsolete files found.')
+            if verbose:
+                for f in sorted(obsolete_files):
+                    print(f'- {f}')
+
+    if dry_run:
+        print('[dry-run]: no changes have been made.')
