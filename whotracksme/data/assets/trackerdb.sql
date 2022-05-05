@@ -4975,11 +4975,6 @@ INSERT INTO "tracker_domains" VALUES('net_visibility','visibility-stats.com',NUL
 INSERT INTO "tracker_domains" VALUES('netbiscuits','netbiscuits.net',NULL);
 INSERT INTO "tracker_domains" VALUES('netbooster_group','bbtrack.net',NULL);
 INSERT INTO "tracker_domains" VALUES('netbooster_group','netbooster.com',NULL);
-INSERT INTO "tracker_domains" VALUES('netflix','netflix.com',NULL);
-INSERT INTO "tracker_domains" VALUES('netflix','nflxext.com',NULL);
-INSERT INTO "tracker_domains" VALUES('netflix','nflximg.net',NULL);
-INSERT INTO "tracker_domains" VALUES('netflix','nflxso.net',NULL);
-INSERT INTO "tracker_domains" VALUES('netflix','nflxvideo.net',NULL);
 INSERT INTO "tracker_domains" VALUES('netletix','netzathleten-media.de',NULL);
 INSERT INTO "tracker_domains" VALUES('netminers','netminers.dk',NULL);
 INSERT INTO "tracker_domains" VALUES('netmining','netmining.com',NULL);
@@ -8585,7 +8580,6 @@ INSERT INTO "trackers" VALUES('net_communities','Net Communities',4,'http://www.
 INSERT INTO "trackers" VALUES('net_visibility','NET Visibility',4,'http://www.netvisibility.co.uk','net_visibility','1927',NULL,NULL);
 INSERT INTO "trackers" VALUES('netbiscuits','Netbiscuits',6,'http://www.netbiscuits.net/','netbiscuits','2192',NULL,NULL);
 INSERT INTO "trackers" VALUES('netbooster_group','NetBooster Group',4,'http://www.netbooster.com/','netbooster_group','1625',NULL,NULL);
-INSERT INTO "trackers" VALUES('netflix','Netflix',8,NULL,NULL,'3707',NULL,NULL);
 INSERT INTO "trackers" VALUES('netletix','Netletix',4,'http://www.netletix.com//','ip_de','3708',NULL,NULL);
 INSERT INTO "trackers" VALUES('netminers','Netminers',6,'http://netminers.dk/','netminers','1771',NULL,NULL);
 INSERT INTO "trackers" VALUES('netmining','Netmining',4,'http://www.netmining.com/','zeta','358','1/14/21 CT: NetMining and IgnitionOne acquired by Zeta Global',NULL);
