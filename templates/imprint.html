@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>WhoTracks.me - Bringing Transparency to Online Tracking</title>
+<meta name="description"
+  content="Learn about tracking technologies, market structure and data-sharing on the web. Detailed profiling of top trackers and the tracker landscape on popular domains.">
+{% endblock %}
+
+{% block og_params %}
+<!-- OG params for sharable content -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whotracks.me">
+<meta property="og:title" content="WhoTracks.me - Imprint">
+<meta property="og:description" content="">
+<meta property="og:image"
+  content="https://whotracks.me/{{PATHS.static|absolute_og_urls}}/img/tracking-matrix-bluebg.png">
+{% endblock %}
+
+
+{% block content %}
+<div>
+  <div class="container imprint">
+    <div class="basic-container _50l w-container">
+      <h1>Imprint</h1>
+      <br />
+      <br />
+
+      <p class="text">Ghostery is a trademark of Ghostery GmbH, Arabellastraße 23, 81925 Munich, who owns and operates the website www.ghostery.com.</p>
+      <p class="text">Ghostery GmbH is registered under the registration HRB 230794 at the Registration Court Amtsgericht Munich – Registergericht –, Infanteriestraße 5, 80325 Munich.<br></p>
+      <p class="text">Registered Directors (vertretungsberechtigte Geschäftsführer) are Jean Paul Schmetz and Heinz Spengler.<br></p>
+      <p class="text">The VAT ID Number is DE313473689.<br></p>
+      <div class="ghostery_spacer-40"></div>
+      <p class="text grey">For communication you can either visit our <a href="https://www.ghostery.com/support">get help page</a> or write an e-mail to <a href="mailto:support@ghostery.com">support@ghostery.com</a><br></p>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

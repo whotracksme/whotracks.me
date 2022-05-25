@@ -37,3 +37,12 @@ def build_privacy_policy(data):
         ))
 
     print_progress(text="Generate Privacy Policy")
+
+
+def build_imprint(data):
+    with open('_site/imprint.html', 'w') as output:
+        output.write(render_template(
+            template=get_template(data, "imprint.html"),
+        ))
+
+    print_progress(text="Generate Imprint")
