@@ -7,7 +7,7 @@ import concurrent.futures
 from pathlib import Path
 from whotracksme.data.loader import DataSource
 
-from whotracksme.website.build.home import build_home, build_privacy_policy
+from whotracksme.website.build.home import build_home, build_privacy_policy, build_imprint
 from whotracksme.website.build.blog import (
     build_blogpost_list,
     build_blogpost_pages,
@@ -150,6 +150,7 @@ class Builder:
                 # Home
                 build_home(data=data_source)
                 build_privacy_policy(data=data_source)
+                build_imprint(data=data_source)
 
                 # Trackers
                 trackers = [id for id, _ in data_source.trackers.iter()]
