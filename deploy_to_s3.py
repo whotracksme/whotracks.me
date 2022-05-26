@@ -2,12 +2,13 @@
 Module to deploy WhoTracksMe site to an s3 bucket.
 
 Usage:
-    deploy_to_s3 <bucket_name> [<prefix>] [--production] [--no-overrides] [--list-outdated] [--verbose] [--dry-run] [--debug]
+    deploy_to_s3 <bucket_name> [<prefix>] [--production] [--no-overrides] [--fast-website-update] [--list-outdated] [--verbose] [--dry-run] [--debug]
 
 Options:
     -h, --help                  Show help message.
     --production                Production deployment (set cache-control metadata) [Default: true]
     --no-overrides              Skip files that already exist on S3 [Default: false]
+    --fast-website-update       Fast mode if you want to update static resources (e.g. blog post, updating privacy policy) without uploading all data files [Default: false]
     --list-outdated             List all files which are present on S3, yet came from an older release [Default: false]
     --verbose                   Enable debug logs [Default: false]
     --dry-run                   Do not perform modifications [Default: false]
@@ -85,6 +86,7 @@ if __name__ == '__main__':
     bucket_prefix = args['<prefix>'] or '/'
     production = args['--production']
     no_overrides = args['--no-overrides'] or False
+    fast_website_update = args['--fast-website-update'] or False
     list_outdated = args['--list-outdated'] or False
     verbose = args['--verbose'] or False
     dry_run = args['--dry-run'] or False
@@ -129,7 +131,21 @@ if __name__ == '__main__':
         else:
             print('put', local_path, s3_path)
             with open(local_path, 'rb') as fp:
-                if not dry_run:
+                should_update = True
+                if fast_website_update:
+                    directories_to_skip = [
+                        f'{site_dir}/trackers/',
+                        f'{site_dir}/websites/',
+                        f'{site_dir}/companies/',
+                        f'{site_dir}/data/',
+                    ]
+                    for directory in directories_to_skip:
+                        if local_path.startswith(directory):
+                            print(f'Skipping data file {s3_path} (--fast-website-update)')
+                            should_update = False
+                            break
+
+                if should_update and not dry_run:
                     s3_client.put_object(Bucket=bucket_name, Key=s3_path, Body=fp,
                                          CacheControl=cache_control,
                                          ContentType=content_type,
