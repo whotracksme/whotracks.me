@@ -69,7 +69,7 @@ toml==0.10.1
 tqdm==4.48.2
 traitlets==4.3.3
 twine==3.2.0
-ujson==3.2.0
+ujson==5.2.0
 urllib3==1.26.5
 uvloop==0.14.0
 watchdog==0.10.3
