@@ -9367,8 +9367,6 @@ INSERT INTO "trackers" VALUES('tdsrmbl_net','tdsrmbl.net',8,NULL,NULL,'3896',NUL
 INSERT INTO "trackers" VALUES('teads','Teads',4,'http://teads.tv/','teads','1494',NULL,NULL);
 INSERT INTO "trackers" VALUES('tealeaf','Tealeaf',6,'https://www.ibm.com/digital-marketing','ibm','1434',NULL,NULL);
 INSERT INTO "trackers" VALUES('tealium','Tealium',5,'http://www.tealium.com/','tealium','505','20181011 - verified',NULL);
-INSERT INTO "trackers" VALUES('tealium_ads','Tealium Ads',4,'https://www.tealium.com/','tealium','4055',NULL,NULL);
-INSERT INTO "trackers" VALUES('tealium_consent','Tealium Consent',14,'https://www.tealium.com/','tealium','4056',NULL,NULL);
 INSERT INTO "trackers" VALUES('teaser.cc','Teaser.cc',4,'http://www.teaser.cc/','teaser.cc','1980',NULL,NULL);
 INSERT INTO "trackers" VALUES('tedemis','Tedemis',4,'http://www.tedemis.com','tedemis','1587',NULL,NULL);
 INSERT INTO "trackers" VALUES('teletech','TeleTech',4,'http://www.webmetro.com/whoweare/technology.aspx','teletech','369',NULL,NULL);
