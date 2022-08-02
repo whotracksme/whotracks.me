@@ -8525,7 +8525,7 @@ INSERT INTO "trackers" VALUES('monotype_imaging','Fonts.com Store',2,'https://ww
 INSERT INTO "trackers" VALUES('monsido','Monsido',6,NULL,'monsido','3276',NULL,NULL);
 INSERT INTO "trackers" VALUES('monster_advertising','Monster Advertising',4,'http://www.monster.com/','monster_worldwide','1534',NULL,NULL);
 INSERT INTO "trackers" VALUES('mooxar','Mooxar',4,'','mooxar','1986',NULL,NULL);
-INSERT INTO "trackers" VALUES('mopinion.com','Mopinion',6,'https://mopinion.com/','mopinion','3261','verified',NULL);
+INSERT INTO "trackers" VALUES('mopinion.com','Mopinion',2,'https://mopinion.com/','mopinion','3261','verified\n\nchanged from Site Analytics to Customer Interaction: https://github.com/whotracksme/whotracks.me/issues/292',NULL);
 INSERT INTO "trackers" VALUES('mopub','MoPub',4,'https://www.mopub.com/','twitter','2086',NULL,NULL);
 INSERT INTO "trackers" VALUES('more_communication','More Communication',4,NULL,'more_communication','3113',NULL,NULL);
 INSERT INTO "trackers" VALUES('moreads','moreAds',4,'https://www.moras.jp','moreads','2040',NULL,NULL);
