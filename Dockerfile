@@ -17,8 +17,14 @@ LABEL vendor="Ghostery GmbH" \
       maintainer="chrmod@ghostery.com" \
       version=${VERSION}
 
-# install sass
-RUN apt-get update && apt-get install -y ruby-sass build-essential
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+      build-essential \
+      libffi-dev \
+      ruby-sass \
+    && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -f /var/cache/apt/*.bin
 
 # Copy application python requirements
 COPY requirements-dev.txt /home/jenkins/
