@@ -38,7 +38,7 @@ MarkupSafe==1.1.1
 more-itertools==8.5.0
 multidict==5.2.0
 nbformat==5.0.7
-numpy==1.19.1
+numpy==1.23.0
 packaging==20.4
 pandas==1.5.0
 pathtools==0.1.2
