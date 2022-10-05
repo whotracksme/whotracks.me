@@ -79,7 +79,7 @@ setup(
             "feedgen",
             "jinja2>=2.10.1",
             "markdown",
-            "plotly==3.3.0",
+            "plotly==5.1.0",
             "pytest",
             "sanic",
             "squarify",
