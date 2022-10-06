@@ -41,7 +41,7 @@ This repository contains:
 
 # Installation
 
-Python 3.7 is needed to build the site. We recommend creating a
+Python 3.10 is needed to build the site. We recommend creating a
 [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) (or `pipenv`) to install the dependencies.
 
 ## With Pip
