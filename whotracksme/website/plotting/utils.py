@@ -1,5 +1,5 @@
 from collections import namedtuple
-from plotly.offline import plot
+from plotly.io import to_html
 from plotly.graph_objs.layout import Margin
 
 from whotracksme.website.plotting.colors import (
@@ -103,11 +103,11 @@ def overview_label(text, x, y, text_size=12, shift_x=-1, color=wtm_colors["black
     )
 
 
-def div_output(fig, display_mode_bar=False):
-    return plot(
-        figure_or_data=fig,
-        output_type='div',
-        show_link=False,
+def div_output(fig, display_mode_bar=False, height="100%"):
+    return to_html(
+        fig=fig,
         include_plotlyjs=False,
+        full_html=False,
+        default_height=height,
         config={"displayModeBar": display_mode_bar}
     )

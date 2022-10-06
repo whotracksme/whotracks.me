@@ -52,7 +52,7 @@ def profile_doughnut(values, labels, name, color_palette=False):
     )
     fig = dict(data=data, layout=layout)
 
-    return div_output(fig)
+    return div_output(fig, height='200px')
 
 
 def doughnut_chart(values, labels, name, color_palette=False):
