@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}
     <title>Blog | {{blog_post.title}}</title>
-    <meta name="description" content="{{ blog_post.subtitle }}">
+    <meta name="description" content="{{ blog_post.description }}">
 {% endblock %}
 
 {% block og_params %}
@@ -9,14 +9,14 @@
     <meta property="og:title" content="{{ blog_post.title }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://whotracks.me/{{ 'blog'|url_for(blog_post.filename)|absolute_og_urls }}" />
-    <meta property="og:description" content="{{ blog_post.subtitle }}" />
+    <meta property="og:description" content="{{ blog_post.description }}" />
     <meta property="og:image" content="https://whotracks.me/{{PATHS.static|absolute_og_urls}}/img/{{blog_post.header_img}}" />
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@WhoTracks_me">
     <meta name="twitter:creator" content="@WhoTracks_me">
     <meta name="twitter:title" content="{{ blog_post.title }}">
-    <meta name="twitter:description" content="{{ blog_post.subtitle }}">
+    <meta name="twitter:description" content="{{ blog_post.description }}">
     <meta name="twitter:image" content="https://whotracks.me/{{PATHS.static|absolute_og_urls}}/img/{{blog_post.header_img}}">
 {% endblock %}
 
@@ -49,7 +49,7 @@
         <h3 id="post-title">{{ blog_post.title }}</h3>
         <p id="post-subtitle">{{ blog_post.subtitle }}</p>
         <hr>
-        <p class="post-meta"><b>{{ blog_post.author }}</b> - {{ blog_post.repr_date }}</p>
+        <p class="post-meta">{{ blog_post.repr_date }}</p>
 
         {{ blog_post.body | markdown }}
     </div>

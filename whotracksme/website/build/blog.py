@@ -7,31 +7,61 @@ from whotracksme.website.templates import render_template, get_template
 from feedgen.feed import FeedGenerator
 from pytz import timezone
 
+META_TAGS = [
+    "title",
+    "subtitle",
+    "description",
+    "author",
+    "type",
+    "publish",
+    "date",
+    "tags",
+    "header_img",
+]
 
 def parse_blogpost(filepath):
-    with open(filepath) as r:
-        text = r.read()
-    meta, body = text.split("+++")
-    title, subtitle, author, post_type, publish, date, tags, header, _ = meta.split(
-        "\n"
-    )
-    return {
-        "filename": filepath.split("/")[-1].replace(".md", ""),
-        "title": title.split(":")[1].strip(),
-        "subtitle": subtitle.split(":")[1].strip(),
-        "author": author.split(":")[1].strip().capitalize(),
-        "type": post_type.split(":")[1].strip(),
-        "publish": bool(publish.split(":")[1].strip() == "True"),
-        "date": date.split(":")[1].strip(),
-        "repr_date": get_human_date(date.split(":")[1].strip()),
-        "tags": tags.split(":")[-1].split(","),
-        "header_img": header.split(":")[1].strip(),
-        "body": body,
-    }
+    try:
+        with open(filepath) as r:
+            text = r.read()
+            meta_section, body = text.split("+++")
+
+        meta = {}
+        for line in meta_section.split("\n"):
+            line = line.strip()
+            if len(line) > 0:
+                key = line.split(":")[0]
+                if key not in META_TAGS:
+                    raise ValueError(f'Unknown meta tag "{key}". Must be one of {META_TAGS}.')
+                meta[key] = line[len(key)+1:].strip()
+
+        # TODO: update all blog post (explictly add the description and then remove this fallback)
+        if "description" not in meta:
+            print(f'WARN: {filepath}: "description" not defined; falling back to "subtitle")')
+            meta["description"] = meta.get("subtitle", "")
+
+        return {
+            "filename": filepath.split("/")[-1].replace(".md", ""),
+            "title": meta["title"],
+            "subtitle": meta.get("subtitle", ""),
+            "description": meta.get("description", ""),
+            "author": meta.get("author", "").capitalize(),
+            "type": meta["type"],
+            "publish": bool(meta["publish"] == "True"),
+            "date": meta["date"],
+            "repr_date": get_human_date(meta["date"]),
+            "tags": meta["tags"].split(":")[-1].split(","),
+            "header_img": meta["header_img"],
+            "body": body,
+        }
+    except Exception as ex:
+        print(f'ERROR: failed to parse blog post {filepath} (details: {ex})')
+        raise ex
 
 
 def load_blog_posts():
-    blog_posts = [parse_blogpost(os.path.join("blog", f)) for f in os.listdir("blog/")]
+    blog_posts = [parse_blogpost(os.path.join("blog", f))
+                  for f in os.listdir("blog/")
+                  if f.endswith('.md')]
     blog_posts.sort(
         key=lambda p: datetime.strptime(p["date"], "%Y-%m-%d"), reverse=True
     )
