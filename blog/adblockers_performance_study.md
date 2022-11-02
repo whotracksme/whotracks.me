@@ -1,6 +1,7 @@
 title: Adblockers Performance Study
-subtitle: Blocking all ads faster than the blink of an eye.
-author: privacy team
+subtitle:
+description: A detailed comparison of popular adblockers with tips to help you block ads effectively and improve your digital privacy.
+author:
 type: article
 publish: True
 date: 2019-02-15
@@ -8,43 +9,58 @@ tags: blog, adblocker, performance
 header_img: blog/adblocker-perf-study.jpg
 +++
 
-Summary: _In this study we show_
+_In this study, we show_
 
  * _That all popular content-blockers are very efficient, having sub-millisecond
    median decision time per request_
- * _That the manifest v3 performance claim does not hold based on our
-   measurements_
- * _That the adblocker used by Cliqz and Ghostery consistently performs as well
-   or better than other popular content-blockers._
+ * _That the manifest v3 performance claim is inaccurate based on our measurements_
+ * _That the ad blocker used by Cliqz and [Ghostery](https://www.ghostery.com/) consistently performs as well
+   or better than other popular content-blockers_
+ * _How to block ads effectively and improve your digital privacy._
 ---
 
-Here we present a detailed analysis of the performance of some of the
-most popular content-blocker engines: *uBlock Origin*, *Adblock Plus*,
+## About the adblocker performance study
+
+Here, we present a detailed analysis of the performance of some of the
+most popular adblockers and content-blocker engines: *uBlock Origin*, *Adblock Plus*,
 *Brave*, *DuckDuckGo* and *Cliqz/Ghostery's* advanced adblocker (shipped
 since Ghostery 8), which we will refer to as *Ghostery* for the rest of
 the article.
 
+## Why was the study conducted?
+
 This study was motivated by the recent [Manifest V3
 controversy](https://bugs.chromium.org/p/chromium/issues/detail?id=896897).
 One of the proposed changes involves crippling the WebRequest APIs to
-limit their blocking abilities. Two justifications were put forth:
+limit their blocking abilities.
+
+Two justifications were put forth:
 one related to *performance* and another related to privacy. The
 privacy argument deserves its own separate analysis and will not be
-covered here. In this study, we show that the *performance* argument
+covered here.
+
+### What were the findings?
+
+In this study, we show that the *performance* argument
 does not hold. Our comparison demonstrates that the most popular
-content-blockers are already very efficient (having a sub-millisecond
+content-blockers and adblockers are already very efficient (having a sub-millisecond
 median decision time per request) and should not result in any
-over-head noticeable by users. We showed in another study [The Tracker
+overhead noticeable by users.
+
+We showed in another study [The Tracker
 Tax](https://www.ghostery.com/lp/trackertax/) that blocking ads and
 trackers actually reduces the loading time of websites by **up to
 a factor of 2**. Besides, efficiency is continuously improved and
-technologies such as WebAssembly will allow to go even further.
+technologies such as WebAssembly will enable further optimizations.
+
+### What did the study compare?
 
 This comparison does not involve full extensions, but instead **focuses
-on network request blocking engines**, which is the most CPU intensive
+on network request-blocking engines**. This is the most CPU-intensive
 task performed by content-blockers (in particular, this does not account
-for cosmetics engines or subscription management). Here are the home
-pages for all content-blockers compared:
+for cosmetics engines or subscription management).
+
+Here are the home pages for all content-blockers compared:
 
 * Ghostery and Cliqz's [adblocker v0.6.9](https://github.com/cliqz-oss/adblocker/commit/58d89689af95d09e02a52e57aceb75151153d4ab).
 * Brave's [ad-block 4.1.3](https://github.com/brave/ad-block/commit/cfb714387fef649bd4ec7c1242ae442d58e4d41f).
@@ -57,14 +73,16 @@ as this would require some significant effort to package them in a way
 that allows benchmarking against the other libraries. We leave this for
 future work.
 
-All blockers except *uBlock Origin* are available as JavaScript libraries which
-can be loaded in Node.js. To allow comparing *uBlock Origin* as well, we had to
+### How were the adblockers compared?
+
+Every adblocker, except *uBlock Origin*, are available as JavaScript libraries which
+can be loaded in Node.js. To allow a comparison of *uBlock Origin*, we had to
 extract the static network filtering engine [out of the
 extension](https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/ublock.js).
 The version of *uBlock Origin* running in this benchmark *does not make
 use of the Webassembly* version of domain matching.
 
-All benchmarks were ran on an X1 Carbon 2016 (i7 U6600 + 16 GB) in
+All benchmarks were run on an X1 Carbon 2016 (i7 U6600 + 16 GB) in
 Node.js 11.9.0. Memory measurements were performed in Google Chrome version
 72.0.3626.96 using the memory snapshot tool.
 
@@ -75,6 +93,7 @@ our findings in a nutshell:
 
 - All content-blockers except *DuckDuckGo* have **sub-millisecond median decision
   time** per request.
+
 - **Time to Process a Request in Ghostery** (median): **0.007 ms**
     - 2.7x faster than *uBlock Origin*
     - 2.9x faster than *Adblock Plus*
@@ -96,39 +115,52 @@ our findings in a nutshell:
 
 ### 0. About the Dataset
 
-To measure the performance of each content-blocker, we replayed requests
-from popular domains *once* and kept track of the time it took to decide
-if they should be blocked or not. We then analyzed the results in three
+To measure the performance of each adblocker, we replayed requests
+from popular domains and tracked the time it took to decide
+if they should be blocked or not.
+
+We then analyzed the results in three
 different ways: all requests, blocked only and not blocked (taken from
 the same run).
 
-This requests dataset was created using a pool of Chrome
+### How the dataset was created
+
+The dataset was created using a pool of Chrome
 headless browsers (driven by the [`puppeteer` library](https://github.com/GoogleChrome/puppeteer))
 to visit home pages of the *top 500 domains* (as reported by Cliqz
-Search), as well as up to 3 pages of each domain (picked randomly from
-the home page) and collecting all the network requests seen (URL, frame
-URL and type). The dataset was shuffled in such a way that the different
+Search). Up to 3 pages of each domain (picked randomly from
+the home page) and all the network requests seen (URL, frame
+URL and type) were also collected.
+
+The dataset was shuffled in such a way that the different
 pages were visited in a random order, but requests seen on each page
 were replayed as they were recorded initially.
 
-The dataset is composed of 242944 requests. We released the data publicly at
-this URL: [requests_top500.json.gz](https://cdn.cliqz.com/adblocking/requests_top500.json.gz).
-The script to create the dataset is also available:
-[create_dataset.js](https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/create_dataset.js) and
-[shuffle_dataset.js](https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/shuffle_dataset.js) was used to shuffle the
-requests to produce the final data.
+In summary:
+
+* The dataset is composed of 242944 requests.
+* We released the data publicly at
+  this URL: [requests_top500.json.gz](https://cdn.cliqz.com/adblocking/requests_top500.json.gz).
+* The script to create the dataset is also available:
+  [create_dataset.js](https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/create_dataset.js) and
+  [shuffle_dataset.js](https://github.com/cliqz-oss/adblocker/blob/master/bench/comparison/shuffle_dataset.js) was used to shuffle the
+  requests to produce the final data.
 
 ### 1. Composition of Requests
 
 For the purpose of this comparison, we consider that each network
 request can be either blocked or allowed by the content-blocker; we call
 the process of deciding whether a request should be blocked or not:
-*matching*. We observed that from our dataset, only ~19.2% are blocked
+*matching*.
+
+We observed that from our dataset, only ~19.2% are blocked
 (average across all content-blockers).
 
 <img class="img-responsive" src="../static/img/blog/adblockers_performance/requests-composition.svg" alt="Composition of requests" />
 
-It results from this observation that content-blockers will perform better on
+### Key takeaway: how to make an adblocker more effective
+
+This observation suggests that content-blockers will perform better on
 average if they can efficiently decide which requests to *not block*.
 
 The filters used to determine whether or not a request is to be blocked
@@ -143,9 +175,11 @@ would be blocked by enabling extra filters lists such as *EasyPrivacy*.
 ### 2. Time To Match All Requests
 
 We first look at all of the requests (whether they will eventually
-be blocked or not). We use a log-scale for the x-axis (time in
+be blocked or not).
+
+We use a log scale for the x-axis (time in
 milliseconds) to facilitate the comparison of the cumulative
-distribution of the time it takes for content-blockers to decide whether
+distribution of the time it takes for adblockers to decide whether
 or not a request should be blocked.
 
 Here is a break-down of the 99th percentile and median times for each
@@ -279,17 +313,24 @@ The following table details 99th percentile and median timings for requests bloc
 
 <img class="img-responsive" src="../static/img/blog/adblockers_performance/ghostery-ublock-origin-brave-duckduckgo-adblock-plus-blocked.svg" alt="Time to match requests which are blocked" />
 
-On these graphs we observe a plateau for *Adblock Plus*, *Brave* and
-*Duckduckgo*. This can be explained by the fact that these engines
+### Summary of findings: How the adblockers performed
+
+On these graphs, we observe a plateau for *Adblock Plus*, *Brave* and
+*Duckduckgo*.
+
+This can be explained by the fact that these engines
 implement some form of caching internally, thus having a very fast
-response time for some requests which were already seen (redundancy in
-requests comes from both common third-parties seen on multiple websites
-as well as the fact that we load several pages for each domain). This
-caching can be implemented on top of any content-blocker and does not
-tell much about the efficiency of each; we can see this as a means to
+response time for some requests (redundancy in
+requests comes from both common third parties seen on multiple websites
+as well as the fact that we load several pages for each domain).
+
+This caching can be implemented on top of any content-blocker and does not
+tell much about the efficiency of each. We can see this as a means to
 trade *memory* against *CPU usage*.
 
-From the previous measurements we see that Ghostery out-performs other
+### Ghostery’s adblocker performance
+
+From the previous measurements, we see that Ghostery outperforms other
 libraries in terms of matching speed. Without going into too many
 details, here are some of the optimizations which can explain these
 results:
@@ -305,24 +346,29 @@ results:
   combined for increased efficiency. The optimizations were carefully crafted
   based on common cases observed in Easylist.
 
-
 ### 5. Serialization And Deserialization
 
-In this section we have a look at the performance of content-blockers
+In this section, we have a look at the performance of content-blockers
 when it comes to serializing their internal representation for faster
-subsequent loading. Only *DuckDuckGo*'s engine does not provide this
+subsequent loading.
+
+Only *DuckDuckGo*'s engine does not provide this
 feature. *uBlock Origin*, *Ghostery*, *Adblock Plus* and *Brave* all allow to
 serialize or cache (*uBlock Origin*'s terminology is: *selfies*) the
 entire blocking engine to either a string or a buffer, which can then be
 used to speed-up subsequent loads.
 
-Because this is a one-time operation, having a higher loading-time does not
-impact significantly desktop users. On the other hand, the ability to quickly
+### The impact of load time on user experience
+
+As this is a one-time operation, having a higher loading time does not
+impact desktop users significantly. On the other hand, the ability to quickly
 initialize the content-blocker is critical on mobile.
+
+### Comparison of serialization and deserialization times
 
 Another use-case allowed by such capability is to perform the parsing
 of the lists on the backend and ship the serialized form of the
-content-blocker to clients directly, which removes the cost of
+content-blocker to clients directly. This removes the cost of
 initialization completely.
 
 We performed 100 serializations for each content-blocker and display the
@@ -349,27 +395,32 @@ content-blocker:
 
 <img class="img-responsive" src="../static/img/blog/adblockers_performance/cache-size.svg" alt="Cache size" />
 
-From these measurements we see that *Ghostery* offers both significantly
+From these measurements, we see that *Ghostery* offers both significantly
 faster serialization and deserialization times as well as a smaller
 cache size.
 
-The reason is the following: the internal representation is already
-mostly stored in a compact form (using typed arrays); this means that
-serialization only consists in adding a small amount of metadata
-along-side the already available arrays and deserialization is
-*essentially instantaneous* since it's enough to create some typed array
-views on top of the serialized buffer (think of `mmap` but using typed
-arrays). This also explains the very low memory consumption: after
-initialization, the memory usage is only slightly higher than the size
-of the serialized form.
+The reason is the following:
+* The internal representation is already
+  mostly stored in a compact form (using typed arrays).
+* This means that serialization only adds a small amount of metadata
+  alongside the already available arrays. Deserialization is
+  *essentially instantaneous* since it's enough to create some typed array
+  views on top of the serialized buffer (think of `mmap` but using typed
+  arrays).
+* This also explains the very low memory consumption: after
+  initialization, the memory footprint is only slightly higher than the size
+  of the serialized form.
 
 ### 6. Memory Consumption at Start-up
 
-Here we consider the memory usage of each content-blocker, initialized
-from lists (not from cache) after one full garbage collection. The
-measurements were performed using Chrome's devtools memory snapshot. We
-did not measure Brave here since the memory used from C++ side does not
-seem to be taken into account in the snapshot. Also keep in mind that
+Here, we consider the memory usage of each content-blocker, initialized
+from lists (not from cache) after one full garbage collection.
+
+### How memory consumption was measured
+
+The measurements were performed using Chrome's devtools memory snapshot. We
+did not measure *Brave* here since the memory used from C++ side does not
+seem to be taken into account in the snapshot. Keep in mind that
 this memory usage can vary at run-time as content-blockers might cache
 frequently used resources, etc.
 
@@ -378,7 +429,9 @@ frequently used resources, etc.
 As mentioned in the previous section on serialization, the very low
 memory usage of *Ghostery* can be explained by the fact that the
 internal representation mostly consists of very compact typed arrays
-with some small over-head for extra meta-data. Again, we need to stress
+with some small overhead for extra meta-data.
+
+Again, we need to stress
 here that this measures the network filtering engine of Ghostery only,
 not the full extension, as described in the introduction.
 
@@ -386,31 +439,36 @@ not the full extension, as described in the introduction.
 
 In this graph, we present the time it takes for each content-blocker to
 be initialized from the lists (without any prior caching, which means
-initializing all internal resources by parsing the raw list). We see
-that only Brave seems to be significantly slower and that *uBlock Origin*,
+initializing all internal resources by parsing the raw list).
+
+We see that only *Brave* seems to be significantly slower and that *uBlock Origin*,
 *Ghostery*, *Adblock Plus* and *DuckDuckGo* all perform well.
 
 <img class="img-responsive" src="../static/img/blog/adblockers_performance/time-to-parse-easylist-all.svg" alt="Time to parse Easylist" />
 
-It seems that the long parsing time for Brave is a [known
+It seems that the long parsing time for *Brave* is a [known
 issue](https://github.com/brave/ad-block/issues/158) tracked on their
 GitHub repository.
 
-Now if we remove Brave, we see that there are still differences between
+### Key findings on parsing lists
+
+If we remove *Brave*, we see that there are still differences between
 *uBlock Origin*, *Ghostery*, *Adblock Plus* and *DuckDuckGo*. One reason
 *Ghostery* is slower than *uBlock Origin* and *AdblockPlus* here is that to
 achieve maximum performance while matching as well as minimize memory
-usage, there is a bit more work to do up-front. In practice this does
-not matter so much since it is a one-time operation and that subsequent
-loads are performed from cache, and this is really fast (in fact, we
+usage, there is a bit more work to do up-front.
+
+In practice, this does
+not matter so much since it is a one-time operation and subsequent
+loads are performed from cache. This is really fast. In fact, we
 can even perform the parsing backend-side and just ship the serialized
-version of the blocker, which removes this step completely).
+version of the blocker, which removes this step completely.
 
 <img class="img-responsive" src="../static/img/blog/adblockers_performance/time-to-parse-easylist-without-brave.svg" alt="Time to parse Easylist without Brave" />
 
 ### 8. Conclusion
 
-In this study we looked closely at the performance of some of the most
+In this study, we looked closely at the performance of some of the most
 popular content-blockers in use today. In particular, we focused on the
 efficiency of their network filtering engines, which is the most CPU
 intensive task they perform.
@@ -419,20 +477,22 @@ This work was motivated by one of the claims formulated in the [Manifest V3
 proposal](https://bugs.chromium.org/p/chromium/issues/detail?id=896897)
 of the Chromium project: *"the extension then performs arbitrary (and
 potentially very slow) JavaScript"*, talking about content-blockers'
-ability to process all network requests. From the measurements, we do
-not think this claim holds, as all popular content-blockers are already
-very efficient and should not incur any noticeable slow-down for users.
-Moreover, the efficiency of content-blockers is *continuously improving*,
-either thanks to more innovative approaches or using technologies like
-WebAssembly to reach native performance.
+ability to process all network requests.
 
-While most content-blockers are indeed efficient, they are not
-equivalent and we observed that *Ghostery* performs consistently as well
-or better across all dimensions, often surpassing other libraries.
+### Key findings:
 
-We hope that these benchmarks will give an opportunity for content-blockers
-developers to measure their own progress against other popular libraries;
-benefiting all users, no matter which extension they use, as the efficiency of
+* We do not think the Manifest V3 claim is accurate as all popular content-blockers are already
+  very efficient and should not incur any noticeable slow-down for users.
+* Moreover, the efficiency of content-blockers is *continuously improving*,
+  either thanks to more innovative approaches or using technologies like
+  WebAssembly to reach native performance.
+* While most content-blockers are indeed efficient, they are not
+  equivalent. We observed that *Ghostery* performs consistently as well
+  or better across all dimensions, often surpassing other libraries.
+
+We hope these benchmarks will give content-blocker developers the opportunity
+to measure their own progress against other popular libraries.
+This will benefit all users, no matter which extension they use, as the efficiency of
 content-blockers improves.
 
 [*Edit of 20-02-2019*](https://github.com/ghostery/whotracks.me/pull/154): The study has been updated with the specific version of each content-blocker measured.
