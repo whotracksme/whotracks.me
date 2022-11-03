@@ -126,7 +126,7 @@ def build_rss_feeds(blog_posts):
                     tzinfo=timezone("CET")
                 )
             )
-            entry.description(post["subtitle"])
+            entry.description(post["description"])
             entry.media.thumbnail(
                 url=f'https://whotracks.me/static/img/{post["header_img"]}'
             )
