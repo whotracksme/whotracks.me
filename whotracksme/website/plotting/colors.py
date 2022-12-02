@@ -19,6 +19,7 @@ wtm_colors = {
 tracker_category_colors = {
     "advertising": "#BF90D2",
     "comments": "#43B7C5",
+    "consent": "#BECFB3",
     "customer_interaction": "#FCC156",
     "essential": "#FC9834",
     "adult_advertsing": "#E3A2D4",
