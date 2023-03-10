@@ -41,7 +41,10 @@ site_category_colors = {
     'Business': "blue",
     'E-Commerce': "#71C671",
     'Entertainment': "#B8B8B8",
+    'Government': '#000',
+    'Health': '#000',
     'News & Portals': "#B2DFEE",
+    'Political': '#000',
     'Recreation': "#B9D3EE",
     'Reference': "#E0EEEE"
 }
