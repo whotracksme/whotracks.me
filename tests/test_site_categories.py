@@ -8,6 +8,7 @@ VALID_CATEGORIES = set([
     "E-Commerce",
     "Entertainment",
     "Government",
+    "Health",
     "News and Portals",
     "Political",
     "Recreation",
