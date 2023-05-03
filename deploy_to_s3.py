@@ -149,7 +149,7 @@ if __name__ == '__main__':
                             should_update = False
                             break
                 if skip_old_years:
-                    # Note: include last December, so the options doesn't break a December release (which happens on January)
+                    # Note: include last December, so the option doesn't break a December release (which happens on January)
                     current_year = datetime.datetime.now().year
                     if (re.match(fr"^{site_dir}/data/\d{{4}}-\d{{2}}/", local_path) and
                         not local_path.startswith(f'{site_dir}/data/{current_year}') and
