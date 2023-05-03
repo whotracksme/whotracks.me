@@ -2,12 +2,13 @@
 Module to deploy WhoTracksMe site to an s3 bucket.
 
 Usage:
-    deploy_to_s3 <bucket_name> [<prefix>] [--production] [--no-overrides] [--fast-website-update] [--list-outdated] [--verbose] [--dry-run] [--debug]
+    deploy_to_s3 <bucket_name> [<prefix>] [--production] [--no-overrides] [--skip-old-years] [--fast-website-update] [--list-outdated] [--verbose] [--dry-run] [--debug]
 
 Options:
     -h, --help                  Show help message.
     --production                Production deployment (set cache-control metadata) [Default: true]
     --no-overrides              Skip files that already exist on S3 [Default: false]
+    --skip-old-years            Do not upload data files of the previous years [Default: false]
     --fast-website-update       Fast mode if you want to update static resources (e.g. blog post, updating privacy policy) without uploading all data files [Default: false]
     --list-outdated             List all files which are present on S3, yet came from an older release [Default: false]
     --verbose                   Enable debug logs [Default: false]
@@ -17,6 +18,8 @@ Options:
 
 import os
 import boto3
+import re
+import datetime
 from docopt import docopt
 from mimetypes import MimeTypes
 from concurrent.futures import ProcessPoolExecutor
@@ -86,6 +89,7 @@ if __name__ == '__main__':
     bucket_prefix = args['<prefix>'] or '/'
     production = args['--production']
     no_overrides = args['--no-overrides'] or False
+    skip_old_years = args['--skip-old-years'] or False
     fast_website_update = args['--fast-website-update'] or False
     list_outdated = args['--list-outdated'] or False
     verbose = args['--verbose'] or False
@@ -144,6 +148,14 @@ if __name__ == '__main__':
                             print(f'Skipping data file {s3_path} (--fast-website-update)')
                             should_update = False
                             break
+                if skip_old_years:
+                    # Note: include last December, so the options doesn't break a December release (which happens on January)
+                    current_year = datetime.datetime.now().year
+                    if (re.match(fr"^{site_dir}/data/\d{{4}}-\d{{2}}/", local_path) and
+                        not local_path.startswith(f'{site_dir}/data/{current_year}') and
+                        not local_path.startswith(f'{site_dir}/data/{current_year - 1}-12')):
+                        print(f'Skipping data file {s3_path} (--skip_old_years)')
+                        should_update = False
 
                 if should_update and not dry_run:
                     s3_client.put_object(Bucket=bucket_name, Key=s3_path, Body=fp,
