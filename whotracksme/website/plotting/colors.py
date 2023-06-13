@@ -30,7 +30,7 @@ tracker_category_colors = {
     "misc": "#80C87D",
     "pornvertising": "#E3A2D4",
     "hosting": "#444",
-    "unknown": "#D0D0D0",
+    "unidentified": "#D0D0D0",
     "extensions": "orange"
 }
 
