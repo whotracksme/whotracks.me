@@ -242,7 +242,7 @@ class WhoTracksMeDB:
             elif trackerdb_sql_hash != self.get_file_checksum('trackerdb.sql'):
                 print('reload trackers')
                 for table in WhoTracksMeDB.TRACKER_TABLES:
-                    self.connection.execute(f'DROP table {table}')
+                    self.connection.execute(f'DROP TABLE IF EXISTS {table}')
                 self.connection.executescript(trackerdb_sql)
                 self.update_file_checksum(trackerdb_file, trackerdb_sql_hash)
 
