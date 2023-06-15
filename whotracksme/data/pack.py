@@ -157,11 +157,18 @@ def pack_rows(rows, fields):
     types = [None] * len(headers)
     converted_rows = []
 
-    for row in rows:
+    for row_idx, row in enumerate(rows):
         converted_row = []
         for i, field in enumerate(headers):
             value = getattr(row, field)
             field_type, value = guess_type(value)
+            if types[i] is not None and ((field_type != 's' and types[i] == 's') or (field_type == 's' and types[i] != 's')):
+                error_msg = f'''Assumption violated: cannot mix strings and numbers in field "{field}" (note strings that look like numbers will be also treated as numbers): {getattr(row, field)} vs {getattr(rows[row_idx - 1], field)}
+String/Number clash found:
+Previous row: {rows[row_idx - 1]}
+Current row: {row}'''
+                print(error_msg)
+                raise ValueError(error_msg)
 
             if field_type == "s":
                 # Update symbols table for values of type string
