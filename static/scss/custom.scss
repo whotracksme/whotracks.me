@@ -812,14 +812,10 @@ footer {
 
 
 .navbar-ghostery {
-  padding: 12px 20px;
+  padding: 16px 20px;
   background:#202225;
   color: white;
-  transition: padding 0.5s ease-in-out;
-}
-
-.navbar-ghostery.open {
-  padding: 20px;
+  font-family: 'Open Sans';
 }
 
 .navbar-ghostery-header {
@@ -847,6 +843,7 @@ footer {
   flex-shrink: 0;
   color: white;
   text-decoration: none;
+  font-family: Open Sans Semibold;
   font-size: 14px;
   line-height: 18px;
 }
@@ -897,13 +894,15 @@ footer {
 }
 
 .navbar-ghostery-features h3 {
-  font-size: 20px;
-  line-height: 24px;
+  font-family: Open Sans Semibold;
+  font-size: 18px;
+  line-height: 22px;
   margin: 0;
   padding: 0;
 }
 
 .navbar-ghostery-features p {
+  font-family: Open Sans;
   font-size: 12px;
   line-height: 18px;
   margin: 0;
@@ -917,11 +916,7 @@ footer {
 
 @media screen and (min-width: 768px) {
   .navbar-ghostery {
-    padding: 12px 40px;
-  }
-
-  .navbar-ghostery.open {
-    padding: 32px 40px;
+    padding: 16px 40px;
   }
 
   .navbar-ghostery-header img {
@@ -942,14 +937,9 @@ footer {
     width: 160px;
     height: 160px;
   }
-
-  .navbar-ghostery-features h3 {
-    font-size: 24px;
-    line-height: 28px;
-  }
   
   .navbar-ghostery-features p {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 20px;
   }
 }
