@@ -29,7 +29,7 @@ jeepney==0.4.3
 Jinja2==2.11.3
 jmespath==0.10.0
 jsonschema==3.2.0
-jupyter-core==4.6.3
+jupyter-core==4.11.2
 keyring==21.4.0
 libsass==0.20.1
 lxml==4.9.1
