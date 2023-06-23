@@ -15,10 +15,7 @@ WTMFonts = FontSet(
 
 
 def set_category_colors(tracker_labels):
-    colors = []
-    for l in tracker_labels:
-        colors.append(tracker_category_colors[l])
-    return colors
+    return [tracker_category_colors[label] for label in tracker_labels]
 
 
 def set_margins(l=60, r=60, b=40, t=0, pad=5):
