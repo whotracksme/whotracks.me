@@ -30,6 +30,5 @@ curl -s -L -o "$tmp" "$trackerdb_link"
 
 target=whotracksme/data/assets/trackerdb.sql
 sqlite3 "$tmp" .dump > "$tmp2"
-
-mv "$tmp2" "$target"
+(echo "-- Generated from $trackerdb_link" ; cat "$tmp2") > "$target"
 echo "trackerdb.sql was successfully generated: $target"
