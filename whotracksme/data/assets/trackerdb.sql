@@ -1,3 +1,4 @@
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202307280912/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -1032,6 +1033,7 @@ INSERT INTO companies VALUES('iadvize','iAdvize','"Reassure visitors and help e-
 INSERT INTO companies VALUES('ibm','IBM','International Business Machines (IBM), is a multinational computer, technology and IT consulting firm. They focus on selling computer software, as well as infrastructure, hosting and consulting services in areas ranging from mainframe computers to nano technology.','https://www.ibm.com/privacy/details/us/en/','https://www.ibm.com/us-en/marketplace/analytics-for-your-digital-properties','263','US','privacy@us.ibm.com',NULL);
 INSERT INTO companies VALUES('iclick_interactive','iClick Interactive','"iClick is the leading digital buy-side platform in Asia that integrates search, display, social media and mobile marketing capabilities to allow marketers to plan and manage their cross-channel campaign in one single destination."Translated by iClick Interactive Asia Limited','http://www.i-click.com/privacy-policy-and-data-ownership','http://www.i-click.com/','3006',NULL,'privacypolicy@i-click.asia',NULL);
 INSERT INTO companies VALUES('icstats','ICStats','"With web analytics is not about collecting as much data as possible, but about providing the right information at the right time. Every marketer knows in a few years what kind of visitor at his site and what information it should be offered. ICStats record[s] and report[s] information about visitor behavior on the Internet in such a way that the Marketing / Sales department of an SME to develop concrete actions to be taken."Translated by Google Translate',NULL,'http://www.icstats.nl/','2162',NULL,'info@icstats.nl',NULL);
+INSERT INTO companies VALUES('id5_technology_ltd','ID5 Technology Ltd.','ID5 is a company that operates an identity platform for the digital advertising industry. Their technology facilitates user recognition on websites, mobile apps, and digital properties, enabling advertisers to improve the efficiency of their ad targeting.','https://id5.io/platform-privacy-policy/','https://id5.io/','','GB','privacy@id5.io',NULL);
 INSERT INTO companies VALUES('id_services','ID Services',NULL,NULL,'https://id.services/','4599',NULL,NULL,NULL);
 INSERT INTO companies VALUES('ideal_media','Ideal Media','"Ideal Media is a content discovery platform that attracts responsive audiences, engages them with unique content and amplifies your message through our interactive channels; allowing you to speak directly to your target market, reaching all audiences."',NULL,'http://idealmedia.com/','3161',NULL,'info@idealmedia.com',NULL);
 INSERT INTO companies VALUES('ideoclick','IdeoClick','"By providing competent guidance and industry-defining tools and services, IdeoClick drives improved conversion and increased sales throughout a variety of consumer touch points."',NULL,'http://ideoclick.com','2527',NULL,'info@ideoclick.com',NULL);
@@ -4104,6 +4106,7 @@ INSERT INTO tracker_domains VALUES('google','google.se',NULL);
 INSERT INTO tracker_domains VALUES('google','google.tn',NULL);
 INSERT INTO tracker_domains VALUES('google_adservices','googleadservices.com',NULL);
 INSERT INTO tracker_domains VALUES('google_analytics','google-analytics.com',NULL);
+INSERT INTO tracker_domains VALUES('google_analytics','region1.google-analytics.com',NULL);
 INSERT INTO tracker_domains VALUES('google_appspot','appspot.com',NULL);
 INSERT INTO tracker_domains VALUES('google_beacons','beacons-google.com',NULL);
 INSERT INTO tracker_domains VALUES('google_custom_search','adsensecustomsearchads.com',NULL);
@@ -4260,6 +4263,8 @@ INSERT INTO tracker_domains VALUES('icstats','icstats.nl',NULL);
 INSERT INTO tracker_domains VALUES('icuazeczpeoohx.com','icuazeczpeoohx.com',NULL);
 INSERT INTO tracker_domains VALUES('id-news.net','id-news.net',NULL);
 INSERT INTO tracker_domains VALUES('id-news.net','idcdn.de',NULL);
+INSERT INTO tracker_domains VALUES('id5_sync','id5-sync.com',NULL);
+INSERT INTO tracker_domains VALUES('id5_sync','eu-1-id5-sync.com',NULL);
 INSERT INTO tracker_domains VALUES('id_services','cdn.id.services',NULL);
 INSERT INTO tracker_domains VALUES('ideal_media','e-generator.com',NULL);
 INSERT INTO tracker_domains VALUES('idealo_com','idealo.com',NULL);
@@ -7506,7 +7511,7 @@ INSERT INTO trackers VALUES('convertro','Convertro',1,'http://www.convertro.com/
 INSERT INTO trackers VALUES('conviva','Conviva',13,'http://www.conviva.com/','conviva','561',NULL,NULL);
 INSERT INTO trackers VALUES('cookie_consent','Cookie Consent',8,NULL,'silktide','2814',NULL,NULL);
 INSERT INTO trackers VALUES('cookie_script','Cookie Script',8,'https://cookie-script.com/','cookie_script','2609',NULL,NULL);
-INSERT INTO trackers VALUES('cookiebot','Cookiebot',8,'https://www.cookiebot.com/en/','cybot','3475',NULL,NULL);
+INSERT INTO trackers VALUES('cookiebot','Cookiebot',5,'https://www.cookiebot.com/en/','cybot','3475',NULL,NULL);
 INSERT INTO trackers VALUES('cookieq','CookieQ',8,'http://cookieq.com/CookieQ','baycloud','898',NULL,NULL);
 INSERT INTO trackers VALUES('cooliris','Cooliris',6,'http://www.cooliris.com','cooliris','1609',NULL,NULL);
 INSERT INTO trackers VALUES('copacet','Copacet',1,'http://copacet.com/','copacet','1152',NULL,NULL);
@@ -8096,6 +8101,7 @@ INSERT INTO trackers VALUES('icrossing','iCrossing',1,'http://www.icrossing.com/
 INSERT INTO trackers VALUES('icstats','ICStats',13,'http://www.icstats.nl/','icstats','1248',NULL,NULL);
 INSERT INTO trackers VALUES('icuazeczpeoohx.com','icuazeczpeoohx.com',16,NULL,NULL,'3609',NULL,NULL);
 INSERT INTO trackers VALUES('id-news.net','Ippen Digital',1,'https://www.ippen-digital.de/',NULL,'3610',NULL,NULL);
+INSERT INTO trackers VALUES('id5_sync','ID5 Sync',13,'https://id5.io/','id5_technology_ltd','',NULL,NULL);
 INSERT INTO trackers VALUES('id_services','ID Services',13,NULL,'id_services','2683',NULL,NULL);
 INSERT INTO trackers VALUES('ideal_media','Ideal Media',1,'http://idealmedia.com/','ideal_media','2002',NULL,NULL);
 INSERT INTO trackers VALUES('idealo_com','idealo.com',1,'http://idealo.com/',NULL,'3611',NULL,NULL);
@@ -8198,7 +8204,7 @@ INSERT INTO trackers VALUES('ispot.tv','iSpot.tv',1,'https://www.ispot.tv/',NULL
 INSERT INTO trackers VALUES('itineraire.info','itineraire.info',6,'https://www.itineraire.info/',NULL,'3631',NULL,NULL);
 INSERT INTO trackers VALUES('itunes_link_maker','iTunes Link Maker',1,'https://www.apple.com/','apple','2027',NULL,NULL);
 INSERT INTO trackers VALUES('ity.im','ity.im',1,'http://ity.im/','ity.im','1390',NULL,NULL);
-INSERT INTO trackers VALUES('iubenda.com','iubenda',8,'https://www.iubenda.com/','iubenda','1062',NULL,NULL);
+INSERT INTO trackers VALUES('iubenda.com','iubenda',5,'https://www.iubenda.com/','iubenda','1062',NULL,NULL);
 INSERT INTO trackers VALUES('ivcbrasil.org.br','IVC Brasil',13,'https://ivcbrasil.org.br/#/home',NULL,'3632',NULL,NULL);
 INSERT INTO trackers VALUES('ividence','Ividence',1,'https://www.ividence.com/home/','sien','3633',NULL,NULL);
 INSERT INTO trackers VALUES('iwiw_widgets','iWiW Widgets',6,'http://iwiw.hu','iwiw','719',NULL,NULL);
@@ -8702,7 +8708,7 @@ INSERT INTO trackers VALUES('onesignal','OneSignal',8,'https://onesignal.com/','
 INSERT INTO trackers VALUES('onestat','OneStat',13,'http://www.onestat.com/','onestat_international_b.v.','126',NULL,NULL);
 INSERT INTO trackers VALUES('onet.pl','onet',11,'https://www.onet.pl/',NULL,'3739',NULL,NULL);
 INSERT INTO trackers VALUES('onetag','OneTag',1,'https://www.onetag.com/','onetag','4032',NULL,NULL);
-INSERT INTO trackers VALUES('onetrust','OneTrust',8,'https://www.onetrust.com/','onetrust','3740',NULL,NULL);
+INSERT INTO trackers VALUES('onetrust','OneTrust',5,'https://www.onetrust.com/','onetrust','3740',NULL,NULL);
 INSERT INTO trackers VALUES('onfocus.io','OnFocus',1,'http://onfocus.io/','onfocus','3071',NULL,NULL);
 INSERT INTO trackers VALUES('onlinewebstat','Onlinewebstat',13,'http://www.onlinewebstats.com/index.php?lang=en','onlinewebstat','870',NULL,NULL);
 INSERT INTO trackers VALUES('onswipe','Onswipe',1,'http://www.onswipe.com/','onswipe','1593',NULL,NULL);
@@ -8724,7 +8730,7 @@ INSERT INTO trackers VALUES('opinionbar','OpinionBar',6,'http://www.metrixlab.co
 INSERT INTO trackers VALUES('oplytic','Oplytic',13,NULL,'oplytic','2281',NULL,NULL);
 INSERT INTO trackers VALUES('opta.net','Opta',13,'http://www.optasports.de/','opta_sports','3189',NULL,NULL);
 INSERT INTO trackers VALUES('optaim','OptAim',1,'http://optaim.com/','optaim','1901',NULL,NULL);
-INSERT INTO trackers VALUES('optanaon','Optanaon by OneTrust',8,'https://www.cookielaw.org/','onetrust','3742',NULL,NULL);
+INSERT INTO trackers VALUES('optanaon','Optanaon by OneTrust',5,'https://www.cookielaw.org/','onetrust','3742',NULL,NULL);
 INSERT INTO trackers VALUES('optify','Optify',1,'http://www.optify.net','optify','429',NULL,NULL);
 INSERT INTO trackers VALUES('optimatic','Optimatic',2,NULL,'optimatic','2360',NULL,NULL);
 INSERT INTO trackers VALUES('optimax_media_delivery','Optimax Media Delivery',1,'http://optmd.com/','optimax_media_delivery','723',NULL,NULL);
