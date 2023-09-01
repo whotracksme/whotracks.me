@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202307280912/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202308311544/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -586,7 +586,7 @@ INSERT INTO companies VALUES('clixgalore','clixGalore','"clixGalore Affiliate Ma
 INSERT INTO companies VALUES('clixmedia','ClixMedia','Our mission is to develop successful web strategies for our clients. They demand specific return on investment and a promise of our dedication to the advancement of their specific industry. The web programs we develop require a multi-facted approach to their business, an understanding of their particular market, and an ability to deliver a solid interactive product in a timely fashion.','http://www.clixmedia.com/privacy.html','http://www.clixmedia.com/','218','US',NULL,NULL);
 INSERT INTO companies VALUES('clixsense','ClixSense','"ClixSense is an industry proven method that allows website publishers of every size or budget to direct targeted and unique traffic to their website."','http://www.clixsense.com/en/About-Privacy_Policy','http://www.clixsense.com/','2425',NULL,NULL,NULL);
 INSERT INTO companies VALUES('cloud_technologies','Cloud Technologies S.A.','OnAudience.com provides Big Data tools and services for on-line marketing on over 40 markets in Europe and North America. The company has one of the largest 3rd party data sets in the World that consist of over 3 billion user profiles.OnAudience.com integrates data management, including DMP and Data Exchange with programmatic buying, including DSP and Mailing Exchange. It is a tailor made solution for performance marketing focused on prospecting customers and e-commerce platforms.','http://onaudience.com/privacy-policy','http://www.cloudtechnologies.pl/','4948',NULL,NULL,NULL);
-INSERT INTO companies VALUES('cloudflare','Cloudflare','Cloudflare is a web performance and security company that provides online services to protect and accelerate websites online.','https://www.cloudflare.com/security-policy/','https://www.cloudflare.com/','2913','US','privacyquestions@cloudflare.com',NULL);
+INSERT INTO companies VALUES('cloudflare','Cloudflare','Cloudflare is a web performance and security company that provides online services to protect and accelerate websites online.','https://www.cloudflare.com/privacypolicy/','https://www.cloudflare.com/','2913','US','privacyquestions@cloudflare.com',NULL);
 INSERT INTO companies VALUES('clove_network','Clove Network','"Clove Network is an online advertising network providing targeted reach and quality inventory. We enable marketers to reach their target markets through the internet which is one of the fastest growing media channels in the world. We do this by providing a comprehensive solution for planning and implementing profitable online advertising campaigns."','http://www.clovenetwork.com/privacypolicy.html','http://www.clovenetwork.com/','1249','CA','info@clovenetwork.com',NULL);
 INSERT INTO companies VALUES('clustrmaps','ClustrMaps','ClustrMaps is a compact geographical hit counter widget that shows the locations of all visitors to a Web site. It does not require users to click on the page, just viewing is sufficient. Clustrmaps provides HTML that then gives the  website owner a thumbnail map.','http://clustrmaps.com/legal','http://www.clustrmaps.com/','42','US','theteam@clustrmaps.com',NULL);
 INSERT INTO companies VALUES('cnstats','CNStats','"The software produced by "CN-Software" Ltd. possesses a unique functional set which provides the possibility of using, developing, and promoting your Internet-project in a most effective way."','http://www.cn-software.com/en/privacy/','http://cnstats.ru/','2213',NULL,'support@cn-software.com',NULL);
@@ -1329,6 +1329,7 @@ INSERT INTO companies VALUES('mediascope','Mediascope','Our company has existed 
 INSERT INTO companies VALUES('mediashakers','MediaShakers','"MediaShakers is a global online advertising network dedicated to creating innovative opportunities for both publishers and advertisers."','http://www.mediashakers.com/index.php/en/privacy-policy','http://www.mediashakers.com/index.php/en/','1304','CY',NULL,NULL);
 INSERT INTO companies VALUES('mediashift','MediaShift','"MediaShift is a next-generation digital ad tech company that monetizes WiFi networks and web publishing sites, while offering advertisers access to one of the fastest growing audience platforms targeting on-the-go consumers. Our patented ad platform is the first in the industry to monetize WiFi networks with advertising at both sign-in and in-session."','http://www.mediashift.com/privacy_policy','http://www.mediashift.com/','3038',NULL,'privacy@mediashift.com',NULL);
 INSERT INTO companies VALUES('mediav','MediaV','"The company aggregates the excellent Internet technical experts in the industry, advertising and marketing experts and interactive creative experts, is a company specializing in precision marketing and digital marketing professional advertising technology and service agencies. Poly wins million together to continuously improve the network marketing return on investment rate target, based on the state-of-the-art Internet technology development, multi-data convergence advertisers, website owners, agents and consumers find value in the hundreds of millions of data dynamic optimization to achieve fine classification of the target consumer groups and targeted advertising effectiveness."Translated by Google Translate','http://www.mediav.cn/privacy1.html','http://mediav.com/','2152',NULL,NULL,NULL);
+INSERT INTO companies VALUES('mediavine_inc','Mediavine, Inc','Mediavine, Inc. is a company that specializes in digital advertising and website monetization solutions for content creators, bloggers, and website owners. They provide a platform that helps publishers optimize their ad placements and maximize their revenue while also focusing on user experience and site performance.','https://www.mediavine.com/privacy-policy/','https://www.mediavine.com/about-us/','','US','privacy@mediavine.com',NULL);
 INSERT INTO companies VALUES('mediego','Mediego','Mediego is an innovative solution for personalization based on a behavioral algorithm that analyzes complex data collected online or via outlets in real-time.With Mediego, you can send highly customized content to your customers, identify their preferences, interests and their potential to purchase, all in real time. Easy to install and operational from the first visit, Mediego is The turnkey solution to customize your content in real time.','https://www.mediego.com/en/legal-notices/','https://www.mediego.com/en/','4950',NULL,NULL,NULL);
 INSERT INTO companies VALUES('medium','Medium',NULL,NULL,'https://medium.com/','5361',NULL,NULL,NULL);
 INSERT INTO companies VALUES('medyanet','MedyaNet','Medyanet is Turkey''s leading online advertising sales company founded in 1999. We do display, mobile, online video, performance-oriented advertising which serves the areas of digital marketing and social media.',NULL,'http://www.medyanet.com.tr/','1251','TR','bilgi@medyanet.com.tr',NULL);
@@ -3385,6 +3386,7 @@ INSERT INTO tracker_domains VALUES('clixsense','clixsense.com',NULL);
 INSERT INTO tracker_domains VALUES('cloud-media.fr','cloud-media.fr',NULL);
 INSERT INTO tracker_domains VALUES('cloudflare','cloudflare.com',NULL);
 INSERT INTO tracker_domains VALUES('cloudflare','cloudflare.net',NULL);
+INSERT INTO tracker_domains VALUES('cloudflare_insights','cloudflareinsights.com',NULL);
 INSERT INTO tracker_domains VALUES('cloudimage.io','cloudimg.io',NULL);
 INSERT INTO tracker_domains VALUES('cloudinary','cloudinary.com',NULL);
 INSERT INTO tracker_domains VALUES('clove_network','clovenetwork.com',NULL);
@@ -4107,6 +4109,7 @@ INSERT INTO tracker_domains VALUES('google','google.tn',NULL);
 INSERT INTO tracker_domains VALUES('google_adservices','googleadservices.com',NULL);
 INSERT INTO tracker_domains VALUES('google_analytics','google-analytics.com',NULL);
 INSERT INTO tracker_domains VALUES('google_analytics','region1.google-analytics.com',NULL);
+INSERT INTO tracker_domains VALUES('google_analytics','googleanalytics.com',NULL);
 INSERT INTO tracker_domains VALUES('google_appspot','appspot.com',NULL);
 INSERT INTO tracker_domains VALUES('google_beacons','beacons-google.com',NULL);
 INSERT INTO tracker_domains VALUES('google_custom_search','adsensecustomsearchads.com',NULL);
@@ -4815,6 +4818,7 @@ INSERT INTO tracker_domains VALUES('mediashakers','ad.media-servers.net',NULL);
 INSERT INTO tracker_domains VALUES('mediashift','adsvc1107131.net',NULL);
 INSERT INTO tracker_domains VALUES('mediator.media','mediator.media',NULL);
 INSERT INTO tracker_domains VALUES('mediav','mediav.com',NULL);
+INSERT INTO tracker_domains VALUES('mediavine_exchange','mediavine.com',NULL);
 INSERT INTO tracker_domains VALUES('mediawhiz','adnetinteractive.com',NULL);
 INSERT INTO tracker_domains VALUES('mediawhiz','adnetinteractive.net',NULL);
 INSERT INTO tracker_domains VALUES('medigo','mediego.com',NULL);
@@ -7436,7 +7440,8 @@ INSERT INTO trackers VALUES('clixgalore','clixGalore',1,'http://www.clixgalore.c
 INSERT INTO trackers VALUES('clixmetrix','ClixMetrix',1,'http://www.clixmetrix.com/','clixmedia','231',NULL,NULL);
 INSERT INTO trackers VALUES('clixsense','ClixSense',1,'http://www.clixsense.com/','clixsense','1435',NULL,NULL);
 INSERT INTO trackers VALUES('cloud-media.fr','CloudMedia',1,'https://cloudmedia.fr/',NULL,'3457',NULL,NULL);
-INSERT INTO trackers VALUES('cloudflare','CloudFlare',3,'https://www.cloudflare.com/','cloudflare','3458',NULL,NULL);
+INSERT INTO trackers VALUES('cloudflare','Cloudflare',3,'https://www.cloudflare.com/','cloudflare','3458',NULL,NULL);
+INSERT INTO trackers VALUES('cloudflare_insights','Cloudflare Insights',1,'https://www.cloudflare.com/insights/','cloudflare','4059',NULL,NULL);
 INSERT INTO trackers VALUES('cloudimage.io','Cloudimage.io',3,'https://www.cloudimage.io/en/home','scaleflex_sas','3459',NULL,NULL);
 INSERT INTO trackers VALUES('cloudinary','Cloudinary',3,'https://cloudinary.com/',NULL,'3460',NULL,NULL);
 INSERT INTO trackers VALUES('clove_network','Clove Network',1,'http://www.clovenetwork.com/','clove_network','857',NULL,NULL);
@@ -8101,7 +8106,7 @@ INSERT INTO trackers VALUES('icrossing','iCrossing',1,'http://www.icrossing.com/
 INSERT INTO trackers VALUES('icstats','ICStats',13,'http://www.icstats.nl/','icstats','1248',NULL,NULL);
 INSERT INTO trackers VALUES('icuazeczpeoohx.com','icuazeczpeoohx.com',16,NULL,NULL,'3609',NULL,NULL);
 INSERT INTO trackers VALUES('id-news.net','Ippen Digital',1,'https://www.ippen-digital.de/',NULL,'3610',NULL,NULL);
-INSERT INTO trackers VALUES('id5_sync','ID5 Sync',13,'https://id5.io/','id5_technology_ltd','',NULL,NULL);
+INSERT INTO trackers VALUES('id5_sync','ID5 Sync',13,'https://id5.io/','id5_technology_ltd','4057',NULL,NULL);
 INSERT INTO trackers VALUES('id_services','ID Services',13,NULL,'id_services','2683',NULL,NULL);
 INSERT INTO trackers VALUES('ideal_media','Ideal Media',1,'http://idealmedia.com/','ideal_media','2002',NULL,NULL);
 INSERT INTO trackers VALUES('idealo_com','idealo.com',1,'http://idealo.com/',NULL,'3611',NULL,NULL);
@@ -8490,6 +8495,7 @@ INSERT INTO trackers VALUES('mediashakers','MediaShakers',1,'http://www.mediasha
 INSERT INTO trackers VALUES('mediashift','MediaShift',1,'http://www.mediashift.com/','mediashift','1931',NULL,NULL);
 INSERT INTO trackers VALUES('mediator.media','Mediator',13,'https://mediator.media/','mycom_bv','3683',NULL,NULL);
 INSERT INTO trackers VALUES('mediav','MediaV',1,'https://www.mediav.com/','mediav','1244',NULL,NULL);
+INSERT INTO trackers VALUES('mediavine_exchange','Mediavine Exchange',1,'https://www.mediavine.com/exchange/','mediavine_inc','4058',NULL,NULL);
 INSERT INTO trackers VALUES('mediawhiz','Mediawhiz',1,'http://www.mediawhiz.com/','matomy_media','1150',NULL,NULL);
 INSERT INTO trackers VALUES('medigo','Medigo',1,NULL,'mediego','2983',NULL,NULL);
 INSERT INTO trackers VALUES('medley','Medley',1,'http://medley.com/','friendfinder_networks','988',NULL,NULL);
