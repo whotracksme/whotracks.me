@@ -31,7 +31,8 @@ tracker_category_colors = {
     "pornvertising": "#E3A2D4",
     "hosting": "#444",
     "unidentified": "#D0D0D0",
-    "extensions": "orange"
+    "extensions": "orange",
+    "telemetry": "#6A9C8F",
 }
 
 site_category_colors = {
