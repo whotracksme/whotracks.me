@@ -2,7 +2,7 @@ from collections import defaultdict
 from jinja2 import Markup
 
 from whotracksme.data.loader import DataSource
-from whotracksme.website.utils import print_progress
+from whotracksme.website.utils import print_progress, write_json
 from whotracksme.website.templates import (
     get_template,
     render_template,
@@ -71,17 +71,24 @@ def tag_cloud_data(tracker_id, data):
 
 
 def build_trackers_list(data):
+    tracker_list = data.trackers.sort_by(metric="reach")
+    tracker_list_company = data.trackers.sort_by(
+        metric="company_id",
+        descending=False
+    )
+    header_stats = data.trackers.summary_stats()
     with open('_site/trackers.html', 'w') as output:
         output.write(render_template(
             template=get_template(data, name="trackers.html"),
-            tracker_list=data.trackers.sort_by(metric="reach"),
-            trackers_list_company=data.trackers.sort_by(
-                metric="company_id",
-                descending=False
-            ),
-            header_stats=data.trackers.summary_stats()
+            tracker_list=tracker_list,
+            trackers_list_company=tracker_list_company,
+            header_stats=header_stats
         ))
-
+    write_json('_site/api/v2/trackers.json', {
+        'tracker_list': tracker_list,
+        'trackers_list_company': tracker_list_company,
+        'header_stats': header_stats,
+    })
     print_progress(text="Generate tracker list")
 
 
@@ -143,4 +150,5 @@ def build_tracker_page_batch(batch):
             page_data = tracker_page_data(tracker_id,
                                         data.trackers.get_datapoint(tracker_id),
                                         data)
+            write_json(f'_site/api/v2/trackers/{tracker_id}.json', page_data)
             tracker_page(template, page_data)
