@@ -142,6 +142,7 @@ if __name__ == '__main__':
                         f'{site_dir}/websites/',
                         f'{site_dir}/companies/',
                         f'{site_dir}/data/',
+                        f'{site_dir}/api/',
                     ]
                     for directory in directories_to_skip:
                         if local_path.startswith(directory):
