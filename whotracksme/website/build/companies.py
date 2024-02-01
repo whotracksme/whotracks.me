@@ -96,7 +96,7 @@ def company_page(template, company_data, data):
     company_id = company_data['overview']['id']
 
     company_name = get_company_name(company_data)
-    write_json(f'_site/{data.url_for("company", company_id)}',
+    write_json(f'_site/api/v2/organizations/{data.url_for("company", company_id)}.json',
         demographics=company_data,
         initials=company_name[:2]
     )
@@ -122,8 +122,9 @@ def build_company_reach_chart_page(data):
     top100 = company_reach(data.companies, n=100)
     chart = Markup(overview_bars(top100, highlight=10, height=3000))
     template = get_template(data, name='reach-chart-page.html', path_to_root='..')
-    write_json('_site/api/v2/companies.json',
-        top100=top100
+    write_json('_site/api/v2/organizations.json',
+        top100=top100,
+        organizations=data.companies
     )
     with open('_site/companies/reach-chart.html', 'w') as output:
         output.write(render_template(
