@@ -124,7 +124,7 @@ def build_company_reach_chart_page(data):
     template = get_template(data, name='reach-chart-page.html', path_to_root='..')
     write_json('_site/api/v2/organizations.json',
         top100=top100,
-        organizations=data.companies
+        organizations=data.companies.sort_by('name', descending=False)
     )
     with open('_site/companies/reach-chart.html', 'w') as output:
         output.write(render_template(

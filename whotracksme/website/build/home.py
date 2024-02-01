@@ -21,7 +21,6 @@ def build_home(data):
     tracker_stats = data.trackers.summary_stats()
 
     write_json('_site/api/v2/index.json',
-        ts=header_graph,
         tracker_list=tracker_list,
         trackers_list_company=trackers_list_company,
         most_tracked_sites=most_tracked_sites,

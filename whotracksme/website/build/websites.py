@@ -73,8 +73,12 @@ def website_page(template, site, rank, data):
         },
         profile=profile,
         methods=methods,
-        sankey=rendered_sankey,
-        doughnut=profile_dough,
+        sankey_data=sankey_data,
+        doughnout={
+            "d_values": d_values,
+            "d_labels": d_labels,
+            "d_total": d_total,
+        },
         tracker_categories=d_labels,
         tracker_list=tracker_table,
     )
