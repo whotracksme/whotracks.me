@@ -45,7 +45,7 @@ Python 3.11 is needed to build the site. We recommend creating a
 [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 to install the dependencies, or use `pipenv` or )
 
-to 
+to
 
 ```sh
 python -m venv venv
@@ -53,6 +53,13 @@ python -m venv venv
 ```
 
 After the initial setup, you can proceed with installing whotracks.me.
+
+For nushell:
+
+```nushell
+python -m virtualenv venv
+overlay use venv/bin/activate.nu
+```
 
 ## With Pip
 

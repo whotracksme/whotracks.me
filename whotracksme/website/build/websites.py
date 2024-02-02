@@ -6,7 +6,7 @@ from operator import itemgetter
 from jinja2 import Markup
 
 from whotracksme.data.loader import DataSource
-from whotracksme.website.utils import print_progress
+from whotracksme.website.utils import print_progress, write_json
 from whotracksme.website.build.companies import (
     tracker_map_data,
     website_doughnout,
@@ -24,6 +24,12 @@ def build_website_list(data):
 
     sorted_websites = data.sites.sort_by(metric='popularity', descending=True)
     sorted_websites_cat = data.sites.sort_by(metric='category', descending=True)
+
+    write_json('_site/api/v2/websites.json',
+        website_list=sorted_websites,
+        website_list_cat=sorted_websites_cat,
+        header_numbers=header_numbers
+    )
 
     with open('_site/websites.html', 'w') as output:
         output.write(render_template(
@@ -60,6 +66,22 @@ def website_page(template, site, rank, data):
 
     # apps per site data
     tracker_table = list(data.sites.get_tracker_list(site_id))
+
+    write_json('_site/api/v2/websites/{}.json'.format(site.site),
+        site={
+            'overview': site._asdict()
+        },
+        profile=profile,
+        methods=methods,
+        sankey_data=sankey_data,
+        doughnout={
+            "d_values": d_values,
+            "d_labels": d_labels,
+            "d_total": d_total,
+        },
+        tracker_categories=d_labels,
+        tracker_list=tracker_table,
+    )
 
     with open('_site/websites/{}.html'.format(site.site), 'w') as output:
         output.write(render_template(

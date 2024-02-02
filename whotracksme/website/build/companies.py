@@ -2,7 +2,7 @@
 from collections import defaultdict
 from jinja2 import Markup
 
-from whotracksme.website.utils import print_progress
+from whotracksme.website.utils import print_progress, write_json
 from whotracksme.website.templates import (
     get_template,
     render_template,
@@ -96,6 +96,10 @@ def company_page(template, company_data, data):
     company_id = company_data['overview']['id']
 
     company_name = get_company_name(company_data)
+    write_json(f'_site/api/v2/organizations/{data.url_for("company", company_id)}.json',
+        demographics=company_data,
+        initials=company_name[:2]
+    )
     with open(f'_site/{data.url_for("company", company_id)}', 'w') as output:
         output.write(render_template(
             path_to_root='..',
@@ -118,7 +122,10 @@ def build_company_reach_chart_page(data):
     top100 = company_reach(data.companies, n=100)
     chart = Markup(overview_bars(top100, highlight=10, height=3000))
     template = get_template(data, name='reach-chart-page.html', path_to_root='..')
-
+    write_json('_site/api/v2/organizations.json',
+        top100=top100,
+        organizations=data.companies.sort_by('name', descending=False)
+    )
     with open('_site/companies/reach-chart.html', 'w') as output:
         output.write(render_template(
             path_to_root='..',

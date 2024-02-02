@@ -29,7 +29,7 @@ for root, dirs, files in os.walk(DATA_DIR):
 # This allows us to inject a custom version into setuptools using the
 # environment variable: WTM_VERSION. If it is not specified, a default value is
 # used, but you will not be able to run sdist in this case.
-DEFAULT_VERSION = "dev"
+DEFAULT_VERSION = "0.dev"
 VERSION = os.environ.get("WTM_VERSION", DEFAULT_VERSION)
 
 
