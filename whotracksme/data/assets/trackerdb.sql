@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202402010932/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202402271957/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -87,7 +87,6 @@ INSERT INTO companies VALUES('ad360','Ad360','"Ad360 ad network of online media 
 INSERT INTO companies VALUES('ad4game','ad4game','ad4game is an ad network that partners with companies in the online gaming industry to specifically target online video gamers.','https://ad4game.com/privacy/','http://www.ad4game.com/','812','CA','support@ad4game.com',NULL);
 INSERT INTO companies VALUES('ad4mat','ad4mat','"European Premium Performance Network"','https://www.ad4mat.com/en/privacy/','https://www.ad4mat.com/en/','2191',NULL,'privacy@advanced-store.de',NULL);
 INSERT INTO companies VALUES('ad6media','ad6media','"ad6media''s personalised banner service is simple and guarantees revenue. It is available to websites with over 1,000 visitors per day."','https://www.ad6media.fr/privacy','https://www.ad6media.fr/','1466','US',NULL,NULL);
-INSERT INTO companies VALUES('ad:c_media','ad:C media','"The focus of ad:C media is 100% Digital Display Advertising with a strong emphasize on generating sales for the advertisers.ad:C media works like a media agency: We analyze the target groups of advertisers and optimize the media planning in order to reach the best results."','http://www.adcmedia.de/en/datenschutz/','http://www.adcmedia.de/en/','2315',NULL,'info@adcmedia.de',NULL);
 INSERT INTO companies VALUES('ad_dynamo','Ad Dynamo','Ad Dynamo operates an international pay per click advertising marketplace.','https://www.addynamo.com/twitter_about_us.jsp','https://www.addynamo.com/','1114','ZA',NULL,NULL);
 INSERT INTO companies VALUES('ad_ebis','AD EBiS','Is it difficult conveying your company''s message to the correct audience? Online marketing requires new strategies to tackle these hurdles.','http://www.lockon.co.jp/policy/','https://www.ebis.ne.jp/','3543','JP',NULL,NULL);
 INSERT INTO companies VALUES('ad_lightning','Ad Lightning','Custom-built to give Publishers & Ad Platforms the tools they need to find bad ads, along with the data and processes to remove them.','https://www.adlightning.com/privacy','https://www.adlightning.com/','5304','US','support@adlightning.com',NULL);
@@ -104,6 +103,7 @@ INSERT INTO companies VALUES('adbooth_media_group','adbooth Media Group','"adboo
 INSERT INTO companies VALUES('adbox','AdBox','Adbox is a digital sales house in Latvia.','https://www.adbox.lv/','https://www.adbox.lv/','3638','LV','info@adbox.lv',NULL);
 INSERT INTO companies VALUES('adbrain','Adbrain','The Trade Desk, Inc. is an American multinational technology company that specializes in real-time programmatic marketing automation technologies, products, and services, designed to personalize digital content delivery to users.','http://www.adbrain.com/legals/privacy-policy','http://www.adbrain.com/','3432','US','privacy@adbrain.com',NULL);
 INSERT INTO companies VALUES('adbull','AdBull','AdBull provides a contextual-based cursor advertising service. AdBull conducts a semantic page analysis to determine the real-time context of each page and delivers a relevant ad directly to the user''s cursor.','https://adbull.me/pages/privacy','https://adbull.me/','985','US','info@adbull.com',NULL);
+INSERT INTO companies VALUES('adc_media','ad:C media','"The focus of ad:C media is 100% Digital Display Advertising with a strong emphasize on generating sales for the advertisers.ad:C media works like a media agency: We analyze the target groups of advertisers and optimize the media planning in order to reach the best results."','http://www.adcmedia.de/en/datenschutz/','http://www.adcmedia.de/en/','2315',NULL,'info@adcmedia.de',NULL);
 INSERT INTO companies VALUES('adcash','Adcash','"A leading international performance-based advertising network, Adcash delivers high quality results for some of the world’s foremost advertisers across a premium network of 30000 publishers in over 70 countries."','https://www.adcash.com/legal-info/','https://www.adcash.com/','1946','US',NULL,NULL);
 INSERT INTO companies VALUES('adchakra','AdChakra','Adchakra is one of the leading cross-channel digital advertising networks of the country.We have an expertise of leveraging the digital landscape for brands and businesses to reach their marketing goals. We are a family of some 60 odd digitally obsessed people spread across Gurgaon, Mumbai and Bangalore. We are experts in our field and combine creativity, strategy, technology and analytics to launch impactful campaigns for the brands that we work for. We are just 8 years old and proudly boast of winning the ‘Deloitte Fast Technology India’ Award for 2010 & 2011 within the first four years of inception.The four pillars of our strength which we follow religiously are – Service Excellence, Innovation & Adaptability, Passion and Result Driven.','https://internals.ghostery.com/companies/companies/4632-AdChakra','http://adchakra.com/','4632',NULL,'contact@perceptknorigin.com',NULL);
 INSERT INTO companies VALUES('adcito','Adcito','"Adcito is an online advertising partner that helps publishers grow their revenues and website value. We accomplish this by providing a wide range of advertising solutions and tools backed by our drive to help publishers exceed their goals."','https://adcitomedia.com/privacy.html','https://adcitomedia.com/','2231',NULL,'support@adcitomedia.com',NULL);
@@ -289,6 +289,7 @@ INSERT INTO companies VALUES('affiz_cpm','Affiz CPM','AFFIZ offers premium servi
 INSERT INTO companies VALUES('afftrack','Afftrack','In use by several large affiliate networks since 2009, AffTrack has evolved into more than just a "tracking system". AffTrack provides you the tools necessary to take your company to the next level. From Prospecting Clients to Tracking to Billing, AffTrack has you covered.','http://www.afftrack.com/','http://www.afftrack.com/','4502',NULL,'support@afftrack.com',NULL);
 INSERT INTO companies VALUES('afilio','Afilio','Focada em marketing de performance, a Afilio foi criada em 2008, e oferece a seus clientes, agências e anunciantes, melhores resultados na web e no mobile, seja em leads, vendas ou exposição da marca.Com atuação no mercado nacional e internacional, possui na sua rede cerca de 90% das maiores operações de e-commerce do Brasil e mais de 50 mil sites cadastrados.','https://afilio.com.br/','https://afilio.com.br/','4509',NULL,'contato@afil.io',NULL);
 INSERT INTO companies VALUES('afs_analytics','DataSense','DataSense is the company behined AFS Analytics, a real-time web analytics solution.','https://www.afsanalytics.com/privacy.html','https://www.afsanalytics.com/','4106','FR',NULL,NULL);
+INSERT INTO companies VALUES('aftership','AfterShip','AfterShip is a Hong Kong startup company offering shipment tracking through SaaS model.','https://www.aftership.com/legal/privacy','https://www.aftership.com/','','HK','privacy@aftership.com',NULL);
 INSERT INTO companies VALUES('aftonbladet','Aftonbladet','"Aftonbladet is a Swedish tabloid founded by Lars Johan Hierta in 1830 during the modernization of Sweden. It is one of the larger daily newspapers in the Nordic countries."','http://annonswebb.aftonbladet.se/policy.html','http://annonswebb.aftonbladet.se/','2808',NULL,NULL,NULL);
 INSERT INTO companies VALUES('agava','AGAVA','"Agava company among the five largest hosting providers in Russia."','http://www.agava.ru','http://www.agava.ru','1563','RU','support@agava.com',NULL);
 INSERT INTO companies VALUES('agilone','AgilOne','"Based on a data-scientist approach to marketing, AgilOne processes [...] volumes of customer data and recommends what immediate actions to take to increase revenue."','http://www.agilone.com/privacy-policy-2/','http://www.agilone.com/','2610',NULL,'info@agilone.com',NULL);
@@ -1491,6 +1492,7 @@ INSERT INTO companies VALUES('olark','Olark','Olark provides offers a live chat 
 INSERT INTO companies VALUES('ometria','Ometria','"Tailored to the needs of the online retailer, the Ometria dashboard has been designed by ecommerce specialists. Product and customer centric, it pulls out just the data retailers need to be able to grow their business."','https://www.ometria.com/privacy-policy','http://www.ometria.com/','2623',NULL,'info@ometria.com',NULL);
 INSERT INTO companies VALUES('omniconvert','Omniconvert','We help data-driven marketers around the world to understand, segment, convert and retain customers. Omniconvert helps you turn one-time buyers into lifetime customers.','https://www.omniconvert.com/privacy','https://www.omniconvert.com/','5369','RO',NULL,NULL);
 INSERT INTO companies VALUES('oneall','Oneall','OneAll offers web-delivered tools and a powerful API to simplify the integration of 30+ social networks into business and personal websites.','http://www.oneall.com/company/privacy-policy/','http://www.oneall.com/','5115',NULL,NULL,NULL);
+INSERT INTO companies VALUES('onecommerce','OneCommerce','OneCommerce offers solutions that elevate your eCommerce business by increasing traffic, maximizing conversion rate and generating much better customer lifetime value.','https://onecommerce.io/privacy-policy/','https://onecommerce.io/','','VN','contact@onecommerce.io',NULL);
 INSERT INTO companies VALUES('onefeed','Onefeed','"Onefeed is a leading provider of management suites for comparison shopping marketing, competitor analysis, search engine marketing and data feed optimisation." Onefeed is owned by Webcore Limited.','https://www.onefeed.co.uk/privacy-policy/','http://www.onefeed.co.uk','2597',NULL,'privacy@onefeed.co.uk',NULL);
 INSERT INTO companies VALUES('onesignal','OneSignal','Our mission is to become the ubiquitous platform for all mobile and web notification messages that apps send to users, and we''re well on our way. Our easy-to-use developer SDKs empower developers and marketers to deliver effective push notifications to their users on all smartphone platforms.Our stack includes Ruby, Rails, Rspec, Coffeescript, PostgreSQL, and Redis. Our backend systems currently send tens of millions of notifications per day and process upwards of 400,000 API requests per minute.','https://onesignal.com/privacy_policy','https://onesignal.com/','4304','US','privacy@OneSignal.com',NULL);
 INSERT INTO companies VALUES('onesoon','OneSoon Ltd',NULL,'https://www.adalyser.com/privacy','http://www.adalyser.com','5370',NULL,NULL,NULL);
@@ -2839,6 +2841,7 @@ INSERT INTO tracker_domains VALUES('afftrack','pml.afftrack.com',NULL);
 INSERT INTO tracker_domains VALUES('afgr2.com','afgr2.com',NULL);
 INSERT INTO tracker_domains VALUES('afilio','v2.afilio.com.br',NULL);
 INSERT INTO tracker_domains VALUES('afs_analystics','afsanalytics.com',NULL);
+INSERT INTO tracker_domains VALUES('aftership_email','www.automizely-analytics.com',NULL);
 INSERT INTO tracker_domains VALUES('aftonbladet_ads','ads.aftonbladet.se',NULL);
 INSERT INTO tracker_domains VALUES('aftv-serving.bid','aftv-serving.bid',NULL);
 INSERT INTO tracker_domains VALUES('aggregate_knowledge','agkn.com',NULL);
@@ -4179,6 +4182,7 @@ INSERT INTO tracker_domains VALUES('google_fonts','fonts.googleapis.com',NULL);
 INSERT INTO tracker_domains VALUES('google_photos','ggpht.com',NULL);
 INSERT INTO tracker_domains VALUES('google_recaptcha','recaptcha.net',NULL);
 INSERT INTO tracker_domains VALUES('google_servers','1e100cdn.net',NULL);
+INSERT INTO tracker_domains VALUES('google_signals','analytics.google.com',NULL);
 INSERT INTO tracker_domains VALUES('google_syndication','googlesyndication.com',NULL);
 INSERT INTO tracker_domains VALUES('google_tag_manager','googletagmanager.com',NULL);
 INSERT INTO tracker_domains VALUES('google_tag_manager','googletagservices.com',NULL);
@@ -4281,6 +4285,7 @@ INSERT INTO tracker_domains VALUES('hooklogic','hlserve.com',NULL);
 INSERT INTO tracker_domains VALUES('hop-cube','apiae.hopscore.com',NULL);
 INSERT INTO tracker_domains VALUES('hotdogsandads.com','hotdogsandads.com',NULL);
 INSERT INTO tracker_domains VALUES('hotjar','hotjar.com',NULL);
+INSERT INTO tracker_domains VALUES('hotjar','hotjar.io',NULL);
 INSERT INTO tracker_domains VALUES('hotlog.ru','hotlog.ru',NULL);
 INSERT INTO tracker_domains VALUES('hotwords','hotwords.com',NULL);
 INSERT INTO tracker_domains VALUES('hotwords','hotwords.es',NULL);
@@ -5900,6 +5905,8 @@ INSERT INTO tracker_domains VALUES('social_amp','socialamp.com',NULL);
 INSERT INTO tracker_domains VALUES('social_annex','socialannex.com',NULL);
 INSERT INTO tracker_domains VALUES('social_miner','soclminer.com.br',NULL);
 INSERT INTO tracker_domains VALUES('socialbeat','duu8lzqdm8tsz.cloudfront.net',NULL);
+INSERT INTO tracker_domains VALUES('socialhead_socialwidget','socialhead.io',NULL);
+INSERT INTO tracker_domains VALUES('socialhead_socialwidget','widget-api.socialhead.io',NULL);
 INSERT INTO tracker_domains VALUES('socialrms','ratevoice.com',NULL);
 INSERT INTO tracker_domains VALUES('sociaplus.com','sociaplus.com',NULL);
 INSERT INTO tracker_domains VALUES('sociomantic','sociomantic.com',NULL);
@@ -6848,7 +6855,7 @@ INSERT INTO trackers VALUES('adbrain','Adbrain',13,'https://www.adbrain.com/','a
 INSERT INTO trackers VALUES('adbrite','AdBrite',1,'http://www.adbrite.com/','centro','73',NULL,NULL);
 INSERT INTO trackers VALUES('adbull','AdBull',1,'http://www.adbull.com/','adbull','634',NULL,NULL);
 INSERT INTO trackers VALUES('adbutler','AdButler',1,'https://www.adbutler.com/d','sparklit_networks','863',NULL,NULL);
-INSERT INTO trackers VALUES('adc_media','ad:C media',1,'http://www.adcmedia.de/en/','ad:c_media','1367',NULL,NULL);
+INSERT INTO trackers VALUES('adc_media','ad:C media',1,'http://www.adcmedia.de/en/','adc_media','1367',NULL,NULL);
 INSERT INTO trackers VALUES('adcash','Adcash',1,'http://www.adcash.com','adcash','1120',NULL,NULL);
 INSERT INTO trackers VALUES('adchakra','AdChakra',13,NULL,'adchakra','2705',NULL,NULL);
 INSERT INTO trackers VALUES('adchina','AdChina',1,'http://www.adchina.com/','alibaba','1896',NULL,NULL);
@@ -7094,6 +7101,7 @@ INSERT INTO trackers VALUES('afftrack','Afftrack',13,NULL,'afftrack','2634',NULL
 INSERT INTO trackers VALUES('afgr2.com','afgr2.com',12,NULL,NULL,'3338',NULL,NULL);
 INSERT INTO trackers VALUES('afilio','Afilio',13,NULL,'afilio','2647',NULL,NULL);
 INSERT INTO trackers VALUES('afs_analystics','AFS Analystics',13,NULL,'afs_analytics','2393',NULL,NULL);
+INSERT INTO trackers VALUES('aftership_email','AfterShip Email (formerly Automizely)',13,'https://www.aftership.com/email','aftership','',NULL,NULL);
 INSERT INTO trackers VALUES('aftonbladet_ads','Aftonbladet Ads',1,'http://annonswebb.aftonbladet.se/','aftonbladet','1749',NULL,NULL);
 INSERT INTO trackers VALUES('aftv-serving.bid','aftv-serving.bid',1,NULL,NULL,'3339',NULL,NULL);
 INSERT INTO trackers VALUES('aggregate_knowledge','Aggregate Knowledge',1,'http://www.aggregateknowledge.com/','neustar','400',NULL,NULL);
@@ -7959,7 +7967,7 @@ INSERT INTO trackers VALUES('forcetrac','ForceTrac',6,'http://www.forcetrac.com/
 INSERT INTO trackers VALUES('forensiq','Forensiq',1,'https://www.cpadetective.com/','impact','1380',NULL,NULL);
 INSERT INTO trackers VALUES('foresee','ForeSee',8,'https://www.foresee.com/','foresee_results','265',NULL,NULL);
 INSERT INTO trackers VALUES('formisimo','Formisimo',1,NULL,'formisimo','3146',NULL,NULL);
-INSERT INTO trackers VALUES('forter','Forter',15,'https://www.forter.com/','forter','3200',NULL,NULL);
+INSERT INTO trackers VALUES('forter','Forter',8,'https://www.forter.com/','forter','3200',NULL,NULL);
 INSERT INTO trackers VALUES('fortlachanhecksof.info','fortlachanhecksof.info',16,NULL,NULL,'3556',NULL,NULL);
 INSERT INTO trackers VALUES('foursquare_widget','Foursquare Widget',1,'https://foursquare.com/','foursquare','1041',NULL,NULL);
 INSERT INTO trackers VALUES('fout.jp','FreakOut',1,'https://www.fout.co.jp/','freakout','685',NULL,NULL);
@@ -8077,11 +8085,12 @@ INSERT INTO trackers VALUES('google_photos','Google Photos',3,'https://photos.go
 INSERT INTO trackers VALUES('google_pingback','Google Pingback',1,NULL,'google','2853',NULL,'google_syndication');
 INSERT INTO trackers VALUES('google_plus','Google+ Platform',14,'http://www.google.com/+1/button/','google','615',NULL,'google');
 INSERT INTO trackers VALUES('google_publisher_tags','Google Publisher Tags',13,NULL,'google','2453',NULL,'google_tag_manager');
-INSERT INTO trackers VALUES('google_recaptcha','Google Recaptcha',8,NULL,'google','',NULL,NULL);
+INSERT INTO trackers VALUES('google_recaptcha','Google Recaptcha',8,'https://www.google.com/recaptcha/about/','google','',NULL,NULL);
 INSERT INTO trackers VALUES('google_remarketing','Google Dynamic Remarketing',1,'https://adwords.google.com/','google','2160',NULL,'doubleclick');
 INSERT INTO trackers VALUES('google_safeframe','Google Safeframe',1,NULL,'google','2841',NULL,'google_syndication');
 INSERT INTO trackers VALUES('google_servers','Google Servers',11,'https://support.google.com/faqs/answer/174717?hl=en','google','3583',NULL,NULL);
 INSERT INTO trackers VALUES('google_shopping_reviews','Google Shopping Reviews',6,NULL,'google','2969',NULL,'google');
+INSERT INTO trackers VALUES('google_signals','Google Signals',1,'https://support.google.com/analytics/answer/9445345?hl=en#zippy=%2Cin-this-article','google','',NULL,NULL);
 INSERT INTO trackers VALUES('google_syndication','Google Syndication',1,NULL,'google','2277',NULL,NULL);
 INSERT INTO trackers VALUES('google_tag_manager','Google Tag Manager',8,'https://marketingplatform.google.com/about/tag-manager/','google','1283',NULL,NULL);
 INSERT INTO trackers VALUES('google_translate','Google Translate',6,'https://translate.google.com/manager','google','2184',NULL,NULL);
@@ -8829,7 +8838,7 @@ INSERT INTO trackers VALUES('opinionbar','OpinionBar',6,'http://www.metrixlab.co
 INSERT INTO trackers VALUES('oplytic','Oplytic',13,NULL,'oplytic','2281',NULL,NULL);
 INSERT INTO trackers VALUES('opta.net','Opta',13,'http://www.optasports.de/','opta_sports','3189',NULL,NULL);
 INSERT INTO trackers VALUES('optaim','OptAim',1,'http://optaim.com/','optaim','1901',NULL,NULL);
-INSERT INTO trackers VALUES('optanaon','Optanaon by OneTrust',5,'https://www.cookielaw.org/','onetrust','3742',NULL,NULL);
+INSERT INTO trackers VALUES('optanaon','CookieLaw by OneTrust (formerly Optanaon)',5,'https://www.cookielaw.org/','onetrust','3742',NULL,NULL);
 INSERT INTO trackers VALUES('optify','Optify',1,'http://www.optify.net','optify','429',NULL,NULL);
 INSERT INTO trackers VALUES('optimatic','Optimatic',2,NULL,'optimatic','2360',NULL,NULL);
 INSERT INTO trackers VALUES('optimax_media_delivery','Optimax Media Delivery',1,'http://optmd.com/','optimax_media_delivery','723',NULL,NULL);
@@ -9361,6 +9370,7 @@ INSERT INTO trackers VALUES('social_amp','Social Amp',1,'http://www.merkleinc.co
 INSERT INTO trackers VALUES('social_annex','Social Annex',1,'http://www.socialannex.com','social_annex','1162',NULL,NULL);
 INSERT INTO trackers VALUES('social_miner','Social Miner',14,'https://socialminer.com/','social_miner','2760',NULL,NULL);
 INSERT INTO trackers VALUES('socialbeat','socialbeat',1,NULL,'socialbeat','3140',NULL,NULL);
+INSERT INTO trackers VALUES('socialhead_socialwidget','Socialhead Socialwidget',14,'https://socialhead.io/','onecommerce','',NULL,NULL);
 INSERT INTO trackers VALUES('socialrms','SocialRMS',14,'http://socialinterface.com/socialrms/','socialinterface','824',NULL,NULL);
 INSERT INTO trackers VALUES('sociaplus.com','SociaPlus',13,'https://sociaplus.com/',NULL,'3861',NULL,NULL);
 INSERT INTO trackers VALUES('sociomantic','Sociomantic',1,'http://www.sociomantic.com/','sociomantic_labs_gmbh','849',NULL,NULL);
