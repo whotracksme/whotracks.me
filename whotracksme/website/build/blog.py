@@ -17,6 +17,7 @@ META_TAGS = [
     "date",
     "tags",
     "header_img",
+    "redirect_url",
 ]
 
 def parse_blogpost(filepath):
@@ -39,9 +40,14 @@ def parse_blogpost(filepath):
             print(f'WARN: {filepath}: "description" not defined; falling back to "subtitle")')
             meta["description"] = meta.get("subtitle", "")
 
+        filename = filepath.split("/")[-1].replace(".md", "")
+        # Note: uncomment to redirect all blogs by their filename
+        # if "redirect_url" not in meta:
+        #     meta["redirect_url"] = f'https://www.ghostery.com/blog/{filename}'
         return {
-            "filename": filepath.split("/")[-1].replace(".md", ""),
+            "filename": filename,
             "title": meta["title"],
+            "redirect_url": meta.get("redirect_url", ""),
             "subtitle": meta.get("subtitle", ""),
             "description": meta.get("description", ""),
             "author": meta.get("author", "").capitalize(),

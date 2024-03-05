@@ -2,6 +2,11 @@
 {% block title %}
     <title>Blog | {{blog_post.title}}</title>
     <meta name="description" content="{{ blog_post.description }}">
+
+    {% if blog_post.redirect_url %}
+        <meta http-equiv="refresh" content="0; url={{ blog_post.redirect_url }}">
+        <link rel="canonical" href="{{ blog_post.redirect_url }}" />
+    {% endif %}
 {% endblock %}
 
 {% block og_params %}
