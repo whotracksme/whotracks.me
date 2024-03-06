@@ -7,6 +7,7 @@ publish: True
 date: 2017-07-22
 tags: primer, tracking
 header_img: blog/blog-trackers.jpg
+redirect_url: https://www.ghostery.com/blog/what-are-trackers
 +++
 
 
