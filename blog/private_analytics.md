@@ -6,6 +6,7 @@ publish: True
 date: 2018-05-03
 tags: analytics, privacy-by-design
 header_img: blog/analytics/analytics.png
+redirect_url: https://www.ghostery.com/blog/private-analytics
 +++
 
 Analytics are one of the most common use-cases on the web. You want to know how many people are
