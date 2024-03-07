@@ -6,6 +6,7 @@ publish: True
 date: 2017-11-07
 tags: tracker-free, lightweight
 header_img: blog/tracking_and_ux/ux_header.png
+redirect_url: https://www.ghostery.com/blog/tracking-and-ux
 +++
 
 
