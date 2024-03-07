@@ -7,6 +7,7 @@ publish: True
 date: 2019-02-15
 tags: blog, adblocker, performance
 header_img: blog/adblocker-perf-study.jpg
+redirect_url: https://www.ghostery.com/blog/adblockers-performance-study
 +++
 
 _In this study, we show_
