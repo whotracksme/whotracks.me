@@ -123,4 +123,4 @@ largest increase in the average number of trackers per page load was measured in
 
 
 _NB: The code used to generate the data and plots for this post is available in
-[Jupyter Notebook](https://nbviewer.jupyter.org/github/ghostery/whotracks.meblob/master/contrib/wtm_may_update.ipynb)._
+[Jupyter Notebook](https://nbviewer.jupyter.org/github/ghostery/whotracks.me/blob/master/contrib/wtm_may_update.ipynb)._
