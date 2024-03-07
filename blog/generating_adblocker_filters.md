@@ -6,6 +6,7 @@ publish: True
 date: 2017-11-20
 tags: privacy, tracking, adblocking
 header_img: blog/blog-generate-adb-filters.jpg
+redirect_url: https://www.ghostery.com/blog/generating-adblocker-filters
 +++
 
 *TL;DR*  In this post we see how to:
