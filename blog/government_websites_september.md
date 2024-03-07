@@ -6,6 +6,7 @@ publish: True
 date: 2018-10-10
 tags: trackers, government
 header_img: blog/gov_trackers/gov.png
+redirect_url: https://www.ghostery.com/blog/government-websites-trackers
 +++
 
 
