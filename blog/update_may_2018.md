@@ -6,6 +6,7 @@ publish: True
 date: 2018-05-11
 tags: blog, update
 header_img: blog/update_may18/release.png
+redirect_url: https://www.ghostery.com/blog/update-may-2018
 +++
 
 _This post is one of our regular monthly blogs accompanying an update to the data
