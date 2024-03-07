@@ -6,6 +6,7 @@ publish: True
 date: 2019-06-18
 tags: blog, extensions, privacy, chrome
 header_img: blog/adblocker-perf-study.jpg
+redirect_url: https://www.ghostery.com/blog/manifest-v3-privacy
 +++
 
 The Chrome team's proposed changes to browser extension APIs, known as Manifest v3, have proven controversial due to their expected impact on adblockers and privacy extensions. Of particular concern are the changes to the `webRequest` API, whose blocking capabilities are being replaced by the `declarativeNetRequest` API. In repeated posts the Chrome team claim that these changes are required to improve the *performance*, *security* and *privacy* of extensions. In a [previous post](./adblockers_performance_study.html) we showed that, for the most popular adblocker engines, performance is already very good, and these changes are unlikely to improve much. In this post we assess the privacy argument for the changes to request handling, if the proposed changes do improve privacy, and how Ghostery specifically will be affected. We find that:
