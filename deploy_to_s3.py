@@ -2,7 +2,7 @@
 Module to deploy WhoTracksMe site to an s3 bucket.
 
 Usage:
-    deploy_to_s3 <bucket_name> [<prefix>] [--production] [--no-overrides] [--skip-old-years] [--fast-website-update] [--list-outdated] [--verbose] [--dry-run] [--debug]
+    deploy_to_s3 <bucket_name> [<prefix>] [--production] [--no-overrides] [--skip-old-years] [--fast-website-update] [--update-api-only] [--list-outdated] [--verbose] [--dry-run] [--debug]
 
 Options:
     -h, --help                  Show help message.
@@ -91,11 +91,16 @@ if __name__ == '__main__':
     no_overrides = args['--no-overrides'] or False
     skip_old_years = args['--skip-old-years'] or False
     fast_website_update = args['--fast-website-update'] or False
+    update_api_only = args['--update-api-only'] or False
     list_outdated = args['--list-outdated'] or False
     verbose = args['--verbose'] or False
     dry_run = args['--dry-run'] or False
     debug_mode = args['--debug'] or False
     site_dir = './_site'
+
+    if fast_website_update and update_api_only:
+        print('--fast-website-update and --update-api-only cannot be used together')
+        exit(1)
 
     if bucket_prefix[0] != '/':
         bucket_prefix = '/' + bucket_prefix
@@ -136,6 +141,9 @@ if __name__ == '__main__':
             print('put', local_path, s3_path)
             with open(local_path, 'rb') as fp:
                 should_update = True
+                if update_api_only and not local_path.startswith(f'{site_dir}/api/'):
+                    print(f'Skipping non api file {s3_path} (--update-api-only)')
+                    should_update = False
                 if fast_website_update:
                     directories_to_skip = [
                         f'{site_dir}/trackers/',
