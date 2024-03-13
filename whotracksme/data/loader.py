@@ -366,26 +366,30 @@ class Trackers(SQLDataLoader):
             n: number of similar trackers to find
 
         Returns:
-            top_n: list of similar trackers, each having an id
-                   and the company_id
+            top_n: list of similar trackers, each having an id, the company_id,
+                   the category, and its reach
         """
         tracker = self.get_tracker(id)
+        category_id = tracker['overview']['category_id']
+        category = tracker['category']
 
         cursor = self.db.connection.cursor()
         cursor.execute(f'''
-            SELECT tracker, company_id
+            SELECT tracker, company_id, reach
             FROM trackers_data
             JOIN trackers ON trackers.id = trackers_data.tracker
             WHERE month = ? AND country = ?
                 AND category_id = ?
                 AND tracker != ?
             ORDER BY reach DESC
-            LIMIT {n}
-        ''', (self.last_month, self.region, tracker['overview']['category_id'], id))
+            LIMIT ?
+        ''', (self.last_month, self.region, category_id, id, n))
         return [{
-            'id': t,
-            'company_id': cid
-        } for t, cid in cursor.fetchall()]
+            'id': tracker,
+            'company_id': company_id,
+            'category': category,
+            'reach': reach,
+        } for tracker, company_id, reach in cursor.fetchall()]
 
     def get_domains(self, id):
         try:
