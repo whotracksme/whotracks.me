@@ -33,7 +33,8 @@ def tag_cloud_data(tracker_id, data):
         sites_trackers_data.site,
         tracker_proportion AS frequency,
         site_proportion AS site_freq,
-        sites_data.category AS category
+        sites_data.category AS category,
+        sites_data.trackers AS trackers
     FROM sites_trackers_data
     LEFT JOIN sites_data ON sites_trackers_data.site = sites_data.site AND
         sites_trackers_data.month = sites_data.month AND
@@ -45,7 +46,7 @@ def tag_cloud_data(tracker_id, data):
     ''', (data.trackers.last_month, data.trackers.region, tracker_id))
 
     def site_summary(row):
-        site, frequency, site_freq, category = row
+        site, frequency, site_freq, category, trackers = row
         return {
             'site': site,
             'frequency': frequency,
@@ -53,6 +54,7 @@ def tag_cloud_data(tracker_id, data):
             'category': category or '',
             'url': data.url_for('site', site, path_to_root='..') if category is not None else None,
             'site_cat': site_category_colors.get(category, '#000'),
+            'trackers': trackers,
         }
 
     all_sites = list(map(site_summary, cursor.fetchall()))
