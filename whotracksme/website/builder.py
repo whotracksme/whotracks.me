@@ -41,6 +41,9 @@ from whotracksme.website.build.explorer import build_explorer
 
 from whotracksme.website.utils import print_progress
 
+from whotracksme.website.api.meta import update_api_meta_data
+
+
 DATA_DIRECTORY = "data"
 STATIC_PATH = "static"
 
@@ -235,4 +238,5 @@ class Builder:
             for future in futures:
                 future.result()
 
+            update_api_meta_data()
             print('Done')
