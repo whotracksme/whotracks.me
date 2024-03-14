@@ -10,6 +10,7 @@ Options:
     --no-overrides              Skip files that already exist on S3 [Default: false]
     --skip-old-years            Do not upload data files of the previous years [Default: false]
     --fast-website-update       Fast mode if you want to update static resources (e.g. blog post, updating privacy policy) without uploading all data files [Default: false]
+    --update-api-only           Skip all files except for the API files [Default: false]
     --list-outdated             List all files which are present on S3, yet came from an older release [Default: false]
     --verbose                   Enable debug logs [Default: false]
     --dry-run                   Do not perform modifications [Default: false]
