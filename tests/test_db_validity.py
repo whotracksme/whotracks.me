@@ -34,7 +34,10 @@ class ValidateTrackerDatabase(unittest.TestCase):
         cur = self.conn.cursor()
         cur.execute('SELECT COUNT(DISTINCT tracker) FROM tracker_domains')
         domain_tracker_count = cur.fetchone()[0]
-        cur.execute('SELECT COUNT(DISTINCT id) FROM trackers WHERE alias is NULL')
+
+        # Only look at tracker groups, ignoring the ones that are (non-trivial) aliases.
+        # Ignore self-referring aliases and treat them like non-aliased entries.
+        cur.execute('SELECT COUNT(DISTINCT id) FROM trackers WHERE alias is NULL or (id = alias)')
         tracker_count = cur.fetchone()[0]
         self.assertEqual(domain_tracker_count, tracker_count)
 
