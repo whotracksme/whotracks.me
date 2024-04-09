@@ -17,17 +17,27 @@ from whotracksme.website.templates import (
 )
 from whotracksme.website.plotting.plots import profile_doughnut
 from whotracksme.website.plotting.sankey import sankey_plot
-
+from collections import defaultdict
 
 def build_website_list(data):
     header_numbers = data.sites.summary_stats()
-
     sorted_websites = data.sites.sort_by(metric='popularity', descending=True)
     sorted_websites_cat = data.sites.sort_by(metric='category', descending=True)
 
+    # Include the number of unique trackers ("unique_activities") in the exported API.
+    activities_per_site = defaultdict(set)
+    for _, row in data.sites_trackers.iter():
+        activities_per_site[row.site].add(row.tracker)
+    def add_activities(site_data):
+        ext_site_data = site_data._asdict()
+        ext_site_data['unique_activities'] = len(activities_per_site[site_data.site])
+        return ext_site_data
+    ext_sorted_websites = [add_activities(i) for i in sorted_websites]
+    ext_sorted_websites_cat = [add_activities(i) for i in sorted_websites_cat]
+
     write_json('_site/api/v2/websites.json',
-        website_list=sorted_websites,
-        website_list_cat=sorted_websites_cat,
+        website_list=ext_sorted_websites,
+        website_list_cat=ext_sorted_websites_cat,
         header_numbers=header_numbers
     )
 
