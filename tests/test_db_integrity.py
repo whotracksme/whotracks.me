@@ -14,11 +14,17 @@ class TestDbIntegrity(unittest.TestCase):
         where tracker is NULL''').fetchall()
         self.assertEqual(domainless_trackers, [])
 
-    def test_companies_have_trackers(self):
-        childless_companies = self.conn.execute('''select id FROM
-            (select companies.id, trackers.id AS tid from companies left join trackers on trackers.company_id = companies.id)
-        where tid is null''').fetchall()
-        self.assertEqual(childless_companies, [])
+    ## Disabled because TrackerDB has "archived" entries, which have no active patterns.
+    ## In principle, filtering the "archived" ones out would be safe; but it is neither
+    ## sufficent nor possible with only the trackerdb.sql file.
+    ## Overall, maintaining this requirement here does not seem to be worth the effort.
+    ## Instead, whotracks.me should be able to operate with organizations without pattern.
+    ##
+    # def test_companies_have_trackers(self):
+    #     childless_companies = self.conn.execute('''select id FROM
+    #         (select companies.id, trackers.id AS tid from companies left join trackers on trackers.company_id = companies.id)
+    #     where tid is null''').fetchall()
+    #     self.assertEqual(childless_companies, [])
 
 if __name__ == '__main__':
     unittest.main()
