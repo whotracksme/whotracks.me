@@ -1,5 +1,4 @@
-from jinja2 import Markup
-
+from markupsafe import Markup
 from whotracksme.website.plotting.companies import overview_bars
 from whotracksme.website.build.companies import company_reach
 from whotracksme.website.utils import print_progress, write_json

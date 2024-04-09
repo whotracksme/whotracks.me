@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from operator import itemgetter
-
-from jinja2 import Markup
+from markupsafe import Markup
 
 from whotracksme.data.loader import DataSource
 from whotracksme.website.utils import print_progress, write_json

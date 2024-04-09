@@ -6,7 +6,8 @@ import subprocess
 from datetime import date
 from pathlib import Path
 
-from jinja2 import Environment, FileSystemLoader, Markup
+from jinja2 import Environment, FileSystemLoader
+from markupsafe import Markup
 import markdown
 import sass
 

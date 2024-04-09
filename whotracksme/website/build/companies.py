@@ -1,6 +1,5 @@
-
 from collections import defaultdict
-from jinja2 import Markup
+from markupsafe import Markup
 
 from whotracksme.website.utils import print_progress, write_json
 from whotracksme.website.templates import (
