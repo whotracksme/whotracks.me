@@ -25,19 +25,37 @@
   <a href="https://www.ghostery.com" target="_blank" rel="noopener noreferrer">
     <img alt="powered by Ghostery" src="https://img.shields.io/badge/ghostery-powered-blue?logo=ghostery&style=flat-square">
   </a>
-  <a href="https://twitter.com/WhoTracks_me">
-    <img alt="Follow WhoTracks.Me on Twitter" src="https://img.shields.io/twitter/follow/WhoTracks_me.svg?logo=twitter&label=WhoTracks.Me&style=flat-square"></a>
   <a href="https://github.com/cliqz-oss/adblocker/blob/master/LICENSE">
     <img alt="License Badge" src="https://img.shields.io/github/license/ghostery/whotracks.me?style=flat-square"></a>
 </p>
-
----
 
 This repository contains:
 
 - data on trackers and websites as shown on [whotracks.me](https://whotracks.me/) (WTM)
 - database mapping tracker domains to companies
 - code to render the [whotracks.me](https://whotracks.me/) site
+
+---
+
+> :warning: **Upcoming changes**
+>
+> We are in the process of migrating the website to [ghostery.com/whotracksme](https://ghostery.com/whotracksme):
+> 
+> * https://www.ghostery.com/whotracksme
+> * https://www.ghostery.com/whotracksme/trackers
+> * https://www.ghostery.com/whotracksme/websites
+> * https://www.ghostery.com/whotracksme/explorer
+> 
+> The following documentation has not been updated yet and still points to the old website.
+> You can already try out the new website with the links above. If you have any feedback,
+> about missing functionality or if you spot inconsistencies, feel free to create a
+> [Github issue](https://github.com/whotracksme/whotracks.me/issues).
+> 
+> Monthly data dumps will not be affected by these changes. The licensing also remains unchanged.
+> 
+> For more information, see https://github.com/whotracksme/whotracks.me/issues/367
+
+---
 
 # Installation
 
