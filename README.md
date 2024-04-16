@@ -40,20 +40,30 @@ This repository contains:
 > :warning: **Upcoming changes**
 >
 > We are in the process of migrating the website to [ghostery.com/whotracksme](https://ghostery.com/whotracksme):
-> 
+>
 > * https://www.ghostery.com/whotracksme
 > * https://www.ghostery.com/whotracksme/trackers
 > * https://www.ghostery.com/whotracksme/websites
 > * https://www.ghostery.com/whotracksme/explorer
-> 
+>
 > The following documentation has not been updated yet and still points to the old website.
 > You can already try out the new website with the links above. If you have any feedback,
 > about missing functionality or if you spot inconsistencies, feel free to create a
 > [Github issue](https://github.com/whotracksme/whotracks.me/issues).
-> 
+>
 > Monthly data dumps will not be affected by these changes. The licensing also remains unchanged.
-> 
+>
 > For more information, see https://github.com/whotracksme/whotracks.me/issues/367
+>
+> For now, if you came from the Ghostery website and have question on the data itself
+> (e.g. how to download or looking for a technical documentation of the fields),
+> it is best to start here:
+>
+> https://github.com/whotracksme/whotracks.me/blob/master/whotracksme/data/Readme.md
+>
+> If it does not answer your questions, also feel free to create a
+> [Github issue](https://github.com/whotracksme/whotracks.me/issues).
+> It helps us to improve the missing parts of the documentation.
 
 ---
 
