@@ -22,7 +22,7 @@ hstspreload==2020.9.2
 httptools==0.5.0
 httpx==0.25.0
 hyperframe==5.2.0
-idna==2.10
+idna==3.7
 iniconfig==1.0.1
 ipython-genutils==0.2.0
 jeepney==0.4.3
