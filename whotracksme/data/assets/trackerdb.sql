@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202404091250/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202405020958/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -762,7 +762,7 @@ INSERT INTO companies VALUES('dogannet','Dogannet',NULL,NULL,'http://s.dogannet.
 INSERT INTO companies VALUES('doorbell.io','Doorbell.io',NULL,'https://doorbell.io/privacy','https://doorbell.io/','4788',NULL,NULL,NULL);
 INSERT INTO companies VALUES('dotandmedia','DotAndMedia','"We develop ad serving technology, mobile applications and online systems to support...digital advertising selling and management activities."',NULL,'http://www.dotandmedia.com','2856',NULL,'info@dotandmedia.com',NULL);
 INSERT INTO companies VALUES('dotdigital_group','dotDigital Group','"dotDigital Group Plc has grown over the past 12 years to become a leader in the provision of intuitive Software as a service (‘SaaS’) products for digital marketing professionals; including the Group’s email marketing platform, dotMailer and e-commerce offering, dotCommerce.  Dedicated to helping clients to grow their businesses online, dotDigital also provides search marketing services (SEO & PPC), web design and build, digital strategy advice and managed services along with the newest addition – online survey tool, dotSurvey."','https://www.dotdigitalgroup.com/privacy-policy/','https://www.dotdigitalgroup.com/','1395','US','privacy@dotmailer.com',NULL);
-INSERT INTO companies VALUES('double.net','Double.net','"One of Sweden’s first affiliate marketing companies, we quickly recognized the huge potential in online marketing... We have ad contracts with tens of thousand Swedish publishers and can place ads on many of the largest Swedish websites."',NULL,'http://www.double.net/en/','1500','US',NULL,NULL);
+INSERT INTO companies VALUES('double.net','Double.net','"One of Sweden’s first affiliate marketing companies, we quickly recognized the huge potential in online marketing... We have ad contracts with tens of thousand Swedish publishers and can place ads on many of the largest Swedish websites."',NULL,'https://web.archive.org/web/20191216231937/https://double.net/en/','1500','US',NULL,replace('Announced on 28th Dec 2019 on their website (https://web.archive.org/web/20191228230054/https://double.net/en/):\n\nDouble.net has closed its affiliate network\n\nDear customers and visitors,\n\nDouble.net has for over 15 years been one of Sweden''s leading affiliate networks.\n\nAt the end of 2018, DoubleNet AB merged with its parent company Double AB, whose core business is beeing a consulting agency. After careful evaluation, the Double AB Board decided to discontinue the affiliate marketing service and only focus on its core business instead.\n\nWe now plan to pass on the affiliate network to new owners. For more information please contact us via DoubleCloud.com\n\nIt has been a honor to offer our affiliate services to our customers for over 15 years. We are very greatful for your support during all these years and wish you all the best with your continued performance-based marketing!','\n',char(10)));
 INSERT INTO companies VALUES('doublepimp','DoublePimp','DoublePimp is an adult advertising network focused on serving banner ads on adult publisher websites for advertisers.',NULL,'http://doublepimp.com/','57','US','n/a',NULL);
 INSERT INTO companies VALUES('doubleverify','DoubleVerify','DoubleVerify is a data quality verification company providing agencies, marketers, publishers and networks with real-time data auditing services to prevent duplication across audience segments.','https://www.doubleverify.com/privacy/','https://www.doubleverify.com/','58','US','policy@doubleverify.com',NULL);
 INSERT INTO companies VALUES('dratio','Dratio','"[Dratio] is China''s leading third-party Internet data services provider..."Translated by Google Translate',NULL,'http://www.dratio.com/','2894',NULL,'service@dratio.com',NULL);
@@ -3794,10 +3794,10 @@ INSERT INTO tracker_domains VALUES('dotmetrics.net','dotmetrics.net',NULL);
 INSERT INTO tracker_domains VALUES('dotomi','dotomi.com',NULL);
 INSERT INTO tracker_domains VALUES('dotomi','dtmc.com',NULL);
 INSERT INTO tracker_domains VALUES('dotomi','dtmpub.com',NULL);
-INSERT INTO tracker_domains VALUES('double.net','double.net',NULL);
 INSERT INTO tracker_domains VALUES('doubleclick','2mdn.net',NULL);
 INSERT INTO tracker_domains VALUES('doubleclick','doubleclick.net',NULL);
 INSERT INTO tracker_domains VALUES('doubleclick','invitemedia.com',NULL);
+INSERT INTO tracker_domains VALUES('doubleclick','adservice.google.com',NULL);
 INSERT INTO tracker_domains VALUES('doublepimp','doublepimp.com',NULL);
 INSERT INTO tracker_domains VALUES('doublepimp','doublepimpssl.com',NULL);
 INSERT INTO tracker_domains VALUES('doublepimp','redcourtside.com',NULL);
@@ -5861,6 +5861,7 @@ INSERT INTO tracker_domains VALUES('sharpspring','marketingautomation.services',
 INSERT INTO tracker_domains VALUES('sharpspring','sharpspring.com',NULL);
 INSERT INTO tracker_domains VALUES('sheego.de','sheego.de',NULL);
 INSERT INTO tracker_domains VALUES('sheerid','services.sheerid.com',NULL);
+INSERT INTO tracker_domains VALUES('shillahotel','logc.shilladfs.com',NULL);
 INSERT INTO tracker_domains VALUES('shinsegae','www.shinsegae.com',NULL);
 INSERT INTO tracker_domains VALUES('shinsegae_dutyfree','ssgdfs.com',NULL);
 INSERT INTO tracker_domains VALUES('shinsegae_dutyfree','applog.ssgdfs.com',NULL);
@@ -6022,6 +6023,7 @@ INSERT INTO tracker_domains VALUES('sortable','deployads.com',NULL);
 INSERT INTO tracker_domains VALUES('soundcloud','sndcdn.com',NULL);
 INSERT INTO tracker_domains VALUES('soundcloud','soundcloud.com',NULL);
 INSERT INTO tracker_domains VALUES('sourceknowledge_pixel','provenpixel.com',NULL);
+INSERT INTO tracker_domains VALUES('sourcepoint-cmp','privacy-mgmt.com',NULL);
 INSERT INTO tracker_domains VALUES('sourcepoint','decenthat.com',NULL);
 INSERT INTO tracker_domains VALUES('sourcepoint','summerhamster.com',NULL);
 INSERT INTO tracker_domains VALUES('sovrn','d3pkae9owd2lcf.cloudfront.net',NULL);
@@ -7880,7 +7882,6 @@ INSERT INTO trackers VALUES('dotandmedia','DotAndMedia',1,'http://www.dotandmedi
 INSERT INTO trackers VALUES('dotmailer','dotMailer',6,'https://www.dotdigitalgroup.com/','dotdigital_group','909',NULL,NULL);
 INSERT INTO trackers VALUES('dotmetrics.net','Dotmetrics',13,'https://dotmetrics.net/',NULL,'3516',NULL,NULL);
 INSERT INTO trackers VALUES('dotomi','Dotomi',1,'http://www.dotomi.com/','conversant','120',NULL,NULL);
-INSERT INTO trackers VALUES('double.net','Double.net',1,'http://double.net/en/','double.net','1005',NULL,NULL);
 INSERT INTO trackers VALUES('doubleclick','DoubleClick',1,'https://marketingplatform.google.com/about/enterprise/','google','41',NULL,NULL);
 INSERT INTO trackers VALUES('doubleclick_ad_buyer','DoubleClick Ad Exchange-Buyer',1,NULL,'google','2532',NULL,'google_adservices');
 INSERT INTO trackers VALUES('doubleclick_bid_manager','DoubleClick Bid Manager',1,'http://www.invitemedia.com','google','318',NULL,'doubleclick');
@@ -9414,6 +9415,7 @@ INSERT INTO trackers VALUES('sharethrough','ShareThrough',1,'https://www.shareth
 INSERT INTO trackers VALUES('sharpspring','Sharpspring',13,NULL,'sharpspring','2467',NULL,NULL);
 INSERT INTO trackers VALUES('sheego.de','sheego.de',11,NULL,NULL,'3841',NULL,NULL);
 INSERT INTO trackers VALUES('sheerid','SheerID',1,NULL,'sheerid','2415',NULL,NULL);
+INSERT INTO trackers VALUES('shillahotel','Hotel Shilla',13,'https://www.hotelshilla.net/','samsung','',NULL,NULL);
 INSERT INTO trackers VALUES('shinsegae','Shinsegae',13,'https://www.shinsegae.com/','shinsegae','',NULL,NULL);
 INSERT INTO trackers VALUES('shinsegae_dutyfree','Shinsegae Duty Free',13,'https://www.ssgdfs.com/kr/main/initMain','shinsegae','',NULL,NULL);
 INSERT INTO trackers VALUES('shinystat','ShinyStat',13,'https://www.shinystat.com/','shinystat','194',NULL,NULL);
@@ -9532,6 +9534,7 @@ INSERT INTO trackers VALUES('sophus3','Sophus3',1,'https://www.sophus3.com/','so
 INSERT INTO trackers VALUES('sortable','Sortable',1,'https://sortable.com/','sortable','3046',NULL,NULL);
 INSERT INTO trackers VALUES('soundcloud','SoundCloud',2,'https://soundcloud.com/','soundcloud','1068',NULL,NULL);
 INSERT INTO trackers VALUES('sourceknowledge_pixel','SourceKnowledge Pixel',1,'http://www.provenpixel.com/','sourceknowledge','1700',NULL,NULL);
+INSERT INTO trackers VALUES('sourcepoint-cmp','Sourcepoint CMP',5,'https://sourcepoint.com/cmp/','sourcepoint','',NULL,NULL);
 INSERT INTO trackers VALUES('sourcepoint','Sourcepoint',1,'https://www.sourcepoint.com/','sourcepoint','3262',NULL,NULL);
 INSERT INTO trackers VALUES('sovrn','sovrn',1,'https://www.sovrn.com/','sovrn','18',NULL,NULL);
 INSERT INTO trackers VALUES('sovrn_viewability_solutions','Sovrn Signal',1,'https://www.sovrn.com/publishers/signal/','sovrn','1763',NULL,NULL);
