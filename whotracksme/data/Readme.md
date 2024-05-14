@@ -2,16 +2,17 @@
 
 The data for the whotracks.me site is provided here as JSON files, with a SQL database containing tracker information. This document describes the format of the data provided in the `assets` directory.
 
+> Note: Beside the monthly data dump, there is also a separate project for the meta data. It is an open source project called [TrackerDB](https://github.com/ghostery/trackerdb).
+
 ## How to get the data
 
 You have two options to work with the raw data:
-1. Explore the raw data from last month through the web site
+1. Explore the raw data from last month [through the web site](https://www.ghostery.com/whotracksme/explorer)
 1. Download the data locally (including historic data)
 
 ### Use the Explorer on the whotracks.me website
 
-The last month can be directly accessed from website:
-https://whotracks.me/explorer.html
+The last month can be directly accessed from website at https://www.ghostery.com/whotracksme/explorer
 
 > Note: The meaning of the column in the explorer in explained in this document (see below).
 
@@ -43,30 +44,32 @@ aws s3 sync --no-sign-request s3://data.whotracks.me/ .
 
 ## Tracker database
 
-The tracker database is provided in the `assets/trackerdb.sql` file. This is a dump of a SQLite3 database containing the following tables:
+Generally, it is recommend to get the Tracker database directly from the upstream project: https://github.com/ghostery/trackerdb
+
+For consistency, a snapshot of the tracker database used to generate the monthly data set is also provided in the `assets/trackerdb.sql` file. This is a dump of a SQLite3 database containing the following tables:
 
  * `categories`: Categories for trackers (e.g. `advertising`, `social_media`).
  * `companies`: Metadata on companies: name, description, and various links.
  * `trackers`: Metadata on trackers: name, description, category, website and an optional link to a parent company.
  * `tracker_domains`: Table linking trackers to domain names.
 
-This SQL database links third-party domains to trackers, which are then linked to unique companies operating those trackers. This is similar to [Disconnect's Tracker List](https://github.com/disconnectme/disconnect-tracking-protection) and [webXray's Domain Owner List](https://github.com/timlib/webXray_Domain_Owner_List#webxray-domain-owner-list). These parties are already categorized accordingly within the WhoTracks.me datasets below.
-
 ## WhoTracks.me datasets
 
-WhoTracks.me datasets are provided monthly in the `assets//{month}/{country}/{file}.csv` format. A glimpse of the datasets is available in [Explorer](https://whotracks.me/explorer.html) section on the website.
+WhoTracks.me datasets are provided monthly in the `assets//{month}/{country}/{file}.csv` format. A glimpse of the datasets is available in [Explorer](https://www.ghostery.com/whotracksme/explorer) section on the website.
 
 ### Data collection
 
-Data was collected from May 2017 from users that used Cliqz browser extension. In Feb 2018, 70% of the data came from German users according to [this](https://whotracks.me/blog/update_feb_2018.html) blog post. Then in March 2018, users of Ghostery FireFox extension - and Ghostery extension available for other browsers (Safari, Chrome, Opera and Edge) from users that opted-in to *HumanWeb* data collection - were added to the dataset. This caused a slight decrease in the avg. no. of trackers in April 2018, since Ghostery users were blocking more trackers. This is explained in [this](https://whotracks.me/blog/where_is_the_data_from.html) and [this](https://whotracks.me/blog/update_apr_2018.html) blog posts.
+Nowadays, the data comes exclusively from users of the [Ghostery Extension](https://github.com/ghostery/ghostery-extension/). Precise user counts are difficult due to the nature of the data collection; but it is estimated to be in the order a few million devices per month, spread all around the world, but mostly in Europe and the US. The methodology is builds on the concept of k-Anonymity and is described in paper [Tracking the Trackers](https://0x65.dev/static/docs/studies/TrackingTheTrackers.pdf). The WhoTracks.me monthly data sets are derived from the same data that also powers the anti-tracking protection in Ghostery; it is also described in [this blog post](https://www.0x65.dev/blog/2019-12-19/blocking-tracking-without-blocking-trackers.html). The code can be found [here](https://github.com/whotracksme/webextension-packages/tree/main/packages/reporting/src/request).
 
-[This](https://whotracks.me/blog/update_apr_2018.html) blog post illustrates where the traffic came from in April 2018: Germany and USA being most representative.
+Before 2018, all traffic came from users of the Cliqz Browser and the Cliqz extension (now both discontinued). Around April 2018, Ghostery users started to contribute to the data set. This both increased the user base and made it more internation (Cliqz was mostly used in German speaking regions). Here are some historical information from the Cliqz side (to help understand data sets before 2020):
 
-[This](https://cliqz.com/en/magazine/government-websites-leak-data-to-google-co) blog post notes that WhoTracks.me does not collect data for pages with no trackers; in other words, collected data for all sites contains some number of third-parties and tracking.
+* Data was collected from May 2017 from users that used Cliqz browser extension. In Feb 2018, 70% of the data came from German users according to [this](https://web.archive.org/web/20240121094157/https://whotracks.me/blog/update_feb_2018.html) blog post. Then in March 2018, users of Ghostery Firefox extension - and Ghostery extension available for other browsers (Safari, Chrome, Opera and Edge) from users that opted-in to HumanWeb data collection - were added to the dataset. This caused a slight decrease in the avg. no. of trackers in April 2018, since Ghostery users were blocking more trackers. This is explained in [this](https://web.archive.org/web/20240430053538/https://whotracks.me/blog/where_is_the_data_from.html) and [this](https://web.archive.org/web/20240121094145/https://whotracks.me/blog/update_apr_2018.html) blog posts.
+* [This](https://web.archive.org/web/20240121094145/https://whotracks.me/blog/update_apr_2018.html) blog post illustrates where the traffic came from in April 2018: Germany and USA being most representative.
+* [This](https://cliqz.com/en/magazine/government-websites-leak-data-to-google-co) blog post notes that WhoTracks.me does not collect data for pages with no trackers; in other words, collected data for all sites contains some number of third-parties and tracking.
 
 ### Datasets
 
-There are 5 main datasets on - unlike 4 datasets available in [Explorer](https://whotracks.me/explorer.html) section on the website:
+There are five main datasets (unlike the four datasets available in the [explorer](https://www.ghostery.com/whotracksme/explorer) section on the website):
 
  * `sites.csv`: Stats for number of trackers seen on popular websites.
  * `site_trackers.csv`: Stats for each tracker on each site.
@@ -78,7 +81,7 @@ There are 5 main datasets on - unlike 4 datasets available in [Explorer](https:/
 
 ### Variable descriptions
 
-The data is created by aggregating data about page loads at several different levels. Therefore, all 5 above datasets share similar aggregated variables. The difference therefore, lies in the *perspective* of each dataset. Variable descriptions ("contexts" are added to variables for groupings) are given below:
+The data is created by aggregating data about page loads at several different levels. Therefore, all five above datasets share similar aggregated variables. The difference therefore, lies in the *perspective* of each dataset. Variable descriptions ("contexts" are added to variables for groupings) are given below:
 
 **General context**:
 
@@ -90,9 +93,9 @@ The data is created by aggregating data about page loads at several different le
  
  * `category` - site's category (in `sites.csv`). Descriptions of website categories (first-parties) are provided [here](https://arxiv.org/pdf/1804.08959v1.pdf#page=14) in Appendix A. String.
  
- * `tracker_category` - tracker's category (in `sites_trackers.csv`). Descriptions of tracker categories are provided [here](https://whotracks.me/blog/tracker_categories.html). String.
+ * `tracker_category` - tracker's category (in `sites_trackers.csv`). Descriptions of tracker categories are provided [here](https://github.com/ghostery/trackerdb/blob/main/docs/categories.md). String.
  
- * `popularity` - the relative amount of traffic compared to the most popular site (described [here](https://whotracks.me/blog/updating_our_tracking_prevalence_metrics.html)). Float between 0 and 1.
+ * `popularity` - the relative amount of traffic compared to the most popular site (described [here](https://web.archive.org/web/20240121094155/https://whotracks.me/blog/updating_our_tracking_prevalence_metrics.html)). Float between 0 and 1.
  
 **Utilised tracking context (stateful)** – generates more persistant tracking ID by trackers:
  
@@ -128,15 +131,15 @@ The data is created by aggregating data about page loads at several different le
  
 **Tracker's blocking context** – how often the tracker is affected by blocklist-based blockers:
  
- * `requests_failed` - average number of requests make to the tracker per page which do not succeed. In other words, avg. number of failed requests per page load (for comparison with `requests` to get an idea of how aggressive the blocking is). This is an approximate measure of blocking from external sources (i.e. adblocking extensions or firewalls). Measure [added](https://whotracks.me/blog/update_dec_2017.html) in Dec 2017. Positive float.
+ * `requests_failed` - average number of requests make to the tracker per page which do not succeed. In other words, avg. number of failed requests per page load (for comparison with `requests` to get an idea of how aggressive the blocking is). This is an approximate measure of blocking from external sources (i.e. adblocking extensions or firewalls). Measure [added](https://web.archive.org/web/20240121094211/https://whotracks.me/blog/update_dec_2017.html) in Dec 2017. Positive float.
  
- * `has_blocking` - proportion of pages where some kind of external blocking of the tracker was detected.Measure [added](https://whotracks.me/blog/update_dec_2017.html) in Dec 2017. Float between 0 and 1.
+ * `has_blocking` - proportion of pages where some kind of external blocking of the tracker was detected.Measure [added](https://web.archive.org/web/20240121094211/https://whotracks.me/blog/update_dec_2017.html) in Dec 2017. Float between 0 and 1.
  
 > "These signals [`requests_failed` and `has_blocking`] should be able to tell us something about the impact of blocking on different trackers in the ecosystem. For example, we see evidence of blocking 40% of the time for Google Analytics and Facebook [in Dec 2017], and between 10% and 20% of requests failing. Thus, anyone using these services to measure activity and conversions on their sites must reckon with error rates in these orders. We also can see how new entrants can initially avoid the effects of blocking - for Tru Optik and Digitrust who we mentioned earlier, we measure only 5 and 1% of pages which may be affected by blocking."
  
 **Tracker's content loading context** – proportion of page loads where specific resource types were loaded by the tracker (e.g. scripts, iframes, plugins)
 
-Signals for the frequency with which certain resource types are loaded by third-parties (measures [added](https://whotracks.me/blog/update_feb_2018.html) in Feb 2018):
+Signals for the frequency with which certain resource types are loaded by third-parties (measures [added](https://web.archive.org/web/20240121094157/https://whotracks.me/blog/update_feb_2018.html) in Feb 2018):
  
  * `script` - JavaScript code (via a `<script>` tag or web worker).
  
@@ -146,7 +149,7 @@ Signals for the frequency with which certain resource types are loaded by third-
  
 > "Content loaded into an iFrame context is safer, as this is a sandboxed environment."
  
- * `beacon` - requests sent through the [Beacon API](https://w3c.github.io/beacon/). More on this [here](https://whotracks.me/blog/tracking_pixel.html):
+ * `beacon` - requests sent through the [Beacon API](https://w3c.github.io/beacon/). More on this [here](https://web.archive.org/web/20231111075313/https://whotracks.me/blog/tracking_pixel.html):
  
 > "A tracking pixel, is one of various techniques used on web pages or email, to unobtrusively (usually invisibly) allow checking that a user has accessed some content."
  
@@ -171,7 +174,7 @@ Signals for the frequency with which certain resource types are loaded by third-
 
  * `hosts` - avg. number of tracker's domains present on site. Several domains are grouped under `trackers`, e.g.: `facebook.com` and `facebook.net`grouped under `facebook` tracker. Positive float.
  
- * `trackers` - avg. number of [trackers](https://whotracks.me/blog/what_is_a_tracker.html) present on site. Trackers are grouped under `companies`, e.g.: `facebook`, `facebook_cdn`, `facebook_graph`, `...`, grouped under Facebook. Positive float.
+ * `trackers` - avg. number of [trackers](https://www.ghostery.com/blog/what-are-trackers) present on site. Trackers are grouped under `companies`, e.g.: `facebook`, `facebook_cdn`, `facebook_graph`, `...`, grouped under Facebook. Positive float.
  
 > "We define a 'tracker' as a third-party domain which is:
 a) present on multiple ( > 10 ) different websites with a significant combined traffic,
@@ -189,7 +192,7 @@ b) uses cookies or fingerprinting methods in order to transmit user identifiers"
  
 > "Alternatively, we can measure ‘site reach’, which is the proportion of websites (unique first-party hostnames) on which this tracker has been seen at least once."
  
-Note: This measure was redefined in Feb 2019 as `site_reach_top10k`: the number of sites in the top 10,000 which have this tracker on more than 1% of page loads" according to [this](https://t.ly/Ra6z) blog post. A further value, `site_avg_frequency` gives the mean presence across these sites. Positive floats.
+Note: This measure was redefined in Feb 2019 as `site_reach_top10k`: the number of sites in the top 10,000 which have this tracker on more than 1% of page loads" according to [this](https://web.archive.org/web/20240121094155/https://whotracks.me/blog/updating_our_tracking_prevalence_metrics.html) blog post. A further value, `site_avg_frequency` gives the mean presence across these sites. Positive floats.
  
 > "Given that the top 10,000 sites account for 75% of page loads in our data, we decided to measure the presence across this fixed set of sites."
  
