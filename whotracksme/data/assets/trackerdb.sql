@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202407290955/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202408301553/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -299,6 +299,7 @@ INSERT INTO companies VALUES('aidem','Aidem','AIDEM is a US-based advertising te
 INSERT INTO companies VALUES('aim4media','Aim4Media','"...Founded in the Netherlands in 2001, Aim4Media began by servicing the long time neglected niche market of Sports websites and soon expanded into a variety of alternative markets... Aim4Media also offers not only a strong online advertising network but also lead generation and media buying services."Translated by Aim4Media BV',NULL,'http://www1.aim4media.com','3178',NULL,'info@aim4media.com',NULL);
 INSERT INTO companies VALUES('airbrake','Airbrake','Airbrake is the leading exception reporting service, currently providing error tracking for 50,000 applications with support for 18 programming languages.We let developers build better software by giving detailed reports of errors in applications. Giving you insight into the health of your application in production. We give detailed exception reports that tell you what happened, what bit of code was responsible, and allow you to recreate the error for rapid debugging.Our goal is to build the best developer toolset on the planet. One that gives you full stack insight, and allows you to build great software.','https://airbrake.io/privacy','https://airbrake.io/','1884','US','support@airbrake.io',NULL);
 INSERT INTO companies VALUES('airbridge','Airbridge','"Airbridge is an attribution and analytics company that unlocks next-generation strategies for marketers in the privacy era."','https://www.airbridge.io/privacy-policy','https://www.airbridge.io/','','KR','compliance@ab180.co',NULL);
+INSERT INTO companies VALUES('airfranceklm','Air France-KLM Group','Air France-KLM Group provides passenger and cargo transportation services, including scheduled flights, freight forwarding, and logistical support across global routes.','https://wwws.airfrance.fr/en/information/legal/edito-psc','https://www.airfranceklm.com/en','','FR','mail.data.protection@airfrance.fr',NULL);
 INSERT INTO companies VALUES('airpr','AirPR','"BETTER DECISIONS BEGIN WITH DATASEE HOW THE LEADING PR AND CONTENT MARKETING ANALYTICS PLATFORM WILL INCREASE YOUR INSIGHT"','https://airpr.com/privacy-policy/','https://airpr.com/','5235',NULL,'info@airpr.com',NULL);
 INSERT INTO companies VALUES('airpush','Airpush','"Airpush is the only mobile ad network focused exclusively on Android. Over 40,000 developers use our innovative ad formats to increase revenue 10 - 30x versus traditional in-app ad networks. Our ad formats include Push Notification Ads, Icon Ads, and AppWall."','http://www.airpush.com/privacypolicy','http://www.airpush.com/','1843',NULL,'privacy@airpush.com',NULL);
 INSERT INTO companies VALUES('akamai','Akamai Technologies','Akamai is a cloud based content delivery network. They offer application performance services, solutions for digital media and software distribution and storage, online advertising services and other specialized/ Internet-based offerings.','https://www.akamai.com/us/en/privacy-policies/','https://www.akamai.com/','11','US','privacy@akamai.com',NULL);
@@ -1188,6 +1189,7 @@ INSERT INTO companies VALUES('keen_io','Keen IO','"Keen IO was specifically buil
 INSERT INTO companies VALUES('kelkoo','Kelkoo','Kelkoo Shopping: Online Shopping & Price Comparison. Shopping website featuring online shopping guides and user reviews to help to find the latest products at the best price available.','https://www.kelkoo.co.uk/company-pages/privacy-policy','http://www.kelkoo.com/','3326','FR',NULL,NULL);
 INSERT INTO companies VALUES('kendobrands','Kendo Brands','Kendo Brands, founded in 2010 in San Francisco, specializes in creating and distributing beauty products under various brand names.','https://www.kendobrands.com/privacy/','https://www.kendobrands.com/','','US','dpo@kendobrands.com',NULL);
 INSERT INTO companies VALUES('kenshoo','Kenshoo','The Kenshoo Universal Platform delivers automation, business intelligence, integration and scale to make better marketing investments.','http://kenshoo.com/privacy-policy/','http://www.kenshoo.com/','1299','US','privacy@kenshoo.com',NULL);
+INSERT INTO companies VALUES('ketch','Ketch','The Ketch Data Permissioning Platform is a set of applications, infrastructure, and APIs that collapses the cost and complexity of privacy operations and mobilizes responsibly gathered data for deeper customer engagement.','https://www.ketch.com/privacy-policy','https://www.ketch.com','','US','privacy@ketch.com',NULL);
 INSERT INTO companies VALUES('keymetric','KeyMetric','KeyMetric is a phone call analytics provider. Their platform provides real time phone call and conversion analytics for marketers, ad agencies and call centers.','https://www.keymetric.net/privacy-statement.asp','https://www.keymetric.net/','976','US','webmaster@keymetric.net',NULL);
 INSERT INTO companies VALUES('keynote_systems','Keynote Systems','"Keynote is the global leader in Internet and mobile cloud testing & monitoring.We provide companies with solutions for continuously improving the online experience. With Keynote, companies know precisely how their Web sites, content, and applications perform on actual browsers, networks, and mobile devices."','https://www.keynote.com/legal/privacy/','https://www.keynote.com/','2121',NULL,'privacy@keynote.com',NULL);
 INSERT INTO companies VALUES('keytiles','Keytiles',NULL,NULL,'http://keytiles.com/','1968','US',NULL,NULL);
@@ -1340,6 +1342,7 @@ INSERT INTO companies VALUES('maxbounty','MaxBounty','MaxBounty is a network bas
 INSERT INTO companies VALUES('maxlab','Maxlab','"Maxlab values ​​its customers and offers a form of collaboration that takes all the work on the development, implementation and monitoring of advertising campaigns on the Internet, which saves staff time of advertising and marketing."Translated by Google Translate',NULL,'http://maxlab.ru','2207',NULL,NULL,NULL);
 INSERT INTO companies VALUES('maxmind','MaxMind','"MaxMind provides IP intelligence through the GeoIP brand. By pinpointing the location of Internet customers and visitors by country, geographic region, city, and postal code, GeoIP data provides online businesses with a valuable marketing tool as well as the ability to customize their websites to better serve clients."','https://www.maxmind.com/en/privacy_policy','http://www.maxmind.com/','1460','US','info@maxmind.com',NULL);
 INSERT INTO companies VALUES('maxpoint_interactive','MaxPoint Interactive','MaxPoint is an online advertising technology company that offers neighborhood level targeting to compel in-store purchase for national and local brands. The company identifies potential customers through customized consumer profiles and Digital Zip, their neighborhood-level targeting technology. This enables ad targeting to a specific location within a retailer''s trade area and campaigns to match demand for a specific product.','http://www.maxpointinteractive.com/privacy-policy/','http://maxpoint.com/us','613','US','privacy@maxpointinteractive.com',NULL);
+INSERT INTO companies VALUES('maze','Maze','Maze is a user research platform that provides tools for conducting different types of user research, such as prototype and live website testing, surveys, interviews, card sorting, and tree testing.','https://maze.co/privacy-policy/','https://maze.co','','US','privacy@maze.design',NULL);
 INSERT INTO companies VALUES('mbuy','MBuy','AdBuyer provides online buying and optimization across search and display media.  Their technology integrates with major search engines and ad exchanges on a single platform. They offer free audience profiles to marketers and one-stop re-targeting across major exchanges as well as audience buying for more targeted display campaigns.  They partner with third-party data sources like eXcelate, TargusInfo, AlmondNet, and BlueKai.','https://www.mbuy.com/privacy-policy/','https://www.mbuy.com/','453','US','operations@mbuy.com',NULL);
 INSERT INTO companies VALUES('mcabi','mCabi','You have a website that you want to supplement with a high quality advertising and increase advertising revenue?If this is what you want, then hesitate and apply Mcab advertising platform!',NULL,'https://mcabi.mcloudglobal.com/#','4853',NULL,'info@knc.lv',NULL);
 INSERT INTO companies VALUES('mcafee','McAfee','McAfee is a security technology company that delivers services to protect consumers and businesses from malware and online threats. They also provide security management features that deliver real-time analytics, improve Internet security, and help businesses achieve operational efficiencies.','https://www.mcafee.com/common/privacy/english/docs/mcafee-privacypolicy.pdf','https://www.mcafee.com/us/','1141','US','privacy@mcafee.com',NULL);
@@ -1456,6 +1459,7 @@ INSERT INTO companies VALUES('nbcuniversal','NBCUniversal, LLC','"NBCUniversal i
 INSERT INTO companies VALUES('ncol','NCOL','"NCOL is a web development group based in Vancouver..."',NULL,'http://www.ncol.com/','2896',NULL,NULL,NULL);
 INSERT INTO companies VALUES('needle','Needle','"Needle is about giving consumers the ability to find the perfect item online at the right time. It’s about using precise expert information to give consumers guidance. It’s about increasing the efficiency of the online shopping experience and moving the Needle for e-commerce sites."','http://needle.wpengine.com/privacy/','http://www.needle.com','2452',NULL,'support@needle.com',NULL);
 INSERT INTO companies VALUES('nekudo','Nekudo',NULL,NULL,'https://nekudo.com/','5363',NULL,NULL,NULL);
+INSERT INTO companies VALUES('nelio','Nelio','Nelio Software empowers business and bloggers with WordPress plugins so they can make the most out of their websites. Includes Nelio A/B Testing and Nelio Content.','https://neliosoftware.com/privacy-policy-cookies/','https://neliosoftware.com/','','ES','support@neliosoftware.com',NULL);
 INSERT INTO companies VALUES('neodata','Neodata','"Neodata Group is a fast-growing company developing innovative solutions tailored on the client’s needs to optimize the delivery of any digital content in terms of efficiency, sales and audience reach."','https://www.neodatagroup.com/data-security/neodata-services-privacy-policy/','https://www.neodatagroup.com/','1511','US','info@neodatagroup.com',NULL);
 INSERT INTO companies VALUES('neolabs_zero','Neolabs ZERO','"ZERO service is a public service network of Internet statistics, open to cooperation with all parties Kaznet."',NULL,'https://zero.kz/','2978',NULL,NULL,NULL);
 INSERT INTO companies VALUES('neory','Neory','"NEORY provides technical services and tools to online marketers, media companies, advertisers and publishers that helps them better to understand their users/consumers and to deliver performance-based advertising."','https://www.neory.com/privacy.html','https://www.neory.com/','2612',NULL,'privacy@neory.com',NULL);
@@ -2917,6 +2921,7 @@ INSERT INTO tracker_domains VALUES('airbnb','musthird.com',NULL);
 INSERT INTO tracker_domains VALUES('airbrake','airbrake.io',NULL);
 INSERT INTO tracker_domains VALUES('airbridge','core.airbridge.io',NULL);
 INSERT INTO tracker_domains VALUES('airbridge','sdk.airbridge.io',NULL);
+INSERT INTO tracker_domains VALUES('airfrance-connect','connect.airfrance.com',NULL);
 INSERT INTO tracker_domains VALUES('airpr.com','airpr.com',NULL);
 INSERT INTO tracker_domains VALUES('airpush','ab.airpush.com',NULL);
 INSERT INTO tracker_domains VALUES('akamai_technologies','abmr.net',NULL);
@@ -3609,6 +3614,7 @@ INSERT INTO tracker_domains VALUES('conviva','conviva.com',NULL);
 INSERT INTO tracker_domains VALUES('cookie_consent','cookieconsent.silktide.com',NULL);
 INSERT INTO tracker_domains VALUES('cookie_script','cookie-script.com',NULL);
 INSERT INTO tracker_domains VALUES('cookiebot','cookiebot.com',NULL);
+INSERT INTO tracker_domains VALUES('cookiebot','cookiebot.eu',NULL);
 INSERT INTO tracker_domains VALUES('cookiefirst','cookiefirst.com',NULL);
 INSERT INTO tracker_domains VALUES('cookiefirst','consent.cookiefirst.com',NULL);
 INSERT INTO tracker_domains VALUES('cookiehub','cookiehub.net',NULL);
@@ -4691,6 +4697,8 @@ INSERT INTO tracker_domains VALUES('kelkoo','widget.kelkoo.com',NULL);
 INSERT INTO tracker_domains VALUES('kendobrands','kvdveganbeauty.com',NULL);
 INSERT INTO tracker_domains VALUES('kendobrands','olehenriksen.com',NULL);
 INSERT INTO tracker_domains VALUES('kenshoo','xg4ken.com',NULL);
+INSERT INTO tracker_domains VALUES('ketch','global.ketchcdn.com',NULL);
+INSERT INTO tracker_domains VALUES('ketch','cdn.ketchjs.com',NULL);
 INSERT INTO tracker_domains VALUES('keymetric','keymetric.net',NULL);
 INSERT INTO tracker_domains VALUES('keytiles','lb.keytiles.com',NULL);
 INSERT INTO tracker_domains VALUES('keywee','keywee.co',NULL);
@@ -5009,6 +5017,7 @@ INSERT INTO tracker_domains VALUES('maxonclick_com','maxonclick.com',NULL);
 INSERT INTO tracker_domains VALUES('maxpoint_interactive','mxptint.net',NULL);
 INSERT INTO tracker_domains VALUES('maxymiser','maxymiser.hs.llnwd.net',NULL);
 INSERT INTO tracker_domains VALUES('maxymiser','maxymiser.net',NULL);
+INSERT INTO tracker_domains VALUES('maze','maze.co',NULL);
 INSERT INTO tracker_domains VALUES('mbr_targeting','m6r.eu',NULL);
 INSERT INTO tracker_domains VALUES('mbuy','pixel.adbuyer.com',NULL);
 INSERT INTO tracker_domains VALUES('mcabi','mcabi.mcloudglobal.com',NULL);
@@ -5204,6 +5213,7 @@ INSERT INTO tracker_domains VALUES('nbc_news','s-nbcnews.com',NULL);
 INSERT INTO tracker_domains VALUES('ncol','richmedia247.com',NULL);
 INSERT INTO tracker_domains VALUES('needle','needle.com',NULL);
 INSERT INTO tracker_domains VALUES('nekudo.com','nekudo.com',NULL);
+INSERT INTO tracker_domains VALUES('nelio_ab_testing','api.nelioabtesting.com',NULL);
 INSERT INTO tracker_domains VALUES('neodata','neodatagroup.com',NULL);
 INSERT INTO tracker_domains VALUES('neory','ad-srv.net',NULL);
 INSERT INTO tracker_domains VALUES('neory','contentspread.net',NULL);
@@ -7357,6 +7367,7 @@ INSERT INTO trackers VALUES('aim4media','Aim4Media',1,'http://aim4media.com','ai
 INSERT INTO trackers VALUES('airbnb','Airbnb',10,'https://affiliate.withairbnb.com/',NULL,'3340',NULL,NULL);
 INSERT INTO trackers VALUES('airbrake','Airbrake',1,'https://airbrake.io/','airbrake','2380',NULL,NULL);
 INSERT INTO trackers VALUES('airbridge','Airbridge',10,'https://www.arcpublishing.com/','airbridge','',NULL,NULL);
+INSERT INTO trackers VALUES('airfrance-connect','AirFrance Connect',10,'https://airfrance.com/','airfranceklm','',NULL,NULL);
 INSERT INTO trackers VALUES('airpr.com','AirPR',10,'https://airpr.com/','airpr','3267',NULL,NULL);
 INSERT INTO trackers VALUES('airpush','Airpush',1,NULL,'airpush','2478',NULL,NULL);
 INSERT INTO trackers VALUES('akamai_technologies','Akamai Technologies',7,'https://www.akamai.com/','akamai','2263',NULL,NULL);
@@ -8651,6 +8662,7 @@ INSERT INTO trackers VALUES('keen_io','Keen IO',10,'https://keen.io','keen_io','
 INSERT INTO trackers VALUES('kelkoo','Kelkoo',1,'http://www.kelkoo.com/','kelkoo','2084',NULL,NULL);
 INSERT INTO trackers VALUES('kendobrands','Kvd Vegan Beauty',10,'https://kvdveganbeauty.com/','kendobrands','',NULL,NULL);
 INSERT INTO trackers VALUES('kenshoo','Kenshoo',10,'http://www.kenshoo.com/','kenshoo','903',NULL,NULL);
+INSERT INTO trackers VALUES('ketch','Ketch Kloud',3,'https://www.ketch.com','ketch','',NULL,NULL);
 INSERT INTO trackers VALUES('keymetric','KeyMetric',10,'http://keymetric.net/','keymetric','626',NULL,NULL);
 INSERT INTO trackers VALUES('keytiles','Keytiles',10,NULL,'keytiles','3188',NULL,NULL);
 INSERT INTO trackers VALUES('keywee','Keywee',10,'https://keywee.co/','keywee','3124',NULL,NULL);
@@ -8851,6 +8863,7 @@ INSERT INTO trackers VALUES('maxmind','MaxMind',1,'http://www.maxmind.com/','max
 INSERT INTO trackers VALUES('maxonclick_com','maxonclick.com',8,NULL,NULL,'3679',NULL,NULL);
 INSERT INTO trackers VALUES('maxpoint_interactive','MaxPoint Interactive',1,'http://www.maxpointinteractive.com/','maxpoint_interactive','724',NULL,NULL);
 INSERT INTO trackers VALUES('maxymiser','Oracle Maxymiser',1,'https://www.oracle.com/marketingcloud/products/testing-and-optimization/index.html','oracle','458',NULL,NULL);
+INSERT INTO trackers VALUES('maze','Maze',10,'https://maze.co','maze','',NULL,NULL);
 INSERT INTO trackers VALUES('mbr_targeting','mbr targeting',1,'https://mbr-targeting.com/','stroer','3203',NULL,NULL);
 INSERT INTO trackers VALUES('mbuy','MBuy',1,'http://www.adbuyer.com/','mbuy','442',NULL,NULL);
 INSERT INTO trackers VALUES('mcabi','mCabi',1,NULL,'mcabi','2891',NULL,NULL);
@@ -9000,6 +9013,7 @@ INSERT INTO trackers VALUES('nbc_news','NBC News',8,'https://www.nbcnews.com/',N
 INSERT INTO trackers VALUES('ncol','NCOL',1,'http://www.ncol.com/','ncol','1799',NULL,NULL);
 INSERT INTO trackers VALUES('needle','Needle',4,'http://www.needle.com','needle','1460',NULL,NULL);
 INSERT INTO trackers VALUES('nekudo.com','Nekudo',4,'https://nekudo.com/','nekudo','3705',NULL,NULL);
+INSERT INTO trackers VALUES('nelio_ab_testing','Nelio A/B Testing',10,'https://neliosoftware.com','nelio','',NULL,NULL);
 INSERT INTO trackers VALUES('neodata','Neodata',1,'https://neodatagroup.com/','neodata','1014',NULL,NULL);
 INSERT INTO trackers VALUES('neory','NEORY',1,'https://www.neory.com/','neory','1713',NULL,NULL);
 INSERT INTO trackers VALUES('nerfherdersolo_com','nerfherdersolo.com',8,NULL,NULL,'3706',NULL,NULL);
