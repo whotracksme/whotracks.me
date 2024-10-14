@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202408301553/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202410021657/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -45,7 +45,7 @@ INSERT INTO companies VALUES('500friends','500friends','"500friends'' is [a] pro
 INSERT INTO companies VALUES('51.la','51.La','我要啦 2005 版从阿江统计 2.2 基础上经过向SQL数据库迁移并经过存储过程优化产生，增加了便捷的用户管理接口。2006 版则以新的设计思路重新编写，效率和功能都有激动人心的增强。所有过程均由阿江亲自完成。我要啦免费统计全部服务器安放于位于洛阳电信的我要啦数据中心，全面采用华为三层交换设备，24小时职守人员更由我要啦直接委派','https://www.51.la/about.asp','https://www.51.la/','2081',NULL,NULL,NULL);
 INSERT INTO companies VALUES('6minutes','6 Minutes Media GmbH',NULL,NULL,'http://www.6min.de/en/','5301',NULL,NULL,NULL);
 INSERT INTO companies VALUES('6peo','6PEO','Our DNA: new technologiesFor several years, 6PEO markets, with major accounts, KMELEO, original solution of web services based on innovative technology.Composed of experts from e-marketing, new technologies and statistics, our team uses its global network of partners to detect premiere, innovative Web technologies.Our vision: innovation, value and performanceIf innovation remains the cornerstone of our processes and drive our performance, our vision is firmly focused on values ​​and respect for surfers.Our pillars: visionary investorsInnovacom Management, through its bottom FCPR Innovacom 6,entered March 15, 2011 the capital of the company by investing $ 2 million to support the growth of Kméléo.','http://www.6peo.com/solution-kmeleo/respect-de-la-vie-privee','http://www.6peo.com/','4349',NULL,NULL,NULL);
-INSERT INTO companies VALUES('6sense','6Sense','6Sense is a B2B predictive intelligence engine for sales and marketing. Using time-sensitive behavioral data, 6Sense offers insightful predictions to uncover net-new companies and contacts at the top of the funnel, when it is the most valuable, and prioritizes known prospects ready to buy now. 6Sense predicts what products prospects will buy, how much they will buy, and when.','https://6sense.com/privacy-policy/','https://6sense.com/','2536','US','privacymanager@6sense.com',NULL);
+INSERT INTO companies VALUES('6sense','6Sense','6Sense is a B2B predictive intelligence engine for sales and marketing. Using time-sensitive behavioral data, 6Sense offers insightful predictions to uncover net-new companies and contacts at the top of the funnel, when it is the most valuable, and prioritizes known prospects ready to buy now. 6Sense predicts what products prospects will buy, how much they will buy, and when.','https://6sense.com/privacy-policy/','https://6sense.com/','2536','US','privacy@6sense.com',NULL);
 INSERT INTO companies VALUES('77agency','77Agency','We’ve always been at the forefront of digital and we thrive on finding new and better ways and embracing technology. We were one of the initial three companies to have access to the Facebook API and we were one of only 13 companies selected as a global Facebook Strategic Preferred Marketing Developer.We’ve developed propriety platforms that have become industry standards and used by the likes of ABN Amro, BWin, and Huawei. We’re Microsoft and Google partners and and we were even the first company to run a financial services ad on Adwords.','http://www.77agency.com/privacy-policy/','https://www.77agency.com/','1983',NULL,'privacy@77agency.com',NULL);
 INSERT INTO companies VALUES('888_media','888 Media','"Headquartered in London, UK, 888 Media is a digital marketing solutions company that provides cost-effective ad solutions for advertisers to reach targeted consumers."','http://888media.net/privacy_policy.html','http://888media.net/','2244',NULL,'admin@888media.net',NULL);
 INSERT INTO companies VALUES('8digits','8digits','We, as 8digits, are dedicated to providing simple solutions to the big analytics and marketing problems ecommerce marketers and site owners face. We know that understanding, processing and analyzing the visit data in order to find the perfect campaign is not as easy as it seems.','http://8digits.com/index/about/','http://8digits.com/','4719',NULL,NULL,NULL);
@@ -657,7 +657,7 @@ INSERT INTO companies VALUES('convertfox','ConvertFox','"From email to live-chat
 INSERT INTO companies VALUES('conviva','Conviva','Convivia is an Internet video content solution that distributes and manages delivery for video websites and aggregators. Their Software as a Service (SaaS) platform integrates multiple media sources like content delivery networks and data providers and powers real-time analytics and performance monitoring on each video and media delivery.','http://www.conviva.com/home/privacy-policy/','https://www.conviva.com/','819','US','privacy@conviva.com',NULL);
 INSERT INTO companies VALUES('cookie_script','Cookie Script','Cookie Script helps you to comply GDPR and CCPA. Make your own cookie information popup, no programming skills required. You can even use it for free.','https://cookie-script.com/privacy-policy.html','https://cookie-script.com/','4480','LT','support@cookie-script.com',NULL);
 INSERT INTO companies VALUES('cookiehub','CookieHub','CookieHub offers a range of products and services, including a cookie consent banner and a cookie audit tool. These tools help website owners and publishers to meet their legal obligations, such as obtaining consent from visitors for the use of cookies, and to provide transparent and easily accessible information about their cookie policies.','https://www.cookiehub.com/privacy-policy','https://www.cookiehub.com','','IS','support@cookiehub.com',NULL);
-INSERT INTO companies VALUES('cookieinformation','Cookie Information','Cookie Information is a Danish company that develops the consent management platform of the same name.','https://cookieinformation.com/cookie-and-privacy-policy/','https://cookieinformation.com/','','DK','privacy@cookieinformation.com',NULL);
+INSERT INTO companies VALUES('cookieinformation','Cookie Information','Cookie Information is a Danish company that develops the consent management platform of the same name. In November 2023, Cookie Information merged with Piwik PRO, with Piwik PRO becoming a 100% subsidiary of Cookie Information.','https://cookieinformation.com/cookie-and-privacy-policy/','https://cookieinformation.com/','','DK','privacy@cookieinformation.com',NULL);
 INSERT INTO companies VALUES('cookieyes','CookieYes','CookieYes Limited is a Cookie Consent Solution for GDPR & CCPA Compliance.','https://www.cookieyes.com/privacy-policy/','https://www.cookieyes.com/','','GB','support@cookieyes.com',NULL);
 INSERT INTO companies VALUES('cooliris','Cooliris','"The Cooliris app is a way to experience all of your photos and your friends'' photos in one place, and selectively share and save them as you like."','http://www.cooliris.com/legal/privacy/','http://www.cooliris.com','2642',NULL,'privacy@cooliris.com',NULL);
 INSERT INTO companies VALUES('copacet','Copacet','"We provide the platform and professional tools you need to ramp up your profits. Customer service and support, global reach, scalability, audience targeting, exclusive ad formats and campaign optimization – we make it our mission to help you achieve the highest rate of return on your advertising and publishing investment!"','http://copacet.com/privacy','http://copacet.com/','2022',NULL,NULL,NULL);
@@ -1585,7 +1585,7 @@ INSERT INTO companies VALUES('paid-to-promote','Paid-to-Promote','Paid-to-Promot
 INSERT INTO companies VALUES('panasonic','Panasonic','Panasonic Holdings Corporation is a multinational electronics company based in Kadoma, Osaka, Japan, offering a diverse range of products and services, including consumer electronics, rechargeable batteries, and home renovation. Among its subsidiaries is Panasonic Avionics Corporation, which specializes in providing customized in-flight entertainment and communication devices to airlines worldwide.','https://holdings.panasonic/global/privacy-policy.html','https://holdings.panasonic/global/','','JP',NULL,NULL);
 INSERT INTO companies VALUES('paperg','PaperG','PaperG provides an online ad platform that automates local ad creation, sales, and management for local online media companies. Technology-enabled services include: high volume automated ad creative assembly and serving, on-demand advertiser microsite generation and hosting and stream lined local ad operation management.','https://www.makethunder.com/privacy','http://www.paperg.com/','542','US','n/a',NULL);
 INSERT INTO companies VALUES('papoo','Papoo Software & Media GmbH','Papoo Software is a German software development agency that works on full-featured Content Management Systems for websites. They also provide a Cookie Consent Manager called CCM19.','https://www.papoo-media.de/datenschutzerklaerung.html','https://www.papoo-media.de/','5435','DE','info@papoo.de',NULL);
-INSERT INTO companies VALUES('pardot','Pardot','Pardot provides interactive marketing solutions. It offers Prospect Insight, a marketing automation suite for sales and marketing professionals for web and mobile, LeadDeck Prospect Monitor, an application that allows sales and marketing teams to get real-time alerts of visitor and prospect activity and VisitorID, which allows tracking and identification of the organizations of anonymous visitors.','https://www.pardot.com/company/legal/privacy-policy.html','https://www.pardot.com/','228','US',NULL,NULL);
+INSERT INTO companies VALUES('pardot','Pardot','Pardot provides interactive marketing solutions. It offers Prospect Insight, a marketing automation suite for sales and marketing professionals for web and mobile, LeadDeck Prospect Monitor, an application that allows sales and marketing teams to get real-time alerts of visitor and prospect activity and VisitorID, which allows tracking and identification of the organizations of anonymous visitors.','https://www.pardot.com/company/legal/privacy-policy.html','https://www.pardot.com/','228','US',NULL,replace('In October 2012, Pardot was acquired by ExactTarget. In July 2013, ExactTarget, along with Pardot, became part of Salesforce.\n\nSource: https://web.archive.org/web/20130821193229/http://www.pardot.com/about-pardot/','\n',char(10)));
 INSERT INTO companies VALUES('parse.ly','Parse.ly','Parse.ly is a personalization and optimization engine for content providers. They leverage data from individuals and groups of users to improve is personalization and share  the behavioral patterns among the Parsely community.','https://www.parsely.com/privacy-policy/','https://www.parsely.com/','1009','US','hello@parsely.com',NULL);
 INSERT INTO companies VALUES('parship','Parship','Parship is the online dating agency for long-term relationships.',NULL,'https://www.parship.de/','5374','DE',NULL,NULL);
 INSERT INTO companies VALUES('partner-ads','Partner-Ads','"Partner-ads [works] with performance-based marketing where advertisers pay only for what they get and...affiliate partners earn good money by helping advertisers with targeted and relevant marketing."','https://www.partner-ads.com/dk/persondatapolitik.htm','https://www.partner-ads.com/','1431','DK','maildk@partner-ads.com',NULL);
@@ -1619,7 +1619,7 @@ INSERT INTO companies VALUES('pilot_gmbh','Pilot GmbH','Pilot is an independent 
 INSERT INTO companies VALUES('pingdom','Pingdom','"Real User Monitoring let''s you know exactly how real visitors experience your website. Analyze performance data and how it relate to browsers, platforms and even countries, all in real-time. Improve your customers experience now."','https://www.pingdom.com/legal/privacy-policy/','https://www.pingdom.com/','2566',NULL,'support@pingdom.com','Pingdom acquired by SolarWinds 2014. https://en.wikipedia.org/wiki/Pingdom');
 INSERT INTO companies VALUES('pinterest','Pinterest','"Pinterest lets you organize and share all the beautiful things you find on the web. People use pinboards to plan their weddings, decorate their homes, and organize their favorite recipes."','http://pinterest.com/about/privacy/','http://pinterest.com/','1306','US','https://help.pinterest.com/en/data-protection-officer-contact-form',NULL);
 INSERT INTO companies VALUES('pipz_automation','Pipz Automation','Go from acquisition to loyalty and make your business grow with the perfect customer experienceAcquire and convert leads, engage with customers and analyze your business strategies, all in one place.','https://pipz.com/br/legal/politica-privacidade/','https://pipz.com/br/','4971',NULL,'contact@ecentry.com',NULL);
-INSERT INTO companies VALUES('piwik_pro','Piwik PRO','Piwik PRO Analytics Suite is a privacy-focused platform for tracking and analyzing user behavior on websites and other digital products. It is developed by Piwik PRO, based in Poland. Piwik PRO Analytics Suite is an ISO 27001 certified company and its product is SOC 2 type II-certified. It is used by various government and health organizations, including the Government of the Netherlands and DKMS.','https://piwik.pro/privacy-policy/','https://piwik.pro/','5433','PL','gdpr@piwik.pro',NULL);
+INSERT INTO companies VALUES('piwik_pro','Piwik PRO','Piwik PRO Analytics Suite is a privacy-focused platform for tracking and analyzing user behavior on websites and other digital products. It is developed by Piwik PRO, based in Poland. Piwik PRO Analytics Suite is an ISO 27001 certified company and its product is SOC 2 type II-certified. It is used by various government and health organizations, including the Government of the Netherlands and DKMS.','https://piwik.pro/privacy-policy/','https://piwik.pro/','5433','PL','gdpr@piwik.pro',replace('In November 2023, Piwik PRO merged with Cookie Information\n(source: https://piwik.pro/blog/piwik-pro-cookie-information-merger/).','\n',char(10)));
 INSERT INTO companies VALUES('pixalate','Pixalate, Inc.','Pixalate is an omni-channel fraud intelligence company that works with brands and platforms to prevent invalid traffic and improve ad inventory quality.','https://www.pixalate.com/privacypolicy','https://www.pixalate.com/','4097','US','info@pixalate.com',NULL);
 INSERT INTO companies VALUES('pixel_union','Pixel Union',NULL,NULL,'https://www.pixelunion.net/','4756',NULL,NULL,NULL);
 INSERT INTO companies VALUES('pixels_asia','Pixels.Asia','Pixel Media, Snap Mobile and Adsfactor have merged to form PIXELS, the multi-screen advertising company.',NULL,'http://www.adsfactor.com/','2759',NULL,'sh@pixelmedia.cn',NULL);
@@ -2135,7 +2135,7 @@ INSERT INTO companies VALUES('trendemon','TrenDemon','TrenDemon, founded in 2011
 INSERT INTO companies VALUES('trengo','Trengo','Trengo, founded in 2017, is a Dutch company. It provides a unified customer communication platform for businesses, allowing them to manage all their customer interactions from a single inbox, including email, social media, WhatsApp, chat, and more.','https://trengo.com/privacy-statement','https://trengo.com/','','NL','team@trengo.com',NULL);
 INSERT INTO companies VALUES('triblio','Triblio','We started Triblio in 2013, but our passion for building marketing products started long before at Eloqua. After hearing that marketers wanted software like Eloqua’s email for additional marketing functions, we decided to start Triblio.Triblio provides account based marketing (ABM) software for the web to generate demand and engagement from target accounts. The web is the most influential marketing vehicle throughout the buyer journey according to surveys by Forrester, ITSMA, and Accenture. ABM targets top-revenue producing accounts to personalize customer experience, accelerate the buying journey, and deepen engagement.With Triblio, marketers can target accounts with web campaigns as easily as email campaigns. Triblio’s web campaigns empower marketers to dynamically personalize messaging and CTAs to specific accounts and personas. For example, today, with Triblio, marketers can create a personalized, multichannel email and web campaign in 60 seconds. Marketers can personalize messaging, content, and calls-to-action for their multichannel campaigns by persona and buying stage.We will continue to create “mind-blowing” software so every marketer can execute personalized campaigns just like they can with email for extraordinary results.Triblio is based in Reston, Virginia, just outside of Washington DC, and was named by CIO.com as a 2015 marketing automation software startup to watch.','https://triblio.com/privacy-policy/','https://triblio.com/','4129',NULL,'privacy@triblio.com',NULL);
 INSERT INTO companies VALUES('trigger_mail_marketing','Trigger Mail Marketing','"We build and manage successful ecommerce email programs.Email should be your primary online revenue generator – representing 15%-25% of your total online sales. If your program is not meeting your expectations, we can help.From marketing strategy and email construction – to deployment and results analysis. We do it all for you!Developing a successful email program takes time and effort but the end result is a projectable, dependable, controllable revenue stream that can run for years with minor adjustments.Trigger is a full service email service provider with a strong focus on promotional trigger and campaign email programs. Let us put our proven ecommerce marketing techniques, high-performance delivery system, and hands-on client management style to work for you."','https://www.triggeremailmarketing.com/privacy/','https://www.triggeremailmarketing.com/','4211',NULL,'info@triggeremailemailmarketing.com',NULL);
-INSERT INTO companies VALUES('triggerbee','Triggerbee','Make your CRM, email marketing and website work together to accelerate growth and get closer to your customers.','https://help.triggerbee.com/category/139-privacy-and-gdrp','https://triggerbee.com/','4104',NULL,NULL,NULL);
+INSERT INTO companies VALUES('triggerbee','Triggerbee','Make your CRM, email marketing and website work together to accelerate growth and get closer to your customers.','https://triggerbee.com/privacy-policy','https://triggerbee.com','4104','SE','info@triggerbee.com',NULL);
 INSERT INTO companies VALUES('triggermail','TriggerMail','"TriggerMail effortlessly plugs into your website via JavaScript. The integration is e-commerce platform agnostic and is resilient to changes to your site. TriggerMail then prioritizes and generates unique emails to every customer."','http://www.triggermail.io/privacy','http://www.triggermail.io/','3058',NULL,'info@triggermail.io',NULL);
 INSERT INTO companies VALUES('trip_com','Trip.com Group','Trip.com Group Limited is a multinational travel service conglomerate with 45,000 employees. It is the largest online travel agency in China and one of the largest travel service providers in the world.','https://group.trip.com/privacy/en-us.html','https://group.trip.com/','','HK','tp_dataprotection@trip.com',NULL);
 INSERT INTO companies VALUES('triplelift','TripleLift, Inc.','TripleLift is an American multinational technology company developing a platform that enables scalability for native, branded content and OTT advertising.','https://triplelift.com/privacy/','http://www.triplelift.com/','2609','US','privacy@triplelift.com',NULL);
@@ -2435,8 +2435,8 @@ INSERT INTO tracker_domains VALUES('4w_marketplace','4wnet.com',NULL);
 INSERT INTO tracker_domains VALUES('500friends','d3aa0ztdn3oibi.cloudfront.net',NULL);
 INSERT INTO tracker_domains VALUES('51.la','51.la',NULL);
 INSERT INTO tracker_domains VALUES('5min_media','5min.com',NULL);
-INSERT INTO tracker_domains VALUES('6sense','d1lm7kd3bd3yo9.cloudfront.net',NULL);
-INSERT INTO tracker_domains VALUES('6sense','grepdata.com',NULL);
+INSERT INTO tracker_domains VALUES('6sense','6sc.co',NULL);
+INSERT INTO tracker_domains VALUES('6sense','6sense.com',NULL);
 INSERT INTO tracker_domains VALUES('77tracking','77tracking.com',NULL);
 INSERT INTO tracker_domains VALUES('7tv.de','7tv.de',NULL);
 INSERT INTO tracker_domains VALUES('888media','888media.net',NULL);
@@ -2712,6 +2712,7 @@ INSERT INTO tracker_domains VALUES('adobe_audience_manager','everestjs.net',NULL
 INSERT INTO tracker_domains VALUES('adobe_audience_manager','everesttech.net',NULL);
 INSERT INTO tracker_domains VALUES('adobe_dynamic_media','scene7.com',NULL);
 INSERT INTO tracker_domains VALUES('adobe_dynamic_tag_management','adobedtm.com',NULL);
+INSERT INTO tracker_domains VALUES('adobe_experience_cloud','adobedc.net',NULL);
 INSERT INTO tracker_domains VALUES('adobe_experience_cloud','2o7.net',NULL);
 INSERT INTO tracker_domains VALUES('adobe_experience_cloud','du8783wkf05yr.cloudfront.net',NULL);
 INSERT INTO tracker_domains VALUES('adobe_experience_cloud','hitbox.com',NULL);
@@ -3203,6 +3204,8 @@ INSERT INTO tracker_domains VALUES('bing_ads','bat.r.msn.com',NULL);
 INSERT INTO tracker_domains VALUES('bing_ads','bing.com',NULL);
 INSERT INTO tracker_domains VALUES('bing_ads','bing.net',NULL);
 INSERT INTO tracker_domains VALUES('bing_maps','virtualearth.net',NULL);
+INSERT INTO tracker_domains VALUES('bing_maps','r.bing.com',NULL);
+INSERT INTO tracker_domains VALUES('bing_maps','atlas.microsoft.com',NULL);
 INSERT INTO tracker_domains VALUES('binlayer','view.binlayer.com',NULL);
 INSERT INTO tracker_domains VALUES('binotel','widgets.binotel.com',NULL);
 INSERT INTO tracker_domains VALUES('biocatch','we-stats.com',NULL);
@@ -5487,6 +5490,7 @@ INSERT INTO tracker_domains VALUES('pinterest','pinterest.com',NULL);
 INSERT INTO tracker_domains VALUES('pipz','app.pipz.io',NULL);
 INSERT INTO tracker_domains VALUES('piwik','disabled.invalid',NULL);
 INSERT INTO tracker_domains VALUES('piwik_pro_analytics_suite','piwik.pro',NULL);
+INSERT INTO tracker_domains VALUES('piwik_pro_tag_manager','containers.piwik.pro',NULL);
 INSERT INTO tracker_domains VALUES('pixalate','adrta.com',NULL);
 INSERT INTO tracker_domains VALUES('pixel_union','app.pixelpop.co',NULL);
 INSERT INTO tracker_domains VALUES('pixfuture','pixfuture.net',NULL);
@@ -6014,6 +6018,7 @@ INSERT INTO tracker_domains VALUES('sitebro','sitebro.tw',NULL);
 INSERT INTO tracker_domains VALUES('siteheart','siteheart.com',NULL);
 INSERT INTO tracker_domains VALUES('siteimprove','siteimprove.com',NULL);
 INSERT INTO tracker_domains VALUES('siteimprove_analytics','siteimproveanalytics.com',NULL);
+INSERT INTO tracker_domains VALUES('siteimprove_analytics','siteimproveanalytics.io',NULL);
 INSERT INTO tracker_domains VALUES('sitelabweb.com','sitelabweb.com',NULL);
 INSERT INTO tracker_domains VALUES('sitemeter','sitemeter.com',NULL);
 INSERT INTO tracker_domains VALUES('sitescout','pixel.ad',NULL);
@@ -6454,7 +6459,7 @@ INSERT INTO tracker_domains VALUES('tribal_fusion','exponential.com',NULL);
 INSERT INTO tracker_domains VALUES('tribal_fusion','tribalfusion.com',NULL);
 INSERT INTO tracker_domains VALUES('triblio','tribl.io',NULL);
 INSERT INTO tracker_domains VALUES('trigger_mail_marketing','api.temails.com',NULL);
-INSERT INTO tracker_domains VALUES('triggerbee','t.myvisitors.se',NULL);
+INSERT INTO tracker_domains VALUES('triggerbee','triggerbee.com',NULL);
 INSERT INTO tracker_domains VALUES('tripadvisor','jscache.com',NULL);
 INSERT INTO tracker_domains VALUES('tripadvisor','tacdn.com',NULL);
 INSERT INTO tracker_domains VALUES('tripadvisor','tamgrt.com',NULL);
@@ -7029,7 +7034,7 @@ INSERT INTO trackers VALUES('4w_marketplace','4w Marketplace',1,'http://www.4wma
 INSERT INTO trackers VALUES('500friends','500friends',4,'http://500friends.com/','500friends','1620',NULL,NULL);
 INSERT INTO trackers VALUES('51.la','51.La',10,'https://www.51.la/','51.la','1184',NULL,NULL);
 INSERT INTO trackers VALUES('5min_media','5min Media',2,'https://www.5min.com/','verizon','541',NULL,NULL);
-INSERT INTO trackers VALUES('6sense','6Sense',10,'http://home.grepdata.com','6sense','1501',NULL,NULL);
+INSERT INTO trackers VALUES('6sense','6Sense',10,'https://6sense.com/','6sense','1501',NULL,NULL);
 INSERT INTO trackers VALUES('77tracking','77Tracking',10,'https://www.77agency.com/','77agency','1657',NULL,NULL);
 INSERT INTO trackers VALUES('7tv.de','7tv.de',2,'https://www.7tv.de/',NULL,'4017',NULL,NULL);
 INSERT INTO trackers VALUES('888media','888media',1,'https://888media.net/','888_media','1342',NULL,NULL);
@@ -7561,7 +7566,7 @@ INSERT INTO trackers VALUES('bilgin_pro','Bilgin Pro',1,NULL,'bilginpro','2955',
 INSERT INTO trackers VALUES('bili_cdn','Bili CDN',7,NULL,'bilibili','',NULL,NULL);
 INSERT INTO trackers VALUES('bilin','Bilin',1,NULL,'bilin','2741',NULL,NULL);
 INSERT INTO trackers VALUES('bing_ads','Microsoft Advertising',1,'https://ads.microsoft.com/','microsoft','67',NULL,NULL);
-INSERT INTO trackers VALUES('bing_maps','Bing Maps',4,NULL,'microsoft','3400',NULL,NULL);
+INSERT INTO trackers VALUES('bing_maps','Bing/Azure Maps',4,'https://www.bingmapsportal.com','microsoft','3400',NULL,NULL);
 INSERT INTO trackers VALUES('binlayer','BinLayer',1,'http://binlayer.com/','binlayer','274',NULL,NULL);
 INSERT INTO trackers VALUES('binotel','Binotel',1,NULL,'binotel','2870',NULL,NULL);
 INSERT INTO trackers VALUES('biocatch','BioCatch',5,'https://www.biocatch.com/','biocatch','',NULL,NULL);
@@ -8030,7 +8035,7 @@ INSERT INTO trackers VALUES('dotmailer','dotMailer',4,'https://www.dotdigitalgro
 INSERT INTO trackers VALUES('dotmetrics.net','Dotmetrics',10,'https://dotmetrics.net/',NULL,'3516',NULL,NULL);
 INSERT INTO trackers VALUES('dotomi','Dotomi',1,'http://www.dotomi.com/','conversant','120',NULL,NULL);
 INSERT INTO trackers VALUES('doubleclick','DoubleClick',1,'https://marketingplatform.google.com/about/enterprise/','google','41',NULL,NULL);
-INSERT INTO trackers VALUES('doubleclick_ad_buyer','DoubleClick Ad Exchange-Buyer',1,NULL,'google','2532',NULL,'google_adservices');
+INSERT INTO trackers VALUES('doubleclick_ad_buyer','Authorized Buyers',1,'https://developers.google.com/authorized-buyers/','google','2532',NULL,'google_adservices');
 INSERT INTO trackers VALUES('doubleclick_bid_manager','DoubleClick Bid Manager',1,'http://www.invitemedia.com','google','318',NULL,'doubleclick');
 INSERT INTO trackers VALUES('doubleclick_floodlight','DoubleClick Floodlight',1,'http://www.google.com/support/dfa/partner/bin/topic.py?topic=23943','google','310',NULL,'doubleclick');
 INSERT INTO trackers VALUES('doubleclick_spotlight','DoubleClick Spotlight',1,'http://www.doubleclick.com/products/richmedia','google','90',NULL,'doubleclick');
@@ -8854,7 +8859,7 @@ INSERT INTO trackers VALUES('matelso','Matelso',10,NULL,'matelso','3183',NULL,NU
 INSERT INTO trackers VALUES('mather_analytics','Mather Analytics',10,NULL,'mather_economics','3265',NULL,NULL);
 INSERT INTO trackers VALUES('mathjax.org','MathJax',7,'https://www.mathjax.org/',NULL,'3677',NULL,NULL);
 INSERT INTO trackers VALUES('matiro','Matiro',10,NULL,'matiro','2877',NULL,NULL);
-INSERT INTO trackers VALUES('matomo','Matomo',10,'https://matomo.org/s','matomo','3127',NULL,NULL);
+INSERT INTO trackers VALUES('matomo','Matomo',10,'https://matomo.org','matomo','3127',NULL,NULL);
 INSERT INTO trackers VALUES('matomy_market','Matomy Market',1,'https://www.matomymarket.com/','matomy_media','1118',NULL,NULL);
 INSERT INTO trackers VALUES('maxbounty','MaxBounty',1,'https://www.maxbounty.com/','maxbounty','787',NULL,NULL);
 INSERT INTO trackers VALUES('maxcdn','MaxCDN',7,'https://www.maxcdn.com/',NULL,'3678',NULL,NULL);
@@ -9189,7 +9194,7 @@ INSERT INTO trackers VALUES('paid-to-promote','Paid-To-Promote',1,'https://www.p
 INSERT INTO trackers VALUES('panasonic_avionics','Panasonic Avionics Corporation',4,'https://www.panasonic.aero/','panasonic','',NULL,NULL);
 INSERT INTO trackers VALUES('pangleglobal','Pangle',1,'https://www.pangleglobal.com/','bytedance_inc','',NULL,NULL);
 INSERT INTO trackers VALUES('paperg','PaperG',1,'http://www.paperg.com/','paperg','1781',NULL,NULL);
-INSERT INTO trackers VALUES('pardot','Pardot',10,'https://www.pardot.com/','pardot','241',NULL,NULL);
+INSERT INTO trackers VALUES('pardot','Pardot',10,'https://www.pardot.com/','salesforce','241',NULL,NULL);
 INSERT INTO trackers VALUES('parsely','Parse.ly',10,'https://www.parse.ly/','parse.ly','2613',NULL,NULL);
 INSERT INTO trackers VALUES('partner-ads','Partner-Ads',1,'https://www.partner-ads.com/','partner-ads','961',NULL,NULL);
 INSERT INTO trackers VALUES('passionfruit','Passionfruit',1,'http://passionfruitads.com/','passionfruit','1630',NULL,NULL);
@@ -9231,7 +9236,8 @@ INSERT INTO trackers VALUES('pinterest','Pinterest',11,'http://pinterest.com/','
 INSERT INTO trackers VALUES('pinterest_conversion_tracker','Pinterest Conversion Tracker',10,NULL,'pinterest','2748',NULL,'pinterest');
 INSERT INTO trackers VALUES('pipz','Pipz',1,NULL,'pipz_automation','3015',NULL,NULL);
 INSERT INTO trackers VALUES('piwik','Tombstone (Matomo/Piwik before the split)',10,'http://piwik.org/','matomo','44',NULL,NULL);
-INSERT INTO trackers VALUES('piwik_pro_analytics_suite','Piwik PRO Analytics Suite',10,'https://piwik.pro/','piwik_pro','4052',NULL,NULL);
+INSERT INTO trackers VALUES('piwik_pro_analytics_suite','Piwik PRO Analytics Suite',10,'https://piwik.pro/web-analytics/','cookieinformation','4052',NULL,NULL);
+INSERT INTO trackers VALUES('piwik_pro_tag_manager','Piwik PRO Tag Manager',5,'https://piwik.pro/tag-manager/','cookieinformation','',NULL,NULL);
 INSERT INTO trackers VALUES('pixalate','Pixalate',1,NULL,'pixalate','2368',NULL,NULL);
 INSERT INTO trackers VALUES('pixel_union','Pixel Union',1,NULL,'pixel_union','2819',NULL,NULL);
 INSERT INTO trackers VALUES('pixfuture','PixFuture',1,'http://www.pixfuture.com','pixfuture','1069',NULL,NULL);
@@ -9913,7 +9919,7 @@ INSERT INTO trackers VALUES('tribal_fusion','Tribal Fusion',1,'https://www.triba
 INSERT INTO trackers VALUES('tribal_fusion_notice','Tribal Fusion Notice',1,'http://www.tribalfusion.com','exponential_interactive','937',NULL,'tribal_fusion');
 INSERT INTO trackers VALUES('triblio','Triblio',10,NULL,'triblio','2448',NULL,NULL);
 INSERT INTO trackers VALUES('trigger_mail_marketing','Trigger Mail Marketing',1,NULL,'trigger_mail_marketing','2418',NULL,NULL);
-INSERT INTO trackers VALUES('triggerbee','Triggerbee',4,NULL,'triggerbee','2391',NULL,NULL);
+INSERT INTO trackers VALUES('triggerbee','Triggerbee',10,'https://triggerbee.com','triggerbee','2391',NULL,NULL);
 INSERT INTO trackers VALUES('tripadvisor','TripAdvisor',8,NULL,'iac_apps','3914',NULL,NULL);
 INSERT INTO trackers VALUES('triplelift','TripleLift',1,'https://triplelift.com/','triplelift','1576',NULL,NULL);
 INSERT INTO trackers VALUES('triptease','Triptease',4,NULL,'triptease','3253',NULL,NULL);
