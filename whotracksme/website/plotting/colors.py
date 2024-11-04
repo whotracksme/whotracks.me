@@ -21,7 +21,7 @@ tracker_category_colors = {
     "comments": "#43B7C5",
     "consent": "#BECFB3",
     "customer_interaction": "#FCC156",
-    "essential": "#FC9834",
+    "utilities": "#FC9834",
     "adult_advertsing": "#E3A2D4",
     "site_analytics": "#84D7F0",
     "social_media": "#87BCEF",
@@ -32,7 +32,6 @@ tracker_category_colors = {
     "hosting": "#444",
     "unidentified": "#D0D0D0",
     "extensions": "orange",
-    "telemetry": "#6A9C8F",
 }
 
 site_category_colors = {
