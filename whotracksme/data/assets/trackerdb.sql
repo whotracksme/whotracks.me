@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202506021312/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202506211512/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -920,6 +920,7 @@ INSERT INTO companies VALUES('findologic','Findologic','FINDOLOGIC is the search
 INSERT INTO companies VALUES('first_impression','First Impression','We understand the challenges publishers and ad networks face when trying to tailor ad placements for every page and user. We founded FirstImpression in 2013 with the goal of creating a platform that offers an easy, flexible, and super-quick solution to create and manage any type of ad placement in seconds - a technology that would make online advertising easier, better for the user, and more profitable. Each of our team members brings something unique and valuable that is enabling us to accomplish this goal.','https://admin.firstimpression.io/privacy-policy.php','http://www.firstimpression.io','3190',NULL,'info@firstimpression.io',NULL);
 INSERT INTO companies VALUES('fiserv','Fiserv','Fiserv provides financial technology and services to clients across the financial services sector, including banks, thrifts, credit unions, securities broker dealers, mortgage, insurance, leasing and finance companies, and retailers.','https://www.fiserv.com/en/about-fiserv/privacy-notice.html','https://www.fiserv.com/','','US','dpo@fiserv.com',NULL);
 INSERT INTO companies VALUES('fit_analytics','Fit Analytics','"UPcload has one of largest databases of body measurements in the world. Using this data, we’re able to give size recommendations and provide detailed fit information."','http://www.fitanalytics.com/files/Privacy_Policy_DE-EN_FitA.pdf','http://www.fitanalytics.com/','3351',NULL,'contact@upcload.com',NULL);
+INSERT INTO companies VALUES('five_media','Five Media','Five Media Marketing Limited, based in Nicosia, Cyprus, specializes in content marketing, SEO, and social media promotion. They also operate GeoEdge, offering ad security and quality solutions for digital advertising.','https://www.geoedge.com/privacy-policy/','https://five.media/','','CY','Privacy@geoedge.com',NULL);
 INSERT INTO companies VALUES('fiverr','Fiverr','Fiverr is an online marketplace based in Israeli. It connects freelancers (sellers) with people or businesses (buyers) who want to hire them. It offers different services in a free market setup.','https://www.fiverr.com/legal-portal/privacy/privacy-policy?source=footer','https://www.fiverr.com','','IL','privacy@fiverr.com',NULL);
 INSERT INTO companies VALUES('fivetran','Fivetran','Fivetran technology helps analysts replicate data into a cloud warehouse.','https://fivetran.com/privacy','https://fivetran.com/','5343','US','privacy@fivetran.com',NULL);
 INSERT INTO companies VALUES('flag_ads','Flag Ads','"Flagads.net has been a leading pop under/up Advertising and Affiliate Network since our inception in 2011. As a pop under/up network who is dedicated to value and service for online businesses, Flagads provides thousands of Web entrepreneurs with an economical and measurable opportunity to obtain Internet traffic and generate revenue through their online presence."','http://www.flagads.net/privacy.php','http://www.flagads.net/','2379',NULL,'admin@flagads.net',NULL);
@@ -1089,7 +1090,7 @@ INSERT INTO companies VALUES('hubspot','HubSpot','HubSpot offers B2B inbound mar
 INSERT INTO companies VALUES('hucksterbot','HucksterBot',NULL,NULL,'http://hucksterbot.ru/','4882',NULL,NULL,NULL);
 INSERT INTO companies VALUES('hupso','Hupso','Hupso is a free website analyzer. It provides free reports for thousands of websites. For every website in our extensive database you can see detailed analysis, including traffic statistics, monthly earnings, facebook sharing information, web server location and website value estimates.','http://www.hupso.com/privacy','http://www.hupso.com/','3546',NULL,'contact@hupso.com',NULL);
 INSERT INTO companies VALUES('hurra_communications','Hurra Communications','Hurra Communications is a Germany based company that provides search engine marketing solutions. They offer search engine campaign design and optimization services. Hurra also provides production promotional tools and design and produce direct response and Web television advertising campaigns.','https://www.hurra.com/EN/privacy-policy','http://www.hurra.com/en/','843','DE','info@hurra.com',NULL);
-INSERT INTO companies VALUES('hybrid_adtech','Hybrid Adtech GmbH','"Targetix specializes in developing industry-specific solutions in the field of Internet advertising."','https://hybrid.ai/data_protection_policy','https://hybrid.ai/','1483','RU','sales@targetix.net',NULL);
+INSERT INTO companies VALUES('hybrid_adtech','Hybrid Adtech','Hybrid Adtech is an international adtech company that specializes in providing technology solutions for online advertising campaigns. They focus on programmatic advertising, offering solutions for both advertisers and agencies to create, launch, and optimize campaigns.','https://hybrid.ai/privacy_policy/','https://hybrid.ai/','1483','DE','support@hybrid.ai',NULL);
 INSERT INTO companies VALUES('hyfn','Hyfn','Federated Media hosts Ad STAMP, a premium, display advertising product on their technology platform. Advertising is served on over 100 websites, blogs, and social networking applications hosted within their media network.',NULL,'https://hyfn.com/federated/','69','US',NULL,NULL);
 INSERT INTO companies VALUES('hype_exchange','Hype Exchange','"Hype Exchange is a growing network of over 50 sites encompassing everything from top fan sites to entertainment blogs to some of today''s top pop culture sites."',NULL,'http://www.hypeexchange.com/','1814','US',NULL,NULL);
 INSERT INTO companies VALUES('hypercomments','HyperComments','"With HyperComments you can engage readers in a live conversation and expand the audience of your readers."Translated by HyperComments, Inc.','https://www.hypercomments.com/en/privacy','https://www.hypercomments.com/','3402',NULL,'support@hypercomments.com',NULL);
@@ -1471,6 +1472,7 @@ INSERT INTO companies VALUES('mochapp','MoChapp','Live Chat for Your Website"Onl
 INSERT INTO companies VALUES('modern_impact','Modern Impact','ModernImpact works to provide impactful advertising using proprietary technology and data to reach and engage our clients’ high-value audiences. We use the MI Intelligent PixelTM to help control and manage audience segmentation, gather site data in real time, and gain greater insight into user behavior, purchase patterns and much more. This allows us to serve the right creative at the right time to generate more engagement.MI also helps consumer brands with solutions for the modern world – from brand strategy to brand innovation, big ideas to customer experience, and all things necessary to navigate the increasingly complex mobile landscape. Today’s digital technology converges across all media channels. MI guides our clients through this ever-growing “Omni-channel” to provide incremental customer conversion both in-store and online.','https://www.modernimpact.com/privacy/','https://www.modernimpact.com/','3896',NULL,NULL,NULL);
 INSERT INTO companies VALUES('modernus','Modernus','"Modernus runs the Coordinated Webmeasure® list in Iceland in co-operation with its participants."',NULL,'http://www.modernus.is','2076',NULL,NULL,NULL);
 INSERT INTO companies VALUES('mogo_interactive','Mogo Interactive','"Mogo Interactive™​ ​is a digital marketing agency that ​works with brands and non-profits to help them connect, engage and activate their customers. Our ​​Mogo Interactive™ platform, powered by best-in-class technology, drives ROI within integrated advertising campaigns across display, video, social​, mobile and search.​"​ ​','http://www.mogointeractive.com/privacy-policy-opt-out-of-advertising/','http://www.mogointeractive.com/','2719',NULL,'contact@mogointeractive.com',NULL);
+INSERT INTO companies VALUES('monet_engine','Monet Engine','Monet Engine Inc. (AdaptMX) provides advertising technology products and services including its server advertising exchange, the Monet Engine APIs, and the Monet Engine websites. Our products and services enable publishers of websites and mobile applications to display advertisements on their sites and apps.','https://adaptmx.com/privacy-policy/','https://adaptmx.com/','','US','privacy@adaptmx.com',NULL);
 INSERT INTO companies VALUES('monetate','Monetate','Monetate is a provider of website testing and ad targeting services. Their web-based service provides data on clicks and advertising effectiveness to determine the best performing ads. The company provides an analytics suite and dashboard, enabling users to launch targeted advertising campaigns quickly.','http://www.monetate.com/platform-privacy-policy/?p=platform-policy/','http://monetate.com','601','US','privacy@monetate.com',NULL);
 INSERT INTO companies VALUES('monetize_me','Monetize Me','"Monetize-Me helps publishers of content sites or e-merchants to optimize their display advertising revenue to get the best possible return CPM while continuing to follow this progression throughout the partnership."Translated by Google Translate',NULL,'http://www.monetize-me.com/','2689',NULL,'contact@monetize-me.com',NULL);
 INSERT INTO companies VALUES('monforte','Monforte','A versatile digital communication agency with a team of tech-focused creatives dedicated to the web and digital innovation.','https://api.appcenter.it/privacy','https://api.appcenter.it/','','IT','info@monforte.it',NULL);
@@ -1644,6 +1646,7 @@ INSERT INTO companies VALUES('ors','ORS','The ORS group consists of Österreichi
 INSERT INTO companies VALUES('osano','Osano','The Osano data privacy management platform supports, streamlines, and automates compliance in your organization—without the stress. Osano, Inc., is a Delaware Public Benefit Corporation.','https://osano.trusthub.com/privacy','https://www.osano.com','','US','https://www.osano.com/legal/dsar',NULL);
 INSERT INTO companies VALUES('otclick','otClick','otClick is a banner network, which sells advertising on clicks.','https://otclick-adv.ru/privacy-policy/','https://otclick-adv.ru/','2699','RU','support@otclick-adv.ru',NULL);
 INSERT INTO companies VALUES('outbrain','Outbrain','Outbrain’s mission is to serve interesting recommendations to you based on what we believe are your interests. To achieve our mission we enter into agreements with: Online publishers and partners who want to recommend relevant content to their readers (this is Outbrain Engage); Advertisers who want readers to view their content (this is Outbrain Amplify); And third party partners who help us serve relevant recommendations.','https://www.outbrain.com/privacy/','https://www.outbrain.com/','134','US','dpo@outbrain.com',NULL);
+INSERT INTO companies VALUES('outgrow','Outgrow','Outgrow is a software-as-a-service (SaaS) company that helps businesses create interactive marketing experiences like quizzes, calculators, and recommendations. They enable users to create these experiences without needing coding or design skills.','https://outgrow.co/global-data-privacy-policy/','https://outgrow.co/','','US','questions@outgrow.co',NULL);
 INSERT INTO companies VALUES('owneriq','OwnerIQ','OwnerIQ collects and interprets product purchase intent and ownership data as consumers travel the Web. This enables advertisers to target their online advertising, direct marketing, and market research based on consumer purchase behavior and patterns. OwnerIQ operates a wholly owned product support site, ManualsOnline.com.','https://www.owneriq.com/privacy-policy','https://www.owneriq.com/','321','US','privacy@owneriq.com',NULL);
 INSERT INTO companies VALUES('owox_inc','OWOX Inc.','OWOX is a software company founded in 2013. The company specializes in web analytics and business intelligence products and services. OWOX''s services include development of business intelligence (BI) products based on Google Cloud Platform.','https://www.owox.com/policies/privacy/','https://www.owox.com/','5373','UA',NULL,NULL);
 INSERT INTO companies VALUES('oxamedia','OxaMedia','OxaMedia operates the AdConneXa Advertising Platform.  Their technology provides advertisers, agencies, publishers and networks with ad management and digital marketing solutions. Using AdConneXa, clients can use any of several targeting tools (contextual, channel, behavioral, re-targeting, demographic or geographic) that are most relevant to their advertising objectives.','http://www.oxamedia.com/privacy-policy/','http://www.oxamedia.com/','618','GB','support@oxamedia.com',NULL);
@@ -1658,10 +1661,12 @@ INSERT INTO companies VALUES('parse.ly','Parse.ly','Parse.ly is a personalizatio
 INSERT INTO companies VALUES('parship','Parship','Parship is the online dating agency for long-term relationships.',NULL,'https://www.parship.de/','5374','DE',NULL,NULL);
 INSERT INTO companies VALUES('partner-ads','Partner-Ads','"Partner-ads [works] with performance-based marketing where advertisers pay only for what they get and...affiliate partners earn good money by helping advertisers with targeted and relevant marketing."','https://www.partner-ads.com/dk/persondatapolitik.htm','https://www.partner-ads.com/','1431','DK','maildk@partner-ads.com',NULL);
 INSERT INTO companies VALUES('passionfruit','Passionfruit',NULL,NULL,'http://passionfruitads.com/','2677',NULL,'hello@passionfruitads.com',NULL);
+INSERT INTO companies VALUES('pathfactory','PathFactory','PathFactory Inc. is a software company specializing in content intelligence and personalization for B2B marketing teams. They provide a platform that helps marketers create tailored content experiences for both accounts and individual buyers, enabling them to track buyer and content engagement throughout the entire buyer journey.','https://www.pathfactory.com/privacy-policy/','https://www.pathfactory.com/','','CA','privacy@pathfactory.com',NULL);
 INSERT INTO companies VALUES('pathful','Pathful','"Pathful''s competitive diagnostic shows Mid-Market and Enterprise companies the performance of their conversion funnel against their competitors. They are able to pinpoint which segments of their site could be performing better and opportunities relative to their competitor''s. Pathful then provides ongoing automated conversion insights that provide clear guidance to improve their site conversion performance."','https://www.pathful.com/privacy/','https://www.pathful.com/','3007',NULL,NULL,NULL);
 INSERT INTO companies VALUES('pay-hit','Pay-Hit','"[We] provide our customers (i.e. web publishers) with a set of technologies and services designed to help them maximize their ad revenues. The primary way we do this is by connecting our customers with a variety of ad buyers and, through our ad optimization technology, enabling them to make intelligent decisions about how they sell their ad inventory. "Translated by Google Translate',NULL,'https://pay-hit.com/','3168',NULL,'privacy@pay-hit.com',NULL);
 INSERT INTO companies VALUES('payclick','PayClick','"PayClick.it and an affiliate network that operates since 2006 with the goal to provide and develop solutions for Web Advertising in Italy."','http://www.payclick.it/it/privacy','http://www.payclick.it/it/','1513','US',NULL,NULL);
 INSERT INTO companies VALUES('paykickstart','PayKickstart','"We Help Entrepreneurs Sell More, Increase Revenue and Automate Their Entire Online BusinessGrow Your Business with the Easiest, Simplest, and Most Powerful Shopping Cart and Affiliate Management Software"','https://paykickstart.com/privacy-policy/','https://paykickstart.com/','5257',NULL,'support@paykickstart.com',NULL);
+INSERT INTO companies VALUES('paypal','PayPal','PayPal Holdings, Inc. is an American financial technology company that operates an online payments system. Founded in 1998 and headquartered in San Jose, California, PayPal enables individuals and businesses to send and receive money electronically. The company is widely used for online transactions and owns subsidiaries like Venmo and Xoom, which extend its services into peer-to-peer payments and international money transfers.','https://www.paypal.com/us/legalhub/paypal/privacy-full','https://www.paypal.com/','','US','https://www.paypal.com/us/smarthelp/contact-us/privacy','In 2015, eBay spun off PayPal, and it became an independent company again.');
 INSERT INTO companies VALUES('peer39','Peer39','Peer39 invented the category of Pre Bid non-cookie based data starting with Semantic-based contextual categories, then Brand Safety and then Page Quality. Since then it has continued to scale at the pace of RTB, and has brought to market many meaningful data points that advertisers find valuable, and predictable to use to scale their performance campaigns.','https://www.peer39.com/privacy-policy/','https://www.peer39.com/','5430','US','privacy@peer39.com',NULL);
 INSERT INTO companies VALUES('peer5','Peer5',NULL,'https://www.peer5.com/privacy.html','https://www.peer5.com/','5375',NULL,NULL,NULL);
 INSERT INTO companies VALUES('peerius','Peerius','Peerius is provider of technology that provides enhanced product recommendations. Their software integrates with e-commerce platforms to call out products on publishers'' websites based on its "intelligent" recommendation technology.',NULL,'http://www.peerius.com/','1024','GB','info@peerius.com',NULL);
@@ -1796,7 +1801,7 @@ INSERT INTO companies VALUES('qualia','Qualia','"At Qualia, we''re on a mission 
 INSERT INTO companies VALUES('qualified','Qualified','Qualified is a B2B marketer platform that allows buyers and sales reps to connect through real-time website conversations. In order to detect account-based buyer intent and enable real-time sales discussions, Qualified, which is based on Salesforce, links the website with Salesforce data.','https://www.qualified.com/legal/privacy','https://www.qualified.com/','','US','privacy@qualified.com',NULL);
 INSERT INTO companies VALUES('qualityunit','QualityUnit','Quality Unit was established in 2004, as a software development company. Our primary effort was on developing web based applications. From start up, we have always had a dual marketing focus. While we concentrate on developing our own best selling products, we also function as a custom design group, creating quality web applications for external clients. We provide total service, from the initial consultation, to project realization, through on-going support and maintenance. We perform and collaborate!','https://www.qualityunit.com/privacy-policy-quality-unit/','https://www.qualityunit.com/','2404',NULL,'support@qualityunit.com',NULL);
 INSERT INTO companies VALUES('qualtrics','Qualtrics','Qualtrics is an American experience management company, with co-headquarters in Seattle, Washington, and Provo, Utah, in the United States. Qualtrics offers a cloud-based subscription software platform for experience management.','https://www.qualtrics.com/privacy-statement/','https://www.qualtrics.com/','2572','US','support@qualtrics.com',NULL);
-INSERT INTO companies VALUES('quantcast','Quantcast International Limited','Quantcast provides real-time detailed audience profiles for advertisers to buy, sell, connect and learn more about what consumers are doing online.','https://www.quantcast.com/privacy/','http://www.quantcast.com','139','US','dpo@quantcast.com',NULL);
+INSERT INTO companies VALUES('quantcast','Quantcast','Quantcast provides real-time detailed audience profiles for advertisers to buy, sell, connect and learn more about what consumers are doing online.','https://www.quantcast.com/privacy/','http://www.quantcast.com','139','US','dpo@quantcast.com',NULL);
 INSERT INTO companies VALUES('quantum_metric','Quantum Metric, Inc.','Quantum Metric was conceived in 2011 with a challenging goal: empower organizations to maximize their customers'' experience and value by simplifying data science exploration through machine intelligence and Big Data.','https://www.quantummetric.com/legal/privacy/','https://www.quantummetric.com/','4748',NULL,NULL,NULL);
 INSERT INTO companies VALUES('quarticon','QuarticOn S.A.','"QuarticON is a Programmatic Marketing HUB making your online marketing and sales activities easy, optimized and automated. The only tool you will need to manage everything from one place, automagically."','https://www.quarticon.com/privacy-statement/','https://www.quarticon.com/','3442',NULL,'contact@quarticon.com',NULL);
 INSERT INTO companies VALUES('qubit','Qubit','QuBit is a data analysis and optimization company. They build predictive models by collecting and analyzing client data to streamline operations, website and marketing experiences. Their product suite includes the tag management system OpenTag.','https://www.qubit.com/legal/privacy-and-cookie-policy','https://www.qubit.com/','1117','GB','info@qubitproducts.com',NULL);
@@ -1853,6 +1858,7 @@ INSERT INTO companies VALUES('rekmob','Rekmob','Founded in 2013, we are a techno
 INSERT INTO companies VALUES('relap','Relap','Make your site better.Increase involvement of your audienceand advertising effectiveness.','https://relap.io/privacy','https://relap.io/','4985',NULL,'support@relap.io',NULL);
 INSERT INTO companies VALUES('relay42','Relay42','"Relay42 is an advanced Tag & Data Management Platform that is used by a broad range of leading international advertisers."','https://relay42.com/privacy-policy/','http://relay42.com','2177',NULL,'info@relay42.com',NULL);
 INSERT INTO companies VALUES('relestar','Relestar','"Relevad Corporation is a global provider of rich real-time bidding (RTB) Solutions for Advertisers, Publishers and Agencies. Relevad is one of the world''s largest semantic PPC ad networks...Relevad operates Google AdX certified demand-side platform (DSP) with integrated semantic, search, and dynamic retargeting capabilities, as well as publisher network... "','https://relestar.com/adnetwork/privacy-policy/','https://relestar.com/','1755','US','info@relevad.com',NULL);
+INSERT INTO companies VALUES('relevant_digital','Relevant Digital','Relevant Digital Oy, founded in 2012, is a Scandinavian company specializing in developing transparent and trustworthy online advertising and media solutions. The company provides publishers and sales houses with technology for analyzing and managing their programmatic sales channels, with a particular focus on Header Bidding.','https://www.relevant-digital.com/privacy-policy','https://www.relevant-digital.com/','','FI','petri.kokkonen@relevant.fi',NULL);
 INSERT INTO companies VALUES('report_uri','Report URI','Report URI was founded to allow you to deploy and utilise modern browser security features. You can get started easily and use our service to detect some of the most dangerous attacks online.','https://report-uri.com/home/privacy_policy','https://report-uri.com','','GB','info@report-uri.com',NULL);
 INSERT INTO companies VALUES('repost','Repost','"Free Range Content, Inc. creates products and services that maximize the reach and revenue of digital content. We build new market share and revenue streams for online publishers through frictionless technology that enables the easy and profitable exchange of content between producers and consumers."','http://www.repost.us/privacy-policy','http://www.repost.us/','1627','US','privacy@freerangecontent.com',NULL);
 INSERT INTO companies VALUES('republer','Republer',NULL,'https://republer.com/privacy.html','https://republer.com/','4023',NULL,'info@republer.ru',NULL);
@@ -2497,6 +2503,7 @@ INSERT INTO companies VALUES('zedo','Zedo','Zedo is a privately held ad serving 
 INSERT INTO companies VALUES('zemanta','Outbrain','Outbrain’s mission is to serve interesting recommendations to you based on what we believe are your interests. To achieve our mission we enter into agreements with: Online publishers and partners who want to recommend relevant content to their readers (this is Outbrain Engage); Advertisers who want readers to view their content (this is Outbrain Amplify); And third party partners who help us serve relevant recommendations.','https://www.outbrain.com/privacy/','https://www.outbrain.com/','189','US','dpo@outbrain.com','Zemanta was acquired by Outbrain in 2017: https://www.zemanta.com/about-zemanta/');
 INSERT INTO companies VALUES('zencoder','Zencoder','Zencoder is a cloud-based video and audio encoding product suite from Brightcove (NASDAQ: BCOV), a leading global provider of cloud content services. The Zencoder service provides customers with high quality, reliable encoding of live and on-demand video and access to unlimited video encoding power without having to pay for, manage and scale expensive hardware and software.','https://zencoder.com/en/privacy','https://zencoder.com/en/','4475','US','safeharbor@zencoder.com',NULL);
 INSERT INTO companies VALUES('zendesk','Zendesk','Zendesk is a web-based help desk solution. Their Software-as-a-Service (SaaS) package is designed with a support ticket system and a self-service customer support platform to help manage customer conversations.','https://www.zendesk.com/company/privacy','https://www.zendesk.com/','190','US','privacy@zendesk.com',NULL);
+INSERT INTO companies VALUES('zenleads','ZenLeads','Zenleads Inc., doing business as Apollo, designs and develops software. The Company provides a lead generation and sales communication platform for businesses.','https://www.apollo.io/privacy-policy','https://www.apollo.io/','','US','privacy@apollo.io',NULL);
 INSERT INTO companies VALUES('zenovia','Zenovia','"The Zenovia Digital Exchange display advertising platform increases returns for online advertisers and publishers of all sizes."','http://www.zenoviaexchange.com/ad-exchange-privacy-policy','http://www.zenoviaexchange.com/','2296',NULL,'privacy@zenoviaexchange.com',NULL);
 INSERT INTO companies VALUES('zergnet','ZergNet','"The idea behind ZergNet is simple.Websites place article links from other network members on their sites to cross-promote their best content. Websites typically receive significantly more visitors to their site than they send to the network, as their content is displayed across the entire network and ZergNet.com."','https://www.zergnet.com/privacy','https://www.zergnet.com/info','1924',NULL,'support@zergnet.com',NULL);
 INSERT INTO companies VALUES('zeta','Zeta Global','Zeta Interactive is a provider of integrated interactive services. They help marketers leverage the Internet to build brands, increase sales, improve processes, and reduce costs. Zeta Interactive''s focus is in crafting strategies and solutions for their clients to help them acquire, retain, up-sell, cross-sell and win back their customers.','https://zetaglobal.com/privacy-policy/','https://zetaglobal.com/','426','US','info@zetaglobal.com',NULL);
@@ -2650,6 +2657,7 @@ INSERT INTO tracker_domains VALUES('adalyser.com','adalyser.com',NULL);
 INSERT INTO tracker_domains VALUES('adaos','adaos-ads.net',NULL);
 INSERT INTO tracker_domains VALUES('adap.tv','adap.tv',NULL);
 INSERT INTO tracker_domains VALUES('adaptiveblue_smartlinks','smrtlnks.com',NULL);
+INSERT INTO tracker_domains VALUES('adaptmx','amxrtb.com',NULL);
 INSERT INTO tracker_domains VALUES('adara_analytics','yieldoptimizer.com',NULL);
 INSERT INTO tracker_domains VALUES('adasia_holdings','adnetwork.adasiaholdings.com',NULL);
 INSERT INTO tracker_domains VALUES('adbetclickin.pink','adbetclickin.pink',NULL);
@@ -3147,6 +3155,7 @@ INSERT INTO tracker_domains VALUES('apa.at','apa.at',NULL);
 INSERT INTO tracker_domains VALUES('apester','apester.com',NULL);
 INSERT INTO tracker_domains VALUES('apicit.net','apicit.net',NULL);
 INSERT INTO tracker_domains VALUES('aplus_analytics','carrierzone.com',NULL);
+INSERT INTO tracker_domains VALUES('apollo','apollo.io',NULL);
 INSERT INTO tracker_domains VALUES('appcenter','api.appcenter.it',NULL);
 INSERT INTO tracker_domains VALUES('appconsent','appconsent.io',NULL);
 INSERT INTO tracker_domains VALUES('appcues','appcues.com',NULL);
@@ -4380,6 +4389,7 @@ INSERT INTO tracker_domains VALUES('genius','rsvpgenius.com',NULL);
 INSERT INTO tracker_domains VALUES('genius_monkey','pm.geniusmonkey.com',NULL);
 INSERT INTO tracker_domains VALUES('genoo','genoo.com',NULL);
 INSERT INTO tracker_domains VALUES('geoads','js.geoads.com',NULL);
+INSERT INTO tracker_domains VALUES('geoedge','geoedge.be',NULL);
 INSERT INTO tracker_domains VALUES('geolify','geolify.com',NULL);
 INSERT INTO tracker_domains VALUES('geoplugin','geoplugin.net',NULL);
 INSERT INTO tracker_domains VALUES('geotrust','geotrust.com',NULL);
@@ -5671,6 +5681,8 @@ INSERT INTO tracker_domains VALUES('otto.de','otto.de',NULL);
 INSERT INTO tracker_domains VALUES('otto.de','ottogroup.media',NULL);
 INSERT INTO tracker_domains VALUES('outbrain','outbrain.com',NULL);
 INSERT INTO tracker_domains VALUES('outbrain','outbrainimg.com',NULL);
+INSERT INTO tracker_domains VALUES('outgrow','outgrow.co',NULL);
+INSERT INTO tracker_domains VALUES('outgrow','outgrow.us',NULL);
 INSERT INTO tracker_domains VALUES('overheat.it','overheat.it',NULL);
 INSERT INTO tracker_domains VALUES('owa','oewabox.at',NULL);
 INSERT INTO tracker_domains VALUES('owneriq','owneriq.net',NULL);
@@ -5699,6 +5711,7 @@ INSERT INTO tracker_domains VALUES('parsely','d1z2jf7jlzjs58.cloudfront.net',NUL
 INSERT INTO tracker_domains VALUES('parsely','parsely.com',NULL);
 INSERT INTO tracker_domains VALUES('partner-ads','partner-ads.com',NULL);
 INSERT INTO tracker_domains VALUES('passionfruit','passionfruitads.com',NULL);
+INSERT INTO tracker_domains VALUES('pathfactory','pathfactory.com',NULL);
 INSERT INTO tracker_domains VALUES('pathful','pathful.com',NULL);
 INSERT INTO tracker_domains VALUES('pay-hit','pay-hit.com',NULL);
 INSERT INTO tracker_domains VALUES('payclick','payclick.it',NULL);
@@ -6020,6 +6033,7 @@ INSERT INTO tracker_domains VALUES('relay42','synovite-scripts.com',NULL);
 INSERT INTO tracker_domains VALUES('relay42','tdn.r42tag.com',NULL);
 INSERT INTO tracker_domains VALUES('relestar','relestar.com',NULL);
 INSERT INTO tracker_domains VALUES('relevant4.com','relevant4.com',NULL);
+INSERT INTO tracker_domains VALUES('relevant_digital','relevant-digital.com',NULL);
 INSERT INTO tracker_domains VALUES('remintrex','remintrex.com',NULL);
 INSERT INTO tracker_domains VALUES('remove.video','remove.video',NULL);
 INSERT INTO tracker_domains VALUES('report_uri','report-uri.com',NULL);
@@ -7150,8 +7164,8 @@ INSERT INTO tracker_domains VALUES('wiredminds','wiredminds.de',NULL);
 INSERT INTO tracker_domains VALUES('wirtualna_polska','adtotal.pl',NULL);
 INSERT INTO tracker_domains VALUES('wisepops','wisepops.com',NULL);
 INSERT INTO tracker_domains VALUES('wishpond','cdn.wishpond.net',NULL);
-INSERT INTO tracker_domains VALUES('wistia','wistia.com',NULL);
-INSERT INTO tracker_domains VALUES('wistia','wistia.net',NULL);
+INSERT INTO tracker_domains VALUES('wistia_assets','wistia.com',NULL);
+INSERT INTO tracker_domains VALUES('wistia_assets','wistia.net',NULL);
 INSERT INTO tracker_domains VALUES('wix.com','parastorage.com',NULL);
 INSERT INTO tracker_domains VALUES('wix.com','wix.com',NULL);
 INSERT INTO tracker_domains VALUES('wixab','public.wixab-cloud.com',NULL);
@@ -7442,6 +7456,7 @@ INSERT INTO trackers VALUES('adalyser.com','Adalyser',9,'https://www.adalyser.co
 INSERT INTO trackers VALUES('adaos','ADAOS',1,'http://www.24-interactive.com','24_interactive','1194',NULL,NULL);
 INSERT INTO trackers VALUES('adap.tv','Adap.tv',1,'http://www.adap.tv/','verizon','573',NULL,NULL);
 INSERT INTO trackers VALUES('adaptiveblue_smartlinks','AdaptiveBlue SmartLinks',4,'https://www.adaptiveblue.com/smartlinks.html','telfie','132',NULL,NULL);
+INSERT INTO trackers VALUES('adaptmx','AdaptMX',1,'https://adaptmx.com/','monet_engine','',NULL,NULL);
 INSERT INTO trackers VALUES('adara_analytics','Adara',1,'http://www.adaramedia.com/','adara_analytics','469',NULL,NULL);
 INSERT INTO trackers VALUES('adasia_holdings','AdAsia Holdings',1,NULL,'adasia_holdings','3126',NULL,NULL);
 INSERT INTO trackers VALUES('adbetclickin.pink','adbetnet',1,'http://adbetnet.com/',NULL,'3309',NULL,NULL);
@@ -7782,6 +7797,7 @@ INSERT INTO trackers VALUES('apa.at','Apa',7,'http://www.apa.at/Site/index.de.ht
 INSERT INTO trackers VALUES('apester','Apester',1,'https://apester.com/','apester','2930',NULL,NULL);
 INSERT INTO trackers VALUES('apicit.net','apicit.net',1,NULL,NULL,'3361',NULL,NULL);
 INSERT INTO trackers VALUES('aplus_analytics','Aplus Analytics',9,'https://ww.deluxe.com/','deluxe','1753',NULL,NULL);
+INSERT INTO trackers VALUES('apollo','Apollo',9,'https://www.apollo.io/','zenleads','',NULL,NULL);
 INSERT INTO trackers VALUES('appcenter','AppCenter',9,'https://api.appcenter.it/','monforte','',NULL,NULL);
 INSERT INTO trackers VALUES('appconsent','AppConsent',3,'https://sfbx.io/','sfbx','',NULL,NULL);
 INSERT INTO trackers VALUES('appcues','Appcues',4,'https://www.appcues.com/',NULL,'3362',NULL,NULL);
@@ -8673,6 +8689,7 @@ INSERT INTO trackers VALUES('genius','Genius',9,'http://www.genius.com/','genius
 INSERT INTO trackers VALUES('genius_monkey','Genius Monkey',1,'https://geniusmonkey.com/','genius_monkey','',NULL,NULL);
 INSERT INTO trackers VALUES('genoo','Genoo',1,'https://www.genoo.com/','genoo','2216',NULL,NULL);
 INSERT INTO trackers VALUES('geoads','GeoAds',1,'http://www.geoads.com','geoads','558',NULL,NULL);
+INSERT INTO trackers VALUES('geoedge','GeoEdge',1,'https://www.geoedge.com/','five_media','',NULL,NULL);
 INSERT INTO trackers VALUES('geolify','Geolify',1,NULL,'geolify','3114',NULL,NULL);
 INSERT INTO trackers VALUES('geoplugin','geoPlugin',9,'http://www.geoplugin.com/','geoplugin','1095',NULL,NULL);
 INSERT INTO trackers VALUES('geotrust','GeoTrust',11,'https://www.geotrust.com/','symantec','2109',NULL,NULL);
@@ -9583,6 +9600,7 @@ INSERT INTO trackers VALUES('outbrain_logger','Outbrain Logger',1,NULL,'outbrain
 INSERT INTO trackers VALUES('outbrain_pixel','Outbrain Pixel',1,NULL,'outbrain','2894',NULL,'outbrain');
 INSERT INTO trackers VALUES('outbrain_utilities','Outbrain Utilities',9,NULL,'outbrain','3099',NULL,'outbrain');
 INSERT INTO trackers VALUES('outbrain_widgets','Outbrain Widgets',1,NULL,'outbrain','2895',NULL,'outbrain');
+INSERT INTO trackers VALUES('outgrow','Outgrow',9,'https://outgrow.co/','outgrow','',NULL,NULL);
 INSERT INTO trackers VALUES('overheat.it','overheat',9,'https://overheat.io/',NULL,'3752',NULL,NULL);
 INSERT INTO trackers VALUES('owa','OWA',9,'http://oewa.at/','the_austrian_web_analysis','331',NULL,NULL);
 INSERT INTO trackers VALUES('owneriq','OwnerIQ',1,'https://www.owneriq.com/','owneriq','359',NULL,NULL);
@@ -9602,11 +9620,12 @@ INSERT INTO trackers VALUES('pardot','Marketing Cloud Account Engagement',9,'htt
 INSERT INTO trackers VALUES('parsely','Parse.ly',9,'https://www.parse.ly/','parse.ly','2613',NULL,NULL);
 INSERT INTO trackers VALUES('partner-ads','Partner-Ads',1,'https://www.partner-ads.com/','partner-ads','961',NULL,NULL);
 INSERT INTO trackers VALUES('passionfruit','Passionfruit',1,'http://passionfruitads.com/','passionfruit','1630',NULL,NULL);
+INSERT INTO trackers VALUES('pathfactory','PathFactory',9,'https://www.pathfactory.com/','pathfactory','',NULL,NULL);
 INSERT INTO trackers VALUES('pathful','Pathful',9,'https://www.pathful.com/','pathful','1904',NULL,NULL);
 INSERT INTO trackers VALUES('pay-hit','Pay-Hit',1,'https://pay-hit.com/','pay-hit','2009',NULL,NULL);
 INSERT INTO trackers VALUES('payclick','PayClick',1,'http://payclick.it/','payclick','1016',NULL,NULL);
 INSERT INTO trackers VALUES('paykickstart','PayKickstart',9,NULL,'paykickstart','3291',NULL,NULL);
-INSERT INTO trackers VALUES('paypal','PayPal',4,'https://www.paypal.com','ebay','3757',NULL,NULL);
+INSERT INTO trackers VALUES('paypal','PayPal',4,'https://www.paypal.com','paypal','3757',NULL,NULL);
 INSERT INTO trackers VALUES('pcvark.com','pcvark.com',7,'https://pcvark.com/',NULL,'3758',NULL,NULL);
 INSERT INTO trackers VALUES('peer39','Peer39',1,'https://www.peer39.com/','peer39','262',NULL,NULL);
 INSERT INTO trackers VALUES('peer5.com','Peer5',6,'https://www.peer5.com/','peer5','3759',NULL,NULL);
@@ -9854,6 +9873,7 @@ INSERT INTO trackers VALUES('relap','Relap',1,'https://relap.io/','relap','3023'
 INSERT INTO trackers VALUES('relay42','Relay42',11,'http://synovite.com','relay42','1269',NULL,NULL);
 INSERT INTO trackers VALUES('relestar','Relestar',9,NULL,'relestar','2326',NULL,NULL);
 INSERT INTO trackers VALUES('relevant4.com','relevant4 GmbH',7,'https://www.relevant4.com/',NULL,'3806',NULL,NULL);
+INSERT INTO trackers VALUES('relevant_digital','Relevant Digital',1,'https://www.paypal.com','relevant_digital','',NULL,NULL);
 INSERT INTO trackers VALUES('remintrex','Remintrex',1,'https://www.remintrex.com/',NULL,'3807',NULL,NULL);
 INSERT INTO trackers VALUES('remove.video','remove.video',5,NULL,NULL,'3808',NULL,NULL);
 INSERT INTO trackers VALUES('report_uri','Report URI',11,'https://report-uri.com','report_uri','',NULL,NULL);
@@ -10644,7 +10664,8 @@ INSERT INTO trackers VALUES('wiredminds','WiredMinds',9,'https://www.wiredminds.
 INSERT INTO trackers VALUES('wirtualna_polska','Wirtualna Polska',1,NULL,'wirtualna_polska','2735',NULL,NULL);
 INSERT INTO trackers VALUES('wisepops','WisePops',1,'https://wisepops.com/','wisepops','2092',NULL,NULL);
 INSERT INTO trackers VALUES('wishpond','Wishpond',4,NULL,'wishpond','2265',NULL,NULL);
-INSERT INTO trackers VALUES('wistia','Wistia',9,NULL,'wistia','2336',NULL,NULL);
+INSERT INTO trackers VALUES('wistia','Wistia',9,'https://wistia.com/','wistia','2336',NULL,'wistia_assets');
+INSERT INTO trackers VALUES('wistia_assets','Wistia Assets',2,'https://wistia.com/','wistia','',NULL,NULL);
 INSERT INTO trackers VALUES('wix.com','Wix',6,'https://www.wix.com/','wix','3975',NULL,NULL);
 INSERT INTO trackers VALUES('wixab','Wixab',9,NULL,'wixab','3184',NULL,NULL);
 INSERT INTO trackers VALUES('wixmp','Wix Media Platform',6,'https://www.wixmp.com/','wix','3976',NULL,NULL);
