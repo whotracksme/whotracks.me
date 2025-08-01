@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202506211512/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202507251102/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -1158,7 +1158,7 @@ INSERT INTO companies VALUES('intelliad','intelliAd','"intelliAd is a global lea
 INSERT INTO companies VALUES('intelligencefocus','IntelligenceFocus','IntelligenceFocus provides web analytics and optimization technologies.  Using a Software as a Service (SaaS) allows enterprises and organizations to analyze virtually any kind of interaction between a company''s extended web presence and online visitors across multimedia content. IntelligenceFocus PaaS provides a full stack of database as a service, integration API, programmable logic, and user interface capabilities.  Analytics are highly configurable for insight into audience behavior, ad targeting optimization and content delivery using real-time behavioral patterns.','http://www.intelligencefocus.com/en/privacypolicy.html','http://www.intelligencefocus.com','368','US','privacy@intelligencefocus.com',NULL);
 INSERT INTO companies VALUES('intelligent_reach','Intelligent Reach','"Our platform consumes all of the merchant’s product data, enriching it where necessary, enabling the merchant’s offers to be everywhere potential buyers are looking for them. We track every interaction, automatically optimising marketing performance, onsite conversion and creating the perfect next action."','http://intelligentreach.com/privacy-policy/','https://www.intelligentreach.com/','2589',NULL,'team@intelligentreach.com',NULL);
 INSERT INTO companies VALUES('intent_media','Intent Media, Inc.','Intent Media provides advertising to e-commerce sites and enables these sites to turn customer intent into new revenue streams. They connect advertisers with markets of interested buyers by providing audience segmentation services and delivers new inventory to performance marketers.','https://intentmedia.com/privacy-policy/','http://www.intentmedia.com/','735','US','privacy@intent.com',NULL);
-INSERT INTO companies VALUES('intercom','Intercom','Intercom is a customer relationship management and messaging tool for web app owners.','https://docs.intercom.com/pricing-privacy-and-terms/intercom-inc-privacy-policy','https://www.intercom.com/','1161','US','team@intercom.io',NULL);
+INSERT INTO companies VALUES('intercom','Intercom','Intercom is a customer relationship management and messaging tool for web app owners.','https://www.intercom.com/legal/privacy','https://www.intercom.com/','1161','US','https://www.intercom.com/privacy-form',NULL);
 INSERT INTO companies VALUES('intergi_entertainment','Intergi Entertainment','Intergi Entertainment operates as an online gaming and entertainment advertising network and representation company. Intergi offers site specific, channel-wide and run-of-network, targeted advertising placement  Their global market allows advertisers and publishers to connect from different parts of the world and access a more robust and viable gaming enthusiast. Intergi is formerly known as eGameLogic.','http://www.intergi.com/privacy','http://playwiremedia.com/','525','US','n/a',NULL);
 INSERT INTO companies VALUES('intermarkets','Intermarkets','"We serve publishers as their exclusive representative marketing their inventory to advertisers; in addition, we provide our advertising clients complete advertising solutions including placements on the Intermarkets Portfolio, media buying and planning, creative development and more."','http://www.intermarkets.net/about-intermarkets/intermarkets-privacy-policy','http://intermarkets.net/','1414','US',NULL,NULL);
 INSERT INTO companies VALUES('intermundo_media','InterMundo Media','InterMundo Media is a performance-based sales partner that builds custom online initiatives for marketers and their partners. Their services combine data-driven direct marketing, highly segmented campaigns, optimization and creative assets across multiple traffic sources including search, email, display and direct-to-web DRTV and radio.','http://intermundomedia.com/privacy/','http://intermundomedia.com/','445','US','info@intermundomedia.com',NULL);
@@ -3104,6 +3104,7 @@ INSERT INTO tracker_domains VALUES('amazon','d3io1k5o0zdpqr.cloudfront.net',NULL
 INSERT INTO tracker_domains VALUES('amazon_adsystem','amazon-adsystem.com',NULL);
 INSERT INTO tracker_domains VALUES('amazon_adsystem','serving-sys.com',NULL);
 INSERT INTO tracker_domains VALUES('amazon_adsystem','sizmek.com',NULL);
+INSERT INTO tracker_domains VALUES('amazon_adsystem','paa-reporting-advertising.amazon',NULL);
 INSERT INTO tracker_domains VALUES('amazon_associates','assoc-amazon.ca',NULL);
 INSERT INTO tracker_domains VALUES('amazon_associates','assoc-amazon.co.uk',NULL);
 INSERT INTO tracker_domains VALUES('amazon_associates','assoc-amazon.com',NULL);
@@ -3114,6 +3115,7 @@ INSERT INTO tracker_domains VALUES('amazon_cdn','images-amazon.com',NULL);
 INSERT INTO tracker_domains VALUES('amazon_cdn','media-amazon.com',NULL);
 INSERT INTO tracker_domains VALUES('amazon_cdn','ssl-images-amazon.com',NULL);
 INSERT INTO tracker_domains VALUES('amazon_cloudfront','cloudfront.net',NULL);
+INSERT INTO tracker_domains VALUES('amazon_metrics','a2z.com',NULL);
 INSERT INTO tracker_domains VALUES('amazon_mobile_ads','axx-eu.amazon-adsystem.com',NULL);
 INSERT INTO tracker_domains VALUES('amazon_payments','amazonpay.com',NULL);
 INSERT INTO tracker_domains VALUES('amazon_payments','payments-amazon.com',NULL);
@@ -6700,6 +6702,7 @@ INSERT INTO tracker_domains VALUES('tidio','code.tidio.co',NULL);
 INSERT INTO tracker_domains VALUES('tidio','widget-v4.tidiochat.com',NULL);
 INSERT INTO tracker_domains VALUES('tiktok_analytics','analytics.tiktok.com',NULL);
 INSERT INTO tracker_domains VALUES('tiktok_analytics','mon.tiktokv.com',NULL);
+INSERT INTO tracker_domains VALUES('tiktok_analytics','analytics-ipv6.tiktokw.us',NULL);
 INSERT INTO tracker_domains VALUES('tiktok_cdn','p16-sign-va.tiktokcdn.com',NULL);
 INSERT INTO tracker_domains VALUES('tiktok_cdn','p77-sign-va.tiktokcdn.com',NULL);
 INSERT INTO tracker_domains VALUES('tiktok_cdn','s20.tiktokcdn.com',NULL);
@@ -7768,6 +7771,7 @@ INSERT INTO trackers VALUES('amazon_adsystem','Amazon Advertising',1,'https://ad
 INSERT INTO trackers VALUES('amazon_associates','Amazon Associates',1,'https://aws.amazon.com/associates/','amazon_associates','33',NULL,NULL);
 INSERT INTO trackers VALUES('amazon_cdn','Amazon CDN',6,'https://www.amazon.com','amazon_associates','3351',NULL,NULL);
 INSERT INTO trackers VALUES('amazon_cloudfront','Amazon CloudFront',6,'https://aws.amazon.com/cloudfront/?nc1=h_ls','amazon_associates','3352',NULL,NULL);
+INSERT INTO trackers VALUES('amazon_metrics','Amazon Metrics',9,'https://www.amazon.com/','amazon_associates','',NULL,NULL);
 INSERT INTO trackers VALUES('amazon_mobile_ads','Amazon Mobile Ads',1,NULL,'amazon_associates','2529',NULL,NULL);
 INSERT INTO trackers VALUES('amazon_payments','Amazon Payments',4,'https://pay.amazon.com/','amazon_associates','3353',NULL,NULL);
 INSERT INTO trackers VALUES('amazon_video','Amazon Instant Video',2,'https://www.amazon.com','amazon_associates','3354',NULL,NULL);
@@ -9257,7 +9261,7 @@ INSERT INTO trackers VALUES('mark_+_mini','Mark & Mini',1,'http://www.markandmin
 INSERT INTO trackers VALUES('market_thunder','Market Thunder',1,NULL,'market_thunder','3047',NULL,NULL);
 INSERT INTO trackers VALUES('marketgid','MarketGid',1,'https://www.mgid.com/','marketgid_usa','364',NULL,NULL);
 INSERT INTO trackers VALUES('marketing_automation','Marketing Automation',1,NULL,'frodx','3269',NULL,NULL);
-INSERT INTO trackers VALUES('marketo','Marketo',1,'http://www.marketo.com/','adobe','159',NULL,NULL);
+INSERT INTO trackers VALUES('marketo','Adobe Marketo Engage',1,'http://www.marketo.com/','adobe','159',NULL,NULL);
 INSERT INTO trackers VALUES('markmonitor','MarkMonitor',1,'https://www.markmonitor.com/','markmonitor','1241',NULL,NULL);
 INSERT INTO trackers VALUES('marktest','Marktest',1,'https://www.marktest.com/','marktest_group','687',NULL,NULL);
 INSERT INTO trackers VALUES('marshadow.io','marshadow.io',1,NULL,NULL,'3676',NULL,NULL);
@@ -9873,7 +9877,7 @@ INSERT INTO trackers VALUES('relap','Relap',1,'https://relap.io/','relap','3023'
 INSERT INTO trackers VALUES('relay42','Relay42',11,'http://synovite.com','relay42','1269',NULL,NULL);
 INSERT INTO trackers VALUES('relestar','Relestar',9,NULL,'relestar','2326',NULL,NULL);
 INSERT INTO trackers VALUES('relevant4.com','relevant4 GmbH',7,'https://www.relevant4.com/',NULL,'3806',NULL,NULL);
-INSERT INTO trackers VALUES('relevant_digital','Relevant Digital',1,'https://www.paypal.com','relevant_digital','',NULL,NULL);
+INSERT INTO trackers VALUES('relevant_digital','Relevant Digital',1,'https://www.relevant-digital.com/','relevant_digital','',NULL,NULL);
 INSERT INTO trackers VALUES('remintrex','Remintrex',1,'https://www.remintrex.com/',NULL,'3807',NULL,NULL);
 INSERT INTO trackers VALUES('remove.video','remove.video',5,NULL,NULL,'3808',NULL,NULL);
 INSERT INTO trackers VALUES('report_uri','Report URI',11,'https://report-uri.com','report_uri','',NULL,NULL);
