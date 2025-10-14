@@ -1,9 +1,9 @@
 """
 Helper script to update the trackers-preview.json file.
 
-The raw input data (aka "privacy score") is computed each month but is
-internal to the processing pipeline. This scripts downloads the data,
-slightly converts it to allow us to publish it.
+The raw input data is computed each month but is internal to the processing
+pipeline. This scripts downloads the data, slightly converts it to allow us
+to publish it.
 
 Usage:
     update_tracker_preview [INPUT]
@@ -23,7 +23,7 @@ import re
 import io
 import json
 
-def download_privacy_score(bucket_name, bucket_prefix):
+def download_raw_tracker_preview(bucket_name, bucket_prefix):
     """
     Find the latest month, download it and return its content as a dictionary.
     """
@@ -46,13 +46,13 @@ def download_privacy_score(bucket_name, bucket_prefix):
     print(f'Downloading latest_key file s3://{bucket_name}/{latest_key} ...')
     return json.loads(s3_client.get_object(Bucket=bucket_name, Key=latest_key)['Body'].read())
 
-def list_known_categories(privacy_score):
+def list_known_categories(raw_tracker_preview):
     categories = set()
-    for xs in (list(val['categories'].keys()) for val in privacy_score.values()):
+    for xs in (list(val['categories'].keys()) for val in raw_tracker_preview.values()):
         categories.update(xs)
     return categories
 
-def generate_trackers_preview(privacy_score):
+def generate_trackers_preview(raw_tracker_preview):
     """
     Generates a trackers_preview representation.
 
@@ -97,27 +97,29 @@ def generate_trackers_preview(privacy_score):
     True
 
     """
-    sorted_categories = sorted(list_known_categories(privacy_score))
+    sorted_categories = sorted(list_known_categories(raw_tracker_preview))
     trackers = dict()
-    for entry in privacy_score.values():
+    for entry in raw_tracker_preview.values():
         trackers[entry['site']] = [entry['categories'].get(cat, 0) for cat in sorted_categories]
-    return { 'trackers': trackers, 'categories': sorted_categories }
+    return {'trackers': trackers, 'categories': sorted_categories}
+
 
 def write_json(data, path):
     with open(path, 'w') as f:
         f.write(json.dumps(data, separators=(',', ':')))
     print(f'Successfully generated file: {path}')
 
+
 if __name__ == "__main__":
     args = docopt(__doc__)
     local_file = args['INPUT']
     if local_file:
         print(f'Loading local file: {local_file} ...')
-        privacy_score = json.loads(open(local_file, mode='r').read())
+        raw_tracker_preview = json.loads(open(local_file, mode='r').read())
     else:
         bucket_name = 'ghostery-antitracking-data'
-        bucket_prefix = 'privacy-score/site/'
-        privacy_score = download_privacy_score(bucket_name, bucket_prefix)
+        bucket_prefix = 'output/trackers-preview/'
+        raw_tracker_preview = download_raw_tracker_preview(bucket_name, bucket_prefix)
 
-    trackers_preview = generate_trackers_preview(privacy_score)
+    trackers_preview = generate_trackers_preview(raw_tracker_preview)
     write_json(trackers_preview, 'whotracksme/data/assets/trackers-preview.json')
