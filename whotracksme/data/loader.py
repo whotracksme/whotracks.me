@@ -352,6 +352,7 @@ class Trackers(SQLDataLoader):
             WHERE st.month = ?
                 AND st.country = ?
                 AND tracker = ?
+                AND site_proportion > 0.05
             GROUP BY sites_data.category
             ORDER BY count DESC
         ''', (self.last_month, self.region, id))
@@ -468,6 +469,7 @@ class Sites(SQLDataLoader):
             LEFT JOIN companies ON companies.id = trackers.company_id
             WHERE month = ? AND sites_trackers_data.country = ?
                 AND site = ? AND category != "extensions"
+                AND site_proportion > 0.05
             ORDER BY site_proportion DESC
         '''
         return map(SiteTrackerEntry._make, self.db.connection.execute(query, (month or self.last_month, self.region, site)))
@@ -514,6 +516,7 @@ class Sites(SQLDataLoader):
             JOIN categories ON trackers.category_id = categories.id
             WHERE month = ? AND sites_trackers_data.country = ?
                 AND site = ?
+                AND site_proportion > 0.05
             GROUP BY category
             ORDER BY frequency DESC
         '''
