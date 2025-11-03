@@ -72,7 +72,7 @@ Before 2018, all traffic came from users of the Cliqz Browser and the Cliqz exte
 There are five main datasets (unlike the four datasets available in the [explorer](https://www.ghostery.com/whotracksme/explorer) section on the website):
 
  * `sites.csv`: Stats for number of trackers seen on popular websites.
- * `site_trackers.csv`: Stats for each tracker on each site.
+ * `sites_trackers.csv`: Stats for each tracker on each site.
  * `domains.csv`: Top third-party domains seen tracking.
  * `trackers.csv`: Top trackers - this combines domains known be operated by the same tracker.
  * `companies.csv`: Top companies - aggregates the stats for trackers owned by the same company.
