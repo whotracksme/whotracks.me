@@ -67,7 +67,7 @@ six==1.15.0
 sniffio==1.1.0
 squarify==0.4.3
 toml==0.10.1
-tqdm==4.48.2
+tqdm==4.66.3
 traitlets==4.3.3
 twine==3.2.0
 ujson==5.4.0
