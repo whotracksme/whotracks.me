@@ -1,41 +1,42 @@
-
 from datetime import datetime
 from urllib.parse import quote_plus
 import io
-import pkg_resources
-import pandas as pd
-import sqlite3
+import importlib.resources
 from collections import namedtuple
 from operator import itemgetter
-from whotracksme.data.db import load_tracker_db, create_tracker_map, WhoTracksMeDB, DATA_COLUMNS
-
+from whotracksme.data.db import load_tracker_db, WhoTracksMeDB, DATA_COLUMNS
 
 def asset_exists(name):
-    return pkg_resources.resource_exists('whotracksme.data', f'assets/{name}')
+    """Check if an asset file exists in the package."""
+    try:
+        assets_dir = importlib.resources.files('whotracksme.data') / 'assets'
+        resource_path = assets_dir / name
+        return resource_path.is_file()
+    except (ModuleNotFoundError, FileNotFoundError):
+        return False
 
 
 def asset_stream(name):
-    stream = pkg_resources.resource_stream(
-        'whotracksme.data',
-        f'assets/{name}',
-    )
-    in_memory_stream = io.BytesIO(stream.read())
-    stream.close()
-    return in_memory_stream
+    """Return an in-memory stream of the asset file."""
+    try:
+        assets_dir = importlib.resources.files('whotracksme.data') / 'assets'
+        resource_path = assets_dir / name
+
+        file_bytes = resource_path.read_bytes()
+        return io.BytesIO(file_bytes)
+    except (ModuleNotFoundError, FileNotFoundError) as e:
+        raise FileNotFoundError(f"Asset '{name}' not found in package 'whotracksme.data'") from e
+
 
 
 def list_available_months(region="global"):
-    months = []
-    for asset in pkg_resources.resource_listdir('whotracksme.data', 'assets'):
-        try:
-            month = datetime.strptime(asset, '%Y-%m')
-        except ValueError:
-            pass
-        else:
-            # Making sure the region is availabe in a given month
-            if pkg_resources.resource_isdir('whotracksme.data', f'assets/{asset}/{region}'):
-                months.append(asset)
-    return months
+    """List all available month directories that contain data for the specified region."""
+    assets_dir = importlib.resources.files('whotracksme.data') / 'assets'
+    return [
+        item.name
+        for item in assets_dir.iterdir()
+        if item.is_dir() and is_valid_date(item.name) and (item / region).is_dir()
+    ]
 
 
 class DataSource:
@@ -101,6 +102,12 @@ class DataSource:
 def parse_date(date_string):
     return datetime.strptime(date_string, '%Y-%m')
 
+def is_valid_date(date_string):
+    try:
+        parse_date(date_string)
+        return True
+    except Exception:
+        return False
 
 DataRowTypes = {
     "trackers": namedtuple('TrackerDataPoint', 'id, month, country, tracker, company_id, category_id, category,' + ','.join(DATA_COLUMNS['trackers'])),

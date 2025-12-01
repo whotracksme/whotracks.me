@@ -44,7 +44,7 @@ You can directly use the [raw data](whotracksme/data/Readme.md), which are all t
 download it locally and use the Python API:
 
 ```
-python3.11 -m venv venv
+python3.13 -m venv venv
 . venv/bin/activate
 pip install git+https://github.com/ghostery/whotracks.me.git
 ```
@@ -52,7 +52,7 @@ pip install git+https://github.com/ghostery/whotracks.me.git
 ... or if you have locally checked it out:
 
 ```
-python3.11 -m venv venv
+python3.13 -m venv venv
 . venv/bin/activate
 pip install -r requirements.txt
 ```

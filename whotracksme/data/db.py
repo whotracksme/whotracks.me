@@ -1,16 +1,21 @@
 import json
 import requests
 import sqlite3
-import pkg_resources
+import importlib.resources
 import itertools
 import io
 import csv
 from hashlib import md5
 
 def asset_string(name):
-    return pkg_resources.resource_string(
-        'whotracksme.data',
-        f'assets/{name}').decode('utf-8')
+    """Read an asset file as text."""
+    try:
+        assets_dir = importlib.resources.files('whotracksme.data') / 'assets'
+        resource_path = assets_dir / name
+
+        return resource_path.read_text(encoding='utf-8')
+    except (ModuleNotFoundError, FileNotFoundError) as e:
+        raise FileNotFoundError(f"Asset '{name}' not found in package 'whotracksme.data'") from e
 
 
 def load_tracker_db(loc=':memory:'):
@@ -265,11 +270,13 @@ class WhoTracksMeDB:
 
     def load_data(self, name, region, month):
         path = f'{month}/{region}/{name}.csv'
-        stream = pkg_resources.resource_stream(
-            'whotracksme.data',
-            f'assets/{path}',
-        )
-        file_bytes = stream.read()
+        try:
+            assets_dir = importlib.resources.files('whotracksme.data') / 'assets'
+            resource_path = assets_dir / path
+            file_bytes = resource_path.read_bytes()
+        except (ModuleNotFoundError, FileNotFoundError) as e:
+            raise FileNotFoundError(f"Asset '{path}' not found in package 'whotracksme.data'") from e
+
         file_hash = md5(file_bytes).hexdigest()
         if self.get_file_checksum(path) != file_hash:
             with self.connection:

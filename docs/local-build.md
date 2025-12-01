@@ -5,12 +5,12 @@
 The code to build the website on https://www.ghostery.com/whotracksme is not public;
 but for local testing, you can still use the code for the [previous version](https://web.archive.org/web/20240501140903/https://whotracks.me/).
 
-Python 3.11 is needed to build the site (Python 3.12 is currently not supported):
+Python 3.13 is recommended to build the site:
 
 ```sh
-python3.11 -m venv venv
+python3.13 -m venv venv
 . venv/bin/activate
-pip -r requirements-dev.txt
+pip install -r requirements-dev.txt
 pip install -e '.[dev]'
 ```
 
@@ -33,7 +33,7 @@ within Ghostery to power the new website.
 To run the unit tests:
 
 ```sh
-python3.11 -m venv venv
+python3.13 -m venv venv
 . venv/bin/activate
 python -m pip install -e '.[dev]'
 pytest
