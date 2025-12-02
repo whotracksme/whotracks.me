@@ -42,6 +42,7 @@ def tag_cloud_data(tracker_id, data):
     WHERE sites_trackers_data.month = ?
         AND sites_trackers_data.country = ?
         AND sites_trackers_data.tracker = ?
+        AND site_proportion > 0.05
     ORDER BY tracker_proportion DESC
     ''', (data.trackers.last_month, data.trackers.region, tracker_id))
 
