@@ -1,0 +1,47 @@
+[project]
+name = "whotracks"
+version = "2026.4.1"
+description = "Learn about tracking technologies, market structure and data-sharing on the web"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE.md"]
+requires-python = ">=3.13"
+dependencies = [
+  "aiohttp==3.13.5",
+  "certifi==2025.11.12",
+  "chardet==3.0.4",
+  "colour==0.1.5",
+  "docopt==0.6.2",
+  "feedgen==1.0.0",
+  "idna==2.10",
+  "jinja2==3.1.6",
+  "markdown==3.10.2",
+  "markupsafe==3.0.3",
+  "numpy==2.3.5",
+  "pandas==2.3.3",
+  "python-dateutil==2.9.0",
+  "pytz==2020.1",
+  "requests==2.31.0",
+  "sanic==25.12.0",
+  "six==1.17.0",
+  "squarify==0.4.4",
+  "urllib3==2.5.0",
+  "wheel==0.45.1",
+  "simplejson==3.19.2",
+  "plotly==6.5.0",
+  "async-timeout==5.0.1",
+  "boto3==1.42.0",
+  "watchdog==6.0.0",
+  "libsass==0.23.0",
+]
+
+[project.scripts]
+whotracksme = "whotracksme.main:main"
+
+[tool.uv]
+package = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["whotracksme*"]
+exclude = ["_site", "blog", "contrib", "data", "static", "templates", "tests"]

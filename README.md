@@ -43,18 +43,10 @@ all meta data (e.g. company descriptions) is maintained there.
 You can directly use the [raw data](whotracksme/data/Readme.md), which are all text files. As an alternative, you an also
 download it locally and use the Python API:
 
-```
-python3.13 -m venv venv
-. venv/bin/activate
-pip install git+https://github.com/ghostery/whotracks.me.git
-```
-
-... or if you have locally checked it out:
 
 ```
-python3.13 -m venv venv
-. venv/bin/activate
-pip install -r requirements.txt
+uv sync
+. .venv/bin/activate
 ```
 
 The Python API can now be accessed as follows (make sure you have already downloaded data):

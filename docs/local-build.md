@@ -3,22 +3,22 @@
 ## Building the website (the static HTML based version) and the internal API
 
 The code to build the website on https://www.ghostery.com/whotracksme is not public;
-but for local testing, you can still use the code for the [previous version](https://web.archive.org/web/20240501140903/https://whotracks.me/).
+but for local testing, you can still use the code for the [previous version](https://web.archive.org/web/20240501140903/https://whotracks.me/). If you have not done so, make sure that you have downloaded data (see [Data Readme](../whotracksme/data/Readme.md)).
 
-Python 3.13 is recommended to build the site:
-
-```sh
-python3.13 -m venv venv
-. venv/bin/activate
-pip install -r requirements-dev.txt
-pip install -e '.[dev]'
-```
-
-If you have not done so, make sure that you have downloaded data (see [Data Readme](../whotracksme/data/Readme.md)).
+To build the website:
 
 ```
+uv sync
+. .venv/bin/activate
 whotracksme website
 ```
+
+or
+
+```
+uv run whotracksme
+```
+
 
 It will generate static HTML files in the `_site` directory. Plus, it will also create a JSON files
 in the `_site/api/` directory. Use them at your own risk, since the format is expected to change over
@@ -33,8 +33,5 @@ within Ghostery to power the new website.
 To run the unit tests:
 
 ```sh
-python3.13 -m venv venv
-. venv/bin/activate
-python -m pip install -e '.[dev]'
-pytest
+uv run pytest
 ```
