@@ -79,6 +79,8 @@ There are five main datasets (unlike the four datasets available in the [explore
 
 > "We structure each subsection in a way that describes measurements in the perspective of the parties involved: websites, third parties and users. This enables us to better measure the dynamics of the industry."
 
+> Note on coverage: `sites.csv` and `domains.csv` cover all third parties observed on a page, classified or not. `trackers.csv`, `companies.csv`, and `sites_trackers.csv` are restricted to third parties that have an entry in [TrackerDB](https://github.com/ghostery/trackerdb). As a result, summing per-tracker totals up to a site will systematically undercount the matching `sites.csv` value — the gap is requests to unclassified third parties (e.g. CDNs, fonts, payment providers, smaller domains not in TrackerDB).
+
 ### Variable descriptions
 
 The data is created by aggregating data about page loads at several different levels. Therefore, all five above datasets share similar aggregated variables. The difference therefore, lies in the *perspective* of each dataset. Variable descriptions ("contexts" are added to variables for groupings) are given below:
