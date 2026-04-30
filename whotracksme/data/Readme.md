@@ -182,6 +182,18 @@ b) uses cookies or fingerprinting methods in order to transmit user identifiers"
  
  * `companies` - avg. number of companies present on site. Positive float.
  
+**Site/tracker association context** – these fields appear only in `sites_trackers.csv` and describe the relationship between a single (site, tracker) pair and the larger totals for that site and that tracker:
+
+ * `site_proportion` - proportion of the site's page loads on which this tracker was seen. Computed as `pages_with_tracker_on_site / total_pages_of_site`. Float between 0 and 1. A value of 0.4 means the tracker was present on 40% of observed page loads of that site.
+
+ * `tracker_proportion` - proportion of the tracker's overall observed presence that came from this site. Computed as `pages_with_tracker_on_site / total_pages_with_tracker_anywhere`. Float between 0 and 1. A value of 0.1 means 10% of all page loads on which this tracker was seen happened on this site.
+
+> Note: summing `tracker_proportion` across all rows for a given tracker will *not* reach 1.0. The denominator counts every page where the tracker was seen anywhere, but `sites_trackers.csv` only covers the top sites — the long tail of less-popular sites is not represented. In practice the per-tracker sum tends to land somewhere around 0.7–0.8, depending on how concentrated the tracker is on popular sites. This field is therefore most useful for *ranking* a tracker's top-presence sites, not for summing or averaging.
+
+ * `site_rank` - rank of this tracker among trackers seen on this site, ordered by `site_proportion` descending (1 = the tracker most present on the site). Positive integer. Not to be confused with `site_reach` (in `trackers.csv`/`companies.csv`/`domains.csv`), which is a fraction of sites rather than a rank.
+
+ * `tracker_rank` - rank of this site among sites where this tracker was seen, ordered by `tracker_proportion` descending (1 = the site contributing the largest share of this tracker's observed presence). Positive integer.
+
 **Tracker reach context** – for domain, trackers and companies aggregations, there are two extra measures:
 
  * `reach`: Proportional presence across all page loads (i.e. if a tracker is present on 50 out of 1000 page loads, the reach would be 0.05). Value is a float between 0 and 1.
