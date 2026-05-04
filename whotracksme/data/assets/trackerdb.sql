@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202603251635/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202604281015/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -661,6 +661,7 @@ INSERT INTO companies VALUES('connecto','ConnectO',NULL,'https://www.connecto.io
 INSERT INTO companies VALUES('connectwave','Connectwave','"ConnectWave Co Ltd, formerly DANAWA Co., Ltd, is a Korea-based company mainly engaged in the operation of online price comparison websites."','https://www.danawa.com/info/helprule_private.html','https://www.danawa.com/','','KR','privacy@cowave.kr',NULL);
 INSERT INTO companies VALUES('connextra','Connextra','Connextra is an ad serving company focused on the gambling and travel industries. Their technology enables integration of live pricing into online ads helping to maximize the performance of the creative and to improve results from publishing partners and affiliates. Connextra''s services include IP and browser targeting, linking live data to editorial content, real-time statistics and reporting and real-time editing of Flash, HTML or GIF advertisements.','http://connextra.net/privacy_policy.htm','http://connextra.net/index.htm','502','GB','info@connextra.com',NULL);
 INSERT INTO companies VALUES('consentmanager','consentmanager','Consent management provider for websites to be GDPR and CCPA compliant. We provide services to obtain consent from your website visitors and provide this information to your advertisers and other partners.','https://www.consentmanager.net/privacy','https://www.consentmanager.net','','SE','mail@consentmanager.net',NULL);
+INSERT INTO companies VALUES('consentmo','Consentmo','Consentmo is a specialized IT services company based in Sofia, Bulgaria, offering a GDPR/CCPA compliance application for Shopify merchants.','https://www.consentmo.com/privacy-policy-en','https://www.consentmo.com/','','BG','support@consentmo.com',NULL);
 INSERT INTO companies VALUES('constant_contact','Constant Contact','"Constant Contact®, Inc. helps small businesses, associations, and nonprofits connect with their customers, clients, and members"','https://www.constantcontact.com/legal/privacy-statement','https://www.constantcontact.com/index.jsp','1744','US','privacy@constantcontact.com',NULL);
 INSERT INTO companies VALUES('contact_at_once!','Contact At Once!','"Contact At Once! is a SaaS provider that operates industry-specific merchant networks built around its proprietary website chat software that vertical search websites embed in online ads and that merchant advertisers deploy on websites and landing pages. Contact At Once! website chat typically increases by at least 25% the number of online shoppers that initiate contact."','http://www.contactatonce.com/privacy-policy','http://www.contactatonce.com/','1233','US','info@contactatonce.com',NULL);
 INSERT INTO companies VALUES('contactme','ContactMe','"ContactMe provides powerful customer relationship management tools as part of the Webs online marketing platform."','http://www.contactme.com/','http://www.contactme.com/','3388',NULL,'support@contactme.com',NULL);
@@ -728,6 +729,7 @@ INSERT INTO companies VALUES('cxense','Cxense','cXense provides web-based servic
 INSERT INTO companies VALUES('cyberwing','CyberWing','CyberWing Corporation brings to market leading Ad Services and Technology, backed by strong partnerships with Japan’s major Internet Service Providers and IT vendors. CyberWing Corporation is based in Tokyo, Japan.','http://www.cyberwing.co.jp/privacy/','http://www.cyberwing.co.jp/','2944',NULL,'info@tocyberwing.co.jp',NULL);
 INSERT INTO companies VALUES('cybot','Cybot','Cybot delivers automated ePrivacy services that enable website operators to respect and protect the privacy of their visitors.','https://www.cybot.com/privacy-policy/','https://www.cybot.com/','5429','DK','mail@cybot.com',unistr('Usercentrics acquired Cybot (owner of Cookiebot) in Sept, 2021:\u000ahttps://www.cookiebot.com/en/usercentrics-cookiebot-cmp/'));
 INSERT INTO companies VALUES('cygnus','Cygnus','"Cygnus Business Media is an internationally-recognized business-to-business media company. Its diverse portfolio serves market categories with print and interactive products, and live events. Cygnus Business Media provides comprehensive, integrated advertising and marketing programs for some of the world''s strongest business-to-business brands. Cygnus Business Media reaches millions of professionals annually. As one of America’s top business-to-business media companies, Cygnus is leading the way in providing targeted content to top decision-makers and organizations. The company’s corporate initiatives and organizational architecture are built with one goal: fully engaging audiences in aviation, building & construction, public safety & security, and agriculture vertical markets, as well as diversified industries such as transportation, printing, accounting, and vending."','http://www.southcomm.com/#!privacy-policy/lm5bf','http://www.cygnus.com/','3627',NULL,NULL,NULL);
+INSERT INTO companies VALUES('dable','Dable','Dable is an AI-based personalization platform. It provides content discovery and native advertising solutions using big data and machine learning to analyze user interests and recommend personalized content. The platform serves media partners across Asia, with significant market presence in Korea, Indonesia, Vietnam, and Taiwan.','https://dable.io/en/privacy-policy-en','https://dable.io/','','KR','info@dable.io',NULL);
 INSERT INTO companies VALUES('daconsortium','D.A.Consortium','"Focusing on the Agent, DAS and Media fields as its three major business areas, the DAC Group is striving to become Japan''s leading company in digital advertising by building intra-Group synergies across its portfolio of businesses and services."','http://www.dac.co.jp/english/utility/rule.html','https://www.dac.co.jp/english/','2084',NULL,NULL,NULL);
 INSERT INTO companies VALUES('dailyme','DailyMe','DailyMe is a technology company that specializes in dynamic personalization for digital media and e-commerce. Its flagship service is Newstogram, a technology that generates data on users'' interests and delivers personalized content, advertisements and commerce. Newstogram captures data from the interaction between users and digital content assets, and transforms it into actionable, granular user-knowledge.','http://dailyme.com/corporates/index/10/','http://dailyme.com/','416','US',NULL,NULL);
 INSERT INTO companies VALUES('daisycon','Daisycon','"Advertisers are continually in pursuit of increased sales, more leads and more online coverage. Meanwhile, publishers are striving to increase the returns from their websites and e-mail databases. For the last ten years, Daisycon has been working on a complex network which is capable of making a structural contribution to achieving these objectives."','https://www.daisycon.com/en/privacy/','http://www.daisycon.com','2430',NULL,'info@daisycon.com',NULL);
@@ -1197,6 +1199,7 @@ INSERT INTO companies VALUES('interpolls','Interpolls','Interpolls is an adverti
 INSERT INTO companies VALUES('intilery','Intilery',NULL,'https://www.intilery.com/privacy-cookies-policy','http://www.intilery.com','3465',NULL,NULL,NULL);
 INSERT INTO companies VALUES('intimate_merger','Intimate Merger','Intimate-merger Co., Ltd. as the center the President Yanashima with a track record of big data analysis became RSCTC 2010 Discovery Challenge third in the world in (the world''s largest statistical algorithm contest), established in June 2013 It is has been DMP specialized company. Using about 400 million audience data and high analysis technology boasts Japan''s largest, has been mainly carried out the assistance of data marketing of DMP building and client companies and agencies of national clients and large-scale portal site.','https://corp.intimatemerger.com/privacypolicy-en/','https://corp.intimatemerger.com/','4067',NULL,'info@intimatemerger.com',NULL);
 INSERT INTO companies VALUES('intraedge','IntraEdge','IntraEdge, Inc. is a global technology services company, specializing in providing IT talent, services, and training to enhance business performance through technology. They offer a range of services including digital and cloud transformation, agile transformation, analytics and IoT, cybersecurity, and product development. Headquartered in Chandler, Arizona.','https://intraedge.com/privacy-policy/','https://intraedge.com/','','US','privacy@intraedge.com',NULL);
+INSERT INTO companies VALUES('intuition_machines','Intuition Machines','Intuition Machines, Inc. is a technology company specializing in privacy-first artificial intelligence and machine learning platforms. The company focuses on delivering AI solutions for cybersecurity, fraud detection, and abuse mitigation, serving a global user base.','https://www.imachines.com/privacy','https://www.imachines.com/','','US','privacy@imachines.com',NULL);
 INSERT INTO companies VALUES('inuvo','Inuvo','We use the Inuvo Platform as a foundation to provide additional monetization opportunities to our clients. As we drive targeted transactions through the Inuvo Platform and various Inuvo web properties, we have also developed applications that allow our customers to customize and expand their website user experience with useful services such as local business search, comparison shopping and customer “deals.”  All of these services help our clients deliver a customized user experience which, in turn, drives transactions.','http://www.inuvo.com/privacy-policy','http://www.inuvo.com/','1297','US','privacy@inuvo.com',NULL);
 INSERT INTO companies VALUES('investingchannel','InvestingChannel','InvestingChannel is an ad network geared toward financial products and services. Their publishers are financial services based, while its advertisers are interested in reaching that consumer demographic.','https://www.investingchannel.com/policy','https://www.investingchannel.com/','1021','US','info@investingchannel.com',NULL);
 INSERT INTO companies VALUES('inviziads','InviziAds','"It’s [Inviziads] a brand new approach to maximizing revenues for flash game developers and publishers (website owners who develop/sponsor games), and for advertisers to effectively reach audiences that matter to them."','http://www.inviziads.com/privacy-policy.html','http://www.inviziads.com','1945','US',NULL,NULL);
@@ -1606,6 +1609,7 @@ INSERT INTO companies VALUES('nightdev','NightDev, LLC','NightDev is a software 
 INSERT INTO companies VALUES('nimblecommerce','NimbleCommerce','"NimbleCommerce works with global publishers to create compelling online shopping experiences - leveraging audience affinity and content relevance to deliver bottom-line results. Between our comprehensive platform, our vast network of offers and products from leading suppliers, and the most knowledgeable strategic and technical team in the business, we provide our customers with an unbeatable advantage for e-commerce success."','http://www.nimblecommerce.com/privacyPolicy','http://www.nimblecommerce.com/','3189',NULL,'security@nimblecommerce.com',NULL);
 INSERT INTO companies VALUES('nirror','Nirror','"Watch live how your users behave on your website. Support them before they leave. See what went wrong in past visits. Improve your sales by eliminating conversion-killers."',NULL,'https://www.nirror.com/','3100',NULL,NULL,NULL);
 INSERT INTO companies VALUES('nk.pl','NK.pl',NULL,'http://nk.pl/nk_policy','https://nk.pl','1415','US','wspolpraca@nasza-klasa.pl',NULL);
+INSERT INTO companies VALUES('nocodelytics','Nocodelytics','Nocodelytics offers a specialized analytics platform for Webflow users, allowing them to track visitor behavior, CTA clicks, and form submissions without code.','https://www.nocodelytics.com/privacy','https://www.nocodelytics.com','','GB','help@nocodelytics.com',NULL);
 INSERT INTO companies VALUES('noddus','Noddus',NULL,'https://www.enterprise.noddus.com/privacy-policy','https://www.enterprise.noddus.com/','4945',NULL,NULL,NULL);
 INSERT INTO companies VALUES('nolix','Nolix','"The system Nolix offers webmasters (website owners) to automate their sites [to] work [directly with] advertisers and arrange a convenient means for receiving promotional lines or contextual ads."Translated by Google Translate',NULL,'https://nolix.ru/','2961',NULL,NULL,NULL);
 INSERT INTO companies VALUES('noosphere','Noosphere','Association Noosphere is a non-governmental, non-commercial organization established for scientific research and information provisioning.','https://noosphereglobal.com/legal-information/','https://noosphereglobal.com/','5367','US',NULL,NULL);
@@ -1632,6 +1636,7 @@ INSERT INTO companies VALUES('octavius','Octavius',NULL,NULL,'https://octavius.r
 INSERT INTO companies VALUES('ogury','Ogury','Ogury is a mobile advertising technology company. We develop and maintain software, cookies, pixels and similar technologies that mobile app and website publishers can integrate into their apps and websites to help them to display ads.','https://ogury.com/ogury-advertising-privacy-policy/','https://ogury.com/','','GB','privacy@ogury.co',NULL);
 INSERT INTO companies VALUES('oh_my_stats','Oh My Stats','"Oh My Stats is a marketing analytics service that shows exactly what marketing money gets you — and how."','https://ohmystats.com/privacy','https://ohmystats.com/','2959',NULL,'support@ohmystats.com',NULL);
 INSERT INTO companies VALUES('ohana_advertising_network','Ohana Advertising Network','"Ohana helps you reach out to audiences in emerging markets - Asia, Middle East, Latin America. Our expertise in multi-cultural marketing and comprehensive targeting & optimization capabilities drive blockbuster results for our clients." (Owned by Ohana Media)','http://www.networkohana.com/privacy.php','http://adohana.com/','2168',NULL,'support@ohana-media.com',NULL);
+INSERT INTO companies VALUES('okendo','Okendo','Okendo is a Sydney-based customer marketing platform for Shopify merchants, specializing in collecting and displaying customer reviews, photos, videos, and Q&A.','https://okendo.io/legal-end-users/privacy/','https://okendo.io/','','AU','contact@okendo.io',NULL);
 INSERT INTO companies VALUES('olapic','Olapic','"Olapic is [a] social photo crowdsourcing service providing e-commerce sites, brands and publishers with tools to collect photos from their users, engage their audience and support a strong community built on photo sharing. Olapic helps companies grow by leveraging the power of data from multiple photo-sharing sites such as Facebook, X (formerly Twitter), Instagram, and more."','https://www.olapic.com/privacy-policy/','https://www.olapic.com/','2640',NULL,'legal@Olapic.com',unistr('Acquired by Social Native Sep-2020\u000aRef: https://www.socialnative.com/articles/social-native-acquires-olapic-to-create-next-gen-creative-optimization-platform/'));
 INSERT INTO companies VALUES('olark','Olark','Olark provides offers a live chat product for business websites. Their solution integrates live support and chat to businesses'' existing CRM efforts and software.','https://www.olark.com/privacy-policy','https://www.olark.com/','1008','US','privacy@olark.com',NULL);
 INSERT INTO companies VALUES('ometria','Ometria','"Tailored to the needs of the online retailer, the Ometria dashboard has been designed by ecommerce specialists. Product and customer centric, it pulls out just the data retailers need to be able to grow their business."','https://www.ometria.com/privacy-policy','http://www.ometria.com/','2623',NULL,'info@ometria.com',NULL);
@@ -3894,6 +3899,7 @@ INSERT INTO tracker_domains VALUES('connexity','connexity.net',NULL);
 INSERT INTO tracker_domains VALUES('connexity','cxt.ms',NULL);
 INSERT INTO tracker_domains VALUES('connextra','connextra.com',NULL);
 INSERT INTO tracker_domains VALUES('consentmanager','consentmanager.net',NULL);
+INSERT INTO tracker_domains VALUES('consentmo','app.consentmo.com',NULL);
 INSERT INTO tracker_domains VALUES('constant_contact','rs6.net',NULL);
 INSERT INTO tracker_domains VALUES('consumable','serverbid.com',NULL);
 INSERT INTO tracker_domains VALUES('contact_at_once','contactatonce.com',NULL);
@@ -4025,6 +4031,7 @@ INSERT INTO tracker_domains VALUES('cyber_wing','cyberwing.co.jp',NULL);
 INSERT INTO tracker_domains VALUES('cybersource','cybersource.com',NULL);
 INSERT INTO tracker_domains VALUES('cygnus','cygnus.com',NULL);
 INSERT INTO tracker_domains VALUES('da-ads.com','da-ads.com',NULL);
+INSERT INTO tracker_domains VALUES('dable','static.dable.io',NULL);
 INSERT INTO tracker_domains VALUES('dailymail.co.uk','dailymail.co.uk',NULL);
 INSERT INTO tracker_domains VALUES('dailymotion','dailymotion.com',NULL);
 INSERT INTO tracker_domains VALUES('dailymotion','dailymotionbus.com',NULL);
@@ -4761,6 +4768,9 @@ INSERT INTO tracker_domains VALUES('harren_media','ad.harrenmedianetwork.com',NU
 INSERT INTO tracker_domains VALUES('harren_media','ads.networkhm.com',NULL);
 INSERT INTO tracker_domains VALUES('hashtag_labs','htlbid.com',NULL);
 INSERT INTO tracker_domains VALUES('hatchbuck','app.hatchbuck.com',NULL);
+INSERT INTO tracker_domains VALUES('hcaptcha','api.hcaptcha.com',NULL);
+INSERT INTO tracker_domains VALUES('hcaptcha','js.hcaptcha.com',NULL);
+INSERT INTO tracker_domains VALUES('hcaptcha','newassets.hcaptcha.com',NULL);
 INSERT INTO tracker_domains VALUES('head_hunter','hhcdn.ru',NULL);
 INSERT INTO tracker_domains VALUES('healte.de','healte.de',NULL);
 INSERT INTO tracker_domains VALUES('heap','d36lvucg9kzous.cloudfront.net',NULL);
@@ -5749,6 +5759,7 @@ INSERT INTO tracker_domains VALUES('nirror','static.nirror.com',NULL);
 INSERT INTO tracker_domains VALUES('nitropay','nitropay.com',NULL);
 INSERT INTO tracker_domains VALUES('nk.pl_widgets','nk.pl',NULL);
 INSERT INTO tracker_domains VALUES('noaa.gov','noaa.gov',NULL);
+INSERT INTO tracker_domains VALUES('nocodelytics','tracker.nocodelytics.com',NULL);
 INSERT INTO tracker_domains VALUES('noddus','track.noddus.com',NULL);
 INSERT INTO tracker_domains VALUES('nolix','contextbar.ru',NULL);
 INSERT INTO tracker_domains VALUES('nonstop_consulting','trkme.net',NULL);
@@ -5792,6 +5803,9 @@ INSERT INTO tracker_domains VALUES('ogury','ogury.com',NULL);
 INSERT INTO tracker_domains VALUES('ogury','presage.io',NULL);
 INSERT INTO tracker_domains VALUES('oh_my_stats','ohmystats.com',NULL);
 INSERT INTO tracker_domains VALUES('ohana_advertising_network','adohana.com',NULL);
+INSERT INTO tracker_domains VALUES('okendo','api.okendo.io',NULL);
+INSERT INTO tracker_domains VALUES('okendo','cdn-static.okendo.io',NULL);
+INSERT INTO tracker_domains VALUES('okendo','surveys.okendo.io',NULL);
 INSERT INTO tracker_domains VALUES('olapic','photorank.me',NULL);
 INSERT INTO tracker_domains VALUES('olark','olark.com',NULL);
 INSERT INTO tracker_domains VALUES('olx-st.com','olx-st.com',NULL);
@@ -6503,6 +6517,7 @@ INSERT INTO tracker_domains VALUES('shinystat','shinystat.it',NULL);
 INSERT INTO tracker_domains VALUES('shogun','i.shgcdn.com',NULL);
 INSERT INTO tracker_domains VALUES('shogun','a.shgcdn2.com',NULL);
 INSERT INTO tracker_domains VALUES('shogun_analytics','na.shgcdn3.com',NULL);
+INSERT INTO tracker_domains VALUES('shop_app','shop.app',NULL);
 INSERT INTO tracker_domains VALUES('shop_target','app.shoptarget.com.br',NULL);
 INSERT INTO tracker_domains VALUES('shop_target','retargeter.com.br',NULL);
 INSERT INTO tracker_domains VALUES('shopauskunft.de','shopauskunft.de',NULL);
@@ -8490,6 +8505,7 @@ INSERT INTO trackers VALUES('connecto','Connecto',9,NULL,'connecto','2603',NULL,
 INSERT INTO trackers VALUES('connexity','Connexity',1,'http://www.connexity.com','shopzilla','1293',NULL,NULL);
 INSERT INTO trackers VALUES('connextra','Connextra',1,'http://connextra.com/','connextra','472',NULL,NULL);
 INSERT INTO trackers VALUES('consentmanager','consentmanager',3,'https://www.consentmanager.net','consentmanager','',NULL,NULL);
+INSERT INTO trackers VALUES('consentmo','Consentmo',3,'https://consentmo.com','consentmo','',NULL,NULL);
 INSERT INTO trackers VALUES('constant_contact','Constant Contact',1,'https://www.constantcontact.com/index.jsp','constant_contact','1990',NULL,NULL);
 INSERT INTO trackers VALUES('consumable','Consumable',1,'https://consumable.com/index.html','giftconnect','3472',NULL,NULL);
 INSERT INTO trackers VALUES('contact_at_once','Contact At Once!',4,'http://www.contactatonce.com/','contact_at_once!','846',NULL,NULL);
@@ -8583,6 +8599,7 @@ INSERT INTO trackers VALUES('cyber_wing','Cyber Wing',1,'http://www.cyberwing.co
 INSERT INTO trackers VALUES('cybersource','CyberSource',9,'https://www.cybersource.com/en-gb.html','visa','3484',NULL,NULL);
 INSERT INTO trackers VALUES('cygnus','Cygnus',1,'http://www.cygnus.com/','cygnus','2196',NULL,NULL);
 INSERT INTO trackers VALUES('da-ads.com','da-ads.com',1,NULL,NULL,'3485',NULL,NULL);
+INSERT INTO trackers VALUES('dable','Dable',1,'https://dable.io/','dable','',NULL,NULL);
 INSERT INTO trackers VALUES('dailymail.co.uk','Daily Mail',7,'https://www.dailymail.co.uk/home/index.html','dmg_media','3486',NULL,NULL);
 INSERT INTO trackers VALUES('dailymotion','Dailymotion',7,NULL,'vivendi','3487',NULL,NULL);
 INSERT INTO trackers VALUES('dailymotion_advertising','Dailymotion Advertising',1,'https://advertisers.dailymotion.com/en/','vivendi','3488',NULL,NULL);
@@ -8854,7 +8871,7 @@ INSERT INTO trackers VALUES('fap.to','Imagefap',7,NULL,NULL,'3543',NULL,NULL);
 INSERT INTO trackers VALUES('fastly_insights','Fastly Insights',9,'https://insights.fastlylabs.com/','fastly','3544',NULL,NULL);
 INSERT INTO trackers VALUES('fastlylb.net','Fastly',6,'https://www.fastly.com/','fastly','3545',NULL,NULL);
 INSERT INTO trackers VALUES('fastpic.ru','FastPic',6,'http://fastpic.ru/','fastpic','3546',NULL,NULL);
-INSERT INTO trackers VALUES('fathom','Fathom Analytics',9,'https://usefathom.com/','conva','1637',NULL,NULL);
+INSERT INTO trackers VALUES('fathom','Fathom Analytics',11,'https://usefathom.com/','conva','1637',NULL,NULL);
 INSERT INTO trackers VALUES('federated_media','Federated Media',1,'https://www.federatedmedia.net/','hyfn','31',NULL,NULL);
 INSERT INTO trackers VALUES('feedbackify','Feedbackify',4,'https://www.feedbackify.com/','feedbackify','1093',NULL,NULL);
 INSERT INTO trackers VALUES('feedburner.com','FeedBurner',1,'https://feedburner.com','google','34',NULL,NULL);
@@ -9111,6 +9128,7 @@ INSERT INTO trackers VALUES('happy_fox_chat','Happy Fox Chat',4,NULL,'happy_fox_
 INSERT INTO trackers VALUES('harren_media','Harren Media',1,'http://www.harrenmedia.com/index.html','harren_media','977',NULL,NULL);
 INSERT INTO trackers VALUES('hashtag_labs','Hashtag Labs',1,'https://hashtag-labs.com/','aditude','',NULL,NULL);
 INSERT INTO trackers VALUES('hatchbuck','Hatchbuck',9,NULL,'hatchbuck','2411',NULL,NULL);
+INSERT INTO trackers VALUES('hcaptcha','hCaptcha',11,'https://www.hcaptcha.com/','intuition_machines','',NULL,NULL);
 INSERT INTO trackers VALUES('head_hunter','Head Hunter',9,NULL,'head_hunter','2913',NULL,NULL);
 INSERT INTO trackers VALUES('healte.de','healte.de',7,NULL,NULL,'3592',NULL,NULL);
 INSERT INTO trackers VALUES('heap','Heap',9,'https://www.heap.io','content_square','1648',NULL,NULL);
@@ -9786,6 +9804,7 @@ INSERT INTO trackers VALUES('nirror','Nirror',9,'https://www.nirror.com/','nirro
 INSERT INTO trackers VALUES('nitropay','NitroPay',1,'https://nitropay.com/','gg_software','3716',NULL,NULL);
 INSERT INTO trackers VALUES('nk.pl_widgets','NK.pl Widgets',1,'https://nk.pl','nk.pl','920',NULL,NULL);
 INSERT INTO trackers VALUES('noaa.gov','National Oceanic and Atmospheric Administration',7,'https://noaa.gov/',NULL,'3717',NULL,NULL);
+INSERT INTO trackers VALUES('nocodelytics','Nocodelytics',9,'https://www.nocodelytics.com/privacy','nocodelytics','',NULL,NULL);
 INSERT INTO trackers VALUES('noddus','Noddus',1,NULL,'noddus','2979',NULL,NULL);
 INSERT INTO trackers VALUES('nolix','Nolix',1,'https://nolix.ru/','nolix','1864',NULL,NULL);
 INSERT INTO trackers VALUES('nonstop_consulting','Resolution Media',1,'https://resolutionmedia.com/','resolution_media','1409',NULL,NULL);
@@ -9827,6 +9846,7 @@ INSERT INTO trackers VALUES('oghub.io','OG Hub',7,NULL,NULL,'3733',NULL,NULL);
 INSERT INTO trackers VALUES('ogury','Ogury',1,'https://ogury.com/','ogury','',NULL,NULL);
 INSERT INTO trackers VALUES('oh_my_stats','Oh My Stats',9,'https://ohmystats.com/','oh_my_stats','1862',NULL,NULL);
 INSERT INTO trackers VALUES('ohana_advertising_network','Ohana Advertising Network',1,'http://adohana.com/','ohana_advertising_network','1256',NULL,NULL);
+INSERT INTO trackers VALUES('okendo','Okendo',4,'https://okendo.io/','okendo','',NULL,NULL);
 INSERT INTO trackers VALUES('olapic','Social Native Tracking',9,'https://www.socialnative.com/insights-and-optimization/','social_native','1607',NULL,NULL);
 INSERT INTO trackers VALUES('olark','Olark',4,'https://www.olark.com/','olark','655',NULL,NULL);
 INSERT INTO trackers VALUES('olx-st.com','OLX',7,'https://www.olx.com/',NULL,'3734',NULL,NULL);
@@ -10312,7 +10332,7 @@ INSERT INTO trackers VALUES('sense_digital','Sense Digital',9,NULL,'sense_digita
 INSERT INTO trackers VALUES('sensors_data','Sensors Data',9,NULL,'sensors_data','3288',NULL,NULL);
 INSERT INTO trackers VALUES('sentifi.com','Sentifi',9,'https://sentifi.com/','sentifi','3837',NULL,NULL);
 INSERT INTO trackers VALUES('sentry','Sentry',11,'https://sentry.io/','sentry','1754',NULL,NULL);
-INSERT INTO trackers VALUES('sentry_replay','Sentry Session Replay',9,'https://sentry.io/','sentry','',NULL,NULL);
+INSERT INTO trackers VALUES('sentry_replay','Sentry Session Replay',9,'https://sentry.io/','sentry','',NULL,'sentry');
 INSERT INTO trackers VALUES('sepyra','Sepyra',1,'http://sepyra.com/','sepyra','1723',NULL,NULL);
 INSERT INTO trackers VALUES('sessioncam','SessionCam',9,'https://www.sessioncam.com/','sessioncam','1379',NULL,NULL);
 INSERT INTO trackers VALUES('sessionly','Sessionly',4,NULL,'sessionly','3245',NULL,NULL);
@@ -10352,6 +10372,7 @@ INSERT INTO trackers VALUES('shinsegae_dutyfree','Shinsegae Duty Free',9,'https:
 INSERT INTO trackers VALUES('shinystat','ShinyStat',9,'https://www.shinystat.com/','shinystat','194',NULL,NULL);
 INSERT INTO trackers VALUES('shogun','Shogun',6,'https://getshogun.com/','shogun_labs','',NULL,NULL);
 INSERT INTO trackers VALUES('shogun_analytics','Shogun Analytics',9,'https://getshogun.com/help/en/articles/3054981-get-more-from-your-pages-with-analytics','shogun_labs','',NULL,NULL);
+INSERT INTO trackers VALUES('shop_app','Shopify App',4,'https://shop.app/','shopify','',NULL,NULL);
 INSERT INTO trackers VALUES('shop_target','Shop Target',1,NULL,'shopback','2538',NULL,NULL);
 INSERT INTO trackers VALUES('shopauskunft.de','ShopAuskunft.de',4,'https://shopauskunft.de/',NULL,'3842',NULL,NULL);
 INSERT INTO trackers VALUES('shopgate.com','Shopgate',4,'https://www.shopgate.com/',NULL,'3843',NULL,NULL);
