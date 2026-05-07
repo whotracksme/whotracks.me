@@ -38,6 +38,9 @@ dependencies = [
 [project.scripts]
 whotracksme = "whotracksme.main:main"
 
+[dependency-groups]
+dev = ["pytest"]
+
 [tool.uv]
 package = true
 
