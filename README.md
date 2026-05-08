@@ -45,7 +45,7 @@ download it locally and use the Python API:
 
 
 ```
-uv sync
+uv sync --frozen
 . .venv/bin/activate
 ```
 

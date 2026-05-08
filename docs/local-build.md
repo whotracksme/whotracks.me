@@ -8,7 +8,7 @@ but for local testing, you can still use the code for the [previous version](htt
 To build the website:
 
 ```
-uv sync
+uv sync --frozen
 . .venv/bin/activate
 whotracksme website
 ```
@@ -16,7 +16,7 @@ whotracksme website
 or
 
 ```
-uv run whotracksme
+uv run --frozen whotracksme
 ```
 
 
@@ -33,5 +33,5 @@ within Ghostery to power the new website.
 To run the unit tests:
 
 ```sh
-uv run pytest
+uv run --frozen pytest
 ```
