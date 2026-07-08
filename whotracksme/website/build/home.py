@@ -19,6 +19,24 @@ def build_home(data):
     websites = data.sites.summary_stats()
     tracker_stats = data.trackers.summary_stats()
 
+    # Compute key tracking stats for the "Did you know?" section
+    google_company = data.companies.get_company('google')
+    google_reach = (google_company.reach * 100) if google_company else 0
+
+    facebook_company = data.companies.get_company('facebook')
+    facebook_pixel_reach = (facebook_company.site_reach_top10k / 10000 * 100) if facebook_company else 0
+
+    key_tracking_stats = {
+        'google_reach': round(google_reach, 1),
+        'facebook_pixel_reach': round(facebook_pixel_reach, 1),
+        'trackers_using_cookies': round(tracker_stats['by_cookies'] * 100, 1),
+        'traffic_with_trackers': round(websites['have_trackers'] * 100, 1),
+        'tracking_requests_per_page': int(round(websites['tracker_requests'])),
+        'average_trackers_per_site': int(round(websites['average_nr_trackers'])),
+        'sites_with_over_10_trackers': websites['gt10'],
+        'data_used_by_trackers_mb': round(websites['data'] / (1024 * 1024), 0),
+    }
+
     write_json('_site/api/v2/index.json',
         tracker_list=tracker_list,
         trackers_list_company=trackers_list_company,
@@ -27,6 +45,7 @@ def build_home(data):
         websites=websites,
         tracker_stats=tracker_stats,
         top10=top10,
+        key_tracking_stats=key_tracking_stats,
     )
 
     with open('_site/index.html', 'w') as output:
