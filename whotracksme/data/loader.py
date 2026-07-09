@@ -549,3 +549,14 @@ class Companies(SQLDataLoader):
         if populate:
             for month in data_months:
                 self.db.load_data('companies', self.region, month)
+
+    def get_company(self, company_id):
+        """Get a specific company's data by ID."""
+        return self.get_datapoint(company_id)
+
+    def get_company_name(self, company_id):
+        """Get a company's display name by ID."""
+        cursor = self.db.connection.execute(
+            'SELECT name FROM companies WHERE id = ?', (company_id,)
+        ).fetchone()
+        return cursor[0] if cursor else company_id
