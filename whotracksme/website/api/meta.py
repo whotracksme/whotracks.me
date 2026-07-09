@@ -38,4 +38,4 @@ def update_api_meta_data():
     target = '_site/api/v2/meta.json'
     os.makedirs(os.path.dirname(target), exist_ok=True)
     with open(target, 'w', encoding='utf-8') as out:
-        json.dump(meta_data, out, indent=2)
+        json.dump(meta_data, out, indent=2, sort_keys=True)

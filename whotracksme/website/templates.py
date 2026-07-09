@@ -123,7 +123,8 @@ def generate_sitemap(blog_posts):
             site_to_json(
                 data_source=data,
                 blog_posts=blog_posts),
-            output
+            output,
+            sort_keys=True
         )
     print_progress(text='Generate sitemap index')
 

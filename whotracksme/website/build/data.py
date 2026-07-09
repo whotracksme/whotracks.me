@@ -23,7 +23,7 @@ def build_tracker_json(tracker_id, data):
     stats['presence_by_category'] = data.trackers.get_presence_by_site_category(tracker_id)
     # print(stats)
     with open(f'_site/data/trackers/global/{tracker_id}.json', 'w') as output:
-        json.dump(stats, output)
+        json.dump(stats, output, sort_keys=True)
 
     gh_id = stats['ghostery_id']
 
@@ -31,7 +31,7 @@ def build_tracker_json(tracker_id, data):
         if gh_id.isdigit():
             stats['tracking_method'] = data.trackers.get_tracking_methods(tracker_id)
             with open(f'_site/data/trackers/ghostery/{gh_id}.json', 'w') as output:
-                json.dump(stats, output)
+                json.dump(stats, output, sort_keys=True)
 
 def build_api(data):
     # tracker overviews
@@ -59,4 +59,4 @@ def build_website_api_batch(batch):
         for website in batch:
             stats = data.sites.get_datapoint(website)
             with open(f'_site/data/sites/global/{website}.json', 'w') as output:
-                json.dump(stats._asdict(), output)
+                json.dump(stats._asdict(), output, sort_keys=True)

@@ -45,4 +45,4 @@ def retrieve_status(urls):
 
 def write_to_file(filepath, json_output):
     with open(f'{filepath}.json', 'w') as fout:
-        json.dump(json_output, fout)
+        json.dump(json_output, fout, sort_keys=True)

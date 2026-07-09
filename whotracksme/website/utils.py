@@ -10,7 +10,7 @@ def write_json(path, **data):
             return o.isoformat()
 
     pathlib.Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
-    json = simplejson.dumps(data, indent=2, default=myconverter)
+    json = simplejson.dumps(data, indent=2, default=myconverter, sort_keys=True)
     with open(path, "w", encoding="utf-8") as file:
         file.write(json)
 
