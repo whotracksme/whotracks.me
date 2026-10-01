@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202609011440/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202610011537/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -291,6 +291,7 @@ INSERT INTO companies VALUES('affiliaweb','Affiliaweb','"Opting for Affiliaweb i
 INSERT INTO companies VALUES('affimax','AffiMax',NULL,'https://www.affimax.de/l/3-Datenschutz.html','https://www.affimax.de','2090',NULL,'aff@affimax.de',NULL);
 INSERT INTO companies VALUES('affinity','Affinity','"Founded in 2006, Affinity is the world''s leading contextual ad network. We are in the business of powering innovative contextual media & monetization solutions for Advertisers & Publishers."','https://www.affinity.com/privacy.php','https://www.affinity.com/','2060',NULL,NULL,NULL);
 INSERT INTO companies VALUES('affinity_digital_agency','Affinity Digital Agency','Affinity is an award-winning provider of technology and digital communication solutions, specialising in software development for today’s needs and tomorrow’s dreams. We work in web, CGI and App development - most often a combination of all three.','https://www.affinity-digital.com/privacy-policy','https://www.affinity-digital.com/','2977',NULL,'info@affinity.by',NULL);
+INSERT INTO companies VALUES('affirm','Affirm','Affirm is a financial technology services company that offers installment loans to consumers at the point of sale.','https://www.affirm.com/privacy','https://www.affirm.com','','US','privacy@affirm.com',NULL);
 INSERT INTO companies VALUES('affiz_cpm','Affiz CPM','AFFIZ offers premium services to publishers and mobile apps developers.We work in the interest of the publishers to sell their inventory. We manage technical integration of each ad provider, quality control and unique invoicing.In this way, our experience, solid partnerships and technologies allow AFFIZ to be recommended by our publishers.','http://www.affiz.com/#about-us','http://cpm.affiz.com/home','2328',NULL,'contact@affiz.com',NULL);
 INSERT INTO companies VALUES('afftrack','Afftrack','In use by several large affiliate networks since 2009, AffTrack has evolved into more than just a "tracking system". AffTrack provides you the tools necessary to take your company to the next level. From Prospecting Clients to Tracking to Billing, AffTrack has you covered.','http://www.afftrack.com/','http://www.afftrack.com/','4502',NULL,'support@afftrack.com',NULL);
 INSERT INTO companies VALUES('afilio','Afilio','Focada em marketing de performance, a Afilio foi criada em 2008, e oferece a seus clientes, agências e anunciantes, melhores resultados na web e no mobile, seja em leads, vendas ou exposição da marca.Com atuação no mercado nacional e internacional, possui na sua rede cerca de 90% das maiores operações de e-commerce do Brasil e mais de 50 mil sites cadastrados.','https://afilio.com.br/','https://afilio.com.br/','4509',NULL,'contato@afil.io',NULL);
@@ -1713,7 +1714,7 @@ INSERT INTO companies VALUES('optinmonster','OptinMonster','Retyp, LLC dba Optin
 INSERT INTO companies VALUES('ora.tv','Ora.TV',NULL,'http://www.ora.tv/privacy','http://www.ora.tv/','4789',NULL,'contact@ora.tv',NULL);
 INSERT INTO companies VALUES('oracle','Oracle','Oracle is an integrated cloud applications and platform services firm that offers complete SaaS application suites for ERP, HCM and CX.','https://www.oracle.com/legal/privacy/index.html','https://www.oracle.com/','1170','US','https://www.oracle.com/legal/privacy/rights.html',NULL);
 INSERT INTO companies VALUES('orange142','Orange142','"Orange142 is a global advertising services and technology company providing strategy and creative plus programmatic technology for campaign management, target buying and analytics. We focus on branding campaigns as well as Lead Generation and Digital Direct Response."',NULL,'https://www.orange142.com/','3054',NULL,NULL,NULL);
-INSERT INTO companies VALUES('orange_france','Orange France',NULL,'https://c.orange.fr/donnees-personnelles.html','https://www.orange.fr/','3881',NULL,NULL,NULL);
+INSERT INTO companies VALUES('orange_france','Orange France','Orange France is the French arm of Orange S.A. (formerly France Télécom), the French multinational telecommunications corporation headquartered in Issy-les-Moulineaux near Paris. It provides mobile, broadband, TV and fixed-line services in France and operates the orange.fr web portal.','https://www.orange.fr/donnees-personnelles','https://www.orange.fr/','3881','FR','group-dpo.donnees-personnelles@orange.com',NULL);
 INSERT INTO companies VALUES('orange_mobile','Orange Mobile','"Orange is one of the main European operators for mobile and broadband internet services and, under the brand Orange Business Services, is one of the world leaders in providing telecommunication services to multinational companies."','http://web.orange.co.uk/documents/ice/privacy/orange_privacy_and_cookie_policy_for_mobile_20101206.pdf','https://www.orange.co.uk/','1203','US',NULL,NULL);
 INSERT INTO companies VALUES('orangesoda','OrangeSoda','OrangeSoda is an analytics company that provides search engine optimization services to publishers with a focus on localization services (tailoring content such as maps to geographic regions).','http://www.orangesoda.com/privacy-policy/','http://www.orangesoda.com/','132','US','cs@orangesoda.com',NULL);
 INSERT INTO companies VALUES('order_groove','Order Groove','Ordergroove powers subscriptions and recurring revenue for serious brands. Turn one-time transactions into lasting relationships.','https://www.ordergroove.com/terms/','https://www.ordergroove.com','4456','US','info@ordergroove.com',NULL);
@@ -3184,6 +3185,7 @@ INSERT INTO tracker_domains VALUES('affilinet','webmasterplan.com',NULL);
 INSERT INTO tracker_domains VALUES('affimax','affimax.de',NULL);
 INSERT INTO tracker_domains VALUES('affinity.by','countby.com',NULL);
 INSERT INTO tracker_domains VALUES('affinity','affinity.com',NULL);
+INSERT INTO tracker_domains VALUES('affirm','affirm.com',NULL);
 INSERT INTO tracker_domains VALUES('affiz_cpm','affiz.net',NULL);
 INSERT INTO tracker_domains VALUES('afftrack','pml.afftrack.com',NULL);
 INSERT INTO tracker_domains VALUES('afgr2.com','afgr2.com',NULL);
@@ -3400,6 +3402,8 @@ INSERT INTO tracker_domains VALUES('audigent','ad.gt',NULL);
 INSERT INTO tracker_domains VALUES('audioeye','analytics.audioeye.com',NULL);
 INSERT INTO tracker_domains VALUES('audioeye_accessibility','audioeye-services.com',NULL);
 INSERT INTO tracker_domains VALUES('audioeye_accessibility','portal.prod-audioeye.com',NULL);
+INSERT INTO tracker_domains VALUES('audioeye_accessibility','wsmcdn.audioeye.com',NULL);
+INSERT INTO tracker_domains VALUES('audioeye_accessibility','wsv3cdn.audioeye.com',NULL);
 INSERT INTO tracker_domains VALUES('auditude','auditude.com',NULL);
 INSERT INTO tracker_domains VALUES('audtd.com','audtd.com',NULL);
 INSERT INTO tracker_domains VALUES('augur','cdn.augur.io',NULL);
@@ -8104,6 +8108,7 @@ INSERT INTO trackers VALUES('affilinet','affilinet',1,'https://www.affili.net/',
 INSERT INTO trackers VALUES('affimax','AffiMax',1,'https://www.affimax.de','affimax','',NULL,NULL);
 INSERT INTO trackers VALUES('affinity.by','Affinity.by',1,'http://affinity.by','affinity_digital_agency','',NULL,NULL);
 INSERT INTO trackers VALUES('affinity','Affinity',1,'https://www.affinity.com/','affinity','',NULL,NULL);
+INSERT INTO trackers VALUES('affirm','Affirm',11,'https://www.affirm.com','affirm','',NULL,NULL);
 INSERT INTO trackers VALUES('affiz_cpm','Affiz CPM',1,'http://cpm.affiz.com/home','affiz_cpm','',NULL,NULL);
 INSERT INTO trackers VALUES('afftrack','Afftrack',9,NULL,'afftrack','',NULL,NULL);
 INSERT INTO trackers VALUES('afgr2.com','afgr2.com',8,NULL,NULL,'',NULL,NULL);
@@ -8244,7 +8249,7 @@ INSERT INTO trackers VALUES('audiencerate','AudienceRate',1,'https://www.audienc
 INSERT INTO trackers VALUES('audiencesquare.com','Audience Square',1,'http://www.audiencesquare.fr/','audience_square','',NULL,NULL);
 INSERT INTO trackers VALUES('audigent','Audience Square',1,'http://www.audiencesquare.fr/','audigent','',NULL,NULL);
 INSERT INTO trackers VALUES('audioeye','AudioEye Analytics',9,'https://www.audioeye.com/solution/expert-reporting/','audioeye','',NULL,NULL);
-INSERT INTO trackers VALUES('audioeye_accessibility','AudioEye accessibility',11,'https://www.audioeye.com/domain-change-update/','audioeye','',NULL,NULL);
+INSERT INTO trackers VALUES('audioeye_accessibility','AudioEye accessibility',11,'https://www.audioeye.com/solution/digital-accessibility-platform/','audioeye','',NULL,NULL);
 INSERT INTO trackers VALUES('auditude','Auditude',2,'http://www.auditude.com/','adobe','',NULL,NULL);
 INSERT INTO trackers VALUES('audtd.com','Auditorius',1,'https://www.auditorius.ru/','auditorius','',NULL,NULL);
 INSERT INTO trackers VALUES('augur','Augur',9,NULL,'augur','',NULL,NULL);
@@ -11170,7 +11175,7 @@ INSERT INTO trackers VALUES('wixab','Wixab',9,NULL,'wixab','',NULL,NULL);
 INSERT INTO trackers VALUES('wixmp','Wix Media Platform',6,'https://www.wixmp.com/','wix','',NULL,NULL);
 INSERT INTO trackers VALUES('wnzmauurgol.com','wnzmauurgol.com',7,NULL,NULL,'',NULL,NULL);
 INSERT INTO trackers VALUES('wonderpush','WonderPush',4,'https://www.wonderpush.com/','brevo','',NULL,NULL);
-INSERT INTO trackers VALUES('woopic.com','woopic.com',7,NULL,NULL,'',NULL,NULL);
+INSERT INTO trackers VALUES('woopic.com','Woopic',6,'https://www.orange.fr/','orange_france','',NULL,NULL);
 INSERT INTO trackers VALUES('woopra','Woopra',9,'http://www.woopra.com/','woopra','',NULL,NULL);
 INSERT INTO trackers VALUES('woosmap','Woosmap',4,'https://www.woosmap.com/','woosmap','',NULL,NULL);
 INSERT INTO trackers VALUES('wordpress_ads','Wordpress Ads',1,'https://wordpress.com/','automattic','',NULL,NULL);
