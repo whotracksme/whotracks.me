@@ -1,4 +1,4 @@
--- Generated from https://github.com/ghostery/trackerdb/releases/download/202610011537/trackerdb.db
+-- Generated from https://github.com/ghostery/trackerdb/releases/download/202611051510/trackerdb.db
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE categories(
@@ -77,6 +77,7 @@ INSERT INTO companies VALUES('activision_blizzard','Activision Blizzard','Activi
 INSERT INTO companies VALUES('acuity_ads','Acuity Ads','"Acuity Ads is a Consumer Connection Platform. Going beyond traditional Demand Side Platforms, Acuity uses cutting edge machine learning technology and real-time exchanges to give advertisers superior control of their display ads and deliver exceptional ROI."','https://www.acuityads.com/privacy-policy/','https://www.acuityads.com/','1635','US','privacy@acuityads.com',NULL);
 INSERT INTO companies VALUES('acxiom','LiveRamp','LiveRamp Holdings, Inc. offers a data connectivity platform whose services include data onboarding, the transfer of offline data online for marketing purposes.','https://liveramp.com/privacy','https://liveramp.com','319','US',NULL,NULL);
 INSERT INTO companies VALUES('ad-center','Ad-Center','Real-Time Stats & Unlimited Analytics for Your TrafficAd-Center offers affiliates unlimited revenue potential with tools and resources that allow them to simply convert their traffic into more revenue. Affiliates can log into their accounts from PC or Mobile and get instant access to live stats, or breakdowns by keywords, campaign, country and much more.','http://www.ad-center.com/front/privacy','http://www.ad-center.com','3852',NULL,NULL,NULL);
+INSERT INTO companies VALUES('ad-shield','Ad-Shield','Ad-Shield is a South Korean ad tech company that helps publishers recover advertising revenue from visitors who use ad blockers.','https://www.ad-shield.io/privacy-policy','https://www.ad-shield.io/','','KR','legal@ad-shield.io',NULL);
 INSERT INTO companies VALUES('ad-sys','Ad-Sys','"Ad-Sys is the...self-serve ad platform for marketing professionals and agencies."','https://www.ad-sys.com/','https://www.ad-sys.com/','3106',NULL,NULL,NULL);
 INSERT INTO companies VALUES('ad2click_media','Ad2Click Media','Ad2Click runs by young and enthusiastic brains where we truly believe in honesty, dedication, innovative and personalized approach with client’s satisfaction. The team works on traditional models like CPM, CPC, CPL, CPA, E-mails and SMS but with a different and unique approach in every segment. There are two separate divisions in the company, viz, Media Buying & Planning and AD Network business where the dedicated teams are working respectively. The organization has also entered into the online AD publishing space with some own sites into Education, Travel, Coupons, Projects, Marketing Consulting and Entertainment. By entering in to this space AD2Click stepped ahead upon some competition on online space in regards to deliver branding and performance based campaigns.','http://www.ad2click.com/#about','http://www.ad2click.com/','4637',NULL,'contact@ad2click.com',NULL);
 INSERT INTO companies VALUES('ad2games','ad2games','"ad2games is a digital marketing company specializing in pay-to-play and free-to-play games on PC and console platforms. Leveraging our advanced in-house technologies, we create measurable branding solutions, drive direct sales in your store and generate loyal users for your games. Our products and services are trusted by over 150 international brands including Daum Europe, Innogames, Gameforge, Youzu and Wargaming."','https://www.ad2games.com/privacy-policy/','https://www.ad2games.com/','2758',NULL,NULL,NULL);
@@ -829,7 +830,7 @@ INSERT INTO companies VALUES('dsnr_media_group','DSNR Media Group','DSNR Media G
 INSERT INTO companies VALUES('dstillery','Dstillery','Dstillery is a leading AI-powered ad targeting company founded in 2008, specializing in high-performance programmatic advertising for brands and agencies.','https://dstillery.com/privacy-policy/','https://dstillery.com/','111','US','privacy@dstillery.com',NULL);
 INSERT INTO companies VALUES('dtscout','DTscout','DTS provides a single point of contact to millions of publishers and over a billion interactions per day. The DTS data offering is comprised of a data set at a scale of a billion validated monthly unique users worldwide and audience segments broken into behavioural, demographic and contextual verticals. DTS data is available via the major DMPs and select direct DSP integrations.','https://www.dtscout.com/webpolicy.html','https://www.dtscout.com/','5043',NULL,'info@dtscout.com',NULL);
 INSERT INTO companies VALUES('dudamobile','DudaMobile','Duda is a leading website builder for web professionals and agencies of all sizes. Our Responsive Website Builder enables you to build amazing, feature-rich websites that are perfectly suited to desktop, tablet and mobile devices. DudaMobile is our award-winning platform for building mobile-only sites from scratch, or based on an existing desktop site or Facebook business page. DudaPro is our Website Reseller Program, which makes it easy for web design agencies and professionals to create high converting, personalized and dynamic websites easily and quickly. Duda is the only Google-preferred website builder that optimizes each and every site built on our platform for Google PageSpeed.','https://www.dudamobile.com/legal/privacy','https://www.dudamobile.com/','4888',NULL,'legal@dudamobile.com',NULL);
-INSERT INTO companies VALUES('dun_&_bradstreet','Dun & Bradstreet','Dun & Bradstreet (NYSE: DNB) grows the most valuable relationships in business. By uncovering truth and meaning from data, we connect customers with the prospects, suppliers, clients and partners that matter most, and have since 1841. Nearly ninety percent of the Fortune 500, and companies of every size around the world, rely on our data, insights and analytics. For more about Dun & Bradstreet, visit DNB.com.','http://www.dnb.com/utility-pages/privacy-policy.html','http://www.dnb.com/#','3320',NULL,'privacyofficer@dnb.com',NULL);
+INSERT INTO companies VALUES('dun_&_bradstreet','Dun & Bradstreet','Dun & Bradstreet (D&B) is a global business data and analytics company. It provides business intelligence, commercial credit information and risk management solutions to organisations worldwide.','https://www.dnb.com/en-us/why-dnb/data-transparency.html','http://www.dnb.com/','3320','US','complianceofficer@dnb.com',NULL);
 INSERT INTO companies VALUES('dwstat','Dwstat',NULL,NULL,'http://www.dwstat.cn/','890','CN','info@dwstat.cn',NULL);
 INSERT INTO companies VALUES('dynad','DynAd','"DynAd is a set of tools and services specializing in Retargeting and Behavioral Targeting."','http://dynad.net/','http://dynad.net/','2870',NULL,NULL,NULL);
 INSERT INTO companies VALUES('dynamic_yield','Dynamic Yield','Dynamic Yield is an AI-powered experience optimization platform that enables companies to deliver personalized digital experiences across web, apps, email, and other touchpoints. Acquired by Mastercard, December 2021.','https://www.dynamicyield.com/platform-privacy-policy/','https://www.dynamicyield.com/','2280','US','privacy@dynamicyield.com',NULL);
@@ -1227,7 +1228,7 @@ INSERT INTO companies VALUES('inviziads','InviziAds','"It’s [Inviziads] a bran
 INSERT INTO companies VALUES('invoca','Invoca','Invoca is an AI-powered revenue execution platform that connects marketing, commerce and contact center teams to orchestrate seamless buyer journeys and deliver the best AI-driven buyer experiences.','https://www.invoca.com/privacy-policy/','https://www.invoca.com/','3040','US','legal@invoca.com',NULL);
 INSERT INTO companies VALUES('invodo','Invodo','"At Invodo, we don’t just aim to please. We aim to convert — and that means finding the right content for your site. From product and shoppable video to 3D spin, we’ll help you deliver the most relevant content so your customers will have the confidence to buy.Our goal is to make your life easier, and our platform helps us achieve this. Our technology is fast and powerful, but more importantly: it’s simple — so you can manage and analyze your content in an efficient (and stress-free) way.To really revamp your site, you need more than just content — and that’s where our services come in. Once we draft a game plan, we’ll guide you through the rest of the process. From providing day-to-day support to keeping you up-to-date with the latest ecommerce technologies, we’re here to help you succeed."','http://www.invodo.com/privacy-policy/','http://www.invodo.com/','3987',NULL,'info@invodo.com',NULL);
 INSERT INTO companies VALUES('iotec','iotec global Ltd.','iotec are intent marketing specialists, applying machine learning to identify consumer intent without assumptions.We provide transparent media buying, smart insights and expertise to enable brands to understand and intelligently act in real context and in real time.','https://www.iotecglobal.com/privacy-policy/','https://www.iotecglobal.com/','4586',NULL,'privacy@iotecglobal.com',NULL);
-INSERT INTO companies VALUES('iovation','iovation','iovation aims to help companies determine which online visitors to trust in order to reduce fraud, abuse, and protect customers and online communities. iovation utilizes its database of devices used to access the web in order to determine the levels of risk associated with the different types of online transactions.','https://www.iovation.com/legal/privacy/','http://www.iovation.com/','388','US','info@iovation.com',NULL);
+INSERT INTO companies VALUES('iovation','iovation','iovation aims to help companies determine which online visitors to trust in order to reduce fraud, abuse, and protect customers and online communities. iovation utilizes its database of devices used to access the web in order to determine the levels of risk associated with the different types of online transactions.','https://www.iovation.com/legal/privacy/','http://www.iovation.com/','388','US','info@iovation.com',unistr('Acquired by TransUnion in 2018. https://newsroom.transunion.com/transunion-completes-acquisition-of-iovation/\u000aiovation.com now redirects to https://www.transunion.com/solution/truvalidate'));
 INSERT INTO companies VALUES('ip-label','ip-label','Ekara is a hybrid platform, capable of monitoring 100% of existing applications and ensuring the availability, performance and reliability of your user journeys (Intranet and Internet, VDI, Mobile, API, IVR) in SaaS or On-Premise hosting.','https://ip-label.com/legal-information-en','https://ip-label.com/','2621','FR','info@ip-label.com',NULL);
 INSERT INTO companies VALUES('ip_de','IP Deutschland',NULL,NULL,'http://www.ip.de/','5353',NULL,NULL,NULL);
 INSERT INTO companies VALUES('ip_tracker','IP Tracker','"IP Tracker to Trace and Track IP AddressesWelcome to our website - IP-Tracker.org where you will everything you need to track and trace IP Address using the latest IP tracking technique."','https://www.ip-tracker.org/privacy-policy.php','https://www.ip-tracker.org/','3564',NULL,NULL,NULL);
@@ -1922,7 +1923,7 @@ INSERT INTO companies VALUES('recopick','RecoPick','A recommendation platform se
 INSERT INTO companies VALUES('recreativ','Recreativ','"Recreativ - is heading advertising network with an exceptionally high quality traffic, low cost of advertising exposure and potential for high earnings for webmasters!"Translated by Google Translate','https://recreativ.ru/site/policy','https://recreativ.ru/site/index','2212',NULL,'support@recreativ.ru',NULL);
 INSERT INTO companies VALUES('recruitics','Recruitics','"Recruitics is the world’s most advanced platform for managing and optimizing recruitment marketing campaigns. We leverage the power of big data and analytics to maximize the ROI of a company''s recruitment marketing strategy."',NULL,'http://recruitics.com/','3298',NULL,'info@recruitics.com',NULL);
 INSERT INTO companies VALUES('red_ventures','Red Ventures','We create touch points throughout the consumer buying cycle. Through our digital expertise, proprietary assets, and deeply integrated partnerships, we close the loop between consumers and the brands or services they need.','https://www.redventures.com/privacy-policy.html','https://www.redventures.com/','5118',NULL,NULL,NULL);
-INSERT INTO companies VALUES('reddit','reddit','"reddit is a source for what''s new and popular on the web. Users like you provide all of the content and decide, through voting, what''s good and what''s junk."','https://www.reddit.com/help/privacypolicy','http://reddit.com','1734','US','eurepresentative@reddit.com',NULL);
+INSERT INTO companies VALUES('reddit','reddit','Reddit is an American social news website, news aggregator, forum and social media platform. Registered users (commonly referred to as "redditors") submit content to the site such as links, text posts, images, and videos, which are then voted up or down by other members.','https://www.reddit.com/policies/privacy-policy','http://reddit.com','1734','US','dpo@reddit.com',NULL);
 INSERT INTO companies VALUES('redhelper','RedHelper','"Live chat is a great way to improve your business. RedHelper provides millions of contacts with clients growing up sales and customer satisfaction."',NULL,'http://redhelper.com/','3424',NULL,'info@redhelper.com',NULL);
 INSERT INTO companies VALUES('redlotus','RedLotus','Triggit is a technology provider that enables clients to buy and sell media in real-time. Their platform integrates with multiple ad exchanges where bids are based on each ad opportunity known as impressions.  The foundation of RTB (real-time bidding) is data. This includes audience segments, predictive analytics, behavioral insights, and historical performance for highly targeted ads.  Triggit ensure that marketers get the data they need by offering integration services for 1st party (client data), 2nd party (Triggit data), and 3rd party data (data providers and exchanges.)','http://gravity4.com/privacy-policy/','https://redlotus.com/','170','US',NULL,NULL);
 INSERT INTO companies VALUES('redtram','RedTram','"RedTram™ is the news search engine making it possible for Internet users to find the latest news they are interested in. The uniqueness of this search engine lies in the variety of simultaneously used criteria for searching and displaying news: theme region language date The synchronization of the criteria allows specifying the search request and receiving the very news you are interested in."',NULL,'http://www.redtram.com/','2442',NULL,'support@redtram.com',NULL);
@@ -2044,6 +2045,7 @@ INSERT INTO companies VALUES('segmento','Segmento','Russia''s first exchange tar
 INSERT INTO companies VALUES('segmint','Segmint','"Segmint will analyze and interpret private consumer spend data anonymously - through a secure technology-based proprietary process - enabling Financial Institutions and their marketing partners to exceed their clients'' goals, needs and interests."','https://segmint.com/Privacy-Policy','https://segmint.com/','2579',NULL,'info@segmint.com',NULL);
 INSERT INTO companies VALUES('sekindo','SekiNdo','"SekiNdo''s ad and affiliate network was established with the understanding that online advertisers, publishers, affiliates and smartphone application owners lack simple solutions for transparent and efficient advertising which achieves maximal profit. SekiNdo provides advanced technological solutions for both affiliate and ad networks markets, which form the base of the SekiNdo network."','http://www.sekindo.com/help/privacy.php','http://www.sekindo.com/','2061',NULL,'contact@sekindo.com',NULL);
 INSERT INTO companies VALUES('sellpoints','Sellpoints','"Delivering both market intelligence and increased sales to its clients, the sellpoints reporting and management platform, Omni, enables brands and retailers to see the impact of their product selling methodologies live."','http://www.sellpoints.com/legal/','http://www.sellpoints.com/','2718',NULL,'info@Sellpoints.com',NULL);
+INSERT INTO companies VALUES('selma','Selma','Selma (Selma Group AB) is a Swedish technology and consulting company based in Stockholm that specializes in digital accessibility and WCAG compliance.','https://selma.se/en/integritetspolicy','https://selma.se/','','SE','info@selma.se',NULL);
 INSERT INTO companies VALUES('semasio','Semasio','Semasio is a provider of targeting and insight solutions for programmatic advertising. Semasio’s product portfolio includes Audience Targeting, Contextual Targeting and Brand Fit Targeting. Using Natural Language Processing, Semasio analyzes content on websites to generate website profiles and user profiles.','https://www.semasio.com/legal/semasio-privacy-policy','https://semasio.com/','2088','DE','privacy@semasio.com',NULL);
 INSERT INTO companies VALUES('semilo','Semilo','"Semilo is one of the largest online advertising networks in the Netherlands. With a monthly reach of six million Dutch people, our network has something to offer to every advertiser."','https://www.semilo.nl/privacy','https://www.semilo.nl/','1805',NULL,'privacy@semilo.com',NULL);
 INSERT INTO companies VALUES('sendinblue','sendinblue','SendinBlue was designed for you! Our beginnings as a digital agency have opened our eyes to the needs of young companies: marketing managers need simple, effective and accessible tools to support their growth. Why would marketing tools be reserved for large companies?This is how we created SendinBlue for SMEs. Features, customer service and rates have been designed to meet their needs. It''s our DNA!Whether you want to manage email campaigns, send SMS or save time with marketing automation, we can help you effectively, at a fair price and in your language.SendinBlue helps more than 50,000 companies around the world grow their businesses through digital marketing. Why not you ?','https://fr.sendinblue.com/legal/privacypolicy/','https://fr.sendinblue.com/','5173',NULL,'privacy@sendinblue.com',unistr('Company renamed to Brevo in 2023. New org file created for this.\u000aSource: https://en.wikipedia.org/wiki/Brevo'));
@@ -2724,6 +2726,8 @@ INSERT INTO tracker_domains VALUES('acxiom','acxiom.com',NULL);
 INSERT INTO tracker_domains VALUES('ad-blocker.org','ad-blocker.org',NULL);
 INSERT INTO tracker_domains VALUES('ad-center','ads.ad-center.com',NULL);
 INSERT INTO tracker_domains VALUES('ad-delivery.net','ad-delivery.net',NULL);
+INSERT INTO tracker_domains VALUES('ad-shield','html-load.com',NULL);
+INSERT INTO tracker_domains VALUES('ad-shield','content-loader.com',NULL);
 INSERT INTO tracker_domains VALUES('ad-sys','ad-sys.com',NULL);
 INSERT INTO tracker_domains VALUES('ad.agio','adagionet.com',NULL);
 INSERT INTO tracker_domains VALUES('ad2click','ad2click.go2cloud.org',NULL);
@@ -3366,6 +3370,7 @@ INSERT INTO tracker_domains VALUES('ask.com','ask.com',NULL);
 INSERT INTO tracker_domains VALUES('aspnetcdn','aspnetcdn.com',NULL);
 INSERT INTO tracker_domains VALUES('assertive_communications','assertcom.de',NULL);
 INSERT INTO tracker_domains VALUES('assertive_yield','assertiveyield.com',NULL);
+INSERT INTO tracker_domains VALUES('assertive_yield','ay.delivery',NULL);
 INSERT INTO tracker_domains VALUES('astronomer','cdn.astronomer.io',NULL);
 INSERT INTO tracker_domains VALUES('atedra','atedra.com',NULL);
 INSERT INTO tracker_domains VALUES('atg_group','oadts.com',NULL);
@@ -4285,6 +4290,7 @@ INSERT INTO tracker_domains VALUES('dtscout.com','dtscout.com',NULL);
 INSERT INTO tracker_domains VALUES('dudamobile','dd-cdn.multiscreensite.com',NULL);
 INSERT INTO tracker_domains VALUES('dudamobile','px.multiscreensite.com',NULL);
 INSERT INTO tracker_domains VALUES('dun_and_bradstreet','cdn-0.d41.co',NULL);
+INSERT INTO tracker_domains VALUES('dun_and_bradstreet','d41.co',NULL);
 INSERT INTO tracker_domains VALUES('dwstat.cn','cn01.dwstat.cn',NULL);
 INSERT INTO tracker_domains VALUES('dynad','dynad.net',NULL);
 INSERT INTO tracker_domains VALUES('dynadmic','dyntrk.com',NULL);
@@ -5609,6 +5615,7 @@ INSERT INTO tracker_domains VALUES('mediator.media','mediator.media',NULL);
 INSERT INTO tracker_domains VALUES('mediav','mediav.com',NULL);
 INSERT INTO tracker_domains VALUES('mediavine_exchange','mediavine.com',NULL);
 INSERT INTO tracker_domains VALUES('mediavine_exchange','pb-ing-mediavine.ccgateway.net',NULL);
+INSERT INTO tracker_domains VALUES('mediavine_script_wrapper','scriptwrapper.com',NULL);
 INSERT INTO tracker_domains VALUES('mediawhiz','adnetinteractive.com',NULL);
 INSERT INTO tracker_domains VALUES('mediawhiz','adnetinteractive.net',NULL);
 INSERT INTO tracker_domains VALUES('medigo','mediego.com',NULL);
@@ -6335,7 +6342,8 @@ INSERT INTO tracker_domains VALUES('reddit','redd.it',NULL);
 INSERT INTO tracker_domains VALUES('reddit','reddit-image.s3.amazonaws.com',NULL);
 INSERT INTO tracker_domains VALUES('reddit','reddit.com',NULL);
 INSERT INTO tracker_domains VALUES('reddit','redditmedia.com',NULL);
-INSERT INTO tracker_domains VALUES('reddit','redditstatic.com',NULL);
+INSERT INTO tracker_domains VALUES('reddit_ads','alb.reddit.com',NULL);
+INSERT INTO tracker_domains VALUES('reddit_ads','redditstatic.com',NULL);
 INSERT INTO tracker_domains VALUES('redhelper','redhelper.ru',NULL);
 INSERT INTO tracker_domains VALUES('redlotus','pixelinteractivemedia.com',NULL);
 INSERT INTO tracker_domains VALUES('redlotus','triggit.com',NULL);
@@ -6552,6 +6560,7 @@ INSERT INTO tracker_domains VALUES('segmint','segmint.net',NULL);
 INSERT INTO tracker_domains VALUES('sekindo','sekindo.com',NULL);
 INSERT INTO tracker_domains VALUES('sellpoints','sellpoint.net',NULL);
 INSERT INTO tracker_domains VALUES('sellpoints','sellpoints.com',NULL);
+INSERT INTO tracker_domains VALUES('selma','cdn.selma.se',NULL);
 INSERT INTO tracker_domains VALUES('semantiqo.com','semantiqo.com',NULL);
 INSERT INTO tracker_domains VALUES('semasio','semasio.net',NULL);
 INSERT INTO tracker_domains VALUES('semilo','semilo.com',NULL);
@@ -6624,6 +6633,7 @@ INSERT INTO tracker_domains VALUES('shop_target','app.shoptarget.com.br',NULL);
 INSERT INTO tracker_domains VALUES('shop_target','retargeter.com.br',NULL);
 INSERT INTO tracker_domains VALUES('shopauskunft.de','shopauskunft.de',NULL);
 INSERT INTO tracker_domains VALUES('shopgate.com','shopgate.com',NULL);
+INSERT INTO tracker_domains VALUES('shopify_app_store','shopifyapps.com',NULL);
 INSERT INTO tracker_domains VALUES('shopify_stats','shopify.com',NULL);
 INSERT INTO tracker_domains VALUES('shopify_stats','stats.myshopify.com',NULL);
 INSERT INTO tracker_domains VALUES('shopifycdn.com','shopifycdn.com',NULL);
@@ -7823,6 +7833,7 @@ INSERT INTO trackers VALUES('acxiom','Acxiom',1,'http://www.acxiom.com','acxiom'
 INSERT INTO trackers VALUES('ad-blocker.org','ad-blocker.org',7,NULL,NULL,'',NULL,NULL);
 INSERT INTO trackers VALUES('ad-center','Ad-Center',9,NULL,'ad-center','',NULL,NULL);
 INSERT INTO trackers VALUES('ad-delivery.net','ad-delivery.net',7,NULL,NULL,'',NULL,NULL);
+INSERT INTO trackers VALUES('ad-shield','Ad-Shield',1,'https://www.ad-shield.io/','ad-shield','',NULL,NULL);
 INSERT INTO trackers VALUES('ad-sys','Ad-Sys',1,'https://www.ad-sys.com/','ad-sys','',NULL,NULL);
 INSERT INTO trackers VALUES('ad.agio','Ad.agio',1,'https://neodatagroup.com/','neodata','',NULL,NULL);
 INSERT INTO trackers VALUES('ad2click','Ad2Click',1,NULL,'ad2click_media','',NULL,NULL);
@@ -8134,6 +8145,7 @@ INSERT INTO trackers VALUES('airbridge','Airbridge',9,'https://www.arcpublishing
 INSERT INTO trackers VALUES('airfrance-connect','AirFrance Connect',9,'https://airfrance.com/','airfranceklm','',NULL,NULL);
 INSERT INTO trackers VALUES('airpr.com','AirPR',9,'https://airpr.com/','airpr','',NULL,NULL);
 INSERT INTO trackers VALUES('airpush','Airpush',1,NULL,'airpush','',NULL,NULL);
+INSERT INTO trackers VALUES('akamai_bot_manager','Akamai Bot Manager',11,'https://www.akamai.com/products/bot-manager','akamai','','See https://github.com/easylist/easylist/issues/14805','akamai_technologies');
 INSERT INTO trackers VALUES('akamai_technologies','Akamai Technologies',6,'https://www.akamai.com/','akamai','',NULL,NULL);
 INSERT INTO trackers VALUES('akamoihd.net','akamoihd.net',5,NULL,NULL,'',NULL,NULL);
 INSERT INTO trackers VALUES('akane','AkaNe',1,NULL,'akane','',NULL,NULL);
@@ -9436,7 +9448,7 @@ INSERT INTO trackers VALUES('invoca','Invoca',9,'https://www.invoca.com/','invoc
 INSERT INTO trackers VALUES('invodo','Invodo',9,NULL,'invodo','',NULL,NULL);
 INSERT INTO trackers VALUES('ionicframework.com','Ionic',7,'https://ionicframework.com/',NULL,'',NULL,NULL);
 INSERT INTO trackers VALUES('iotec','iotec',1,'https://www.iotecglobal.com/','iotec','',NULL,NULL);
-INSERT INTO trackers VALUES('iovation','iovation',11,'https://iovations.com/','iovation','',NULL,NULL);
+INSERT INTO trackers VALUES('iovation','TruValidate (formerly iovation)',11,'https://www.transunion.com/solution/truvalidate','transunion','',NULL,NULL);
 INSERT INTO trackers VALUES('ip-label','ip-label',9,'http://www.ip-label.co.uk/','ip-label','',NULL,NULL);
 INSERT INTO trackers VALUES('ip_targeting','IP Targeting',9,'https://www.iptargeting.com/','el_toro','',NULL,NULL);
 INSERT INTO trackers VALUES('ip_tracker','IP Tracker',9,'https://www.ip-tracker.org/','ip_tracker','',NULL,NULL);
@@ -9773,6 +9785,7 @@ INSERT INTO trackers VALUES('mediashift','MediaShift',1,'https://www.mediashift.
 INSERT INTO trackers VALUES('mediator.media','Mediator',9,'https://mediator.media/','mycom_bv','',NULL,NULL);
 INSERT INTO trackers VALUES('mediav','MediaV',1,'https://www.mediav.com/','mediav','',NULL,NULL);
 INSERT INTO trackers VALUES('mediavine_exchange','Mediavine Exchange',1,'https://www.mediavine.com/exchange/','mediavine_inc','',NULL,NULL);
+INSERT INTO trackers VALUES('mediavine_script_wrapper','Mediavine Script Wrapper',1,'https://help.mediavine.com/script-wrapper-overview','mediavine_inc','',NULL,NULL);
 INSERT INTO trackers VALUES('mediawhiz','Mediawhiz',1,'https://www.mediawhiz.com/','matomy_media','',NULL,NULL);
 INSERT INTO trackers VALUES('medigo','Medigo',1,NULL,'mediego','',NULL,NULL);
 INSERT INTO trackers VALUES('medley','Medley',1,'http://medley.com/','friendfinder_networks','',NULL,NULL);
@@ -10327,6 +10340,7 @@ INSERT INTO trackers VALUES('red_ventures','Red Ventures',9,NULL,'red_ventures',
 INSERT INTO trackers VALUES('redblue_de','redblue',9,'https://www.redblue.de/',NULL,'',NULL,NULL);
 INSERT INTO trackers VALUES('redcdn.pl','redGalaxy CDN',6,'http://www.atendesoftware.pl/','atende_software','',NULL,NULL);
 INSERT INTO trackers VALUES('reddit','Reddit',10,'http://reddit.com','reddit','',NULL,NULL);
+INSERT INTO trackers VALUES('reddit_ads','Reddit Ads Pixel',1,'https://business.reddithelp.com/s/article/reddit-pixel','reddit','',NULL,NULL);
 INSERT INTO trackers VALUES('redhelper','RedHelper',4,'http://redhelper.com/','redhelper','',NULL,NULL);
 INSERT INTO trackers VALUES('redlotus','RedLotus',1,'http://triggit.com/','redlotus','',NULL,NULL);
 INSERT INTO trackers VALUES('redtram','RedTram',1,'http://www.redtram.com/','redtram','',NULL,NULL);
@@ -10472,6 +10486,7 @@ INSERT INTO trackers VALUES('segmento','Segmento',1,'https://segmento.ru/en','se
 INSERT INTO trackers VALUES('segmint','Segmint',9,'https://www.segmint.com/','segmint','',NULL,NULL);
 INSERT INTO trackers VALUES('sekindo','Sekindo',1,'http://www.sekindo.com/','sekindo','',NULL,NULL);
 INSERT INTO trackers VALUES('sellpoints','Sellpoints',1,'https://www.sellpoints.com/','sellpoints','',NULL,NULL);
+INSERT INTO trackers VALUES('selma','Selma',11,'https://selma.se/','selma','',NULL,NULL);
 INSERT INTO trackers VALUES('semantiqo.com','Semantiqo',1,'https://semantiqo.com/',NULL,'',NULL,NULL);
 INSERT INTO trackers VALUES('semasio','Semasio',1,'https://semasio.com/','semasio','',NULL,NULL);
 INSERT INTO trackers VALUES('semilo','Semilo',1,'https://www.semilo.nl/','semilo','',NULL,NULL);
@@ -10527,6 +10542,7 @@ INSERT INTO trackers VALUES('shop_app','Shopify App',4,'https://shop.app/','shop
 INSERT INTO trackers VALUES('shop_target','Shop Target',1,NULL,'shopback','',NULL,NULL);
 INSERT INTO trackers VALUES('shopauskunft.de','ShopAuskunft.de',4,'https://shopauskunft.de/',NULL,'',NULL,NULL);
 INSERT INTO trackers VALUES('shopgate.com','Shopgate',4,'https://www.shopgate.com/',NULL,'',NULL,NULL);
+INSERT INTO trackers VALUES('shopify_app_store','Shopify App Store',4,'https://apps.shopify.com/','shopify','',NULL,NULL);
 INSERT INTO trackers VALUES('shopify_stats','Shopify Stats',9,'https://www.shopify.com/','shopify','',NULL,NULL);
 INSERT INTO trackers VALUES('shopifycdn.com','Shopify CDN',6,'https://www.shopify.com/','shopify','',NULL,NULL);
 INSERT INTO trackers VALUES('shopifycloud.com','Shopify Cloud',6,'https://www.shopify.com/','shopify','',NULL,NULL);
