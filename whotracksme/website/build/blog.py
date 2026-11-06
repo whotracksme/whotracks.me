@@ -128,8 +128,8 @@ def build_rss_feeds(blog_posts):
             entry.link(link={"href": f"{base}/blog/{post['filename']}.html"})
             entry.author({"name": post["author"]})
             entry.pubDate(
-                datetime.strptime(post["date"], "%Y-%m-%d").replace(
-                    tzinfo=timezone("CET")
+                timezone("CET").localize(
+                    datetime.strptime(post["date"], "%Y-%m-%d")
                 )
             )
             entry.description(post["description"])
