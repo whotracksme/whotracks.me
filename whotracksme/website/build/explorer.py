@@ -90,7 +90,7 @@ def table_to_csv(table, file):
     with open(file, 'w') as fp:
         writer = csv.writer(fp)
         writer.writerow(columns)
-        for row in table.dump():
+        for row in table.iter_dump():
             writer.writerow(row)
 
 

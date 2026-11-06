@@ -168,12 +168,20 @@ class SQLDataLoader:
             return self.rowType._make(result)
         return None
 
-    def dump(self):
+    def iter_dump(self):
         cursor = self.db.connection.execute(f'''
             {self.get_data_query()}
             WHERE {self.table_name}.country = ?
         ''', (self.region,))
-        return list(map(self.rowType._make, cursor.fetchall()))
+        return map(self.rowType._make, cursor)
+
+    def dump(self):
+        """Return all rows as a list.
+
+        Warning: this loads the entire table in memory. For large
+        tables such as ``sites_trackers``, use :meth:`iter_dump` instead.
+        """
+        return list(self.iter_dump())
 
 class Trackers(SQLDataLoader):
 
