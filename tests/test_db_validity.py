@@ -32,14 +32,24 @@ class ValidateTrackerDatabase(unittest.TestCase):
 
     def test_no_trackers_without_domain(self):
         cur = self.conn.cursor()
-        cur.execute('SELECT COUNT(DISTINCT tracker) FROM tracker_domains')
+
+        # If a tracker has an alias, its domains belong to the alias target; otherwise to itself.
+        cur.execute('''
+            SELECT COUNT(DISTINCT COALESCE(tr.alias, tr.id))
+            FROM tracker_domains AS d
+            JOIN trackers AS tr ON tr.id = d.tracker
+        ''')
         domain_tracker_count = cur.fetchone()[0]
 
-        # Only look at tracker groups, ignoring the ones that are (non-trivial) aliases.
-        # Ignore self-referring aliases and treat them like non-aliased entries.
-        cur.execute('SELECT COUNT(DISTINCT id) FROM trackers WHERE alias is NULL or (id = alias)')
+        # Tracker groups = rows with no alias. A self-alias is a data bug (see test_no_self_referring_aliases).
+        cur.execute('SELECT COUNT(DISTINCT id) FROM trackers WHERE alias IS NULL')
         tracker_count = cur.fetchone()[0]
         self.assertEqual(domain_tracker_count, tracker_count)
+
+    def test_no_self_referring_aliases(self):
+        cur = self.conn.cursor()
+        cur.execute('SELECT id FROM trackers WHERE alias = id')
+        self.assertEqual(cur.fetchall(), [])
 
     def test_tracker_ids_ascii(self):
         cur = self.conn.cursor()
